@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Word Adventure Game</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wordmatch.css">
+    <link rel="stylesheet" href="css/monopoly.css">
+    <link rel="stylesheet" href="css/wordblast.css">
+    <link rel="stylesheet" href="css/wrongbook.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+    <div id="game-container">
+        <div id="loading-screen">
+            <h1 class="text-glow">📚 English Word Adventure</h1>
+            <p class="loading-subtitle" data-i18n="loadingSubtitle">English Learning Game for Grades 1-9</p>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text" data-i18n="loadingText">Preparing your learning journey...</p>
+        </div>
+    </div>
+
+    <div id="ui-overlay" style="display: none;">
+        <!-- Main Menu -->
+        <div id="main-menu" class="ui-screen">
+            <h1 class="gradient-animate" data-i18n="menuTitle">📚 English Word Adventure</h1>
+            <p class="menu-subtitle" data-i18n="menuSubtitle">Choose your learning mode and start your English journey!</p>
+            <div class="menu-buttons">
+                <button id="btn-monopoly" class="menu-btn" data-i18n="btnMonopoly">🏠 Word Monopoly</button>
+                <button id="btn-wordmatch" class="menu-btn" data-i18n="btnWordmatch">🃏 Word Match</button>
+                <button id="btn-wordblast" class="menu-btn" data-i18n="btnWordblast">💣 Word Blast</button>
+            </div>
+            <div class="menu-secondary-buttons">
+                <button id="btn-wrongbook" class="menu-btn wrongbook-btn" data-i18n="btnWrongbook">📓 Error Book</button>
+            </div>
+            <div class="lang-toggle-wrap">
+                <span class="lang-label" data-i18n="langLabel">中/EN</span>
+                <label class="lang-switch">
+                    <input type="checkbox" id="lang-toggle">
+                    <span class="lang-slider"></span>
+                </label>
+            </div>
+            <button id="btn-sound-toggle" class="sound-toggle-btn" title="Toggle Sound">🔊</button>
+            <!-- <div class="player-info">
+                <div class="player-avatar float">🎩</div>
+                <div class="player-stats">
+                    <span class="player-name" data-i18n="playerName">Little Scholar</span>
+                    <p class="player-level" data-i18n="playerLevel">Level: 1</p>
+                    <span class="player-exp" data-i18n="playerExp">EXP: 0/100</span>
+                </div>
+            </div> -->
+        </div>
+
+        <!-- Game Setup Page -->
+        <div id="game-setup" class="ui-screen hidden">
+            <div class="game-header">
+                <button id="btn-back-setup-top" class="back-btn" data-i18n="btnBack">← Back</button>
+                <div class="game-title" data-i18n="setupTitle">Start Learning Journey</div>
+            </div>
+            <div class="setup-header">
+                <h2 data-i18n="setupTitle">Start Learning Journey</h2>
+                <p class="setup-subtitle" data-i18n="setupSubtitle">Choose grade and opponents to begin your English adventure!</p>
+            </div>
+            
+            <div class="setup-content">
+                <!-- Grade Selection -->
+                <div class="setup-section">
+                    <h3 class="section-title" data-i18n="sectionGrade">📚 Select Grade</h3>
+                    <div class="grade-path">
+                        <div class="grade-grid">
+                            <button class="grade-btn" data-grade="1">Grade 1</button>
+                            <button class="grade-btn" data-grade="2">Grade 2</button>
+                            <button class="grade-btn" data-grade="3">Grade 3</button>
+                            <button class="grade-btn" data-grade="4">Grade 4</button>
+                            <button class="grade-btn" data-grade="5">Grade 5</button>
+                            <button class="grade-btn" data-grade="6">Grade 6</button>
+                            <button class="grade-btn" data-grade="7">Grade 7</button>
+                            <button class="grade-btn" data-grade="8">Grade 8</button>
+                            <button class="grade-btn" data-grade="9">Grade 9</button>
+                            <button class="grade-btn" data-grade="all" data-i18n="allGrades">All Grades</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Unit Selection -->
+                <div class="setup-section" id="unit-section">
+                    <h3 class="section-title" data-i18n="sectionUnit">📖 Select Unit</h3>
+                    <div class="unit-grid" id="unit-grid">
+                        <button class="unit-btn active" data-unit="all" data-i18n="allUnits">All Units</button>
+                    </div>
+                </div>
+                
+                <!-- AI Settings -->
+                <div class="setup-section ai-section">
+                    <div class="ai-header">
+                        <div class="ai-title-wrap">
+                            <span class="ai-title-icon">🎲</span>
+                            <h3 class="section-title" data-i18n="sectionAI">AI Opponents</h3>
+                        </div>
+                        <p class="ai-subtitle">Choose your opponents for the Monopoly game!</p>
+                    </div>
+                    
+                    <div class="ai-count-selector">
+                        <label class="ai-count-label" data-i18n="aiCount">Number of AI:</label>
+                        <div class="ai-count-cards">
+                            <button class="ai-count-card active" data-count="1">
+                                <span class="count-number">1</span>
+                                <span class="count-label">Solo</span>
+                            </button>
+                            <button class="ai-count-card" data-count="2">
+                                <span class="count-number">2</span>
+                                <span class="count-label">Duo</span>
+                            </button>
+                            <button class="ai-count-card" data-count="3">
+                                <span class="count-number">3</span>
+                                <span class="count-label">Party</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-list" id="ai-list">
+                        <div class="ai-item" data-index="0">
+                            <div class="ai-item-header">
+                                <span class="ai-avatar">🏠</span>
+                                <span class="ai-name">AI 1</span>
+                            </div>
+                            <div class="difficulty-selector">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <div class="difficulty-options">
+                                    <button class="difficulty-option" data-value="70">
+                                        <span class="diff-icon">😊</span>
+                                        <span class="diff-text">Easy</span>
+                                    </button>
+                                    <button class="difficulty-option active" data-value="80">
+                                        <span class="diff-icon">😎</span>
+                                        <span class="diff-text">Normal</span>
+                                    </button>
+                                    <button class="difficulty-option" data-value="90">
+                                        <span class="diff-icon">🔥</span>
+                                        <span class="diff-text">Hard</span>
+                                    </button>
+                                    <button class="difficulty-option" data-value="100">
+                                        <span class="diff-icon">💀</span>
+                                        <span class="diff-text">Expert</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-item hidden" data-index="1">
+                            <div class="ai-item-header">
+                                <span class="ai-avatar">💰</span>
+                                <span class="ai-name">AI 2</span>
+                            </div>
+                            <div class="difficulty-selector">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <div class="difficulty-options">
+                                    <button class="difficulty-option" data-value="70">
+                                        <span class="diff-icon">😊</span>
+                                        <span class="diff-text">Easy</span>
+                                    </button>
+                                    <button class="difficulty-option active" data-value="80">
+                                        <span class="diff-icon">😎</span>
+                                        <span class="diff-text">Normal</span>
+                                    </button>
+                                    <button class="difficulty-option" data-value="90">
+                                        <span class="diff-icon">🔥</span>
+                                        <span class="diff-text">Hard</span>
+                                    </button>
+                                    <button class="difficulty-option" data-value="100">
+                                        <span class="diff-icon">💀</span>
+                                        <span class="diff-text">Expert</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ai-item hidden" data-index="2">
+                            <div class="ai-item-header">
+                                <span class="ai-avatar">🚗</span>
+                                <span class="ai-name">AI 3</span>
+                            </div>
+                            <div class="difficulty-selector">
+                                <span class="difficulty-label">Difficulty:</span>
+                                <div class="difficulty-options">
+                                    <button class="difficulty-option" data-value="70">
+                                        <span class="diff-icon">😊</span>
+                                        <span class="diff-text">Easy</span>
+                                    </button>
+                                    <button class="difficulty-option active" data-value="80">
+                                        <span class="diff-icon">😎</span>
+                                        <span class="diff-text">Normal</span>
+                                    </button>
+                                    <button class="difficulty-option" data-value="90">
+                                        <span class="diff-icon">🔥</span>
+                                        <span class="diff-text">Hard</span>
+                                    </button>
+                                    <button class="difficulty-option" data-value="100">
+                                        <span class="diff-icon">💀</span>
+                                        <span class="diff-text">Expert</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="setup-buttons">
+                <button id="btn-start-game" class="menu-btn" data-i18n="btnStartGame">Start Game</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="ui-screen hidden">
+            <div class="game-header">
+                <button id="btn-back" class="back-btn" data-i18n="btnBack">← Back</button>
+                <div class="game-title">Monopoly</div>
+            </div>
+            <div id="game-canvas-container">
+                <!-- Game canvas will be created here -->
+            </div>
+            <div class="game-controls">
+                <!-- Game specific controls -->
+            </div>
+        </div>
+
+        <!-- Achievements Screen -->
+        <div id="achievements-screen" class="ui-screen hidden">
+            <h2 data-i18n="achievementsTitle">Achievement Badges</h2>
+            <div class="achievements-grid">
+                <div class="achievement locked" data-id="first-word">
+                    <div class="achievement-icon">⭐</div>
+                    <div class="achievement-name" data-i18n="achFirstStep">First Step</div>
+                    <div class="achievement-desc" data-i18n="achFirstStepDesc">Learn your first word</div>
+                </div>
+                <div class="achievement locked" data-id="ten-words">
+                    <div class="achievement-icon">📚</div>
+                    <div class="achievement-name" data-i18n="achWordStar">Word Star</div>
+                    <div class="achievement-desc" data-i18n="achWordStarDesc">Learn 10 words</div>
+                </div>
+                <div class="achievement locked" data-id="grade1-complete">
+                    <div class="achievement-icon">🎓</div>
+                    <div class="achievement-name" data-i18n="achGrade1">Grade 1 Graduate</div>
+                    <div class="achievement-desc" data-i18n="achGrade1Desc">Complete all Grade 1 words</div>
+                </div>
+                <!-- More achievements -->
+            </div>
+            <button id="btn-back-achievements" class="menu-btn" data-i18n="btnBack">Back</button>
+        </div>
+
+        <!-- Wrong Book Screen -->
+        <div id="wrongbook-screen" class="ui-screen hidden">
+            <div class="game-header">
+                <button id="btn-back-wrongbook" class="back-btn" data-i18n="btnBack">← Back</button>
+                <div class="game-title" data-i18n="wrongbookTitle">📓 Error Book</div>
+            </div>
+            <div class="wrongbook-container">
+                <!-- 统计卡片 -->
+                <div class="wrongbook-stats" id="wrongbook-stats"></div>
+                
+                <!-- 操作按钮 -->
+                <div class="wrongbook-actions">
+                    <button id="btn-quiz-toggle" class="menu-btn wrongbook-action-btn wrongbook-quiz-btn">
+                        <span class="btn-icon">📝</span>
+                        <span id="quiz-btn-text">开始测验</span>
+                    </button>
+                    <button id="btn-clear-mastered" class="menu-btn wrongbook-action-btn wrongbook-success-btn" data-i18n="btnClearMastered">
+                        <span class="btn-icon">🧹</span>
+                        Clear Mastered
+                    </button>
+                    <button id="btn-clear-all" class="menu-btn wrongbook-action-btn wrongbook-danger-btn" data-i18n="btnClearAll">
+                        <span class="btn-icon">🗑️</span>
+                        Clear All
+                    </button>
+                </div>
+                
+                <!-- 筛选器 -->
+                <div class="wrongbook-filter">
+                    <button class="filter-btn active" data-filter="all" data-i18n="filterAll">
+                        <span class="filter-icon">📚</span>
+                        <span class="filter-text">All</span>
+                    </button>
+                    <button class="filter-btn" data-filter="unmastered" data-i18n="filterUnmastered">
+                        <span class="filter-icon">📝</span>
+                        <span class="filter-text">Unmastered</span>
+                    </button>
+                    <button class="filter-btn" data-filter="mastered" data-i18n="filterMastered">
+                        <span class="filter-icon">✅</span>
+                        <span class="filter-text">Mastered</span>
+                    </button>
+                </div>
+                
+                <!-- 错题列表 -->
+                <div class="wrongbook-list" id="wrongbook-list"></div>
+            </div>
+        </div>
+
+        <!-- Word Detail Modal -->
+        <div id="word-detail-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="word-detail">
+                    <h2 class="word-text">apple</h2>
+                    <div class="word-phonetic">/ˈæp.əl/</div>
+                    <div class="word-meaning">苹果</div>
+                    <div class="word-example">I eat an apple every day.</div>
+                    <div class="word-audio">
+                        <button id="btn-play-word" class="audio-btn" data-i18n="btnPronounce">🔊 Pronounce</button>
+                    </div>
+                    <div class="word-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 30%"></div>
+                        </div>
+                        <span data-i18n="mastery">Mastery: 30%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/wordmatch.js"></script>
+    <script src="js/wordblast.js"></script>
+    <script src="js/wrongbook.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

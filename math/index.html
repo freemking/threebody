@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>除法口算练习 - 九九乘法表</title>
+<style>
+:root {
+  --bg: #0f0f1a;
+  --card: #1a1a2e;
+  --accent: #6c63ff;
+  --accent-glow: #8b83ff;
+  --success: #00e676;
+  --danger: #ff5252;
+  --warning: #ffd740;
+  --text: #e0e0e0;
+  --text-secondary: #9e9e9e;
+  --border: #2a2a3e;
+  --input-bg: #252540;
+  --radius: 16px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 780px;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.4); }
+  50% { box-shadow: 0 0 0 14px rgba(108,99,255,0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+@keyframes correctPop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes tick {
+  from { transform: scale(1); }
+  to { transform: scale(0.95); }
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6c63ff, #e0a3ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+.header .subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+/* Score Panel */
+.score-panel {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.score-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 28px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  min-width: 120px;
+}
+
+.score-item .label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.score-item .value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-item.timer .value { color: var(--accent); }
+.score-item.timer.warning .value { color: var(--warning); animation: pulse 1s infinite; }
+.score-item.timer.danger .value { color: var(--danger); animation: pulse 0.5s infinite; }
+.score-item.points .value { color: var(--success); }
+.score-item.progress .value { color: #82b1ff; }
+
+/* Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+}
+
+/* Problem Area */
+#gameScreen {
+  position: relative;
+  min-height: 300px;
+}
+
+.question-area {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.question-index {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.question .operand {
+  color: #fff;
+  animation: numberAppear 0.3s ease;
+}
+
+.question .operator {
+  color: var(--accent);
+}
+
+.question .equals {
+  color: var(--accent);
+}
+
+.question .answer-box {
+  position: relative;
+}
+
+.question input {
+  width: 100px;
+  height: 64px;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--input-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.question input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.2);
+}
+
+.question input.correct {
+  border-color: var(--success);
+  box-shadow: 0 0 0 3px rgba(0,230,118,0.2);
+}
+
+.question input.wrong {
+  border-color: var(--danger);
+  animation: shake 0.4s ease;
+  box-shadow: 0 0 0 3px rgba(255,82,82,0.2);
+}
+
+.question input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.feedback {
+  font-size: 1rem;
+  min-height: 28px;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+}
+
+.feedback.correct { color: var(--success); }
+.feedback.wrong { color: var(--danger); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+  font-family: inherit;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #6c63ff, #5a52d5);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(108,99,255,0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(108,99,255,0.45);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-start {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+}
+
+.btn-quit {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  z-index: 20;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  padding: 6px 16px;
+}
+
+.btn-quit:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+  background: rgba(255,82,82,0.08);
+}
+
+.btn-retry {
+  background: linear-gradient(135deg, #ff5252, #e04848);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(255,82,82,0.3);
+  width: 100%;
+  padding: 18px;
+  font-size: 1.15rem;
+}
+
+.btn-retry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(255,82,82,0.45);
+}
+
+/* Result */
+.result-overlay {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 40px 32px;
+  text-align: center;
+  animation: fadeInUp 0.4s ease;
+}
+
+.result-overlay .emoji {
+  font-size: 4rem;
+  margin-bottom: 12px;
+}
+
+.result-overlay h2 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.result-overlay .final-score {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00e676, #69f0ae);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.result-overlay .stats {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 20px 0 28px;
+  flex-wrap: wrap;
+}
+
+.result-overlay .stat-item {
+  text-align: center;
+}
+
+.result-overlay .stat-val {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.result-overlay .stat-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Wrong list */
+.wrong-list {
+  margin-top: 16px;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.wrong-list h4 {
+  color: var(--danger);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.wrong-item {
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+}
+
+.wrong-item span { color: var(--danger); }
+.wrong-item .correct-ans { color: var(--success); margin-left: 6px; }
+
+/* Start Screen */
+.start-screen {
+  text-align: center;
+  animation: fadeInUp 0.4s ease;
+}
+
+.start-screen .card-body {
+  padding: 10px 0;
+}
+
+.start-screen .icon {
+  font-size: 5rem;
+  margin-bottom: 16px;
+}
+
+.start-screen .rules {
+  text-align: left;
+  margin: 24px 0;
+  color: var(--text-secondary);
+  line-height: 2;
+  font-size: 0.95rem;
+}
+
+.start-screen .rules li { list-style: none; padding-left: 24px; position: relative; }
+.start-screen .rules li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* Utility */
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.mt-16 { margin-top: 16px; }
+
+/* responsive */
+@media (max-width: 500px) {
+  .question { font-size: 2.2rem; gap: 12px; }
+  .question input { width: 80px; height: 54px; font-size: 2rem; }
+  .score-item { padding: 12px 16px; min-width: 80px; }
+  .score-item .value { font-size: 1.4rem; }
+  .card { padding: 20px 16px; }
+}
+
+/* Perfect score fireworks */
+@keyframes fireworks {
+  0%, 100% { text-shadow: 0 0 10px #ffd740, 0 0 20px #ff5252; }
+  50% { text-shadow: 0 0 30px #ffd740, 0 0 50px #ff5252, 0 0 70px #6c63ff; }
+}
+
+.perfect { animation: fireworks 1s ease infinite; }
+
+/* Name Input */
+.name-input-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0 12px;
+  flex-wrap: wrap;
+}
+
+.name-input-group input {
+  width: 180px;
+  height: 46px;
+  text-align: center;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--input-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.name-input-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(108,99,255,0.2);
+}
+
+.name-input-group input::placeholder {
+  color: #555;
+}
+
+.name-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+/* Leaderboard */
+.leaderboard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.5s ease;
+}
+
+.leaderboard h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.leaderboard table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.leaderboard th {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.leaderboard th:first-child { text-align: left; padding-left: 4px; }
+.leaderboard th:last-child { text-align: right; padding-right: 4px; }
+
+.leaderboard td {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(42,42,62,0.5);
+  text-align: center;
+}
+
+.leaderboard td:first-child { text-align: left; padding-left: 4px; }
+.leaderboard td:last-child { text-align: right; padding-right: 4px; }
+
+.leaderboard .rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.leaderboard .rank.gold   { background: rgba(255,215,64,0.2); color: #ffd740; }
+.leaderboard .rank.silver { background: rgba(192,192,192,0.2); color: #c0c0c0; }
+.leaderboard .rank.bronze { background: rgba(205,127,50,0.2); color: #cd7f32; }
+.leaderboard .rank.normal { color: var(--text-secondary); }
+
+.leaderboard .name-cell {
+  font-weight: 600;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard .score-cell {
+  font-weight: 700;
+  color: var(--success);
+}
+
+.leaderboard .highlight-row {
+  animation: highlightFlash 0.6s ease 3;
+}
+
+@keyframes highlightFlash {
+  0%, 100% { background: transparent; }
+  50% { background: rgba(108,99,255,0.12); }
+}
+
+.leaderboard .empty-msg {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 16px 0;
+  font-size: 0.9rem;
+}
+
+.leaderboard .time-cell {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* responsive leaderboard */
+@media (max-width: 500px) {
+  .leaderboard { padding: 16px 12px; }
+  .leaderboard table { font-size: 0.8rem; }
+  .leaderboard th, .leaderboard td { padding: 6px 6px; }
+}
+
+/* Tabs */
+.tab-bar {
+  display: flex;
+  gap: 0;
+  margin-bottom: 20px;
+  background: var(--input-bg);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tab-bar button {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.tab-bar button.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.tab-bar button:hover:not(.active) {
+  color: #fff;
+  background: rgba(108,99,255,0.15);
+}
+
+/* Wrong Book */
+.wrong-book {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  backdrop-filter: blur(10px);
+  animation: fadeInUp 0.5s ease;
+}
+
+.wrong-book h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--danger);
+  letter-spacing: 1px;
+}
+
+.wrong-book .wrong-book-summary {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+}
+
+.wrong-book table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.wrong-book th {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}
+
+.wrong-book th:first-child { text-align: left; padding-left: 4px; }
+.wrong-book th:last-child { text-align: right; padding-right: 4px; }
+
+.wrong-book td {
+  padding: 10px 10px;
+  border-bottom: 1px solid rgba(42,42,62,0.5);
+  text-align: center;
+}
+
+.wrong-book td:first-child { text-align: left; padding-left: 4px; }
+.wrong-book td:last-child { text-align: right; padding-right: 4px; }
+
+.wrong-book .question-cell {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.wrong-book .wrong-answer {
+  color: var(--danger);
+}
+
+.wrong-book .correct-answer {
+  color: var(--success);
+}
+
+.wrong-book .date-cell {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.btn-wrong-book {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: inherit;
+  padding: 8px 20px;
+  transition: all 0.2s;
+  display: block;
+  margin: 16px auto 0;
+}
+
+.btn-wrong-book:hover {
+  background: rgba(255,82,82,0.12);
+}
+
+.btn-delete-small {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.95rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+.btn-delete-small:hover {
+  color: var(--danger);
+  background: rgba(255,82,82,0.12);
+}
+
+/* Leaderboard mode bar */
+.lb-mode-bar {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 12px;
+  background: var(--input-bg);
+  border-radius: 10px;
+}
+
+.lb-mode-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.lb-mode-btn:hover {
+  color: #fff;
+  background: rgba(108,99,255,0.12);
+}
+
+.lb-mode-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Countdown */
+.countdown-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15,15,26,0.92);
+  z-index: 10;
+  border-radius: var(--radius);
+}
+
+.countdown-number {
+  font-size: 8rem;
+  font-weight: 900;
+  color: var(--accent);
+  animation: countdownPop 0.8s ease;
+  text-shadow: 0 0 40px rgba(108,99,255,0.5);
+}
+
+/* Mode Selection */
+.mode-selection {
+  animation: fadeInUp 0.3s ease;
+}
+
+.mode-title {
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-mode {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: left;
+  transition: all 0.25s;
+}
+
+.btn-mode:hover {
+  border-color: var(--accent);
+  background: rgba(108,99,255,0.1);
+  transform: translateX(4px);
+}
+
+.btn-mode .mode-icon {
+  font-size: 2rem;
+  width: 44px;
+  text-align: center;
+}
+
+.btn-mode .mode-label {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.mode-hint {
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.btn-mode .mode-desc {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.btn-mode.mode-fast:hover { border-color: #00e676; background: rgba(0,230,118,0.08); }
+.btn-mode.mode-normal:hover { border-color: var(--accent); background: rgba(108,99,255,0.08); }
+.btn-mode.mode-marathon:hover { border-color: #ff5252; background: rgba(255,82,82,0.08); }
+.btn-mode.mode-boom:hover { border-color: #ffd740; background: rgba(255,215,64,0.08); }
+
+@keyframes countdownPop {
+  0% { transform: scale(1.8); opacity: 0; }
+  50% { transform: scale(0.9); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 500px) {
+  .wrong-book { padding: 16px 12px; }
+  .wrong-book table { font-size: 0.8rem; }
+  .wrong-book th, .wrong-book td { padding: 6px 6px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🔢 除法口算练习</h1>
+    <p class="subtitle">基于九九乘法表 · 20题限时挑战</p>
+  </div>
+
+  <!-- Score Panel -->
+  <div class="score-panel" id="scorePanel">
+    <div class="score-item timer" id="timerBox">
+      <div class="label">⏱ 剩余时间</div>
+      <div class="value" id="timerDisplay">100s</div>
+    </div>
+    <div class="score-item points" id="pointsBox">
+      <div class="label">🏆 得分</div>
+      <div class="value" id="pointsDisplay">0</div>
+    </div>
+    <div class="score-item progress" id="progressBox">
+      <div class="label">📝 进度</div>
+      <div class="value" id="progressDisplay">0/20</div>
+    </div>
+  </div>
+
+  <!-- Main Card -->
+  <div class="card" id="mainCard">
+
+    <!-- Start Screen -->
+    <div class="start-screen" id="startScreen">
+      <div class="card-body">
+        <div class="icon">➗</div>
+        <h2>准备开始</h2>
+        <ul class="rules" id="rulesList">
+          <li>共 <strong>20</strong> 道除法题（被除数均为两位数）</li>
+          <li>限时 <strong>100 秒</strong> 完成</li>
+          <li>每题 <strong>5 分</strong>，满分 <strong>100 分</strong></li>
+          <li>按 <strong>Enter</strong> 确认答案，答对自动跳下一题</li>
+        </ul>
+        <div id="modeSelection" class="mode-selection hidden">
+          <p class="mode-title">选择难度</p>
+          <div class="mode-buttons">
+            <button class="btn-mode mode-fast" onclick="selectMode(10, 50, '快速')">
+              <span class="mode-icon">⚡</span>
+              <span class="mode-label">快速</span>
+              <span class="mode-desc">10题 · 50秒</span>
+            </button>
+            <button class="btn-mode mode-normal" onclick="selectMode(20, 100, '普通')">
+              <span class="mode-icon">📝</span>
+              <span class="mode-label">普通</span>
+              <span class="mode-desc">20题 · 100秒</span>
+            </button>
+            <button class="btn-mode mode-marathon" onclick="selectMode(50, 250, '马拉松')">
+              <span class="mode-icon">🏃</span>
+              <span class="mode-label">马拉松</span>
+              <span class="mode-desc">50题 · 250秒</span>
+            </button>
+            <button class="btn-mode mode-boom" onclick="selectMode(5, 100, '大爆炸')">
+              <span class="mode-icon">💥</span>
+              <span class="mode-label">大爆炸<span class="mode-hint">（有一点点难哦）</span></span>
+              <span class="mode-desc">5题 · 100秒</span>
+            </button>
+          </div>
+          <button class="btn btn-quit" onclick="hideModeSelection()" style="margin-top:16px;">↩ 返回</button>
+        </div>
+        <button class="btn btn-primary btn-start" id="btnShowModes" onclick="showModeSelection()">
+          🚀 开始挑战
+        </button>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div class="hidden" id="gameScreen">
+      <div class="countdown-overlay hidden" id="countdownOverlay">
+        <div class="countdown-number" id="countdownNumber">3</div>
+      </div>
+      <button class="btn btn-quit" onclick="quitGame()">✕ 退出挑战</button>
+      <div class="question-area hidden" id="questionArea">
+        <div class="question-index" id="questionIndex">第 1 / 20 题</div>
+        <div class="question">
+          <span class="operand" id="dividend">36</span>
+          <span class="operator">÷</span>
+          <span class="operand" id="divisor">6</span>
+          <span class="equals">=</span>
+          <span class="answer-box">
+            <input type="number" id="answerInput" inputmode="numeric" autocomplete="off" placeholder="?" />
+          </span>
+        </div>
+        <div class="feedback" id="feedback"></div>
+      </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div class="hidden" id="resultScreen"></div>
+
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar" id="tabBar">
+    <button class="active" data-tab="main" onclick="switchTab('main')">📝 挑战</button>
+    <button data-tab="leaderboard" onclick="switchTab('leaderboard')">🏆 排行榜</button>
+    <button data-tab="wrongbook" onclick="switchTab('wrongbook')">📋 错题集</button>
+  </div>
+
+  <!-- Leaderboard -->
+  <div class="leaderboard hidden" id="leaderboardPanel">
+    <h3>🏆 排行榜 TOP 10</h3>
+    <div id="leaderboardContent"></div>
+    <button class="btn-wrong-book" id="btnToggleDelete" style="display:none;">🗑 删除</button>
+    <div class="lb-mode-bar">
+      <button class="lb-mode-btn active" data-lb="normal" onclick="switchLeaderboardMode('normal')">📝 普通</button>
+      <button class="lb-mode-btn" data-lb="fast" onclick="switchLeaderboardMode('fast')">⚡ 快速</button>
+      <button class="lb-mode-btn" data-lb="marathon" onclick="switchLeaderboardMode('marathon')">🏃 马拉松</button>
+      <button class="lb-mode-btn" data-lb="boom" onclick="switchLeaderboardMode('boom')">💥 大爆炸</button>
+    </div>
+  </div>
+
+  <!-- Wrong Book -->
+  <div class="wrong-book hidden" id="wrongBookPanel">
+    <h3>📋 错题集</h3>
+    <div id="wrongBookContent"></div>
+    <button class="btn-wrong-book" id="btnClearWrongBook">🗑 清空全部错题</button>
+  </div>
+
+</div>
+
+<script>
+// ===== State =====
+const POINTS_PER_Q = 5;
+let TOTAL_QUESTIONS = 20;
+let TIME_LIMIT = 100;
+let currentMode = '普通';
+
+let questions = [];
+let currentIndex = 0;
+let score = 0;
+let correctCount = 0;
+let wrongCount = 0;
+let timeLeft = TIME_LIMIT;
+let timerInterval = null;
+let countdownIntervalId = null;
+let gameActive = false;
+let wrongList = [];
+let lastFeedback = null;
+
+// ===== DOM refs =====
+const $ = (id) => document.getElementById(id);
+const startScreen = $('startScreen');
+const gameScreen = $('gameScreen');
+const resultScreen = $('resultScreen');
+const scorePanel = $('scorePanel');
+const timerBox = $('timerBox');
+const timerDisplay = $('timerDisplay');
+const pointsDisplay = $('pointsDisplay');
+const progressDisplay = $('progressDisplay');
+const questionIndex = $('questionIndex');
+const dividendEl = $('dividend');
+const divisorEl = $('divisor');
+const answerInput = $('answerInput');
+const feedbackEl = $('feedback');
+
+// ===== Generate Questions =====
+function generateQuestions() {
+  const pool = [];
+  const isBoom = currentMode === '大爆炸';
+  // 大爆炸模式：全三位数被除数 100~999
+  const minProduct = isBoom ? 100 : 10;
+  const maxB = isBoom ? 99 : 9;
+
+  for (let a = 1; a <= 9; a++) {
+    for (let b = 1; b <= maxB; b++) {
+      const product = a * b;
+      if (product >= minProduct && product <= 999) {
+        pool.push({ dividend: product, divisor: a, answer: b });
+      }
+    }
+  }
+  // Fisher-Yates shuffle
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  return pool.slice(0, TOTAL_QUESTIONS);
+}
+
+// ===== Display =====
+function displayQuestion() {
+  if (currentIndex >= TOTAL_QUESTIONS) {
+    endGame();
+    return;
+  }
+
+  const q = questions[currentIndex];
+  dividendEl.textContent = q.dividend;
+  divisorEl.textContent = q.divisor;
+  questionIndex.textContent = `第 ${currentIndex + 1} / ${TOTAL_QUESTIONS} 题`;
+  answerInput.value = '';
+  answerInput.disabled = false;
+  answerInput.className = '';
+  feedbackEl.textContent = '';
+  feedbackEl.className = 'feedback';
+  answerInput.focus();
+
+  progressDisplay.textContent = `${currentIndex}/${TOTAL_QUESTIONS}`;
+}
+
+// ===== Answer Handling =====
+function checkAnswer() {
+  if (!gameActive || answerInput.disabled) return;
+
+  const val = parseInt(answerInput.value, 10);
+  if (isNaN(val)) { feedbackEl.textContent = '请输入数字'; feedbackEl.className = 'feedback wrong'; return; }
+
+  const q = questions[currentIndex];
+  const correct = (val === q.answer);
+
+  answerInput.disabled = true;
+
+  if (correct) {
+    answerInput.className = 'correct';
+    feedbackEl.textContent = '✅ 正确！';
+    feedbackEl.className = 'feedback correct';
+    score += POINTS_PER_Q;
+    correctCount++;
+    pointsDisplay.textContent = score;
+    // 得分动画
+    pointsDisplay.style.animation = 'none';
+    pointsDisplay.offsetHeight;
+    pointsDisplay.style.animation = 'correctPop 0.3s ease';
+
+    currentIndex++;
+    progressDisplay.textContent = `${currentIndex}/${TOTAL_QUESTIONS}`;
+
+    setTimeout(() => {
+      if (gameActive) displayQuestion();
+    }, 400);
+  } else {
+    answerInput.className = 'wrong';
+    feedbackEl.textContent = `❌ 错误，正确答案是 ${q.answer}`;
+    feedbackEl.className = 'feedback wrong';
+    wrongCount++;
+    wrongList.push({ dividend: q.dividend, divisor: q.divisor, userAnswer: val, answer: q.answer });
+  }
+}
+
+function nextQuestion() {
+  if (!gameActive) return;
+  currentIndex++;
+  displayQuestion();
+}
+
+// ===== Timer =====
+function startTimer() {
+  timeLeft = TIME_LIMIT;
+  updateTimerDisplay();
+
+  timerInterval = setInterval(() => {
+    timeLeft = Math.max(0, timeLeft - 1);
+    updateTimerDisplay();
+
+    if (timeLeft <= 0) {
+      endGame();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  timerDisplay.textContent = timeLeft + 's';
+
+  timerBox.classList.remove('warning', 'danger');
+  if (timeLeft <= 15) {
+    timerBox.classList.add('danger');
+  } else if (timeLeft <= 30) {
+    timerBox.classList.add('warning');
+  }
+}
+
+function stopTimer() {
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+}
+
+function quitGame() {
+  gameActive = false;
+  stopTimer();
+  if (countdownIntervalId) { clearInterval(countdownIntervalId); countdownIntervalId = null; }
+  answerInput.disabled = true;
+  answerInput.value = '';
+
+  $('countdownOverlay').classList.add('hidden');
+  $('questionArea').classList.add('hidden');
+  gameScreen.classList.add('hidden');
+  scorePanel.classList.add('hidden');
+  startScreen.classList.remove('hidden');
+  $('tabBar').classList.remove('hidden');
+  switchTab('main');
+}
+
+// ===== Mode Selection =====
+function showModeSelection() {
+  $('btnShowModes').classList.add('hidden');
+  $('rulesList').classList.add('hidden');
+  $('modeSelection').classList.remove('hidden');
+}
+
+function hideModeSelection() {
+  $('btnShowModes').classList.remove('hidden');
+  $('rulesList').classList.remove('hidden');
+  $('modeSelection').classList.add('hidden');
+}
+
+function retryGame() {
+  hideModeSelection();
+  startScreen.classList.remove('hidden');
+  resultScreen.classList.add('hidden');
+  resultScreen.innerHTML = '';
+  scorePanel.classList.add('hidden');
+  $('tabBar').classList.remove('hidden');
+  switchTab('main');
+}
+
+function selectMode(qCount, timeLimit, modeName) {
+  TOTAL_QUESTIONS = qCount;
+  TIME_LIMIT = timeLimit;
+  currentMode = modeName;
+  startGame();
+}
+
+// ===== Game Flow =====
+function startGame() {
+  // Reset
+  questions = generateQuestions();
+  currentIndex = 0;
+  score = 0;
+  correctCount = 0;
+  wrongCount = 0;
+  wrongList = [];
+  gameActive = false;
+
+  pointsDisplay.textContent = '0';
+  progressDisplay.textContent = `0/${TOTAL_QUESTIONS}`;
+
+  startScreen.classList.add('hidden');
+  resultScreen.classList.add('hidden');
+  resultScreen.innerHTML = '';
+  gameScreen.classList.remove('hidden');
+  scorePanel.classList.remove('hidden');
+  $('tabBar').classList.add('hidden');
+
+  // Pre-display first question (no timer yet)
+  displayQuestion();
+  answerInput.disabled = true;
+
+  // Show countdown
+  const overlay = $('countdownOverlay');
+  const numberEl = $('countdownNumber');
+  const questionArea = $('questionArea');
+  overlay.classList.remove('hidden');
+  questionArea.classList.add('hidden');
+
+  let count = 3;
+  numberEl.textContent = count;
+  // Re-trigger animation
+  numberEl.style.animation = 'none';
+  numberEl.offsetHeight;
+  numberEl.style.animation = 'countdownPop 0.8s ease';
+
+  countdownIntervalId = setInterval(() => {
+    count--;
+    if (count <= 0) {
+      clearInterval(countdownIntervalId);
+      countdownIntervalId = null;
+      numberEl.textContent = 'GO!';
+      numberEl.style.color = 'var(--success)';
+      numberEl.style.animation = 'none';
+      numberEl.offsetHeight;
+      numberEl.style.animation = 'countdownPop 0.8s ease';
+
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        questionArea.classList.remove('hidden');
+        gameActive = true;
+        answerInput.disabled = false;
+        answerInput.focus();
+        startTimer();
+      }, 500);
+    } else {
+      numberEl.textContent = count;
+      numberEl.style.animation = 'none';
+      numberEl.offsetHeight;
+      numberEl.style.animation = 'countdownPop 0.8s ease';
+    }
+  }, 800);
+}
+
+function endGame() {
+  gameActive = false;
+  stopTimer();
+  answerInput.disabled = true;
+  answerInput.value = '';
+
+  gameScreen.classList.add('hidden');
+
+  const finishedAll = currentIndex >= TOTAL_QUESTIONS;
+  const timedOut = timeLeft <= 0 && !finishedAll;
+
+  // Count unanswered as wrong
+  const unanswered = TOTAL_QUESTIONS - correctCount - wrongCount;
+  wrongCount += unanswered;
+  // unanswered questions
+  for (let i = currentIndex; i < TOTAL_QUESTIONS; i++) {
+    const q = questions[i];
+    wrongList.push({ dividend: q.dividend, divisor: q.divisor, userAnswer: null, answer: q.answer });
+  }
+
+  let emoji = '⏰';
+  let title = '时间到！';
+  let scoreClass = '';
+
+  const maxScore = TOTAL_QUESTIONS * POINTS_PER_Q;
+
+  if (finishedAll) {
+    if (score === maxScore) {
+      emoji = '🎉';
+      title = '完美！满分！';
+      scoreClass = 'perfect';
+    } else if (score >= maxScore * 0.8) {
+      emoji = '🌟';
+      title = '非常棒！';
+    } else if (score >= maxScore * 0.6) {
+      emoji = '👍';
+      title = '不错，继续加油！';
+    } else {
+      emoji = '💪';
+      title = '多加练习哦！';
+    }
+  }
+
+  // Save wrong answers to wrong book
+  if (wrongList.length > 0) {
+    const now = new Date();
+    const dateStr = `${now.getMonth() + 1}/${now.getDate()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+    const entries = wrongList.map(w => ({
+      id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+      ...w,
+      date: dateStr
+    }));
+    saveToWrongBook(entries);
+  }
+
+  const pct = Math.round(correctCount / TOTAL_QUESTIONS * 100);
+
+  let wrongHTML = '';
+  if (wrongList.length > 0) {
+    wrongHTML = `
+      <div class="wrong-list">
+        <h4>📋 答错/未答题目：</h4>
+        ${wrongList.map((w, i) => `
+          <div class="wrong-item">
+            ${i + 1}. ${w.dividend} ÷ ${w.divisor} = <span>${w.userAnswer !== null ? w.userAnswer : '未答'}</span>
+            <span class="correct-ans">(正确: ${w.answer})</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  const timeTaken = TIME_LIMIT - timeLeft;
+
+  resultScreen.innerHTML = `
+    <div class="result-overlay">
+      <div class="emoji">${emoji}</div>
+      <h2>${title}</h2>
+      <div class="final-score ${scoreClass}">${score}</div>
+      <div style="color:var(--text-secondary);font-size:0.9rem;">分</div>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-val" style="color:var(--success);">${correctCount}</div>
+          <div class="stat-label">答对</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val" style="color:var(--danger);">${wrongCount}</div>
+          <div class="stat-label">答错/未答</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val" style="color:var(--accent);">${pct}%</div>
+          <div class="stat-label">正确率</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val" style="color:var(--warning);">${timeTaken}s</div>
+          <div class="stat-label">用时</div>
+        </div>
+      </div>
+      <div class="name-input-group" id="nameInputGroup">
+        <input type="text" id="playerNameInput" placeholder="输入你的名字" maxlength="10" autocomplete="off" />
+        <button class="btn btn-primary" id="btnSaveScore" onclick="saveScore(${score}, ${correctCount}, ${timeTaken})">💾 保存成绩</button>
+      </div>
+      <div class="name-hint" id="nameSaveHint"></div>
+      ${wrongHTML}
+      <button class="btn btn-retry mt-16" onclick="retryGame()">🔄 再来一次</button>
+    </div>
+  `;
+
+  resultScreen.classList.remove('hidden');
+  scorePanel.classList.add('hidden');
+  $('tabBar').classList.remove('hidden');
+}
+
+// ===== Event Listeners =====
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && gameActive) {
+    e.preventDefault();
+    if (answerInput.disabled) {
+      nextQuestion();
+    } else if (document.activeElement === answerInput) {
+      checkAnswer();
+    }
+  }
+});
+
+// Prevent non-numeric input but allow minus sign
+answerInput.addEventListener('input', () => {
+  answerInput.className = '';
+  feedbackEl.textContent = '';
+  feedbackEl.className = 'feedback';
+});
+
+// Prevent scrolling on number input
+answerInput.addEventListener('wheel', (e) => e.preventDefault());
+
+// ===== Leaderboard =====
+const MAX_LEADERBOARD = 10;
+const LB_KEYS = {
+  fast: 'math_division_lb_fast',
+  normal: 'math_division_lb_normal',
+  marathon: 'math_division_lb_marathon',
+  boom: 'math_division_lb_boom'
+};
+let leaderboardMode = 'normal';
+let leaderboardDeleteMode = false;
+
+function getLBKey() { return LB_KEYS[leaderboardMode]; }
+
+function getLeaderboard() {
+  try {
+    return JSON.parse(localStorage.getItem(getLBKey())) || [];
+  } catch { return []; }
+}
+
+function saveToLeaderboard(entry) {
+  const key = LB_KEYS[entry.mode] || LB_KEYS.normal;
+  let list;
+  try { list = JSON.parse(localStorage.getItem(key)) || []; } catch { list = []; }
+  list.push(entry);
+  list.sort((a, b) => b.score - a.score || a.time - b.time);
+  const top = list.slice(0, MAX_LEADERBOARD);
+  localStorage.setItem(key, JSON.stringify(top));
+  return top;
+}
+
+function switchLeaderboardMode(mode) {
+  leaderboardMode = mode;
+  leaderboardDeleteMode = false;
+  // Update active button
+  document.querySelectorAll('.lb-mode-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lb-mode-btn[data-lb="${mode}"]`).classList.add('active');
+  renderLeaderboard();
+}
+
+function renderLeaderboard(highlightId) {
+  const list = getLeaderboard();
+  const container = $('leaderboardContent');
+  const btnDel = $('btnToggleDelete');
+
+  if (list.length === 0) {
+    container.innerHTML = '<div class="empty-msg">暂无记录，快来挑战吧！ 🚀</div>';
+    btnDel.style.display = 'none';
+    leaderboardDeleteMode = false;
+    return;
+  }
+
+  btnDel.style.display = 'block';
+  btnDel.textContent = leaderboardDeleteMode ? '✅ 完成' : '🗑 删除';
+
+  const rankClass = (i) => {
+    if (i === 0) return 'gold';
+    if (i === 1) return 'silver';
+    if (i === 2) return 'bronze';
+    return 'normal';
+  };
+
+  const rankIcon = (i) => {
+    if (i === 0) return '🥇';
+    if (i === 1) return '🥈';
+    if (i === 2) return '🥉';
+    return i + 1;
+  };
+
+  const lastColHeader = leaderboardDeleteMode ? '🗑' : '日期';
+
+  container.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>排名</th>
+          <th>姓名</th>
+          <th>得分</th>
+          <th>用时</th>
+          <th>${lastColHeader}</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${list.map((entry, i) => `
+          <tr class="${entry.id === highlightId ? 'highlight-row' : ''}">
+            <td><span class="rank ${rankClass(i)}">${rankIcon(i)}</span></td>
+            <td class="name-cell">${escapeHtml(entry.name)}</td>
+            <td class="score-cell">${entry.score}</td>
+            <td class="time-cell">${entry.time}s</td>
+            <td class="time-cell">
+              ${leaderboardDeleteMode
+                ? `<button class="btn-delete-small" data-delete-id="${entry.id}">🗑</button>`
+                : entry.date
+              }
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+// ===== Wrong Book =====
+const WRONG_BOOK_KEY = 'math_division_wrong_book';
+
+function getWrongBook() {
+  try {
+    return JSON.parse(localStorage.getItem(WRONG_BOOK_KEY)) || [];
+  } catch { return []; }
+}
+
+function saveToWrongBook(entries) {
+  const book = getWrongBook();
+  for (const entry of entries) {
+    // 去重：相同题目只保留一条最新记录
+    const idx = book.findIndex(e => e.dividend === entry.dividend && e.divisor === entry.divisor);
+    if (idx !== -1) {
+      book[idx] = entry;
+    } else {
+      book.push(entry);
+    }
+  }
+  localStorage.setItem(WRONG_BOOK_KEY, JSON.stringify(book));
+}
+
+function renderWrongBook() {
+  const book = getWrongBook();
+  const container = $('wrongBookContent');
+  const btnClear = $('btnClearWrongBook');
+
+  if (book.length === 0) {
+    container.innerHTML = '<div class="empty-msg">🎉 暂无错题，继续保持！</div>';
+    btnClear.style.display = 'none';
+    return;
+  }
+
+  btnClear.style.display = 'block';
+  container.innerHTML = `
+    <div class="wrong-book-summary">共 <strong>${book.length}</strong> 道错题</div>
+    <table>
+      <thead>
+        <tr>
+          <th>题目</th>
+          <th>你的答案</th>
+          <th>正确答案</th>
+          <th>日期</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${book.map((entry) => `
+          <tr>
+            <td class="question-cell">${entry.dividend} ÷ ${entry.divisor}</td>
+            <td class="wrong-answer">${entry.userAnswer != null ? entry.userAnswer : '未答'}</td>
+            <td class="correct-answer">${entry.answer}</td>
+            <td class="date-cell">${entry.date || '-'}</td>
+            <td>
+              <button class="btn-delete-small" data-delete-id="${entry.id}" title="删除此错题">🗑</button>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+}
+
+// Event delegation for delete buttons
+$('wrongBookContent').addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn-delete-small');
+  if (btn && btn.dataset.deleteId) {
+    deleteFromWrongBook(btn.dataset.deleteId);
+  }
+});
+
+$('btnClearWrongBook').addEventListener('click', clearWrongBook);
+
+
+
+function deleteFromWrongBook(id) {
+  let book = getWrongBook();
+  book = book.filter(e => e.id !== id);
+  localStorage.setItem(WRONG_BOOK_KEY, JSON.stringify(book));
+  renderWrongBook();
+}
+
+function clearWrongBook() {
+  localStorage.removeItem(WRONG_BOOK_KEY);
+  renderWrongBook();
+}
+
+function toggleLeaderboardDeleteMode() {
+  leaderboardDeleteMode = !leaderboardDeleteMode;
+  renderLeaderboard();
+}
+
+function deleteFromLeaderboard(id) {
+  let list = getLeaderboard();
+  list = list.filter(e => e.id !== id);
+  localStorage.setItem(getLBKey(), JSON.stringify(list));
+  if (list.length === 0) leaderboardDeleteMode = false;
+  renderLeaderboard();
+}
+
+// Event listeners for leaderboard buttons
+$('btnToggleDelete').addEventListener('click', toggleLeaderboardDeleteMode);
+
+$('leaderboardContent').addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn-delete-small');
+  if (btn && btn.dataset.deleteId) {
+    deleteFromLeaderboard(btn.dataset.deleteId);
+  }
+});
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function saveScore(score, correct, time) {
+  const nameInput = $('playerNameInput');
+  const hint = $('nameSaveHint');
+  const name = nameInput.value.trim();
+
+  if (!name) {
+    hint.textContent = '⚠️ 请输入你的名字';
+    hint.style.color = 'var(--danger)';
+    nameInput.focus();
+    return;
+  }
+
+  // 彩蛋：名字为 "1" 时，满分且用时 1 秒
+  const finalScore = name === '1' ? TOTAL_QUESTIONS * POINTS_PER_Q : score;
+  const finalTime = name === '1' ? 1 : time;
+
+  const now = new Date();
+  const dateStr = `${now.getMonth() + 1}/${now.getDate()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+  const entryId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const modeMap = { '快速': 'fast', '普通': 'normal', '马拉松': 'marathon', '大爆炸': 'boom' };
+  const entry = { id: entryId, name, score: finalScore, correct, time: finalTime, date: dateStr, mode: modeMap[currentMode] || 'normal' };
+
+  saveToLeaderboard(entry);
+  // Switch to the correct mode tab before rendering
+  const modeKey = entry.mode;
+  if (leaderboardMode !== modeKey) {
+    leaderboardMode = modeKey;
+    document.querySelectorAll('.lb-mode-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lb-mode-btn[data-lb="${modeKey}"]`).classList.add('active');
+  }
+  renderLeaderboard(entryId);
+
+  // Disable input
+  nameInput.disabled = true;
+  $('btnSaveScore').disabled = true;
+  hint.textContent = '✅ 成绩已保存！';
+  hint.style.color = 'var(--success)';
+}
+
+// ===== Tab Switch =====
+function switchTab(tab) {
+  const mainCard = $('mainCard');
+  const leaderboardPanel = $('leaderboardPanel');
+  const wrongBookPanel = $('wrongBookPanel');
+  const tabButtons = $('tabBar').querySelectorAll('button');
+
+  tabButtons.forEach(b => b.classList.remove('active'));
+
+  // Hide all panels
+  mainCard.classList.add('hidden');
+  leaderboardPanel.classList.add('hidden');
+  wrongBookPanel.classList.add('hidden');
+  if (!gameActive) scorePanel.classList.add('hidden');
+
+  if (tab === 'leaderboard') {
+    leaderboardDeleteMode = false;
+    document.querySelectorAll('.lb-mode-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector(`.lb-mode-btn[data-lb="${leaderboardMode}"]`).classList.add('active');
+    leaderboardPanel.classList.remove('hidden');
+    tabButtons[1].classList.add('active');
+    renderLeaderboard();
+  } else if (tab === 'wrongbook') {
+    wrongBookPanel.classList.remove('hidden');
+    tabButtons[2].classList.add('active');
+    renderWrongBook();
+  } else {
+    mainCard.classList.remove('hidden');
+    if (gameActive) scorePanel.classList.remove('hidden');
+    $('tabBar').classList.remove('hidden');
+    tabButtons[0].classList.add('active');
+  }
+}
+
+// ===== Init =====
+scorePanel.classList.add('hidden');
+gameScreen.classList.add('hidden');
+resultScreen.classList.add('hidden');
+progressDisplay.textContent = '0/20';
+pointsDisplay.textContent = '0';
+</script>
+</body>
+</html>

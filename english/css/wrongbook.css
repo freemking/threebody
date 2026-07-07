@@ -1,0 +1,941 @@
+/* === 错题本 - 现代化视觉设计 === */
+
+/* 设计系统变量 */
+:root {
+    /* 颜色方案 - 学习主题 */
+    --wb-primary: #6366f1;
+    --wb-primary-light: #818cf8;
+    --wb-primary-dark: #4f46e5;
+    --wb-accent: #f59e0b;
+    --wb-accent-light: #fbbf24;
+    --wb-success: #10b981;
+    --wb-success-light: #34d399;
+    --wb-danger: #ef4444;
+    --wb-danger-light: #f87171;
+    --wb-warning: #f59e0b;
+    
+    /* 背景色 */
+    --wb-bg-primary: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+    --wb-bg-card: rgba(255, 255, 255, 0.08);
+    --wb-bg-card-hover: rgba(255, 255, 255, 0.12);
+    --wb-bg-card-mastered: rgba(16, 185, 129, 0.1);
+    
+    /* 文本颜色 */
+    --wb-text-primary: #ffffff;
+    --wb-text-secondary: rgba(255, 255, 255, 0.8);
+    --wb-text-muted: rgba(255, 255, 255, 0.6);
+    --wb-text-accent: rgba(245, 158, 11, 0.9);
+    
+    /* 边框和阴影 */
+    --wb-border: rgba(255, 255, 255, 0.15);
+    --wb-border-mastered: rgba(16, 185, 129, 0.4);
+    --wb-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --wb-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.3);
+    
+    /* 间距 */
+    --wb-space-xs: 4px;
+    --wb-space-sm: 8px;
+    --wb-space-md: 12px;
+    --wb-space-lg: 16px;
+    --wb-space-xl: 24px;
+    --wb-space-2xl: 32px;
+    --wb-space-3xl: 48px;
+    --wb-space-4xl: 64px;
+    
+    /* 圆角 */
+    --wb-radius-sm: 6px;
+    --wb-radius-md: 10px;
+    --wb-radius-lg: 16px;
+    --wb-radius-xl: 20px;
+    --wb-radius-full: 9999px;
+    
+    /* 字体 */
+    --wb-font-display: 'Nunito', 'Segoe UI', system-ui, sans-serif;
+    --wb-font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    --wb-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    
+    /* 动画 */
+    --wb-transition-fast: 0.15s ease;
+    --wb-transition-normal: 0.25s ease;
+    --wb-transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --wb-transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 错题本主屏幕 */
+#wrongbook-screen {
+    background: var(--wb-bg-primary);
+    min-height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* 背景装饰 */
+#wrongbook-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 容器 */
+.wrongbook-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--wb-space-xl);
+    position: relative;
+    z-index: 1;
+}
+
+/* 统计卡片网格 */
+.wrongbook-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--wb-space-md);
+    margin-bottom: var(--wb-space-lg);
+}
+
+/* 统计卡片 */
+.wrongbook-stat-card {
+    background: var(--wb-bg-card);
+    border-radius: var(--wb-radius-lg);
+    padding: var(--wb-space-md);
+    text-align: center;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--wb-border);
+    transition: var(--wb-transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.wrongbook-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--wb-primary), var(--wb-accent));
+    opacity: 0;
+    transition: var(--wb-transition-normal);
+}
+
+.wrongbook-stat-card:hover {
+    background: var(--wb-bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--wb-shadow-hover);
+}
+
+.wrongbook-stat-card:hover::before {
+    opacity: 1;
+}
+
+/* 统计数字 */
+.wrongbook-stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--wb-text-primary);
+    font-family: var(--wb-font-display);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+/* 统计标签 */
+.wrongbook-stat-label {
+    font-size: 0.8rem;
+    color: var(--wb-text-muted);
+    font-family: var(--wb-font-body);
+    font-weight: 500;
+}
+
+/* 筛选器容器 */
+.wrongbook-filter {
+    display: flex;
+    justify-content: center;
+    gap: var(--wb-space-sm);
+    margin-bottom: var(--wb-space-2xl);
+    flex-wrap: wrap;
+}
+
+/* 筛选按钮 */
+.filter-btn {
+    background: var(--wb-bg-card);
+    color: var(--wb-text-secondary);
+    border: 1px solid var(--wb-border);
+    padding: var(--wb-space-sm) var(--wb-space-xl);
+    border-radius: var(--wb-radius-full);
+    font-family: var(--wb-font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--wb-transition-bounce);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: var(--wb-space-xs);
+}
+
+.filter-icon {
+    font-size: 1rem;
+    transition: var(--wb-transition-normal);
+}
+
+.filter-btn:hover .filter-icon {
+    transform: scale(1.1);
+}
+
+.filter-btn.active .filter-icon {
+    animation: wbFilterIconBounce 0.5s ease;
+}
+
+@keyframes wbFilterIconBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: var(--wb-transition-slow);
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.filter-btn:hover::before {
+    left: 100%;
+}
+
+.filter-btn.active {
+    background: var(--wb-primary);
+    color: white;
+    border-color: var(--wb-primary);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* 错题列表容器 */
+.wrongbook-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wb-space-lg);
+    margin-bottom: var(--wb-space-2xl);
+    max-height: none !important;
+    overflow-y: visible !important;
+}
+
+/* 错题卡片 */
+.wrongbook-item {
+    background: var(--wb-bg-card);
+    border-radius: var(--wb-radius-lg);
+    padding: var(--wb-space-xl);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--wb-border);
+    transition: var(--wb-transition-bounce);
+    position: relative;
+    cursor: pointer;
+    max-height: none;
+    flex-shrink: 0;
+}
+
+.wrongbook-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--wb-primary);
+    opacity: 0;
+    transition: var(--wb-transition-normal);
+}
+
+.wrongbook-item:hover {
+    background: var(--wb-bg-card-hover);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--wb-shadow-hover);
+}
+
+.wrongbook-item:hover::before {
+    opacity: 1;
+}
+
+/* 已掌握卡片 */
+.wrongbook-item.mastered {
+    background: var(--wb-bg-card-mastered);
+    border-color: var(--wb-border-mastered);
+}
+
+.wrongbook-item.mastered::before {
+    background: var(--wb-success);
+}
+
+/* 卡片头部 */
+.wrongbook-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--wb-space-md);
+}
+
+/* 单词文本 */
+.wrongbook-word {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--wb-text-primary);
+    font-family: var(--wb-font-display);
+    line-height: 1.2;
+    transition: var(--wb-transition-normal);
+}
+
+.wrongbook-word.mastered-text {
+    text-decoration: none;
+    color: var(--wb-success-light);
+    opacity: 0.8;
+}
+
+/* 徽章容器 */
+.wrongbook-badges {
+    display: flex;
+    gap: var(--wb-space-xs);
+    flex-wrap: wrap;
+}
+
+/* 徽章 */
+.wrongbook-badge {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: var(--wb-radius-full);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+}
+
+.wrongbook-badge.from-monopoly {
+    background: linear-gradient(135deg, var(--wb-success), var(--wb-success-light));
+    color: white;
+}
+
+.wrongbook-badge.from-wordmatch {
+    background: linear-gradient(135deg, var(--wb-primary), var(--wb-primary-light));
+    color: white;
+}
+
+.wrongbook-badge.from-wordblast {
+    background: linear-gradient(135deg, var(--wb-accent), var(--wb-accent-light));
+    color: white;
+}
+
+/* 音标 */
+.wrongbook-phonetic {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: var(--wb-space-sm);
+    font-style: italic;
+    font-family: var(--wb-font-mono);
+    display: flex;
+    align-items: center;
+    gap: var(--wb-space-sm);
+}
+
+/* 朗读按钮 */
+.wrongbook-speak-btn {
+    background: none;
+    border: none;
+    color: var(--wb-primary-light);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    transition: var(--wb-transition-bounce);
+    opacity: 0.7;
+}
+
+.wrongbook-speak-btn:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* 释义 */
+.wrongbook-meaning {
+    color: var(--wb-text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--wb-space-md);
+    font-family: var(--wb-font-body);
+    line-height: 1.5;
+}
+
+/* 词根词缀 */
+.wrongbook-rootAffix {
+    color: var(--wb-text-accent);
+    font-size: 0.95rem;
+    margin-bottom: var(--wb-space-md);
+    padding: var(--wb-space-sm) var(--wb-space-md);
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--wb-radius-md);
+    border-left: 3px solid rgba(245, 158, 11, 0.5);
+    font-family: var(--wb-font-body);
+}
+
+.wrongbook-rootAffix-label {
+    font-weight: 700;
+    color: var(--wb-accent-light);
+}
+
+/* 例句 */
+.wrongbook-example {
+    color: var(--wb-text-muted);
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: var(--wb-space-md);
+    padding: var(--wb-space-sm) var(--wb-space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--wb-radius-md);
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--wb-font-body);
+}
+
+/* 元数据 */
+.wrongbook-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--wb-text-muted);
+    font-size: 0.8rem;
+    margin-bottom: var(--wb-space-md);
+    padding-top: var(--wb-space-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 错误次数 */
+.wrongbook-count {
+    color: var(--wb-danger-light);
+    font-weight: 700;
+    font-family: var(--wb-font-mono);
+}
+
+/* 操作按钮容器 */
+.wrongbook-actions-cell {
+    display: flex;
+    gap: var(--wb-space-sm);
+    justify-content: flex-end;
+    margin-top: var(--wb-space-md);
+    padding-top: var(--wb-space-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 操作按钮 */
+.wrongbook-action-btn-small {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    padding: var(--wb-space-xs) var(--wb-space-md);
+    border-radius: var(--wb-radius-sm);
+    font-size: 0.8rem;
+    font-family: var(--wb-font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--wb-transition-bounce);
+    backdrop-filter: blur(10px);
+}
+
+.wrongbook-action-btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wrongbook-action-btn-small.danger {
+    background: rgba(239, 68, 68, 0.3);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.wrongbook-action-btn-small.danger:hover {
+    background: rgba(239, 68, 68, 0.5);
+}
+
+.wrongbook-action-btn-small.success {
+    background: rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.wrongbook-action-btn-small.success:hover {
+    background: rgba(16, 185, 129, 0.5);
+}
+
+/* 底部操作按钮 */
+.wrongbook-actions {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 60px !important;
+    flex-wrap: nowrap !important;
+    margin-bottom: 8px;
+}
+
+.wrongbook-container .wrongbook-action-btn {
+    background: linear-gradient(135deg, var(--wb-primary), var(--wb-primary-dark)) !important;
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+    border-radius: 12px !important;
+    white-space: nowrap !important;
+    min-width: auto !important;
+    max-width: none !important;
+    width: auto !important;
+    flex-shrink: 0;
+    font-weight: 600 !important;
+    font-family: var(--wb-font-display) !important;
+    transition: var(--wb-transition-bounce) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: white !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-icon {
+    font-size: 0.9rem;
+    transition: var(--wb-transition-normal);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.wrongbook-action-btn:hover .btn-icon {
+    transform: scale(1.1);
+}
+
+.wrongbook-success-btn {
+    background: linear-gradient(180deg, var(--wb-success), var(--wb-success-light)) !important;
+    border-color: rgba(16, 185, 129, 0.5) !important;
+    border-left: 3px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.wrongbook-success-btn:hover {
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.5) !important;
+    border-left-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.wrongbook-action-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35) !important;
+}
+
+.wrongbook-danger-btn {
+    background: linear-gradient(225deg, var(--wb-danger), #dc2626) !important;
+    border-color: rgba(239, 68, 68, 0.5) !important;
+    border-style: dashed !important;
+}
+
+.wrongbook-danger-btn:hover {
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.5) !important;
+    border-style: solid !important;
+}
+
+/* 空状态 */
+.wrongbook-empty {
+    text-align: center;
+    padding: var(--wb-space-4xl);
+    color: var(--wb-text-muted);
+    animation: wbEmptyPulse 3s ease-in-out infinite;
+}
+
+@keyframes wbEmptyPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+.wrongbook-empty-icon {
+    font-size: 5rem;
+    margin-bottom: var(--wb-space-xl);
+    animation: wbFloat 3s ease-in-out infinite;
+}
+
+@keyframes wbFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.wrongbook-empty-text {
+    font-size: 1.3rem;
+    font-family: var(--wb-font-display);
+    font-weight: 600;
+    margin-bottom: var(--wb-space-md);
+}
+
+.wrongbook-empty-hint {
+    font-size: 0.9rem;
+    color: var(--wb-text-muted);
+    font-family: var(--wb-font-body);
+}
+
+/* 卡片入场动画 */
+@keyframes wbCardEnter {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.wrongbook-item {
+    animation: wbCardEnter 0.4s ease-out forwards;
+}
+
+/* 错误闪烁效果 */
+@keyframes wbErrorFlash {
+    0%, 100% { border-color: var(--wb-border); }
+    50% { border-color: var(--wb-danger); }
+}
+
+.wrongbook-item.error-flash {
+    animation: wbErrorFlash 0.5s ease;
+}
+
+/* 掌握成功效果 */
+@keyframes wbMasteredSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.wrongbook-item.mastered-success {
+    animation: wbMasteredSuccess 0.4s ease;
+}
+
+/* 删除确认动画 */
+@keyframes wbDeleteConfirm {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+.wrongbook-item.delete-confirm {
+    animation: wbDeleteConfirm 0.3s ease;
+}
+
+/* 统计卡片进度条 */
+.wrongbook-stat-progress {
+    margin-top: var(--wb-space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--wb-space-sm);
+}
+
+.wrongbook-progress-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.wrongbook-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--wb-success), var(--wb-success-light));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.wrongbook-progress-text {
+    font-size: 0.7rem;
+    color: var(--wb-success-light);
+    font-weight: 600;
+    font-family: var(--wb-font-mono);
+}
+
+/* 统计卡片图标 */
+.wrongbook-stat-icon {
+    font-size: 1.5rem;
+    margin-top: var(--wb-space-xs);
+    opacity: 0.7;
+}
+
+/* 错误次数进度条 */
+.wrongbook-wrong-info {
+    display: flex;
+    align-items: center;
+    gap: var(--wb-space-sm);
+}
+
+.wrongbook-wrong-bar {
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.wrongbook-wrong-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--wb-warning), var(--wb-danger));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+/* 时间显示 */
+.wrongbook-time {
+    font-size: 0.75rem;
+    color: var(--wb-text-muted);
+    font-family: var(--wb-font-mono);
+}
+
+/* 朗读按钮动画 */
+.wrongbook-speak-btn.speaking {
+    animation: wbSpeakPulse 1s ease;
+}
+
+@keyframes wbSpeakPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+/* 卡片展开状态 */
+.wrongbook-item.expanded {
+    background: var(--wb-bg-card-hover);
+    box-shadow: var(--wb-shadow-hover);
+}
+
+.wrongbook-item.expanded .wrongbook-actions-cell {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 通知样式 */
+.wrongbook-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: var(--wb-space-md) var(--wb-space-xl);
+    border-radius: var(--wb-radius-md);
+    color: white;
+    font-family: var(--wb-font-body);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: var(--wb-space-sm);
+    z-index: 10000;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--wb-shadow);
+}
+
+.wrongbook-notification.show {
+    transform: translateX(0);
+}
+
+.wrongbook-notification-success {
+    background: linear-gradient(135deg, var(--wb-success), var(--wb-success-light));
+}
+
+.wrongbook-notification-warning {
+    background: linear-gradient(135deg, var(--wb-warning), var(--wb-accent-light));
+}
+
+.wrongbook-notification-info {
+    background: linear-gradient(135deg, var(--wb-primary), var(--wb-primary-light));
+}
+
+.wrongbook-notification-icon {
+    font-size: 1.2rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .wrongbook-stats {
+        grid-template-columns: 1fr;
+        gap: var(--wb-space-sm);
+    }
+    
+    .wrongbook-stat-card {
+        padding: var(--wb-space-md);
+    }
+    
+    .wrongbook-stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .wrongbook-filter {
+        gap: var(--wb-space-xs);
+    }
+    
+    .filter-btn {
+        padding: var(--wb-space-xs) var(--wb-space-md);
+        font-size: 0.8rem;
+    }
+    
+    .wrongbook-item {
+        padding: var(--wb-space-lg);
+    }
+    
+    .wrongbook-word {
+        font-size: 1.3rem;
+    }
+    
+    .wrongbook-actions-cell {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .wrongbook-actions {
+        flex-wrap: wrap !important;
+        gap: 60px !important;
+    }
+    
+    .wrongbook-container .wrongbook-action-btn {
+        font-size: 0.75rem !important;
+        padding: 5px 10px !important;
+    }
+    
+    .wrongbook-success-btn {
+        border-left-width: 2px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrongbook-container {
+        padding: var(--wb-space-md);
+    }
+    
+    .wrongbook-item-header {
+        flex-direction: column;
+        gap: var(--wb-space-sm);
+    }
+    
+    .wrongbook-badges {
+        align-self: flex-start;
+    }
+    
+    .wrongbook-actions {
+        gap: 60px !important;
+    }
+    
+    .wrongbook-container .wrongbook-action-btn {
+        font-size: 0.7rem !important;
+        padding: 4px 8px !important;
+        gap: 4px !important;
+    }
+    
+    .btn-icon {
+        font-size: 0.8rem !important;
+    }
+    
+    .wrongbook-success-btn {
+        border-left-width: 2px !important;
+    }
+    
+    .wrongbook-danger-btn {
+        border-width: 1px !important;
+    }
+}
+
+/* === 测验模式 === */
+
+/* 测验按钮特殊样式 */
+.wrongbook-quiz-btn {
+    background: linear-gradient(45deg, var(--wb-accent), var(--wb-accent-light)) !important;
+    border-color: rgba(245, 158, 11, 0.5) !important;
+    box-shadow: inset 0 -3px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+.wrongbook-quiz-btn:hover {
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.5), inset 0 -3px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 测验模式激活时的按钮样式 */
+.wrongbook-quiz-btn.active {
+    background: linear-gradient(135deg, var(--wb-danger), #dc2626) !important;
+}
+
+.wrongbook-quiz-btn.active:hover {
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* 测验模式下的容器 */
+.wrongbook-container.quiz-mode .wrongbook-item {
+    cursor: default;
+}
+
+/* 测验模式下隐藏非测验内容 */
+.wrongbook-container.quiz-mode .wrongbook-meaning,
+.wrongbook-container.quiz-mode .wrongbook-rootAffix,
+.wrongbook-container.quiz-mode .wrongbook-example,
+.wrongbook-container.quiz-mode .wrongbook-meta {
+    display: none;
+}
+
+/* 测验模式下单词和音标居中显示 */
+.wrongbook-container.quiz-mode .wrongbook-item-header {
+    justify-content: center;
+}
+
+.wrongbook-container.quiz-mode .wrongbook-badges {
+    display: none;
+}
+
+.wrongbook-container.quiz-mode .wrongbook-word {
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.wrongbook-container.quiz-mode .wrongbook-phonetic {
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+/* 测验模式卡片特殊样式 */
+.wrongbook-container.quiz-mode .wrongbook-item {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(245, 158, 11, 0.1));
+    border-color: var(--wb-primary-light);
+    padding: var(--wb-space-2xl) var(--wb-space-xl);
+}
+
+.wrongbook-container.quiz-mode .wrongbook-item:hover {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(245, 158, 11, 0.15));
+}
+
+/* 测验模式下的掌握标记 */
+.wrongbook-container.quiz-mode .wrongbook-item.mastered {
+    opacity: 0.5;
+    background: var(--wb-bg-card-mastered);
+}
+
+/* 测验模式统计卡片提示 */
+.wrongbook-quiz-hint {
+    text-align: center;
+    color: var(--wb-accent-light);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--wb-space-lg);
+    padding: var(--wb-space-md);
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--wb-radius-md);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    font-family: var(--wb-font-body);
+    animation: wbQuizHintPulse 2s ease-in-out infinite;
+}
+
+@keyframes wbQuizHintPulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}

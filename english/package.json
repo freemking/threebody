@@ -1,0 +1,22 @@
+{
+    "name": "shanghai-english-game",
+    "version": "1.0.0",
+    "description": "上海小学英语单词学习游戏",
+    "scripts": {
+        "start": "npx serve . -p 3000",
+        "dev": "npx serve . -p 3000 -L",
+        "test": "jest --verbose"
+    },
+    "keywords": [
+        "english",
+        "game",
+        "education",
+        "shanghai",
+        "primary-school"
+    ],
+    "author": "English Game Developer",
+    "license": "MIT",
+    "devDependencies": {
+        "jest": "^30.4.2"
+    }
+}

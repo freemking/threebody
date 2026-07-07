@@ -1,0 +1,634 @@
+/* 三体风格主题样式表 */
+/* 基于首页的三体学习空间设计风格 */
+
+:root {
+    /* 三体风格核心颜色 */
+    --three-body-primary: #00ffff;
+    --three-body-secondary: #ff00ff;
+    --three-body-background: #0a0a1a;
+    --three-body-card-bg: rgba(20, 20, 40, 0.8);
+    --three-body-text: #e0e0ff;
+    --three-body-text-secondary: #a0a0c0;
+    
+    /* 发光效果 */
+    --three-body-glow-primary: 0 0 20px rgba(0, 255, 255, 0.5);
+    --three-body-glow-secondary: 0 0 20px rgba(255, 0, 255, 0.5);
+    --three-body-glow-intense: 0 0 30px rgba(0, 255, 255, 0.7), 0 0 60px rgba(0, 255, 255, 0.3);
+    
+    /* 渐变色 */
+    --three-body-gradient-primary: linear-gradient(90deg, var(--three-body-primary), var(--three-body-secondary));
+    --three-body-gradient-bg: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+    
+    /* 边框和阴影 */
+    --three-body-border: 1px solid rgba(0, 255, 255, 0.1);
+    --three-body-border-hover: 1px solid rgba(0, 255, 255, 0.3);
+    --three-body-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --three-body-shadow-hover: 0 8px 30px rgba(0, 255, 255, 0.2);
+    
+    /* 动画时长 */
+    --three-body-transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --three-body-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --three-body-transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --three-body-transition-bounce: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* 字体 */
+    --three-body-font-display: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --three-body-font-body: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --three-body-font-mono: 'Fira Code', monospace;
+    
+    /* 间距 */
+    --three-body-space-xs: 0.25rem;
+    --three-body-space-sm: 0.5rem;
+    --three-body-space-md: 1rem;
+    --three-body-space-lg: 1.5rem;
+    --three-body-space-xl: 2rem;
+    --three-body-space-2xl: 3rem;
+    --three-body-space-3xl: 4rem;
+    
+    /* 圆角 */
+    --three-body-radius-sm: 8px;
+    --three-body-radius: 12px;
+    --three-body-radius-md: 16px;
+    --three-body-radius-lg: 24px;
+    --three-body-radius-full: 9999px;
+}
+
+/* 全局重置 */
+.three-body-theme * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 三体风格基础样式 */
+.three-body-theme {
+    font-family: var(--three-body-font-body);
+    background: var(--three-body-background);
+    color: var(--three-body-text);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 三体风格背景效果 */
+.three-body-theme::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 粒子背景效果 */
+.three-body-theme::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 255, 255, 0.15) 1px, transparent 1px),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 255, 0.15) 1px, transparent 1px),
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 100px 100px, 150px 150px, 200px 200px;
+    pointer-events: none;
+    z-index: 0;
+    animation: three-body-float-particles 20s linear infinite;
+}
+
+@keyframes three-body-float-particles {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(5deg); }
+}
+
+/* 容器样式 */
+.three-body-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--three-body-space-2xl);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 卡片样式 */
+.three-body-card {
+    background: var(--three-body-card-bg);
+    border: var(--three-body-border);
+    border-radius: var(--three-body-radius);
+    padding: var(--three-body-space-xl);
+    transition: var(--three-body-transition);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--three-body-shadow);
+}
+
+.three-body-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(255, 0, 255, 0.05));
+    opacity: 0;
+    transition: var(--three-body-transition);
+    z-index: -1;
+}
+
+.three-body-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 255, 255, 0.3);
+    box-shadow: var(--three-body-shadow-hover);
+}
+
+.three-body-card:hover::before {
+    opacity: 1;
+}
+
+/* 按钮样式 */
+.three-body-btn {
+    background: linear-gradient(135deg, var(--three-body-primary), var(--three-body-secondary));
+    color: var(--three-body-background);
+    border: none;
+    padding: var(--three-body-space-md) var(--three-body-space-xl);
+    border-radius: var(--three-body-radius-full);
+    font-family: var(--three-body-font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--three-body-transition);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.three-body-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: 0.6s;
+}
+
+.three-body-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 255, 255, 0.4);
+}
+
+.three-body-btn:hover::before {
+    left: 100%;
+}
+
+.three-body-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* 次要按钮 */
+.three-body-btn-secondary {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--three-body-primary);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: none;
+}
+
+.three-body-btn-secondary:hover {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2);
+}
+
+/* 标题样式 */
+.three-body-title {
+    font-family: var(--three-body-font-display);
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.3rem;
+    margin-bottom: var(--three-body-space-md);
+    background: var(--three-body-gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+.three-body-subtitle {
+    font-size: 1.1rem;
+    color: var(--three-body-text-secondary);
+    letter-spacing: 0.1rem;
+    font-weight: 300;
+}
+
+/* 输入框样式 */
+.three-body-input {
+    background: rgba(20, 20, 40, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--three-body-radius-sm);
+    padding: var(--three-body-space-md);
+    color: var(--three-body-text);
+    font-family: var(--three-body-font-body);
+    font-size: 1rem;
+    transition: var(--three-body-transition);
+    width: 100%;
+}
+
+.three-body-input:focus {
+    outline: none;
+    border-color: var(--three-body-primary);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+.three-body-input::placeholder {
+    color: var(--three-body-text-secondary);
+    opacity: 0.7;
+}
+
+/* 选择框样式 */
+.three-body-select {
+    background: rgba(20, 20, 40, 0.8);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: var(--three-body-radius-sm);
+    padding: var(--three-body-space-md);
+    color: var(--three-body-text);
+    font-family: var(--three-body-font-body);
+    font-size: 1rem;
+    transition: var(--three-body-transition);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2300ffff' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 30px;
+}
+
+.three-body-select:focus {
+    outline: none;
+    border-color: var(--three-body-primary);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+/* 表格样式 */
+.three-body-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--three-body-card-bg);
+    border-radius: var(--three-body-radius);
+    overflow: hidden;
+    box-shadow: var(--three-body-shadow);
+}
+
+.three-body-table th {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--three-body-primary);
+    padding: var(--three-body-space-md);
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+.three-body-table td {
+    padding: var(--three-body-space-md);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+    transition: var(--three-body-transition-fast);
+}
+
+.three-body-table tr:hover td {
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.three-body-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 进度条样式 */
+.three-body-progress {
+    height: 8px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: var(--three-body-radius-full);
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.three-body-progress-bar {
+    height: 100%;
+    background: var(--three-body-gradient-primary);
+    border-radius: var(--three-body-radius-full);
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 255, 255, 0.3);
+}
+
+/* 徽章样式 */
+.three-body-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--three-body-space-xs) var(--three-body-space-sm);
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--three-body-primary);
+    border-radius: var(--three-body-radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* 模态框样式 */
+.three-body-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 26, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: all;
+    backdrop-filter: blur(8px);
+    animation: three-body-modal-fade-in 0.3s ease;
+}
+
+@keyframes three-body-modal-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.three-body-modal-content {
+    background: var(--three-body-card-bg);
+    padding: var(--three-body-space-2xl);
+    border-radius: var(--three-body-radius-md);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), var(--three-body-glow-primary);
+    animation: three-body-modal-slide-in 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: var(--three-body-border);
+    backdrop-filter: blur(25px);
+}
+
+@keyframes three-body-modal-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.three-body-modal-close {
+    position: absolute;
+    top: var(--three-body-space-lg);
+    right: var(--three-body-space-lg);
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--three-body-text-secondary);
+    transition: var(--three-body-transition);
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.three-body-modal-close:hover {
+    color: var(--three-body-primary);
+    background: rgba(0, 255, 255, 0.1);
+}
+
+/* 加载动画 */
+.three-body-loading {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 255, 255, 0.2);
+    border-top-color: var(--three-body-primary);
+    border-radius: 50%;
+    animation: three-body-spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes three-body-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 智子动画效果 */
+.three-body-sophon {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--three-body-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--three-body-primary), 0 0 20px var(--three-body-primary);
+    animation: three-body-sophon-pulse 2s ease-in-out infinite;
+}
+
+@keyframes three-body-sophon-pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* 二向箔动画效果 */
+.three-body-foil {
+    position: absolute;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--three-body-secondary), transparent);
+    transform-origin: center center;
+    animation: three-body-foil-float 8s linear infinite;
+}
+
+@keyframes three-body-foil-float {
+    0% {
+        transform: rotate(0deg) translateX(0);
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(360deg) translateX(100px);
+        opacity: 0.3;
+    }
+}
+
+/* 三体风格动画 */
+@keyframes three-body-fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes three-body-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes three-body-glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6), 0 0 40px rgba(0, 255, 255, 0.3);
+    }
+}
+
+/* 应用动画的类 */
+.three-body-animate-fade-in-down {
+    animation: three-body-fade-in-down 1s ease-out;
+}
+
+.three-body-animate-fade-in-up {
+    animation: three-body-fade-in-up 1s ease-out;
+}
+
+.three-body-animate-glow-pulse {
+    animation: three-body-glow-pulse 2s ease-in-out infinite;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .three-body-title {
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+    }
+    
+    .three-body-subtitle {
+        font-size: 1rem;
+    }
+    
+    .three-body-container {
+        padding: var(--three-body-space-xl);
+    }
+    
+    .three-body-card {
+        padding: var(--three-body-space-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .three-body-container {
+        padding: var(--three-body-space-md);
+    }
+    
+    .three-body-title {
+        font-size: 1.8rem;
+    }
+    
+    .three-body-card {
+        padding: var(--three-body-space-md);
+    }
+    
+    .three-body-btn {
+        padding: var(--three-body-space-sm) var(--three-body-space-lg);
+        font-size: 0.9rem;
+    }
+}
+
+/* 滚动条样式 */
+.three-body-theme::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.three-body-theme::-webkit-scrollbar-track {
+    background: var(--three-body-background);
+    border-radius: 4px;
+}
+
+.three-body-theme::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.three-body-theme::-webkit-scrollbar-thumb:hover {
+    background: var(--three-body-primary);
+}
+
+/* 选择文本样式 */
+.three-body-theme::selection {
+    background: var(--three-body-primary);
+    color: var(--three-body-background);
+}
+
+/* 焦点样式 */
+.three-body-theme :focus-visible {
+    outline: 2px solid var(--three-body-primary);
+    outline-offset: 2px;
+}
+
+/* 禁用状态 */
+.three-body-btn:disabled,
+.three-body-input:disabled,
+.three-body-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* 工具提示 */
+[three-body-tooltip] {
+    position: relative;
+}
+
+[three-body-tooltip]::after {
+    content: attr(three-body-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--three-body-card-bg);
+    color: var(--three-body-text);
+    padding: var(--three-body-space-xs) var(--three-body-space-sm);
+    border-radius: var(--three-body-radius-sm);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    border: var(--three-body-border);
+    box-shadow: var(--three-body-shadow);
+}
+
+[three-body-tooltip]:hover::after {
+    opacity: 1;
+    visibility: visible;
+    bottom: calc(100% + 8px);
+}

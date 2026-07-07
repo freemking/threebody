@@ -1,0 +1,18 @@
+- generic [ref=e9]:
+  - heading "📚 English Word Adventure" [level=1] [ref=e10]
+  - paragraph [ref=e11]: Choose your learning mode and start your English journey!
+  - generic [ref=e12]:
+    - button "🏠 Word Monopoly" [ref=e13] [cursor=pointer]
+    - button "🃏 Word Match" [ref=e14] [cursor=pointer]
+  - generic [ref=e15]:
+    - generic [ref=e16]: 中/EN
+    - generic [ref=e17]:
+      - checkbox "EN" [checked]
+      - generic [ref=e18] [cursor=pointer]: EN
+  - button "🔊" [ref=e19] [cursor=pointer]
+  - generic [ref=e20]:
+    - generic [ref=e21]: 🎩
+    - generic [ref=e22]:
+      - generic [ref=e23]: Little Scholar
+      - paragraph [ref=e24]: "Level: 1"
+      - generic [ref=e25]: "EXP: 0/100"
