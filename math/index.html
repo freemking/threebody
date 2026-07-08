@@ -6,17 +6,17 @@
 <title>除法口算练习 - 九九乘法表</title>
 <style>
 :root {
-  --bg: #0f0f1a;
-  --card: #1a1a2e;
-  --accent: #6c63ff;
-  --accent-glow: #8b83ff;
-  --success: #00e676;
-  --danger: #ff5252;
-  --warning: #ffd740;
-  --text: #e0e0e0;
-  --text-secondary: #9e9e9e;
-  --border: #2a2a3e;
-  --input-bg: #252540;
+  --bg: #0a0a1a;
+  --card: rgba(20, 20, 40, 0.8);
+  --accent: #00ffff;
+  --accent-glow: rgba(0, 255, 255, 0.5);
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --text: #ffffff;
+  --text-secondary: #c0c0e0;
+  --border: rgba(0, 255, 255, 0.25);
+  --input-bg: rgba(10, 10, 26, 0.8);
   --radius: 16px;
 }
 
@@ -44,8 +44,8 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.4); }
-  50% { box-shadow: 0 0 0 14px rgba(108,99,255,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4); }
+  50% { box-shadow: 0 0 0 14px rgba(0, 255, 255, 0); }
 }
 
 @keyframes shake {
@@ -76,7 +76,7 @@ body {
 .header h1 {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #6c63ff, #e0a3ff);
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -114,19 +114,21 @@ body {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   margin-bottom: 4px;
+  text-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
 }
 
 .score-item .value {
   font-size: 1.8rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 10px currentColor;
 }
 
 .score-item.timer .value { color: var(--accent); }
 .score-item.timer.warning .value { color: var(--warning); animation: pulse 1s infinite; }
 .score-item.timer.danger .value { color: var(--danger); animation: pulse 0.5s infinite; }
 .score-item.points .value { color: var(--success); }
-.score-item.progress .value { color: #82b1ff; }
+.score-item.progress .value { color: var(--accent); }
 
 /* Card */
 .card {
@@ -168,8 +170,9 @@ body {
 }
 
 .question .operand {
-  color: #fff;
+  color: #ffffff;
   animation: numberAppear 0.3s ease;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
 
 .question .operator {
@@ -201,18 +204,18 @@ body {
 
 .question input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(108,99,255,0.2);
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
 }
 
 .question input.correct {
   border-color: var(--success);
-  box-shadow: 0 0 0 3px rgba(0,230,118,0.2);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
 }
 
 .question input.wrong {
   border-color: var(--danger);
   animation: shake 0.4s ease;
-  box-shadow: 0 0 0 3px rgba(255,82,82,0.2);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
 }
 
 .question input:disabled {
@@ -248,14 +251,14 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #6c63ff, #5a52d5);
-  color: #fff;
-  box-shadow: 0 4px 20px rgba(108,99,255,0.3);
+  background: linear-gradient(135deg, #00ffff, #00cccc);
+  color: #0a0a1a;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(108,99,255,0.45);
+  box-shadow: 0 6px 28px rgba(0, 255, 255, 0.45);
 }
 
 .btn-primary:active {
@@ -324,7 +327,7 @@ body {
 .result-overlay .final-score {
   font-size: 4rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #00e676, #69f0ae);
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -345,6 +348,7 @@ body {
 .result-overlay .stat-val {
   font-size: 1.6rem;
   font-weight: 700;
+  text-shadow: 0 0 10px currentColor;
 }
 
 .result-overlay .stat-label {
@@ -423,8 +427,8 @@ body {
 
 /* Perfect score fireworks */
 @keyframes fireworks {
-  0%, 100% { text-shadow: 0 0 10px #ffd740, 0 0 20px #ff5252; }
-  50% { text-shadow: 0 0 30px #ffd740, 0 0 50px #ff5252, 0 0 70px #6c63ff; }
+  0%, 100% { text-shadow: 0 0 10px #FBBF24, 0 0 20px #00ffff; }
+  50% { text-shadow: 0 0 30px #FBBF24, 0 0 50px #00ffff, 0 0 70px #ff00ff; }
 }
 
 .perfect { animation: fireworks 1s ease infinite; }
@@ -454,7 +458,7 @@ body {
 
 .name-input-group input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(108,99,255,0.2);
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
 }
 
 .name-input-group input::placeholder {
@@ -483,6 +487,7 @@ body {
   margin-bottom: 16px;
   color: var(--accent);
   letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
 .leaderboard table {
@@ -525,9 +530,9 @@ body {
   font-size: 0.8rem;
 }
 
-.leaderboard .rank.gold   { background: rgba(255,215,64,0.2); color: #ffd740; }
-.leaderboard .rank.silver { background: rgba(192,192,192,0.2); color: #c0c0c0; }
-.leaderboard .rank.bronze { background: rgba(205,127,50,0.2); color: #cd7f32; }
+.leaderboard .rank.gold   { background: rgba(0, 255, 255, 0.2); color: #00ffff; }
+.leaderboard .rank.silver { background: rgba(255, 0, 255, 0.15); color: #ff00ff; }
+.leaderboard .rank.bronze { background: rgba(251, 191, 36, 0.2); color: #FBBF24; }
 .leaderboard .rank.normal { color: var(--text-secondary); }
 
 .leaderboard .name-cell {
@@ -541,6 +546,7 @@ body {
 .leaderboard .score-cell {
   font-weight: 700;
   color: var(--success);
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
 }
 
 .leaderboard .highlight-row {
@@ -549,7 +555,7 @@ body {
 
 @keyframes highlightFlash {
   0%, 100% { background: transparent; }
-  50% { background: rgba(108,99,255,0.12); }
+  50% { background: rgba(0, 255, 255, 0.12); }
 }
 
 .leaderboard .empty-msg {
@@ -596,12 +602,12 @@ body {
 
 .tab-bar button.active {
   background: var(--accent);
-  color: #fff;
+  color: #0a0a1a;
 }
 
 .tab-bar button:hover:not(.active) {
   color: #fff;
-  background: rgba(108,99,255,0.15);
+  background: rgba(0, 255, 255, 0.15);
 }
 
 /* Wrong Book */
@@ -661,6 +667,8 @@ body {
 .wrong-book .question-cell {
   font-size: 1.1rem;
   font-weight: 600;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
 .wrong-book .wrong-answer {
@@ -738,12 +746,12 @@ body {
 
 .lb-mode-btn:hover {
   color: #fff;
-  background: rgba(108,99,255,0.12);
+  background: rgba(0, 255, 255, 0.12);
 }
 
 .lb-mode-btn.active {
   background: var(--accent);
-  color: #fff;
+  color: #0a0a1a;
 }
 
 /* Countdown */
@@ -763,7 +771,7 @@ body {
   font-weight: 900;
   color: var(--accent);
   animation: countdownPop 0.8s ease;
-  text-shadow: 0 0 40px rgba(108,99,255,0.5);
+  text-shadow: 0 0 40px rgba(0, 255, 255, 0.7), 0 0 80px rgba(0, 255, 255, 0.4);
 }
 
 /* Mode Selection */
@@ -802,7 +810,7 @@ body {
 
 .btn-mode:hover {
   border-color: var(--accent);
-  background: rgba(108,99,255,0.1);
+  background: rgba(0, 255, 255, 0.1);
   transform: translateX(4px);
 }
 
@@ -829,10 +837,10 @@ body {
   color: var(--text-secondary);
 }
 
-.btn-mode.mode-fast:hover { border-color: #00e676; background: rgba(0,230,118,0.08); }
-.btn-mode.mode-normal:hover { border-color: var(--accent); background: rgba(108,99,255,0.08); }
-.btn-mode.mode-marathon:hover { border-color: #ff5252; background: rgba(255,82,82,0.08); }
-.btn-mode.mode-boom:hover { border-color: #ffd740; background: rgba(255,215,64,0.08); }
+.btn-mode.mode-fast:hover { border-color: #10b981; background: rgba(16, 185, 129, 0.08); }
+.btn-mode.mode-normal:hover { border-color: var(--accent); background: rgba(0, 255, 255, 0.08); }
+.btn-mode.mode-marathon:hover { border-color: #ef4444; background: rgba(239, 68, 68, 0.08); }
+.btn-mode.mode-boom:hover { border-color: #FBBF24; background: rgba(251, 191, 36, 0.08); }
 
 @keyframes countdownPop {
   0% { transform: scale(1.8); opacity: 0; }

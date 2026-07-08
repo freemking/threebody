@@ -14,10 +14,10 @@
     max-height: calc(100% - var(--space-2xl));
     box-sizing: border-box;
     align-self: flex-start;
-    background: linear-gradient(135deg, rgba(255, 107, 107, 0.95), rgba(255, 142, 83, 0.95));
+    background: linear-gradient(135deg, rgba(20, 20, 40, 0.95), rgba(26, 26, 10, 0.95));
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* 年级按钮紧凑样式 */
@@ -46,9 +46,9 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 255, 255, 0.08);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 255, 255, 0.15);
     border-radius: 12px;
     padding: 8px 14px;
     min-width: 100px;
@@ -73,7 +73,8 @@
 .wb-stat-val {
     font-size: 1.1em;
     font-weight: 700;
-    color: #FFD93D;
+    color: var(--accent-color);
+    text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
 }
 
 /* 爆炸区域 */
@@ -322,6 +323,7 @@
 .wb-stat-num {
     font-size: 1.6em;
     font-weight: 800;
+    text-shadow: 0 0 10px currentColor;
 }
 
 .wb-stat-lbl {

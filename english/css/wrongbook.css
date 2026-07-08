@@ -1,36 +1,36 @@
 /* === 错题本 - 现代化视觉设计 === */
 
-/* 设计系统变量 */
+/* 设计系统变量 - 三体风格 */
 :root {
-    /* 颜色方案 - 学习主题 */
-    --wb-primary: #6366f1;
-    --wb-primary-light: #818cf8;
-    --wb-primary-dark: #4f46e5;
-    --wb-accent: #f59e0b;
-    --wb-accent-light: #fbbf24;
+    /* 颜色方案 - 三体主题 */
+    --wb-primary: #00ffff;
+    --wb-primary-light: rgba(0, 255, 255, 0.7);
+    --wb-primary-dark: #00cccc;
+    --wb-accent: #FBBF24;
+    --wb-accent-light: #FEF3C7;
     --wb-success: #10b981;
     --wb-success-light: #34d399;
     --wb-danger: #ef4444;
     --wb-danger-light: #f87171;
-    --wb-warning: #f59e0b;
+    --wb-warning: #F59E0B;
     
-    /* 背景色 */
-    --wb-bg-primary: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
-    --wb-bg-card: rgba(255, 255, 255, 0.08);
-    --wb-bg-card-hover: rgba(255, 255, 255, 0.12);
+    /* 背景色 - 三体深色 */
+    --wb-bg-primary: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+    --wb-bg-card: rgba(0, 255, 255, 0.05);
+    --wb-bg-card-hover: rgba(0, 255, 255, 0.1);
     --wb-bg-card-mastered: rgba(16, 185, 129, 0.1);
     
-    /* 文本颜色 */
+    /* 文本颜色 - 三体风格 */
     --wb-text-primary: #ffffff;
-    --wb-text-secondary: rgba(255, 255, 255, 0.8);
-    --wb-text-muted: rgba(255, 255, 255, 0.6);
-    --wb-text-accent: rgba(245, 158, 11, 0.9);
+    --wb-text-secondary: rgba(255, 255, 255, 0.85);
+    --wb-text-muted: rgba(192, 192, 224, 0.7);
+    --wb-text-accent: rgba(0, 255, 255, 0.95);
     
-    /* 边框和阴影 */
-    --wb-border: rgba(255, 255, 255, 0.15);
+    /* 边框和阴影 - 三体风格 */
+    --wb-border: rgba(0, 255, 255, 0.15);
     --wb-border-mastered: rgba(16, 185, 129, 0.4);
-    --wb-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    --wb-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --wb-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --wb-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
     
     /* 间距 */
     --wb-space-xs: 4px;
@@ -50,9 +50,9 @@
     --wb-radius-full: 9999px;
     
     /* 字体 */
-    --wb-font-display: 'Nunito', 'Segoe UI', system-ui, sans-serif;
-    --wb-font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
-    --wb-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --wb-font-display: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --wb-font-body: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --wb-font-mono: 'Fira Code', monospace;
     
     /* 动画 */
     --wb-transition-fast: 0.15s ease;
@@ -78,8 +78,8 @@
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.08) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
 }
@@ -144,6 +144,7 @@
     font-family: var(--wb-font-display);
     line-height: 1;
     margin-bottom: 0.25rem;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
 }
 
 /* 统计标签 */

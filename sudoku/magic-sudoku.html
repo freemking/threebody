@@ -13,17 +13,22 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: '#D4AF37',
-                        goldLight: '#F0E68C',
-                        parchment: '#F5F1E2',
-                        darkMagic: '#1A1409',
-                        shadowMagic: '#3A2E18',
+                        gold: '#00ffff',
+                        goldLight: 'rgba(0, 255, 255, 0.7)',
+                        parchment: '#1a1a3a',
+                        darkMagic: '#0a0a1a',
+                        shadowMagic: '#141428',
                         error: '#FFEEEE',
-                        success: '#E6FFEE'
+                        success: '#E6FFEE',
+                        // 优化后的文字颜色
+                        textPrimary: '#e0e0ff',
+                        textSecondary: '#a0a0c0',
+                        textBright: '#ffffff',
+                        textGold: '#00ffff'
                     },
                     fontFamily: {
-                        magic: ['Garamond', 'Georgia', 'Times New Roman', 'serif'],
-                        numbers: ['Palatino', 'Georgia', 'serif']
+                        magic: ['Segoe UI', 'Microsoft YaHei', 'sans-serif'],
+                        numbers: ['Segoe UI', 'Microsoft YaHei', 'sans-serif']
                     }
                 }
             }
@@ -36,13 +41,13 @@
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             }
             .text-shadow-gold {
-                text-shadow: 0 0 5px rgba(212, 175, 55, 0.7);
+                text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
             }
             .border-thick {
                 border-width: 2px;
             }
             .parchment-bg {
-                background-image: url('https://picsum.photos/id/175/1200/800');
+                background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
                 background-size: cover;
                 background-position: center;
                 background-attachment: fixed;
@@ -55,18 +60,19 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: rgba(245, 241, 226, 0.9);
+                background-color: rgba(10, 10, 26, 0.95);
                 z-index: -1;
             }
             .magic-border {
-                border-image: linear-gradient(45deg, #D4AF37, #F0E68C, #D4AF37) 1;
+                border-image: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff) 1;
             }
             .cell-hover {
                 transition: all 0.2s ease;
             }
             .cell-hover:hover:not(.fixed-number) {
-                background-color: rgba(212, 175, 55, 0.15);
+                background-color: rgba(0, 255, 255, 0.15);
                 transform: scale(1.05);
+                box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
             }
             .bounce-in {
                 animation: bounce-in 0.5s ease forwards;
@@ -87,6 +93,22 @@
             .color-transition {
                 transition: color 0.5s ease;
             }
+            .text-textPrimary {
+                color: #e0e0ff;
+            }
+            .text-textSecondary {
+                color: #a0a0c0;
+            }
+            .text-textBright {
+                color: #ffffff;
+            }
+            .text-textGold {
+                color: #00ffff;
+            }
+            .cell-number {
+                color: #ffffff;
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(0, 255, 255, 0.3);
+            }
             .celebrate {
                 animation: celebrate 1s ease-in-out infinite alternate;
             }
@@ -97,7 +119,7 @@
         }
     </style>
 </head>
-<body class="bg-darkMagic text-shadow min-h-screen font-magic relative overflow-x-hidden">
+<body class="bg-darkMagic text-shadow min-h-screen font-magic relative overflow-x-hidden" style="background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);">
     <!-- 背景装饰元素 -->
     <div class="fixed inset-0 z-0 opacity-10 pointer-events-none">
         <div class="absolute top-10 left-10 w-40 h-40 rounded-full border border-gold"></div>
@@ -127,22 +149,22 @@
 
             <!-- 控制面板 -->
             <div class="w-full md:w-80 bg-parchment/70 rounded-lg p-6 shadow-xl border border-gold/50 bounce-in" style="animation-delay: 0.2s">
-                <h2 class="text-2xl font-bold text-darkMagic mb-4 text-center border-b border-gold/30 pb-2">魔法控制</h2>
+                <h2 class="text-2xl font-bold text-textBright mb-4 text-center border-b border-gold/30 pb-2">魔法控制</h2>
                 
                 <!-- 难度选择 -->
                 <div class="mb-6">
-                    <label class="block text-shadow text-darkMagic mb-2">难度:</label>
+                    <label class="block text-shadow text-textBright mb-2">难度:</label>
                     <div class="flex gap-2">
-                        <button id="easy" class="difficulty-btn flex-1 bg-gold/20 hover:bg-gold/40 text-darkMagic py-2 px-3 rounded transition-all active">简单</button>
-                        <button id="medium" class="difficulty-btn flex-1 bg-gold/20 hover:bg-gold/40 text-darkMagic py-2 px-3 rounded transition-all">中等</button>
-                        <button id="hard" class="difficulty-btn flex-1 bg-gold/20 hover:bg-gold/40 text-darkMagic py-2 px-3 rounded transition-all">困难</button>
+                        <button id="easy" class="difficulty-btn flex-1 bg-gold/20 hover:bg-gold/40 text-textBright py-2 px-3 rounded transition-all active">简单</button>
+                        <button id="medium" class="difficulty-btn flex-1 bg-gold/20 hover:bg-gold/40 text-textBright py-2 px-3 rounded transition-all">中等</button>
+                        <button id="hard" class="difficulty-btn flex-1 bg-gold/20 hover:bg-gold/40 text-textBright py-2 px-3 rounded transition-all">困难</button>
                     </div>
                 </div>
                 
                 <!-- 游戏状态 -->
                 <div class="mb-6 p-3 bg-darkMagic/10 rounded-lg border border-gold/30">
-                    <h3 class="text-darkMagic font-semibold mb-1">游戏状态</h3>
-                    <p id="status-message" class="text-darkMagic/80">准备开始新游戏</p>
+                    <h3 class="text-textBright font-semibold mb-1">游戏状态</h3>
+                    <p id="status-message" class="text-textSecondary">准备开始新游戏</p>
                 </div>
                 
                 <!-- 功能按钮 -->
@@ -150,29 +172,29 @@
                     <button id="new-game" class="bg-gold hover:bg-goldLight text-darkMagic font-bold py-3 px-4 rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2">
                         <i class="fa fa-refresh"></i> 新游戏
                     </button>
-                    <button id="check-solution" class="bg-shadowMagic hover:bg-darkMagic text-parchment font-bold py-3 px-4 rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2">
+                    <button id="check-solution" class="bg-shadowMagic hover:bg-darkMagic text-textBright font-bold py-3 px-4 rounded transition-all transform hover:scale-105 flex items-center justify-center gap-2">
                         <i class="fa fa-check"></i> 检查答案
                     </button>
-                    <button id="show-rules" class="bg-transparent border border-gold/50 hover:border-gold text-darkMagic hover:text-gold font-bold py-3 px-4 rounded transition-all flex items-center justify-center gap-2">
+                    <button id="show-rules" class="bg-transparent border border-gold/50 hover:border-gold text-textBright hover:text-gold font-bold py-3 px-4 rounded transition-all flex items-center justify-center gap-2">
                         <i class="fa fa-info-circle"></i> 数独规则
                     </button>
                 </div>
                 
                 <!-- 移动端数字键盘 -->
                 <div class="md:hidden grid grid-cols-3 gap-2 mb-4">
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">1</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">2</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">3</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">4</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">5</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">6</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">7</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">8</button>
-                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-darkMagic py-3 rounded text-xl transition-all">9</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">1</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">2</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">3</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">4</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">5</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">6</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">7</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">8</button>
+                    <button class="num-btn bg-gold/10 hover:bg-gold/30 text-textBright py-3 rounded text-xl transition-all">9</button>
                 </div>
                 
                 <div class="md:hidden">
-                    <button id="clear-btn" class="w-full bg-error/50 hover:bg-error/80 text-darkMagic font-bold py-3 rounded transition-all">
+                    <button id="clear-btn" class="w-full bg-error/50 hover:bg-error/80 text-textBright font-bold py-3 rounded transition-all">
                         <i class="fa fa-eraser"></i> 清除
                     </button>
                 </div>
@@ -180,8 +202,8 @@
         </main>
         
         <!-- 页脚 -->
-        <footer class="mt-12 text-center text-parchment/60 text-sm">
-            <p>魔法数独 &copy; 2023 - 用智慧解开神秘谜题</p>
+        <footer class="mt-12 text-center text-textSecondary text-sm">
+            <p>魔法数独 - 用智慧解开神秘谜题</p>
         </footer>
     </div>
 
@@ -189,12 +211,12 @@
     <div id="rules-modal" class="fixed inset-0 bg-darkMagic/80 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-parchment rounded-lg p-6 max-w-md w-full mx-4 transform scale-95 transition-transform duration-300">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-2xl font-bold text-darkMagic">数独规则</h2>
-                <button id="close-rules" class="text-darkMagic/70 hover:text-darkMagic text-2xl transition-colors">
+                <h2 class="text-2xl font-bold text-textBright">数独规则</h2>
+                <button id="close-rules" class="text-textSecondary hover:text-textBright text-2xl transition-colors">
                     <i class="fa fa-times"></i>
                 </button>
             </div>
-            <div class="text-darkMagic space-y-3">
+            <div class="text-textPrimary space-y-3">
                 <p>数独是一个9x9的数字谜题，目标是在每个单元格中填入1-9的数字，同时满足以下规则：</p>
                 <ul class="list-disc pl-5 space-y-2">
                     <li>每一行必须包含1-9的所有数字，不能重复</li>
@@ -216,9 +238,9 @@
             <div class="mb-4 text-gold text-5xl celebrate">
                 <i class="fa fa-trophy"></i>
             </div>
-            <h2 class="text-3xl font-bold text-darkMagic mb-2">恭喜你！</h2>
-            <p class="text-xl text-darkMagic mb-6">你成功解开了这个魔法数独谜题！</p>
-            <p id="completion-time" class="text-darkMagic/80 mb-6">用时: <span id="time-value">00:00</span></p>
+            <h2 class="text-3xl font-bold text-textBright mb-2">恭喜你！</h2>
+            <p class="text-xl text-textPrimary mb-6">你成功解开了这个魔法数独谜题！</p>
+            <p id="completion-time" class="text-textSecondary mb-6">用时: <span id="time-value">00:00</span></p>
             <button id="new-game-after-win" class="w-full bg-gold hover:bg-goldLight text-darkMagic font-bold py-3 px-4 rounded transition-all transform hover:scale-105 mb-3">
                 开始新游戏
             </button>
@@ -267,7 +289,8 @@
                 for (let row = 0; row < 9; row++) {
                     for (let col = 0; col < 9; col++) {
                         const cell = document.createElement('div');
-                        cell.classList.add('cell', 'cell-hover', 'flex', 'items-center', 'justify-center', 'font-numbers', 'text-xl', 'md:text-2xl', 'cursor-pointer', 'border', 'border-gray-300', 'transition-all');
+                        cell.classList.add('cell', 'cell-hover', 'flex', 'items-center', 'justify-center', 'font-numbers', 'text-xl', 'md:text-2xl', 'cursor-pointer', 'border', 'transition-all');
+                        cell.style.borderColor = 'rgba(0, 255, 255, 0.3)';
                         
                         // 设置3x3区块的粗边框
                         if (row % 3 === 0 && row !== 0) {
@@ -410,13 +433,15 @@
                         const value = Sudoku.board[row][col];
                         
                         cell.textContent = value !== 0 ? value : '';
-                        cell.classList.remove('text-darkMagic', 'text-shadow-gold', 'bg-error', 'bg-success');
+                        cell.classList.remove('text-textBright', 'text-shadow-gold', 'bg-error', 'bg-success');
                         
                         // 设置初始数字和玩家输入数字的样式区别
                         if (Sudoku.original[row][col] !== 0) {
-                            cell.classList.add('text-darkMagic', 'font-bold');
+                            cell.classList.add('text-textBright', 'font-bold');
+                            cell.style.textShadow = '0 0 8px rgba(255, 255, 255, 0.5)';
                         } else if (value !== 0) {
                             cell.classList.add('text-shadow-gold', 'font-bold');
+                            cell.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.8)';
                         }
                     }
                 }
@@ -439,6 +464,7 @@
                 cell.textContent = num;
                 cell.classList.remove('bg-error', 'bg-success');
                 cell.classList.add('text-shadow-gold', 'font-bold');
+                cell.style.textShadow = '0 0 10px rgba(0, 255, 255, 0.8)';
                 
                 // 移动到下一个单元格
                 moveToNextCell();
@@ -458,6 +484,7 @@
                 const cell = getCellElement(row, col);
                 cell.textContent = '';
                 cell.classList.remove('bg-error', 'bg-success');
+                cell.style.textShadow = '';
             }
 
             // 移动到下一个单元格

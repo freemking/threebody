@@ -45,11 +45,11 @@
     
     /* 三体风格中性色 */
     --background-color: #0a0a1a;   /* 三体深色背景 */
-    --text-color: #e0e0ff;         /* 三体浅色文字 */
-    --light-text: #a0a0c0;         /* 三体次要文字 */
-    --muted-text: #8080a0;         /* 三体更浅文字 */
-    --border-color: rgba(0, 255, 255, 0.1); /* 三体边框色 */
-    --border-light: rgba(0, 255, 255, 0.05); /* 三体极浅边框色 */
+    --text-color: #ffffff;         /* 三体白色文字 - 更亮 */
+    --light-text: #c0c0e0;         /* 三体次要文字 - 更亮 */
+    --muted-text: #a0a0c0;         /* 三体更浅文字 - 更亮 */
+    --border-color: rgba(0, 255, 255, 0.25); /* 三体边框色 - 更明显 */
+    --border-light: rgba(0, 255, 255, 0.15); /* 三体极浅边框色 - 更明显 */
     
     /* 三体风格阴影系统 */
     --shadow-sm: 0 0 5px rgba(0, 255, 255, 0.1);
@@ -601,6 +601,7 @@ body::after {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
 .player-level {
@@ -721,6 +722,7 @@ body::after {
     padding: var(--space-sm) var(--space-md);
     border-radius: 20px;
     border: 1px solid rgba(251, 191, 36, 0.3);
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
 }
 
 #game-canvas-container {
@@ -995,6 +997,7 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-shadow: none;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
 }
 
 .word-phonetic {
@@ -1389,7 +1392,7 @@ body::after {
     font-weight: 800;
     color: var(--primary-color);
     font-family: var(--font-display);
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
 }
 
 .wrongbook-stat-label {
@@ -1407,9 +1410,9 @@ body::after {
 }
 
 .filter-btn {
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--light-text);
+    border: 1px solid rgba(0, 255, 255, 0.2);
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--border-radius-full);
     font-family: var(--font-body);
@@ -1420,13 +1423,14 @@ body::after {
 }
 
 .filter-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 255, 255, 0.2);
+    color: var(--primary-color);
 }
 
 .filter-btn.active {
-    background: var(--purple-color);
-    color: white;
-    border-color: var(--purple-color);
+    background: var(--primary-color);
+    color: var(--background-color);
+    border-color: var(--primary-color);
 }
 
 .wrongbook-list {
@@ -1440,17 +1444,18 @@ body::after {
 }
 
 .wrongbook-item {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 255, 255, 0.05);
     border-radius: var(--border-radius);
     padding: var(--space-lg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 255, 255, 0.1);
     transition: var(--transition);
 }
 
 .wrongbook-item:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 255, 255, 0.1);
     transform: translateY(-2px);
+    border-color: rgba(0, 255, 255, 0.3);
 }
 
 .wrongbook-item.mastered {
@@ -1468,8 +1473,9 @@ body::after {
 .wrongbook-word {
     font-size: 1.5rem;
     font-weight: 400;
-    color: white;
+    color: var(--primary-color);
     font-family: var(--font-display);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
 }
 
 .wrongbook-word.mastered-text {
@@ -1510,35 +1516,35 @@ body::after {
 }
 
 .wrongbook-meaning {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-color);
     font-size: 1.1rem;
     margin-bottom: var(--space-sm);
 }
 
 .wrongbook-phonetic {
-    color: rgba(150, 200, 255, 0.9);
+    color: var(--light-text);
     font-size: 0.95rem;
     margin-bottom: var(--space-xs);
     font-style: italic;
 }
 
 .wrongbook-rootAffix {
-    color: rgba(255, 200, 100, 0.9);
+    color: var(--accent-color);
     font-size: 0.95rem;
     margin-bottom: var(--space-sm);
     padding: var(--space-xs) var(--space-sm);
-    background: rgba(255, 200, 100, 0.1);
-    border-radius: var(--radius-sm);
-    border-left: 3px solid rgba(255, 200, 100, 0.5);
+    background: rgba(251, 191, 36, 0.1);
+    border-radius: var(--border-radius-sm);
+    border-left: 3px solid rgba(251, 191, 36, 0.5);
 }
 
 .wrongbook-rootAffix-label {
     font-weight: 600;
-    color: rgba(255, 200, 100, 1);
+    color: var(--accent-color);
 }
 
 .wrongbook-example {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--muted-text);
     font-size: 0.9rem;
     font-style: italic;
     margin-bottom: var(--space-sm);
@@ -1548,7 +1554,7 @@ body::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--muted-text);
     font-size: 0.8rem;
 }
 
@@ -1563,9 +1569,9 @@ body::after {
 }
 
 .wrongbook-action-btn-small {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    border: none;
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 255, 255, 0.2);
     padding: 4px 12px;
     border-radius: var(--border-radius-sm);
     font-size: 0.8rem;
@@ -1574,23 +1580,29 @@ body::after {
 }
 
 .wrongbook-action-btn-small:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(0, 255, 255, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
 
 .wrongbook-action-btn-small.danger {
     background: rgba(239, 68, 68, 0.3);
+    border-color: rgba(239, 68, 68, 0.5);
 }
 
 .wrongbook-action-btn-small.danger:hover {
     background: rgba(239, 68, 68, 0.5);
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
 }
 
 .wrongbook-action-btn-small.success {
     background: rgba(16, 185, 129, 0.3);
+    border-color: rgba(16, 185, 129, 0.5);
 }
 
 .wrongbook-action-btn-small.success:hover {
     background: rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
 }
 
 .wrongbook-actions {
@@ -1613,30 +1625,35 @@ body::after {
 .wrongbook-empty {
     text-align: center;
     padding: var(--space-4xl);
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--light-text);
 }
 
 .wrongbook-empty-icon {
     font-size: 4rem;
     margin-bottom: var(--space-lg);
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
 }
 
 .wrongbook-empty-text {
     font-size: 1.2rem;
+    color: var(--text-color);
 }
 
 .wrongbook-speak-btn {
     background: none;
     border: none;
-    color: var(--accent-color);
+    color: var(--primary-color);
     cursor: pointer;
     font-size: 1.2rem;
     padding: 4px;
     transition: var(--transition);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.3);
 }
 
 .wrongbook-speak-btn:hover {
     transform: scale(1.2);
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
 }
 
 /* 响应式设计 */

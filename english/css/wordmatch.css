@@ -13,10 +13,10 @@
     max-height: calc(100% - var(--space-2xl));
     box-sizing: border-box;
     align-self: flex-start;
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.95), rgba(167, 139, 250, 0.95));
+    background: linear-gradient(135deg, rgba(20, 20, 40, 0.95), rgba(30, 15, 30, 0.95));
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
 /* 年级按钮紧凑样式 */
@@ -43,23 +43,23 @@
     align-items: center;
     gap: 8px;
     padding: 16px 12px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid rgba(0, 255, 255, 0.15);
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(10, 10, 26, 0.8);
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .wm-theme-btn:hover {
-    border-color: #667eea;
+    border-color: var(--primary-color);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 255, 255, 0.2);
 }
 
 .wm-theme-btn.active {
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3), 0 12px 35px rgba(102, 126, 234, 0.3);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.3), 0 12px 35px rgba(0, 255, 255, 0.2);
     transform: translateY(-4px) scale(1.02);
 }
 
@@ -77,12 +77,13 @@
 .wm-theme-name {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #4a5568;
+    color: #c0c0e0;
     transition: color 0.3s ease;
 }
 
 .wm-theme-btn.active .wm-theme-name {
-    color: #667eea;
+    color: #00ffff;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
 }
 
 /* ── 游戏界面现代化设计 ── */

@@ -27,7 +27,11 @@ echo Press Ctrl+C to stop the server
 echo ========================================
 echo.
 
-REM Use Node.js http-server module
-npx http-server . -p 8080 -c-1 --cors
+REM Start HTTP server in background
+echo Starting HTTP server in background...
+start "HTTP Server" cmd /c "npx http-server . -p 8080 -c-1 --cors"
+timeout /t 2 /nobreak >nul
+echo Opening Edge browser...
+start msedge http://localhost:8080
 
 pause
