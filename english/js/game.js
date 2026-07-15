@@ -74,6 +74,24 @@ class GameEngine {
     }
 
     switchScene(mode) {
+        // 清理上一个场景的语言切换监听器
+        if (this._langChangeHandler) {
+            document.removeEventListener('languageChanged', this._langChangeHandler);
+            this._langChangeHandler = null;
+        }
+
+        // 清理动画定时器和骰子动画
+        this._animTimers.forEach(t => clearTimeout(t));
+        this._animTimers = [];
+        if (this._diceInterval) {
+            clearInterval(this._diceInterval);
+            this._diceInterval = null;
+        }
+        if (this._floatTimer) {
+            clearTimeout(this._floatTimer);
+            this._floatTimer = null;
+        }
+
         // 切换游戏时清除容器上的主题类，防止主题样式泄漏到其他游戏
         const container = document.getElementById('game-canvas-container');
         if (container) {
@@ -213,10 +231,10 @@ class GameEngine {
         const aiConfigs = this.aiConfigs || [{ name: 'AI', difficulty: 80 }];
         
         this.monopolyState = {
-            playerPos: 0, playerMoney: 1500,
+            playerPos: 0, playerMoney: 1000,
             ais: aiConfigs.map((config, i) => ({
                 pos: 0,
-                money: 1500,
+                money: 1000,
                 totalOwned: 0,
                 name: config.name,
                 difficulty: config.difficulty,
@@ -229,7 +247,8 @@ class GameEngine {
             chalStep: 0, chalWord: null,
             totalOwned: 0,
             startTime: Date.now(), gameOver: false,
-            round: 1
+            round: 1,
+            _logEntries: [] // 结构化事件日志（支持语言切换重渲染）
         };
 
         const cells = this._genBoard(words);
@@ -259,6 +278,7 @@ class GameEngine {
         
         gameWrap.innerHTML = `
             <div class="monopoly-left-panel">
+                <button class="back-game-btn" id="btn-exit-monopoly">← ${t('btnExitGame')}</button>
                 <div class="panel-section round-section">
                     <div class="panel-title">🎯 ${t('round')}</div>
                     <div class="stat-row"><span class="stat-icon">🔄</span><span id="round-count">${t('round')} 1</span></div>
@@ -294,7 +314,56 @@ class GameEngine {
             }
         });
 
+        // Enter键掷骰子
+        this._rollKeyHandler = (e) => {
+            if (e.key === 'Enter' && !this.monopolyState.isRolling && this.monopolyState.isPlayerTurn && !this.monopolyState.gameOver) {
+                e.preventDefault();
+                this._rollDice();
+            }
+        };
+        document.addEventListener('keydown', this._rollKeyHandler);
+
+        // 退出游戏按钮事件
+        document.getElementById('btn-exit-monopoly').addEventListener('click', () => {
+            audioManager.playClick();
+            // 清理游戏状态
+            if (this._langChangeHandler) {
+                document.removeEventListener('languageChanged', this._langChangeHandler);
+                this._langChangeHandler = null;
+            }
+            // 清理动画定时器
+            this._animTimers.forEach(t => clearTimeout(t));
+            this._animTimers = [];
+            // 清理骰子动画定时器
+            if (this._diceInterval) {
+                clearInterval(this._diceInterval);
+                this._diceInterval = null;
+            }
+            // 清理浮动提示定时器
+            if (this._floatTimer) {
+                clearTimeout(this._floatTimer);
+                this._floatTimer = null;
+            }
+            // 清理掷骰子键盘监听
+            if (this._rollKeyHandler) {
+                document.removeEventListener('keydown', this._rollKeyHandler);
+                this._rollKeyHandler = null;
+            }
+            // 重置游戏状态
+            this.monopolyState = null;
+            // 返回主菜单
+            window.app.showMainMenu();
+        });
+
         this._updateUI();
+
+        // 监听语言切换事件，重渲染事件日志和更新按钮文本
+        this._langChangeHandler = () => {
+            this._reRenderEventLog();
+            const exitBtn = document.getElementById('btn-exit-monopoly');
+            if (exitBtn) exitBtn.textContent = `← ${t('btnExitGame')}`;
+        };
+        document.addEventListener('languageChanged', this._langChangeHandler);
     }
 
     _genBoard(words) {
@@ -321,8 +390,8 @@ class GameEngine {
                 wordIndex++;
                 name = word.meaning || word.word;
                 color = '#1a5276';
-                price = 100 + secureRandomInt(0, 199);
-                rent = 50 + secureRandomInt(0, 99);
+                rent = 100 + secureRandomInt(0, 199);
+                price = rent; // 价格=租金，用于收费
             }
             cells.push({ type, name, color, word, owner, price, rent, amount, bonusType, index: i, level: 0, upgradeCount: 0 });
         }
@@ -357,7 +426,7 @@ class GameEngine {
                     cellDiv.innerHTML = `
                         <div class="cell-level" id="cell-level-${cellIndex}"></div>
                         <div class="cell-name"><span class="cell-name-text">${cell.name}</span></div>
-                        ${cell.type === 'word' && cell.price ? `<div class="cell-price">$${cell.price}</div>` : ''}
+                        ${cell.type === 'word' && cell.rent ? `<div class="cell-price">$${cell.rent}</div>` : ''}
                         ${cell.type === 'tax' && cell.amount ? `<div class="cell-price">-$${cell.amount}</div>` : ''}
                         <div class="cell-owner" id="cell-owner-${cellIndex}"></div>
                         <div class="cell-word-display" id="cell-word-${cellIndex}"></div>
@@ -546,22 +615,64 @@ class GameEngine {
     }
 
     // === Event Log ===
-    _addEventLog(text, type = 'info') {
+    _addEventLog(entry, type = 'info') {
         const logContainer = document.getElementById('event-log-list');
         if (!logContainer) return;
-        
+
+        // 支持两种调用方式：
+        // 1. _addEventLog({ key, params, type }) — 结构化，支持语言切换
+        // 2. _addEventLog(text, type) — 旧式纯文本
+        if (typeof entry === 'object' && entry.key) {
+            // 结构化日志
+            if (this.monopolyState && this.monopolyState._logEntries) {
+                this.monopolyState._logEntries.push({ ...entry, time: Date.now() });
+                // 限制数量
+                while (this.monopolyState._logEntries.length > 50) {
+                    this.monopolyState._logEntries.shift();
+                }
+            }
+            this._renderOneLog(entry, logContainer);
+        } else {
+            // 旧式纯文本日志
+            const text = entry;
+            const logItem = document.createElement('div');
+            logItem.className = `event-log-item event-log-${type}`;
+            const lang = (window.app && window.app.lang) || 'en';
+            const time = new Date().toLocaleTimeString(lang === 'zh' ? 'zh-CN' : 'en-US', { hour: '2-digit', minute: '2-digit' });
+            logItem.innerHTML = `<span class="event-log-time">${time}</span><span class="event-log-text">${text}</span>`;
+            logContainer.insertBefore(logItem, logContainer.firstChild);
+            while (logContainer.children.length > 50) {
+                logContainer.removeChild(logContainer.lastChild);
+            }
+        }
+    }
+
+    // 渲染单条结构化日志
+    _renderOneLog(entry, logContainer) {
+        const { key, params, type } = entry;
+        let text = t(key);
+        if (params) {
+            Object.entries(params).forEach(([k, v]) => {
+                text = text.split(`{${k}}`).join(v);
+            });
+        }
         const logItem = document.createElement('div');
-        logItem.className = `event-log-item event-log-${type}`;
-        
-        const time = new Date().toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+        logItem.className = `event-log-item event-log-${type || 'info'}`;
+        const lang = (window.app && window.app.lang) || 'en';
+        const time = new Date(entry.time || Date.now()).toLocaleTimeString(lang === 'zh' ? 'zh-CN' : 'en-US', { hour: '2-digit', minute: '2-digit' });
         logItem.innerHTML = `<span class="event-log-time">${time}</span><span class="event-log-text">${text}</span>`;
-        
-        // 添加到列表顶部
         logContainer.insertBefore(logItem, logContainer.firstChild);
-        
-        // 限制日志数量，最多显示50条
-        while (logContainer.children.length > 50) {
-            logContainer.removeChild(logContainer.lastChild);
+    }
+
+    // 语言切换时重渲染所有事件日志
+    _reRenderEventLog() {
+        const logContainer = document.getElementById('event-log-list');
+        if (!logContainer || !this.monopolyState) return;
+        logContainer.innerHTML = '';
+        const entries = this.monopolyState._logEntries || [];
+        // 从最新到最旧渲染（新条目插入顶部）
+        for (let i = entries.length - 1; i >= 0; i--) {
+            this._renderOneLog(entries[i], logContainer);
         }
     }
 
@@ -588,6 +699,19 @@ class GameEngine {
             } else {
                 levelEl.textContent = '';
                 levelEl.style.display = 'none';
+            }
+        }
+
+        // 更新租金显示
+        if (cell.type === 'word') {
+            const priceEl = cellEl.querySelector('.cell-price');
+            if (priceEl) {
+                priceEl.textContent = `$${cell.rent || 100}`;
+                if (animate) {
+                    priceEl.classList.remove('price-update-animate');
+                    void priceEl.offsetWidth;
+                    priceEl.classList.add('price-update-animate');
+                }
             }
         }
 
@@ -693,11 +817,12 @@ class GameEngine {
         const faces = ['⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
         const diceEl = document.getElementById('dice-display');
         let count = 0;
-        const interval = setInterval(() => {
+        this._diceInterval = setInterval(() => {
             diceEl.textContent = faces[Math.floor(Math.random() * 6)];
             count++;
             if (count >= 12) {
-                clearInterval(interval);
+                clearInterval(this._diceInterval);
+                this._diceInterval = null;
                 const v = secureRandomInt(1, 6);
                 ms.diceValue = v;
                 diceEl.textContent = faces[v - 1];
@@ -711,7 +836,7 @@ class GameEngine {
         let moved = 0;
         
         // Log dice roll event
-        this._addEventLog(`Player rolled ${steps}`, 'player');
+        this._addEventLog({ key: 'logPlayerRolled', params: { steps }, type: 'player' });
 
         const moveStep = () => {
             ms.playerPos = (ms.playerPos + 1) % ms.cells.length;
@@ -724,7 +849,7 @@ class GameEngine {
                 ms.playerMoney += 100;
                 this._updateUI();
                 this.showFloat('Passed Start +$100', '#27AE60');
-                this._addEventLog('Player passed Start +$100', 'gain');
+                this._addEventLog({ key: 'logPlayerPassedStart', type: 'gain' });
             }
 
             if (moved >= steps) {
@@ -801,7 +926,7 @@ class GameEngine {
             ms.playerMoney -= taxAmount;
             this._updateUI();
             this.showFloat(`${t('tax')} -$${taxAmount}`, '#E74C3C');
-            this._addEventLog(`${t('player')} ${t('taxPay')} -$${taxAmount}`, 'player');
+            this._addEventLog({ key: 'logPlayerTax', params: { amount: `$${taxAmount}` }, type: 'player' });
             if (this._checkBankrupt()) return;
             this._endTurn();
         } else if (c.type === 'word') {
@@ -845,12 +970,12 @@ class GameEngine {
                     this._updateUI();
                     this.showFloat(`${ai.name} occupied successfully!`, '#E74C3C');
                     this.showFloat('+$100', '#27AE60');
-                    this._addEventLog(`${ai.name} occupied "${c.word ? c.word.word : 'Unknown'}" +$100`, 'ai');
+                    this._addEventLog({ key: 'logAiOccupied', params: { name: ai.name, word: c.word ? c.word.word : 'Unknown' }, type: 'ai' });
                 } else {
                     ai.money -= 100;
                     this._updateUI();
                     this.showFloat(`${ai.name} occupation failed! -$100`, '#E74C3C');
-                    this._addEventLog(`${ai.name} occupation failed, fined $100`, 'ai');
+                    this._addEventLog({ key: 'logAiOccupiedFail', params: { name: ai.name }, type: 'ai' });
                 }
                 this._endTurn();
             }
@@ -867,14 +992,14 @@ class GameEngine {
             }
             c.level = (c.level || 0) + 1;
             c.upgradeCount = (c.upgradeCount || 0) + 1;
-            // 更新价格和租金
-            c.price = Math.floor((c.price || 100) * 1.5);
-            c.rent = Math.floor((c.rent || 50) * 1.5);
+            // 更新租金和价格（翻倍）
+            c.rent = Math.floor((c.rent || 100) * 2);
+            c.price = c.rent; // 保持同步
             this._updateCellOwner(c, true);
             this._updateUI();
             const whoName = who === 'player' ? t('player') : ms.ais[parseInt(who.replace('ai', ''))].name;
             this.showFloat(`${whoName} ${t('autoUpgraded')} Lv.${c.level}`, '#FFD700');
-            this._addEventLog(`${whoName} ${t('autoUpgraded')} "${c.word.word}" → Lv.${c.level}`, 'gain');
+            this._addEventLog({ key: 'logAutoUpgrade', params: { name: whoName, word: c.word.word, level: c.level }, type: 'gain' });
             this._endTurn();
             return;
         }
@@ -883,13 +1008,20 @@ class GameEngine {
         if (c.level === 0) {
             // Initial level cell: becomes unowned
             const oldOwnerName = c.owner === 'player' ? 'Player' : ms.ais[parseInt(c.owner.replace('ai', ''))].name;
+            // 递减原主人的 totalOwned
+            if (c.owner === 'player') {
+                ms.totalOwned--;
+            } else if (c.owner && c.owner.startsWith('ai')) {
+                const oldAi = ms.ais[parseInt(c.owner.replace('ai', ''))];
+                if (oldAi) oldAi.totalOwned--;
+            }
             c.owner = 'none';
             c.level = 0;
             c.upgradeCount = 0;
             this._updateCellOwner(c);
             this._updateUI();
             this.showFloat(`${t('chanceLanding')} "${c.word.word}" ${t('nowUnowned')}`, '#E67E22');
-            this._addEventLog(`${t('chanceLanding')}: "${c.word.word}" ${t('from')} ${oldOwnerName} ${t('becomesUnowned')}`, 'info');
+            this._addEventLog({ key: 'logChanceUnowned', params: { word: c.word.word, owner: oldOwnerName }, type: 'info' });
         } else {
             // High level cell: downgrade by 1 level
             c.level--;
@@ -897,110 +1029,27 @@ class GameEngine {
             this._updateUI();
             const oldOwnerName = c.owner === 'player' ? t('player') : ms.ais[parseInt(c.owner.replace('ai', ''))].name;
             this.showFloat(`${t('chanceLanding')} "${c.word.word}" ${t('downgradedTo')} Lv.${c.level}, ${t('stillOwnedBy')} ${oldOwnerName}`, '#E67E22');
-            this._addEventLog(`${t('chanceLanding')}: "${c.word.word}" ${t('from')} ${oldOwnerName} ${t('downgradedTo')} Lv.${c.level}`, 'info');
+            this._addEventLog({ key: 'logChanceDowngraded', params: { word: c.word.word, owner: oldOwnerName, level: c.level }, type: 'info' });
         }
         this._endTurn();
     }
 
-    // === 卖掉格子选项 ===
-    _showSellOption(cell) {
-        const ms = this.monopolyState;
-        const rent = cell.rent || 50;
-        const word = cell.word ? cell.word.word : 'Unknown word';
-        
-        // Remove old modal
-        const old = document.getElementById('sell-modal');
-        if (old) old.remove();
-        
-        const modal = document.createElement('div');
-        modal.className = 'challenge-modal';
-        modal.id = 'sell-modal';
-        modal.innerHTML = `
-            <div class="challenge-box" style="max-width: 350px;">
-                <div class="challenge-title">${t('yourProperty')}: ${word}</div>
-                <div style="text-align: center; color: #aaa; margin: 10px 0;">
-                    ${t('rent')}: $${rent}
-                </div>
-                <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
-                    <button id="sell-btn" style="
-                        padding: 10px 20px;
-                        border: none;
-                        border-radius: 10px;
-                        background: linear-gradient(135deg, #E74C3C, #C0392B);
-                        color: white;
-                        font-size: 16px;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                    ">Sell (+$${rent})</button>
-                    <button id="keep-btn" style="
-                        padding: 10px 20px;
-                        border: none;
-                        border-radius: 10px;
-                        background: linear-gradient(135deg, #27AE60, #219653);
-                        color: white;
-                        font-size: 16px;
-                        cursor: pointer;
-                        transition: transform 0.2s;
-                    ">Keep</button>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(modal);
-        requestAnimationFrame(() => modal.classList.add('active'));
-        
-        // 卖掉按钮事件
-        document.getElementById('sell-btn').addEventListener('click', () => {
-            // 加钱
-            ms.playerMoney += rent;
-            // 清除格子所有权
-            cell.owner = 'none';
-            // 减少占领计数
-            ms.totalOwned--;
-            // 更新UI
-            this._updateUI();
-            this._updateCellOwner(cell);
-            this.showFloat(`Sold +$${rent}`, '#FFD700');
-            audioManager.playMatchSuccess();
-            // 移除对话框
-            modal.remove();
-            // 结束回合
-            this._endTurn();
-        });
-        
-        // 保留按钮事件
-        document.getElementById('keep-btn').addEventListener('click', () => {
-            this.showFloat('Your Property', '#27AE60');
-            // 移除对话框
-            modal.remove();
-            // 结束回合
-            this._endTurn();
-        });
-    }
-
-    // === 升级格子选项 ===
+    // === 升级/出售格子选项 ===
     _showUpgradeOption(cell) {
         const ms = this.monopolyState;
         const word = cell.word ? cell.word.word : 'Unknown word';
         const currentLevel = cell.level || 0;
         const upgradeCount = cell.upgradeCount || 0;
         const maxUpgrades = 3;
+        const currentRent = cell.rent || 50;
+        
+        // 升级费 = 当前租金
+        const upgradeCost = currentRent;
+        // 出售价格 = 租金的50%
+        const sellPrice = Math.floor(currentRent * 0.5);
         
         // 检查是否已达到最大升级次数
-        if (upgradeCount >= maxUpgrades) {
-            this.showFloat('Max upgrades reached', '#E67E22');
-            this._endTurn();
-            return;
-        }
-        
-        // 计算升级费用：200 + (upgradeCount * 100)
-        const upgradeCost = 200 + (upgradeCount * 100);
-        
-        // 检查玩家是否有足够金钱
-        if (ms.playerMoney < upgradeCost) {
-            this.showFloat(`Not enough money, need $${upgradeCost}`, '#E74C3C');
-            this._endTurn();
-            return;
-        }
+        const canUpgrade = upgradeCount < maxUpgrades;
         
         // 移除旧的对话框
         const old = document.getElementById('upgrade-modal');
@@ -1011,23 +1060,27 @@ class GameEngine {
         modal.id = 'upgrade-modal';
         modal.innerHTML = `
             <div class="challenge-box" style="max-width: 400px;">
-                <div class="challenge-title">Upgrade Cell</div>
+                <div class="challenge-title">${t('yourProperty')}: ${word}</div>
                 <div style="text-align: center; margin: 15px 0;">
-                    <div style="font-size: 24px; font-weight: bold; color: #FFD700;">${word}</div>
                     <div style="color: #aaa; margin: 10px 0;">
-                        Current Level: ${currentLevel} ★
+                        ${t('level')}: ${currentLevel} ★ | ${t('rent')}: <span style="color: #FFD700; font-weight: bold;">$${currentRent}</span>
                     </div>
+                    ${canUpgrade ? `
                     <div style="color: #aaa; margin: 10px 0;">
-                        Current Price: $${cell.price || 100}
+                        ${t('upgradeCost')}: <span style="color: #3498DB; font-weight: bold;">$${upgradeCost}</span>
+                        <span style="font-size: 12px;"> (${t('afterUpgrade')}: $${currentRent * 2})</span>
                     </div>
-                    <div style="color: #aaa; margin: 10px 0;">
-                        Upgrade Cost: $${upgradeCost}
+                    ` : `
+                    <div style="color: #E67E22; margin: 10px 0;">
+                        ${t('maxUpgradesReached')}
                     </div>
+                    `}
                     <div style="color: #aaa; margin: 10px 0;">
-                        Upgrades: ${upgradeCount}/${maxUpgrades}
+                        ${t('sellPrice')}: <span style="color: #E74C3C;">$${sellPrice}</span>
                     </div>
                 </div>
                 <div style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+                    ${canUpgrade ? `
                     <button id="upgrade-btn" style="
                         padding: 10px 20px;
                         border: none;
@@ -1037,8 +1090,19 @@ class GameEngine {
                         font-size: 16px;
                         cursor: pointer;
                         transition: transform 0.2s;
-                    ">Upgrade ($${upgradeCost})</button>
-                    <button id="skip-upgrade-btn" style="
+                    ">${t('upgrade')} ($${upgradeCost})</button>
+                    ` : ''}
+                    <button id="sell-btn" style="
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 10px;
+                        background: linear-gradient(135deg, #E74C3C, #C0392B);
+                        color: white;
+                        font-size: 16px;
+                        cursor: pointer;
+                        transition: transform 0.2s;
+                    ">${t('sell')} (+$${sellPrice})</button>
+                    <button id="skip-btn" style="
                         padding: 10px 20px;
                         border: none;
                         border-radius: 10px;
@@ -1047,21 +1111,37 @@ class GameEngine {
                         font-size: 16px;
                         cursor: pointer;
                         transition: transform 0.2s;
-                    ">Skip</button>
+                    ">${t('skip')}</button>
                 </div>
             </div>
         `;
         document.body.appendChild(modal);
         requestAnimationFrame(() => modal.classList.add('active'));
         
-        // 绑定按钮事件
-        document.getElementById('upgrade-btn').addEventListener('click', () => {
+        // 绑定升级按钮事件
+        if (canUpgrade) {
+            document.getElementById('upgrade-btn').addEventListener('click', () => {
+                modal.remove();
+                // 检查金钱
+                if (ms.playerMoney < upgradeCost) {
+                    this.showFloat(`${t('notEnoughMoney')} $${upgradeCost}`, '#E74C3C');
+                    this._endTurn();
+                    return;
+                }
+                // 开始升级问答
+                this._startUpgradeChallenge(cell, upgradeCost);
+            });
+        }
+        
+        // 绑定出售按钮事件
+        document.getElementById('sell-btn').addEventListener('click', () => {
             modal.remove();
-            // 开始升级问答
-            this._startUpgradeChallenge(cell, upgradeCost);
+            // 开始出售问答
+            this._startSellChallenge(cell, sellPrice);
         });
         
-        document.getElementById('skip-upgrade-btn').addEventListener('click', () => {
+        // 绑定跳过按钮事件
+        document.getElementById('skip-btn').addEventListener('click', () => {
             modal.remove();
             this._endTurn();
         });
@@ -1076,6 +1156,18 @@ class GameEngine {
         this.monopolyState.upgradeCell = cell;
         // 升级答4道题
         this.monopolyState.maxChalStep = 4;
+        this._showChallenge();
+    }
+
+    // === 开始出售问答 ===
+    _startSellChallenge(cell, sellPrice) {
+        this.monopolyState.chalStep = 0;
+        this.monopolyState.chalWord = cell.word;
+        this.monopolyState.chalMode = 'sell';
+        this.monopolyState.sellPrice = sellPrice;
+        this.monopolyState.sellCell = cell;
+        // 出售答2道题
+        this.monopolyState.maxChalStep = 2;
         this._showChallenge();
     }
 
@@ -1271,36 +1363,37 @@ class GameEngine {
 
     _chalFillLetters(content, w) {
         const word = w.word;
-        const hideCnt = Math.max(1, Math.floor(word.length * 0.4));
-        const hideIdx = new Set();
-        while (hideIdx.size < hideCnt) hideIdx.add(secureRandomInt(0, word.length - 1));
+        const isPhrase = word.includes(' ');
 
-        // Build display: shown letters and blanks
-        const blanks = []; // {index, inputEl}
+        // Build display: letters as blanks, spaces as visible gaps
         let html = '<div class="chal-fill-word">';
+        // blankIndices: 只记录需要填入的字母在word中的索引（跳过空格）
+        const blankIndices = [];
         for (let i = 0; i < word.length; i++) {
-            if (hideIdx.has(i)) {
-                html += `<span class="chal-fill-blank" data-blank-index="${blanks.length}" data-word-index="${i}">_</span>`;
+            if (word[i] === ' ') {
+                html += `<span class="chal-fill-space">&nbsp;</span>`;
             } else {
-                html += `<span class="chal-fill-shown">${word[i]}</span>`;
+                html += `<span class="chal-fill-blank" data-blank-index="${blankIndices.length}" data-word-index="${i}">_</span>`;
+                blankIndices.push(i);
             }
         }
         html += '</div>';
 
+        const subHintText = isPhrase ? 'Type the full phrase with keyboard (use Space for spaces)' : 'Type the full word with keyboard';
         content.innerHTML = `
             <div class="chal-hint">${w.meaning}</div>
             ${html}
-            <div class="chal-sub-hint">Type the missing letters with keyboard</div>
+            <div class="chal-sub-hint">${subHintText}</div>
             <div class="chal-confirm-wrap">
                 <button class="chal-confirm-btn" id="chal-confirm" disabled>Confirm</button>
             </div>
             <div class="chal-skip" id="chal-skip">Skip</div>
         `;
 
-        // Track blank inputs
+        // Track blank inputs - only for non-space characters
         const blankEls = content.querySelectorAll('.chal-fill-blank');
-        const blankInputs = new Array(hideIdx.size).fill('');
-        let activeBlank = 0; // currently focused blank index
+        const blankInputs = new Array(blankIndices.length).fill('');
+        let activeBlank = 0; // currently focused blank index (among blanks only)
 
         // Highlight first blank
         if (blankEls.length > 0) blankEls[0].classList.add('blank-active');
@@ -1330,6 +1423,21 @@ class GameEngine {
             el.addEventListener('click', () => focusBlank(i));
         });
 
+        // 构建正确的完整答案用于比对
+        function buildResult() {
+            let result = '';
+            let blankIdx = 0;
+            for (let i = 0; i < word.length; i++) {
+                if (word[i] === ' ') {
+                    result += ' ';
+                } else {
+                    result += blankInputs[blankIdx] || '';
+                    blankIdx++;
+                }
+            }
+            return result;
+        }
+
         // Keyboard handler
         function onKeydown(e) {
             if (e.key === 'Escape') {
@@ -1358,19 +1466,19 @@ class GameEngine {
                 const allFilled = blankInputs.every(v => v !== '');
                 if (allFilled) {
                     cleanup();
-                    // 直接执行验证逻辑，不依赖 confirmBtn.click()
-                    let result = '';
-                    let blankIdx = 0;
-                    for (let i = 0; i < word.length; i++) {
-                        if (hideIdx.has(i)) {
-                            result += blankInputs[blankIdx];
-                            blankIdx++;
-                        } else {
-                            result += word[i];
-                        }
-                    }
+                    const result = buildResult();
                     if (result === word) self._onCorrect();
                     else self._onWrong();
+                }
+                return;
+            }
+
+            // Space key: for phrases, auto-skip to next blank (no need to type space)
+            if (e.key === ' ') {
+                e.preventDefault();
+                // Move to next unfilled blank
+                if (activeBlank < blankInputs.length - 1) {
+                    focusBlank(activeBlank + 1);
                 }
                 return;
             }
@@ -1398,18 +1506,8 @@ class GameEngine {
         // Confirm button
         confirmBtn.addEventListener('click', () => {
             cleanup();
-            // Reconstruct full word
-            let result = '';
-            let blankIdx = 0;
-            for (let i = 0; i < word.length; i++) {
-                if (hideIdx.has(i)) {
-                    result += blankInputs[blankIdx];
-                    blankIdx++;
-                } else {
-                    result += word[i];
-                }
-            }
-            // 确认时朗读完整单词
+            const result = buildResult();
+            // 确认时朗读完整单词/词组
             audioManager.speak(word, 'en-US');
             if (result === word) self._onCorrect();
             else self._onWrong();
@@ -1570,22 +1668,35 @@ class GameEngine {
                 if (ownerAi) ownerAi.money += price;
                 this._updateUI();
                 this.showFloat(`Challenge won! Pay rent -$${price}`, '#27AE60');
-                this._addEventLog(`Player won challenge, pay rent -$${price}`, 'player');
+                this._addEventLog({ key: 'logPlayerChallengeWon', params: { price: `$${price}` }, type: 'player' });
                 if (this._checkBankrupt()) return;
             } else if (ms.chalMode === 'upgrade') {
                 // 升级格子成功
-                const upgradeCost = ms.upgradeCost || 200;
+                const upgradeCost = ms.upgradeCost || 100;
                 ms.playerMoney -= upgradeCost;
                 c.level = (c.level || 0) + 1;
                 c.upgradeCount = (c.upgradeCount || 0) + 1;
-                c.price = Math.floor((c.price || 100) * 1.5);
-                c.rent = Math.floor((c.rent || 50) * 1.5);
+                c.rent = Math.floor((c.rent || 100) * 2);
+                c.price = c.rent; // 保持同步
                 this._updateCellOwner(c, true);
                 this._updateUI();
                 this.showFloat(`Upgrade success! Lv.${c.level}`, '#FFD700');
                 audioManager.playComplete();
-                this._addEventLog(`Player upgraded "${c.word.word}" → Lv.${c.level} -$${upgradeCost}`, 'gain');
+                this._addEventLog({ key: 'logPlayerUpgradeSuccess', params: { word: c.word.word, level: c.level, cost: `$${upgradeCost}` }, type: 'gain' });
                 this._checkBankrupt();
+            } else if (ms.chalMode === 'sell') {
+                // 出售格子成功
+                const sellPrice = ms.sellPrice || Math.floor((c.rent || 50) * 0.5);
+                ms.playerMoney += sellPrice;
+                ms.totalOwned--;
+                c.owner = 'none';
+                c.level = 0;
+                c.upgradeCount = 0;
+                this._updateCellOwner(c);
+                this._updateUI();
+                this.showFloat(`Sold! +$${sellPrice}`, '#FFD700');
+                audioManager.playComplete();
+                this._addEventLog({ key: 'logPlayerSold', params: { word: c.word.word, price: `$${sellPrice}` }, type: 'gain' });
             } else {
                 // 占领空格子成功，奖励100
                 c.owner = 'player';
@@ -1597,7 +1708,7 @@ class GameEngine {
                 this.showFloat('+$100', '#FFD700');
                 audioManager.playComplete();
                 this.gameState.wordsLearned.add(c.word.word);
-                this._addEventLog(`Player occupied "${c.word.word}" +$100`, 'gain');
+                this._addEventLog({ key: 'logPlayerOccupied', params: { word: c.word.word }, type: 'gain' });
                 
                 this._checkWin();
             }
@@ -1629,7 +1740,7 @@ class GameEngine {
                 phonetic: c.word.phonetic || '',
                 from: 'monopoly',
                 grade: this.gameState.currentGrade || 'all'
-            });
+            }).catch(err => console.error('保存错题失败:', err));
         }
         
         const ms = this.monopolyState;
@@ -1647,35 +1758,31 @@ class GameEngine {
             if (ownerAi) ownerAi.money += doublePrice;
             this._updateUI();
             this.showFloat(`Wrong! Pay double rent -$${doublePrice}`, '#E74C3C');
-            this._addEventLog(`Player answered wrong, pay double rent -$${doublePrice}`, 'player');
+            this._addEventLog({ key: 'logPlayerWrongDoubleRent', params: { price: `$${doublePrice}` }, type: 'player' });
         } else if (ms.chalMode === 'upgrade') {
-            // 升级失败：降级或变无主
+            // 升级失败：罚款租金的价格（1倍租金）
             const c = ms.cells[ms.playerPos];
-            if (c.level > 0) {
-                // 降级
-                c.level--;
-                c.price = Math.floor((c.price || 100) / 1.5);
-                c.rent = Math.floor((c.rent || 50) / 1.5);
-                this._updateCellOwner(c, true);
-                this._updateUI();
-                this.showFloat(`Upgrade failed! "${c.word.word}" downgraded to Lv.${c.level}`, '#E74C3C');
-                this._addEventLog(`Player upgrade failed "${c.word.word}" downgraded to Lv.${c.level}`, 'player');
-            } else {
-                // 变为无主
-                ms.totalOwned--;
-                c.owner = 'none';
-                c.upgradeCount = 0;
-                this._updateCellOwner(c);
-                this._updateUI();
-                this.showFloat(`Upgrade failed! "${c.word.word}" became unowned`, '#E74C3C');
-                this._addEventLog(`Player upgrade failed "${c.word.word}" became unowned`, 'player');
-            }
+            const fine = c.rent || 100;
+            ms.playerMoney -= fine;
+            this._updateUI();
+            this.showFloat(`Upgrade failed! -$${fine}`, '#E74C3C');
+            this._addEventLog({ key: 'logPlayerUpgradeFail', params: { word: c.word.word, fine: `$${fine}` }, type: 'player' });
+            if (this._checkBankrupt()) return;
+        } else if (ms.chalMode === 'sell') {
+            // 出售失败：罚款租金的50%
+            const c = ms.cells[ms.playerPos];
+            const fine = Math.floor((c.rent || 100) * 0.5);
+            ms.playerMoney -= fine;
+            this._updateUI();
+            this.showFloat(`Sell failed! -$${fine}`, '#E74C3C');
+            this._addEventLog({ key: 'logPlayerSellFail', params: { word: c.word.word, fine: `$${fine}` }, type: 'player' });
+            if (this._checkBankrupt()) return;
         } else {
             // 占领空格子失败，罚款100
             ms.playerMoney -= 100;
             this._updateUI();
                 this.showFloat('Wrong! -$100', '#E74C3C');
-                this._addEventLog('Player answered wrong, fine -$100', 'player');
+                this._addEventLog({ key: 'logPlayerWrong', type: 'player' });
         }
         
         if (this._checkBankrupt()) return;
@@ -1707,6 +1814,8 @@ class GameEngine {
                 ms.round++;
                 // 每10回合触发天灾
                 if (ms.round % 10 === 0) this._triggerDisaster();
+                // 检查是否达到40回合
+                this._checkWin();
             }
         } else {
             // 如果当前是AI回合，切换到下一个非破产的AI或回到玩家
@@ -1722,6 +1831,8 @@ class GameEngine {
                 ms.round++;
                 // 每10回合触发天灾
                 if (ms.round % 10 === 0) this._triggerDisaster();
+                // 检查是否达到40回合
+                this._checkWin();
             }
         }
 
@@ -1791,7 +1902,7 @@ class GameEngine {
                     setTimeout(() => scene.classList.remove('bounce-land'), 750);
                 }, 50);
                 this.showFloat(`${currentAi.name} rolled ${v}`, '#E74C3C');
-                this._addEventLog(`${currentAi.name} rolled ${v}`, 'ai');
+                this._addEventLog({ key: 'logAiRolled', params: { name: currentAi.name, steps: v }, type: 'ai' });
                 this._aiMoveAfterRoll(v);
             }, 1800);
         } else {
@@ -1800,7 +1911,7 @@ class GameEngine {
             const diceEl = document.getElementById('dice-display');
             if (diceEl) diceEl.textContent = faces[v - 1];
             this.showFloat(`${currentAi.name} rolled ${v}`, '#E74C3C');
-            this._addEventLog(`${currentAi.name} rolled ${v}`, 'ai');
+            this._addEventLog({ key: 'logAiRolled', params: { name: currentAi.name, steps: v }, type: 'ai' });
             this._aiMoveAfterRoll(v);
         }
     }
@@ -1886,7 +1997,7 @@ class GameEngine {
             currentAi.money -= taxAmount;
             this._updateUI();
             this.showFloat(`${currentAi.name} tax -$${taxAmount}`, '#E74C3C');
-            this._addEventLog(`${currentAi.name} tax -$${taxAmount}`, 'ai');
+            this._addEventLog({ key: 'logAiTax', params: { name: currentAi.name, amount: `$${taxAmount}` }, type: 'ai' });
             if (this._checkBankrupt()) return;
         } else if (c.type === 'word') {
             if (c.owner === `ai${ms.currentAiIndex}`) {
@@ -1905,13 +2016,13 @@ class GameEngine {
                 this._updateUI();
                 this.showFloat(`${currentAi.name} occupied!`, '#E74C3C');
                 this.showFloat('+$100', '#27AE60');
-                this._addEventLog(`${currentAi.name} occupied "${c.word ? c.word.word : 'Unknown'}" +$100`, 'ai');
+                this._addEventLog({ key: 'logAiOccupied', params: { name: currentAi.name, word: c.word ? c.word.word : 'Unknown' }, type: 'ai' });
             } else {
                 // 占领失败，罚款100
                 currentAi.money -= 100;
                 this._updateUI();
                 this.showFloat(`${currentAi.name} occupation failed! -$100`, '#E74C3C');
-                this._addEventLog(`${currentAi.name} occupation failed, fine $100`, 'ai');
+                this._addEventLog({ key: 'logAiOccupiedFail', params: { name: currentAi.name }, type: 'ai' });
             }
         }
 
@@ -1951,7 +2062,7 @@ class GameEngine {
             if (recipientMoneyUpdate) recipientMoneyUpdate(price);
             this._updateUI();
             this.showFloat(`${currentAi.name} answered correctly, pay rent to ${recipientName} +$${price}`, '#27AE60');
-            this._addEventLog(`${currentAi.name} answered correctly, pay rent to ${recipientName} $${price}`, 'ai');
+            this._addEventLog({ key: 'logAiAnswerCorrect', params: { name: currentAi.name, recipient: recipientName, price: `$${price}` }, type: 'ai' });
         } else {
             // 答错：付双倍租金
             const doublePrice = price * 2;
@@ -1959,7 +2070,7 @@ class GameEngine {
             if (recipientMoneyUpdate) recipientMoneyUpdate(doublePrice);
             this._updateUI();
             this.showFloat(`${currentAi.name} answered wrong, pay double rent to ${recipientName} +$${doublePrice}`, '#27AE60');
-            this._addEventLog(`${currentAi.name} answered wrong, pay double rent to ${recipientName} $${doublePrice}`, 'ai');
+            this._addEventLog({ key: 'logAiAnswerWrong', params: { name: currentAi.name, recipient: recipientName, price: `$${doublePrice}` }, type: 'ai' });
         }
         this._checkBankrupt();
     }
@@ -1973,17 +2084,17 @@ class GameEngine {
         
         // 检查是否已达到最大升级次数
         if (upgradeCount >= maxUpgrades) {
-            this._addEventLog(`${currentAi.name} "${cell.word.word}" max upgrades reached`, 'ai');
+            this._addEventLog({ key: 'logAiMaxUpgrades', params: { name: currentAi.name, word: cell.word.word }, type: 'ai' });
             return;
         }
         
-        // 计算升级费用：200 + (upgradeCount * 100)
-        const upgradeCost = 200 + (upgradeCount * 100);
+        // 升级费 = 当前租金
+        const upgradeCost = cell.rent || 50;
         
         // 检查AI是否有足够金钱
         if (currentAi.money < upgradeCost) {
             this.showFloat(`${currentAi.name} insufficient funds to upgrade`, '#E67E22');
-            this._addEventLog(`${currentAi.name} insufficient funds to upgrade "${cell.word.word}"`, 'ai');
+            this._addEventLog({ key: 'logAiInsufficientFunds', params: { name: currentAi.name, word: cell.word.word }, type: 'ai' });
             return;
         }
         
@@ -1995,33 +2106,19 @@ class GameEngine {
             currentAi.money -= upgradeCost;
             cell.level = (cell.level || 0) + 1;
             cell.upgradeCount = upgradeCount + 1;
-            cell.price = Math.floor((cell.price || 100) * 1.5);
-            cell.rent = Math.floor((cell.rent || 50) * 1.5);
+            cell.rent = Math.floor((cell.rent || 100) * 2);
+            cell.price = cell.rent; // 保持同步
             this._updateCellOwner(cell, true);
             this._updateUI();
             this.showFloat(`${currentAi.name} upgrade success! Lv.${cell.level}`, '#FFD700');
-            this._addEventLog(`${currentAi.name} upgraded "${cell.word.word}" → Lv.${cell.level} -$${upgradeCost}`, 'ai');
+            this._addEventLog({ key: 'logAiUpgradeSuccess', params: { name: currentAi.name, word: cell.word.word, level: cell.level, cost: `$${upgradeCost}` }, type: 'ai' });
         } else {
-            // 升级失败：降级或变无主
-            if (cell.level > 0) {
-                // 降级
-                cell.level--;
-                cell.price = Math.floor((cell.price || 100) / 1.5);
-                cell.rent = Math.floor((cell.rent || 50) / 1.5);
-                this._updateCellOwner(cell, true);
-                this._updateUI();
-                this.showFloat(`${currentAi.name} upgrade failed! "${cell.word.word}" downgraded to Lv.${cell.level}`, '#E74C3C');
-                this._addEventLog(`${currentAi.name} upgrade failed "${cell.word.word}" downgraded to Lv.${cell.level}`, 'ai');
-            } else {
-                // 变为无主
-                currentAi.totalOwned--;
-                cell.owner = 'none';
-                cell.upgradeCount = 0;
-                this._updateCellOwner(cell);
-                this._updateUI();
-                this.showFloat(`${currentAi.name} upgrade failed! "${cell.word.word}" became unowned`, '#E74C3C');
-                this._addEventLog(`${currentAi.name} upgrade failed "${cell.word.word}" became unowned`, 'ai');
-            }
+            // 升级失败：罚款租金的价格（1倍租金）
+            const fine = cell.rent || 100;
+            currentAi.money -= fine;
+            this._updateUI();
+            this.showFloat(`${currentAi.name} upgrade failed! -$${fine}`, '#E74C3C');
+            this._addEventLog({ key: 'logAiUpgradeFail', params: { name: currentAi.name, word: cell.word.word, fine: `$${fine}` }, type: 'ai' });
         }
     }
 
@@ -2039,7 +2136,7 @@ class GameEngine {
 
         // 显示全屏特效
         this.showDisasterOverlay(disaster);
-        this._addEventLog(`${disaster.emoji} ${disaster.name} strikes!`, 'info');
+        this._addEventLog({ key: 'logDisasterStrike', params: { emoji: disaster.emoji, name: disaster.name }, type: 'info' });
 
         // 等待3秒
         await new Promise(resolve => setTimeout(resolve, 3000));
@@ -2057,14 +2154,15 @@ class GameEngine {
             if (target.level === 0) {
                 target.owner = 'none';
                 target.upgradeCount = 0;
+                ms.totalOwned--;
                 this._updateCellOwner(target);
                 this.showFloat(`Your "${target.word.word}" became unowned!`, '#E74C3C');
-                this._addEventLog(`${disaster.name}: Player's "${target.word.word}" became unowned`, 'player');
+                this._addEventLog({ key: 'logDisasterPlayerUnowned', params: { name: disaster.name, word: target.word.word }, type: 'player' });
             } else {
                 target.level--;
                 this._updateCellOwner(target);
                 this.showFloat(`Your "${target.word.word}" downgraded to Lv.${target.level}!`, '#E67E22');
-                this._addEventLog(`${disaster.name}: Player's "${target.word.word}" downgraded to Lv.${target.level}`, 'player');
+                this._addEventLog({ key: 'logDisasterPlayerDowngraded', params: { name: disaster.name, word: target.word.word, level: target.level }, type: 'player' });
             }
             hitCells.push(target.index);
         }
@@ -2079,14 +2177,15 @@ class GameEngine {
                 if (target.level === 0) {
                     target.owner = 'none';
                     target.upgradeCount = 0;
+                    ai.totalOwned--;
                     this._updateCellOwner(target);
                     this.showFloat(`${ai.name}'s "${target.word.word}" became unowned!`, '#E67E22');
-                    this._addEventLog(`${disaster.name}: ${ai.name}'s "${target.word.word}" became unowned`, 'ai');
+                    this._addEventLog({ key: 'logDisasterAiUnowned', params: { name: disaster.name, ai: ai.name, word: target.word.word }, type: 'ai' });
                 } else {
                     target.level--;
                     this._updateCellOwner(target);
                     this.showFloat(`${ai.name}'s "${target.word.word}" downgraded to Lv.${target.level}!`, '#E67E22');
-                    this._addEventLog(`${disaster.name}: ${ai.name}'s "${target.word.word}" downgraded to Lv.${target.level}`, 'ai');
+                    this._addEventLog({ key: 'logDisasterAiDowngraded', params: { name: disaster.name, ai: ai.name, word: target.word.word, level: target.level }, type: 'ai' });
                 }
                 hitCells.push(target.index);
             }
@@ -2164,7 +2263,7 @@ class GameEngine {
 
                 const appear = this.aiAppearances[i % this.aiAppearances.length];
                 this.showFloat(`${appear.emoji} ${ai.name} bankrupt!`, '#E74C3C');
-                this._addEventLog(`${ai.name} bankrupt! Released ${clearedCount} cells`, 'ai');
+                this._addEventLog({ key: 'logAiBankrupt', params: { name: ai.name, count: clearedCount }, type: 'ai' });
             }
         });
 
@@ -2172,8 +2271,11 @@ class GameEngine {
         if (ms.playerMoney < 0) {
             ms.gameOver = true;
             this.showFloat('You are bankrupt!', '#E74C3C');
-            this._addEventLog('Player bankrupt!', 'player');
-            this._showGameOver(false);
+            this._addEventLog({ key: 'logPlayerBankrupt', type: 'player' });
+            const playerAssets = this._calcAssets('player');
+            const aiAssets = ms.ais.filter(ai => !ai.bankrupt).map(ai => this._calcAssets(`ai-${ai.index}`));
+            const maxAiAssets = Math.max(...aiAssets, 0);
+            this._showGameOver(false, playerAssets, maxAiAssets);
             return true;
         }
 
@@ -2184,8 +2286,10 @@ class GameEngine {
             const allAiBankrupt = ms.ais.every(ai => ai.bankrupt);
             if (allAiBankrupt) {
                 ms.gameOver = true;
-                this._addEventLog('All AIs bankrupt, player wins!', 'gain');
-                this._showGameOver(true);
+                this._addEventLog({ key: 'logAllAiBankrupt', type: 'gain' });
+                const playerAssets = this._calcAssets('player');
+                const aiAssets = 0;
+                this._showGameOver(true, playerAssets, aiAssets);
                 return true;
             }
         }
@@ -2195,41 +2299,47 @@ class GameEngine {
     // === 胜利检测 ===
     _checkWin() {
         const ms = this.monopolyState;
-        const total = ms.cells.filter(c => c.type === 'word').length;
-
-        // 玩家占领60%获胜
-        if (ms.totalOwned >= Math.ceil(total * 0.6)) {
+        
+        // 40回合后比较资产决定胜负
+        if (ms.round >= 40) {
+            const playerAssets = this._calcAssets('player');
+            const aiAssets = ms.ais.filter(ai => !ai.bankrupt).map(ai => this._calcAssets(`ai-${ai.index}`));
+            const maxAiAssets = Math.max(...aiAssets, 0);
+            
             ms.gameOver = true;
-            this._showGameOver(true);
-            return;
-        }
-
-        // 任意一个AI占领60%则玩家失败
-        for (const ai of ms.ais) {
-            if (ai.totalOwned >= Math.ceil(total * 0.6)) {
-                ms.gameOver = true;
-                this._showGameOver(false);
-                return;
+            if (playerAssets >= maxAiAssets) {
+                this._showGameOver(true, playerAssets, maxAiAssets);
+            } else {
+                this._showGameOver(false, playerAssets, maxAiAssets);
             }
         }
-
-        // 玩家破产则失败（由_checkBankrupt处理）
-        // if (ms.playerMoney <= 0) {
-        //     ms.gameOver = true;
-        //     this._showGameOver(false);
-        //     return;
-        // }
-
-        // 所有AI都破产则玩家获胜（由_checkBankrupt处理）
-        // const allAiBankrupt = ms.ais.every(ai => ai.bankrupt);
-        // if (allAiBankrupt) {
-        //     ms.gameOver = true;
-        //     this._showGameOver(true);
-        //     return;
-        // }
+    }
+    
+    // 计算资产：金币 + 所有格子价格（升级格子用升级后的价格）
+    _calcAssets(owner) {
+        const ms = this.monopolyState;
+        let assets = 0;
+        
+        // 计算金币
+        if (owner === 'player') {
+            assets += ms.playerMoney;
+        } else {
+            const aiIndex = parseInt(owner.split('-')[1]);
+            const ai = ms.ais.find(a => a.index === aiIndex);
+            if (ai) assets += ai.money;
+        }
+        
+        // 计算格子价格总和
+        ms.cells.forEach(cell => {
+            if (cell.owner === owner && cell.type === 'word') {
+                assets += cell.price || 100;
+            }
+        });
+        
+        return assets;
     }
 
-    _showGameOver(win) {
+    _showGameOver(win, playerAssets, aiAssets) {
         const elapsed = Math.floor((Date.now() - this.monopolyState.startTime) / 1000);
         const mins = Math.floor(elapsed / 60);
         const secs = elapsed % 60;
@@ -2243,7 +2353,8 @@ class GameEngine {
                 <div class="gameover-stats">
                     Owned: ${this.monopolyState.totalOwned} | Coins: ${this.monopolyState.playerMoney}
                 </div>
-                <div class="gameover-time">Time: ${mins}m ${secs}s</div>
+                <div class="gameover-assets">Your Assets: $${playerAssets} | AI Max: $${aiAssets}</div>
+                <div class="gameover-time">Time: ${mins}m ${secs}s | Round: ${this.monopolyState.round}</div>
                 <button class="gameover-btn" id="gameover-btn">Back to Menu</button>
             </div>
         `;
@@ -2259,6 +2370,17 @@ class GameEngine {
         if (win) {
             audioManager.playCelebration();
             this.addExp(50);
+        }
+
+        // 保存排行榜成绩
+        if (window.app && window.app.saveEnglishLeaderboard) {
+            window.app.saveEnglishLeaderboard('monopoly', {
+                score: playerAssets,
+                level: this.monopolyState.round || 1,
+                combo: 0,
+                time: elapsed,
+                grade: (this.gameState && this.gameState.currentGrade) || 'all'
+            });
         }
     }
 }

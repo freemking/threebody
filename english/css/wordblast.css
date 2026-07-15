@@ -1,8 +1,8 @@
 ﻿/* =============================================
-   单词大爆炸 (Word Blast) 样式
+   单词大爆炸 (Word Blast) 样式 - V2 输入模式
    ============================================= */
 
-/* wrapper样式（参考大富翁的grade-sel-wrap） */
+/* wrapper样式 */
 .wb-setup-wrap {
     text-align: center;
     padding: var(--space-xl);
@@ -77,7 +77,158 @@
     text-shadow: 0 0 8px rgba(251, 191, 36, 0.5);
 }
 
-/* 爆炸区域 */
+/* ─── 题目卡片区域 ─── */
+.wb-card-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    min-height: 400px;
+    flex: 1;
+}
+
+/* 题目卡片 */
+.wb-card {
+    background: linear-gradient(135deg, rgba(30, 30, 60, 0.95), rgba(40, 30, 80, 0.95));
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    border-radius: 20px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 520px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(167, 139, 250, 0.1);
+    animation: wbCardIn 0.4s ease-out;
+}
+
+@keyframes wbCardIn {
+    from { transform: scale(0.9) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* 中文意思 */
+.wb-card-meaning {
+    font-size: 2em;
+    font-weight: 800;
+    color: #FFD700;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    letter-spacing: 2px;
+}
+
+/* 英文句子 */
+.wb-card-sentence {
+    font-size: 1.15em;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    padding: 16px 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 0.5px;
+}
+
+/* 输入区域 */
+.wb-input-wrap {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.wb-input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid rgba(167, 139, 250, 0.4);
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    font-size: 1.1em;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s;
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 1px;
+}
+
+.wb-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 0;
+}
+
+.wb-input:focus {
+    border-color: #A78BFA;
+    box-shadow: 0 0 20px rgba(167, 139, 250, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.wb-input-correct {
+    border-color: #48BB78 !important;
+    box-shadow: 0 0 20px rgba(72, 187, 120, 0.4) !important;
+    background: rgba(72, 187, 120, 0.1) !important;
+}
+
+.wb-input-wrong {
+    border-color: #FF6B6B !important;
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.3) !important;
+    animation: wbInputShake 0.4s ease-in-out;
+}
+
+@keyframes wbInputShake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+}
+
+.wb-submit-btn {
+    padding: 14px 22px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #48BB78, #38A169);
+    color: white;
+    font-size: 1.3em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+}
+
+.wb-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+}
+
+.wb-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* 反馈区域 */
+.wb-feedback {
+    min-height: 28px;
+    font-size: 1em;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.wb-feedback-correct {
+    color: #48BB78;
+    text-shadow: 0 0 10px rgba(72, 187, 120, 0.5);
+}
+
+.wb-feedback-wrong {
+    color: #FF6B6B;
+    text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+/* ─── 保留的通用样式 ─── */
+
+/* 爆炸区域（保留兼容） */
 .wb-blast-area {
     display: flex;
     flex-wrap: wrap;
@@ -89,105 +240,6 @@
     margin: 0 auto;
     padding: 16px;
     min-height: 500px;
-}
-
-/* 气泡 */
-.wb-bubble {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 16px;
-    padding: 10px 16px;
-    cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    user-select: none;
-    animation: wbBubbleIn 0.4s ease-out;
-    white-space: nowrap;
-}
-
-@keyframes wbBubbleIn {
-    from { transform: scale(0) translateY(10px); opacity: 0; }
-    60% { transform: scale(1.08) translateY(-2px); opacity: 1; }
-    to { transform: scale(1) translateY(0); opacity: 1; }
-}
-
-.wb-bubble-cn {
-    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-}
-
-.wb-bubble-en {
-    background: linear-gradient(135deg, #4ECDC4, #44B8A8);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
-}
-
-.wb-bubble:hover {
-    transform: scale(1.15);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-    z-index: 100;
-}
-
-.wb-bubble-cn:hover {
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
-}
-
-.wb-bubble-en:hover {
-    box-shadow: 0 8px 25px rgba(78, 205, 196, 0.5);
-}
-
-.wb-bubble.wb-selected {
-    transform: scale(1.2);
-    box-shadow: 0 0 0 3px #FFD93D, 0 0 20px #FFD93D;
-    z-index: 200;
-}
-
-.wb-bubble-inner {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.wb-bubble-icon {
-    font-size: 1em;
-}
-
-.wb-bubble-text {
-    font-weight: 600;
-    font-size: 0.95em;
-}
-
-/* 尺寸变体 */
-.wb-size-sm { min-width: 60px; }
-.wb-size-md { min-width: 80px; }
-.wb-size-lg { min-width: 110px; font-size: 0.85em; }
-
-/* 爆炸动画 */
-.wb-blasting {
-    animation: wbBlast 0.5s ease-out forwards;
-    pointer-events: none;
-}
-
-@keyframes wbBlast {
-    0% { transform: scale(1); opacity: 1; }
-    30% { transform: scale(1.3); opacity: 0.8; }
-    100% { transform: scale(0); opacity: 0; }
-}
-
-/* 抖动动画 */
-.wb-shake {
-    animation: wbShake 0.5s ease-in-out;
-}
-
-@keyframes wbShake {
-    0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-8px); }
-    40% { transform: translateX(8px); }
-    60% { transform: translateX(-5px); }
-    80% { transform: translateX(5px); }
 }
 
 /* 控制按钮 */
@@ -362,4 +414,33 @@
     backdrop-filter: blur(5px);
 }
 
-/* 响应式 - 最小宽度 1024，无需窄屏适配 */
+/* 抖动动画（通用） */
+.wb-shake {
+    animation: wbShake 0.5s ease-in-out;
+}
+
+@keyframes wbShake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+}
+
+/* 响应式 */
+@media (max-width: 600px) {
+    .wb-card {
+        padding: 24px 20px;
+    }
+    .wb-card-meaning {
+        font-size: 1.6em;
+    }
+    .wb-card-sentence {
+        font-size: 1em;
+        padding: 12px 14px;
+    }
+    .wb-stat {
+        min-width: 80px;
+        padding: 6px 10px;
+    }
+}

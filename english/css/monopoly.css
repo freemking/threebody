@@ -272,6 +272,16 @@
     100% { transform: scale(1); opacity: 1; color: #FFD700; background: rgba(0, 0, 0, 0.7); box-shadow: none; }
 }
 
+.cell-price.price-update-animate {
+    animation: price-bump 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes price-bump {
+    0% { transform: scale(1); color: inherit; }
+    40% { transform: scale(1.4); color: #FFD700; font-weight: 900; }
+    100% { transform: scale(1); color: inherit; }
+}
+
 /* === 天灾特效 === */
 
 /* 台风 - 刮大风效果 */
@@ -901,6 +911,12 @@
     background: rgba(255, 255, 255, 0.25);
 }
 
+#btn-exit-monopoly {
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    align-self: flex-start;
+}
+
 /* 浮动提示 */
 .game-float {
     position: absolute;
@@ -1213,6 +1229,11 @@
     min-width: 1em;
 }
 
+.chal-fill-space {
+    display: inline-block;
+    width: 1.5em;
+}
+
 .chal-fill-blank {
     color: #E74C3C;
     text-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
@@ -1335,6 +1356,16 @@
     font-size: 16px;
     color: #333;
     margin-bottom: var(--space-sm);
+}
+
+.gameover-assets {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2980B9;
+    margin-bottom: var(--space-md);
+    padding: var(--space-sm);
+    background: linear-gradient(135deg, rgba(41, 128, 185, 0.1), rgba(52, 152, 219, 0.1));
+    border-radius: var(--border-radius-md);
 }
 
 .gameover-time {

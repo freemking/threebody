@@ -59,22 +59,36 @@ class WordMatchGame {
     header.className = 'game-header';
     header.innerHTML = `
       <button class="back-btn" id="wm-back-btn">← ${t('back')}</button>
-      <div class="game-title">${t('wordmatchTitle')}</div>
+      <div class="game-title clickable-title" data-i18n="leaderboardTitle">${t('leaderboardTitle')}</div>
     `;
     wrapper.appendChild(header);
     header.querySelector('#wm-back-btn').onclick = () => {
       audioManager.playClick();
       window.app.showMainMenu();
     };
+    // 点击header标题显示排行榜
+    header.querySelector('.clickable-title').onclick = () => {
+      audioManager.playClick();
+      if (window.app && window.app.showLeaderboard) {
+        window.app.showLeaderboard('wordmatch');
+      }
+    };
 
     // 设置页标题
     const setupHeader = document.createElement('div');
     setupHeader.className = 'setup-header';
     setupHeader.innerHTML = `
-      <h2 data-i18n="setupTitle">${t('wordmatchTitle')}</h2>
+      <h2 class="game-title clickable-title" data-i18n="wordmatchTitle">${t('wordmatchTitle')}</h2>
       <p class="setup-subtitle">挑战你的单词记忆极限，配对消除，限时闯关！</p>
     `;
     wrapper.appendChild(setupHeader);
+    // 点击标题显示排行榜
+    setupHeader.querySelector('.clickable-title').onclick = () => {
+      audioManager.playClick();
+      if (window.app && window.app.showLeaderboard) {
+        window.app.showLeaderboard('wordmatch');
+      }
+    };
 
     // 设置内容区
     const setupContent = document.createElement('div');
@@ -463,7 +477,7 @@ class WordMatchGame {
           phonetic: failedPair.phonetic || '',
           from: 'wordmatch',
           grade: this.config ? this.config.grade : 'all'
-        });
+        }).catch(err => console.error('保存错题失败:', err));
       }
     }
     
@@ -574,6 +588,18 @@ class WordMatchGame {
     if (won) audioManager.playComplete(); else audioManager.playError();
     overlay.querySelector('.wm-result-retry').onclick = () => { overlay.remove(); this.restart(); };
     overlay.querySelector('.wm-result-back').onclick = () => { overlay.remove(); this.showSetup(); };
+
+    // 保存排行榜成绩
+    if (window.app && window.app.saveEnglishLeaderboard) {
+      const timeUsed = (this.s.timeLimit || 0) - (this.s.timeLeft || 0);
+      window.app.saveEnglishLeaderboard('wordmatch', {
+        score: this.s.score || 0,
+        level: this.s.totalWords || 0,
+        combo: this.s.maxCombo || 0,
+        time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
+        grade: this.s.grade || 'all'
+      });
+    }
   }
 
   // ─── HUD ───

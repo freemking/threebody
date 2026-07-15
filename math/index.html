@@ -777,6 +777,7 @@ body {
 /* Mode Selection */
 .mode-selection {
   animation: fadeInUp 0.3s ease;
+  margin: 0 auto 16px auto;
 }
 
 .mode-title {
@@ -862,7 +863,6 @@ body {
   <!-- Header -->
   <div class="header">
     <h1>🔢 除法口算练习</h1>
-    <p class="subtitle">基于九九乘法表 · 20题限时挑战</p>
   </div>
 
   <!-- Score Panel -->
@@ -888,15 +888,11 @@ body {
     <div class="start-screen" id="startScreen">
       <div class="card-body">
         <div class="icon">➗</div>
-        <h2>准备开始</h2>
         <ul class="rules" id="rulesList">
-          <li>共 <strong>20</strong> 道除法题（被除数均为两位数）</li>
-          <li>限时 <strong>100 秒</strong> 完成</li>
-          <li>每题 <strong>5 分</strong>，满分 <strong>100 分</strong></li>
-          <li>按 <strong>Enter</strong> 确认答案，答对自动跳下一题</li>
+          <li>每题 <strong>5 分</strong>，按 <strong>Enter</strong> 确认答案，答对自动跳下一题</li>
+          <li>深呼吸，<strong class="mode-title">选择难度</strong>，享受除法口算练习吧！</li>
         </ul>
         <div id="modeSelection" class="mode-selection hidden">
-          <p class="mode-title">选择难度</p>
           <div class="mode-buttons">
             <button class="btn-mode mode-fast" onclick="selectMode(10, 50, '快速')">
               <span class="mode-icon">⚡</span>
@@ -919,9 +915,8 @@ body {
               <span class="mode-desc">5题 · 100秒</span>
             </button>
           </div>
-          <button class="btn btn-quit" onclick="hideModeSelection()" style="margin-top:16px;">↩ 返回</button>
         </div>
-        <button class="btn btn-primary btn-start" id="btnShowModes" onclick="showModeSelection()">
+        <button class="btn btn-primary btn-start" id="btnShowModes" onclick="startDefaultGame()">
           🚀 开始挑战
         </button>
       </div>
@@ -1149,6 +1144,10 @@ function quitGame() {
   gameScreen.classList.add('hidden');
   scorePanel.classList.add('hidden');
   startScreen.classList.remove('hidden');
+  // 显示难度选择和开始挑战按钮
+  $('btnShowModes').classList.remove('hidden');
+  $('rulesList').classList.remove('hidden');
+  $('modeSelection').classList.remove('hidden');
   $('tabBar').classList.remove('hidden');
   switchTab('main');
 }
@@ -1161,19 +1160,24 @@ function showModeSelection() {
 }
 
 function hideModeSelection() {
-  $('btnShowModes').classList.remove('hidden');
-  $('rulesList').classList.remove('hidden');
-  $('modeSelection').classList.add('hidden');
+  // 难度选择默认显示，无需隐藏
 }
 
 function retryGame() {
-  hideModeSelection();
+  // 显示难度选择和开始挑战按钮
+  $('btnShowModes').classList.remove('hidden');
+  $('rulesList').classList.remove('hidden');
+  $('modeSelection').classList.remove('hidden');
   startScreen.classList.remove('hidden');
   resultScreen.classList.add('hidden');
   resultScreen.innerHTML = '';
   scorePanel.classList.add('hidden');
   $('tabBar').classList.remove('hidden');
   switchTab('main');
+}
+
+function startDefaultGame() {
+  selectMode(20, 100, '普通');
 }
 
 function selectMode(qCount, timeLimit, modeName) {
@@ -1386,6 +1390,8 @@ answerInput.addEventListener('input', () => {
 answerInput.addEventListener('wheel', (e) => e.preventDefault());
 
 // ===== Leaderboard =====
+// 自动检测API地址：本地开发时使用8080端口访问静态页面，3000端口访问API
+const API_BASE = (location.port === '8080') ? 'http://localhost:3000' : '';
 const MAX_LEADERBOARD = 10;
 const LB_KEYS = {
   fast: 'math_division_lb_fast',
@@ -1398,34 +1404,53 @@ let leaderboardDeleteMode = false;
 
 function getLBKey() { return LB_KEYS[leaderboardMode]; }
 
-function getLeaderboard() {
+async function getLeaderboard() {
   try {
-    return JSON.parse(localStorage.getItem(getLBKey())) || [];
-  } catch { return []; }
+    const response = await fetch(`${API_BASE}/api/leaderboard/list?mode=${leaderboardMode}&limit=${MAX_LEADERBOARD}`);
+    const result = await response.json();
+    if (result.success) {
+      return result.data;
+    }
+    console.error('获取排行榜失败:', result.error);
+    return [];
+  } catch (error) {
+    console.error('获取排行榜失败:', error);
+    return [];
+  }
 }
 
-function saveToLeaderboard(entry) {
-  const key = LB_KEYS[entry.mode] || LB_KEYS.normal;
-  let list;
-  try { list = JSON.parse(localStorage.getItem(key)) || []; } catch { list = []; }
-  list.push(entry);
-  list.sort((a, b) => b.score - a.score || a.time - b.time);
-  const top = list.slice(0, MAX_LEADERBOARD);
-  localStorage.setItem(key, JSON.stringify(top));
-  return top;
+async function saveToLeaderboard(entry) {
+  try {
+    const response = await fetch(`${API_BASE}/api/leaderboard/save`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(entry)
+    });
+    const result = await response.json();
+    if (result.success) {
+      return true;
+    }
+    console.error('保存成绩失败:', result.error);
+    return false;
+  } catch (error) {
+    console.error('保存成绩失败:', error);
+    return false;
+  }
 }
 
-function switchLeaderboardMode(mode) {
+async function switchLeaderboardMode(mode) {
   leaderboardMode = mode;
   leaderboardDeleteMode = false;
   // Update active button
   document.querySelectorAll('.lb-mode-btn').forEach(b => b.classList.remove('active'));
   document.querySelector(`.lb-mode-btn[data-lb="${mode}"]`).classList.add('active');
-  renderLeaderboard();
+  await renderLeaderboard();
 }
 
-function renderLeaderboard(highlightId) {
-  const list = getLeaderboard();
+async function renderLeaderboard(highlightId) {
+  const list = await getLeaderboard();
   const container = $('leaderboardContent');
   const btnDel = $('btnToggleDelete');
 
@@ -1574,17 +1599,32 @@ function clearWrongBook() {
   renderWrongBook();
 }
 
-function toggleLeaderboardDeleteMode() {
+async function toggleLeaderboardDeleteMode() {
   leaderboardDeleteMode = !leaderboardDeleteMode;
-  renderLeaderboard();
+  await renderLeaderboard();
 }
 
-function deleteFromLeaderboard(id) {
-  let list = getLeaderboard();
-  list = list.filter(e => e.id !== id);
-  localStorage.setItem(getLBKey(), JSON.stringify(list));
-  if (list.length === 0) leaderboardDeleteMode = false;
-  renderLeaderboard();
+async function deleteFromLeaderboard(id) {
+  try {
+    const response = await fetch(`${API_BASE}/api/leaderboard/delete`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id })
+    });
+    const result = await response.json();
+    if (result.success) {
+      // 重新加载排行榜
+      await renderLeaderboard();
+      return true;
+    }
+    console.error('删除记录失败:', result.error);
+    return false;
+  } catch (error) {
+    console.error('删除记录失败:', error);
+    return false;
+  }
 }
 
 // Event listeners for leaderboard buttons
@@ -1603,7 +1643,7 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-function saveScore(score, correct, time) {
+async function saveScore(score, correct, time) {
   const nameInput = $('playerNameInput');
   const hint = $('nameSaveHint');
   const name = nameInput.value.trim();
@@ -1615,17 +1655,19 @@ function saveScore(score, correct, time) {
     return;
   }
 
-  // 彩蛋：名字为 "1" 时，满分且用时 1 秒
-  const finalScore = name === '1' ? TOTAL_QUESTIONS * POINTS_PER_Q : score;
-  const finalTime = name === '1' ? 1 : time;
-
   const now = new Date();
   const dateStr = `${now.getMonth() + 1}/${now.getDate()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   const entryId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const modeMap = { '快速': 'fast', '普通': 'normal', '马拉松': 'marathon', '大爆炸': 'boom' };
-  const entry = { id: entryId, name, score: finalScore, correct, time: finalTime, date: dateStr, mode: modeMap[currentMode] || 'normal' };
+  const entry = { id: entryId, name, score, correct, time, date: dateStr, mode: modeMap[currentMode] || 'normal' };
 
-  saveToLeaderboard(entry);
+  const success = await saveToLeaderboard(entry);
+  if (!success) {
+    hint.textContent = '❌ 保存失败，请重试';
+    hint.style.color = 'var(--danger)';
+    return;
+  }
+
   // Switch to the correct mode tab before rendering
   const modeKey = entry.mode;
   if (leaderboardMode !== modeKey) {
@@ -1633,7 +1675,7 @@ function saveScore(score, correct, time) {
     document.querySelectorAll('.lb-mode-btn').forEach(b => b.classList.remove('active'));
     document.querySelector(`.lb-mode-btn[data-lb="${modeKey}"]`).classList.add('active');
   }
-  renderLeaderboard(entryId);
+  await renderLeaderboard(entry.id);
 
   // Disable input
   nameInput.disabled = true;
@@ -1643,7 +1685,7 @@ function saveScore(score, correct, time) {
 }
 
 // ===== Tab Switch =====
-function switchTab(tab) {
+async function switchTab(tab) {
   const mainCard = $('mainCard');
   const leaderboardPanel = $('leaderboardPanel');
   const wrongBookPanel = $('wrongBookPanel');
@@ -1663,7 +1705,7 @@ function switchTab(tab) {
     document.querySelector(`.lb-mode-btn[data-lb="${leaderboardMode}"]`).classList.add('active');
     leaderboardPanel.classList.remove('hidden');
     tabButtons[1].classList.add('active');
-    renderLeaderboard();
+    await renderLeaderboard();
   } else if (tab === 'wrongbook') {
     wrongBookPanel.classList.remove('hidden');
     tabButtons[2].classList.add('active');
@@ -1682,6 +1724,11 @@ gameScreen.classList.add('hidden');
 resultScreen.classList.add('hidden');
 progressDisplay.textContent = '0/20';
 pointsDisplay.textContent = '0';
+
+// 进入页面同时显示难度选择和开始挑战按钮
+$('btnShowModes').classList.remove('hidden');
+$('rulesList').classList.remove('hidden');
+$('modeSelection').classList.remove('hidden');
 </script>
 </body>
 </html>

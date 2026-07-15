@@ -445,7 +445,7 @@
     "phonetic": "/shop assistant/",
     "meaning": "店员",
     "example": "The shop assistant is friendly.",
-    "category": "职业",
+    "category": "n.",
     "difficulty": 5,
     "audio": "shop_assistant.mp3",
     "unit": 1
@@ -1424,7 +1424,7 @@
     "phonetic": "/soft drink/",
     "meaning": "软饮料",
     "example": "I want a soft drink.",
-    "category": "其他",
+    "category": "n.",
     "difficulty": 5,
     "audio": "soft_drink.mp3",
     "unit": 3

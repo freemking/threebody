@@ -16,7 +16,7 @@ const i18nTexts = {
         playerExp: '经验: 0/100',
         langLabel: '中/EN',
         // 游戏设置页
-        setupTitle: '开始学习之旅',
+        setupTitle: '单词大富翁',
         setupSubtitle: '选择年级和对手，开始你的英语冒险！',
         sectionGrade: '📚 选择年级',
         sectionUnit: '📖 选择单元',
@@ -27,6 +27,7 @@ const i18nTexts = {
         btnStartGame: '开始游戏',
         btnBackMenu: '返回菜单',
         btnBack: '← 返回',
+        btnExitGame: '退出游戏',
         // 游戏界面
         gameTitleMonopoly: '单词大富翁',
         gameTitleWordmatch: '单词配对',
@@ -198,9 +199,50 @@ const i18nTexts = {
         downgradedTo: '降级到',
         stillOwnedBy: '仍属于',
         from: '来自',
+        // 大富翁事件日志
+        logPlayerRolled: '玩家掷了 {steps}',
+        logPlayerPassedStart: '玩家经过起点 +$100',
+        logPlayerOccupied: '玩家占领了 "{word}" +$100',
+        logPlayerOccupiedFail: '玩家占领失败，罚款 -$100',
+        logPlayerChallengeWon: '玩家赢得挑战，支付租金 -{price}',
+        logPlayerUpgradeSuccess: '玩家升级了 "{word}" → Lv.{level} -{cost}',
+        logPlayerUpgradeFail: '玩家升级失败 "{word}" 罚款 -{fine}',
+        logPlayerWrong: '玩家答错了，罚款 -$100',
+        logPlayerWrongDoubleRent: '玩家答错了，支付双倍租金 -${price}',
+        logAiRolled: '{name} 掷了 {steps}',
+        logAiPassedStart: '{name} 经过起点 +$100',
+        logAiOccupied: '{name} 占领了 "{word}" +$100',
+        logAiOccupiedFail: '{name} 占领失败，罚款 $100',
+        logAiAnswerCorrect: '{name} 答对了，支付租金给 {recipient} {price}',
+        logAiAnswerWrong: '{name} 答错了，支付双倍租金给 {recipient} {price}',
+        logAiUpgradeSuccess: '{name} 升级了 "{word}" → Lv.{level} -{cost}',
+        logAiUpgradeFail: '{name} 升级失败 "{word}" 罚款 -{fine}',
+        logAiMaxUpgrades: '{name} "{word}" 已达到最大升级',
+        logAiInsufficientFunds: '{name} 资金不足无法升级 "{word}"',
+        logAiTax: '{name} 缴税 -{amount}',
+        logDisasterStrike: '{emoji} {name} 来袭！',
+        logDisasterPlayerUnowned: '{name}: 玩家的 "{word}" 变为无主',
+        logDisasterPlayerDowngraded: '{name}: 玩家的 "{word}" 降级到 Lv.{level}',
+        logDisasterAiUnowned: '{name}: {ai}的 "{word}" 变为无主',
+        logDisasterAiDowngraded: '{name}: {ai}的 "{word}" 降级到 Lv.{level}',
+        logPlayerBankrupt: '玩家破产！',
+        logAiBankrupt: '{name} 破产！释放了 {count} 个格子',
+        logAllAiBankrupt: '所有AI破产，玩家获胜！',
+        logAutoUpgrade: '{name} 自动升级了 "{word}" → Lv.{level}',
+        logChanceUnowned: '机会降落: "{word}" 从 {owner} 变为无主',
+        logChanceDowngraded: '机会降落: "{word}" 从 {owner} 降级到 Lv.{level}',
+        logPlayerTax: '玩家缴税 -{amount}',
+        logPlayerSold: '玩家出售了 "{word}" +{price}',
+        logPlayerSellFail: '玩家出售失败 "{word}" 罚款 -{fine}',
+        yourProperty: '你的地产',
+        upgradeCost: '升级费用',
+        afterUpgrade: '升级后',
+        sellPrice: '售价',
+        rent: '租金',
+        level: '等级',
         // 单词大爆炸
         wbTitle: '单词大爆炸',
-        wbDesc: '点击配对中英文单词，炸掉它们！每关显示所有单词，时间逐渐缩短！',
+        wbDesc: '看中文意思和英文句子，输入对应的英文单词！每关限时完成所有题目！',
         wbWordBank: '单词库',
         wbBlastClear: '爆炸消除',
         wbWordSource: '📚 单词来源',
@@ -228,7 +270,27 @@ const i18nTexts = {
         wbResumed: '▶ 继续',
         wbGradeX: '年级 {grade}',
         wbUnitX: '单元 {unit}',
-        wbLevelUp: '🎉 第{level}关！时间缩短了！'
+        wbLevelUp: '🎉 第{level}关！时间缩短了！',
+        wbInputPlaceholder: '输入对应的英文单词...',
+        wbSubmit: '提交',
+        wbTryAgain: '再试试！',
+        // 排行榜
+        leaderboard: '排行榜',
+        leaderboardTitle: '🏆 排行榜',
+        lbMonopoly: '大富翁',
+        lbWordmatch: '配对',
+        lbWordblast: '大爆炸',
+        lbRank: '排名',
+        lbName: '玩家',
+        lbScore: '分数',
+        lbLevel: '关卡',
+        lbCombo: '连击',
+        lbTime: '用时',
+        lbDate: '日期',
+        lbNoData: '暂无排行数据',
+        lbEnterName: '请输入你的名字：',
+        lbSaved: '成绩已保存到排行榜！',
+        lbSaveScore: '保存成绩'
     },
     en: {
         menuTitle: '📚 English Word Adventure',
@@ -241,7 +303,7 @@ const i18nTexts = {
         playerExp: 'EXP: 0/100',
         langLabel: '中/EN',
         // Game Setup
-        setupTitle: 'Start Learning Journey',
+        setupTitle: 'Word Monopoly',
         setupSubtitle: 'Choose grade and opponents to begin your English adventure!',
         sectionGrade: '📚 Select Grade',
         sectionUnit: '📖 Select Unit',
@@ -252,6 +314,7 @@ const i18nTexts = {
         btnStartGame: 'Start Game',
         btnBackMenu: 'Back to Menu',
         btnBack: '← Back',
+        btnExitGame: 'Exit Game',
         // Game Screen
         gameTitleMonopoly: 'Word Monopoly',
         gameTitleWordmatch: 'Word Match',
@@ -423,9 +486,50 @@ const i18nTexts = {
         downgradedTo: 'downgraded to',
         stillOwnedBy: 'still owned by',
         from: 'from',
+        // Monopoly Event Log
+        logPlayerRolled: 'Player rolled {steps}',
+        logPlayerPassedStart: 'Player passed Start +$100',
+        logPlayerOccupied: 'Player occupied "{word}" +$100',
+        logPlayerOccupiedFail: 'Player occupation failed, fined -$100',
+        logPlayerChallengeWon: 'Player won challenge, pay rent -{price}',
+        logPlayerUpgradeSuccess: 'Player upgraded "{word}" → Lv.{level} -{cost}',
+        logPlayerUpgradeFail: 'Player upgrade failed "{word}" fined -{fine}',
+        logPlayerWrong: 'Player answered wrong, fine -$100',
+        logPlayerWrongDoubleRent: 'Player answered wrong, pay double rent -{price}',
+        logAiRolled: '{name} rolled {steps}',
+        logAiPassedStart: '{name} passed Start +$100',
+        logAiOccupied: '{name} occupied "{word}" +$100',
+        logAiOccupiedFail: '{name} occupation failed, fined $100',
+        logAiAnswerCorrect: '{name} answered correctly, pay rent to {recipient} {price}',
+        logAiAnswerWrong: '{name} answered wrong, pay double rent to {recipient} {price}',
+        logAiUpgradeSuccess: '{name} upgraded "{word}" → Lv.{level} -{cost}',
+        logAiUpgradeFail: '{name} upgrade failed "{word}" fined -{fine}',
+        logAiMaxUpgrades: '{name} "{word}" max upgrades reached',
+        logAiInsufficientFunds: '{name} insufficient funds to upgrade "{word}"',
+        logAiTax: '{name} tax -{amount}',
+        logDisasterStrike: '{emoji} {name} strikes!',
+        logDisasterPlayerUnowned: '{name}: Player\'s "{word}" became unowned',
+        logDisasterPlayerDowngraded: '{name}: Player\'s "{word}" downgraded to Lv.{level}',
+        logDisasterAiUnowned: '{name}: {ai}\'s "{word}" became unowned',
+        logDisasterAiDowngraded: '{name}: {ai}\'s "{word}" downgraded to Lv.{level}',
+        logPlayerBankrupt: 'Player bankrupt!',
+        logAiBankrupt: '{name} bankrupt! Released {count} cells',
+        logAllAiBankrupt: 'All AIs bankrupt, player wins!',
+        logAutoUpgrade: '{name} auto-upgraded "{word}" → Lv.{level}',
+        logChanceUnowned: 'Chance landing: "{word}" from {owner} becomes unowned',
+        logChanceDowngraded: 'Chance landing: "{word}" from {owner} downgraded to Lv.{level}',
+        logPlayerTax: 'Player paid tax -{amount}',
+        logPlayerSold: 'Player sold "{word}" +{price}',
+        logPlayerSellFail: 'Player sell failed "{word}" -{fine}',
+        yourProperty: 'Your Property',
+        upgradeCost: 'Upgrade Cost',
+        afterUpgrade: 'After Upgrade',
+        sellPrice: 'Sell Price',
+        rent: 'Rent',
+        level: 'Level',
         // Word Blast
         wbTitle: 'Word Blast',
-        wbDesc: 'Match Chinese and English word pairs to blast them! All words shown each level, time gets shorter!',
+        wbDesc: 'See the Chinese meaning and English sentence, then type the matching English word! Complete all questions before time runs out!',
         wbWordBank: 'Word Bank',
         wbBlastClear: 'Blast Clear',
         wbWordSource: '📚 Word Source',
@@ -453,7 +557,27 @@ const i18nTexts = {
         wbResumed: '▶ Resumed',
         wbGradeX: 'Grade {grade}',
         wbUnitX: 'Unit {unit}',
-        wbLevelUp: '🎉 Level {level}! Time reduced!'
+        wbLevelUp: '🎉 Level {level}! Time reduced!',
+        wbInputPlaceholder: 'Type the English word...',
+        wbSubmit: 'Submit',
+        wbTryAgain: 'Try again!',
+        // Leaderboard
+        leaderboard: 'Leaderboard',
+        leaderboardTitle: '🏆 Leaderboard',
+        lbMonopoly: 'Monopoly',
+        lbWordmatch: 'Match',
+        lbWordblast: 'Blast',
+        lbRank: 'Rank',
+        lbName: 'Player',
+        lbScore: 'Score',
+        lbLevel: 'Level',
+        lbCombo: 'Combo',
+        lbTime: 'Time',
+        lbDate: 'Date',
+        lbNoData: 'No leaderboard data yet',
+        lbEnterName: 'Enter your name:',
+        lbSaved: 'Score saved to leaderboard!',
+        lbSaveScore: 'Save Score'
     }
 };
 
@@ -640,22 +764,18 @@ class App {
         
         this.currentScreen = 'game-screen';
         
-        // Update game title
-        const gameTitle = document.querySelector('.game-title');
-        if (gameTitle) {
-            if (mode === 'wordmatch') gameTitle.textContent = this.t('gameTitleWordmatch');
-            else if (mode === 'wordblast') gameTitle.textContent = this.t('wbTitle');
-            else gameTitle.textContent = this.t('gameTitleMonopoly');
-        }
+        // Update game title - 保持标题为排行榜，不修改
+        // const gameTitle = document.querySelector('.game-title');
+        // if (gameTitle) {
+        //     if (mode === 'wordmatch') gameTitle.textContent = this.t('gameTitleWordmatch');
+        //     else if (mode === 'wordblast') gameTitle.textContent = this.t('wbTitle');
+        //     else gameTitle.textContent = this.t('gameTitleMonopoly');
+        // }
         
         // 根据游戏模式显示或隐藏外部的game-header
         const gameHeader = gameScreen.querySelector('.game-header');
         if (gameHeader) {
-            if (mode === 'wordmatch' || mode === 'wordblast') {
-                gameHeader.style.display = 'none';
-            } else {
-                gameHeader.style.display = 'flex';
-            }
+            gameHeader.style.display = 'none';
         }
         
         // 切换游戏场景
@@ -745,6 +865,14 @@ class App {
         
         // 窗口关闭前保存进度
         window.addEventListener('beforeunload', () => this.saveProgress());
+        
+        // 监听错题本数据从数据库加载完成事件
+        window.addEventListener('wrongbook-loaded', () => {
+            // 如果当前在错题本页面，刷新列表
+            if (this.currentScreen === 'wrongbook-screen') {
+                this.renderWrongBookList();
+            }
+        });
         
         console.log('Event listeners setup complete');
     }
@@ -891,6 +1019,13 @@ class App {
         if (backBtn) {
             backBtn.onclick = () => this.showMainMenu();
         }
+
+        // 排行榜按钮
+        const lbBtn1 = document.getElementById('monopoly-leaderboard-btn');
+        const lbBtn2 = document.getElementById('monopoly-leaderboard-btn2');
+        const showLB = () => { audioManager.playClick(); this.showLeaderboard('monopoly'); };
+        if (lbBtn1) lbBtn1.onclick = showLB;
+        if (lbBtn2) lbBtn2.onclick = showLB;
     }
 
 
@@ -936,9 +1071,10 @@ class App {
             });
         }
 
-        // 保存AI配置和单元选择到gameEngine
+        // 保存AI配置、年级和单元选择到gameEngine
         if (this.gameEngine) {
             this.gameEngine.aiConfigs = aiConfigs;
+            this.gameEngine.gameState.currentGrade = this.selectedGrade === 'all' ? 'all' : parseInt(this.selectedGrade);
             this.gameEngine.gameState.currentUnit = this.selectedUnit || 'all';
         }
 
@@ -1074,15 +1210,15 @@ class App {
             }
         });
         
-        // 更新游戏标题（如果在游戏界面）
-        if (this.currentScreen === 'game-screen') {
-            const gameTitle = document.querySelector('.game-title');
-            if (gameTitle) {
-                if (this.selectedMode === 'wordmatch') gameTitle.textContent = texts.gameTitleWordmatch;
-                else if (this.selectedMode === 'wordblast') gameTitle.textContent = texts.wbTitle;
-                else gameTitle.textContent = texts.gameTitleMonopoly;
-            }
-        }
+        // 更新游戏标题（如果在游戏界面）- 保持标题为排行榜，不修改
+        // if (this.currentScreen === 'game-screen') {
+        //     const gameTitle = document.querySelector('.game-title');
+        //     if (gameTitle) {
+        //         if (this.selectedMode === 'wordmatch') gameTitle.textContent = texts.gameTitleWordmatch;
+        //         else if (this.selectedMode === 'wordblast') gameTitle.textContent = texts.wbTitle;
+        //         else gameTitle.textContent = texts.gameTitleMonopoly;
+        //     }
+        // }
         
         // 更新难度标签
         this.updateDifficultyLabels();
@@ -1190,12 +1326,6 @@ class App {
         switch (e.key) {
             case 'Escape':
                 this.closeModal();
-                break;
-            case 'm':
-            case 'M':
-                if (this.currentScreen !== 'main-menu') {
-                    this.showMainMenu();
-                }
                 break;
         }
     }
@@ -1334,6 +1464,165 @@ class App {
         };
     }
     
+    /**
+     * 显示排行榜界面
+     */
+    showLeaderboard(type = 'monopoly', showTabs = false) {
+        // 移除旧的排行榜弹窗
+        const old = document.getElementById('english-leaderboard-modal');
+        if (old) old.remove();
+
+        const API_BASE = (location.port === '8080') ? 'http://localhost:3000' : '';
+
+        // 获取游戏名称
+        const gameNames = {
+            monopoly: this.t('lbMonopoly'),
+            wordmatch: this.t('lbWordmatch'),
+            wordblast: this.t('lbWordblast')
+        };
+        const titleText = showTabs ? this.t('leaderboardTitle') : `🏆 ${gameNames[type] || this.t('leaderboard')}`;
+
+        const modal = document.createElement('div');
+        modal.className = 'english-lb-modal';
+        modal.id = 'english-leaderboard-modal';
+        modal.innerHTML = `
+            <div class="english-lb-box">
+                <div class="english-lb-header">
+                    <h2 class="english-lb-title">${titleText}</h2>
+                    <button class="english-lb-close" id="english-lb-close">&times;</button>
+                </div>
+                ${showTabs ? `
+                <div class="english-lb-tabs" id="english-lb-tabs">
+                    <button class="english-lb-tab active" data-type="monopoly">${this.t('lbMonopoly')}</button>
+                    <button class="english-lb-tab" data-type="wordmatch">${this.t('lbWordmatch')}</button>
+                    <button class="english-lb-tab" data-type="wordblast">${this.t('lbWordblast')}</button>
+                </div>
+                ` : ''}
+                <div class="english-lb-content" id="english-lb-content">
+                    <div class="english-lb-loading">Loading...</div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        requestAnimationFrame(() => modal.classList.add('active'));
+
+        // 关闭按钮
+        document.getElementById('english-lb-close').onclick = () => modal.remove();
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) modal.remove();
+        });
+
+        // Tab切换（仅在显示Tab时）
+        if (showTabs) {
+            const tabs = modal.querySelectorAll('.english-lb-tab');
+            tabs.forEach(tab => {
+                tab.onclick = () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    this._fetchAndRenderLeaderboard(tab.dataset.type, API_BASE);
+                };
+            });
+        }
+
+        // 加载初始数据
+        this._fetchAndRenderLeaderboard(type, API_BASE);
+    }
+
+    /**
+     * 获取并渲染排行榜数据
+     */
+    async _fetchAndRenderLeaderboard(type, API_BASE) {
+        const content = document.getElementById('english-lb-content');
+        if (!content) return;
+        content.innerHTML = '<div class="english-lb-loading">Loading...</div>';
+
+        try {
+            const resp = await fetch(`${API_BASE}/api/english-leaderboard/list?type=${type}&limit=10`);
+            const result = await resp.json();
+            if (!result.success || !result.data.length) {
+                content.innerHTML = `<div class="english-lb-empty">${this.t('lbNoData')}</div>`;
+                return;
+            }
+
+            const data = result.data;
+            let html = `<table class="english-lb-table">
+                <thead><tr>
+                    <th>${this.t('lbRank')}</th>
+                    <th>${this.t('lbName')}</th>
+                    <th>${this.t('lbScore')}</th>
+                    <th>${this.t('lbLevel')}</th>
+                    <th>${this.t('lbCombo')}</th>
+                    <th>${this.t('lbTime')}</th>
+                    <th>${this.t('lbDate')}</th>
+                </tr></thead><tbody>`;
+
+            data.forEach((item, i) => {
+                const rankIcon = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : (i + 1);
+                const timeStr = item.time >= 60 ? `${Math.floor(item.time / 60)}m${item.time % 60}s` : `${item.time}s`;
+                const dateStr = item.date ? item.date.split(' ')[0] : '';
+                html += `<tr class="english-lb-row${i < 3 ? ' english-lb-top3' : ''}">
+                    <td class="english-lb-rank">${rankIcon}</td>
+                    <td class="english-lb-name">${item.name}</td>
+                    <td class="english-lb-score">${item.score}</td>
+                    <td class="english-lb-level">${item.level || '-'}</td>
+                    <td class="english-lb-combo">${item.combo || '-'}</td>
+                    <td class="english-lb-time">${timeStr}</td>
+                    <td class="english-lb-date">${dateStr}</td>
+                </tr>`;
+            });
+
+            html += '</tbody></table>';
+            content.innerHTML = html;
+        } catch (err) {
+            console.error('获取排行榜失败:', err);
+            content.innerHTML = `<div class="english-lb-empty">${this.t('lbNoData')}</div>`;
+        }
+    }
+
+    /**
+     * 保存成绩到英语排行榜
+     * @param {string} type - 游戏类型 (monopoly/wordmatch/wordblast)
+     * @param {object} data - { score, level, combo, time, grade }
+     */
+    async saveEnglishLeaderboard(type, data) {
+        const API_BASE = (location.port === '8080') ? 'http://localhost:3000' : '';
+        
+        // 获取玩家名字（从localStorage读取或提示输入）
+        let name = localStorage.getItem('english_lb_name');
+        if (!name) {
+            name = prompt(this.t('lbEnterName'));
+            if (!name || !name.trim()) return;
+            name = name.trim();
+            localStorage.setItem('english_lb_name', name);
+        }
+
+        const entry = {
+            id: crypto.randomUUID ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+                const r = Math.random() * 16 | 0;
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            }),
+            name: name,
+            score: data.score || 0,
+            level: data.level || 1,
+            combo: data.combo || 0,
+            time: data.time || 0,
+            grade: data.grade || 'all',
+            type: type,
+            date: new Date().toISOString().replace('T', ' ').substring(0, 19)
+        };
+
+        try {
+            await fetch(`${API_BASE}/api/english-leaderboard/save`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(entry)
+            });
+            this.showFloat(this.t('lbSaved'), '#27AE60');
+        } catch (err) {
+            console.error('保存排行榜成绩失败:', err);
+        }
+    }
+
     /**
      * 显示错题本界面
      */
@@ -1539,9 +1828,9 @@ class App {
         
         // 清除已掌握按钮
         const clearMasteredBtn = document.getElementById('btn-clear-mastered');
-        if (clearMasteredBtn) clearMasteredBtn.onclick = () => {
+        if (clearMasteredBtn) clearMasteredBtn.onclick = async () => {
             if (confirm(this.t('confirmClearMastered'))) { 
-                wrongBook.clearMastered(); 
+                await wrongBook.clearMastered(); 
                 this.renderWrongBookList(); 
                 this.showWrongbookNotification('已清除所有已掌握的单词', 'success');
             }
@@ -1549,18 +1838,20 @@ class App {
         
         // 清除全部按钮
         const clearAllBtn = document.getElementById('btn-clear-all');
-        if (clearAllBtn) clearAllBtn.onclick = () => {
+        if (clearAllBtn) clearAllBtn.onclick = async () => {
             if (confirm(this.t('confirmClearAll'))) { 
-                wrongBook.clearAll(); 
+                await wrongBook.clearAll(); 
                 this.renderWrongBookList(); 
                 this.showWrongbookNotification('已清空错题本', 'success');
             }
         };
         
+
+        
         // 列表容器事件委托
         const listContainer = document.getElementById('wrongbook-list');
         if (listContainer) {
-            listContainer.onclick = (e) => {
+            listContainer.onclick = async (e) => {
                 const target = e.target.closest('button');
                 if (!target) return;
                 
@@ -1583,10 +1874,10 @@ class App {
                     const item = target.closest('.wrongbook-item');
                     
                     if (target.dataset.mastered === 'true') {
-                        wrongBook.unmarkMastered(word);
+                        await wrongBook.unmarkMastered(word);
                         this.showWrongbookNotification(`已取消掌握: ${word}`, 'info');
                     } else {
-                        wrongBook.markMastered(word);
+                        await wrongBook.markMastered(word);
                         // 添加掌握成功动画
                         if (item) {
                             item.classList.add('mastered-success');
@@ -1606,13 +1897,13 @@ class App {
                     // 添加删除确认动画
                     if (item) {
                         item.classList.add('delete-confirm');
-                        setTimeout(() => {
-                            wrongBook.removeWrongWord(word);
+                        setTimeout(async () => {
+                            await wrongBook.removeWrongWord(word);
                             this.renderWrongBookList();
                             this.showWrongbookNotification(`已删除: ${word}`, 'warning');
                         }, 300);
                     } else {
-                        wrongBook.removeWrongWord(word);
+                        await wrongBook.removeWrongWord(word);
                         this.renderWrongBookList();
                     }
                     return;
@@ -1629,6 +1920,8 @@ class App {
             });
         }
     }
+    
+
     
     /**
      * 显示错题本通知

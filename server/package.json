@@ -1,0 +1,16 @@
+{
+  "name": "threebody-api",
+  "version": "1.0.0",
+  "description": "三体学习空间后端API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "cors": "^2.8.5",
+    "js-yaml": "^4.1.0"
+  }
+}

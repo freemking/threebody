@@ -1,6 +1,6 @@
 /**
- * 单词大爆炸游戏 - WordBlast
- * 所有单词的中文和英文随机分布，点击配对即炸掉，有倒计时，难度递增
+ * 单词大爆炸游戏 - WordBlast (V2)
+ * 显示中文意思和英文句子（单词留空），用户输入对应的英文单词
  */
 function wbShuffle(arr) {
   const a = [...arr];
@@ -25,29 +25,29 @@ class WordBlastGame {
       level: 1,
       timeLeft: 0, timeLimit: 60,
       playing: false, paused: false,
-      sel: null, // {type:'cn'|'en', id, el}
-      clearedPairs: 0,
-      totalPairs: 0
+      currentIdx: 0,  // 当前题目索引
+      correctCount: 0,
+      totalQuestions: 0
     };
     this.wordPool = [];
-    this.bubbles = []; // {id, word, meaning, cnActive:true, enActive:true}
+    this.questions = []; // {id, word, meaning, sentence, blankedSentence}
     this.tmr = null;
     this.BLAST_MS = 500;
 
     // 动态时间配置
-    this.SECONDS_PER_WORD = 5; // 每个单词的基础时间（秒）
-    this.MIN_TIME = 30;        // 最小时间（秒）
-    this.MAX_TIME = 360;       // 最大时间（秒）- 加倍以支持第一关2倍时间
-    this.TIME_DECREASE_RATIO = 0.15; // 每关时间递减比例（15%）
+    this.SECONDS_PER_WORD = 8; // 每个单词的基础时间（秒），输入模式需要更多时间
+    this.MIN_TIME = 30;
+    this.MAX_TIME = 360;
+    this.TIME_DECREASE_RATIO = 0.15;
 
-    // 监听语言变更事件，重新渲染当前页面
+    // 监听语言变更事件
     document.addEventListener('languageChanged', () => {
       const setupEl = document.getElementById('wb-back-btn');
       const resultBox = document.querySelector('.wb-result-box');
       if (setupEl || resultBox) {
         this.showSetup();
       } else if (this.s.playing) {
-        this.render();
+        this._renderQuestion();
       }
     });
   }
@@ -57,17 +57,69 @@ class WordBlastGame {
 
   // 动态计算时间
   calcTimeForLevel(level, wordCount) {
-    // 第一关：基于单词数量计算基础时间，调整为2倍
     if (level === 1) {
       const baseTime = wordCount * this.SECONDS_PER_WORD;
-      const doubledTime = baseTime * 2; // 第一关时间调整为2倍
+      const doubledTime = baseTime * 2;
       return Math.max(this.MIN_TIME, Math.min(this.MAX_TIME, doubledTime));
     }
-    
-    // 后续关卡：在上一关基础上递减
     const baseTime = this.calcTimeForLevel(1, wordCount);
     const decrease = Math.pow(1 - this.TIME_DECREASE_RATIO, level - 1);
     return Math.max(this.MIN_TIME, Math.floor(baseTime * decrease));
+  }
+
+  /**
+   * 将句子中的目标单词替换为下划线
+   */
+  _blankWord(sentence, word) {
+    if (!sentence || !word) return sentence || '';
+    const lowerWord = word.toLowerCase();
+    const lowerSentence = sentence.toLowerCase();
+
+    // 常见词形变化后缀，按长度降序排列优先匹配
+    const suffixes = ['', 's', 'es', 'ed', 'd', 'ing', 'er', 'est', 'ly', 'tion', 'sion', 'ment', 'ness', 'ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ial', 'y', 'ily', 'ily', 'ty', 'ity', 'ance', 'ence', 'ant', 'ent', 'ial', 'ually', 'ally'];
+
+    // 构建匹配所有词形变化的正则
+    const patterns = [];
+    // 原形
+    patterns.push(word);
+    // 加后缀
+    for (const suffix of suffixes) {
+      if (suffix) patterns.push(word + suffix);
+    }
+    // y -> ies
+    if (word.endsWith('y')) {
+      patterns.push(word.slice(0, -1) + 'ies');
+      patterns.push(word.slice(0, -1) + 'ied');
+      patterns.push(word.slice(0, -1) + 'ier');
+    }
+    // e 结尾的去 e 加后缀
+    if (word.endsWith('e')) {
+      patterns.push(word.slice(0, -1) + 'ing');
+      patterns.push(word.slice(0, -1) + 'able');
+    }
+    // 双写辅音
+    if (word.length >= 3 && /[aeiou][^aeiou]$/.test(word)) {
+      const last = word[word.length - 1];
+      patterns.push(word + last + 'ed');
+      patterns.push(word + last + 'ing');
+    }
+
+    // 去重
+    const unique = [...new Set(patterns.map(p => p.toLowerCase()))];
+    // 按长度降序排列，优先匹配更长的词
+    unique.sort((a, b) => b.length - a.length);
+
+    for (const pat of unique) {
+      // 用 word boundary 匹配，大小写不敏感
+      const regex = new RegExp('\\b(' + pat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')\\b', 'gi');
+      if (regex.test(sentence)) {
+        // 获取实际匹配的文本长度，生成等长下划线
+        return sentence.replace(regex, (match) => '_'.repeat(Math.max(match.length, 4)));
+      }
+    }
+
+    // 如果句子中找不到，返回原句加提示
+    return sentence;
   }
 
   // ─── 设置界面 ───
@@ -75,41 +127,53 @@ class WordBlastGame {
     const c = document.getElementById('game-canvas-container');
     if (!c) return;
     c.innerHTML = '';
-    // 不覆盖容器样式，保持全局CSS的#game-canvas-container样式
 
-    // 创建wrapper包裹所有内容（参考大富翁的grade-sel-wrap）
     const wrapper = document.createElement('div');
     wrapper.className = 'wb-setup-wrap';
 
     const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
 
-    // 游戏头部（返回按钮）
+    // 游戏头部
     const header = document.createElement('div');
     header.className = 'game-header';
     header.innerHTML = `
       <button class="back-btn" id="wb-back-btn">← ${tx('back')}</button>
-      <div class="game-title">${tx('wbTitle')}</div>
+      <div class="game-title clickable-title" data-i18n="leaderboardTitle">${tx('leaderboardTitle')}</div>
     `;
     wrapper.appendChild(header);
     header.querySelector('#wb-back-btn').onclick = () => {
       audioManager.playClick();
+      if (this.tmr) { clearInterval(this.tmr); this.tmr = null; }
+      this.s.playing = false;
+      this.s.paused = false;
       window.app.showMainMenu();
+    };
+    header.querySelector('.clickable-title').onclick = () => {
+      audioManager.playClick();
+      if (window.app && window.app.showLeaderboard) {
+        window.app.showLeaderboard('wordblast');
+      }
     };
 
     // 设置页标题
     const setupHeader = document.createElement('div');
     setupHeader.className = 'setup-header';
     setupHeader.innerHTML = `
-      <h2 data-i18n="setupTitle">${tx('wbTitle')}</h2>
+      <h2 class="game-title clickable-title" data-i18n="wbTitle">${tx('wbTitle')}</h2>
       <p class="setup-subtitle">${tx('wbDesc')}</p>
     `;
     wrapper.appendChild(setupHeader);
+    setupHeader.querySelector('.clickable-title').onclick = () => {
+      audioManager.playClick();
+      if (window.app && window.app.showLeaderboard) {
+        window.app.showLeaderboard('wordblast');
+      }
+    };
 
     // 设置内容区
     const setupContent = document.createElement('div');
     setupContent.className = 'setup-content';
 
-    // 年级选择
     setupContent.innerHTML += `
       <div class="setup-section">
         <h3 class="section-title">📚 ${tx('wbWordSource')}</h3>
@@ -123,7 +187,6 @@ class WordBlastGame {
         </div>
       </div>
       
-      <!-- 单元选择 -->
       <div class="setup-section" id="wb-unit-section">
         <h3 class="section-title">📖 ${tx('wbSelectUnit')}</h3>
         <div class="unit-grid" id="wb-unit-grid">
@@ -139,7 +202,6 @@ class WordBlastGame {
     setupButtons.innerHTML = `<button id="wb-go" class="menu-btn">${tx('wbStartBtn')}</button>`;
     wrapper.appendChild(setupButtons);
 
-    // 将wrapper添加到容器
     c.appendChild(wrapper);
 
     // 年级选择事件
@@ -153,7 +215,6 @@ class WordBlastGame {
       });
     });
 
-    // 开始游戏事件
     document.getElementById('wb-go').onclick = () => {
       if (!this.s.grade) {
         const firstGrade = setupContent.querySelector('#wb-grade-grid .grade-btn');
@@ -197,15 +258,12 @@ class WordBlastGame {
   startGame() {
     this.resetS();
     this.loadWordPool();
-    
-    // 使用所有单词
-    this.initBubbles();
-    
-    // 计算第一关的时间
+    this.initQuestions();
+
     const wordCount = this.wordPool.length;
     this.s.timeLimit = this.calcTimeForLevel(1, wordCount);
     this.s.timeLeft = this.s.timeLimit;
-    
+
     this.render();
     this.begin();
   }
@@ -215,11 +273,11 @@ class WordBlastGame {
     this.s.score = 0; this.s.combo = 0; this.s.maxCombo = 0;
     this.s.level = 1;
     this.s.playing = false; this.s.paused = false;
-    this.s.sel = null;
-    this.s.clearedPairs = 0;
-    this.s.totalPairs = 0;
+    this.s.currentIdx = 0;
+    this.s.correctCount = 0;
+    this.s.totalQuestions = 0;
     this.wordPool = [];
-    this.bubbles = [];
+    this.questions = [];
   }
 
   loadWordPool() {
@@ -228,24 +286,25 @@ class WordBlastGame {
     this.wordPool = wbShuffle(ws);
   }
 
-  initBubbles() {
-    this.bubbles = [];
-    // 使用所有单词，不再限制数量
+  initQuestions() {
+    this.questions = [];
     const words = [...this.wordPool];
     words.forEach((w, i) => {
-      this.bubbles.push({
+      const sentence = w.example || '';
+      const blankedSentence = this._blankWord(sentence, w.word);
+      this.questions.push({
         id: i,
-        word: w.word,
-        meaning: w.meaning,
+        word: w.word.toLowerCase(),
+        meaning: w.meaning || '',
         phonetic: w.phonetic || '',
         rootAffix: w.rootAffix || '',
-        example: w.example || '',
-        cnActive: true,
-        enActive: true
+        example: sentence,
+        blankedSentence: blankedSentence
       });
     });
-    this.s.totalPairs = this.bubbles.length;
-    this.s.clearedPairs = 0;
+    this.s.totalQuestions = this.questions.length;
+    this.s.currentIdx = 0;
+    this.s.correctCount = 0;
   }
 
   render() {
@@ -267,24 +326,17 @@ class WordBlastGame {
       mkS('wb-limit', tx('wbLimit'), `${this.s.timeLimit}s`, '⏳') +
       mkS('wb-score', tx('wbScore'), '0', '⭐') +
       mkS('wb-combo', tx('wbCombo'), '0x', '🔥') +
-      mkS('wb-pairs', tx('wbRemaining'), `${this.s.totalPairs - this.s.clearedPairs}/${this.s.totalPairs}`, '🎯');
+      mkS('wb-progress', tx('wbRemaining'), `${this.s.currentIdx}/${this.s.totalQuestions}`, '🎯');
     c.appendChild(info);
 
-    // 爆炸容器 - 词云区域
-    const blastArea = document.createElement('div');
-    blastArea.className = 'wb-blast-area';
-    blastArea.id = 'wb-blast-area';
+    // 题目卡片区域
+    const cardArea = document.createElement('div');
+    cardArea.className = 'wb-card-area';
+    cardArea.id = 'wb-card-area';
+    c.appendChild(cardArea);
 
-    // 创建所有气泡元素，然后打乱顺序
-    const allBubbleEls = [];
-    this.bubbles.forEach(bubble => {
-      if (!bubble.cnActive && !bubble.enActive) return;
-      if (bubble.cnActive) allBubbleEls.push(this._mkBubble(bubble, 'cn'));
-      if (bubble.enActive) allBubbleEls.push(this._mkBubble(bubble, 'en'));
-    });
-    // 打乱所有气泡元素的顺序，让中英文随机分布
-    wbShuffle(allBubbleEls).forEach(el => blastArea.appendChild(el));
-    c.appendChild(blastArea);
+    // 渲染第一题
+    this._renderQuestion();
 
     // 控制按钮
     const ctrls = document.createElement('div');
@@ -305,196 +357,180 @@ class WordBlastGame {
     c.appendChild(ctrls);
   }
 
-  _mkBubble(bubble, type) {
-    const isCn = type === 'cn';
-    const text = isCn ? bubble.meaning : bubble.word;
-    const isActive = isCn ? bubble.cnActive : bubble.enActive;
+  _renderQuestion() {
+    const cardArea = document.getElementById('wb-card-area');
+    if (!cardArea) return;
 
-    const el = document.createElement('div');
-    el.className = `wb-bubble wb-bubble-${type}`;
-    el.dataset.id = bubble.id;
-    el.dataset.type = type;
+    const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
 
-    // 统一大小，不根据文本长度调整
-    el.classList.add('wb-size-md');
-
-    // 随机动画延迟，让气泡依次出现
-    el.style.animationDelay = `${Math.random() * 0.3}s`;
-
-    el.innerHTML = `
-      <div class="wb-bubble-inner">
-        <span class="wb-bubble-text">${text}</span>
-      </div>
-    `;
-
-    if (!isActive) {
-      el.style.display = 'none';
+    // 检查是否已完成所有题目
+    if (this.s.currentIdx >= this.questions.length) {
+      setTimeout(() => this.nextLevel(), 300);
+      return;
     }
 
-    el.addEventListener('click', () => {
+    const q = this.questions[this.s.currentIdx];
+    cardArea.innerHTML = '';
+
+    // 题目卡片
+    const card = document.createElement('div');
+    card.className = 'wb-card';
+    card.id = 'wb-current-card';
+
+    // 中文意思
+    const meaningEl = document.createElement('div');
+    meaningEl.className = 'wb-card-meaning';
+    meaningEl.textContent = q.meaning;
+    card.appendChild(meaningEl);
+
+    // 英文句子（单词留空）
+    const sentenceEl = document.createElement('div');
+    sentenceEl.className = 'wb-card-sentence';
+    sentenceEl.textContent = q.blankedSentence;
+    card.appendChild(sentenceEl);
+
+    // 输入区域
+    const inputWrap = document.createElement('div');
+    inputWrap.className = 'wb-input-wrap';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'wb-input';
+    input.id = 'wb-input';
+    input.placeholder = tx('wbInputPlaceholder');
+    input.autocomplete = 'off';
+    input.autocapitalize = 'off';
+    input.spellcheck = false;
+    inputWrap.appendChild(input);
+
+    const submitBtn = document.createElement('button');
+    submitBtn.className = 'wb-submit-btn';
+    submitBtn.textContent = '✓';
+    submitBtn.title = tx('wbSubmit');
+    inputWrap.appendChild(submitBtn);
+
+    card.appendChild(inputWrap);
+
+    // 反馈区域
+    const feedbackEl = document.createElement('div');
+    feedbackEl.className = 'wb-feedback';
+    feedbackEl.id = 'wb-feedback';
+    card.appendChild(feedbackEl);
+
+    cardArea.appendChild(card);
+
+    // 绑定事件
+    const handleSubmit = () => {
       if (!this.s.playing || this.s.paused) return;
-      if (!isActive) return;
-      this._onBubbleClick(bubble, type, el);
+      const answer = input.value.trim();
+      if (!answer) return;
+      this._checkAnswer(q, answer, card);
+    };
+
+    submitBtn.onclick = handleSubmit;
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        handleSubmit();
+      }
     });
 
-    return el;
+    // 自动聚焦
+    setTimeout(() => input.focus(), 100);
   }
 
-  _onBubbleClick(bubble, type, el) {
-    // 如果点击的是同类型（都选了中文或都选了英文），切换选中
-    if (this.s.sel && this.s.sel.type === type) {
-      // 取消之前的选中
-      this.s.sel.el.classList.remove('wb-selected');
-      // 选中新的
-      el.classList.add('wb-selected');
-      this.s.sel = { type, id: bubble.id, el };
-      audioManager.playClick();
-      // 点击英文单词时播放发音
-      if (type === 'en') {
-        audioManager.speak(bubble.word, 'en-US');
+  _checkAnswer(q, answer, card) {
+    const isCorrect = answer.toLowerCase() === q.word;
+    const feedbackEl = document.getElementById('wb-feedback');
+    const input = document.getElementById('wb-input');
+    const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
+
+    if (isCorrect) {
+      // 正确
+      this.s.combo++;
+      this.s.maxCombo = Math.max(this.s.maxCombo, this.s.combo);
+      this.s.correctCount++;
+
+      let pts = 100 + (this.s.combo - 1) * 50;
+      this.s.score += pts;
+
+      audioManager.playMatchSuccess();
+      this._float(`+${pts}`, '#FFD700');
+      if (this.s.combo >= 3) this._float(`🔥 ${this.s.combo}连击！`, '#FF6B6B');
+
+      if (feedbackEl) {
+        feedbackEl.className = 'wb-feedback wb-feedback-correct';
+        feedbackEl.textContent = '✓ ' + q.word;
       }
-      return;
-    }
 
-    // 如果没有选中任何东西
-    if (!this.s.sel) {
-      el.classList.add('wb-selected');
-      this.s.sel = { type, id: bubble.id, el };
-      audioManager.playClick();
-      // 点击英文单词时播放发音
-      if (type === 'en') {
-        audioManager.speak(bubble.word, 'en-US');
+      // 禁用输入
+      if (input) {
+        input.disabled = true;
+        input.className = 'wb-input wb-input-correct';
       }
-      return;
-    }
 
-    // 已有不同类型选中，尝试配对
-    const prevSel = this.s.sel;
-    const prevBubble = this.bubbles.find(b => b.id === prevSel.id);
-
-    if (prevSel.id === bubble.id) {
-      // 配对成功！
-      this._onMatch(bubble, prevSel.el, el);
-      prevSel.el.classList.remove('wb-selected');
-      this.s.sel = null;
-    } else {
-      // 配对失败
-      this._onFail(prevSel.el, el);
-      prevSel.el.classList.remove('wb-selected');
-      this.s.sel = null;
-    }
-  }
-
-  _onMatch(bubble, el1, el2) {
-    this.s.combo++;
-    this.s.maxCombo = Math.max(this.s.maxCombo, this.s.combo);
-    this.s.clearedPairs++;
-
-    // 分数计算：基础100 + 连击加成
-    let pts = 100 + (this.s.combo - 1) * 50;
-    this.s.score += pts;
-
-    audioManager.playMatchSuccess();
-    this._float(`+${pts}`, '#FFD700');
-    if (this.s.combo >= 3) this._float(`🔥 ${this.s.combo}连击！`, '#FF6B6B');
-
-    // 爆炸动画
-    this._blast(el1);
-    this._blast(el2);
-
-    // 标记不活跃
-    bubble.cnActive = false;
-    bubble.enActive = false;
-
-    // 更新显示
-    setTimeout(() => {
-      el1.style.display = 'none';
-      el2.style.display = 'none';
-      this.updHUD();
-    }, this.BLAST_MS);
-
-    this.updHUD();
-
-    // 检查关卡完成
-    if (this.s.clearedPairs >= this.s.totalPairs) {
-      setTimeout(() => this.nextLevel(), 800);
-    }
-  }
-
-  _onFail(el1, el2) {
-    this.s.combo = 0;
-    audioManager.playMatchError();
-    
-    // 记录到错题本
-    if (typeof wrongBook !== 'undefined') {
-      const failedBubble = this.bubbles.find(b => b.id === this.s.sel.id);
-      if (failedBubble) {
-        wrongBook.addWrongWord({
-          word: failedBubble.word,
-          meaning: failedBubble.meaning || '',
-          example: failedBubble.example || '',
-          rootAffix: failedBubble.rootAffix || '',
-          phonetic: failedBubble.phonetic || '',
-          from: 'wordblast',
-          grade: this.config ? this.config.grade : 'all'
-        });
-      }
-    }
-    
-    this._float('再试试！', '#FF6B6B');
-
-    // 闪烁红色
-    [el1, el2].forEach(el => {
-      el.classList.add('wb-shake');
-      el.style.boxShadow = '0 0 20px #FF6B6B';
+      // 爆炸动画后进入下一题
       setTimeout(() => {
-        el.classList.remove('wb-shake');
-        el.style.boxShadow = '';
-      }, 600);
-    });
-    this.updHUD();
-  }
+        this.s.currentIdx++;
+        this.updHUD();
+        this._renderQuestion();
+      }, 800);
 
-  _blast(el) {
-    el.classList.add('wb-blasting');
+    } else {
+      // 错误
+      this.s.combo = 0;
+      audioManager.playMatchError();
 
-    // 创建爆炸粒子效果
-    const rect = el.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
+      // 记录到错题本
+      if (typeof wrongBook !== 'undefined') {
+        wrongBook.addWrongWord({
+          word: q.word,
+          meaning: q.meaning || '',
+          example: q.example || '',
+          rootAffix: q.rootAffix || '',
+          phonetic: q.phonetic || '',
+          from: 'wordblast',
+          grade: this.s.grade || 'all'
+        }).catch(err => console.error('保存错题失败:', err));
+      }
 
-    for (let i = 0; i < 12; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'wb-particle';
-      const angle = (i / 12) * Math.PI * 2;
-      const dist = 40 + Math.random() * 60;
-      const tx = Math.cos(angle) * dist;
-      const ty = Math.sin(angle) * dist;
-      particle.style.cssText = `
-        position:fixed;left:${cx}px;top:${cy}px;
-        width:8px;height:8px;border-radius:50%;
-        background:${['#FFD700','#FF6B6B','#FF8E53','#48BB78','#A78BFA'][Math.floor(Math.random()*5)]};
-        pointer-events:none;z-index:9999;
-        transform:translate(-50%,-50%);
-        transition:all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-        opacity:1;
-      `;
-      document.body.appendChild(particle);
-      requestAnimationFrame(() => {
-        particle.style.transform = `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`;
-        particle.style.opacity = '0';
-      });
-      setTimeout(() => particle.remove(), 600);
+      if (feedbackEl) {
+        feedbackEl.className = 'wb-feedback wb-feedback-wrong';
+        feedbackEl.textContent = '✗ ' + tx('wbTryAgain');
+      }
+
+      if (input) {
+        input.className = 'wb-input wb-input-wrong';
+        input.value = '';
+        input.focus();
+      }
+
+      // 抖动效果
+      if (card) {
+        card.classList.add('wb-shake');
+        setTimeout(() => card.classList.remove('wb-shake'), 600);
+      }
+
+      // 短暂显示后恢复
+      setTimeout(() => {
+        if (input) input.className = 'wb-input';
+        if (feedbackEl) {
+          feedbackEl.className = 'wb-feedback';
+          feedbackEl.textContent = '';
+        }
+      }, 1500);
     }
+
+    this.updHUD();
   }
 
   begin() {
     this.s.playing = true;
-    // 确保AudioContext已恢复（现代浏览器需要用户交互后才能播放音频）
     if (audioManager.audioContext && audioManager.audioContext.state === 'suspended') {
       audioManager.audioContext.resume();
     }
     this.startTmr();
+    const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
     this._float(`💥 第${this.s.level}关 开始！`, '#FFD700');
     this.updHUD();
   }
@@ -516,15 +552,14 @@ class WordBlastGame {
 
   nextLevel() {
     this.s.level++;
-    this.s.clearedPairs = 0;
-    
-    // 计算新关卡的时间（递减）
+    this.s.currentIdx = 0;
+    this.s.correctCount = 0;
+
     const wordCount = this.wordPool.length;
     this.s.timeLimit = this.calcTimeForLevel(this.s.level, wordCount);
     this.s.timeLeft = this.s.timeLimit;
-    
-    // 重新初始化气泡（使用相同的单词）
-    this.initBubbles();
+
+    this.initQuestions();
     this.render();
     const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
     this._float(tx('wbLevelUp').replace('{level}', this.s.level), '#A78BFA');
@@ -562,6 +597,17 @@ class WordBlastGame {
     if (won) audioManager.playComplete(); else audioManager.playError();
     overlay.querySelector('.wb-result-retry').onclick = () => { overlay.remove(); this.restart(); };
     overlay.querySelector('.wb-result-back').onclick = () => { overlay.remove(); this.showSetup(); };
+
+    if (window.app && window.app.saveEnglishLeaderboard) {
+      const timeUsed = (this.s.timeLimit || 0) - (this.s.timeLeft || 0);
+      window.app.saveEnglishLeaderboard('wordblast', {
+        score: this.s.score || 0,
+        level: this.s.level || 1,
+        combo: this.s.maxCombo || 0,
+        time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
+        grade: this.s.grade || 'all'
+      });
+    }
   }
 
   // ─── HUD ───
@@ -571,7 +617,7 @@ class WordBlastGame {
     se('wb-combo', this.s.combo + 'x');
     se('wb-level', this.s.level);
     se('wb-limit', `${this.s.timeLimit}s`);
-    se('wb-pairs', `${this.s.totalPairs - this.s.clearedPairs}/${this.s.totalPairs}`);
+    se('wb-progress', `${this.s.currentIdx}/${this.s.totalQuestions}`);
     const tmrEl = document.getElementById('wb-tmr');
     if (tmrEl) {
       tmrEl.textContent = `${this.s.timeLeft}s`;
@@ -586,8 +632,14 @@ class WordBlastGame {
     this.s.paused = !this.s.paused;
     if (this.s.paused) {
       this._float(tx('wbPaused'), '#A78BFA');
+      // 暂停时禁用输入
+      const input = document.getElementById('wb-input');
+      if (input) input.disabled = true;
     } else {
       this._float(tx('wbResumed'), '#48BB78');
+      // 恢复时启用输入
+      const input = document.getElementById('wb-input');
+      if (input) { input.disabled = false; input.focus(); }
     }
   }
 

@@ -1,0 +1,33 @@
+# Dependencies
+server/node_modules/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment / Secrets
+.env
+.env.local
+.env.*.local
+
+# CodeBuddy
+.codebuddy/
+
+# Generated images
+generated-images/
+
+# Temporary files
+*.tmp
+*.bak
