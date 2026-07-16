@@ -28,6 +28,7 @@ class WordBlastGame {
       playing: false, paused: false,
       currentIdx: 0,  // 当前题目索引
       correctCount: 0,
+      wrongCount: 0,
       totalQuestions: 0
     };
     this.wordPool = [];
@@ -281,6 +282,7 @@ class WordBlastGame {
     this.s.playing = false; this.s.paused = false;
     this.s.currentIdx = 0;
     this.s.correctCount = 0;
+    this.s.wrongCount = 0;
     this.s.totalQuestions = 0;
     this.wordPool = [];
     this.questions = [];
@@ -311,6 +313,7 @@ class WordBlastGame {
     this.s.totalQuestions = this.questions.length;
     this.s.currentIdx = 0;
     this.s.correctCount = 0;
+    this.s.wrongCount = 0;
   }
 
   render() {
@@ -327,11 +330,9 @@ class WordBlastGame {
     info.style.zIndex = '10';
     const mkS = (id, l, v, ic) => `<div class="wb-stat"><span class="wb-stat-icon">${ic}</span><div class="wb-stat-body"><span class="wb-stat-label">${l}</span><span class="wb-stat-val" id="${id}">${v}</span></div></div>`;
     info.innerHTML =
-      mkS('wb-level', tx('wbLevel'), `${this.s.level}`, '💥') +
-      mkS('wb-tmr', tx('wbTime'), `${this.s.timeLeft}s`, '⏱') +
-      mkS('wb-limit', tx('wbLimit'), `${this.s.timeLimit}s`, '⏳') +
-      mkS('wb-score', tx('wbScore'), '0', '⭐') +
-      mkS('wb-combo', tx('wbCombo'), '0x', '🔥') +
+      mkS('wb-time-remaining', tx('wbTime'), `${this.s.timeLeft}s/${this.s.timeLimit}s`, '⏱') +
+      mkS('wb-correct', tx('wbCorrect'), '0', '✅') +
+      mkS('wb-wrong', tx('wbWrong'), '0', '❌') +
       mkS('wb-progress', tx('wbRemaining'), `${this.s.totalQuestions - this.s.currentIdx}`, '🎯');
     c.appendChild(info);
 
@@ -455,6 +456,18 @@ class WordBlastGame {
 
     card.appendChild(inputWrap);
 
+    // 跳过按钮（右上角）
+    const skipBtn = document.createElement('button');
+    skipBtn.className = 'wb-skip-btn wb-skip-btn-top';
+    skipBtn.textContent = tx('wbSkip');
+    skipBtn.title = tx('wbSkipHint');
+    skipBtn.onclick = (e) => {
+      e.preventDefault();
+      audioManager.playClick();
+      this._skipQuestion(q, card);
+    };
+    card.appendChild(skipBtn);
+
     // 反馈区域
     const feedbackEl = document.createElement('div');
     feedbackEl.className = 'wb-feedback';
@@ -530,6 +543,7 @@ class WordBlastGame {
     } else {
       // 错误
       this.s.combo = 0;
+      this.s.wrongCount++;
       audioManager.playMatchError();
 
       // 记录到错题本
@@ -573,14 +587,62 @@ class WordBlastGame {
     this.updHUD();
   }
 
+  _skipQuestion(q, card) {
+    if (!this.s.playing || this.s.paused) return;
+
+    const feedbackEl = document.getElementById('wb-feedback');
+    const input = document.getElementById('wb-input');
+    const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
+
+    // 记录到错题本
+    if (typeof wrongBook !== 'undefined') {
+      wrongBook.addWrongWord({
+        word: q.word,
+        meaning: q.meaning || '',
+        example: q.example || '',
+        rootAffix: q.rootAffix || '',
+        phonetic: q.phonetic || '',
+        from: 'wordblast',
+        grade: this.s.grade || 'all'
+      }).catch(err => console.error('保存错题失败:', err));
+    }
+
+    // combo归零，增加错误计数
+    this.s.combo = 0;
+    this.s.wrongCount++;
+
+    // 显示跳过反馈
+    if (feedbackEl) {
+      feedbackEl.className = 'wb-feedback wb-feedback-skip';
+      feedbackEl.textContent = q.word;
+    }
+
+    // 禁用输入
+    if (input) {
+      input.disabled = true;
+      input.className = 'wb-input wb-input-skip';
+    }
+
+    // 禁用跳过按钮
+    const skipBtn = card.querySelector('.wb-skip-btn');
+    if (skipBtn) {
+      skipBtn.disabled = true;
+    }
+
+    // 跳过动画后进入下一题
+    setTimeout(() => {
+      this.s.currentIdx++;
+      this.updHUD();
+      this._renderQuestion();
+    }, 800);
+  }
+
   begin() {
     this.s.playing = true;
     if (audioManager.audioContext && audioManager.audioContext.state === 'suspended') {
       audioManager.audioContext.resume();
     }
     this.startTmr();
-    const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
-    this._float(`💥 第${this.s.level}关 开始！`, '#FFD700');
     this.updHUD();
   }
 
@@ -589,9 +651,9 @@ class WordBlastGame {
     this.tmr = setInterval(() => {
       if (this.s.paused || !this.s.playing) return;
       this.s.timeLeft--;
-      const el = document.getElementById('wb-tmr');
+      const el = document.getElementById('wb-time-remaining');
       if (el) {
-        el.textContent = `${this.s.timeLeft}s`;
+        el.textContent = `${this.s.timeLeft}s/${this.s.timeLimit}s`;
         if (this.s.timeLeft <= 10) el.style.color = '#FF6B6B';
         else el.style.color = '';
       }
@@ -603,6 +665,7 @@ class WordBlastGame {
     this.s.level++;
     this.s.currentIdx = 0;
     this.s.correctCount = 0;
+    this.s.wrongCount = 0;
 
     const wordCount = this.wordPool.length;
     this.s.timeLimit = this.calcTimeForLevel(this.s.level, wordCount);
@@ -610,8 +673,6 @@ class WordBlastGame {
 
     this.initQuestions();
     this.render();
-    const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
-    this._float(tx('wbLevelUp').replace('{level}', this.s.level), '#A78BFA');
     this.begin();
   }
 
@@ -633,9 +694,8 @@ class WordBlastGame {
       <div class="wb-result-stars">${'⭐'.repeat(stars)}${'☆'.repeat(3 - stars)}</div>
       <div class="wb-result-sub">${stars}${tx('wbStarRating')}</div>
       <div class="wb-result-stats">
-        <div class="wb-result-stat"><span class="wb-stat-num" style="color:#FFD700">${this.s.score}</span><span class="wb-stat-lbl">${tx('wbTotalScore')}</span></div>
-        <div class="wb-result-stat"><span class="wb-stat-num" style="color:#FF6B6B">${this.s.maxCombo}x</span><span class="wb-stat-lbl">${tx('wbMaxCombo')}</span></div>
-        <div class="wb-result-stat"><span class="wb-stat-num" style="color:#A78BFA">${this.s.level}</span><span class="wb-stat-lbl">${tx('wbReachedLevel')}</span></div>
+        <div class="wb-result-stat"><span class="wb-stat-num" style="color:#48BB78">${this.s.correctCount}</span><span class="wb-stat-lbl">${tx('wbTotalScore')}</span></div>
+        <div class="wb-result-stat"><span class="wb-stat-num" style="color:#FF6B6B">${this.s.wrongCount}</span><span class="wb-stat-lbl">${tx('wbMaxCombo')}</span></div>
       </div>
       <div class="wb-result-actions">
         <button class="wb-result-btn wb-result-retry">${tx('wbPlayAgain')}</button>
@@ -650,9 +710,9 @@ class WordBlastGame {
     if (window.app && window.app.saveEnglishLeaderboard) {
       const timeUsed = (this.s.timeLimit || 0) - (this.s.timeLeft || 0);
       window.app.saveEnglishLeaderboard('wordblast', {
-        score: this.s.score || 0,
+        score: this.s.correctCount || 0,
         level: this.s.level || 1,
-        combo: this.s.maxCombo || 0,
+        combo: this.s.wrongCount || 0,
         time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
         grade: this.s.grade || 'all'
       });
@@ -662,16 +722,16 @@ class WordBlastGame {
   // ─── HUD ───
   updHUD() {
     const se = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-    se('wb-score', this.s.score);
-    se('wb-combo', this.s.combo + 'x');
-    se('wb-level', this.s.level);
-    se('wb-limit', `${this.s.timeLimit}s`);
+    se('wb-time-remaining', `${this.s.timeLeft}s/${this.s.timeLimit}s`);
+    se('wb-correct', this.s.correctCount);
+    se('wb-wrong', this.s.wrongCount);
     se('wb-progress', `${this.s.totalQuestions - this.s.currentIdx}`);
-    const tmrEl = document.getElementById('wb-tmr');
-    if (tmrEl) {
-      tmrEl.textContent = `${this.s.timeLeft}s`;
-      if (this.s.timeLeft <= 10) tmrEl.style.color = '#FF6B6B';
-      else tmrEl.style.color = '';
+    
+    // 时间警告样式
+    const timeEl = document.getElementById('wb-time-remaining');
+    if (timeEl) {
+      if (this.s.timeLeft <= 10) timeEl.style.color = '#FF6B6B';
+      else timeEl.style.color = '';
     }
   }
 

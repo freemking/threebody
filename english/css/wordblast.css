@@ -92,6 +92,7 @@
 
 /* 题目卡片 */
 .wb-card {
+    position: relative;
     background: linear-gradient(135deg, rgba(30, 30, 60, 0.95), rgba(40, 30, 80, 0.95));
     border: 1px solid rgba(167, 139, 250, 0.3);
     border-radius: 20px;
@@ -476,6 +477,56 @@
 }
 
 
+
+/* 跳过按钮样式 */
+.wb-skip-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+    z-index: 10;
+}
+
+.wb-skip-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.wb-skip-btn:focus {
+    outline: none;
+}
+
+.wb-skip-btn:active {
+    transform: scale(0.95);
+}
+
+.wb-skip-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+    background: transparent;
+}
+
+/* 跳过状态样式 */
+.wb-input-skip {
+    border-color: #FFA500 !important;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.3) !important;
+    background: rgba(255, 165, 0, 0.1) !important;
+}
+
+.wb-feedback-skip {
+    color: #FFA500;
+    text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+}
 
 /* 响应式 */
 @media (max-width: 600px) {
