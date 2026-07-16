@@ -1,6 +1,7 @@
 /**
- * 单词大爆炸游戏 - WordBlast (V2)
- * 显示中文意思和英文句子（单词留空），用户输入对应的英文单词
+ * 单词填空游戏 - WordBlast (V3)
+ * 显示中文意思、音标和英文句子（单词留空），用户输入对应的英文单词
+ * 支持单词读音按钮和自动朗读句子
  */
 function wbShuffle(arr) {
   const a = [...arr];
@@ -72,17 +73,13 @@ class WordBlastGame {
    */
   _blankWord(sentence, word) {
     if (!sentence || !word) return sentence || '';
-    const lowerWord = word.toLowerCase();
-    const lowerSentence = sentence.toLowerCase();
 
     // 常见词形变化后缀，按长度降序排列优先匹配
-    const suffixes = ['', 's', 'es', 'ed', 'd', 'ing', 'er', 'est', 'ly', 'tion', 'sion', 'ment', 'ness', 'ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ial', 'y', 'ily', 'ily', 'ty', 'ity', 'ance', 'ence', 'ant', 'ent', 'ial', 'ually', 'ally'];
+    const suffixes = ['', 's', 'es', 'ed', 'd', 'ing', 'er', 'est', 'ly', 'tion', 'sion', 'ment', 'ness', 'ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'ial', 'y', 'ily', 'ty', 'ity', 'ance', 'ence', 'ant', 'ent', 'ually', 'ally'];
 
-    // 构建匹配所有词形变化的正则
+    // 构建匹配所有词形变化的模式
     const patterns = [];
-    // 原形
     patterns.push(word);
-    // 加后缀
     for (const suffix of suffixes) {
       if (suffix) patterns.push(word + suffix);
     }
@@ -104,21 +101,30 @@ class WordBlastGame {
       patterns.push(word + last + 'ing');
     }
 
-    // 去重
+    // 去重并按长度降序排列，优先匹配更长的词
     const unique = [...new Set(patterns.map(p => p.toLowerCase()))];
-    // 按长度降序排列，优先匹配更长的词
     unique.sort((a, b) => b.length - a.length);
 
+    // 直接用 replace 尝试每种模式，避免 regex.test() 的 lastIndex 问题
     for (const pat of unique) {
-      // 用 word boundary 匹配，大小写不敏感
-      const regex = new RegExp('\\b(' + pat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')\\b', 'gi');
-      if (regex.test(sentence)) {
-        // 获取实际匹配的文本长度，生成等长下划线
-        return sentence.replace(regex, (match) => '_'.repeat(Math.max(match.length, 4)));
+      const escaped = pat.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // 如果单词包含句点，则不使用单词边界，因为 \b 无法正确处理句点
+      const useWordBoundary = !pat.includes('.');
+      let regex;
+      if (useWordBoundary) {
+        regex = new RegExp('\\b' + escaped + '\\b', 'gi');
+      } else {
+        // 对于包含句点的单词，使用更宽松的匹配：允许单词前后有非单词字符或字符串边界
+        regex = new RegExp('(?:(?<=\\W)|^)' + escaped + '(?=\\W|$)', 'gi');
+      }
+      const replaced = sentence.replace(regex, (match) => '_'.repeat(Math.max(match.length, 3)));
+      if (replaced !== sentence) {
+        return replaced;
       }
     }
 
-    // 如果句子中找不到，返回原句加提示
+    // 最终兜底：原句（不应发生）
+    console.warn('无法在句子中找到单词:', word, sentence);
     return sentence;
   }
 
@@ -326,7 +332,7 @@ class WordBlastGame {
       mkS('wb-limit', tx('wbLimit'), `${this.s.timeLimit}s`, '⏳') +
       mkS('wb-score', tx('wbScore'), '0', '⭐') +
       mkS('wb-combo', tx('wbCombo'), '0x', '🔥') +
-      mkS('wb-progress', tx('wbRemaining'), `${this.s.currentIdx}/${this.s.totalQuestions}`, '🎯');
+      mkS('wb-progress', tx('wbRemaining'), `${this.s.totalQuestions - this.s.currentIdx}`, '🎯');
     c.appendChild(info);
 
     // 题目卡片区域
@@ -383,6 +389,44 @@ class WordBlastGame {
     meaningEl.textContent = q.meaning;
     card.appendChild(meaningEl);
 
+    // 音标显示
+    if (q.phonetic) {
+      const phoneticEl = document.createElement('div');
+      phoneticEl.className = 'wb-card-phonetic';
+      phoneticEl.textContent = q.phonetic;
+      card.appendChild(phoneticEl);
+    }
+
+    // 发音按钮区域
+    const audioBtnWrap = document.createElement('div');
+    audioBtnWrap.className = 'wb-audio-btn-wrap';
+
+    // 单词发音按钮
+    const wordAudioBtn = document.createElement('button');
+    wordAudioBtn.className = 'wb-audio-btn wb-word-audio-btn';
+    wordAudioBtn.innerHTML = '🔊 ' + tx('wbPlayWord');
+    wordAudioBtn.onclick = (e) => {
+      e.preventDefault();
+      audioManager.playClick();
+      audioManager.speak(q.word, 'en-US');
+    };
+    audioBtnWrap.appendChild(wordAudioBtn);
+
+    // 句子朗读按钮
+    if (q.example) {
+      const sentenceAudioBtn = document.createElement('button');
+      sentenceAudioBtn.className = 'wb-audio-btn wb-sentence-audio-btn';
+      sentenceAudioBtn.innerHTML = '🗣️ ' + tx('wbPlaySentence');
+      sentenceAudioBtn.onclick = (e) => {
+        e.preventDefault();
+        audioManager.playClick();
+        audioManager.playSentence(q.example);
+      };
+      audioBtnWrap.appendChild(sentenceAudioBtn);
+    }
+
+    card.appendChild(audioBtnWrap);
+
     // 英文句子（单词留空）
     const sentenceEl = document.createElement('div');
     sentenceEl.className = 'wb-card-sentence';
@@ -437,6 +481,13 @@ class WordBlastGame {
 
     // 自动聚焦
     setTimeout(() => input.focus(), 100);
+
+    // 自动朗读句子
+    if (q.example && !this.s.paused) {
+      setTimeout(() => {
+        audioManager.playSentence(q.example);
+      }, 100);
+    }
   }
 
   _checkAnswer(q, answer, card) {
@@ -501,24 +552,22 @@ class WordBlastGame {
 
       if (input) {
         input.className = 'wb-input wb-input-wrong';
-        input.value = '';
         input.focus();
+        // 当用户开始输入时，清除错误样式
+        const clearErrorOnInput = () => {
+          input.className = 'wb-input';
+          if (feedbackEl) {
+            feedbackEl.className = 'wb-feedback';
+            feedbackEl.textContent = '';
+          }
+          input.removeEventListener('input', clearErrorOnInput);
+        };
+        input.addEventListener('input', clearErrorOnInput);
       }
 
-      // 抖动效果
-      if (card) {
-        card.classList.add('wb-shake');
-        setTimeout(() => card.classList.remove('wb-shake'), 600);
-      }
 
-      // 短暂显示后恢复
-      setTimeout(() => {
-        if (input) input.className = 'wb-input';
-        if (feedbackEl) {
-          feedbackEl.className = 'wb-feedback';
-          feedbackEl.textContent = '';
-        }
-      }, 1500);
+
+
     }
 
     this.updHUD();
@@ -617,7 +666,7 @@ class WordBlastGame {
     se('wb-combo', this.s.combo + 'x');
     se('wb-level', this.s.level);
     se('wb-limit', `${this.s.timeLimit}s`);
-    se('wb-progress', `${this.s.currentIdx}/${this.s.totalQuestions}`);
+    se('wb-progress', `${this.s.totalQuestions - this.s.currentIdx}`);
     const tmrEl = document.getElementById('wb-tmr');
     if (tmrEl) {
       tmrEl.textContent = `${this.s.timeLeft}s`;
@@ -651,7 +700,7 @@ class WordBlastGame {
     el.className = 'wb-float';
     el.style.background = color;
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), 1500);
+    setTimeout(() => el.remove(), 750);
   }
 }
 

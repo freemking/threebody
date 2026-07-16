@@ -1173,24 +1173,6 @@ body::after {
     position: relative;
 }
 
-[title]::after {
-    content: attr(title);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--text-color);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    z-index: 1000;
-}
-
 [title]:hover::after {
     opacity: 1;
     visibility: visible;

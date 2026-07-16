@@ -1,5 +1,5 @@
 ﻿/* =============================================
-   单词大爆炸 (Word Blast) 样式 - V2 输入模式
+   单词填空 (Word Fill) 样式 - V3 填空+发音模式
    ============================================= */
 
 /* wrapper样式 */
@@ -97,7 +97,7 @@
     border-radius: 20px;
     padding: 36px 32px;
     width: 100%;
-    max-width: 520px;
+    max-width: 600px;
     text-align: center;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(167, 139, 250, 0.1);
     animation: wbCardIn 0.4s ease-out;
@@ -113,14 +113,70 @@
     font-size: 2em;
     font-weight: 800;
     color: #FFD700;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
     text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
     letter-spacing: 2px;
 }
 
+/* 音标 */
+.wb-card-phonetic {
+    font-size: 1.2em;
+    color: rgba(167, 139, 250, 0.9);
+    margin-bottom: 16px;
+    font-family: 'Fira Code', monospace;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.3);
+}
+
+/* 发音按钮区域 */
+.wb-audio-btn-wrap {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.wb-audio-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.wb-audio-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    outline: none;
+}
+
+.wb-audio-btn:focus {
+    outline: none;
+}
+
+.wb-audio-btn:active {
+    transform: translateY(0);
+}
+
+.wb-word-audio-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.wb-sentence-audio-btn {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    box-shadow: 0 3px 10px rgba(245, 87, 108, 0.3);
+}
+
 /* 英文句子 */
 .wb-card-sentence {
-    font-size: 1.15em;
+    font-size: 1.4em;
     color: rgba(255, 255, 255, 0.85);
     line-height: 1.6;
     margin-bottom: 28px;
@@ -146,7 +202,7 @@
     border-radius: 14px;
     background: rgba(0, 0, 0, 0.3);
     color: white;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 600;
     outline: none;
     transition: all 0.3s;
@@ -175,16 +231,9 @@
 .wb-input-wrong {
     border-color: #FF6B6B !important;
     box-shadow: 0 0 20px rgba(255, 107, 107, 0.3) !important;
-    animation: wbInputShake 0.4s ease-in-out;
 }
 
-@keyframes wbInputShake {
-    0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-6px); }
-    40% { transform: translateX(6px); }
-    60% { transform: translateX(-4px); }
-    80% { transform: translateX(4px); }
-}
+
 
 .wb-submit-btn {
     padding: 14px 22px;
@@ -197,11 +246,21 @@
     cursor: pointer;
     transition: all 0.2s;
     box-shadow: 0 4px 15px rgba(72, 187, 120, 0.3);
+    outline: none;
 }
 
 .wb-submit-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(72, 187, 120, 0.4);
+    outline: none;
+}
+
+.wb-submit-btn:focus {
+    outline: none;
+}
+
+.wb-submit-btn:focus-visible {
+    outline: none;
 }
 
 .wb-submit-btn:active {
@@ -214,6 +273,8 @@
     font-size: 1em;
     font-weight: 600;
     transition: all 0.3s;
+    margin-top: 8px;
+    padding-top: 8px;
 }
 
 .wb-feedback-correct {
@@ -284,7 +345,7 @@
     font-size: 1.1em;
     z-index: 9999;
     pointer-events: none;
-    animation: wbFloatUp 1.5s ease-out forwards;
+    animation: wbFloatUp 0.75s ease-out forwards;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -414,18 +475,7 @@
     backdrop-filter: blur(5px);
 }
 
-/* 抖动动画（通用） */
-.wb-shake {
-    animation: wbShake 0.5s ease-in-out;
-}
 
-@keyframes wbShake {
-    0%, 100% { transform: translateX(0); }
-    20% { transform: translateX(-8px); }
-    40% { transform: translateX(8px); }
-    60% { transform: translateX(-5px); }
-    80% { transform: translateX(5px); }
-}
 
 /* 响应式 */
 @media (max-width: 600px) {
@@ -434,6 +484,16 @@
     }
     .wb-card-meaning {
         font-size: 1.6em;
+    }
+    .wb-card-phonetic {
+        font-size: 1.1em;
+    }
+    .wb-audio-btn-wrap {
+        gap: 8px;
+    }
+    .wb-audio-btn {
+        padding: 6px 12px;
+        font-size: 0.8em;
     }
     .wb-card-sentence {
         font-size: 1em;
