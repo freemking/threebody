@@ -265,6 +265,31 @@ body {
   transform: translateY(0);
 }
 
+.btn-loading {
+  cursor: not-allowed !important;
+  opacity: 0.8;
+}
+.btn-loading:hover {
+  transform: none !important;
+  box-shadow: 0 4px 20px rgba(0, 255, 255, 0.3) !important;
+}
+
+.spinner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(10, 10, 26, 0.3);
+  border-top-color: #0a0a1a;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .btn-start {
   width: 100%;
   padding: 18px;
@@ -961,8 +986,8 @@ body {
     <div id="leaderboardContent"></div>
     <button class="btn-wrong-book" id="btnToggleDelete" style="display:none;">🗑 删除</button>
     <div class="lb-mode-bar">
-      <button class="lb-mode-btn active" data-lb="normal" onclick="switchLeaderboardMode('normal')">📝 普通</button>
       <button class="lb-mode-btn" data-lb="fast" onclick="switchLeaderboardMode('fast')">⚡ 快速</button>
+      <button class="lb-mode-btn active" data-lb="normal" onclick="switchLeaderboardMode('normal')">📝 普通</button>
       <button class="lb-mode-btn" data-lb="marathon" onclick="switchLeaderboardMode('marathon')">🏃 马拉松</button>
       <button class="lb-mode-btn" data-lb="boom" onclick="switchLeaderboardMode('boom')">💥 大爆炸</button>
     </div>
@@ -1646,6 +1671,7 @@ function escapeHtml(str) {
 async function saveScore(score, correct, time) {
   const nameInput = $('playerNameInput');
   const hint = $('nameSaveHint');
+  const saveBtn = $('btnSaveScore');
   const name = nameInput.value.trim();
 
   if (!name) {
@@ -1655,6 +1681,12 @@ async function saveScore(score, correct, time) {
     return;
   }
 
+  // 防重复提交：禁用按钮并显示loading
+  saveBtn.disabled = true;
+  saveBtn.classList.add('btn-loading');
+  saveBtn.innerHTML = '<span class="spinner"></span> 保存中...';
+  hint.textContent = '';
+
   const now = new Date();
   const dateStr = `${now.getMonth() + 1}/${now.getDate()} ${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
   const entryId = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
@@ -1663,6 +1695,10 @@ async function saveScore(score, correct, time) {
 
   const success = await saveToLeaderboard(entry);
   if (!success) {
+    // 保存失败，恢复按钮状态允许重试
+    saveBtn.disabled = false;
+    saveBtn.classList.remove('btn-loading');
+    saveBtn.innerHTML = '💾 保存成绩';
     hint.textContent = '❌ 保存失败，请重试';
     hint.style.color = 'var(--danger)';
     return;
@@ -1677,9 +1713,11 @@ async function saveScore(score, correct, time) {
   }
   await renderLeaderboard(entry.id);
 
-  // Disable input
+  // 恢复按钮状态
+  saveBtn.disabled = false;
+  saveBtn.classList.remove('btn-loading');
+  saveBtn.innerHTML = '💾 保存成绩';
   nameInput.disabled = true;
-  $('btnSaveScore').disabled = true;
   hint.textContent = '✅ 成绩已保存！';
   hint.style.color = 'var(--success)';
 }

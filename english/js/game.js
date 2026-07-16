@@ -2361,7 +2361,8 @@ class GameEngine {
         document.body.appendChild(overlay);
         requestAnimationFrame(() => overlay.classList.add('active'));
 
-        document.getElementById('gameover-btn').addEventListener('click', () => {
+        const gameoverBtn = document.getElementById('gameover-btn');
+        gameoverBtn.addEventListener('click', () => {
             this.monopolyState.gameOver = true;
             overlay.remove();
             if (window.app) window.app.showMainMenu();
@@ -2374,12 +2375,19 @@ class GameEngine {
 
         // 保存排行榜成绩
         if (window.app && window.app.saveEnglishLeaderboard) {
+            // 保存中：按钮显示loading，不可点击
+            gameoverBtn.disabled = true;
+            gameoverBtn.classList.add('gameover-btn-loading');
             window.app.saveEnglishLeaderboard('monopoly', {
                 score: playerAssets,
                 level: this.monopolyState.round || 1,
                 combo: 0,
                 time: elapsed,
                 grade: (this.gameState && this.gameState.currentGrade) || 'all'
+            }).finally(() => {
+                // 保存完成后恢复按钮
+                gameoverBtn.disabled = false;
+                gameoverBtn.classList.remove('gameover-btn-loading');
             });
         }
     }

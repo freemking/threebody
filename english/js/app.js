@@ -1597,13 +1597,20 @@ class App {
      * @param {object} data - { score, level, combo, time, grade }
      */
     async saveEnglishLeaderboard(type, data) {
+        // 防重复提交
+        if (this._savingLeaderboard) return;
+        this._savingLeaderboard = true;
+
         const API_BASE = (location.port === '8080') ? 'http://localhost:3000' : '';
         
         // 获取玩家名字（从localStorage读取或提示输入）
         let name = localStorage.getItem('english_lb_name');
         if (!name) {
             name = prompt(this.t('lbEnterName'));
-            if (!name || !name.trim()) return;
+            if (!name || !name.trim()) {
+                this._savingLeaderboard = false;
+                return;
+            }
             name = name.trim();
             localStorage.setItem('english_lb_name', name);
         }
@@ -1632,6 +1639,8 @@ class App {
             this.showFloat(this.t('lbSaved'), '#27AE60');
         } catch (err) {
             console.error('保存排行榜成绩失败:', err);
+        } finally {
+            this._savingLeaderboard = false;
         }
     }
 

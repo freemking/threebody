@@ -586,11 +586,18 @@ class WordMatchGame {
     overlay.appendChild(box);
     c.appendChild(overlay);
     if (won) audioManager.playComplete(); else audioManager.playError();
-    overlay.querySelector('.wm-result-retry').onclick = () => { overlay.remove(); this.restart(); };
-    overlay.querySelector('.wm-result-back').onclick = () => { overlay.remove(); this.showSetup(); };
+    const retryBtn = overlay.querySelector('.wm-result-retry');
+    const backBtn = overlay.querySelector('.wm-result-back');
+    retryBtn.onclick = () => { overlay.remove(); this.restart(); };
+    backBtn.onclick = () => { overlay.remove(); this.showSetup(); };
 
     // 保存排行榜成绩
     if (window.app && window.app.saveEnglishLeaderboard) {
+      // 保存中：按钮显示loading，不可点击
+      [retryBtn, backBtn].forEach(btn => {
+        btn.disabled = true;
+        btn.classList.add('wm-btn-loading');
+      });
       const timeUsed = (this.s.timeLimit || 0) - (this.s.timeLeft || 0);
       window.app.saveEnglishLeaderboard('wordmatch', {
         score: this.s.score || 0,
@@ -598,6 +605,12 @@ class WordMatchGame {
         combo: this.s.maxCombo || 0,
         time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
         grade: this.s.grade || 'all'
+      }).finally(() => {
+        // 保存完成后恢复按钮
+        [retryBtn, backBtn].forEach(btn => {
+          btn.disabled = false;
+          btn.classList.remove('wm-btn-loading');
+        });
       });
     }
   }

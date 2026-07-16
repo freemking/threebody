@@ -704,10 +704,17 @@ class WordBlastGame {
     overlay.appendChild(box);
     c.appendChild(overlay);
     if (won) audioManager.playComplete(); else audioManager.playError();
-    overlay.querySelector('.wb-result-retry').onclick = () => { overlay.remove(); this.restart(); };
-    overlay.querySelector('.wb-result-back').onclick = () => { overlay.remove(); this.showSetup(); };
+    const retryBtn = overlay.querySelector('.wb-result-retry');
+    const backBtn = overlay.querySelector('.wb-result-back');
+    retryBtn.onclick = () => { overlay.remove(); this.restart(); };
+    backBtn.onclick = () => { overlay.remove(); this.showSetup(); };
 
     if (window.app && window.app.saveEnglishLeaderboard) {
+      // 保存中：按钮显示loading，不可点击
+      [retryBtn, backBtn].forEach(btn => {
+        btn.disabled = true;
+        btn.classList.add('wb-btn-loading');
+      });
       const timeUsed = (this.s.timeLimit || 0) - (this.s.timeLeft || 0);
       window.app.saveEnglishLeaderboard('wordblast', {
         score: this.s.correctCount || 0,
@@ -715,6 +722,12 @@ class WordBlastGame {
         combo: this.s.wrongCount || 0,
         time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
         grade: this.s.grade || 'all'
+      }).finally(() => {
+        // 保存完成后恢复按钮
+        [retryBtn, backBtn].forEach(btn => {
+          btn.disabled = false;
+          btn.classList.remove('wb-btn-loading');
+        });
       });
     }
   }
