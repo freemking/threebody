@@ -604,7 +604,8 @@ class WordMatchGame {
         level: this.s.totalWords || 0,
         combo: this.s.maxCombo || 0,
         time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
-        grade: this.s.grade || 'all'
+        grade: this.s.grade || 'all',
+        unit: this.s.unit || 'all'
       }).finally(() => {
         // 保存完成后恢复按钮
         [retryBtn, backBtn].forEach(btn => {

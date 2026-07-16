@@ -1921,7 +1921,8 @@ body::after {
     text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
 }
 
-.english-lb-level,
+.english-lb-grade,
+.english-lb-unit,
 .english-lb-combo {
     color: var(--accent-color);
     text-align: center;

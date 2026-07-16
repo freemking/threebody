@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS english_leaderboard (
     combo INT DEFAULT 0,
     time INT NOT NULL,
     grade VARCHAR(20),
+    unit VARCHAR(20) DEFAULT 'all',
     type VARCHAR(20) NOT NULL,
     date VARCHAR(20),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -61,3 +62,6 @@ CREATE TABLE IF NOT EXISTS english_leaderboard (
     INDEX idx_name_type (name, type),
     INDEX idx_score (score)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 如果是升级已有表，添加 unit 字段
+ALTER TABLE english_leaderboard ADD COLUMN IF NOT EXISTS unit VARCHAR(20) DEFAULT 'all' AFTER grade;

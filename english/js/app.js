@@ -289,7 +289,8 @@ const i18nTexts = {
         lbRank: '排名',
         lbName: '玩家',
         lbScore: '分数',
-        lbLevel: '关卡',
+        lbGrade: '年级',
+        lbUnit: '单元',
         lbCombo: '连击',
         lbTime: '用时',
         lbDate: '日期',
@@ -582,7 +583,8 @@ const i18nTexts = {
         lbRank: 'Rank',
         lbName: 'Player',
         lbScore: 'Score',
-        lbLevel: 'Level',
+        lbGrade: 'Grade',
+        lbUnit: 'Unit',
         lbCombo: 'Combo',
         lbTime: 'Time',
         lbDate: 'Date',
@@ -1562,7 +1564,8 @@ class App {
                     <th>${this.t('lbRank')}</th>
                     <th>${this.t('lbName')}</th>
                     <th>${this.t('lbScore')}</th>
-                    <th>${this.t('lbLevel')}</th>
+                    <th>${this.t('lbGrade')}</th>
+                    <th>${this.t('lbUnit')}</th>
                     <th>${this.t('lbCombo')}</th>
                     <th>${this.t('lbTime')}</th>
                     <th>${this.t('lbDate')}</th>
@@ -1572,11 +1575,14 @@ class App {
                 const rankIcon = i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : (i + 1);
                 const timeStr = item.time >= 60 ? `${Math.floor(item.time / 60)}m${item.time % 60}s` : `${item.time}s`;
                 const dateStr = item.date ? item.date.split(' ')[0] : '';
+                const gradeStr = item.grade === 'all' ? this.t('allGrades') : `${this.t('grade')} ${item.grade}`;
+                const unitStr = !item.unit || item.unit === 'all' ? this.t('allUnits') : `${this.t('unit')} ${item.unit}`;
                 html += `<tr class="english-lb-row${i < 3 ? ' english-lb-top3' : ''}">
                     <td class="english-lb-rank">${rankIcon}</td>
                     <td class="english-lb-name">${item.name}</td>
                     <td class="english-lb-score">${item.score}</td>
-                    <td class="english-lb-level">${item.level || '-'}</td>
+                    <td class="english-lb-grade">${gradeStr}</td>
+                    <td class="english-lb-unit">${unitStr}</td>
                     <td class="english-lb-combo">${item.combo || '-'}</td>
                     <td class="english-lb-time">${timeStr}</td>
                     <td class="english-lb-date">${dateStr}</td>
@@ -1626,6 +1632,7 @@ class App {
             combo: data.combo || 0,
             time: data.time || 0,
             grade: data.grade || 'all',
+            unit: data.unit || 'all',
             type: type,
             date: new Date().toISOString().replace('T', ' ').substring(0, 19)
         };

@@ -721,7 +721,8 @@ class WordBlastGame {
         level: this.s.level || 1,
         combo: this.s.wrongCount || 0,
         time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
-        grade: this.s.grade || 'all'
+        grade: this.s.grade || 'all',
+        unit: this.s.unit || 'all'
       }).finally(() => {
         // 保存完成后恢复按钮
         [retryBtn, backBtn].forEach(btn => {

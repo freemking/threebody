@@ -22,6 +22,7 @@ router.get('/list', async (req, res) => {
             combo: row.combo,
             time: row.time,
             grade: row.grade,
+            unit: row.unit || 'all',
             type: row.type,
             date: row.date,
             createdAt: row.created_at
@@ -38,7 +39,7 @@ router.get('/list', async (req, res) => {
 router.post('/save', async (req, res) => {
     try {
         const pool = await getPool();
-        const { id, name, score, level, combo, time, grade, type, date } = req.body;
+        const { id, name, score, level, combo, time, grade, unit, type, date } = req.body;
         
         if (!name || score === undefined || time === undefined || !type) {
             return res.json({ success: false, error: '缺少必要参数' });
@@ -55,14 +56,14 @@ router.post('/save', async (req, res) => {
             // 如果新成绩更好（分数更高，或分数相同但用时更短），则更新
             if (score > existingRecord.score || (score === existingRecord.score && time < existingRecord.time)) {
                 await pool.query(
-                    'UPDATE english_leaderboard SET entry_id = ?, score = ?, level = ?, combo = ?, time = ?, grade = ?, date = ? WHERE id = ?',
-                    [id, score, level || 1, combo || 0, time, grade, date, existingRecord.id]
+                    'UPDATE english_leaderboard SET entry_id = ?, score = ?, level = ?, combo = ?, time = ?, grade = ?, unit = ?, date = ? WHERE id = ?',
+                    [id, score, level || 1, combo || 0, time, grade, unit || 'all', date, existingRecord.id]
                 );
             }
         } else {
             await pool.query(
-                'INSERT INTO english_leaderboard (entry_id, name, score, level, combo, time, grade, type, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                [id, name, score, level || 1, combo || 0, time, grade, type, date]
+                'INSERT INTO english_leaderboard (entry_id, name, score, level, combo, time, grade, unit, type, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+                [id, name, score, level || 1, combo || 0, time, grade, unit || 'all', type, date]
             );
         }
         

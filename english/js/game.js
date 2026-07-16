@@ -2383,7 +2383,8 @@ class GameEngine {
                 level: this.monopolyState.round || 1,
                 combo: 0,
                 time: elapsed,
-                grade: (this.gameState && this.gameState.currentGrade) || 'all'
+                grade: (this.gameState && this.gameState.currentGrade) || 'all',
+                unit: (this.gameState && this.gameState.currentUnit) || 'all'
             }).finally(() => {
                 // 保存完成后恢复按钮
                 gameoverBtn.disabled = false;
