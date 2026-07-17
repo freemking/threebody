@@ -1,15 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { getPool } = require('../db');
+const { queryWithRetry } = require('../db');
 
 // 获取排行榜列表（按模式）
 router.get('/list', async (req, res) => {
     try {
-        const pool = await getPool();
         const mode = req.query.mode || 'normal';
         const limit = parseInt(req.query.limit) || 10;
         
-        const [rows] = await pool.query(
+        const [rows] = await queryWithRetry(
             'SELECT * FROM math_leaderboard WHERE mode = ? ORDER BY score DESC, time ASC LIMIT ?',
             [mode, limit]
         );
@@ -36,7 +35,6 @@ router.get('/list', async (req, res) => {
 // 保存成绩
 router.post('/save', async (req, res) => {
     try {
-        const pool = await getPool();
         const { id, name, score, correct, time, date, mode } = req.body;
         
         if (!name || score === undefined || time === undefined || !mode) {
@@ -44,7 +42,7 @@ router.post('/save', async (req, res) => {
         }
         
         // 检查同一用户在同一模式下是否已有记录
-        const [existing] = await pool.query(
+        const [existing] = await queryWithRetry(
             'SELECT * FROM math_leaderboard WHERE name = ? AND mode = ?',
             [name, mode]
         );
@@ -54,7 +52,7 @@ router.post('/save', async (req, res) => {
             const existingRecord = existing[0];
             // 如果新成绩更好（分数更高，或分数相同但用时更短），则更新
             if (score > existingRecord.score || (score === existingRecord.score && time < existingRecord.time)) {
-                await pool.query(
+                await queryWithRetry(
                     'UPDATE math_leaderboard SET entry_id = ?, score = ?, correct = ?, time = ?, date = ? WHERE id = ?',
                     [id, score, correct, time, date, existingRecord.id]
                 );
@@ -62,7 +60,7 @@ router.post('/save', async (req, res) => {
             // 否则保留原记录
         } else {
             // 新记录
-            await pool.query(
+            await queryWithRetry(
                 'INSERT INTO math_leaderboard (entry_id, name, score, correct, time, date, mode) VALUES (?, ?, ?, ?, ?, ?, ?)',
                 [id, name, score, correct, time, date, mode]
             );
@@ -78,14 +76,13 @@ router.post('/save', async (req, res) => {
 // 删除记录
 router.post('/delete', async (req, res) => {
     try {
-        const pool = await getPool();
         const { id } = req.body;
         
         if (!id) {
             return res.json({ success: false, error: '缺少记录ID' });
         }
         
-        await pool.query('DELETE FROM math_leaderboard WHERE entry_id = ?', [id]);
+        await queryWithRetry('DELETE FROM math_leaderboard WHERE entry_id = ?', [id]);
         res.json({ success: true });
     } catch (error) {
         console.error('删除记录失败:', error);
@@ -96,14 +93,13 @@ router.post('/delete', async (req, res) => {
 // 清空指定模式的排行榜
 router.post('/clear', async (req, res) => {
     try {
-        const pool = await getPool();
         const { mode } = req.body;
         
         if (!mode) {
             return res.json({ success: false, error: '缺少模式参数' });
         }
         
-        await pool.query('DELETE FROM math_leaderboard WHERE mode = ?', [mode]);
+        await queryWithRetry('DELETE FROM math_leaderboard WHERE mode = ?', [mode]);
         res.json({ success: true });
     } catch (error) {
         console.error('清空排行榜失败:', error);
@@ -114,14 +110,13 @@ router.post('/clear', async (req, res) => {
 // 获取用户在所有模式下的最佳成绩
 router.get('/user-best', async (req, res) => {
     try {
-        const pool = await getPool();
         const name = req.query.name;
         
         if (!name) {
             return res.json({ success: false, error: '缺少用户名' });
         }
         
-        const [rows] = await pool.query(
+        const [rows] = await queryWithRetry(
             'SELECT * FROM math_leaderboard WHERE name = ? ORDER BY score DESC, time ASC',
             [name]
         );

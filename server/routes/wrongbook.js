@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const { getPool } = require('../db');
+const { queryWithRetry } = require('../db');
 
 // 获取所有错题
 router.get('/list', async (req, res) => {
     try {
-        const pool = await getPool();
-        const [rows] = await pool.query(
+        const [rows] = await queryWithRetry(
             'SELECT * FROM wrong_book WHERE deleted = 0 ORDER BY last_wrong_time DESC'
         );
         // 转换字段名为驼峰
@@ -34,7 +33,6 @@ router.get('/list', async (req, res) => {
 // 添加错题
 router.post('/add', async (req, res) => {
     try {
-        const pool = await getPool();
         const { word, meaning, example, rootAffix, phonetic, from, grade } = req.body;
 
         if (!word) {
@@ -44,7 +42,7 @@ router.post('/add', async (req, res) => {
         const now = new Date();
 
         // 检查是否已存在（包括已软删除的）
-        const [existing] = await pool.query(
+        const [existing] = await queryWithRetry(
             'SELECT * FROM wrong_book WHERE word = ?', [word]
         );
 
@@ -56,7 +54,7 @@ router.post('/add', async (req, res) => {
                 fromList.push(from);
             }
 
-            await pool.query(
+            await queryWithRetry(
                 `UPDATE wrong_book SET 
                     wrong_count = wrong_count + 1,
                     last_wrong_time = ?,
@@ -71,7 +69,7 @@ router.post('/add', async (req, res) => {
             );
         } else {
             // 新增
-            await pool.query(
+            await queryWithRetry(
                 `INSERT INTO wrong_book 
                     (word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, 0)`,
@@ -89,14 +87,13 @@ router.post('/add', async (req, res) => {
 // 删除错题（软删除）
 router.post('/remove', async (req, res) => {
     try {
-        const pool = await getPool();
         const { word } = req.body;
 
         if (!word) {
             return res.json({ success: false, error: '单词不能为空' });
         }
 
-        await pool.query('UPDATE wrong_book SET deleted = 1 WHERE word = ?', [word]);
+        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE word = ?', [word]);
         res.json({ success: true });
     } catch (error) {
         console.error('删除错题失败:', error);
@@ -107,14 +104,13 @@ router.post('/remove', async (req, res) => {
 // 标记/取消掌握
 router.post('/mastered', async (req, res) => {
     try {
-        const pool = await getPool();
         const { word, mastered } = req.body;
 
         if (!word) {
             return res.json({ success: false, error: '单词不能为空' });
         }
 
-        await pool.query(
+        await queryWithRetry(
             'UPDATE wrong_book SET mastered = ? WHERE word = ?',
             [mastered ? 1 : 0, word]
         );
@@ -128,8 +124,7 @@ router.post('/mastered', async (req, res) => {
 // 清除已掌握（软删除）
 router.post('/clear-mastered', async (req, res) => {
     try {
-        const pool = await getPool();
-        await pool.query('UPDATE wrong_book SET deleted = 1 WHERE mastered = 1 AND deleted = 0');
+        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE mastered = 1 AND deleted = 0');
         res.json({ success: true });
     } catch (error) {
         console.error('清除已掌握错题失败:', error);
@@ -140,8 +135,7 @@ router.post('/clear-mastered', async (req, res) => {
 // 清空全部（软删除）
 router.post('/clear-all', async (req, res) => {
     try {
-        const pool = await getPool();
-        await pool.query('UPDATE wrong_book SET deleted = 1 WHERE deleted = 0');
+        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE deleted = 0');
         res.json({ success: true });
     } catch (error) {
         console.error('清空错题本失败:', error);
@@ -152,14 +146,13 @@ router.post('/clear-all', async (req, res) => {
 // 恢复已删除的错题
 router.post('/restore', async (req, res) => {
     try {
-        const pool = await getPool();
         const { word } = req.body;
 
         if (!word) {
             return res.json({ success: false, error: '单词不能为空' });
         }
 
-        const [result] = await pool.query(
+        const [result] = await queryWithRetry(
             'UPDATE wrong_book SET deleted = 0 WHERE word = ? AND deleted = 1',
             [word]
         );
@@ -173,8 +166,7 @@ router.post('/restore', async (req, res) => {
 // 获取已删除的错题列表
 router.get('/list-deleted', async (req, res) => {
     try {
-        const pool = await getPool();
-        const [rows] = await pool.query(
+        const [rows] = await queryWithRetry(
             'SELECT * FROM wrong_book WHERE deleted = 1 ORDER BY updated_at DESC'
         );
         const data = rows.map(row => ({
@@ -193,7 +185,6 @@ router.get('/list-deleted', async (req, res) => {
 // 从localStorage同步到数据库
 router.post('/sync', async (req, res) => {
     try {
-        const pool = await getPool();
         const { words } = req.body;
 
         if (!Array.isArray(words)) {
@@ -204,13 +195,13 @@ router.post('/sync', async (req, res) => {
         for (const item of words) {
             if (!item.word) continue;
 
-            const [existing] = await pool.query(
+            const [existing] = await queryWithRetry(
                 'SELECT id, deleted FROM wrong_book WHERE word = ?', [item.word]
             );
 
             if (existing.length === 0) {
                 // 新增
-                await pool.query(
+                await queryWithRetry(
                     `INSERT INTO wrong_book 
                         (word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
@@ -232,7 +223,7 @@ router.post('/sync', async (req, res) => {
                 synced++;
             } else if (existing[0].deleted === 1) {
                 // 已软删除，恢复并更新
-                await pool.query(
+                await queryWithRetry(
                     `UPDATE wrong_book SET 
                         deleted = 0,
                         meaning = ?,
