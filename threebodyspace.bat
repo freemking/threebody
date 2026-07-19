@@ -9,30 +9,46 @@ echo.
 REM --- Detect Node.js ---
 set "NODE_CMD="
 
-REM Method 1: direct check
+REM Method 1: direct check (works if node is in PATH)
 where node >nul 2>nul
 if !errorlevel! equ 0 (
     set "NODE_CMD=node"
     goto :node_found
 )
 
-REM Method 2: nvm4w default path
+REM Method 2: nvm4w symlink (C:\nvm4w\nodejs is the default)
+if exist "C:\nvm4w\nodejs\node.exe" (
+    set "NODE_CMD=C:\nvm4w\nodejs\node.exe"
+    set "PATH=C:\nvm4w\nodejs;!PATH!"
+    goto :node_found
+)
+
+REM Method 3: NVM_SYMLINK environment variable
+if defined NVM_SYMLINK (
+    if exist "!NVM_SYMLINK!\node.exe" (
+        set "NODE_CMD=!NVM_SYMLINK!\node.exe"
+        set "PATH=!NVM_SYMLINK!;!PATH!"
+        goto :node_found
+    )
+)
+
+REM Method 4: NVM_HOME + nvm use current
+if defined NVM_HOME (
+    if exist "!NVM_HOME!\nodejs\node.exe" (
+        set "NODE_CMD=!NVM_HOME!\nodejs\node.exe"
+        set "PATH=!NVM_HOME!\nodejs;!PATH!"
+        goto :node_found
+    )
+)
+
+REM Method 5: Program Files fallback
 if exist "%ProgramFiles%\nodejs\node.exe" (
     set "NODE_CMD=%ProgramFiles%\nodejs\node.exe"
     set "PATH=%ProgramFiles%\nodejs;!PATH!"
     goto :node_found
 )
 
-REM Method 3: nvm4w registry symlink
-for /f "tokens=2*" %%a in ('reg query "HKCU\Environment" /v NVM_SYMLINK 2^>nul') do (
-    if exist "%%b\node.exe" (
-        set "NODE_CMD=%%b\node.exe"
-        set "PATH=%%b;!PATH!"
-        goto :node_found
-    )
-)
-
-REM Method 4: common install paths
+REM Method 6: common install paths
 for %%P in ("%LOCALAPPDATA%\nvm\v*\node.exe" "%APPDATA%\nvm\v*\node.exe" "%USERPROFILE%\scoop\apps\nodejs\current\node.exe") do (
     if exist %%P (
         for %%D in (%%~dpP.) do set "NODE_CMD=%%~dpPnode.exe"
@@ -88,7 +104,7 @@ if not exist "server\node_modules" (
 REM --- Start server ---
 echo [..] Starting server on port !PORT!...
 cd /d "%~dp0server"
-start "ThreeBody-Server" /min cmd /c "node server.js"
+start "ThreeBody-Server" /min cmd /c "!NODE_CMD! server.js"
 cd /d "%~dp0"
 
 REM Wait for server to be ready
