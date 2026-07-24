@@ -2669,17 +2669,46 @@ class App {
                     </div>`;
             } else {
                 todayWordsContainer.innerHTML = todayWords.map(word => `
-                    <div class="vocabulary-word-card" data-word="${word.word}">
+                    <div class="vocabulary-word-card ${word.remembered ? 'remembered' : ''}" data-word="${word.word}">
                         <div class="vocabulary-word-header">
                             <div>
                                 <div class="vocabulary-word-text">${word.word}</div>
                                 <div class="vocabulary-word-phonetic">${word.phonetic || ''}</div>
                             </div>
+                            <button class="btn-remembered ${word.remembered ? 'active' : ''}" 
+                                    data-word="${word.word}" 
+                                    title="${word.remembered ? '取消记住' : '标记为已记住'}">
+                                ${word.remembered ? '✅' : '⬜'}
+                            </button>
                         </div>
                         <div class="vocabulary-word-meaning">${word.meaning}</div>
                         ${word.example ? `<div class="vocabulary-word-example">"${word.example}"</div>` : ''}
                     </div>
                 `).join('');
+                
+                // 添加记忆按钮事件监听
+                todayWordsContainer.querySelectorAll('.btn-remembered').forEach(btn => {
+                    btn.onclick = async (e) => {
+                        e.stopPropagation();
+                        const word = btn.dataset.word;
+                        const isRemembered = btn.classList.contains('active');
+                        const newRemembered = !isRemembered;
+                        
+                        const success = await vocabulary.toggleRemembered(word, newRemembered);
+                        if (success) {
+                            // 更新UI
+                            btn.classList.toggle('active', newRemembered);
+                            btn.innerHTML = newRemembered ? '✅' : '⬜';
+                            btn.title = newRemembered ? '取消记住' : '标记为已记住';
+                            
+                            // 更新卡片样式
+                            const card = btn.closest('.vocabulary-word-card');
+                            if (card) {
+                                card.classList.toggle('remembered', newRemembered);
+                            }
+                        }
+                    };
+                });
             }
         }
     }
@@ -2794,38 +2823,49 @@ class App {
         listeningShowChinese = document.getElementById('listening-show-chinese-hint')?.checked || false;
         listeningShowFirstLetter = document.getElementById('listening-show-first-letter')?.checked || false;
         
-        // 读取新词/复习比例设置
-        const newRatio = parseInt(document.getElementById('new-word-ratio')?.value || 70);
         // 读取每天学习单词数量设置
         const totalWords = parseInt(document.getElementById('daily-word-count')?.value || 5);
-        const newWordCount = Math.round(totalWords * newRatio / 100);
-        const reviewWordCount = totalWords - newWordCount;
         
-        // 获取新词（来自记单词库中未在错题本中的单词）
-        const allVocabularyWords = vocabulary.getAll();
-        const wrongBookWords = new Set(wrongBook.getAll().map(w => w.word));
-        const newWords = allVocabularyWords.filter(w => !wrongBookWords.has(w.word) && !w.mastered)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, newWordCount)
-            .map(w => ({
-                word: w.word,
-                meaning: w.meaning,
-                phonetic: w.phonetic || ''
-            }));
+        // 优先使用今日单词（从API获取的今日要记的单词）
+        let words = vocabulary.getTodayWords();
         
-        // 获取复习词（来自错题本中未掌握的单词）
-        const unmasteredWords = wrongBook.getUnmasteredWords();
-        const reviewWords = unmasteredWords
-            .sort(() => Math.random() - 0.5)
-            .slice(0, reviewWordCount)
-            .map(w => ({
-                word: w.word,
-                meaning: w.meaning,
-                phonetic: w.phonetic || ''
-            }));
-        
-        // 合并新词和复习词
-        const words = [...newWords, ...reviewWords];
+        // 如果今日单词为空，则使用配置生成单词列表
+        if (!words || words.length === 0) {
+            console.log('今日单词为空，使用配置生成单词列表');
+            
+            // 读取新词/复习比例设置
+            const newRatio = parseInt(document.getElementById('new-word-ratio')?.value || 70);
+            const newWordCount = Math.round(totalWords * newRatio / 100);
+            const reviewWordCount = totalWords - newWordCount;
+            
+            // 获取新词（来自记单词库中未在错题本中的单词）
+            const allVocabularyWords = vocabulary.getAll();
+            const wrongBookWords = new Set(wrongBook.getAll().map(w => w.word));
+            const newWords = allVocabularyWords.filter(w => !wrongBookWords.has(w.word) && !w.mastered)
+                .sort(() => Math.random() - 0.5)
+                .slice(0, newWordCount)
+                .map(w => ({
+                    word: w.word,
+                    meaning: w.meaning,
+                    phonetic: w.phonetic || ''
+                }));
+            
+            // 获取复习词（来自错题本中未掌握的单词）
+            const unmasteredWords = wrongBook.getUnmasteredWords();
+            const reviewWords = unmasteredWords
+                .sort(() => Math.random() - 0.5)
+                .slice(0, reviewWordCount)
+                .map(w => ({
+                    word: w.word,
+                    meaning: w.meaning,
+                    phonetic: w.phonetic || ''
+                }));
+            
+            // 合并新词和复习词
+            words = [...newWords, ...reviewWords];
+        } else {
+            console.log(`使用今日单词进行训练: ${words.length} 个单词`);
+        }
         
         if (words.length === 0) {
             this.showVocabularyNotification('没有可学习的单词', 'warning');

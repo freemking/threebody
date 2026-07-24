@@ -233,62 +233,100 @@ router.post('/clear-all', async (req, res) => {
     }
 });
 
-// 获取今日记单词（每天5个）
+// 获取今日记单词（每天5个，从vocabulary_daily_record读取，不存在则初始化）
 router.get('/today', async (req, res) => {
     try {
         const today = new Date().toISOString().split('T')[0];
         
-        // 获取今天已经学习过的单词
-        const [studiedToday] = await queryWithRetry(
-            'SELECT DISTINCT word FROM vocabulary_daily_record WHERE study_date = ?',
+        // 从 vocabulary_daily_record 查询今天已学习的单词（包含remembered字段）
+        const [todayRecords] = await queryWithRetry(
+            `SELECT d.word, d.correct, d.response_time, d.remembered, 
+                    w.meaning, w.phonetic, w.example, w.root_affix, w.grade
+             FROM vocabulary_daily_record d
+             JOIN wrong_book w ON d.word = w.word
+             WHERE d.study_date = ? AND w.deleted = 0
+             ORDER BY d.study_time DESC`,
             [today]
         );
-        const studiedWords = studiedToday.map(row => row.word);
         
-        // 获取错题本中未掌握的单词
-        const [unmasteredWords] = await queryWithRetry(
-            'SELECT * FROM wrong_book WHERE mastered = 0 AND deleted = 0 ORDER BY RAND() LIMIT 5'
-        );
-        
-        // 如果今天已经学了5个，返回已学习的单词
-        if (studiedWords.length >= 5) {
-            const [todayWords] = await queryWithRetry(
-                'SELECT DISTINCT word, meaning, phonetic, example, root_affix, grade FROM wrong_book WHERE word IN (?) AND deleted = 0',
-                [studiedWords]
-            );
-            
-            const data = todayWords.map(row => ({
+        // 如果今天已有5个记录，直接返回
+        if (todayRecords.length >= 5) {
+            const data = todayRecords.map(row => ({
                 word: row.word,
                 meaning: row.meaning,
                 phonetic: row.phonetic,
                 example: row.example,
                 rootAffix: row.root_affix,
-                grade: row.grade
+                grade: row.grade,
+                remembered: row.remembered || 0
             }));
             
             return res.json({ 
                 success: true, 
                 data, 
-                studied: studiedWords.length,
+                studied: todayRecords.length,
                 total: 5,
                 completed: true
             });
         }
         
-        // 否则返回未学习的单词
-        const data = unmasteredWords.map(row => ({
-            word: row.word,
-            meaning: row.meaning,
-            phonetic: row.phonetic,
-            example: row.example,
-            rootAffix: row.root_affix,
-            grade: row.grade
-        }));
+        // 如果今天记录不足5个，从wrong_book中随机选择未掌握且未在今天的记录中的单词
+        const studiedWords = todayRecords.map(r => r.word);
+        const needCount = 5 - todayRecords.length;
+        
+        let newWords = [];
+        if (needCount > 0) {
+            const placeholders = studiedWords.length > 0 
+                ? `AND word NOT IN (${studiedWords.map(() => '?').join(',')})` 
+                : '';
+            const params = studiedWords.length > 0 
+                ? [...studiedWords, needCount] 
+                : [needCount];
+            
+            const [rows] = await queryWithRetry(
+                `SELECT * FROM wrong_book 
+                 WHERE mastered = 0 AND deleted = 0 ${placeholders}
+                 ORDER BY RAND() LIMIT ?`,
+                params
+            );
+            newWords = rows;
+            
+            // 将新选择的单词初始化到vocabulary_daily_record表
+            for (const word of newWords) {
+                await queryWithRetry(
+                    `INSERT INTO vocabulary_daily_record (word, study_date, correct, response_time, remembered) 
+                     VALUES (?, ?, 0, 0, 0)`,
+                    [word.word, today]
+                );
+            }
+        }
+        
+        // 合并已有记录和新插入的记录，返回完整数据
+        const allWords = [
+            ...todayRecords.map(row => ({
+                word: row.word,
+                meaning: row.meaning,
+                phonetic: row.phonetic,
+                example: row.example,
+                rootAffix: row.root_affix,
+                grade: row.grade,
+                remembered: row.remembered || 0
+            })),
+            ...newWords.map(row => ({
+                word: row.word,
+                meaning: row.meaning,
+                phonetic: row.phonetic,
+                example: row.example,
+                rootAffix: row.root_affix,
+                grade: row.grade,
+                remembered: 0
+            }))
+        ];
         
         res.json({ 
             success: true, 
-            data, 
-            studied: studiedWords.length,
+            data: allWords, 
+            studied: todayRecords.length,
             total: 5,
             completed: false
         });
@@ -384,6 +422,45 @@ router.post('/study', async (req, res) => {
     }
 });
 
+// 更新单词记忆状态
+router.post('/remembered', async (req, res) => {
+    try {
+        const { word, remembered } = req.body;
+
+        if (!word) {
+            return res.json({ success: false, error: '单词不能为空' });
+        }
+
+        const today = new Date().toISOString().split('T')[0];
+
+        // 检查今天是否已有记录
+        const [existing] = await queryWithRetry(
+            'SELECT * FROM vocabulary_daily_record WHERE word = ? AND study_date = ?',
+            [word, today]
+        );
+
+        if (existing.length > 0) {
+            // 更新记忆状态
+            await queryWithRetry(
+                'UPDATE vocabulary_daily_record SET remembered = ? WHERE word = ? AND study_date = ?',
+                [remembered ? 1 : 0, word, today]
+            );
+        } else {
+            // 如果不存在记录，插入新记录
+            await queryWithRetry(
+                `INSERT INTO vocabulary_daily_record (word, study_date, correct, response_time, remembered) 
+                 VALUES (?, ?, 0, 0, ?)`,
+                [word, today, remembered ? 1 : 0]
+            );
+        }
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error('更新记忆状态失败:', error);
+        res.json({ success: false, error: error.message });
+    }
+});
+
 // 获取每日学习记录
 router.get('/daily-record', async (req, res) => {
     try {
@@ -406,7 +483,8 @@ router.get('/daily-record', async (req, res) => {
             example: row.example,
             studyTime: row.study_time,
             correct: !!row.correct,
-            responseTime: row.response_time
+            responseTime: row.response_time,
+            remembered: row.remembered || 0
         }));
         
         res.json({ success: true, data });

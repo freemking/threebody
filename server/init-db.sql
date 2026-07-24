@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS vocabulary_daily_record (
     study_time DATETIME DEFAULT CURRENT_TIMESTAMP,
     correct TINYINT(1) DEFAULT 0,
     response_time INT DEFAULT 0 COMMENT '回答时间(毫秒)',
+    remembered TINYINT(1) DEFAULT 0 COMMENT '是否已记住(0-未记住, 1-已记住)',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_word (word),
     INDEX idx_study_date (study_date),
@@ -131,3 +132,4 @@ CREATE TABLE IF NOT EXISTS vocabulary_achievements (
     INDEX idx_user_id (user_id),
     INDEX idx_unlocked (unlocked)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+

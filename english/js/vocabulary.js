@@ -406,6 +406,31 @@ class Vocabulary {
     }
 
     /**
+     * 切换单词记忆状态
+     */
+    async toggleRemembered(word, remembered) {
+        try {
+            const result = await this._apiRequest('/remembered', 'POST', {
+                word,
+                remembered
+            });
+
+            if (result.success) {
+                console.log(`单词记忆状态已更新: ${word}, 记住: ${remembered}`);
+                // 更新本地缓存中的记忆状态
+                const todayWord = this._todayWords.find(w => w.word === word);
+                if (todayWord) {
+                    todayWord.remembered = remembered ? 1 : 0;
+                }
+                return true;
+            }
+        } catch (error) {
+            console.error('更新记忆状态失败:', error);
+        }
+        return false;
+    }
+
+    /**
      * 更新学习统计（学习单词时调用）
      */
     async updateStudyStats(word, correct, responseTime = 0) {
