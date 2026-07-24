@@ -40,9 +40,6 @@ jobs:
           # 重启 Node.js 服务（使用 sudo 执行 pm2，因为 pm2 安装在 root 用户下）
           pm2 restart threebodyspace-api || pm2 start server.js --name threebodyspace-api
 
-          # 检查 nginx 配置
-          sudo nginx -t
-
           echo 'Deploy done!'
           "
 
