@@ -297,7 +297,7 @@ body::after {
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-xl);
     pointer-events: all;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 94%;
     max-height: 90vh;
     overflow-y: auto;
@@ -427,15 +427,54 @@ body::after {
 }
 
 .menu-btn:nth-child(2):hover {
-    transform: perspective(1000px) rotateY(5deg) translateY(-6px) scale(1.03);
+    transform: perspective(1000px) rotateX(-5deg) translateY(-6px) scale(1.03);
 }
 
 .menu-btn:nth-child(3):hover {
+    transform: perspective(1000px) rotateY(5deg) translateY(-6px) scale(1.03);
+}
+
+.menu-btn:nth-child(4):hover {
     transform: perspective(1000px) rotateX(5deg) translateY(-6px) scale(1.03);
 }
 
 /* 菜单按钮颜色 - 每个游戏独特的主题 */
-.menu-btn:nth-child(1) { /* 大富翁 */
+.menu-btn:nth-child(1) { /* 背单词 */
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-left-color: var(--primary-color);
+    font-size: 1.4rem;
+    padding: var(--space-xl) var(--space-2xl);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px -5px rgba(0, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn:nth-child(1)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.menu-btn:nth-child(1):hover {
+    box-shadow: 0 15px 35px -5px rgba(0, 255, 255, 0.5);
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+}
+
+.menu-btn:nth-child(1):hover::after {
+    opacity: 0.8;
+}
+
+.menu-btn:nth-child(2) { /* 大富翁 */
     background: linear-gradient(135deg, var(--monopoly-primary), var(--monopoly-secondary));
     border-left-color: var(--monopoly-accent);
     font-size: 1.4rem;
@@ -447,7 +486,7 @@ body::after {
     overflow: hidden;
 }
 
-.menu-btn:nth-child(1)::after {
+.menu-btn:nth-child(2)::after {
     content: '';
     position: absolute;
     top: 0;
@@ -465,16 +504,16 @@ body::after {
     pointer-events: none;
 }
 
-.menu-btn:nth-child(1):hover {
+.menu-btn:nth-child(2):hover {
     box-shadow: 0 15px 35px -5px rgba(5, 150, 105, 0.5);
     background: linear-gradient(135deg, var(--monopoly-secondary), var(--monopoly-primary));
 }
 
-.menu-btn:nth-child(1):hover::after {
+.menu-btn:nth-child(2):hover::after {
     opacity: 0.5;
 }
 
-.menu-btn:nth-child(2) { /* 单词匹配 */
+.menu-btn:nth-child(3) { /* 单词匹配 */
     background: linear-gradient(135deg, var(--wordmatch-primary), var(--wordmatch-secondary));
     border-left-color: var(--wordmatch-accent);
     font-size: 1.4rem;
@@ -486,7 +525,7 @@ body::after {
     overflow: hidden;
 }
 
-.menu-btn:nth-child(2)::after {
+.menu-btn:nth-child(3)::after {
     content: '';
     position: absolute;
     top: 50%;
@@ -501,18 +540,18 @@ body::after {
     pointer-events: none;
 }
 
-.menu-btn:nth-child(2):hover::after {
+.menu-btn:nth-child(3):hover::after {
     opacity: 1;
     transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
     background: rgba(255, 255, 255, 0.3);
 }
 
-.menu-btn:nth-child(2):hover {
+.menu-btn:nth-child(3):hover {
     box-shadow: 0 15px 35px -5px rgba(139, 92, 246, 0.5);
     background: linear-gradient(135deg, var(--wordmatch-secondary), var(--wordmatch-primary));
 }
 
-.menu-btn:nth-child(3) { /* 单词爆炸 */
+.menu-btn:nth-child(4) { /* 单词爆炸 */
     background: linear-gradient(135deg, var(--wordblast-primary), var(--wordblast-secondary));
     border-left-color: var(--wordblast-accent);
     font-size: 1.4rem;
@@ -524,7 +563,7 @@ body::after {
     overflow: hidden;
 }
 
-.menu-btn:nth-child(3)::before {
+.menu-btn:nth-child(4)::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -539,13 +578,13 @@ body::after {
     opacity: 0;
 }
 
-.menu-btn:nth-child(3):hover::before {
+.menu-btn:nth-child(4):hover::before {
     width: 300px;
     height: 300px;
     opacity: 1;
 }
 
-.menu-btn:nth-child(3):hover {
+.menu-btn:nth-child(4):hover {
     box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.5), 0 0 30px rgba(255, 209, 102, 0.3);
     background: linear-gradient(135deg, var(--wordblast-secondary), var(--wordblast-primary));
 }
@@ -1656,7 +1695,8 @@ body::after {
     
     .menu-btn:nth-child(1)::after,
     .menu-btn:nth-child(2)::after,
-    .menu-btn:nth-child(3)::before {
+    .menu-btn:nth-child(3)::after,
+    .menu-btn:nth-child(4)::before {
         display: none;
     }
 }

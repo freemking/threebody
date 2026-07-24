@@ -21,7 +21,8 @@ router.get('/list', async (req, res) => {
             wrongCount: row.wrong_count,
             firstWrongTime: row.first_wrong_time,
             lastWrongTime: row.last_wrong_time,
-            mastered: !!row.mastered
+            mastered: !!row.mastered,
+            errorType: row.error_type || 'all'
         }));
         res.json({ success: true, data });
     } catch (error) {
@@ -33,7 +34,7 @@ router.get('/list', async (req, res) => {
 // 添加错题
 router.post('/add', async (req, res) => {
     try {
-        const { word, meaning, example, rootAffix, phonetic, from, grade } = req.body;
+        const { word, meaning, example, rootAffix, phonetic, from, grade, errorType } = req.body;
 
         if (!word) {
             return res.json({ success: false, error: '单词不能为空' });
@@ -63,17 +64,18 @@ router.post('/add', async (req, res) => {
                     example = IF(? != '', ?, example),
                     root_affix = IF(? != '', ?, root_affix),
                     phonetic = IF(? != '', ?, phonetic),
+                    error_type = IF(? != '', ?, error_type),
                     deleted = 0
                 WHERE word = ?`,
-                [now, JSON.stringify(fromList), meaning || '', meaning || '', example || '', example || '', rootAffix || '', rootAffix || '', phonetic || '', phonetic || '', word]
+                [now, JSON.stringify(fromList), meaning || '', meaning || '', example || '', example || '', rootAffix || '', rootAffix || '', phonetic || '', phonetic || '', errorType || '', errorType || '', word]
             );
         } else {
             // 新增
             await queryWithRetry(
                 `INSERT INTO wrong_book 
-                    (word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, 0)`,
-                [word, meaning || '', example || '', rootAffix || '', phonetic || '', from || 'unknown', JSON.stringify([from || 'unknown']), grade || '', now, now]
+                    (word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered, error_type)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, 0, ?)`,
+                [word, meaning || '', example || '', rootAffix || '', phonetic || '', from || 'unknown', JSON.stringify([from || 'unknown']), grade || '', now, now, errorType || 'all']
             );
         }
 

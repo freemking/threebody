@@ -7,7 +7,7 @@
 ```
 首页/
 ├── index.html          # 主页入口
-├── style.css           # 主页样式
+├── style.css           # 主页样式（三体主题设计系统）
 ├── script.js           # 主页脚本
 ├── nginx.conf          # Nginx部署配置
 ├── start-dev.bat       # 本地开发启动脚本
@@ -16,9 +16,24 @@
 │   ├── index.html      # 英语游戏入口
 │   ├── package.json    # Node.js配置
 │   ├── js/             # JavaScript文件
+│   │   ├── app.js      # 主应用逻辑
+│   │   ├── vocabulary.js # 背单词模块
+│   │   ├── wrongbook.js # 错题本模块
+│   │   └── ...         # 其他游戏模块
 │   ├── css/            # 样式文件
+│   │   ├── style.css   # 全局设计系统变量
+│   │   ├── wrongbook.css # 错题本专用样式（统一管理）
+│   │   ├── vocabulary.css # 背单词模块样式
+│   │   └── ...         # 其他游戏样式
 │   ├── data/           # 单词数据(JSON)
 │   └── assets/         # 资源文件
+├── server/             # 后端服务器
+│   ├── server.js       # Express服务器主文件
+│   ├── routes/         # API路由
+│   │   ├── wrongbook.js # 错题本API
+│   │   ├── vocabulary.js # 背单词API
+│   │   └── ...         # 其他API
+│   └── db.js           # 数据库连接配置
 ├── math/               # 数学口算游戏
 │   └── index.html      # 数学游戏入口
 └── sudoku/             # 数独挑战游戏
@@ -84,20 +99,20 @@ sudo systemctl restart nginx
 ## 功能特性
 
 ### 英语单词游戏
-- 📚 单词大富翁（Monopoly）
-- 🃏 单词配对（Word Match）
-- 💣 单词大爆炸（Word Blast）
-- 📓 错题本
-- 支持1-9年级，每个年级10个单元
-- AI对手系统
+- 📚 **单词大富翁（Monopoly）**：经典大富翁游戏模式，通过掷骰子、回答单词问题来前进
+- 🃏 **单词配对（Word Match）**：记忆翻牌游戏，匹配单词与释义
+- 💣 **单词大爆炸（Word Blast）**：填空练习，巩固单词拼写和用法
+- 📓 **错题本系统**：自动收集游戏中的错误单词，支持复习、测验、导出打印
+- 📊 **背单词模块**：支持记忆训练、听写训练、学习数据统计
+- 🎮 **支持1-9年级**：每个年级10个单元，涵盖小学到初中英语词汇
+- 🤖 **AI对手系统**：智能AI对手，提升游戏挑战性
 
 ### 数学口算游戏
-- ➗ 除法口算练习
-- 多种难度级别
+- ➗ **除法口算练习**：多种难度级别，支持正整数除法和带余除法
 
 ### 数独挑战游戏
-- 🧩 经典数独
-- 魔法数独变体
+- 🧩 **经典数独**：标准9x9数独挑战
+- ✨ **魔法数独变体**：创新数独玩法
 
 ## 数据说明
 
@@ -127,3 +142,46 @@ sudo systemctl restart nginx
 ## 许可证
 
 MIT License
+
+## 技术说明
+
+### CSS样式架构
+
+本项目采用模块化CSS架构，遵循三体科幻主题设计系统：
+
+#### 设计系统变量
+- `style.css`：定义全局CSS变量，包括颜色、间距、圆角、字体、动画等
+- 三体主题：使用青色（#00ffff）、品红色（#ff00ff）、金色（#FBBF24）作为主色调
+- 响应式设计：支持移动端、平板、桌面端自适应
+
+#### 样式文件组织
+1. **全局样式**：`style.css` 包含所有模块共享的设计系统变量
+2. **错题本样式**：`wrongbook.css` 统一管理错题本相关样式，避免重复
+3. **背单词样式**：`vocabulary.css` 背单词模块专用样式
+4. **游戏样式**：`wordmatch.css`、`monopoly.css`、`wordblast.css` 各游戏模块专用
+
+#### 样式整合优化
+- 错题本样式已统一到 `wrongbook.css`，消除了跨文件重复
+- 所有错题本组件（卡片、统计、筛选、测验模式等）使用统一的CSS变量
+- 样式文件按功能模块分离，便于维护和扩展
+
+### 后端API
+
+#### 错题本API
+- `GET /api/wrongbook/list`：获取所有错题
+- `POST /api/wrongbook/add`：添加错题
+- `PUT /api/wrongbook/master/:id`：标记掌握
+- `DELETE /api/wrongbook/:id`：删除错题
+
+#### 背单词API
+- `GET /api/vocabulary/list`：获取词库列表
+- `POST /api/vocabulary/add`：添加单词
+- `PUT /api/vocabulary/study/:id`：更新学习进度
+- `GET /api/vocabulary/stats`：获取学习统计
+
+### 数据库
+
+使用MySQL数据库，主要表结构：
+- `wrong_book`：错题本表
+- `vocabulary_book`：背单词词库表
+- `leaderboard`：排行榜表

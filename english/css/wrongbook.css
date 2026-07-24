@@ -1,65 +1,6 @@
 /* === 错题本 - 现代化视觉设计 === */
 
-/* 设计系统变量 - 三体风格 */
-:root {
-    /* 颜色方案 - 三体主题 */
-    --wb-primary: #00ffff;
-    --wb-primary-light: rgba(0, 255, 255, 0.7);
-    --wb-primary-dark: #00cccc;
-    --wb-accent: #FBBF24;
-    --wb-accent-light: #FEF3C7;
-    --wb-success: #10b981;
-    --wb-success-light: #34d399;
-    --wb-danger: #ef4444;
-    --wb-danger-light: #f87171;
-    --wb-warning: #F59E0B;
-    
-    /* 背景色 - 三体深色 */
-    --wb-bg-primary: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
-    --wb-bg-card: rgba(0, 255, 255, 0.05);
-    --wb-bg-card-hover: rgba(0, 255, 255, 0.1);
-    --wb-bg-card-mastered: rgba(16, 185, 129, 0.1);
-    
-    /* 文本颜色 - 三体风格 */
-    --wb-text-primary: #ffffff;
-    --wb-text-secondary: rgba(255, 255, 255, 0.85);
-    --wb-text-muted: rgba(192, 192, 224, 0.7);
-    --wb-text-accent: rgba(0, 255, 255, 0.95);
-    
-    /* 边框和阴影 - 三体风格 */
-    --wb-border: rgba(0, 255, 255, 0.15);
-    --wb-border-mastered: rgba(16, 185, 129, 0.4);
-    --wb-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    --wb-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
-    
-    /* 间距 */
-    --wb-space-xs: 4px;
-    --wb-space-sm: 8px;
-    --wb-space-md: 12px;
-    --wb-space-lg: 16px;
-    --wb-space-xl: 24px;
-    --wb-space-2xl: 32px;
-    --wb-space-3xl: 48px;
-    --wb-space-4xl: 64px;
-    
-    /* 圆角 */
-    --wb-radius-sm: 6px;
-    --wb-radius-md: 10px;
-    --wb-radius-lg: 16px;
-    --wb-radius-xl: 20px;
-    --wb-radius-full: 9999px;
-    
-    /* 字体 */
-    --wb-font-display: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-    --wb-font-body: 'Segoe UI', 'Microsoft YaHei', sans-serif;
-    --wb-font-mono: 'Fira Code', monospace;
-    
-    /* 动画 */
-    --wb-transition-fast: 0.15s ease;
-    --wb-transition-normal: 0.25s ease;
-    --wb-transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --wb-transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
+/* 错题本样式 - 使用全局设计系统变量 */
 
 /* 错题本主屏幕 */
 #wrongbook-screen {

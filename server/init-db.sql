@@ -14,17 +14,21 @@ CREATE TABLE IF NOT EXISTS wrong_book (
     last_wrong_time DATETIME,
     mastered TINYINT(1) DEFAULT 0,
     deleted TINYINT(1) DEFAULT 0,
+    error_type VARCHAR(50) DEFAULT 'all',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     INDEX idx_word (word),
     INDEX idx_mastered (mastered),
     INDEX idx_deleted (deleted),
-    INDEX idx_last_wrong_time (last_wrong_time)
+    INDEX idx_last_wrong_time (last_wrong_time),
+    INDEX idx_error_type (error_type)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 如果是升级已有表，添加 deleted 字段
-ALTER TABLE wrong_book ADD COLUMN IF NOT EXISTS deleted TINYINT(1) DEFAULT 0 AFTER mastered;
-ALTER TABLE wrong_book ADD INDEX IF NOT EXISTS idx_deleted (deleted);
+-- 注意：如果是从旧版本升级，需要手动执行以下 SQL：
+-- ALTER TABLE wrong_book ADD COLUMN deleted TINYINT(1) DEFAULT 0 AFTER mastered;
+-- ALTER TABLE wrong_book ADD INDEX idx_deleted (deleted);
+-- ALTER TABLE wrong_book ADD COLUMN error_type VARCHAR(50) DEFAULT 'all' AFTER deleted;
+-- ALTER TABLE wrong_book ADD INDEX idx_error_type (error_type);
 
 -- 数学游戏排行榜数据表
 CREATE TABLE IF NOT EXISTS math_leaderboard (
@@ -63,5 +67,93 @@ CREATE TABLE IF NOT EXISTS english_leaderboard (
     INDEX idx_score (score)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 如果是升级已有表，添加 unit 字段
-ALTER TABLE english_leaderboard ADD COLUMN IF NOT EXISTS unit VARCHAR(20) DEFAULT 'all' AFTER grade;
+-- 注意：如果是从旧版本升级，需要手动执行以下 SQL：
+-- ALTER TABLE english_leaderboard ADD COLUMN unit VARCHAR(20) DEFAULT 'all' AFTER grade;
+
+-- 背单词词库表
+CREATE TABLE IF NOT EXISTS vocabulary_book (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    word VARCHAR(100) NOT NULL UNIQUE,
+    meaning TEXT,
+    phonetic VARCHAR(100),
+    example TEXT,
+    root_affix VARCHAR(255),
+    grade VARCHAR(20),
+    source VARCHAR(50) DEFAULT 'wrongbook',
+    added_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_study_time DATETIME,
+    mastered TINYINT(1) DEFAULT 0,
+    study_count INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_word (word),
+    INDEX idx_mastered (mastered),
+    INDEX idx_added_time (added_time),
+    INDEX idx_last_study_time (last_study_time)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 每日背单词记录表
+CREATE TABLE IF NOT EXISTS vocabulary_daily_record (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    word VARCHAR(100) NOT NULL,
+    study_date DATE NOT NULL,
+    study_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    correct TINYINT(1) DEFAULT 0,
+    response_time INT DEFAULT 0 COMMENT '回答时间(毫秒)',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_word (word),
+    INDEX idx_study_date (study_date),
+    INDEX idx_word_date (word, study_date)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 总体背单词记录表
+CREATE TABLE IF NOT EXISTS vocabulary_total_record (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    word VARCHAR(100) NOT NULL UNIQUE,
+    first_study_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    last_study_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    study_count INT DEFAULT 0,
+    correct_count INT DEFAULT 0,
+    mastered TINYINT(1) DEFAULT 0,
+    mastered_time DATETIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_word (word),
+    INDEX idx_mastered (mastered),
+    INDEX idx_mastered_time (mastered_time)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 用户等级和成就表
+CREATE TABLE IF NOT EXISTS vocabulary_user_stats (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(100) DEFAULT 'default',
+    level INT DEFAULT 1,
+    total_words_learned INT DEFAULT 0,
+    total_words_mastered INT DEFAULT 0,
+    total_study_days INT DEFAULT 0,
+    consecutive_days INT DEFAULT 0,
+    max_consecutive_days INT DEFAULT 0,
+    last_study_date DATE,
+    achievements JSON,
+    level_up_history JSON,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY idx_user_id (user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 学习成就表
+CREATE TABLE IF NOT EXISTS vocabulary_achievements (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id VARCHAR(100) DEFAULT 'default',
+    achievement_id VARCHAR(50) NOT NULL,
+    achievement_name VARCHAR(100) NOT NULL,
+    achievement_desc TEXT,
+    unlocked_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    progress INT DEFAULT 0,
+    target INT DEFAULT 1,
+    unlocked TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE KEY idx_user_achievement (user_id, achievement_id),
+    INDEX idx_user_id (user_id),
+    INDEX idx_unlocked (unlocked)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

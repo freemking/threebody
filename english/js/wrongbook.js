@@ -113,6 +113,9 @@ class WrongBook {
             if (wordData.phonetic && !this._cache[existingIndex].phonetic) {
                 this._cache[existingIndex].phonetic = wordData.phonetic;
             }
+            if (wordData.errorType && wordData.errorType !== 'all') {
+                this._cache[existingIndex].errorType = wordData.errorType;
+            }
         } else {
             // 新增到缓存头部
             this._cache.unshift({
@@ -127,7 +130,8 @@ class WrongBook {
                 wrongCount: 1,
                 firstWrongTime: now,
                 lastWrongTime: now,
-                mastered: false
+                mastered: false,
+                errorType: wordData.errorType || 'all'
             });
 
             // 限制最大数量
@@ -145,7 +149,8 @@ class WrongBook {
                 rootAffix: wordData.rootAffix || '',
                 phonetic: wordData.phonetic || '',
                 from: wordData.from || 'unknown',
-                grade: wordData.grade || ''
+                grade: wordData.grade || '',
+                errorType: wordData.errorType || 'all'
             });
             console.log(`错题已保存到数据库: ${wordData.word}`);
         } catch (error) {

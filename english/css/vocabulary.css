@@ -1,0 +1,2180 @@
+/* === 背单词模块 - 现代化视觉设计 === */
+
+/* 设计系统变量 - 三体风格 */
+:root {
+    /* 颜色方案 - 三体主题 */
+    --vb-primary: #00ffff;
+    --vb-primary-light: rgba(0, 255, 255, 0.7);
+    --vb-primary-dark: #00cccc;
+    --vb-accent: #FBBF24;
+    --vb-accent-light: #FEF3C7;
+    --vb-success: #10b981;
+    --vb-success-light: #34d399;
+    --vb-danger: #ef4444;
+    --vb-danger-light: #f87171;
+    --vb-warning: #F59E0B;
+    
+    /* 背景色 - 三体深色 */
+    --vb-bg-primary: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+    --vb-bg-card: rgba(0, 255, 255, 0.05);
+    --vb-bg-card-hover: rgba(0, 255, 255, 0.1);
+    --vb-bg-card-mastered: rgba(16, 185, 129, 0.1);
+    
+    /* 文本颜色 - 三体风格 */
+    --vb-text-primary: #ffffff;
+    --vb-text-secondary: rgba(255, 255, 255, 0.85);
+    --vb-text-muted: rgba(192, 192, 224, 0.7);
+    --vb-text-accent: rgba(0, 255, 255, 0.95);
+    
+    /* 边框和阴影 - 三体风格 */
+    --vb-border: rgba(0, 255, 255, 0.15);
+    --vb-border-mastered: rgba(16, 185, 129, 0.4);
+    --vb-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --vb-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+    
+    /* 间距 */
+    --vb-space-xs: 4px;
+    --vb-space-sm: 8px;
+    --vb-space-md: 12px;
+    --vb-space-lg: 16px;
+    --vb-space-xl: 24px;
+    --vb-space-2xl: 32px;
+    --vb-space-3xl: 48px;
+    --vb-space-4xl: 64px;
+    
+    /* 圆角 */
+    --vb-radius-sm: 6px;
+    --vb-radius-md: 10px;
+    --vb-radius-lg: 16px;
+    --vb-radius-xl: 20px;
+    --vb-radius-full: 9999px;
+    
+    /* 字体 */
+    --vb-font-display: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --vb-font-body: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --vb-font-mono: 'Fira Code', monospace;
+    
+    /* 动画 */
+    --vb-transition-fast: 0.15s ease;
+    --vb-transition-normal: 0.25s ease;
+    --vb-transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --vb-transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 背单词主屏幕 */
+#vocabulary-screen {
+    background: var(--vb-bg-primary);
+    min-height: 100vh;
+    position: relative;
+}
+
+/* 背景装饰 */
+#vocabulary-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 容器 */
+.vocabulary-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--vb-space-xl);
+    position: relative;
+    z-index: 1;
+}
+
+/* 统计卡片网格 */
+.vocabulary-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-xl);
+}
+
+/* 统计卡片 */
+.vocabulary-stat-card {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-lg);
+    padding: var(--vb-space-lg);
+    text-align: center;
+    transition: all var(--vb-transition-normal);
+    backdrop-filter: blur(10px);
+}
+
+.vocabulary-stat-card:hover {
+    background: var(--vb-bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--vb-shadow-hover);
+}
+
+.vocabulary-stat-icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--vb-space-sm);
+    display: block;
+}
+
+.vocabulary-stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--vb-text-primary);
+    font-family: var(--vb-font-mono);
+    margin-bottom: var(--vb-space-xs);
+}
+
+.vocabulary-stat-label {
+    font-size: 0.85rem;
+    color: var(--vb-text-muted);
+    font-weight: 600;
+}
+
+/* 今日背单词区域 */
+.vocabulary-today {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-xl);
+    padding: var(--vb-space-xl);
+    margin-bottom: var(--vb-space-xl);
+    backdrop-filter: blur(10px);
+}
+
+.vocabulary-today-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vb-space-lg);
+}
+
+.vocabulary-today-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+}
+
+.vocabulary-today-progress {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-sm);
+    color: var(--vb-text-secondary);
+    font-size: 0.9rem;
+}
+
+.vocabulary-progress-bar {
+    width: 100px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--vb-radius-full);
+    overflow: hidden;
+}
+
+.vocabulary-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
+    border-radius: var(--vb-radius-full);
+    transition: width var(--vb-transition-slow);
+}
+
+/* 单词卡片 */
+.vocabulary-word-card {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-lg);
+    padding: var(--vb-space-xl);
+    margin-bottom: var(--vb-space-md);
+    transition: all var(--vb-transition-normal);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.vocabulary-word-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--vb-primary), var(--vb-accent));
+    border-radius: var(--vb-radius-sm);
+}
+
+.vocabulary-word-card:hover {
+    background: var(--vb-bg-card-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--vb-shadow-hover);
+}
+
+.vocabulary-word-card.mastered {
+    border-color: var(--vb-border-mastered);
+    background: var(--vb-bg-card-mastered);
+}
+
+.vocabulary-word-card.mastered::before {
+    background: linear-gradient(180deg, var(--vb-success), var(--vb-success-light));
+}
+
+.vocabulary-word-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--vb-space-md);
+}
+
+.vocabulary-word-text {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--vb-text-primary);
+    font-family: var(--vb-font-display);
+}
+
+.vocabulary-word-phonetic {
+    font-size: 1rem;
+    color: var(--vb-text-accent);
+    font-family: var(--vb-font-mono);
+    margin-top: var(--vb-space-xs);
+}
+
+.vocabulary-word-actions {
+    display: flex;
+    gap: var(--vb-space-sm);
+}
+
+.vocabulary-action-btn {
+    background: transparent;
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-sm);
+    padding: var(--vb-space-xs) var(--vb-space-sm);
+    color: var(--vb-text-secondary);
+    cursor: pointer;
+    transition: all var(--vb-transition-fast);
+    font-size: 0.8rem;
+}
+
+.vocabulary-action-btn:hover {
+    background: var(--vb-bg-card-hover);
+    border-color: var(--vb-primary);
+    color: var(--vb-text-primary);
+}
+
+.vocabulary-action-btn.mastered-btn {
+    border-color: var(--vb-success);
+    color: var(--vb-success);
+}
+
+.vocabulary-action-btn.mastered-btn:hover {
+    background: rgba(16, 185, 129, 0.2);
+}
+
+.vocabulary-action-btn.remove-btn {
+    border-color: var(--vb-danger);
+    color: var(--vb-danger);
+}
+
+.vocabulary-action-btn.remove-btn:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
+.vocabulary-word-meaning {
+    font-size: 1.1rem;
+    color: var(--vb-text-secondary);
+    margin-bottom: var(--vb-space-md);
+    line-height: 1.5;
+}
+
+.vocabulary-word-example {
+    font-size: 0.9rem;
+    color: var(--vb-text-muted);
+    font-style: italic;
+    line-height: 1.6;
+    padding: var(--vb-space-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--vb-radius-sm);
+    margin-bottom: var(--vb-space-md);
+}
+
+.vocabulary-word-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: var(--vb-text-muted);
+}
+
+.vocabulary-word-source {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-xs);
+}
+
+.vocabulary-source-tag {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-sm);
+    padding: 2px var(--vb-space-sm);
+    font-size: 0.7rem;
+}
+
+.vocabulary-word-study-count {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-xs);
+}
+
+/* 操作按钮区域 */
+.vocabulary-actions {
+    display: flex;
+    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-xl);
+    flex-wrap: wrap;
+}
+
+.vocabulary-action-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-sm);
+    padding: var(--vb-space-md) var(--vb-space-lg);
+    border-radius: var(--vb-radius-md);
+    font-weight: 600;
+    transition: all var(--vb-transition-normal);
+    cursor: pointer;
+    border: 1px solid var(--vb-border);
+    background: var(--vb-bg-card);
+    color: var(--vb-text-secondary);
+}
+
+.vocabulary-action-btn:hover {
+    background: var(--vb-bg-card-hover);
+    color: var(--vb-text-primary);
+    transform: translateY(-1px);
+}
+
+.vocabulary-action-btn.primary-btn {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-dark));
+    color: var(--vb-bg-primary);
+    border-color: transparent;
+}
+
+.vocabulary-action-btn.primary-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.vocabulary-action-btn.success-btn {
+    background: linear-gradient(135deg, var(--vb-success), var(--vb-success-light));
+    color: white;
+    border-color: transparent;
+}
+
+.vocabulary-action-btn.success-btn:hover {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.vocabulary-action-btn.danger-btn {
+    background: linear-gradient(135deg, var(--vb-danger), var(--vb-danger-light));
+    color: white;
+    border-color: transparent;
+}
+
+.vocabulary-action-btn.danger-btn:hover {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+/* 筛选器 */
+.vocabulary-filter {
+    display: flex;
+    gap: var(--vb-space-sm);
+    margin-bottom: var(--vb-space-xl);
+    flex-wrap: wrap;
+}
+
+.vocabulary-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-xs);
+    padding: var(--vb-space-sm) var(--vb-space-md);
+    border-radius: var(--vb-radius-full);
+    font-weight: 600;
+    transition: all var(--vb-transition-normal);
+    cursor: pointer;
+    border: 1px solid var(--vb-border);
+    background: var(--vb-bg-card);
+    color: var(--vb-text-secondary);
+    font-size: 0.85rem;
+}
+
+.vocabulary-filter-btn:hover {
+    background: var(--vb-bg-card-hover);
+    color: var(--vb-text-primary);
+}
+
+.vocabulary-filter-btn.active {
+    background: var(--vb-primary);
+    color: var(--vb-bg-primary);
+    border-color: transparent;
+}
+
+/* 学习界面 */
+.vocabulary-study {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-xl);
+    padding: var(--vb-space-2xl);
+    margin-bottom: var(--vb-space-xl);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.vocabulary-study-word {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--vb-text-primary);
+    margin-bottom: var(--vb-space-md);
+    font-family: var(--vb-font-display);
+}
+
+.vocabulary-study-phonetic {
+    font-size: 1.2rem;
+    color: var(--vb-text-accent);
+    font-family: var(--vb-font-mono);
+    margin-bottom: var(--vb-space-xl);
+}
+
+.vocabulary-study-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--vb-space-md);
+    max-width: 400px;
+    margin: 0 auto var(--vb-space-xl);
+}
+
+.vocabulary-option-btn {
+    background: var(--vb-bg-card);
+    border: 2px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-lg);
+    color: var(--vb-text-secondary);
+    cursor: pointer;
+    transition: all var(--vb-transition-normal);
+    font-size: 1rem;
+    text-align: left;
+}
+
+.vocabulary-option-btn:hover {
+    background: var(--vb-bg-card-hover);
+    border-color: var(--vb-primary);
+    color: var(--vb-text-primary);
+}
+
+.vocabulary-option-btn.correct {
+    border-color: var(--vb-success);
+    background: rgba(16, 185, 129, 0.2);
+    color: var(--vb-success);
+}
+
+.vocabulary-option-btn.wrong {
+    border-color: var(--vb-danger);
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--vb-danger);
+}
+
+.vocabulary-study-next {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-dark));
+    color: var(--vb-bg-primary);
+    border: none;
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md) var(--vb-space-xl);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--vb-transition-normal);
+    display: none;
+}
+
+.vocabulary-study-next:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* 记录列表 */
+.vocabulary-record-list {
+    display: grid;
+    gap: var(--vb-space-md);
+}
+
+.vocabulary-record-item {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all var(--vb-transition-normal);
+}
+
+.vocabulary-record-item:hover {
+    background: var(--vb-bg-card-hover);
+}
+
+.vocabulary-record-word {
+    font-weight: 700;
+    color: var(--vb-text-primary);
+    font-size: 1.1rem;
+}
+
+.vocabulary-record-time {
+    color: var(--vb-text-muted);
+    font-size: 0.85rem;
+}
+
+.vocabulary-record-result {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-xs);
+}
+
+.vocabulary-record-correct {
+    color: var(--vb-success);
+}
+
+.vocabulary-record-wrong {
+    color: var(--vb-danger);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .vocabulary-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .vocabulary-study-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .vocabulary-actions {
+        flex-direction: column;
+    }
+    
+    .vocabulary-action-btn {
+        justify-content: center;
+    }
+    
+    .vocabulary-filter {
+        flex-direction: column;
+    }
+    
+    .vocabulary-filter-btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .vocabulary-container {
+        padding: var(--vb-space-lg);
+    }
+    
+    .vocabulary-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .vocabulary-stat-card {
+        padding: var(--vb-space-md);
+    }
+    
+    .vocabulary-stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .vocabulary-today {
+        padding: var(--vb-space-lg);
+    }
+    
+    .vocabulary-today-header {
+        flex-direction: column;
+        gap: var(--vb-space-md);
+        align-items: flex-start;
+    }
+    
+    .vocabulary-word-card {
+        padding: var(--vb-space-lg);
+    }
+    
+    .vocabulary-word-text {
+        font-size: 1.5rem;
+    }
+    
+    .vocabulary-study {
+        padding: var(--vb-space-xl);
+    }
+    
+    .vocabulary-study-word {
+        font-size: 2rem;
+    }
+}
+
+/* 动画 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.vocabulary-word-card {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.vocabulary-word-card:nth-child(1) { animation-delay: 0.05s; }
+.vocabulary-word-card:nth-child(2) { animation-delay: 0.1s; }
+.vocabulary-word-card:nth-child(3) { animation-delay: 0.15s; }
+.vocabulary-word-card:nth-child(4) { animation-delay: 0.2s; }
+.vocabulary-word-card:nth-child(5) { animation-delay: 0.25s; }
+
+/* 成功动画 */
+@keyframes successPulse {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.vocabulary-word-card.mastered {
+    animation: successPulse 1s ease;
+}
+
+/* 错误动画 */
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.vocabulary-option-btn.wrong {
+    animation: errorShake 0.5s ease;
+}
+
+/* 加载动画 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.vocabulary-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--vb-space-4xl);
+}
+
+.vocabulary-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--vb-border);
+    border-top: 3px solid var(--vb-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* 图表容器 */
+.vocabulary-chart {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-lg);
+    padding: var(--vb-space-xl);
+    margin-bottom: var(--vb-space-xl);
+    backdrop-filter: blur(10px);
+}
+
+.vocabulary-chart-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+    margin-bottom: var(--vb-space-lg);
+}
+
+.vocabulary-chart canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 勾选框样式 */
+.vocabulary-checkbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.vocabulary-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.vocabulary-checkbox-mark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--vb-border);
+    border-radius: 4px;
+    background: var(--vb-bg-card);
+    transition: all var(--vb-transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vocabulary-checkbox input:checked + .vocabulary-checkbox-mark {
+    background: var(--vb-primary);
+    border-color: var(--vb-primary);
+}
+
+.vocabulary-checkbox input:checked + .vocabulary-checkbox-mark::after {
+    content: '✓';
+    color: var(--vb-bg-primary);
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.vocabulary-checkbox:hover .vocabulary-checkbox-mark {
+    border-color: var(--vb-primary);
+}
+
+/* 批量操作栏 */
+.vocabulary-batch-bar {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md) var(--vb-space-lg);
+    margin-bottom: var(--vb-space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.vocabulary-batch-info {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-md);
+    color: var(--vb-text-secondary);
+    font-size: 0.9rem;
+}
+
+.vocabulary-batch-count {
+    background: var(--vb-primary);
+    color: var(--vb-bg-primary);
+    padding: 2px var(--vb-space-sm);
+    border-radius: var(--vb-radius-full);
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.vocabulary-batch-actions {
+    display: flex;
+    gap: var(--vb-space-sm);
+}
+
+/* 空状态 */
+.vocabulary-empty {
+    text-align: center;
+    padding: var(--vb-space-4xl);
+    color: var(--vb-text-muted);
+}
+
+.vocabulary-empty-icon {
+    font-size: 3rem;
+    margin-bottom: var(--vb-space-lg);
+    display: block;
+}
+
+.vocabulary-empty-text {
+    font-size: 1.1rem;
+    margin-bottom: var(--vb-space-lg);
+}
+
+.vocabulary-empty-btn {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-dark));
+    color: var(--vb-bg-primary);
+    border: none;
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md) var(--vb-space-xl);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--vb-transition-normal);
+}
+
+.vocabulary-empty-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* === 按钮变体样式 === */
+
+.vocabulary-action-btn.info-btn {
+    background: linear-gradient(135deg, var(--vb-primary), #00b8d4);
+    color: white;
+    border-color: transparent;
+}
+
+.vocabulary-action-btn.info-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.vocabulary-action-btn.history-btn {
+    background: linear-gradient(135deg, var(--vb-accent), #f59e0b);
+    color: var(--vb-bg-primary);
+    border-color: transparent;
+}
+
+.vocabulary-action-btn.history-btn:hover {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    transform: translateY(-2px);
+}
+
+.vocabulary-action-btn.edit-btn {
+    border-color: var(--vb-accent);
+    color: var(--vb-accent);
+}
+
+.vocabulary-action-btn.edit-btn:hover {
+    background: rgba(251, 191, 36, 0.2);
+}
+
+/* === 历史记录面板 === */
+
+.vocabulary-history-panel {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-xl);
+    padding: var(--vb-space-xl);
+    margin-bottom: var(--vb-space-xl);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.vocabulary-history-panel.hidden {
+    display: none;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vb-space-lg);
+}
+
+.history-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+}
+
+.history-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--vb-text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--vb-space-xs);
+    transition: color var(--vb-transition-fast);
+}
+
+.history-close-btn:hover {
+    color: var(--vb-text-primary);
+}
+
+.history-date-picker {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-xl);
+    flex-wrap: wrap;
+}
+
+.history-date-picker label {
+    color: var(--vb-text-secondary);
+    font-weight: 600;
+}
+
+.history-date-input {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-sm) var(--vb-space-md);
+    color: var(--vb-text-primary);
+    font-size: 0.9rem;
+}
+
+.history-date-input:focus {
+    outline: none;
+    border-color: var(--vb-primary);
+    box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+}
+
+.history-load-btn {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-dark));
+    color: var(--vb-bg-primary);
+    border: none;
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-sm) var(--vb-space-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--vb-transition-normal);
+}
+
+.history-load-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.history-summary {
+    margin-bottom: var(--vb-space-xl);
+}
+
+.history-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--vb-space-md);
+}
+
+.history-stat-item {
+    background: rgba(0, 255, 255, 0.05);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-lg);
+    text-align: center;
+}
+
+.history-stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--vb-text-primary);
+    font-family: var(--vb-font-mono);
+}
+
+.history-stat-label {
+    font-size: 0.85rem;
+    color: var(--vb-text-muted);
+    margin-top: var(--vb-space-xs);
+}
+
+.history-list {
+    display: grid;
+    gap: var(--vb-space-md);
+}
+
+.history-record-item {
+    background: rgba(0, 255, 255, 0.03);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-lg);
+    transition: all var(--vb-transition-normal);
+}
+
+.history-record-item:hover {
+    background: var(--vb-bg-card-hover);
+}
+
+.history-record-item.correct {
+    border-left: 3px solid var(--vb-success);
+}
+
+.history-record-item.wrong {
+    border-left: 3px solid var(--vb-danger);
+}
+
+.history-record-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vb-space-sm);
+}
+
+.history-record-word {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+}
+
+.history-record-status {
+    font-size: 1.2rem;
+}
+
+.history-record-meaning {
+    color: var(--vb-text-secondary);
+    margin-bottom: var(--vb-space-xs);
+}
+
+.history-record-phonetic {
+    color: var(--vb-text-accent);
+    font-family: var(--vb-font-mono);
+    font-size: 0.9rem;
+    margin-bottom: var(--vb-space-xs);
+}
+
+.history-record-time {
+    color: var(--vb-text-muted);
+    font-size: 0.8rem;
+}
+
+.history-empty {
+    text-align: center;
+    padding: var(--vb-space-2xl);
+    color: var(--vb-text-muted);
+}
+
+.history-empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--vb-space-md);
+    display: block;
+}
+
+.history-empty-text {
+    font-size: 1rem;
+}
+
+/* === 添加单词面板 === */
+
+.vocabulary-add-panel {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-xl);
+    padding: var(--vb-space-xl);
+    margin-bottom: var(--vb-space-xl);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.vocabulary-add-panel.hidden {
+    display: none;
+}
+
+.add-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vb-space-lg);
+}
+
+.add-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+}
+
+.add-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--vb-text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--vb-space-xs);
+    transition: color var(--vb-transition-fast);
+}
+
+.add-close-btn:hover {
+    color: var(--vb-text-primary);
+}
+
+.add-form {
+    display: grid;
+    gap: var(--vb-space-lg);
+}
+
+.form-group {
+    display: grid;
+    gap: var(--vb-space-xs);
+}
+
+.form-group label {
+    color: var(--vb-text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md);
+    color: var(--vb-text-primary);
+    font-size: 1rem;
+    transition: all var(--vb-transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--vb-primary);
+    box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--vb-text-muted);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.form-select {
+    cursor: pointer;
+}
+
+.form-select option {
+    background: #1a1a3a;
+    color: var(--vb-text-primary);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-dark));
+    color: var(--vb-bg-primary);
+    border: none;
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md) var(--vb-space-xl);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--vb-transition-normal);
+    justify-self: start;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* === 编辑单词模态框 === */
+
+.vocabulary-edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.edit-modal-content {
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-xl);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.edit-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--vb-space-xl);
+    border-bottom: 1px solid var(--vb-border);
+}
+
+.edit-modal-header h3 {
+    color: var(--vb-text-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.edit-modal-close {
+    background: transparent;
+    border: none;
+    color: var(--vb-text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--vb-space-xs);
+    transition: color var(--vb-transition-fast);
+}
+
+.edit-modal-close:hover {
+    color: var(--vb-text-primary);
+}
+
+.edit-modal-body {
+    padding: var(--vb-space-xl);
+    display: grid;
+    gap: var(--vb-space-lg);
+}
+
+.edit-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--vb-space-md);
+    padding: var(--vb-space-xl);
+    border-top: 1px solid var(--vb-border);
+}
+
+.edit-modal-cancel {
+    background: transparent;
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-sm) var(--vb-space-xl);
+    color: var(--vb-text-secondary);
+    cursor: pointer;
+    transition: all var(--vb-transition-fast);
+}
+
+.edit-modal-cancel:hover {
+    background: var(--vb-bg-card-hover);
+    color: var(--vb-text-primary);
+}
+
+.edit-modal-save {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-dark));
+    color: var(--vb-bg-primary);
+    border: none;
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-sm) var(--vb-space-xl);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--vb-transition-normal);
+}
+
+.edit-modal-save:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* === 删除确认动画 === */
+
+.vocabulary-word-card.delete-confirm {
+    animation: deleteSlide 0.3s ease forwards;
+}
+
+@keyframes deleteSlide {
+    to {
+        opacity: 0;
+        transform: translateX(-100%);
+        height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+}
+
+/* === 通知样式 === */
+
+.vocabulary-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md) var(--vb-space-xl);
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-sm);
+    z-index: 1100;
+    transform: translateX(120%);
+    transition: transform var(--vb-transition-normal);
+    box-shadow: var(--vb-shadow-hover);
+}
+
+.vocabulary-notification.show {
+    transform: translateX(0);
+}
+
+.vocabulary-notification-success {
+    border-color: var(--vb-success);
+}
+
+.vocabulary-notification-warning {
+    border-color: var(--vb-warning);
+}
+
+.vocabulary-notification-error {
+    border-color: var(--vb-danger);
+}
+
+.vocabulary-notification-info {
+    border-color: var(--vb-primary);
+}
+
+.vocabulary-notification-icon {
+    font-size: 1.2rem;
+}
+
+.vocabulary-notification-text {
+    color: var(--vb-text-primary);
+    font-weight: 600;
+}
+
+/* === 等级系统样式 === */
+
+.vocabulary-stat-card.level-card {
+    grid-column: span 2;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: var(--vb-space-xl);
+}
+
+.level-header {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-md);
+}
+
+.level-icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.level-info {
+    flex: 1;
+}
+
+.level-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+    margin-bottom: var(--vb-space-xs);
+}
+
+.level-number {
+    font-size: 0.9rem;
+    color: var(--vb-text-accent);
+    font-weight: 600;
+    font-family: var(--vb-font-mono);
+}
+
+.level-progress {
+    margin-bottom: var(--vb-space-md);
+}
+
+.level-progress-bar {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--vb-radius-full);
+    overflow: hidden;
+    margin-bottom: var(--vb-space-xs);
+}
+
+.level-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
+    border-radius: var(--vb-radius-full);
+    transition: width var(--vb-transition-normal);
+}
+
+.level-progress-text {
+    font-size: 0.8rem;
+    color: var(--vb-text-muted);
+    text-align: right;
+    font-family: var(--vb-font-mono);
+}
+
+.level-desc {
+    font-size: 0.85rem;
+    color: var(--vb-text-secondary);
+    font-style: italic;
+}
+
+/* === 成就徽章样式 === */
+
+.vocabulary-achievements {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-xl);
+    padding: var(--vb-space-xl);
+    margin-bottom: var(--vb-space-xl);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.vocabulary-achievements.hidden {
+    display: none;
+}
+
+.achievements-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vb-space-lg);
+}
+
+.achievements-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+}
+
+.achievements-close-btn {
+    background: transparent;
+    border: none;
+    color: var(--vb-text-muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: var(--vb-space-xs);
+    transition: color var(--vb-transition-fast);
+}
+
+.achievements-close-btn:hover {
+    color: var(--vb-text-primary);
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--vb-space-lg);
+}
+
+.achievement-item {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-lg);
+    padding: var(--vb-space-lg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--vb-space-md);
+    transition: all var(--vb-transition-normal);
+}
+
+.achievement-item:hover {
+    background: var(--vb-bg-card-hover);
+    transform: translateY(-2px);
+}
+
+.achievement-item.unlocked {
+    border-color: var(--vb-accent);
+    background: rgba(251, 191, 36, 0.05);
+}
+
+.achievement-item.locked {
+    opacity: 0.7;
+}
+
+.achievement-icon {
+    font-size: 2rem;
+    line-height: 1;
+    min-width: 40px;
+    text-align: center;
+}
+
+.achievement-info {
+    flex: 1;
+}
+
+.achievement-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+    margin-bottom: var(--vb-space-xs);
+}
+
+.achievement-desc {
+    font-size: 0.85rem;
+    color: var(--vb-text-secondary);
+    margin-bottom: var(--vb-space-sm);
+}
+
+.achievement-progress {
+    margin-top: var(--vb-space-sm);
+}
+
+.achievement-progress-bar {
+    height: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--vb-radius-full);
+    overflow: hidden;
+    margin-bottom: var(--vb-space-xs);
+}
+
+.achievement-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
+    border-radius: var(--vb-radius-full);
+    transition: width var(--vb-transition-normal);
+}
+
+.achievement-progress-text {
+    font-size: 0.75rem;
+    color: var(--vb-text-muted);
+    font-family: var(--vb-font-mono);
+}
+
+.achievement-unlocked-time {
+    font-size: 0.75rem;
+    color: var(--vb-success);
+    font-style: italic;
+}
+
+.achievements-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: var(--vb-space-2xl);
+    color: var(--vb-text-muted);
+}
+
+.achievements-empty-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--vb-space-md);
+    display: block;
+}
+
+.achievements-empty-text {
+    font-size: 1rem;
+}
+
+/* === 成就按钮样式 === */
+
+.vocabulary-action-btn.achievement-btn {
+    background: linear-gradient(135deg, var(--vb-accent), #f59e0b);
+    color: var(--vb-bg-primary);
+    border-color: transparent;
+}
+
+.vocabulary-action-btn.achievement-btn:hover {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    transform: translateY(-2px);
+}
+
+/* === 响应式设计 === */
+
+@media (max-width: 768px) {
+    .vocabulary-stat-card.level-card {
+        grid-column: span 1;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .level-icon {
+        font-size: 2rem;
+    }
+    
+    .level-title {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vocabulary-stat-card.level-card {
+        padding: var(--vb-space-lg);
+    }
+    
+    .level-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .achievement-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* === 错题本样式整合 === */
+
+/* 错题本内容容器 */
+.wrongbook-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--vb-space-xl);
+}
+
+/* 错题本统计卡片网格 */
+.wrongbook-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-lg);
+}
+
+/* 错题本统计卡片 */
+.wrongbook-stat-card {
+    background: var(--vb-bg-card);
+    border-radius: var(--vb-radius-lg);
+    padding: var(--vb-space-md);
+    text-align: center;
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--vb-border);
+    transition: var(--vb-transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.wrongbook-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
+    opacity: 0;
+    transition: var(--vb-transition-normal);
+}
+
+.wrongbook-stat-card:hover {
+    background: var(--vb-bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--vb-shadow-hover);
+}
+
+.wrongbook-stat-card:hover::before {
+    opacity: 1;
+}
+
+/* 错题本统计数字 */
+.wrongbook-stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--vb-text-primary);
+    font-family: var(--vb-font-display);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+}
+
+/* 错题本统计标签 */
+.wrongbook-stat-label {
+    font-size: 0.8rem;
+    color: var(--vb-text-muted);
+    font-family: var(--vb-font-body);
+    font-weight: 500;
+}
+
+/* 错题本操作按钮区域 */
+.wrongbook-actions {
+    display: flex;
+    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-xl);
+    flex-wrap: wrap;
+}
+
+/* 错题本筛选器 */
+.wrongbook-filters {
+    display: flex;
+    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-xl);
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vb-space-xs);
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    color: var(--vb-text-muted);
+    font-weight: 600;
+}
+
+.filter-select {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-sm) var(--vb-space-md);
+    color: var(--vb-text-secondary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--vb-transition-fast);
+}
+
+.filter-select:hover {
+    background: var(--vb-bg-card-hover);
+    border-color: var(--vb-primary);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--vb-primary);
+    box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
+}
+
+/* 错题本列表 */
+.wrongbook-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--vb-space-lg);
+    margin-bottom: var(--vb-space-2xl);
+}
+
+/* 错题卡片 */
+.wrongbook-item {
+    background: var(--vb-bg-card);
+    border-radius: var(--vb-radius-lg);
+    padding: var(--vb-space-xl);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--vb-border);
+    transition: var(--vb-transition-bounce);
+    position: relative;
+    cursor: pointer;
+}
+
+.wrongbook-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--vb-primary);
+    opacity: 0;
+    transition: var(--vb-transition-normal);
+}
+
+.wrongbook-item:hover {
+    background: var(--vb-bg-card-hover);
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--vb-shadow-hover);
+}
+
+.wrongbook-item:hover::before {
+    opacity: 1;
+}
+
+/* 已掌握卡片 */
+.wrongbook-item.mastered {
+    background: var(--vb-bg-card-mastered);
+    border-color: var(--vb-border-mastered);
+}
+
+.wrongbook-item.mastered::before {
+    background: var(--vb-success);
+}
+
+/* 卡片头部 */
+.wrongbook-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--vb-space-md);
+}
+
+/* 单词文本 */
+.wrongbook-word {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+    font-family: var(--vb-font-display);
+    line-height: 1.2;
+    transition: var(--vb-transition-normal);
+}
+
+.wrongbook-word.mastered-text {
+    text-decoration: none;
+    color: var(--vb-success-light);
+    opacity: 0.8;
+}
+
+/* 徽章容器 */
+.wrongbook-badges {
+    display: flex;
+    gap: var(--vb-space-xs);
+    flex-wrap: wrap;
+}
+
+/* 徽章 */
+.wrongbook-badge {
+    font-size: 0.7rem;
+    padding: 3px 10px;
+    border-radius: var(--vb-radius-full);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(10px);
+}
+
+.wrongbook-badge.from-monopoly {
+    background: linear-gradient(135deg, var(--vb-success), var(--vb-success-light));
+    color: white;
+}
+
+.wrongbook-badge.from-wordmatch {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-light));
+    color: white;
+}
+
+.wrongbook-badge.from-wordblast {
+    background: linear-gradient(135deg, var(--vb-accent), var(--vb-accent-light));
+    color: white;
+}
+
+.wrongbook-badge.mastered-badge {
+    background: linear-gradient(135deg, var(--vb-success), var(--vb-success-light));
+    color: white;
+}
+
+/* 音标 */
+.wrongbook-phonetic {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: var(--vb-space-sm);
+    font-style: italic;
+    font-family: var(--vb-font-mono);
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-sm);
+}
+
+/* 朗读按钮 */
+.wrongbook-speak-btn {
+    background: none;
+    border: none;
+    color: var(--vb-primary-light);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    transition: var(--vb-transition-bounce);
+    opacity: 0.7;
+}
+
+.wrongbook-speak-btn:hover {
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+/* 释义 */
+.wrongbook-meaning {
+    color: var(--vb-text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: var(--vb-space-md);
+    font-family: var(--vb-font-body);
+    line-height: 1.5;
+}
+
+/* 词根词缀 */
+.wrongbook-rootAffix {
+    color: var(--vb-text-accent);
+    font-size: 0.95rem;
+    margin-bottom: var(--vb-space-md);
+    padding: var(--vb-space-sm) var(--vb-space-md);
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--vb-radius-md);
+    border-left: 3px solid rgba(245, 158, 11, 0.5);
+    font-family: var(--vb-font-body);
+}
+
+.wrongbook-rootAffix-label {
+    font-weight: 700;
+    color: var(--vb-accent-light);
+}
+
+/* 例句 */
+.wrongbook-example {
+    color: var(--vb-text-muted);
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: var(--vb-space-md);
+    padding: var(--vb-space-sm) var(--vb-space-md);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--vb-radius-md);
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--vb-font-body);
+}
+
+/* 元数据 */
+.wrongbook-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--vb-text-muted);
+    font-size: 0.8rem;
+    margin-bottom: var(--vb-space-md);
+    padding-top: var(--vb-space-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 错误次数 */
+.wrongbook-count {
+    color: var(--vb-danger-light);
+    font-weight: 700;
+    font-family: var(--vb-font-mono);
+}
+
+/* 操作按钮容器 */
+.wrongbook-actions-cell {
+    display: flex;
+    gap: var(--vb-space-sm);
+    justify-content: flex-end;
+    margin-top: var(--vb-space-md);
+    padding-top: var(--vb-space-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 操作按钮 */
+.wrongbook-action-btn-small {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    border: none;
+    padding: var(--vb-space-xs) var(--vb-space-md);
+    border-radius: var(--vb-radius-sm);
+    font-size: 0.8rem;
+    font-family: var(--vb-font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--vb-transition-bounce);
+    backdrop-filter: blur(10px);
+}
+
+.wrongbook-action-btn-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.wrongbook-action-btn-small.danger {
+    background: rgba(239, 68, 68, 0.3);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.wrongbook-action-btn-small.danger:hover {
+    background: rgba(239, 68, 68, 0.5);
+}
+
+.wrongbook-action-btn-small.success {
+    background: rgba(16, 185, 129, 0.3);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.wrongbook-action-btn-small.success:hover {
+    background: rgba(16, 185, 129, 0.5);
+}
+
+/* 测验模式 */
+.quiz-mode .wrongbook-meaning,
+.quiz-mode .wrongbook-rootAffix,
+.quiz-mode .wrongbook-example {
+    filter: blur(5px);
+    user-select: none;
+    transition: filter 0.3s ease;
+}
+
+.quiz-mode .wrongbook-meaning:hover,
+.quiz-mode .wrongbook-rootAffix:hover,
+.quiz-mode .wrongbook-example:hover {
+    filter: blur(0);
+}
+
+/* 测验提示 */
+.wrongbook-quiz-hint {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md);
+    margin-bottom: var(--vb-space-lg);
+    color: var(--vb-text-accent);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* 测验按钮 */
+.quiz-btn {
+    background: linear-gradient(135deg, var(--vb-accent), #f59e0b);
+    color: var(--vb-bg-primary);
+    border-color: transparent;
+}
+
+.quiz-btn:hover {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+    transform: translateY(-2px);
+}
+
+.quiz-btn.active {
+    background: linear-gradient(135deg, var(--vb-danger), var(--vb-danger-light));
+    color: white;
+}
+
+/* 勾选框样式 */
+.vocabulary-checkbox {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-sm);
+    cursor: pointer;
+}
+
+.vocabulary-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.vocabulary-checkbox-mark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--vb-border);
+    border-radius: var(--vb-radius-sm);
+    background: var(--vb-bg-card);
+    transition: all var(--vb-transition-fast);
+    position: relative;
+}
+
+.vocabulary-checkbox input[type="checkbox"]:checked + .vocabulary-checkbox-mark {
+    background: var(--vb-primary);
+    border-color: var(--vb-primary);
+}
+
+.vocabulary-checkbox input[type="checkbox"]:checked + .vocabulary-checkbox-mark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 批量操作栏 */
+.vocabulary-batch-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-md) var(--vb-space-lg);
+    margin-bottom: var(--vb-space-lg);
+    backdrop-filter: blur(10px);
+}
+
+.vocabulary-batch-info {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-sm);
+    color: var(--vb-text-secondary);
+}
+
+.vocabulary-batch-count {
+    color: var(--vb-primary);
+    font-weight: 700;
+}
+
+.vocabulary-batch-actions {
+    display: flex;
+    gap: var(--vb-space-sm);
+}
+
+/* 错题本进度条 */
+.wrongbook-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--vb-radius-full);
+    overflow: hidden;
+}
+
+.wrongbook-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
+    border-radius: var(--vb-radius-full);
+    transition: width var(--vb-transition-slow);
+}
+
+.wrongbook-progress-text {
+    font-size: 0.8rem;
+    color: var(--vb-text-muted);
+    margin-top: var(--vb-space-xs);
+}
+
+/* 错误次数进度条 */
+.wrongbook-wrong-bar {
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--vb-radius-full);
+    overflow: hidden;
+}
+
+.wrongbook-wrong-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--vb-danger), var(--vb-danger-light));
+    border-radius: var(--vb-radius-full);
+    transition: width var(--vb-transition-slow);
+}
+
+/* 空状态 */
+.wrongbook-empty {
+    text-align: center;
+    padding: var(--vb-space-3xl);
+    color: var(--vb-text-muted);
+}
+
+.wrongbook-empty-icon {
+    font-size: 3rem;
+    margin-bottom: var(--vb-space-lg);
+    opacity: 0.5;
+}
+
+.wrongbook-empty-text {
+    font-size: 1.2rem;
+    margin-bottom: var(--vb-space-sm);
+}
+
+.wrongbook-empty-hint {
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* 动画效果 */
+@keyframes masteredSuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.wrongbook-item.mastered-success {
+    animation: masteredSuccess 0.5s ease;
+}
+
+@keyframes deleteConfirm {
+    0% { transform: translateX(0); opacity: 1; }
+    50% { transform: translateX(10px); opacity: 0.7; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.wrongbook-item.delete-confirm {
+    animation: deleteConfirm 0.3s ease;
+}
+
+/* 朗读动画 */
+.wrongbook-speak-btn.speaking {
+    animation: pulse 1s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
