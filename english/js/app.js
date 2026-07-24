@@ -2917,6 +2917,12 @@ class App {
         this.listeningShowChinese = listeningShowChinese;
         this.listeningShowFirstLetter = listeningShowFirstLetter;
         
+        // 隐藏今日记单词列表
+        const todaySection = document.querySelector('.vocabulary-today');
+        if (todaySection) {
+            todaySection.style.display = 'none';
+        }
+
         // 显示训练界面
         const trainingInterface = document.getElementById('training-interface');
         if (trainingInterface) {
@@ -3415,6 +3421,13 @@ class App {
             trainingInterface.classList.remove('active');
             trainingInterface.classList.add('hidden');
         }
+        
+        // 恢复显示今日记单词列表
+        const todaySection = document.querySelector('.vocabulary-today');
+        if (todaySection) {
+            todaySection.style.display = '';
+        }
+        
         this.renderVocabularyList();
         this.updateVocabularyHeaderStats();
     }
@@ -3460,15 +3473,24 @@ class App {
         // 计算完全掌握的单词数（三种模式全部通过）
         let fullyMasteredCount = 0;
         let partiallyMasteredWords = [];
+        let fullyMasteredWords = [];
         
         Object.entries(this.trainingWordResults).forEach(([word, modes]) => {
-            const allCorrect = modes.recognition && modes.spelling && modes.listening;
+            // 检查三种模式是否都有记录且全部正确
+            const hasAllModes = modes.recognition !== undefined && modes.spelling !== undefined && modes.listening !== undefined;
+            const allCorrect = hasAllModes && modes.recognition && modes.spelling && modes.listening;
             if (allCorrect) {
                 fullyMasteredCount++;
+                fullyMasteredWords.push(word);
             } else {
                 partiallyMasteredWords.push(word);
             }
         });
+        
+        // 自动将完全掌握的单词标记为已记住
+        for (const word of fullyMasteredWords) {
+            await vocabulary.toggleRemembered(word, true);
+        }
         
         // 更新结果数据
         const timeEl = document.getElementById('result-time');
@@ -3495,9 +3517,9 @@ class App {
                 ${partiallyMasteredWords.map(word => {
                     const modes = this.trainingWordResults[word] || {};
                     const modeStatus = [];
-                    if (modes.recognition === false) modeStatus.push('认读');
-                    if (modes.spelling === false) modeStatus.push('拼写');
-                    if (modes.listening === false) modeStatus.push('听音');
+                    if (modes.recognition !== true) modeStatus.push('认读');
+                    if (modes.spelling !== true) modeStatus.push('拼写');
+                    if (modes.listening !== true) modeStatus.push('听音');
                     return `
                         <div class="error-word-item">
                             <div class="word">${word}</div>
@@ -3540,10 +3562,19 @@ class App {
             };
         }
         
+        // 等待异步的studyWord调用完成，确保数据一致
+        await new Promise(resolve => setTimeout(resolve, 300));
+        
         // 刷新数据
         await vocabulary.refresh();
         this.renderVocabularyList();
         this.updateVocabularyHeaderStats();
+        
+        // 恢复显示今日记单词列表
+        const todaySection = document.querySelector('.vocabulary-today');
+        if (todaySection) {
+            todaySection.style.display = '';
+        }
     }
     
     /**
