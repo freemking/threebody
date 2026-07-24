@@ -14,67 +14,47 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # 1. 检出代码
-      - name: 检出代码
-        uses: actions/checkout@v4
-
-      # 2. 配置服务器 SSH 密钥
+      # 1. 配置服务器 SSH 密钥（必备）
       - name: 配置 SSH 免密登录
         uses: webfactory/ssh-agent@v0.9.0
         with:
           ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
-      # 3. 部署前端静态文件
-      - name: 部署前端静态文件
+      # 2. 核心：通过 SSH 在服务器本机拉取代码并部署
+      - name: 服务器本机拉取代码并部署
         run: |
-          echo "开始部署前端文件..."
-          
-          # 同步前端文件到服务器（排除不需要的目录）
-          rsync -avz --delete \
-            --exclude '.git' \
-            --exclude '.github' \
-            --exclude 'server' \
-            --exclude 'node_modules' \
-            --exclude 'README.md' \
-            --exclude 'conf.yaml' \
-            --exclude '*.sh' \
-            --exclude '*.bat' \
-            -e "ssh -o StrictHostKeyChecking=no -p 22" \
-            ./ www@${{ secrets.SERVER_HOST }}:/home/www/threebodyspace/
-          
-          echo "前端文件部署完成"
+          ssh -o StrictHostKeyChecking=no -o ServerAliveInterval=10 -o ServerAliveCountMax=60 -p 22 www@${{ secrets.SERVER_HOST }} "
+          set -e
 
-      # 4. 部署后端服务
-      - name: 部署后端服务
-        run: |
-          echo "开始部署后端服务..."
-          
-          ssh -o StrictHostKeyChecking=no -p 22 www@${{ secrets.SERVER_HOST }} "
-            set -e
-            
-            # 进入后端目录
-            cd /home/www/threebodyspace/server
-            
-            # 安装依赖
-            npm config set registry https://registry.npmmirror.com/
-            npm ci --prefer-offline || npm install
-            
-            # 重启 Node.js 服务（使用 pm2）
-            if command -v pm2 &> /dev/null; then
-              pm2 restart threebodyspace-api || pm2 start server.js --name threebodyspace-api
-            else
-              # 如果没有 pm2，使用 systemd 或直接重启
-              sudo systemctl restart threebodyspace-api || true
-            fi
-            
-            echo '后端服务部署完成'
+          # 进入项目目录
+          cd /home/www/threebodyspace
+
+          # 拉取最新代码
+          git fetch origin
+          git switch main
+          git pull origin main
+
+          # 安装后端依赖
+          cd server
+          npm config set registry https://registry.npmmirror.com/
+          npm ci --prefer-offline || npm install
+
+          # 重启 Node.js 服务（使用 pm2）
+          if command -v pm2 &> /dev/null; then
+            pm2 restart threebodyspace-api || pm2 start server.js --name threebodyspace-api
+          else
+            sudo systemctl restart threebodyspace-api || true
+          fi
+
+          # 检查 nginx 配置
+          sudo nginx -t
+
+          echo 'Deploy done!'
           "
 
-      # 5. 验证部署
-      - name: 验证部署
+      # 3. 验证部署
+      - name: 验证部署状态
         run: |
-          echo "验证服务状态..."
-          
           ssh -o StrictHostKeyChecking=no -p 22 www@${{ secrets.SERVER_HOST }} "
             # 检查前端文件
             if [ -f /home/www/threebodyspace/index.html ]; then
@@ -88,16 +68,8 @@ jobs:
             if command -v pm2 &> /dev/null; then
               pm2 status threebodyspace-api
             fi
-            
-            # 检查 nginx 配置
-            sudo nginx -t && echo '✓ Nginx 配置正确'
           "
           
-          echo "部署验证完成"
-
-      # 6. 完成通知
-      - name: 部署完成
-        run: |
           echo "=========================================="
           echo "三体学习空间部署完成！"
           echo "前端地址: https://threebody.triway.com.cn"
