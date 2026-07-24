@@ -37,8 +37,8 @@ jobs:
           npm config set registry https://registry.npmmirror.com/
           npm ci --prefer-offline || npm install
 
-          # 重启 Node.js 服务（使用 pm2）
-          pm2 restart threebodyspace-api || pm2 start server.js --name threebodyspace-apii
+          # 重启 Node.js 服务（使用 sudo 执行 pm2，因为 pm2 安装在 root 用户下）
+          sudo pm2 restart threebodyspace-api || sudo pm2 start server.js --name threebodyspace-api
 
           # 检查 nginx 配置
           sudo nginx -t
@@ -59,9 +59,7 @@ jobs:
             fi
             
             # 检查后端服务
-            if command -v pm2 &> /dev/null; then
-              pm2 status threebodyspace-api
-            fi
+            sudo pm2 status threebodyspace-api || true
           "
           
           echo "=========================================="
