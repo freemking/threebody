@@ -1018,6 +1018,7 @@ let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let countdownIntervalId = null;
 let gameActive = false;
+let gameStartTime = 0;
 let wrongList = [];
 let lastFeedback = null;
 
@@ -1130,6 +1131,7 @@ function nextQuestion() {
 // ===== Timer =====
 function startTimer() {
   timeLeft = TIME_LIMIT;
+  gameStartTime = Date.now();
   updateTimerDisplay();
 
   timerInterval = setInterval(() => {
@@ -1351,7 +1353,7 @@ function endGame() {
     `;
   }
 
-  const timeTaken = TIME_LIMIT - timeLeft;
+  const timeTaken = gameStartTime > 0 ? parseFloat(((Date.now() - gameStartTime) / 1000).toFixed(2)) : (TIME_LIMIT - timeLeft);
 
   resultScreen.innerHTML = `
     <div class="result-overlay">
@@ -1373,7 +1375,7 @@ function endGame() {
           <div class="stat-label">正确率</div>
         </div>
         <div class="stat-item">
-          <div class="stat-val" style="color:var(--warning);">${timeTaken}s</div>
+          <div class="stat-val" style="color:var(--warning);">${Number(timeTaken).toFixed(2)}s</div>
           <div class="stat-label">用时</div>
         </div>
       </div>
@@ -1522,7 +1524,7 @@ async function renderLeaderboard(highlightId) {
             <td><span class="rank ${rankClass(i)}">${rankIcon(i)}</span></td>
             <td class="name-cell">${escapeHtml(entry.name)}</td>
             <td class="score-cell">${entry.score}</td>
-            <td class="time-cell">${entry.time}s</td>
+            <td class="time-cell">${Number(entry.time).toFixed(2)}s</td>
             <td class="time-cell">
               ${leaderboardDeleteMode
                 ? `<button class="btn-delete-small" data-delete-id="${entry.id}">🗑</button>`
