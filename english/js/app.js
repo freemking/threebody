@@ -2720,7 +2720,11 @@ class App {
                         const word = btn.dataset.word;
                         if (word && typeof audioManager !== 'undefined') {
                             btn.classList.add('playing');
-                            await audioManager.playWord(word);
+                            try {
+                                await audioManager.speak(word, 'en-US');
+                            } catch (err) {
+                                console.error('发音失败:', err);
+                            }
                             btn.classList.remove('playing');
                         }
                     };
@@ -3112,9 +3116,6 @@ class App {
         // 启用下一个按钮
         const nextBtn = document.getElementById('btn-training-next');
         if (nextBtn) nextBtn.disabled = false;
-        
-        // 答对1秒后自动下一题，答错2秒后
-        setTimeout(() => this.nextTrainingWord(), isCorrect ? 1000 : 2000);
     }
     
     /**
@@ -3226,8 +3227,6 @@ class App {
         // 启用下一个按钮
         const nextBtn = document.getElementById('btn-training-next');
         if (nextBtn) nextBtn.disabled = false;
-        
-        setTimeout(() => this.nextTrainingWord(), isCorrect ? 1000 : 2000);
     }
     
     /**
@@ -3343,8 +3342,6 @@ class App {
         
         const nextBtn = document.getElementById('btn-training-next');
         if (nextBtn) nextBtn.disabled = false;
-        
-        setTimeout(() => this.nextTrainingWord(), isCorrect ? 1000 : 2000);
     }
     
     /**

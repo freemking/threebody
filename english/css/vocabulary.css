@@ -239,6 +239,46 @@
     color: var(--vb-text-accent);
     font-family: var(--wb-font-mono);
     margin-top: var(--vb-space-xs);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 词汇发音按钮 */
+.vocabulary-word-phonetic .btn-pronunciation {
+    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-dark));
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+ align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+}
+
+.vocabulary-word-phonetic .btn-pronunciation:hover {
+ transform: scale(1.15);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.vocabulary-word-phonetic .btn-pronunciation:active {
+    transform: scale(0.95);
+}
+
+.vocabulary-word-phonetic .btn-pronunciation.playing {
+    background: linear-gradient(135deg, var(--vb-success), var(--vb-success-light));
+    animation: pulse-pronunciation 1s infinite;
+}
+
+@keyframes pulse-pronunciation {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 
