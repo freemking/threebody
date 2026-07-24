@@ -235,9 +235,9 @@
 }
 
 .vocabulary-word-phonetic {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--vb-text-accent);
-    font-family: var(--vb-font-mono);
+    font-family: var(--wb-font-mono);
     margin-top: var(--vb-space-xs);
 }
 

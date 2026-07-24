@@ -2673,7 +2673,10 @@ class App {
                         <div class="vocabulary-word-header">
                             <div>
                                 <div class="vocabulary-word-text">${word.word}</div>
-                                <div class="vocabulary-word-phonetic">${word.phonetic || ''}</div>
+                                <div class="vocabulary-word-phonetic">
+                                    <span>${word.phonetic || ''}</span>
+                                    <button class="btn-pronunciation" data-word="${word.word}" title="朗读单词">🔊</button>
+                                </div>
                             </div>
                             <button class="btn-remembered ${word.remembered ? 'active' : ''}" 
                                     data-word="${word.word}" 
@@ -2706,6 +2709,19 @@ class App {
                             if (card) {
                                 card.classList.toggle('remembered', newRemembered);
                             }
+                        }
+                    };
+                });
+                
+                // 添加发音按钮事件监听
+                todayWordsContainer.querySelectorAll('.btn-pronunciation').forEach(btn => {
+                    btn.onclick = async (e) => {
+                        e.stopPropagation();
+                        const word = btn.dataset.word;
+                        if (word && typeof audioManager !== 'undefined') {
+                            btn.classList.add('playing');
+                            await audioManager.playWord(word);
+                            btn.classList.remove('playing');
                         }
                     };
                 });

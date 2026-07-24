@@ -334,7 +334,6 @@
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.1rem;
     margin-bottom: var(--wb-space-sm);
-    font-style: italic;
     font-family: var(--wb-font-mono);
     display: flex;
     align-items: center;
