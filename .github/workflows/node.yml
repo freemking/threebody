@@ -30,8 +30,6 @@ jobs:
           cd /home/www/threebodyspace
 
           # 拉取最新代码
-          git fetch origin
-          git switch main
           git pull origin main
 
           # 安装后端依赖
@@ -40,11 +38,7 @@ jobs:
           npm ci --prefer-offline || npm install
 
           # 重启 Node.js 服务（使用 pm2）
-          if command -v pm2 &> /dev/null; then
-            pm2 restart threebodyspace-api || pm2 start server.js --name threebodyspace-api
-          else
-            sudo systemctl restart threebodyspace-api || true
-          fi
+          pm2 restart threebodyspace-api || pm2 start server.js --name threebodyspace-apii
 
           # 检查 nginx 配置
           sudo nginx -t
