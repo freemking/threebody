@@ -19,7 +19,8 @@
     "category": "时间",
     "difficulty": 1,
     "audio": "afternoon.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "after（在……后面）+noon（正午）→午后"
   },
   {
     "id": "g1_003",
@@ -41,7 +42,8 @@
     "category": "学习用品",
     "difficulty": 1,
     "audio": "ruler.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "rul（统治，使走直线）+er（者）→统治者，尺"
   },
   {
     "id": "g1_005",
@@ -63,7 +65,8 @@
     "category": "学习用品",
     "difficulty": 1,
     "audio": "rubber.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "rubb（=rub，摩擦）+er（者）→用于擦除之物→橡皮"
   },
   {
     "id": "g1_007",
@@ -173,7 +176,8 @@
     "category": "家庭",
     "difficulty": 1,
     "audio": "grandmother.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "grand（隔代的）+mother（母亲）→祖母，外祖母"
   },
   {
     "id": "g1_017",
@@ -184,7 +188,8 @@
     "category": "家庭",
     "difficulty": 1,
     "audio": "grandfather.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "grand（隔代的）+father（父亲）→祖父，外祖父"
   },
   {
     "id": "g1_018",
@@ -272,7 +277,8 @@
     "category": "数字",
     "difficulty": 1,
     "audio": "one.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "on（一）+e→一，一的，唯一的"
   },
   {
     "id": "g1_026",
@@ -382,7 +388,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "hamburger.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "Hamburg+er（者）→汉堡市的居民→汉堡市的特产→汉堡牛排→用汉堡牛排做的三明治→汉堡包"
   },
   {
     "id": "g1_036",
@@ -712,7 +719,8 @@
     "category": "玩具",
     "difficulty": 1,
     "audio": "bicycle.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "bi（两）+cycl（循环、车轮）+e→两轮（车）→自行车"
   },
   {
     "id": "g1_066",
@@ -767,7 +775,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "biscuit.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "bis（两次）+cuit（烹调）→烤了两次的面包→饼干"
   },
   {
     "id": "g1_071",
@@ -866,7 +875,8 @@
     "category": "天气",
     "difficulty": 1,
     "audio": "sunny.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "sun（太阳，阳光）+n+y（形容词后缀）→有很多阳光的→阳光明媚的"
   },
   {
     "id": "g1_080",
@@ -877,7 +887,8 @@
     "category": "天气",
     "difficulty": 1,
     "audio": "cloudy.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "cloud（云）+y（形容词后缀）→多云的，阴天的"
   },
   {
     "id": "g1_081",
@@ -888,7 +899,8 @@
     "category": "天气",
     "difficulty": 1,
     "audio": "rainy.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "rain（雨）+y（形容词后缀）→下雨的，多雨的"
   },
   {
     "id": "g1_082",
@@ -899,7 +911,8 @@
     "category": "天气",
     "difficulty": 1,
     "audio": "windy.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "wind（风）+y（形容词后缀）→有风的"
   },
   {
     "id": "g1_083",
@@ -1031,7 +1044,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "firework.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "fire（火）+work（产品）→带火的产品→烟火"
   },
   {
     "id": "g1_095",
@@ -1064,6 +1078,7 @@
     "category": "职业",
     "difficulty": 1,
     "audio": "farmer.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "farm（农场）+er（者）→在农场里面工作的人→农夫；农场主"
   }
 ]

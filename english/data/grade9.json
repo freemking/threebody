@@ -8,7 +8,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "genius.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "gen（出生）+i+us（名词后缀）→出生时有的东西→，守护神，天赋"
   },
   {
     "id": "g9_002",
@@ -19,7 +20,8 @@
     "category": "adj.",
     "difficulty": 9,
     "audio": "wise.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "wis（见）+e→见多识广的→有智慧的，明智的，英明的，明察善断的"
   },
   {
     "id": "g9_003",
@@ -30,7 +32,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "invent.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "in（on，upon，触及）+vent（到来）→偶然遇到→发现，找到→发明，创造"
   },
   {
     "id": "g9_004",
@@ -41,7 +44,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "discover.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "dis（去掉）+cover（遮盖）→去掉遮盖→发现，发觉"
   },
   {
     "id": "g9_005",
@@ -52,7 +56,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "solve.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "solv（松开）+e→解开→解决，解答，溶解"
   },
   {
     "id": "g9_006",
@@ -63,7 +68,8 @@
     "category": "adj.",
     "difficulty": 9,
     "audio": "ancient.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "anci（=ante，在前面）+ent（形容词后缀）→（很久）以前的→古代的"
   },
   {
     "id": "g9_007",
@@ -96,7 +102,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "captain.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "capt（=capit，头）+ain（=an，形容词后缀）→领头的（人）→首领→队长，船长"
   },
   {
     "id": "g9_010",
@@ -107,7 +114,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "soldier.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "sold（=soldum，和单词solid同源，古罗马的一种金币，因其比较厚实而得名）+i+er（者）→按月领取金币的人→士兵"
   },
   {
     "id": "g9_011",
@@ -140,7 +148,8 @@
     "category": "adj.",
     "difficulty": 9,
     "audio": "secret.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "se（离开整体，单独）+cret（分开）→从整体中分离出来，放到一边去→隔离的，隐藏起来的→秘密的"
   },
   {
     "id": "g9_014",
@@ -151,7 +160,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "army.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "arm（武装）+y（形容词后缀）→武装的（力量）→武装力量→军队"
   },
   {
     "id": "g9_015",
@@ -162,7 +172,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "succeed.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "suc（=sub，从下面）+ceed（=ced，走）→从下面走上去→成功，继任"
   },
   {
     "id": "g9_016",
@@ -195,7 +206,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "midnight.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "mid（中间的）+night（夜晚）→夜晚的中间→午夜"
   },
   {
     "id": "g9_019",
@@ -217,7 +229,8 @@
     "category": "v",
     "difficulty": 9,
     "audio": "celebrate.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "celebr（很多人一起致敬）+ate（动词后缀）→庆祝神灵的生日→庆祝"
   },
   {
     "id": "g9_021",
@@ -272,7 +285,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "consider.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "con（一起，利用）+sider（星星）→观看群星，思索吉凶→考虑"
   },
   {
     "id": "g9_026",
@@ -283,7 +297,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "sense.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "sens（=sent，感觉，感知）+e→感知，意识，探测"
   },
   {
     "id": "g9_027",
@@ -305,7 +320,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "invitation.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "invit(e)（邀请）+at（动词后缀）+ion（名词后缀）→邀请"
   },
   {
     "id": "g9_029",
@@ -316,7 +332,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "university.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "univers（包罗万象的）+ity（名词后缀）→包罗万象之物→综合性大学"
   },
   {
     "id": "g9_030",
@@ -327,7 +344,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "pleasure.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "pleas（使高兴，使满意）+ure（名词后缀）→高兴，快乐"
   },
   {
     "id": "g9_031",
@@ -349,7 +367,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "applause.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "ap（=ad，去，趋近）+plaus（鼓掌）+e→鼓掌→喝彩，欢呼"
   },
   {
     "id": "g9_033",
@@ -360,7 +379,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "professor.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "pro（向前，向外）+fess（承认）+or（者）→公开宣布（是某个领域专家）的人→教授"
   },
   {
     "id": "g9_034",
@@ -371,7 +391,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "physicist.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "phys（物理）+ic（形容词后缀）+ist（专业人士）→物理学家"
   },
   {
     "id": "g9_035",
@@ -426,7 +447,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "responsibility.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "responsibil（=responsible，负责的，有责任的）+ity（名词后缀）→责任，职责"
   },
   {
     "id": "g9_040",
@@ -437,7 +459,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "focus.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "foc（火）+us（拉丁语名词后缀）→壁炉"
   },
   {
     "id": "g9_041",
@@ -448,7 +471,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "affect.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "af（=ad，去，趋近）+fect（做，作用）→去做，去发挥作用→影响；做作"
   },
   {
     "id": "g9_042",
@@ -459,7 +483,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "manage.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "man（手）+age（动词后缀）→用手去操纵马匹，训练马匹→管理，经营"
   },
   {
     "id": "g9_043",
@@ -470,7 +495,8 @@
     "category": "adj.",
     "difficulty": 9,
     "audio": "independent.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "in（不）+depend（依赖）+ent（形容词后缀）→独立的"
   },
   {
     "id": "g9_044",
@@ -481,7 +507,8 @@
     "category": "v./n.",
     "difficulty": 9,
     "audio": "support.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "sup（=sub，在下面）+port（承载）→在下面承载→支持，支撑"
   },
   {
     "id": "g9_045",
@@ -492,7 +519,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "expect.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "ex（向外）+(s)pec（看）+t（完成分词后缀）→向外看→期望"
   },
   {
     "id": "g9_046",
@@ -503,7 +531,8 @@
     "category": "adj",
     "difficulty": 9,
     "audio": "emotional.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "emotion（情绪）+al（形容词后缀）→与情绪有关的，易于激动的，感动人的"
   },
   {
     "id": "g9_047",
@@ -514,7 +543,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "pressure.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "press（压）+ure（名词后缀）→压力，压迫，压强"
   },
   {
     "id": "g9_048",
@@ -591,7 +621,8 @@
     "category": "adj.",
     "difficulty": 9,
     "audio": "ashamed.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "a（加强语气）+shame（使羞愧）+ed（过去分词形式）→羞愧的"
   },
   {
     "id": "g9_055",
@@ -602,7 +633,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "sympathy.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "sym（一起）+path（忍受，受苦）+y（名词后缀）→一起忍受→同情"
   },
   {
     "id": "g9_056",
@@ -624,7 +656,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "situation.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "sit（放置，使位于）+u+ation（动名词后缀）→位于某处→位置，处境→情况，状况，形势"
   },
   {
     "id": "g9_058",
@@ -635,7 +668,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "solve.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "solv（松开）+e→解开→解决，解答，溶解"
   },
   {
     "id": "g9_059",
@@ -646,7 +680,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "regret.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "re（加强语气）+gret（后悔）→后悔"
   },
   {
     "id": "g9_060",
@@ -657,7 +692,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "mistake.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "mis（错误地）+take（拿）→拿错，弄错"
   },
   {
     "id": "g9_061",
@@ -668,7 +704,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "fault.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "faul（=fall，使失败，使犯错）+t（完成分词后缀）→错误，故障，缺点"
   },
   {
     "id": "g9_062",
@@ -679,7 +716,8 @@
     "category": "n",
     "difficulty": 9,
     "audio": "suggestion.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "suggest（提议）+ion（名词后缀）→建议"
   },
   {
     "id": "g9_063",
@@ -723,7 +761,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "action.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "act（行动）+ion（名词后缀）→行动"
   },
   {
     "id": "g9_067",
@@ -734,7 +773,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "environment.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "en（=in）+viron（围绕）+ment（名词后缀）→围绕之物→环境"
   },
   {
     "id": "g9_068",
@@ -745,7 +785,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "protect.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "pro（在前面）+tect（遮盖）→在前面遮盖→保护"
   },
   {
     "id": "g9_069",
@@ -756,7 +797,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "recycle.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "re（回来，反复）+cycl（循环）+e→再循环"
   },
   {
     "id": "g9_070",
@@ -767,7 +809,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "reduce.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "re（向后）+duc（引导）+e→向后引导→减少"
   },
   {
     "id": "g9_071",
@@ -789,7 +832,8 @@
     "category": "v.",
     "difficulty": 9,
     "audio": "pollute.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "pollu（弄脏）+te（=ate，动词后缀）→弄脏，污染"
   },
   {
     "id": "g9_073",
@@ -866,7 +910,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "diet.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "di（日）+et→每天的定量→规定饮食"
   },
   {
     "id": "g9_080",
@@ -877,7 +922,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "vitamin.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "vit（生命）+amin（胺）→生命不可或缺的胺→维生素"
   },
   {
     "id": "g9_081",
@@ -888,7 +934,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "protein.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "prot（第一的，首要的）+e+in（名词后缀，表化学物质）→（构成生命的）首要物质→蛋白质"
   },
   {
     "id": "g9_082",
@@ -899,7 +946,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "mineral.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "miner（矿）+al（形容词后缀）→矿物的"
   },
   {
     "id": "g9_083",
@@ -910,7 +958,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "balance.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "ba（=bi，两）+lance（盘子）→有两个盘子的东西→天平→平衡→余额"
   },
   {
     "id": "g9_084",
@@ -921,7 +970,8 @@
     "category": "n.",
     "difficulty": 9,
     "audio": "nutrition.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "nutr（滋养，提供营养）+ition（动名词后缀）→营养，营养物质，营养学"
   },
   {
     "id": "g9_085",
@@ -932,7 +982,8 @@
     "category": "adj.",
     "difficulty": 9,
     "audio": "healthy.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "health（健康）+y（形容词后缀）→健康的，有益于健康的"
   },
   {
     "id": "g9_086",
@@ -943,7 +994,8 @@
     "category": "adj.",
     "difficulty": 9,
     "audio": "necessary.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "ne（不）+cess（走开）+ary（形容词后缀）→不能离开的→必需的，必要的"
   },
   {
     "id": "g9_087",

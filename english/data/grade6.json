@@ -3167,7 +3167,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "different.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "differ（相异）+ent（形容词后缀）→不同的"
   },
   {
     "id": "g6_279",
@@ -3178,7 +3179,8 @@
     "category": "v./n.",
     "difficulty": 6,
     "audio": "notice.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告"
   },
   {
     "id": "g6_280",
@@ -3266,7 +3268,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "personality.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "personal（个人的）+ity（名词后缀）→个性，人格"
   },
   {
     "id": "g6_288",
@@ -3277,7 +3280,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "cheerful.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "cheer（愉快）+ful（形容词后缀）→快乐的"
   },
   {
     "id": "g6_289",
@@ -3310,7 +3314,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "partner.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "part（划分）+n（=ition，动名词后缀）+er（者）→持有股份的人→合伙人→伙伴，配偶"
   },
   {
     "id": "g6_292",
@@ -3376,7 +3381,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "rule.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "rul（管理，规则）+e→统治，管辖；规则"
   },
   {
     "id": "g6_298",
@@ -3486,7 +3492,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "underground.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "under（在下面）+ground（地面）→在地下"
   },
   {
     "id": "g6_308",
@@ -3497,7 +3504,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "station.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "stat（站立，固定）+ion（名词后缀）→站立不动（之物）→车站"
   },
   {
     "id": "g6_309",
@@ -3541,7 +3549,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "announcement.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "announce（宣布，播报）+ment（名词后缀）→公告"
   },
   {
     "id": "g6_313",
@@ -3552,7 +3561,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "passenger.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "passeng（=passage，通路）+er（者）→通路上经过的人→旅客，过路人"
   },
   {
     "id": "g6_314",
@@ -3574,7 +3584,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "platform.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "plat（平的）+form（形态）→平台→月台，站台，讲台"
   },
   {
     "id": "g6_316",
@@ -3618,7 +3629,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "festival.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "fest（=feast，喜庆的）+iv（形容词后缀）+al（形容词后缀）→喜庆的（日子）→节日"
   },
   {
     "id": "g6_320",
@@ -3629,7 +3641,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "culture.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "cult（耕作，栽培）+ure（名词后缀）→栽培，培育→文化，修养"
   },
   {
     "id": "g6_321",
@@ -3640,7 +3653,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "traditional.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "tradition（传统）+al（形容词后缀）→传统的"
   },
   {
     "id": "g6_322",
@@ -3651,7 +3665,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "lucky.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "luck（好运）+y（形容词后缀）→幸运的"
   },
   {
     "id": "g6_323",
@@ -3673,7 +3688,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "country.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "countr（对面的）+y（形容词后缀）→对面的（土地）→农村→国家"
   },
   {
     "id": "g6_325",
@@ -3684,7 +3700,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "celebrate.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "celebr（很多人一起致敬）+ate（动词后缀）→庆祝神灵的生日→庆祝"
   },
   {
     "id": "g6_326",
@@ -3695,7 +3712,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "invitation.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "invit(e)（邀请）+at（动词后缀）+ion（名词后缀）→邀请"
   },
   {
     "id": "g6_327",
@@ -3706,7 +3724,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "performance.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "perform（执行）+ance（名词后缀）→执行情况→性能，绩效"
   },
   {
     "id": "g6_328",
@@ -3717,7 +3736,8 @@
     "category": "prep",
     "difficulty": 6,
     "audio": "across.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "a（位于）+cross（交叉）→位于交叉之处→横穿"
   },
   {
     "id": "g6_329",
@@ -3772,7 +3792,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "wealth.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "weal（=well，良好的，幸福的）+th（名词后缀，表状态）→福利→财富"
   },
   {
     "id": "g6_334",
@@ -3783,7 +3804,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "prince.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "prin（=prim，最前面的）+ce（=cap，take，拿）→放在第一位的（人）→元首，第一公民→亲王，王子"
   },
   {
     "id": "g6_335",
@@ -3827,7 +3849,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "doctor.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "doct（教授）+or（者）→（有资格）收徒授课者→博士→医学博士，医生"
   },
   {
     "id": "g6_339",
@@ -3838,7 +3861,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "nurse.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "nurs（=nutr，滋养，哺育）+e→喂奶→照顾，护理，当保姆"
   },
   {
     "id": "g6_340",
@@ -3849,7 +3873,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "teacher.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "teach（教）+er（者）→教师"
   },
   {
     "id": "g6_341",
@@ -3860,7 +3885,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "driver.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "driv(e)（驾驶）+er（者）→驾驶员"
   },
   {
     "id": "g6_342",
@@ -3871,7 +3897,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "policeman.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "police（警方）+man（人）→警察"
   },
   {
     "id": "g6_343",
@@ -3882,7 +3909,8 @@
     "category": "v./n.",
     "difficulty": 6,
     "audio": "interview.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "inter（相互）+view（见）→相互见面→接见，采访，面谈"
   },
   {
     "id": "g6_344",
@@ -3893,7 +3921,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "engineer.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "engine（引擎，精巧器械）+er（者）→设计精巧器械的人→工程师"
   },
   {
     "id": "g6_345",
@@ -3904,7 +3933,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "architect.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "arch（首领）+i（连接字母）+tec（建造）+t（者）→建筑工人的首领→建筑师"
   },
   {
     "id": "g6_346",
@@ -3915,7 +3945,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "lawyer.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "law（法律）+y+er（者）→从事法律工作的人→律师，法学家"
   },
   {
     "id": "g6_347",
@@ -3926,7 +3957,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "manager.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "manag(e)（管理）+er（者）→管理人员，经理"
   },
   {
     "id": "g6_348",
@@ -3937,7 +3969,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "reporter.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "report（报告）+er（者）→报告者→记者"
   },
   {
     "id": "g6_349",
@@ -3948,7 +3981,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "salary.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "sal（盐）+ary（形容词和名词后缀）→用来买盐的（钱）→工资"
   },
   {
     "id": "g6_350",
@@ -3959,7 +3993,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "dentist.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "dent（牙齿）+ist（专业人士）→牙科医生"
   },
   {
     "id": "g6_351",
@@ -3981,7 +4016,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "fireman.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "fire（火）+man（人）→灭火的人→消防队员"
   },
   {
     "id": "g6_353",
@@ -3992,7 +4028,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "postman.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "post（邮递）+man（人）→邮递员"
   },
   {
     "id": "g6_354",
@@ -4091,7 +4128,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "famous.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "fam（评论）+ous（形容词后缀）→有很多人评论的→著名的"
   },
   {
     "id": "g6_363",
@@ -4102,7 +4140,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "prefer.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "pre（前面）+fer（携带）→带到前面去，使其更靠前→更喜欢"
   },
   {
     "id": "g6_364",
@@ -4113,7 +4152,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "sightseeing.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "sight（景色）+see（观看）+ing（现在分词形式）→观光"
   },
   {
     "id": "g6_365",
@@ -4124,7 +4164,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "excellent.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "ex（出来）+cell（掩盖）+ent（形容词后缀）→脱颖而出的→杰出的，卓越的"
   },
   {
     "id": "g6_366",
@@ -4146,7 +4187,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "capital.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "capit（头）+al（形容词后缀）→头的→首都的，重要的，大写→首都，资产，大写字母"
   },
   {
     "id": "g6_368",
@@ -4190,7 +4232,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "local.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "loc（地方）+al（形容词后缀）→地方性的→本地的，局部的"
   },
   {
     "id": "g6_372",
@@ -4234,7 +4277,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "famous.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "fam（评论）+ous（形容词后缀）→有很多人评论的→著名的"
   },
   {
     "id": "g6_376",
@@ -4256,7 +4300,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "inventor.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "invent（发明）+or（者）→发明家"
   },
   {
     "id": "g6_378",
@@ -4267,7 +4312,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "invent.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "in（on，upon，触及）+vent（到来）→偶然遇到→发现，找到→发明，创造"
   },
   {
     "id": "g6_379",
@@ -4311,7 +4357,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "painter.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "paint（油漆，绘画）+er→画家，油漆匠"
   },
   {
     "id": "g6_383",
@@ -4322,7 +4369,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "scientist.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "scienti（=science，科学）+(i)st（专业人士）→从事科学研究的专业人士→科学家"
   },
   {
     "id": "g6_384",
@@ -4333,7 +4381,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "musician.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "music（音乐）+i+an（形容词后缀）→以音乐为职业的（人）→音乐家"
   },
   {
     "id": "g6_385",
@@ -4355,7 +4404,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "president.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "pre（在前面）+sid（坐）+ent（形容词后缀）→坐在前面的（人）→总统，董事长，校长，主席"
   },
   {
     "id": "g6_387",

@@ -41,7 +41,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "fifth.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "fif（=five，五）+th（第……，……分之一）→第五，五分之一"
   },
   {
     "id": "g5_005",
@@ -63,7 +64,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "fourth.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "four（四）+th（第……，……分之一）→第四，四分之一"
   },
   {
     "id": "g5_007",
@@ -74,7 +76,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "invitation.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "invit(e)（邀请）+at（动词后缀）+ion（名词后缀）→邀请"
   },
   {
     "id": "g5_008",
@@ -85,7 +88,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "party.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "part（部分、划分）+y（名词后缀，表动作的结果）→部分人组成的群体→政党，聚会"
   },
   {
     "id": "g5_009",
@@ -96,7 +100,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "present.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "pre（在前面）+s（=ess，存在）+ent（形容词后缀）→正存在于前面的→现在的，存在的"
   },
   {
     "id": "g5_010",
@@ -107,7 +112,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "second.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "sec（=sequ，跟随）+ond（形容词后缀）→正在跟随的→第二"
   },
   {
     "id": "g5_011",
@@ -118,7 +124,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "sixth.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "six（六）+th（第……，……分之一）→第六，六分之一"
   },
   {
     "id": "g5_012",
@@ -206,7 +213,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "journey.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "jo（日）+urn（形容词后缀）+ey（=ade，名词后缀）→一天这么长的时间，一天以内完成的事情→每日行程→旅行"
   },
   {
     "id": "g5_020",
@@ -250,7 +258,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "pavement.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "pave（铺设）+ment（名词后缀，表结果）→铺设好的东西→人行道"
   },
   {
     "id": "g5_024",
@@ -283,7 +292,8 @@
     "category": "交通",
     "difficulty": 5,
     "audio": "train.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "trai（=trac，拖）+n（拉丁语残余）→拖曳之物→火车，行列，长队"
   },
   {
     "id": "g5_027",
@@ -294,7 +304,8 @@
     "category": "交通",
     "difficulty": 5,
     "audio": "underground.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "under（在下面）+ground（地面）→在地下"
   },
   {
     "id": "g5_028",
@@ -349,7 +360,8 @@
     "category": "职业",
     "difficulty": 5,
     "audio": "farmer.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "farm（农场）+er（者）→在农场里面工作的人→农夫；农场主"
   },
   {
     "id": "g5_033",
@@ -426,7 +438,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "save.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "sav（拯救）+e→解救，挽救→保存→储蓄，节省"
   },
   {
     "id": "g5_040",
@@ -492,7 +505,8 @@
     "category": "职业",
     "difficulty": 5,
     "audio": "traveller.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "travel（旅行）+l+er（者）→旅行者"
   },
   {
     "id": "g5_046",
@@ -503,7 +517,8 @@
     "category": "职业",
     "difficulty": 5,
     "audio": "worker.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "work（工作）+er（者）→工人"
   },
   {
     "id": "g5_047",
@@ -558,7 +573,8 @@
     "category": "家庭",
     "difficulty": 5,
     "audio": "grandchild.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "grand（隔代的）+child（孩子）→孙辈"
   },
   {
     "id": "g5_052",
@@ -591,7 +607,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "hunter.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "hunt（打猎）+er（者）→猎人"
   },
   {
     "id": "g5_055",
@@ -624,7 +641,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "once.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "on（=one，一）+ce（=s，副词后缀）→一次，曾经"
   },
   {
     "id": "g5_058",
@@ -657,7 +675,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "talk.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "tal（讲述）+k→谈话，讨论"
   },
   {
     "id": "g5_061",
@@ -679,7 +698,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "weekend.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "week（一周）+end（尽头）→周末"
   },
   {
     "id": "g5_063",
@@ -723,7 +743,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "different.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "differ（相异）+ent（形容词后缀）→不同的"
   },
   {
     "id": "g5_067",
@@ -800,7 +821,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "together.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "to（去，趋向）+gether（=gather，聚集）→一起"
   },
   {
     "id": "g5_074",
@@ -811,7 +833,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "same.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "sam（同一）+e→同一的，相同的"
   },
   {
     "id": "g5_075",
@@ -910,7 +933,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "move.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "mov（移动）+e→移动→搬家，迁移"
   },
   {
     "id": "g5_084",
@@ -954,7 +978,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "study.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "stud（学习）+y（名词后）→攻读，学习"
   },
   {
     "id": "g5_088",
@@ -965,7 +990,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "sunshine.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "sun（太阳）+shine（照射，闪耀）→阳光"
   },
   {
     "id": "g5_089",
@@ -998,7 +1024,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "twice.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "twi（=two，两）+ce（=s，副词后缀）→两次，两倍"
   },
   {
     "id": "g5_092",
@@ -1031,7 +1058,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "along.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "a（位于）+long（长的）→在长度上→沿着，顺着（长路走）"
   },
   {
     "id": "g5_095",
@@ -1042,7 +1070,8 @@
     "category": "食物",
     "difficulty": 5,
     "audio": "bakery.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "bak（=bake，烘烤）+ery（名词后缀，表场所）→烘烤（面包）的场所→面包房→面包店"
   },
   {
     "id": "g5_096",
@@ -1075,7 +1104,8 @@
     "category": "食物",
     "difficulty": 5,
     "audio": "crocodile.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "croco（卵石）+dile（爬虫）→喜欢在卵石上晒太阳的爬虫→鳄鱼"
   },
   {
     "id": "g5_099",
@@ -1086,7 +1116,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "crossing.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "cross（横穿）+ing→十字路口，人行横道"
   },
   {
     "id": "g5_100",
@@ -1097,7 +1128,8 @@
     "category": "地点",
     "difficulty": 5,
     "audio": "hospital.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "hospit（接待客人）+al（形容词后缀）→接待客人的（地方）→接待照顾旅行者的地方→医院"
   },
   {
     "id": "g5_101",
@@ -1108,7 +1140,8 @@
     "category": "地点",
     "difficulty": 5,
     "audio": "hotel.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "hot（=host，接待客人）+el（=al，形容词后缀）→接待客人的（地方）→旅馆"
   },
   {
     "id": "g5_102",
@@ -1141,7 +1174,8 @@
     "category": "地点",
     "difficulty": 5,
     "audio": "museum.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "mus（缪斯女神）+eum（场所）→缪斯女神的神殿→博物馆"
   },
   {
     "id": "g5_105",
@@ -1152,7 +1186,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "right.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "rig（正的）+ht→正确的"
   },
   {
     "id": "g5_106",
@@ -1196,7 +1231,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "emperor.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "emper（=imper，统治）+or（者）→统帅，统治者→皇帝"
   },
   {
     "id": "g5_110",
@@ -1251,7 +1287,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "pocket.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "pock（袋子）+et（指小名词后缀）→小袋子→口袋"
   },
   {
     "id": "g5_115",
@@ -1317,7 +1354,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "cave.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "cav-（中空的）+e→洞穴"
   },
   {
     "id": "g5_121",
@@ -1361,7 +1399,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "dentist.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "dent（牙齿）+ist（专业人士）→牙科医生"
   },
   {
     "id": "g5_125",
@@ -1460,7 +1499,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "medicine.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "med（医疗）+ic（形容词后缀）+ine（形容词后缀）→用来治病的（东西或技术）→药，医学"
   },
   {
     "id": "g5_134",
@@ -1471,7 +1511,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "secret.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "se（离开整体，单独）+cret（分开）→从整体中分离出来，放到一边去→隔离的，隐藏起来的→秘密的"
   },
   {
     "id": "g5_135",
@@ -1482,7 +1523,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "toothache.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "tooth（牙齿）+ache（疼痛）→牙痛"
   },
   {
     "id": "g5_136",
@@ -1537,7 +1579,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "finally.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "final（最后的）+ly（副词后缀）→最后"
   },
   {
     "id": "g5_141",
@@ -1559,7 +1602,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "into.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "in（在里面）+to（去）→到……里"
   },
   {
     "id": "g5_143",
@@ -1614,7 +1658,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "quickly.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "quick（迅速的）+ly（副词后缀）→迅速地"
   },
   {
     "id": "g5_148",
@@ -1636,7 +1681,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "report.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "re（回来）+port（携带）→（把信息）带回来→报告"
   },
   {
     "id": "g5_150",
@@ -1658,7 +1704,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "slowly.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "slow（缓慢的）+ly（副词后缀）→缓慢地"
   },
   {
     "id": "g5_152",
@@ -1680,7 +1727,8 @@
     "category": "饮料",
     "difficulty": 5,
     "audio": "teapot.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "tea（茶）+pot（壶）→茶壶"
   },
   {
     "id": "g5_154",
@@ -1724,7 +1772,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "toilet.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "toil（一种薄麻布）+et（指小名词形式）→一小块薄麻布→铺有薄麻布的梳妆台→梳妆室→厕所"
   },
   {
     "id": "g5_158",
@@ -1746,7 +1795,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "blow.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "bl（吹）+ow→（风）吹"
   },
   {
     "id": "g5_160",
@@ -1757,7 +1807,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "gently.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "gent(le)（温柔的）+ly（副词后缀）→温柔地"
   },
   {
     "id": "g5_161",
@@ -1779,7 +1830,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "heavily.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "heavi（=heavy，沉重的）+ly（副词后缀）→沉重地"
   },
   {
     "id": "g5_163",
@@ -1823,7 +1875,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "softly.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "soft（柔软的）+ly（副词后缀）→柔软地，温柔地"
   },
   {
     "id": "g5_167",
@@ -1834,7 +1887,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "strongly.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "strong（强有力的）+ly（副词后缀）→强烈地"
   },
   {
     "id": "g5_168",
@@ -1900,7 +1954,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "careful.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "care（注意）+ful（形容词后缀）→仔细的"
   },
   {
     "id": "g5_174",
@@ -1911,7 +1966,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "country.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "countr（对面的）+y（形容词后缀）→对面的（土地）→农村→国家"
   },
   {
     "id": "g5_175",
@@ -1944,7 +2000,8 @@
     "category": "动作",
     "difficulty": 5,
     "audio": "helicopter.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "helico（螺旋的，盘旋的）+pter（翅膀）→有螺旋翅膀的飞机→直升飞机"
   },
   {
     "id": "g5_178",
@@ -1999,7 +2056,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "safely.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "safe（安全的）+ly（副词后缀）→安全地"
   },
   {
     "id": "g5_183",
@@ -2153,7 +2211,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "mine.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "min（矿）+e→矿，矿藏"
   },
   {
     "id": "g5_197",
@@ -2175,7 +2234,8 @@
     "category": "学习用品",
     "difficulty": 5,
     "audio": "notebook.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "note（笔记）+book（书本）→笔记本"
   },
   {
     "id": "g5_199",
@@ -2285,7 +2345,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "workshop.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "work（工作）+shop（本意为小房子）→工作场所→车间"
   },
   {
     "id": "g5_209",
@@ -2494,7 +2555,8 @@
     "category": "数字",
     "difficulty": 5,
     "audio": "another.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "an（一个）+other（其他的）→另一个"
   },
   {
     "id": "g5_228",
@@ -2527,7 +2589,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "enjoy.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "en（变得）+joy（快乐）→（因……而）变得快乐→享受"
   },
   {
     "id": "g5_231",
@@ -2538,7 +2601,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "everything.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "every（每）+thing（事情）→每件事情"
   },
   {
     "id": "g5_232",
@@ -2560,7 +2624,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "kingdom.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "king（国王）+dom（名词后缀，表管辖）→国王的领地→王国"
   },
   {
     "id": "g5_234",
@@ -2582,7 +2647,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "loudly.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "loud（大声的）+ly（副词后缀）→大声地"
   },
   {
     "id": "g5_236",
@@ -2593,7 +2659,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "motorbike.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "motor（马达）+bike（自行车）→摩托车"
   },
   {
     "id": "g5_237",
@@ -2615,7 +2682,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "outside.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "out（外部）+side（边）→外面"
   },
   {
     "id": "g5_239",
@@ -2835,7 +2903,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "happen.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "happ（偶然）+en（动词后缀）→偶然发生→发生，碰巧"
   },
   {
     "id": "g5_259",
@@ -2846,7 +2915,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "healthy.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "health（健康）+y（形容词后缀）→健康的，有益于健康的"
   },
   {
     "id": "g5_260",
@@ -2945,7 +3015,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "safe.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "saf（安全的）+e→安全的，平安的"
   },
   {
     "id": "g5_269",
@@ -2978,7 +3049,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "vegetable.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "veget（蓬勃生长）+able（能够）→能蓬勃生长的→（可以吃的）植物→蔬菜"
   },
   {
     "id": "g5_272",
@@ -2989,7 +3061,8 @@
     "category": "时间",
     "difficulty": 5,
     "audio": "adult.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "ad（去）+ult（=alt，长大）→已经长大的（人）→成年的，成年人"
   },
   {
     "id": "g5_273",
@@ -3011,7 +3084,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "entrance.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "entr（=enter，进入）+ance（名词后缀）→进入（的通道）→入口"
   },
   {
     "id": "g5_275",
@@ -3022,7 +3096,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "exit.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "ex（出去）+it（走）→退出（的途径）→出口"
   },
   {
     "id": "g5_276",
@@ -3077,7 +3152,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "funny.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "funn（=fun，乐趣）+y（形容词后缀）→有趣的"
   },
   {
     "id": "g5_281",
@@ -3088,7 +3164,8 @@
     "category": "时间",
     "difficulty": 5,
     "audio": "minute.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "min（小的）+u+t（完成分词后缀）+e→缩小后的一段时间→片刻→分钟"
   },
   {
     "id": "g5_282",
@@ -3110,7 +3187,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "princess.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "princ(e)（王子）+ess（阴性名词后缀）→公主，王妃"
   },
   {
     "id": "g5_284",
@@ -3165,7 +3243,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "snowy.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "snow（雪）+y（形容词后缀）→下雪的，多雪的"
   },
   {
     "id": "g5_289",
@@ -3187,7 +3266,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "ticket.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "tick（=stick，贴纸，便签条）+ et（指小名词形式）→小纸条"
   },
   {
     "id": "g5_291",
@@ -3264,7 +3344,8 @@
     "category": "学科",
     "difficulty": 5,
     "audio": "chinese.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "Chin(a)（中国）+ese（形容词后缀）→中国的（人或语言）"
   },
   {
     "id": "g5_298",
@@ -3308,7 +3389,8 @@
     "category": "学科",
     "difficulty": 5,
     "audio": "english.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "Engl（=Angles，盎格鲁人）+ish（形容词后缀）→盎格鲁人的→英国人（的），英语（的）"
   },
   {
     "id": "g5_302",
@@ -3330,7 +3412,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "line.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "lin（亚麻线）+e→线"
   },
   {
     "id": "g5_304",
@@ -3363,7 +3446,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "maybe.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "may（可以）+be（存在）→可能"
   },
   {
     "id": "g5_307",
@@ -3374,7 +3458,8 @@
     "category": "学科",
     "difficulty": 5,
     "audio": "music.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "mus（缪斯女神）+ic（形容词后缀）→缪斯女神的（艺术）→音乐"
   },
   {
     "id": "g5_308",
@@ -3385,7 +3470,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "nothing.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "no（没有）+thing（事物）→无事"
   },
   {
     "id": "g5_309",
@@ -3396,7 +3482,8 @@
     "category": "学科",
     "difficulty": 5,
     "audio": "subject.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "sub（下面）+ject（扔）→扔到下面→使隶属，使屈从于→讨论的对象→主题"
   },
   {
     "id": "g5_310",
@@ -3418,7 +3505,8 @@
     "category": "学科",
     "difficulty": 5,
     "audio": "timetable.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "time（时间）+table（图表）→时间表"
   },
   {
     "id": "g5_312",
@@ -3429,7 +3517,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "become.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "be（加强语气）+come（到来）→到来→变成"
   },
   {
     "id": "g5_313",
@@ -3495,7 +3584,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "lost.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "los(e)（失败，遗失）+t（=ed，过去分词后缀）→迷失的，失去的；失败的"
   },
   {
     "id": "g5_319",
@@ -3572,7 +3662,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "telephone.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "tele（远处的）+phon（声音）+e→远处的声音→电话"
   },
   {
     "id": "g5_326",
@@ -3627,7 +3718,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "comfortable.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "comfort（安慰，使感到舒适）+able（能够）→能使人感到舒适的→舒适的"
   },
   {
     "id": "g5_331",
@@ -3649,7 +3741,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "perform.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "per（完全地）+form（完成）→完成（任务）→执行，完成，演奏"
   },
   {
     "id": "g5_333",
@@ -3671,7 +3764,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "useful.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "use（用途）+ful（富于）→有用的"
   },
   {
     "id": "g5_335",
@@ -3682,7 +3776,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "really.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "real（真正的）+ly（副词后缀）→真正地"
   },
   {
     "id": "g5_336",
@@ -3693,7 +3788,8 @@
     "category": "节日",
     "difficulty": 5,
     "audio": "christmas.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "Christ（基督）+mas（=mass，弥撒）→庆祝基督诞生的弥撒"
   },
   {
     "id": "g5_337",
@@ -3737,7 +3833,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "holiday.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "holi（=holy，神圣的）+day（日子）→宗教节日→节日，假日"
   },
   {
     "id": "g5_341",
@@ -3748,7 +3845,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "present.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "pre（在前面）+s（=ess，存在）+ent（形容词后缀）→正存在于前面的→现在的，存在的"
   },
   {
     "id": "g5_342",
@@ -3781,7 +3879,8 @@
     "category": "其他",
     "difficulty": 5,
     "audio": "western.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "west（西方）+ ern（方位后缀）→西方的→西方人"
   },
   {
     "id": "g5_345",

@@ -19,7 +19,8 @@
     "category": "时间",
     "difficulty": 2,
     "audio": "afternoon.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "after（在……后面）+noon（正午）→午后"
   },
   {
     "id": "g2_003",
@@ -184,7 +185,8 @@
     "category": "时间",
     "difficulty": 2,
     "audio": "young.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "you（年轻的）+n+g→年轻的"
   },
   {
     "id": "g2_018",
@@ -327,7 +329,8 @@
     "category": "家具",
     "difficulty": 2,
     "audio": "plate.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "plat（平的）+e→扁平之物→碟子，碟片"
   },
   {
     "id": "g2_031",
@@ -349,7 +352,8 @@
     "category": "家具",
     "difficulty": 2,
     "audio": "chopsticks.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "chop（广东话“快”或“筷”的音译）+sticks（小棍子）→筷子"
   },
   {
     "id": "g2_033",
@@ -591,7 +595,8 @@
     "category": "交通",
     "difficulty": 2,
     "audio": "train.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "trai（=trac，拖）+n（拉丁语残余）→拖曳之物→火车，行列，长队"
   },
   {
     "id": "g2_055",
@@ -635,7 +640,8 @@
     "category": "玩具",
     "difficulty": 2,
     "audio": "bicycle.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "bi（两）+cycl（循环、车轮）+e→两轮（车）→自行车"
   },
   {
     "id": "g2_059",
@@ -712,7 +718,8 @@
     "category": "食物",
     "difficulty": 2,
     "audio": "salad.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "sal（用盐腌）+ad（=ade，表结果）→用盐腌过的东西→色拉，沙拉"
   },
   {
     "id": "g2_066",
@@ -899,7 +906,8 @@
     "category": "服装",
     "difficulty": 2,
     "audio": "sweater.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "sweat（出汗）+er（者）→使人出汗的衣服→运动衫"
   },
   {
     "id": "g2_083",
@@ -987,7 +995,8 @@
     "category": "玩具",
     "difficulty": 2,
     "audio": "balloon.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "ball（球）+oon（指大名词后缀）→大球→热气球→气球"
   },
   {
     "id": "g2_091",
@@ -1009,7 +1018,8 @@
     "category": "其他",
     "difficulty": 2,
     "audio": "hungry.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "hung(e)r（饥饿）+y（形容词后缀）→饥饿的"
   },
   {
     "id": "g2_093",
@@ -1020,7 +1030,8 @@
     "category": "其他",
     "difficulty": 2,
     "audio": "thirsty.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "thirst（口渴）+y（形容词后缀）→口渴的"
   },
   {
     "id": "g2_094",

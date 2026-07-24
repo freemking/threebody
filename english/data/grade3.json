@@ -41,7 +41,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "one.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "on（一）+e→一，一的，唯一的"
   },
   {
     "id": "g3_005",
@@ -217,7 +218,8 @@
     "category": "家庭",
     "difficulty": 3,
     "audio": "grandfather.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "grand（隔代的）+father（父亲）→祖父，外祖父"
   },
   {
     "id": "g3_021",
@@ -228,7 +230,8 @@
     "category": "家庭",
     "difficulty": 3,
     "audio": "grandmother.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "grand（隔代的）+mother（母亲）→祖母，外祖母"
   },
   {
     "id": "g3_022",
@@ -360,7 +363,8 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "library.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "libr（图书）+ary（名词后缀）→存放图书的（场所）→图书馆"
   },
   {
     "id": "g3_034",
@@ -371,7 +375,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "toilet.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "toil（一种薄麻布）+et（指小名词形式）→一小块薄麻布→铺有薄麻布的梳妆台→梳妆室→厕所"
   },
   {
     "id": "g3_035",
@@ -393,7 +398,8 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "playground.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "play（游戏）+ground（地面）→运动场"
   },
   {
     "id": "g3_037",
@@ -404,7 +410,8 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "classroom.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "class（班级）+room（房间）→班级的房间→教室"
   },
   {
     "id": "g3_038",
@@ -514,7 +521,8 @@
     "category": "玩具",
     "difficulty": 3,
     "audio": "balloon.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "ball（球）+oon（指大名词后缀）→大球→热气球→气球"
   },
   {
     "id": "g3_048",
@@ -569,7 +577,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "butterfly.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "butter（黄油）+fly（飞虫）→喜欢偷吃黄油的飞虫→蝴蝶"
   },
   {
     "id": "g3_053",
@@ -701,7 +710,8 @@
     "category": "动作",
     "difficulty": 3,
     "audio": "aeroplane.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "aer（空气）+o+plan（平面，滑翔）+e→在空中滑翔之物→飞机"
   },
   {
     "id": "g3_065",
@@ -745,7 +755,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "pineapple.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "pine（松果）+apple（水果）→像松果一样的水果→菠萝"
   },
   {
     "id": "g3_069",
@@ -778,7 +789,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "glass.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "gl（闪亮）+ass→亮闪闪的东西→玻璃"
   },
   {
     "id": "g3_072",
@@ -833,7 +845,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "salty.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "salt（盐）+y（形容词后缀）→含盐的→咸的"
   },
   {
     "id": "g3_077",
@@ -932,7 +945,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "skateboard.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "skate（滑冰）+board（木板）→滑板"
   },
   {
     "id": "g3_086",
@@ -976,7 +990,8 @@
     "category": "服装",
     "difficulty": 3,
     "audio": "jacket.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "jack（古代一种束腰外衣）+et（指小名词后缀）→较短的外衣→夹克，短上衣"
   },
   {
     "id": "g3_090",
@@ -1020,7 +1035,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "circle.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "circ（圆圈）+le（=ule，指小名词后缀）→小圆圈→圆圈，循环"
   },
   {
     "id": "g3_094",
@@ -1031,7 +1047,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "square.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "s（=ex，出来）+quar（四）+e→使变成四方的→四方的→正方形"
   },
   {
     "id": "g3_095",
@@ -1042,7 +1059,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "triangle.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "tri（三）+angle（角）→三角"
   },
   {
     "id": "g3_096",
@@ -1064,7 +1082,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "rectangle.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "rect（直的）+angle（角）→直角形状→矩形"
   },
   {
     "id": "g3_098",
@@ -1097,7 +1116,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "mountain.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "mount（山）+ain（=an，形容词后缀）→山的→（转作名词）山脉"
   },
   {
     "id": "g3_101",
@@ -1108,7 +1128,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "river.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "riv（河岸）+er（=ery，名词后缀）→河流"
   },
   {
     "id": "g3_102",

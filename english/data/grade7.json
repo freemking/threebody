@@ -8,7 +8,8 @@
     "category": "adj.",
     "difficulty": 7,
     "audio": "curious.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "cur（关注）+i+ous（形容词后缀）→关注的→好奇的"
   },
   {
     "id": "g7_002",
@@ -41,7 +42,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "feeling.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "feel（感觉）+ing（现在分词形式）→感觉"
   },
   {
     "id": "g7_005",
@@ -74,7 +76,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "machine.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "machin（=mechan，机器，机械）+e→机器，机械"
   },
   {
     "id": "g7_008",
@@ -96,7 +99,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "improve.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "im（=en，使）+prov（获益）+e→使获益→改善"
   },
   {
     "id": "g7_010",
@@ -118,7 +122,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "discuss.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "dis（分来）+cuss（摇晃，震荡）→打碎→掰碎了说→讨论"
   },
   {
     "id": "g7_012",
@@ -195,7 +200,8 @@
     "category": "v",
     "difficulty": 7,
     "audio": "power.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "pow（力量）+er（名词后缀）→力量"
   },
   {
     "id": "g7_019",
@@ -206,7 +212,8 @@
     "category": "adv",
     "difficulty": 7,
     "audio": "everywhere.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "every（每）+where（地方）→到处"
   },
   {
     "id": "g7_020",
@@ -217,7 +224,8 @@
     "category": "adj",
     "difficulty": 7,
     "audio": "impossible.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "im（否定）+possible（可能的）→不可能的"
   },
   {
     "id": "g7_021",
@@ -228,7 +236,8 @@
     "category": "adj",
     "difficulty": 7,
     "audio": "solar.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "sol（=sun，太阳）+ar（形容词后缀）→太阳的"
   },
   {
     "id": "g7_022",
@@ -239,7 +248,8 @@
     "category": "n",
     "difficulty": 7,
     "audio": "battery.mp3",
-    "unit": 1
+    "unit": 1,
+    "rootAffix": "batt（连续重击）+ery（名词后缀，表设施）→用来连续重击的设施→火炮组→电池"
   },
   {
     "id": "g7_023",
@@ -283,7 +293,8 @@
     "category": "adj.",
     "difficulty": 7,
     "audio": "daily.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "dai（=day，日，天）+ly（形容词和副词后缀）→日常的，每天"
   },
   {
     "id": "g7_027",
@@ -294,7 +305,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "article.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "arti（节）+cle（指小名词后缀）→一小节→文章，条款→物品，冠词"
   },
   {
     "id": "g7_028",
@@ -316,7 +328,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "practise.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "pract（实践）+ise（动词后缀）→实践"
   },
   {
     "id": "g7_030",
@@ -327,7 +340,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "solve.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "solv（松开）+e→解开→解决，解答，溶解"
   },
   {
     "id": "g7_031",
@@ -338,7 +352,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "develop.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "de（反义）+velop（包裹）→打开包裹，展开→发展"
   },
   {
     "id": "g7_032",
@@ -349,7 +364,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "realize.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "real（真实的）+ize（动词后缀）→使变得真实→实现；认识到"
   },
   {
     "id": "g7_033",
@@ -360,7 +376,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "activity.mp3",
-    "unit": 2
+    "unit": 2,
+    "rootAffix": "activ(e)（活跃的）+ity（名词后缀）→活跃度→活动"
   },
   {
     "id": "g7_034",
@@ -481,7 +498,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "memory.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "memor（记忆）+y（名词后缀）→记忆"
   },
   {
     "id": "g7_045",
@@ -492,7 +510,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "remember.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "re（再次）+member（=memor，记忆，想起）→再次想起→记得，记起"
   },
   {
     "id": "g7_046",
@@ -503,7 +522,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "forget.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "for（错过）+get（拿）→错过，没想起→忘记"
   },
   {
     "id": "g7_047",
@@ -514,7 +534,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "information.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "inform（通知）+ation（动名词后缀）→信息"
   },
   {
     "id": "g7_048",
@@ -525,7 +546,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "message.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "mess（=miss，发送）+age（名词后缀）→发送消息，通信行为→被发送的消息，信息"
   },
   {
     "id": "g7_049",
@@ -536,7 +558,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "method.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "met（跟随）+hod（道路）→跟着走的路→方法"
   },
   {
     "id": "g7_050",
@@ -547,7 +570,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "improve.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "im（=en，使）+prov（获益）+e→使获益→改善"
   },
   {
     "id": "g7_051",
@@ -580,7 +604,8 @@
     "category": "v",
     "difficulty": 7,
     "audio": "notice.mp3",
-    "unit": 3
+    "unit": 3,
+    "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告"
   },
   {
     "id": "g7_054",
@@ -635,7 +660,8 @@
     "category": "adj.",
     "difficulty": 7,
     "audio": "helpful.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "help（帮助）+ ful（形容词后缀）→有帮助的"
   },
   {
     "id": "g7_059",
@@ -646,7 +672,8 @@
     "category": "adj.",
     "difficulty": 7,
     "audio": "humorous.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "humour（幽默）+ous（形容词后缀）→幽默的，诙谐的"
   },
   {
     "id": "g7_060",
@@ -668,7 +695,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "encourage.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "en（=in，投入，使具有）+courage（勇气）→投入勇气，使具有勇气→鼓励"
   },
   {
     "id": "g7_062",
@@ -679,7 +707,8 @@
     "category": "v./n.",
     "difficulty": 7,
     "audio": "support.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "sup（=sub，在下面）+port（承载）→在下面承载→支持，支撑"
   },
   {
     "id": "g7_063",
@@ -690,7 +719,8 @@
     "category": "adj.",
     "difficulty": 7,
     "audio": "successful.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "success（成功）+ful（形容词后缀）→成功的"
   },
   {
     "id": "g7_064",
@@ -701,7 +731,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "describe.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "de（向下）+scrib（写，画）+e→写下来，画出来→描述，描绘"
   },
   {
     "id": "g7_065",
@@ -712,7 +743,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "appearance.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "appear（出现）+ance（名词后缀）→出现，露面→外貌，外观"
   },
   {
     "id": "g7_066",
@@ -723,7 +755,8 @@
     "category": "adj",
     "difficulty": 7,
     "audio": "patient.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "pati（忍受）+ent（形容词后缀）→正在忍受的（人）→有耐心的；病人"
   },
   {
     "id": "g7_067",
@@ -734,7 +767,8 @@
     "category": "adj",
     "difficulty": 7,
     "audio": "confident.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "con（=com，加强语气）+fid（相信）+ent（形容词后缀）→相信（自己）的→自信的，确信的"
   },
   {
     "id": "g7_068",
@@ -745,7 +779,8 @@
     "category": "n",
     "difficulty": 7,
     "audio": "courage.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "cour（=cor，心）+age（名词后缀）→心灵的产物→勇气"
   },
   {
     "id": "g7_069",
@@ -756,7 +791,8 @@
     "category": "n",
     "difficulty": 7,
     "audio": "friendship.mp3",
-    "unit": 4
+    "unit": 4,
+    "rootAffix": "friend（朋友）+ship（名词后缀，表关系）→友谊"
   },
   {
     "id": "g7_070",
@@ -811,7 +847,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "gravity.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "grav（沉重的）+ity（名词后缀）→沉重性→重力，严重，庄重"
   },
   {
     "id": "g7_075",
@@ -833,7 +870,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "astronaut.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "astr（星星）+o+nau（船）+t（者）→在星海中驾船航行的人→宇航员"
   },
   {
     "id": "g7_077",
@@ -844,7 +882,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "spaceship.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "space（太空）+ship（船）→宇宙飞船"
   },
   {
     "id": "g7_078",
@@ -866,7 +905,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "camera.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "camer（房间）+a（名词后缀）→房间"
   },
   {
     "id": "g7_080",
@@ -899,7 +939,8 @@
     "category": "n",
     "difficulty": 7,
     "audio": "rocket.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "rock（线筒）+et（指小名词形式）→小线筒"
   },
   {
     "id": "g7_083",
@@ -910,7 +951,8 @@
     "category": "n",
     "difficulty": 7,
     "audio": "suit.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "su（跟随）+it（=at，动词和形容词后缀）→跟随的→随从→随从穿的套装→能成为一套→适合；或者suit=su（追）+it→追究→诉讼"
   },
   {
     "id": "g7_084",
@@ -932,7 +974,8 @@
     "category": "pron",
     "difficulty": 7,
     "audio": "ourselves.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "our（我们）+selves（自己）→我们自己"
   },
   {
     "id": "g7_086",
@@ -943,7 +986,8 @@
     "category": "prep",
     "difficulty": 7,
     "audio": "without.mp3",
-    "unit": 5
+    "unit": 5,
+    "rootAffix": "with（挨着）+out（外面）→挨着外面→在外面，没有"
   },
   {
     "id": "g7_087",
@@ -987,7 +1031,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "environment.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "en（=in）+viron（围绕）+ment（名词后缀）→围绕之物→环境"
   },
   {
     "id": "g7_091",
@@ -998,7 +1043,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "pollute.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "pollu（弄脏）+te（=ate，动词后缀）→弄脏，污染"
   },
   {
     "id": "g7_092",
@@ -1009,7 +1055,8 @@
     "category": "n.",
     "difficulty": 7,
     "audio": "pollution.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "pollut(e)（污染）+ion（名词后缀）→污染"
   },
   {
     "id": "g7_093",
@@ -1031,7 +1078,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "reduce.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "re（向后）+duc（引导）+e→向后引导→减少"
   },
   {
     "id": "g7_095",
@@ -1053,7 +1101,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "recycle.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "re（回来，反复）+cycl（循环）+e→再循环"
   },
   {
     "id": "g7_097",
@@ -1064,7 +1113,8 @@
     "category": "v.",
     "difficulty": 7,
     "audio": "protect.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "pro（在前面）+tect（遮盖）→在前面遮盖→保护"
   },
   {
     "id": "g7_098",
@@ -1086,7 +1136,8 @@
     "category": "adj",
     "difficulty": 7,
     "audio": "harmful.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "harm（伤害）+ful（形容词后缀）→有害的"
   },
   {
     "id": "g7_100",
@@ -1108,7 +1159,8 @@
     "category": "n",
     "difficulty": 7,
     "audio": "oxygen.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "oxy（酸）+gen（产生）→能够产生酸的元素→氧"
   },
   {
     "id": "g7_102",
@@ -1119,7 +1171,8 @@
     "category": "v",
     "difficulty": 7,
     "audio": "produce.mp3",
-    "unit": 6
+    "unit": 6,
+    "rootAffix": "pro（向前）+duc（引导）+e→向前引导，引导出来→生产"
   },
   {
     "id": "g7_103",
