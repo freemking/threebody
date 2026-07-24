@@ -1,5 +1,5 @@
 /**
- * 背单词管理模块 - Vocabulary
+ * 记单词管理模块 - Vocabulary
  * 数据只保存到MySQL数据库，不使用localStorage
  */
 
@@ -11,7 +11,7 @@ class Vocabulary {
             ? 'http://localhost:3000/api/vocabulary' 
             : '/api/vocabulary';
         this._cache = []; // 内存缓存，从数据库加载
-        this._todayWords = []; // 今日背单词列表
+        this._todayWords = []; // 今日记单词列表
         this._stats = null; // 统计信息
         this._loaded = false;
         this._loading = false;
@@ -68,17 +68,17 @@ class Vocabulary {
             if (result && result.success && Array.isArray(result.data)) {
                 this._cache = result.data;
                 this._loaded = true;
-                console.log(`从数据库加载了 ${this._cache.length} 个背单词`);
+                console.log(`从数据库加载了 ${this._cache.length} 个记单词`);
                 return this._cache;
             }
         } catch (error) {
-            console.error('从数据库加载背单词失败:', error);
+            console.error('从数据库加载记单词失败:', error);
         }
         return [];
     }
 
     /**
-     * 加载今日背单词
+     * 加载今日记单词
      */
     async _loadTodayWords() {
         try {
@@ -87,11 +87,11 @@ class Vocabulary {
                 this._todayWords = result.data || [];
                 this._todayStudied = result.studied || 0;
                 this._todayCompleted = result.completed || false;
-                console.log(`今日背单词: ${this._todayWords.length} 个`);
+                console.log(`今日记单词: ${this._todayWords.length} 个`);
                 return this._todayWords;
             }
         } catch (error) {
-            console.error('加载今日背单词失败:', error);
+            console.error('加载今日记单词失败:', error);
         }
         return [];
     }
@@ -107,20 +107,20 @@ class Vocabulary {
                 return this._stats;
             }
         } catch (error) {
-            console.error('加载背单词统计失败:', error);
+            console.error('加载记单词统计失败:', error);
         }
         return null;
     }
 
     /**
-     * 获取所有背单词（同步，从内存缓存）
+     * 获取所有记单词（同步，从内存缓存）
      */
     getAll() {
         return this._cache;
     }
 
     /**
-     * 获取今日背单词
+     * 获取今日记单词
      */
     getTodayWords() {
         return this._todayWords;
@@ -134,7 +134,7 @@ class Vocabulary {
     }
 
     /**
-     * 添加单词到背单词词库
+     * 添加单词到记单词词库
      */
     async addWord(wordData) {
         if (!wordData || !wordData.word) return;
@@ -151,7 +151,7 @@ class Vocabulary {
             });
 
             if (result.success) {
-                console.log(`单词已添加到背单词词库: ${wordData.word}`);
+                console.log(`单词已添加到记单词词库: ${wordData.word}`);
                 // 重新加载数据
                 await this._loadFromDatabase();
                 await this._loadStats();
@@ -162,7 +162,7 @@ class Vocabulary {
     }
 
     /**
-     * 批量添加单词到背单词词库
+     * 批量添加单词到记单词词库
      */
     async addWordsBatch(words) {
         if (!Array.isArray(words) || words.length === 0) return;
@@ -337,6 +337,36 @@ class Vocabulary {
     }
 
     /**
+     * 获取历史学习日期列表
+     */
+    async getHistoryDates() {
+        try {
+            const result = await this._apiRequest('/history-dates');
+            if (result && result.success) {
+                return result.data;
+            }
+        } catch (error) {
+            console.error('获取历史学习日期失败:', error);
+        }
+        return [];
+    }
+
+    /**
+     * 获取指定日期的学习记录
+     */
+    async getDailyRecord(date) {
+        try {
+            const result = await this._apiRequest(`/daily-record?date=${date}`);
+            if (result && result.success) {
+                return result.data;
+            }
+        } catch (error) {
+            console.error('获取每日学习记录失败:', error);
+        }
+        return [];
+    }
+
+    /**
      * 刷新缓存（从数据库重新加载）
      */
     async refresh() {
@@ -453,11 +483,11 @@ const vocabulary = new Vocabulary();
 window.addEventListener('load', async () => {
     try {
         await vocabulary.init();
-        console.log('背单词模块初始化完成');
-        // 触发自定义事件，通知app.js背单词模块已加载
+        console.log('记单词模块初始化完成');
+        // 触发自定义事件，通知app.js记单词模块已加载
         window.dispatchEvent(new CustomEvent('vocabulary-loaded', { detail: vocabulary.getAll() }));
     } catch (error) {
-        console.error('背单词模块初始化失败:', error);
+        console.error('记单词模块初始化失败:', error);
     }
 });
 

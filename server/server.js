@@ -33,6 +33,6 @@ console.log(`服务器已启动: http://localhost:${PORT}`);
 console.log(`API接口: http://localhost:${PORT}/api/wrongbook`);
 console.log(`排行榜接口: http://localhost:${PORT}/api/leaderboard`);
 console.log(`英语排行榜接口: http://localhost:${PORT}/api/english-leaderboard`);
-console.log(`背单词接口: http://localhost:${PORT}/api/vocabulary`);
+console.log(`记单词接口: http://localhost:${PORT}/api/vocabulary`);
 
 });

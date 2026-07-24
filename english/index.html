@@ -39,7 +39,7 @@
             <h1 class="gradient-animate" data-i18n="menuTitle">📚 English Word Adventure</h1>
             <p class="menu-subtitle" data-i18n="menuSubtitle">Choose your learning mode and start your English journey!</p>
             <div class="menu-buttons">
-                <button id="btn-vocabulary" class="menu-btn vocabulary-btn" data-i18n="btnVocabulary">📚 背单词</button>
+                <button id="btn-vocabulary" class="menu-btn vocabulary-btn" data-i18n="btnVocabulary">📚 记单词</button>
                 <button id="btn-monopoly" class="menu-btn" data-i18n="btnMonopoly">🏠 Word Monopoly</button>
                 <button id="btn-wordmatch" class="menu-btn" data-i18n="btnWordmatch">🃏 Word Match</button>
                 <button id="btn-wordblast" class="menu-btn" data-i18n="btnWordblast">✏️ 单词填空</button>
@@ -266,23 +266,23 @@
                 <nav class="vocabulary-sidebar" id="vocabulary-sidebar">
                     <div class="sidebar-header">
                         <button id="btn-back-vocabulary" class="back-btn" data-i18n="btnBack">← 返回</button>
-                        <div class="sidebar-title">📚 背单词</div>
+                        <div class="sidebar-title">📚 记单词</div>
                     </div>
                     
                     <div class="sidebar-nav">
                         <div class="nav-section">
                             <div class="nav-section-title">学习功能</div>
                             <button class="nav-item active" data-module="memory-training">
-                                <span class="nav-icon">🧠</span>
-                                <span class="nav-text">记忆训练</span>
+                                <span class="nav-icon">📝</span>
+                                <span class="nav-text">单词训练</span>
                             </button>
-                            <button class="nav-item" data-module="dictation-training">
-                                <span class="nav-icon">🎧</span>
-                                <span class="nav-text">听写训练</span>
+                            <button class="nav-item" data-module="history-words">
+                                <span class="nav-icon">📚</span>
+                                <span class="nav-text">历史单词</span>
                             </button>
                             <button class="nav-item" data-module="wrong-book">
-                                <span class="nav-icon">❌</span>
-                                <span class="nav-text">错题本</span>
+                                <span class="nav-icon">📖</span>
+                                <span class="nav-text">单词库</span>
                             </button>
                         </div>
                         
@@ -323,7 +323,7 @@
                             <button id="btn-toggle-sidebar" class="toggle-sidebar-btn">
                                 <span class="toggle-icon">☰</span>
                             </button>
-                            <h1 class="header-title" id="header-title">记忆训练</h1>
+                            <h1 class="header-title" id="header-title">单词训练</h1>
                         </div>
                         
                         <div class="header-center">
@@ -355,75 +355,57 @@
                     
                     <!-- 模块内容区 -->
                     <div class="vocabulary-content">
-                        <!-- 记忆训练模块 -->
+                        <!-- 单词训练模块 -->
                         <div id="memory-training-module" class="vocabulary-module active">
-                            <div class="module-actions">
-                                <button id="btn-add-word" class="vocabulary-action-btn info-btn">
-                                    <span class="btn-icon">➕</span>
-                                    <span>添加单词</span>
-                                </button>
-                                <button id="btn-clear-mastered-vocab" class="vocabulary-action-btn success-btn">
-                                    <span class="btn-icon">🧹</span>
-                                    <span>清除已掌握</span>
-                                </button>
+                            <!-- 快速开始 -->
+                            <!-- 单词训练整合区域 -->
+                            <div class="training-hero">
+                                <div class="training-hero-content">
+                                    <div class="training-hero-header">
+                                        <div class="training-hero-icon">📝</div>
+                                        <div class="training-hero-info">
+                                            <h3 class="training-hero-title">单词训练</h3>
+                                            <p class="training-hero-desc">依次完成认读→拼写→听音，全部通过才算掌握</p>
+                                        </div>
+                                    </div>
+                                    <div class="training-flow-section">
+                                        <h3 class="config-title">训练流程</h3>
+                                        <div class="training-flow-indicator">
+                                            <div class="flow-step">
+                                                <div class="flow-step-icon">👁️</div>
+                                                <div class="flow-step-name">认读</div>
+                                            </div>
+                                            <div class="flow-arrow">→</div>
+                                            <div class="flow-step">
+                                                <div class="flow-step-icon">✍️</div>
+                                                <div class="flow-step-name">拼写</div>
+                                            </div>
+                                            <div class="flow-arrow">→</div>
+                                            <div class="flow-step">
+                                                <div class="flow-step-icon">🎧</div>
+                                                <div class="flow-step-name">听音</div>
+                                            </div>
+                                        </div>
+                                        <p class="training-flow-desc">依次完成三种模式，全部通过才算掌握</p>
+                                    </div>
+                                    <button id="btn-start-training" class="start-training-btn">
+                                        <span class="btn-icon">🚀</span>
+                                        <span>开始训练</span>
+                                    </button>
+                                    <div id="training-lock" class="training-lock hidden">
+                                        <span class="lock-icon">🔒</span>
+                                        <span class="lock-text">请先完成昨天训练</span>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <!-- 训练配置 -->
-                            <div class="training-config" id="training-config">
-                                <div class="config-section">
-                                    <h3 class="config-title">训练范围</h3>
-                                    <div class="config-options">
-                                        <button class="config-option active" data-range="today">今日单词</button>
-                                        <button class="config-option" data-range="all">全部词库</button>
-                                        <button class="config-option" data-range="wrongbook">错题本</button>
-                                    </div>
-                                </div>
-                                
-                                <div class="config-section">
-                                    <h3 class="config-title">训练模式</h3>
-                                    <div class="config-cards">
-                                        <div class="config-card active" data-mode="recognition">
-                                            <div class="card-icon">👁️</div>
-                                            <div class="card-title">认读模式</div>
-                                            <div class="card-desc">看单词选释义</div>
-                                        </div>
-                                        <div class="config-card" data-mode="spelling">
-                                            <div class="card-icon">✍️</div>
-                                            <div class="card-title">拼写模式</div>
-                                            <div class="card-desc">看释义写单词</div>
-                                        </div>
-                                        <div class="config-card" data-mode="listening">
-                                            <div class="card-icon">🎧</div>
-                                            <div class="card-title">听音模式</div>
-                                            <div class="card-desc">听发音写单词</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="config-section">
-                                    <h3 class="config-title">新词/复习比例</h3>
-                                    <div class="ratio-slider">
-                                        <input type="range" id="new-word-ratio" min="0" max="100" value="70" class="slider">
-                                        <div class="ratio-labels">
-                                            <span>新词: <span id="new-ratio-value">70</span>%</span>
-                                            <span>复习: <span id="review-ratio-value">30</span>%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <button id="btn-start-training" class="start-training-btn">
-                                    <span class="btn-icon">🚀</span>
-                                    <span>开始训练</span>
-                                </button>
-                            </div>
                             
-                            <!-- 统计卡片 -->
-                            <div class="vocabulary-stats" id="vocabulary-stats"></div>
                             
-                            <!-- 今日背单词 -->
+                            
+                            <!-- 今日记单词 -->
                             <div class="vocabulary-today">
                                 <div class="vocabulary-today-header">
-                                    <h3 class="vocabulary-today-title">📖 今日背单词</h3>
+                                    <h3 class="vocabulary-today-title">📖 今日记单词</h3>
                                     <div class="vocabulary-today-progress">
                                         <span id="today-progress-text">0/5</span>
                                         <div class="vocabulary-progress-bar">
@@ -433,30 +415,26 @@
                                 </div>
                                 <div id="vocabulary-today-words"></div>
                             </div>
-                            
-                            <!-- 筛选器 -->
-                            <div class="vocabulary-filter">
-                                <button class="vocabulary-filter-btn active" data-filter="all">
-                                    <span class="filter-icon">📚</span>
-                                    <span class="filter-text">全部</span>
-                                </button>
-                                <button class="vocabulary-filter-btn" data-filter="unmastered">
-                                    <span class="filter-icon">📝</span>
-                                    <span class="filter-text">未掌握</span>
-                                </button>
-                                <button class="vocabulary-filter-btn" data-filter="mastered">
-                                    <span class="filter-icon">✅</span>
-                                    <span class="filter-text">已掌握</span>
-                                </button>
-                            </div>
-                            
-                            <!-- 词库列表 -->
-                            <div class="vocabulary-list" id="vocabulary-list"></div>
                         </div>
                         
                         <!-- 听写训练模块 -->
                         <div id="dictation-training-module" class="vocabulary-module">
-                            <div class="dictation-config">
+                            <!-- 快速开始 -->
+                            <div class="training-hero">
+                                <div class="training-hero-content">
+                                    <div class="training-hero-icon">🎤</div>
+                                    <div class="training-hero-info">
+                                        <h3 class="training-hero-title">听写训练</h3>
+                                        <p class="training-hero-desc">听发音拼写单词，提升听力与拼写能力</p>
+                                    </div>
+                                    <button id="btn-quick-start-dictation" class="training-hero-btn">
+                                        <span class="btn-icon">🎤</span>
+                                        <span>开始听写</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="dictation-config expanded" id="dictation-config">
                                 <div class="config-section">
                                     <h3 class="config-title">听写范围</h3>
                                     <div class="config-options">
@@ -523,18 +501,11 @@
                                         <span class="btn-icon">🔄</span>
                                         <span>开始复习</span>
                                     </button>
-                                    <button id="btn-export-wrongbook" class="vocabulary-action-btn info-btn">
-                                        <span class="btn-icon">📤</span>
-                                        <span>导出打印</span>
+                                    <button id="btn-add-word" class="vocabulary-action-btn info-btn">
+                                        <span class="btn-icon">➕</span>
+                                        <span>添加单词</span>
                                     </button>
-                                    <button id="btn-clear-mastered" class="vocabulary-action-btn success-btn">
-                                        <span class="btn-icon">🧹</span>
-                                        <span>清除已掌握</span>
-                                    </button>
-                                    <button id="btn-clear-all" class="vocabulary-action-btn danger-btn">
-                                        <span class="btn-icon">🗑️</span>
-                                        <span>清空全部</span>
-                                    </button>
+
                                 </div>
                                 
                                 <!-- 批量操作栏 -->
@@ -545,7 +516,7 @@
                                     <div class="vocabulary-batch-actions">
                                         <button id="btn-add-to-vocabulary" class="vocabulary-action-btn success-btn">
                                             <span class="btn-icon">📚</span>
-                                            <span>添加到背单词</span>
+                                            <span>添加到记单词</span>
                                         </button>
                                         <button id="btn-clear-selection" class="vocabulary-action-btn danger-btn">
                                             <span class="btn-icon">❌</span>
@@ -554,40 +525,21 @@
                                     </div>
                                 </div>
                                 
-                                <!-- 筛选器 -->
-                                <div class="wrongbook-filters">
-                                    <div class="filter-group">
-                                        <label>时间筛选</label>
-                                        <select id="wrongbook-time-filter" class="filter-select">
-                                            <option value="today">今日</option>
-                                            <option value="week">近7天</option>
-                                            <option value="month">近30天</option>
-                                            <option value="all">全部</option>
-                                        </select>
-                                    </div>
-                                    <div class="filter-group">
-                                        <label>错因筛选</label>
-                                        <select id="wrongbook-error-filter" class="filter-select">
-                                            <option value="all">全部</option>
-                                            <option value="spelling">拼写错误</option>
-                                            <option value="meaning">词义混淆</option>
-                                            <option value="form">词形变形</option>
-                                            <option value="pronunciation">发音辨识</option>
-                                        </select>
-                                    </div>
-                                    <div class="filter-group">
-                                        <label>掌握度</label>
-                                        <select id="wrongbook-mastery-filter" class="filter-select">
-                                            <option value="all">全部</option>
-                                            <option value="high">高频错</option>
-                                            <option value="review">待复习</option>
-                                            <option value="mastered">已掌握</option>
-                                        </select>
-                                    </div>
-                                </div>
+
                                 
                                 <!-- 错题列表 -->
                                 <div class="wrongbook-list" id="vocabulary-wrongbook-list"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 历史单词模块 -->
+                        <div id="history-words-module" class="vocabulary-module">
+                            <div class="history-words-container">
+                                <div class="history-header">
+                                    <h3 class="history-title">📚 历史学习记录</h3>
+                                </div>
+                                <div class="history-stats" id="history-stats"></div>
+                                <div class="history-list" id="history-list"></div>
                             </div>
                         </div>
                         
@@ -621,20 +573,10 @@
                                     <div class="chart-container">
                                         <div class="chart-header">
                                             <h3>学习趋势</h3>
-                                            <div class="chart-toggle">
-                                                <button class="chart-toggle-btn active" data-view="week">周视图</button>
-                                                <button class="chart-toggle-btn" data-view="month">月视图</button>
-                                            </div>
                                         </div>
                                         <div class="chart-area" id="learning-chart"></div>
                                     </div>
                                     
-                                    <div class="chart-container">
-                                        <div class="chart-header">
-                                            <h3>错因分析</h3>
-                                        </div>
-                                        <div class="chart-area" id="error-analysis-chart"></div>
-                                    </div>
                                 </div>
                                 
                                 <div class="top-errors">
@@ -709,6 +651,63 @@
                                         </label>
                                         <span class="setting-hint">每40分钟提醒休息</span>
                                     </div>
+                                    
+                                    <div class="setting-divider"></div>
+                                    <h4 class="setting-subtitle">训练设置</h4>
+                                    <div class="setting-item">
+                                        <label>新词/复习比例</label>
+                                        <div class="ratio-slider">
+                                            <input type="range" id="new-word-ratio" min="0" max="100" value="70" class="slider">
+                                            <div class="ratio-labels">
+                                                <span>新词: <span id="new-ratio-value">70</span>%</span>
+                                                <span>复习: <span id="review-ratio-value">30</span>%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-item">
+                                        <label>每天学习单词数量</label>
+                                        <div class="ratio-slider">
+                                            <input type="range" id="daily-word-count" min="5" max="10" value="5" class="slider">
+                                            <div class="ratio-labels">
+                                                <span>数量: <span id="daily-word-count-value">5</span>个</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-divider"></div>
+                                    <h4 class="setting-subtitle">听写高级设置</h4>
+                                    <div class="setting-item">
+                                        <label>单词间隔</label>
+                                        <div class="setting-options">
+                                            <button class="setting-option" data-setting="listening-interval" data-value="3">3秒</button>
+                                            <button class="setting-option active" data-setting="listening-interval" data-value="5">5秒</button>
+                                            <button class="setting-option" data-setting="listening-interval" data-value="8">8秒</button>
+                                            <button class="setting-option" data-setting="listening-interval" data-value="10">10秒</button>
+                                        </div>
+                                    </div>
+                                    <div class="setting-item">
+                                        <label>播放次数</label>
+                                        <div class="setting-options">
+                                            <button class="setting-option" data-setting="listening-play-count" data-value="1">1次</button>
+                                            <button class="setting-option active" data-setting="listening-play-count" data-value="2">2次</button>
+                                            <button class="setting-option" data-setting="listening-play-count" data-value="3">3次</button>
+                                        </div>
+                                    </div>
+                                    <div class="setting-item">
+                                        <label>显示中文释义</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="listening-show-chinese-hint" checked>
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="setting-item">
+                                        <label>显示首字母</label>
+                                        <label class="toggle-switch">
+                                            <input type="checkbox" id="listening-show-first-letter">
+                                            <span class="toggle-slider"></span>
+                                        </label>
+                                    </div>
                                 </div>
                                 
                                 <div class="settings-panel hidden" id="shortcuts-settings">
@@ -749,6 +748,10 @@
             <!-- 训练界面 -->
             <div id="training-interface" class="training-interface hidden">
                 <div class="training-header">
+                    <div class="training-mode-indicator" id="training-mode-indicator">
+                        <span class="mode-icon">👁️</span>
+                        <span class="mode-name">认读模式</span>
+                    </div>
                     <div class="training-progress">
                         <div class="training-progress-bar">
                             <div class="training-progress-fill" id="training-progress-fill" style="width: 0%"></div>

@@ -24,12 +24,6 @@ CREATE TABLE IF NOT EXISTS wrong_book (
     INDEX idx_error_type (error_type)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 注意：如果是从旧版本升级，需要手动执行以下 SQL：
--- ALTER TABLE wrong_book ADD COLUMN deleted TINYINT(1) DEFAULT 0 AFTER mastered;
--- ALTER TABLE wrong_book ADD INDEX idx_deleted (deleted);
--- ALTER TABLE wrong_book ADD COLUMN error_type VARCHAR(50) DEFAULT 'all' AFTER deleted;
--- ALTER TABLE wrong_book ADD INDEX idx_error_type (error_type);
-
 -- 数学游戏排行榜数据表
 CREATE TABLE IF NOT EXISTS math_leaderboard (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,29 +64,9 @@ CREATE TABLE IF NOT EXISTS english_leaderboard (
 -- 注意：如果是从旧版本升级，需要手动执行以下 SQL：
 -- ALTER TABLE english_leaderboard ADD COLUMN unit VARCHAR(20) DEFAULT 'all' AFTER grade;
 
--- 背单词词库表
-CREATE TABLE IF NOT EXISTS vocabulary_book (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    word VARCHAR(100) NOT NULL UNIQUE,
-    meaning TEXT,
-    phonetic VARCHAR(100),
-    example TEXT,
-    root_affix VARCHAR(255),
-    grade VARCHAR(20),
-    source VARCHAR(50) DEFAULT 'wrongbook',
-    added_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    last_study_time DATETIME,
-    mastered TINYINT(1) DEFAULT 0,
-    study_count INT DEFAULT 0,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    INDEX idx_word (word),
-    INDEX idx_mastered (mastered),
-    INDEX idx_added_time (added_time),
-    INDEX idx_last_study_time (last_study_time)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- 注意：单词库功能已改为直接使用错题本(wrong_book)表数据，不再需要单独的vocabulary_book表
 
--- 每日背单词记录表
+-- 每日记单词记录表
 CREATE TABLE IF NOT EXISTS vocabulary_daily_record (
     id INT AUTO_INCREMENT PRIMARY KEY,
     word VARCHAR(100) NOT NULL,
@@ -106,7 +80,7 @@ CREATE TABLE IF NOT EXISTS vocabulary_daily_record (
     INDEX idx_word_date (word, study_date)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 总体背单词记录表
+-- 总体记单词记录表
 CREATE TABLE IF NOT EXISTS vocabulary_total_record (
     id INT AUTO_INCREMENT PRIMARY KEY,
     word VARCHAR(100) NOT NULL UNIQUE,

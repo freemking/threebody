@@ -17,13 +17,13 @@
 │   ├── package.json    # Node.js配置
 │   ├── js/             # JavaScript文件
 │   │   ├── app.js      # 主应用逻辑
-│   │   ├── vocabulary.js # 背单词模块
+│   │   ├── vocabulary.js # 记单词模块
 │   │   ├── wrongbook.js # 错题本模块
 │   │   └── ...         # 其他游戏模块
 │   ├── css/            # 样式文件
 │   │   ├── style.css   # 全局设计系统变量
 │   │   ├── wrongbook.css # 错题本专用样式（统一管理）
-│   │   ├── vocabulary.css # 背单词模块样式
+│   │   ├── vocabulary.css # 记单词模块样式
 │   │   └── ...         # 其他游戏样式
 │   ├── data/           # 单词数据(JSON)
 │   └── assets/         # 资源文件
@@ -31,7 +31,7 @@
 │   ├── server.js       # Express服务器主文件
 │   ├── routes/         # API路由
 │   │   ├── wrongbook.js # 错题本API
-│   │   ├── vocabulary.js # 背单词API
+│   │   ├── vocabulary.js # 记单词API
 │   │   └── ...         # 其他API
 │   └── db.js           # 数据库连接配置
 ├── math/               # 数学口算游戏
@@ -103,7 +103,7 @@ sudo systemctl restart nginx
 - 🃏 **单词配对（Word Match）**：记忆翻牌游戏，匹配单词与释义
 - 💣 **单词大爆炸（Word Blast）**：填空练习，巩固单词拼写和用法
 - 📓 **错题本系统**：自动收集游戏中的错误单词，支持复习、测验、导出打印
-- 📊 **背单词模块**：支持记忆训练、听写训练、学习数据统计
+- 📊 **记单词模块**：支持单词训练、听写训练、学习数据统计
 - 🎮 **支持1-9年级**：每个年级10个单元，涵盖小学到初中英语词汇
 - 🤖 **AI对手系统**：智能AI对手，提升游戏挑战性
 
@@ -157,7 +157,7 @@ MIT License
 #### 样式文件组织
 1. **全局样式**：`style.css` 包含所有模块共享的设计系统变量
 2. **错题本样式**：`wrongbook.css` 统一管理错题本相关样式，避免重复
-3. **背单词样式**：`vocabulary.css` 背单词模块专用样式
+3. **记单词样式**：`vocabulary.css` 记单词模块专用样式
 4. **游戏样式**：`wordmatch.css`、`monopoly.css`、`wordblast.css` 各游戏模块专用
 
 #### 样式整合优化
@@ -173,7 +173,7 @@ MIT License
 - `PUT /api/wrongbook/master/:id`：标记掌握
 - `DELETE /api/wrongbook/:id`：删除错题
 
-#### 背单词API
+#### 记单词API
 - `GET /api/vocabulary/list`：获取词库列表
 - `POST /api/vocabulary/add`：添加单词
 - `PUT /api/vocabulary/study/:id`：更新学习进度
@@ -182,6 +182,7 @@ MIT License
 ### 数据库
 
 使用MySQL数据库，主要表结构：
-- `wrong_book`：错题本表
-- `vocabulary_book`：背单词词库表
+- `wrong_book`：错题本表（单词库直接使用此表数据）
+- `vocabulary_daily_record`：每日学习记录表
+- `vocabulary_total_record`：总体学习记录表
 - `leaderboard`：排行榜表

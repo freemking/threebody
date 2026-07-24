@@ -1,4 +1,4 @@
-/* === 背单词模块 - 现代化视觉设计 === */
+/* === 记单词模块 - 现代化视觉设计 === */
 
 /* 设计系统变量 - 三体风格 */
 :root {
@@ -61,7 +61,7 @@
     --vb-transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* 背单词主屏幕 */
+/* 记单词主屏幕 */
 #vocabulary-screen {
     background: var(--vb-bg-primary);
     min-height: 100vh;
@@ -92,52 +92,7 @@
     z-index: 1;
 }
 
-/* 统计卡片网格 */
-.vocabulary-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--vb-space-md);
-    margin-bottom: var(--vb-space-xl);
-}
-
-/* 统计卡片 */
-.vocabulary-stat-card {
-    background: var(--vb-bg-card);
-    border: 1px solid var(--vb-border);
-    border-radius: var(--vb-radius-lg);
-    padding: var(--vb-space-lg);
-    text-align: center;
-    transition: all var(--vb-transition-normal);
-    backdrop-filter: blur(10px);
-}
-
-.vocabulary-stat-card:hover {
-    background: var(--vb-bg-card-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--vb-shadow-hover);
-}
-
-.vocabulary-stat-icon {
-    font-size: 1.5rem;
-    margin-bottom: var(--vb-space-sm);
-    display: block;
-}
-
-.vocabulary-stat-value {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--vb-text-primary);
-    font-family: var(--vb-font-mono);
-    margin-bottom: var(--vb-space-xs);
-}
-
-.vocabulary-stat-label {
-    font-size: 0.85rem;
-    color: var(--vb-text-muted);
-    font-weight: 600;
-}
-
-/* 今日背单词区域 */
+/* 今日记单词区域 */
 .vocabulary-today {
     background: var(--vb-bg-card);
     border: 1px solid var(--vb-border);
@@ -243,45 +198,7 @@
     margin-top: var(--vb-space-xs);
 }
 
-.vocabulary-word-actions {
-    display: flex;
-    gap: var(--vb-space-sm);
-}
 
-.vocabulary-action-btn {
-    background: transparent;
-    border: 1px solid var(--vb-border);
-    border-radius: var(--vb-radius-sm);
-    padding: var(--vb-space-xs) var(--vb-space-sm);
-    color: var(--vb-text-secondary);
-    cursor: pointer;
-    transition: all var(--vb-transition-fast);
-    font-size: 0.8rem;
-}
-
-.vocabulary-action-btn:hover {
-    background: var(--vb-bg-card-hover);
-    border-color: var(--vb-primary);
-    color: var(--vb-text-primary);
-}
-
-.vocabulary-action-btn.mastered-btn {
-    border-color: var(--vb-success);
-    color: var(--vb-success);
-}
-
-.vocabulary-action-btn.mastered-btn:hover {
-    background: rgba(16, 185, 129, 0.2);
-}
-
-.vocabulary-action-btn.remove-btn {
-    border-color: var(--vb-danger);
-    color: var(--vb-danger);
-}
-
-.vocabulary-action-btn.remove-btn:hover {
-    background: rgba(239, 68, 68, 0.2);
-}
 
 .vocabulary-word-meaning {
     font-size: 1.1rem;
@@ -386,40 +303,6 @@
 
 .vocabulary-action-btn.danger-btn:hover {
     box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
-}
-
-/* 筛选器 */
-.vocabulary-filter {
-    display: flex;
-    gap: var(--vb-space-sm);
-    margin-bottom: var(--vb-space-xl);
-    flex-wrap: wrap;
-}
-
-.vocabulary-filter-btn {
-    display: flex;
-    align-items: center;
-    gap: var(--vb-space-xs);
-    padding: var(--vb-space-sm) var(--vb-space-md);
-    border-radius: var(--vb-radius-full);
-    font-weight: 600;
-    transition: all var(--vb-transition-normal);
-    cursor: pointer;
-    border: 1px solid var(--vb-border);
-    background: var(--vb-bg-card);
-    color: var(--vb-text-secondary);
-    font-size: 0.85rem;
-}
-
-.vocabulary-filter-btn:hover {
-    background: var(--vb-bg-card-hover);
-    color: var(--vb-text-primary);
-}
-
-.vocabulary-filter-btn.active {
-    background: var(--vb-primary);
-    color: var(--vb-bg-primary);
-    border-color: transparent;
 }
 
 /* 学习界面 */
@@ -551,9 +434,6 @@
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-    .vocabulary-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
     
     .vocabulary-study-options {
         grid-template-columns: 1fr;
@@ -566,31 +446,11 @@
     .vocabulary-action-btn {
         justify-content: center;
     }
-    
-    .vocabulary-filter {
-        flex-direction: column;
-    }
-    
-    .vocabulary-filter-btn {
-        justify-content: center;
-    }
 }
 
 @media (max-width: 480px) {
     .vocabulary-container {
         padding: var(--vb-space-lg);
-    }
-    
-    .vocabulary-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .vocabulary-stat-card {
-        padding: var(--vb-space-md);
-    }
-    
-    .vocabulary-stat-value {
-        font-size: 1.5rem;
     }
     
     .vocabulary-today {
@@ -844,14 +704,7 @@
     transform: translateY(-2px);
 }
 
-.vocabulary-action-btn.edit-btn {
-    border-color: var(--vb-accent);
-    color: var(--vb-accent);
-}
 
-.vocabulary-action-btn.edit-btn:hover {
-    background: rgba(251, 191, 36, 0.2);
-}
 
 /* === 历史记录面板 === */
 
@@ -945,9 +798,7 @@
 }
 
 .history-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--vb-space-md);
+    margin-bottom: var(--vb-space-xl);
 }
 
 .history-stat-item {
@@ -1337,77 +1188,6 @@
     font-weight: 600;
 }
 
-/* === 等级系统样式 === */
-
-.vocabulary-stat-card.level-card {
-    grid-column: span 2;
-    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%);
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    padding: var(--vb-space-xl);
-}
-
-.level-header {
-    display: flex;
-    align-items: center;
-    gap: var(--vb-space-md);
-    margin-bottom: var(--vb-space-md);
-}
-
-.level-icon {
-    font-size: 2.5rem;
-    line-height: 1;
-}
-
-.level-info {
-    flex: 1;
-}
-
-.level-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--vb-text-primary);
-    margin-bottom: var(--vb-space-xs);
-}
-
-.level-number {
-    font-size: 0.9rem;
-    color: var(--vb-text-accent);
-    font-weight: 600;
-    font-family: var(--vb-font-mono);
-}
-
-.level-progress {
-    margin-bottom: var(--vb-space-md);
-}
-
-.level-progress-bar {
-    height: 8px;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: var(--vb-radius-full);
-    overflow: hidden;
-    margin-bottom: var(--vb-space-xs);
-}
-
-.level-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
-    border-radius: var(--vb-radius-full);
-    transition: width var(--vb-transition-normal);
-}
-
-.level-progress-text {
-    font-size: 0.8rem;
-    color: var(--vb-text-muted);
-    text-align: right;
-    font-family: var(--vb-font-mono);
-}
-
-.level-desc {
-    font-size: 0.85rem;
-    color: var(--vb-text-secondary);
-    font-style: italic;
-}
-
 /* === 成就徽章样式 === */
 
 .vocabulary-achievements {
@@ -1570,33 +1350,12 @@
 /* === 响应式设计 === */
 
 @media (max-width: 768px) {
-    .vocabulary-stat-card.level-card {
-        grid-column: span 1;
-    }
-    
     .achievements-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .level-icon {
-        font-size: 2rem;
-    }
-    
-    .level-title {
-        font-size: 1rem;
     }
 }
 
 @media (max-width: 480px) {
-    .vocabulary-stat-card.level-card {
-        padding: var(--vb-space-lg);
-    }
-    
-    .level-header {
-        flex-direction: column;
-        text-align: center;
-    }
-    
     .achievement-item {
         flex-direction: column;
         align-items: center;
@@ -1604,577 +1363,264 @@
     }
 }
 
-/* === 错题本样式整合 === */
+/* === 历史单词容器 === */
 
-/* 错题本内容容器 */
-.wrongbook-content {
-    max-width: 1000px;
-    margin: 0 auto;
+.history-words-container {
+    background: var(--vb-bg-card);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-xl);
     padding: var(--vb-space-xl);
+    margin-bottom: var(--vb-space-xl);
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 0.3s ease forwards;
 }
 
-/* 错题本统计卡片网格 */
-.wrongbook-stats {
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vb-space-lg);
+}
+
+.history-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
+}
+
+.history-controls {
+    display: flex;
+    gap: var(--vb-space-md);
+}
+
+.history-stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--vb-space-md);
-    margin-bottom: var(--vb-space-lg);
 }
 
-/* 错题本统计卡片 */
-.wrongbook-stat-card {
-    background: var(--vb-bg-card);
-    border-radius: var(--vb-radius-lg);
-    padding: var(--vb-space-md);
-    text-align: center;
-    backdrop-filter: blur(20px);
+.history-stat-card {
+    background: rgba(0, 255, 255, 0.05);
     border: 1px solid var(--vb-border);
-    transition: var(--vb-transition-normal);
-    position: relative;
-    overflow: hidden;
+    border-radius: var(--vb-radius-md);
+    padding: var(--vb-space-lg);
+    text-align: center;
 }
 
-.wrongbook-stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
-    opacity: 0;
-    transition: var(--vb-transition-normal);
-}
-
-.wrongbook-stat-card:hover {
-    background: var(--vb-bg-card-hover);
-    transform: translateY(-4px);
-    box-shadow: var(--vb-shadow-hover);
-}
-
-.wrongbook-stat-card:hover::before {
-    opacity: 1;
-}
-
-/* 错题本统计数字 */
-.wrongbook-stat-number {
+.history-stat-card .stat-icon {
     font-size: 2rem;
+    margin-bottom: var(--vb-space-sm);
+}
+
+.history-stat-card .stat-value {
+    font-size: 1.8rem;
     font-weight: 800;
     color: var(--vb-text-primary);
-    font-family: var(--vb-font-display);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-    text-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.3);
+    font-family: var(--vb-font-mono);
 }
 
-/* 错题本统计标签 */
-.wrongbook-stat-label {
-    font-size: 0.8rem;
-    color: var(--vb-text-muted);
-    font-family: var(--vb-font-body);
-    font-weight: 500;
-}
-
-/* 错题本操作按钮区域 */
-.wrongbook-actions {
-    display: flex;
-    gap: var(--vb-space-md);
-    margin-bottom: var(--vb-space-xl);
-    flex-wrap: wrap;
-}
-
-/* 错题本筛选器 */
-.wrongbook-filters {
-    display: flex;
-    gap: var(--vb-space-md);
-    margin-bottom: var(--vb-space-xl);
-    flex-wrap: wrap;
-}
-
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: var(--vb-space-xs);
-}
-
-.filter-group label {
+.history-stat-card .stat-label {
     font-size: 0.85rem;
-    color: var(--vb-text-muted);
-    font-weight: 600;
-}
-
-.filter-select {
-    background: var(--vb-bg-card);
-    border: 1px solid var(--vb-border);
-    border-radius: var(--vb-radius-md);
-    padding: var(--vb-space-sm) var(--vb-space-md);
-    color: var(--vb-text-secondary);
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all var(--vb-transition-fast);
-}
-
-.filter-select:hover {
-    background: var(--vb-bg-card-hover);
-    border-color: var(--vb-primary);
-}
-
-.filter-select:focus {
-    outline: none;
-    border-color: var(--vb-primary);
-    box-shadow: 0 0 0 2px rgba(0, 255, 255, 0.2);
-}
-
-/* 错题本列表 */
-.wrongbook-list {
-    display: flex;
-    flex-direction: column;
-    gap: var(--vb-space-lg);
-    margin-bottom: var(--vb-space-2xl);
-}
-
-/* 错题卡片 */
-.wrongbook-item {
-    background: var(--vb-bg-card);
-    border-radius: var(--vb-radius-lg);
-    padding: var(--vb-space-xl);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--vb-border);
-    transition: var(--vb-transition-bounce);
-    position: relative;
-    cursor: pointer;
-}
-
-.wrongbook-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: var(--vb-primary);
-    opacity: 0;
-    transition: var(--vb-transition-normal);
-}
-
-.wrongbook-item:hover {
-    background: var(--vb-bg-card-hover);
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: var(--vb-shadow-hover);
-}
-
-.wrongbook-item:hover::before {
-    opacity: 1;
-}
-
-/* 已掌握卡片 */
-.wrongbook-item.mastered {
-    background: var(--vb-bg-card-mastered);
-    border-color: var(--vb-border-mastered);
-}
-
-.wrongbook-item.mastered::before {
-    background: var(--vb-success);
-}
-
-/* 卡片头部 */
-.wrongbook-item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: var(--vb-space-md);
-}
-
-/* 单词文本 */
-.wrongbook-word {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--vb-text-primary);
-    font-family: var(--vb-font-display);
-    line-height: 1.2;
-    transition: var(--vb-transition-normal);
-}
-
-.wrongbook-word.mastered-text {
-    text-decoration: none;
-    color: var(--vb-success-light);
-    opacity: 0.8;
-}
-
-/* 徽章容器 */
-.wrongbook-badges {
-    display: flex;
-    gap: var(--vb-space-xs);
-    flex-wrap: wrap;
-}
-
-/* 徽章 */
-.wrongbook-badge {
-    font-size: 0.7rem;
-    padding: 3px 10px;
-    border-radius: var(--vb-radius-full);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    backdrop-filter: blur(10px);
-}
-
-.wrongbook-badge.from-monopoly {
-    background: linear-gradient(135deg, var(--vb-success), var(--vb-success-light));
-    color: white;
-}
-
-.wrongbook-badge.from-wordmatch {
-    background: linear-gradient(135deg, var(--vb-primary), var(--vb-primary-light));
-    color: white;
-}
-
-.wrongbook-badge.from-wordblast {
-    background: linear-gradient(135deg, var(--vb-accent), var(--vb-accent-light));
-    color: white;
-}
-
-.wrongbook-badge.mastered-badge {
-    background: linear-gradient(135deg, var(--vb-success), var(--vb-success-light));
-    color: white;
-}
-
-/* 音标 */
-.wrongbook-phonetic {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1.1rem;
-    margin-bottom: var(--vb-space-sm);
-    font-style: italic;
-    font-family: var(--vb-font-mono);
-    display: flex;
-    align-items: center;
-    gap: var(--vb-space-sm);
-}
-
-/* 朗读按钮 */
-.wrongbook-speak-btn {
-    background: none;
-    border: none;
-    color: var(--vb-primary-light);
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: 4px;
-    transition: var(--vb-transition-bounce);
-    opacity: 0.7;
-}
-
-.wrongbook-speak-btn:hover {
-    transform: scale(1.2);
-    opacity: 1;
-}
-
-/* 释义 */
-.wrongbook-meaning {
-    color: var(--vb-text-secondary);
-    font-size: 1.1rem;
-    margin-bottom: var(--vb-space-md);
-    font-family: var(--vb-font-body);
-    line-height: 1.5;
-}
-
-/* 词根词缀 */
-.wrongbook-rootAffix {
-    color: var(--vb-text-accent);
-    font-size: 0.95rem;
-    margin-bottom: var(--vb-space-md);
-    padding: var(--vb-space-sm) var(--vb-space-md);
-    background: rgba(245, 158, 11, 0.1);
-    border-radius: var(--vb-radius-md);
-    border-left: 3px solid rgba(245, 158, 11, 0.5);
-    font-family: var(--vb-font-body);
-}
-
-.wrongbook-rootAffix-label {
-    font-weight: 700;
-    color: var(--vb-accent-light);
-}
-
-/* 例句 */
-.wrongbook-example {
-    color: var(--vb-text-muted);
-    font-size: 1.2rem;
-    font-style: italic;
-    margin-bottom: var(--vb-space-md);
-    padding: var(--vb-space-sm) var(--vb-space-md);
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: var(--vb-radius-md);
-    border-left: 2px solid rgba(255, 255, 255, 0.1);
-    font-family: var(--vb-font-body);
-}
-
-/* 元数据 */
-.wrongbook-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--vb-text-muted);
-    font-size: 0.8rem;
-    margin-bottom: var(--vb-space-md);
-    padding-top: var(--vb-space-sm);
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* 错误次数 */
-.wrongbook-count {
-    color: var(--vb-danger-light);
-    font-weight: 700;
-    font-family: var(--vb-font-mono);
-}
-
-/* 操作按钮容器 */
-.wrongbook-actions-cell {
-    display: flex;
-    gap: var(--vb-space-sm);
-    justify-content: flex-end;
-    margin-top: var(--vb-space-md);
-    padding-top: var(--vb-space-sm);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* 操作按钮 */
-.wrongbook-action-btn-small {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    border: none;
-    padding: var(--vb-space-xs) var(--vb-space-md);
-    border-radius: var(--vb-radius-sm);
-    font-size: 0.8rem;
-    font-family: var(--vb-font-body);
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--vb-transition-bounce);
-    backdrop-filter: blur(10px);
-}
-
-.wrongbook-action-btn-small:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.wrongbook-action-btn-small.danger {
-    background: rgba(239, 68, 68, 0.3);
-    border: 1px solid rgba(239, 68, 68, 0.4);
-}
-
-.wrongbook-action-btn-small.danger:hover {
-    background: rgba(239, 68, 68, 0.5);
-}
-
-.wrongbook-action-btn-small.success {
-    background: rgba(16, 185, 129, 0.3);
-    border: 1px solid rgba(16, 185, 129, 0.4);
-}
-
-.wrongbook-action-btn-small.success:hover {
-    background: rgba(16, 185, 129, 0.5);
-}
-
-/* 测验模式 */
-.quiz-mode .wrongbook-meaning,
-.quiz-mode .wrongbook-rootAffix,
-.quiz-mode .wrongbook-example {
-    filter: blur(5px);
-    user-select: none;
-    transition: filter 0.3s ease;
-}
-
-.quiz-mode .wrongbook-meaning:hover,
-.quiz-mode .wrongbook-rootAffix:hover,
-.quiz-mode .wrongbook-example:hover {
-    filter: blur(0);
-}
-
-/* 测验提示 */
-.wrongbook-quiz-hint {
-    background: rgba(0, 255, 255, 0.1);
-    border: 1px solid rgba(0, 255, 255, 0.3);
-    border-radius: var(--vb-radius-md);
-    padding: var(--vb-space-md);
-    margin-bottom: var(--vb-space-lg);
-    color: var(--vb-text-accent);
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-/* 测验按钮 */
-.quiz-btn {
-    background: linear-gradient(135deg, var(--vb-accent), #f59e0b);
-    color: var(--vb-bg-primary);
-    border-color: transparent;
-}
-
-.quiz-btn:hover {
-    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
-    transform: translateY(-2px);
-}
-
-.quiz-btn.active {
-    background: linear-gradient(135deg, var(--vb-danger), var(--vb-danger-light));
-    color: white;
-}
-
-/* 勾选框样式 */
-.vocabulary-checkbox {
-    display: flex;
-    align-items: center;
-    gap: var(--vb-space-sm);
-    cursor: pointer;
-}
-
-.vocabulary-checkbox input[type="checkbox"] {
-    display: none;
-}
-
-.vocabulary-checkbox-mark {
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--vb-border);
-    border-radius: var(--vb-radius-sm);
-    background: var(--vb-bg-card);
-    transition: all var(--vb-transition-fast);
-    position: relative;
-}
-
-.vocabulary-checkbox input[type="checkbox"]:checked + .vocabulary-checkbox-mark {
-    background: var(--vb-primary);
-    border-color: var(--vb-primary);
-}
-
-.vocabulary-checkbox input[type="checkbox"]:checked + .vocabulary-checkbox-mark::after {
-    content: '✓';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-/* 批量操作栏 */
-.vocabulary-batch-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--vb-bg-card);
-    border: 1px solid var(--vb-border);
-    border-radius: var(--vb-radius-md);
-    padding: var(--vb-space-md) var(--vb-space-lg);
-    margin-bottom: var(--vb-space-lg);
-    backdrop-filter: blur(10px);
-}
-
-.vocabulary-batch-info {
-    display: flex;
-    align-items: center;
-    gap: var(--vb-space-sm);
-    color: var(--vb-text-secondary);
-}
-
-.vocabulary-batch-count {
-    color: var(--vb-primary);
-    font-weight: 700;
-}
-
-.vocabulary-batch-actions {
-    display: flex;
-    gap: var(--vb-space-sm);
-}
-
-/* 错题本进度条 */
-.wrongbook-progress-bar {
-    width: 100%;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--vb-radius-full);
-    overflow: hidden;
-}
-
-.wrongbook-progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--vb-primary), var(--vb-accent));
-    border-radius: var(--vb-radius-full);
-    transition: width var(--vb-transition-slow);
-}
-
-.wrongbook-progress-text {
-    font-size: 0.8rem;
     color: var(--vb-text-muted);
     margin-top: var(--vb-space-xs);
 }
 
-/* 错误次数进度条 */
-.wrongbook-wrong-bar {
-    width: 60px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: var(--vb-radius-full);
-    overflow: hidden;
-}
-
-.wrongbook-wrong-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--vb-danger), var(--vb-danger-light));
-    border-radius: var(--vb-radius-full);
-    transition: width var(--vb-transition-slow);
-}
-
-/* 空状态 */
-.wrongbook-empty {
+.history-empty {
     text-align: center;
-    padding: var(--vb-space-3xl);
-    color: var(--vb-text-muted);
+    padding: var(--vb-space-xxl);
 }
 
-.wrongbook-empty-icon {
+.history-empty .empty-icon {
     font-size: 3rem;
     margin-bottom: var(--vb-space-lg);
-    opacity: 0.5;
 }
 
-.wrongbook-empty-text {
+.history-empty .empty-text {
     font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--vb-text-primary);
     margin-bottom: var(--vb-space-sm);
 }
 
-.wrongbook-empty-hint {
+.history-empty .empty-subtext {
+    color: var(--vb-text-muted);
     font-size: 0.9rem;
-    opacity: 0.7;
 }
 
-/* 动画效果 */
-@keyframes masteredSuccess {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+.history-list {
+    display: grid;
+    gap: var(--vb-space-xl);
 }
 
-.wrongbook-item.mastered-success {
-    animation: masteredSuccess 0.5s ease;
+.history-date-group {
+    background: rgba(0, 255, 255, 0.03);
+    border: 1px solid var(--vb-border);
+    border-radius: var(--vb-radius-lg);
+    padding: var(--vb-space-lg);
 }
 
-@keyframes deleteConfirm {
-    0% { transform: translateX(0); opacity: 1; }
-    50% { transform: translateX(10px); opacity: 0.7; }
-    100% { transform: translateX(0); opacity: 1; }
+.history-date-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--vb-space-lg);
+    padding-bottom: var(--vb-space-md);
+    border-bottom: 1px solid var(--vb-border);
 }
 
-.wrongbook-item.delete-confirm {
-    animation: deleteConfirm 0.3s ease;
+.date-label {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-sm);
 }
 
-/* 朗读动画 */
-.wrongbook-speak-btn.speaking {
-    animation: pulse 1s ease;
+.date-icon {
+    font-size: 1.2rem;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
-    100% { transform: scale(1); }
+.date-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--vb-text-primary);
 }
+
+.date-stats {
+    display: flex;
+    gap: var(--vb-space-md);
+}
+
+.date-stat {
+    background: rgba(0, 255, 255, 0.1);
+    padding: var(--vb-space-xs) var(--vb-space-sm);
+    border-radius: var(--vb-radius-sm);
+    font-size: 0.85rem;
+    color: var(--vb-text-secondary);
+}
+
+.history-date-words {
+    display: grid;
+    gap: var(--vb-space-sm);
+}
+
+.history-word-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--vb-space-md);
+    background: var(--vb-bg-card);
+    border-radius: var(--vb-radius-md);
+    transition: all var(--vb-transition-fast);
+}
+
+.history-word-item:hover {
+    background: var(--vb-bg-card-hover);
+    transform: translateX(5px);
+}
+
+.history-word-item.correct {
+    border-left: 3px solid var(--vb-success);
+}
+
+.history-word-item.incorrect {
+    border-left: 3px solid var(--vb-danger);
+}
+
+.word-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.word-text {
+    font-weight: 600;
+    color: var(--vb-text-primary);
+}
+
+.word-phonetic {
+    font-size: 0.85rem;
+    color: var(--vb-text-accent);
+    font-family: var(--vb-font-mono);
+}
+
+.word-meaning {
+    color: var(--vb-text-secondary);
+    flex: 1;
+    margin: 0 var(--vb-space-md);
+}
+
+.word-status {
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-xs);
+}
+
+.status-icon {
+    font-size: 1.2rem;
+}
+
+.status-text {
+    font-size: 0.85rem;
+    color: var(--vb-text-muted);
+}
+
+.loading-words {
+    text-align: center;
+    padding: var(--vb-space-lg);
+    color: var(--vb-text-muted);
+    font-style: italic;
+}
+
+.no-words {
+    text-align: center;
+    padding: var(--vb-space-lg);
+    color: var(--vb-text-muted);
+}
+
+.history-error {
+    text-align: center;
+    padding: var(--vb-space-xxl);
+}
+
+.history-error .error-icon {
+    font-size: 3rem;
+    margin-bottom: var(--vb-space-lg);
+}
+
+.history-error .error-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--vb-text-primary);
+    margin-bottom: var(--vb-space-sm);
+}
+
+.history-error .error-subtext {
+    color: var(--vb-text-muted);
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .history-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .history-date-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--vb-space-sm);
+    }
+    
+    .date-stats {
+        flex-wrap: wrap;
+    }
+    
+    .history-word-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--vb-space-sm);
+    }
+    
+    .word-meaning {
+        margin: 0;
+    }
+}
+

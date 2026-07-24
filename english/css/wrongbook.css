@@ -2,6 +2,52 @@
 
 /* 错题本样式 - 使用全局设计系统变量 */
 
+:root {
+    /* 映射到全局设计系统变量 */
+    --wb-primary: var(--primary-color);
+    --wb-primary-light: var(--primary-light);
+    --wb-primary-dark: var(--primary-dark);
+    --wb-accent: var(--accent-color);
+    --wb-accent-light: var(--accent-light);
+    --wb-success: var(--success-color);
+    --wb-success-light: var(--success-light);
+    --wb-danger: var(--error-color);
+    --wb-danger-light: var(--error-light);
+    --wb-warning: var(--warning-color);
+    --wb-bg-primary: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+    --wb-bg-card: rgba(0, 255, 255, 0.05);
+    --wb-bg-card-hover: rgba(0, 255, 255, 0.1);
+    --wb-bg-card-mastered: rgba(16, 185, 129, 0.1);
+    --wb-text-primary: var(--text-color);
+    --wb-text-secondary: var(--light-text);
+    --wb-text-muted: var(--muted-text);
+    --wb-text-accent: var(--primary-color);
+    --wb-border: var(--border-color);
+    --wb-border-mastered: rgba(16, 185, 129, 0.4);
+    --wb-shadow: var(--shadow);
+    --wb-shadow-hover: var(--shadow-hover);
+    --wb-space-xs: var(--space-xs);
+    --wb-space-sm: var(--space-sm);
+    --wb-space-md: var(--space-md);
+    --wb-space-lg: var(--space-lg);
+    --wb-space-xl: var(--space-xl);
+    --wb-space-2xl: var(--space-2xl);
+    --wb-space-3xl: var(--space-3xl);
+    --wb-space-4xl: var(--space-4xl);
+    --wb-radius-sm: var(--border-radius-sm);
+    --wb-radius-md: var(--border-radius-md);
+    --wb-radius-lg: var(--border-radius-lg);
+    --wb-radius-xl: var(--border-radius-xl);
+    --wb-radius-full: var(--border-radius-full);
+    --wb-font-display: var(--font-display);
+    --wb-font-body: var(--font-body);
+    --wb-font-mono: var(--font-mono);
+    --wb-transition-fast: var(--transition-fast);
+    --wb-transition-normal: var(--transition);
+    --wb-transition-slow: var(--transition-slow);
+    --wb-transition-bounce: var(--transition-bounce);
+}
+
 /* 错题本主屏幕 */
 #wrongbook-screen {
     background: var(--wb-bg-primary);

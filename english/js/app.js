@@ -8,7 +8,7 @@ const i18nTexts = {
     zh: {
         menuTitle: '📚 英语单词大冒险',
         menuSubtitle: '选择学习模式，开始你的英语之旅！',
-        btnVocabulary: '📚 背单词',
+        btnVocabulary: '📚 记单词',
         btnMonopoly: '🏠 单词大富翁',
         btnWordmatch: '🃏 单词配对',
         btnWordblast: '✏️ 单词填空',
@@ -43,9 +43,9 @@ const i18nTexts = {
         // 单词详情
         btnPronounce: '🔊 朗读',
         mastery: '掌握度: ',
-        // 错题本
-        wrongbookTitle: '📓 错题本',
-        btnWrongbook: '📓 错题本',
+        // 单词库
+        wrongbookTitle: '📖 单词库',
+        btnWrongbook: '📖 单词库',
         filterAll: '全部',
         filterUnmastered: '未掌握',
         filterMastered: '已掌握',
@@ -276,7 +276,7 @@ const i18nTexts = {
         wbSubmit: '提交',
         wbTryAgain: '再试试！',
         wbSkip: '跳过',
-        wbSkipHint: '跳过此单词并计入错题本',
+        wbSkipHint: '跳过此单词并计入单词库',
         wbCorrect: '答对',
         wbWrong: '答错',
         wbPlayWord: '读单词',
@@ -338,9 +338,9 @@ const i18nTexts = {
         // Word Detail
         btnPronounce: '🔊 Pronounce',
         mastery: 'Mastery: ',
-        // Wrong Book
-        wrongbookTitle: '📓 Error Book',
-        btnWrongbook: '📓 Error Book',
+        // Word Library
+        wrongbookTitle: '📖 Word Library',
+        btnWrongbook: '📖 Word Library',
         filterAll: 'All',
         filterUnmastered: 'Unmastered',
         filterMastered: 'Mastered',
@@ -853,7 +853,7 @@ class App {
         if (wordmatchBtn) wordmatchBtn.addEventListener('click', () => this.showGameSetup('wordmatch'));
         if (wordblastBtn) wordblastBtn.addEventListener('click', () => this.showGameSetup('wordblast'));
         
-        // 背单词按钮
+        // 记单词按钮
         const vocabularyBtn = document.getElementById('btn-vocabulary');
         if (vocabularyBtn) vocabularyBtn.addEventListener('click', () => this.showVocabulary());
         
@@ -883,10 +883,10 @@ class App {
         window.addEventListener('beforeunload', () => this.saveProgress());
         
         // 监听错题本数据从数据库加载完成事件
-        window.addEventListener('wrongbook-loaded', () => {
-            // 如果当前在背单词页面且显示错题本模块，刷新列表
+        window.addEventListener('wrongbook-loaded', async () => {
+            // 如果当前在记单词页面且显示错题本模块，刷新列表
             if (this.currentScreen === 'vocabulary-screen' && this.currentVocabularyModule === 'wrong-book') {
-                this.renderVocabularyWrongBook();
+                await this.renderVocabularyWrongBook();
             }
         });
         
@@ -1756,19 +1756,19 @@ class App {
 
     
     /**
-     * 显示背单词界面
+     * 显示记单词界面
      */
     async showVocabulary() {
         this.hideAllScreens();
         const screen = document.getElementById('vocabulary-screen');
         if (screen) screen.classList.remove('hidden');
         this.currentScreen = 'vocabulary-screen';
-        this.currentVocabularyFilter = 'all';
         this.currentVocabularyModule = 'memory-training';
         this.trainingMode = null;
         this.dictationMode = false;
         
         await vocabulary.init();
+        await wrongBook.init(); // 同时加载错题本数据
         this.renderVocabularyList();
         this.setupVocabularyListeners();
         this.setupVocabularySidebar();
@@ -1781,9 +1781,9 @@ class App {
     setupVocabularySidebar() {
         // 导航项点击事件
         document.querySelectorAll('.nav-item').forEach(item => {
-            item.onclick = (e) => {
+            item.onclick = async (e) => {
                 const module = e.currentTarget.dataset.module;
-                this.switchVocabularyModule(module);
+                await this.switchVocabularyModule(module);
             };
         });
         
@@ -1793,13 +1793,13 @@ class App {
         
         // 设置按钮
         const settingsBtn = document.getElementById('btn-settings');
-        if (settingsBtn) settingsBtn.onclick = () => this.switchVocabularyModule('settings');
+        if (settingsBtn) settingsBtn.onclick = async () => await this.switchVocabularyModule('settings');
         
         // 训练配置
         this.setupTrainingConfig();
         
-        // 听写配置
-        this.setupDictationConfig();
+        // 听写配置（已整合到单词训练中）
+        // this.setupDictationConfig();
         
         // 错题本模块监听
         this.setupVocabularyWrongBookListeners();
@@ -1811,7 +1811,7 @@ class App {
     /**
      * 切换模块
      */
-    switchVocabularyModule(moduleName) {
+    async switchVocabularyModule(moduleName) {
         this.currentVocabularyModule = moduleName;
         
         // 更新导航高亮
@@ -1826,9 +1826,9 @@ class App {
         
         // 更新标题
         const titleMap = {
-            'memory-training': '记忆训练',
-            'dictation-training': '听写训练',
-            'wrong-book': '错题本',
+            'memory-training': '单词训练',
+            'history-words': '历史单词',
+            'wrong-book': '单词库',
             'learning-data': '学习数据',
             'achievements': '成就徽章',
             'settings': '系统设置'
@@ -1842,7 +1842,9 @@ class App {
         } else if (moduleName === 'learning-data') {
             this.renderLearningData();
         } else if (moduleName === 'wrong-book') {
-            this.renderVocabularyWrongBook();
+            await this.renderVocabularyWrongBook();
+        } else if (moduleName === 'history-words') {
+            this.renderHistoryWords();
         }
     }
     
@@ -1903,9 +1905,6 @@ class App {
             // 渲染学习趋势图
             this.renderLearningChart(weeklyChart);
             
-            // 渲染错因分析
-            this.renderErrorAnalysis();
-            
             // 渲染高频错题
             this.renderTopErrors();
         } catch (error) {
@@ -1920,65 +1919,41 @@ class App {
         const chartArea = document.getElementById('learning-chart');
         if (!chartArea || !data) return;
         
-        // 简单的柱状图实现
         const maxCount = Math.max(...data.map(d => d.count || 0), 1);
-        const barWidth = 100 / data.length;
         
         chartArea.innerHTML = `
-            <div style="display:flex;align-items:flex-end;height:100%;gap:4px;padding:10px;">
-                ${data.map(d => {
-                    const height = ((d.count || 0) / maxCount) * 80;
-                    return `
-                        <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
-                            <div style="font-size:0.7rem;color:var(--vb-text-muted);">${d.count || 0}</div>
-                            <div style="width:100%;height:${height}%;background:linear-gradient(to top,var(--vb-primary),var(--vb-primary-light));border-radius:4px 4px 0 0;min-height:4px;"></div>
-                            <div style="font-size:0.65rem;color:var(--vb-text-muted);transform:rotate(-45deg);">${d.date?.slice(5) || ''}</div>
+            <div class="trend-chart">
+                <div class="trend-chart-grid">
+                    ${[...Array(5)].map((_, i) => `
+                        <div class="trend-chart-grid-line" style="bottom:${i * 25}%">
+                            <span class="trend-chart-grid-label">${Math.round(maxCount * (i * 0.25))}</span>
                         </div>
-                    `;
-                }).join('')}
+                    `).join('')}
+                </div>
+                <div class="trend-chart-bars">
+                    ${data.map((d, i) => {
+                        const height = maxCount > 0 ? ((d.count || 0) / maxCount) * 100 : 0;
+                        const isMax = (d.count || 0) === maxCount && maxCount > 0;
+                        // 优化动画延迟，30天数据使用更小的延迟
+                        const delay = i * 0.02;
+                        return `
+                            <div class="trend-chart-bar-wrapper" style="animation-delay:${delay}s">
+                                <div class="trend-chart-bar-value ${isMax ? 'max' : ''}">${d.count || 0}</div>
+                                <div class="trend-chart-bar-container">
+                                    <div class="trend-chart-bar ${isMax ? 'max' : ''}" style="--target-height:${height}%">
+                                        <div class="trend-chart-bar-glow"></div>
+                                    </div>
+                                </div>
+                                <div class="trend-chart-bar-label">${d.date?.slice(5) || ''}</div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
             </div>
         `;
     }
     
-    /**
-     * 渲染错因分析
-     */
-    renderErrorAnalysis() {
-        const chartArea = document.getElementById('error-analysis-chart');
-        if (!chartArea) return;
-        
-        // 获取错题本数据进行分析
-        const wrongWords = wrongBook.getAll();
-        if (!wrongWords || wrongWords.length === 0) {
-            chartArea.innerHTML = '<div style="color:var(--vb-text-muted)">暂无错题数据</div>';
-            return;
-        }
-        
-        // 简单统计不同来源的错题
-        const sources = {};
-        wrongWords.forEach(w => {
-            const source = w.fromList || 'unknown';
-            sources[source] = (sources[source] || 0) + 1;
-        });
-        
-        const colors = ['#00ffff', '#FBBF24', '#10b981', '#ef4444', '#8b5cf6'];
-        const total = wrongWords.length;
-        
-        chartArea.innerHTML = `
-            <div style="display:flex;flex-direction:column;gap:8px;padding:10px;">
-                ${Object.entries(sources).map(([source, count], i) => {
-                    const percent = Math.round((count / total) * 100);
-                    return `
-                        <div style="display:flex;align-items:center;gap:8px;">
-                            <div style="width:12px;height:12px;background:${colors[i % colors.length]};border-radius:3px;"></div>
-                            <div style="flex:1;font-size:0.85rem;color:var(--vb-text-secondary);">${source}</div>
-                            <div style="font-size:0.85rem;font-weight:600;color:var(--vb-text-primary);">${count} (${percent}%)</div>
-                        </div>
-                    `;
-                }).join('')}
-            </div>
-        `;
-    }
+
     
     /**
      * 渲染高频错题
@@ -2009,10 +1984,15 @@ class App {
     /**
      * 渲染词汇模块内的错题本
      */
-    renderVocabularyWrongBook() {
+    async renderVocabularyWrongBook() {
         const listContainer = document.getElementById('vocabulary-wrongbook-list');
         const statsContainer = document.getElementById('vocabulary-wrongbook-stats');
         if (!listContainer || !statsContainer) return;
+        
+        // 如果缓存为空，先从数据库加载
+        if (wrongBook.getAll().length === 0) {
+            await wrongBook.refresh();
+        }
         
         const timeFilter = document.getElementById('wrongbook-time-filter');
         const errorFilter = document.getElementById('wrongbook-error-filter');
@@ -2170,11 +2150,7 @@ class App {
      * 设置词汇模块内错题本的事件监听
      */
     setupVocabularyWrongBookListeners() {
-        // 筛选器
-        ['wrongbook-time-filter', 'wrongbook-error-filter', 'wrongbook-mastery-filter'].forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.onchange = () => this.renderVocabularyWrongBook();
-        });
+
         
         // 测验模式切换按钮
         const quizToggleBtn = document.getElementById('btn-quiz-toggle');
@@ -2219,47 +2195,17 @@ class App {
         // 开始复习按钮
         const reviewBtn = document.getElementById('btn-start-wrongbook-review');
         if (reviewBtn) {
-            reviewBtn.onclick = () => {
-                // 使用错题本范围启动训练
-                const rangeBtn = document.querySelector('#training-config .config-option[data-range="wrongbook"]');
-                if (rangeBtn) {
-                    document.querySelectorAll('#training-config .config-option[data-range]').forEach(b => b.classList.remove('active'));
-                    rangeBtn.classList.add('active');
-                }
-                this.switchVocabularyModule('memory-training');
+            reviewBtn.onclick = async () => {
+                await this.switchVocabularyModule('memory-training');
                 this.startTraining();
             };
         }
         
-        // 导出打印按钮
-        const exportBtn = document.getElementById('btn-export-wrongbook');
-        if (exportBtn) {
-            exportBtn.onclick = () => this.exportWrongBook();
-        }
+
         
-        // 清除已掌握按钮
-        const clearMasteredBtn = document.getElementById('btn-clear-mastered');
-        if (clearMasteredBtn) {
-            clearMasteredBtn.onclick = async () => {
-                if (confirm('确定要清除所有已掌握的单词吗？')) { 
-                    await wrongBook.clearMastered(); 
-                    this.renderVocabularyWrongBook(); 
-                    this.showVocabularyNotification('已清除所有已掌握的单词', 'success');
-                }
-            };
-        }
+
         
-        // 清除全部按钮
-        const clearAllBtn = document.getElementById('btn-clear-all');
-        if (clearAllBtn) {
-            clearAllBtn.onclick = async () => {
-                if (confirm('确定要清空整个错题本吗？')) { 
-                    await wrongBook.clearAll(); 
-                    this.renderVocabularyWrongBook(); 
-                    this.showVocabularyNotification('已清空错题本', 'success');
-                }
-            };
-        }
+
         
         // 列表事件委托
         const listContainer = document.getElementById('vocabulary-wrongbook-list');
@@ -2298,7 +2244,7 @@ class App {
                         }
                         this.showVocabularyNotification(`已掌握: ${word}`, 'success');
                     }
-                    this.renderVocabularyWrongBook();
+                    await this.renderVocabularyWrongBook();
                     return;
                 }
                 
@@ -2312,12 +2258,12 @@ class App {
                         item.classList.add('delete-confirm');
                         setTimeout(async () => {
                             await wrongBook.removeWrongWord(word);
-                            this.renderVocabularyWrongBook();
+                            await this.renderVocabularyWrongBook();
                             this.showVocabularyNotification(`已删除: ${word}`, 'warning');
                         }, 300);
                     } else {
                         await wrongBook.removeWrongWord(word);
-                        this.renderVocabularyWrongBook();
+                        await this.renderVocabularyWrongBook();
                     }
                     return;
                 }
@@ -2353,7 +2299,7 @@ class App {
             }
         });
         
-        // 添加到背单词按钮
+        // 添加到记单词按钮
         if (addToVocabBtn) {
             addToVocabBtn.onclick = async () => {
                 const checkboxes = document.querySelectorAll('.wrongbook-checkbox:checked');
@@ -2376,7 +2322,7 @@ class App {
                     return;
                 }
                 
-                // 批量添加到背单词词库
+                // 批量添加到记单词词库
                 await vocabulary.addWordsBatch(words);
                 
                 // 取消所有勾选
@@ -2387,7 +2333,7 @@ class App {
                 // 隐藏批量操作栏
                 this.updateWrongbookSelection();
                 
-                this.showVocabularyNotification(`已添加 ${words.length} 个单词到背单词词库`, 'success');
+                this.showVocabularyNotification(`已添加 ${words.length} 个单词到记单词词库`, 'success');
             };
         }
         
@@ -2425,7 +2371,7 @@ class App {
     exportWrongBook() {
         const words = wrongBook.getAll();
         if (!words || words.length === 0) {
-            this.showVocabularyNotification('错题本为空，无法导出', 'warning');
+            this.showVocabularyNotification('单词库为空，无法导出', 'warning');
             return;
         }
         
@@ -2438,12 +2384,12 @@ class App {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `错题本_${new Date().toISOString().split('T')[0]}.tsv`;
+        a.download = `单词库_${new Date().toISOString().split('T')[0]}.tsv`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-        this.showVocabularyNotification('错题本已导出', 'success');
+        this.showVocabularyNotification('单词库已导出', 'success');
     }
     
     /**
@@ -2506,6 +2452,42 @@ class App {
                 );
             };
         }
+        
+        // 新词比例滑块
+        const ratioSlider = document.getElementById('new-word-ratio');
+        if (ratioSlider) {
+            ratioSlider.oninput = (e) => {
+                document.getElementById('new-ratio-value').textContent = e.target.value;
+                document.getElementById('review-ratio-value').textContent = 100 - e.target.value;
+                this.showVocabularyNotification(`新词比例已设置为${e.target.value}%`, 'success');
+            };
+        }
+        
+        // 每天学习单词数量滑块
+        const dailyWordCountSlider = document.getElementById('daily-word-count');
+        if (dailyWordCountSlider) {
+            dailyWordCountSlider.oninput = (e) => {
+                document.getElementById('daily-word-count-value').textContent = e.target.value;
+                this.showVocabularyNotification(`每天学习单词数量已设置为${e.target.value}个`, 'success');
+            };
+        }
+        
+        // 听写高级设置
+        document.querySelectorAll('[data-setting="listening-interval"]').forEach(btn => {
+            btn.onclick = (e) => {
+                document.querySelectorAll('[data-setting="listening-interval"]').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                this.showVocabularyNotification(`单词间隔已设置为${e.target.dataset.value}秒`, 'success');
+            };
+        });
+        
+        document.querySelectorAll('[data-setting="listening-play-count"]').forEach(btn => {
+            btn.onclick = (e) => {
+                document.querySelectorAll('[data-setting="listening-play-count"]').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                this.showVocabularyNotification(`播放次数已设置为${e.target.dataset.value}次`, 'success');
+            };
+        });
     }
     
     /**
@@ -2563,22 +2545,6 @@ class App {
      * 设置训练配置交互
      */
     setupTrainingConfig() {
-        // 训练范围
-        document.querySelectorAll('#training-config .config-option[data-range]').forEach(btn => {
-            btn.onclick = (e) => {
-                document.querySelectorAll('#training-config .config-option[data-range]').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-            };
-        });
-        
-        // 训练模式
-        document.querySelectorAll('.config-card[data-mode]').forEach(card => {
-            card.onclick = (e) => {
-                document.querySelectorAll('.config-card[data-mode]').forEach(c => c.classList.remove('active'));
-                e.currentTarget.classList.add('active');
-            };
-        });
-        
         // 新词比例滑块
         const ratioSlider = document.getElementById('new-word-ratio');
         if (ratioSlider) {
@@ -2588,10 +2554,40 @@ class App {
             };
         }
         
-        // 开始训练按钮
+        // 开始训练按钮（配置区内）
         const startBtn = document.getElementById('btn-start-training');
         if (startBtn) {
             startBtn.onclick = () => this.startTraining();
+        }
+
+        
+        // 检查昨天训练情况并更新按钮状态
+        this.updateTrainingButtons();
+    }
+    
+    /**
+     * 更新训练按钮状态
+     */
+    async updateTrainingButtons() {
+        const yesterdayPassed = await this.checkYesterdayTraining();
+        
+        const startBtn = document.getElementById('btn-start-training');
+        const lock = document.getElementById('training-lock');
+        
+        if (!yesterdayPassed) {
+            // 显示锁定状态
+            if (startBtn) {
+                startBtn.disabled = true;
+                startBtn.classList.add('disabled');
+            }
+            if (lock) lock.classList.remove('hidden');
+        } else {
+            // 隐藏锁定状态
+            if (startBtn) {
+                startBtn.disabled = false;
+                startBtn.classList.remove('disabled');
+            }
+            if (lock) lock.classList.add('hidden');
         }
     }
     
@@ -2623,10 +2619,16 @@ class App {
             };
         });
         
-        // 开始听写按钮
+        // 开始听写按钮（配置区内）
         const startBtn = document.getElementById('btn-start-dictation');
         if (startBtn) {
             startBtn.onclick = () => this.startDictation();
+        }
+
+        // 快速开始按钮（Hero区）
+        const quickStartBtn = document.getElementById('btn-quick-start-dictation');
+        if (quickStartBtn) {
+            quickStartBtn.onclick = () => this.startDictation();
         }
     }
     
@@ -2639,92 +2641,17 @@ class App {
 
     
     /**
-     * 渲染背单词列表
+     * 渲染记单词列表
      */
     async renderVocabularyList() {
-        const listContainer = document.getElementById('vocabulary-list');
-        const statsContainer = document.getElementById('vocabulary-stats');
         const todayWordsContainer = document.getElementById('vocabulary-today-words');
         const progressText = document.getElementById('today-progress-text');
         const progressFill = document.getElementById('today-progress-fill');
         
-        if (!listContainer || !statsContainer) return;
-        
         const stats = vocabulary.getStats();
         const todayWords = vocabulary.getTodayWords();
-        const filter = this.currentVocabularyFilter || 'all';
-        let words;
         
-        if (filter === 'unmastered') {
-            words = vocabulary.getUnmasteredWords();
-        } else if (filter === 'mastered') {
-            words = vocabulary.getMasteredWords();
-        } else {
-            words = vocabulary.getAll();
-        }
-        
-        // 获取用户等级和成就信息
-        let userStats = null;
-        try {
-            userStats = await vocabulary.getUserStats();
-        } catch (error) {
-            console.error('获取用户统计信息失败:', error);
-        }
-        
-        // 更新统计卡片（包含等级信息）
-        if (stats) {
-            const levelInfo = userStats ? userStats.levelInfo : null;
-            const levelProgress = levelInfo ? vocabulary.calculateLevelProgress(levelInfo) : 0;
-            const consecutiveDays = userStats ? userStats.stats.consecutiveDays : 0;
-            
-            statsContainer.innerHTML = `
-                <div class="vocabulary-stat-card level-card">
-                    <div class="level-header">
-                        <span class="level-icon">${levelInfo ? levelInfo.icon : '🌱'}</span>
-                        <div class="level-info">
-                            <div class="level-title">${levelInfo ? levelInfo.title : '萌芽期'}</div>
-                            <div class="level-number">Lv.${levelInfo ? levelInfo.level : 1}</div>
-                        </div>
-                    </div>
-                    <div class="level-progress">
-                        <div class="level-progress-bar">
-                            <div class="level-progress-fill" style="width: ${levelProgress}%"></div>
-                        </div>
-                        <div class="level-progress-text">
-                            ${levelInfo ? `${levelInfo.currentWords}/${levelInfo.nextLevelWords || 'MAX'}` : '0/50'}
-                        </div>
-                    </div>
-                    <div class="level-desc">${levelInfo ? levelInfo.desc : '开始你的单词之旅'}</div>
-                </div>
-                <div class="vocabulary-stat-card">
-                    <span class="vocabulary-stat-icon">📚</span>
-                    <div class="vocabulary-stat-value">${stats.totalWords}</div>
-                    <div class="vocabulary-stat-label">词库总数</div>
-                </div>
-                <div class="vocabulary-stat-card">
-                    <span class="vocabulary-stat-icon">✅</span>
-                    <div class="vocabulary-stat-value">${stats.masteredWords}</div>
-                    <div class="vocabulary-stat-label">已掌握</div>
-                </div>
-                <div class="vocabulary-stat-card">
-                    <span class="vocabulary-stat-icon">📝</span>
-                    <div class="vocabulary-stat-value">${stats.todayStudied}/5</div>
-                    <div class="vocabulary-stat-label">今日学习</div>
-                </div>
-                <div class="vocabulary-stat-card">
-                    <span class="vocabulary-stat-icon">🎯</span>
-                    <div class="vocabulary-stat-value">${stats.todayAccuracy}%</div>
-                    <div class="vocabulary-stat-label">今日正确率</div>
-                </div>
-                <div class="vocabulary-stat-card">
-                    <span class="vocabulary-stat-icon">🔥</span>
-                    <div class="vocabulary-stat-value">${vocabulary.formatConsecutiveDays(consecutiveDays)}</div>
-                    <div class="vocabulary-stat-label">连续学习</div>
-                </div>
-            `;
-        }
-        
-        // 更新今日背单词进度
+        // 更新今日记单词进度
         if (progressText && progressFill) {
             const todayStudied = stats ? stats.todayStudied : 0;
             const progressPercent = Math.min((todayStudied / 5) * 100, 100);
@@ -2732,13 +2659,13 @@ class App {
             progressFill.style.width = `${progressPercent}%`;
         }
         
-        // 更新今日背单词列表
+        // 更新今日记单词列表
         if (todayWordsContainer) {
             if (todayWords.length === 0) {
                 todayWordsContainer.innerHTML = `
                     <div class="vocabulary-empty">
                         <span class="vocabulary-empty-icon">📖</span>
-                        <div class="vocabulary-empty-text">今日暂无背单词</div>
+                        <div class="vocabulary-empty-text">今日暂无记单词</div>
                     </div>`;
             } else {
                 todayWordsContainer.innerHTML = todayWords.map(word => `
@@ -2755,161 +2682,16 @@ class App {
                 `).join('');
             }
         }
-        
-        // 更新词库列表
-        if (words.length === 0) {
-            listContainer.innerHTML = `
-                <div class="vocabulary-empty">
-                    <span class="vocabulary-empty-icon">📚</span>
-                    <div class="vocabulary-empty-text">词库暂无单词</div>
-                    <div class="vocabulary-empty-hint">从错题本勾选单词添加到词库</div>
-                </div>`;
-            return;
-        }
-        
-        listContainer.innerHTML = words.map((item, index) => {
-            const mc = item.mastered ? ' mastered' : '';
-            const mt = item.mastered ? '取消掌握' : '标记掌握';
-            const mi = item.mastered ? '✅' : '⬜';
-            
-            return `
-                <div class="vocabulary-word-card${mc}" data-word="${item.word}" style="animation-delay: ${index * 0.05}s">
-                    <div class="vocabulary-word-header">
-                        <div>
-                            <div class="vocabulary-word-text">${item.word}</div>
-                            <div class="vocabulary-word-phonetic">${item.phonetic || ''}</div>
-                        </div>
-                        <div class="vocabulary-word-actions">
-                            <button class="vocabulary-action-btn mastered-btn" data-word="${item.word}" data-mastered="${item.mastered}">
-                                ${mi} ${mt}
-                            </button>
-                            <button class="vocabulary-action-btn edit-btn" data-word="${item.word}">
-                                ✏️ 编辑
-                            </button>
-                            <button class="vocabulary-action-btn remove-btn" data-word="${item.word}">
-                                🗑️ 删除
-                            </button>
-                        </div>
-                    </div>
-                    <div class="vocabulary-word-meaning">${item.meaning}</div>
-                    ${item.example ? `<div class="vocabulary-word-example">"${item.example}"</div>` : ''}
-                    <div class="vocabulary-word-meta">
-                        <div class="vocabulary-word-source">
-                            <span>来源: </span>
-                            <span class="vocabulary-source-tag">${item.source || 'wrongbook'}</span>
-                        </div>
-                        <div class="vocabulary-word-study-count">
-                            <span>学习次数: ${item.studyCount || 0}</span>
-                        </div>
-                    </div>
-                </div>`;
-        }).join('');
     }
     
     /**
-     * 设置背单词事件监听器
+     * 设置记单词事件监听器
      */
     setupVocabularyListeners() {
         const backBtn = document.getElementById('btn-back-vocabulary');
         if (backBtn) backBtn.onclick = () => this.showMainMenu();
         
-        // 筛选按钮事件
-        document.querySelectorAll('.vocabulary-filter-btn').forEach(btn => {
-            btn.onclick = (e) => {
-                document.querySelectorAll('.vocabulary-filter-btn').forEach(b => b.classList.remove('active'));
-                e.currentTarget.classList.add('active');
-                this.currentVocabularyFilter = e.currentTarget.dataset.filter;
-                this.renderVocabularyList();
-            };
-        });
-        
-        // 清除已掌握按钮
-        const clearMasteredBtn = document.getElementById('btn-clear-mastered-vocab');
-        if (clearMasteredBtn) {
-            clearMasteredBtn.onclick = async () => {
-                if (confirm('确定清除所有已掌握的单词吗？')) {
-                    await vocabulary.clearMastered();
-                    this.renderVocabularyList();
-                    this.updateVocabularyHeaderStats();
-                    this.showVocabularyNotification('已清除所有已掌握的单词', 'success');
-                }
-            };
-        }
-        
-        // 列表容器事件委托
-        const listContainer = document.getElementById('vocabulary-list');
-        if (listContainer) {
-            listContainer.onclick = async (e) => {
-                const target = e.target.closest('button');
-                if (!target) return;
-                
-                // 掌握按钮
-                if (target.classList.contains('mastered-btn')) {
-                    const word = target.dataset.word;
-                    const item = target.closest('.vocabulary-word-card');
-                    
-                    if (target.dataset.mastered === 'true') {
-                        await vocabulary.unmarkMastered(word);
-                        this.showVocabularyNotification(`已取消掌握: ${word}`, 'info');
-                    } else {
-                        await vocabulary.markMastered(word);
-                        if (item) {
-                            item.classList.add('mastered');
-                            setTimeout(() => item.classList.remove('mastered'), 500);
-                        }
-                        this.showVocabularyNotification(`已掌握: ${word}`, 'success');
-                    }
-                    this.renderVocabularyList();
-                    this.updateVocabularyHeaderStats();
-                    return;
-                }
-                
-                // 删除按钮
-                if (target.classList.contains('remove-btn')) {
-                    const word = target.dataset.word;
-                    const item = target.closest('.vocabulary-word-card');
-                    
-                    if (item) {
-                        item.classList.add('delete-confirm');
-                        setTimeout(async () => {
-                            await vocabulary.removeWord(word);
-                            this.renderVocabularyList();
-                            this.updateVocabularyHeaderStats();
-                            this.showVocabularyNotification(`已删除: ${word}`, 'warning');
-                        }, 300);
-                    } else {
-                        await vocabulary.removeWord(word);
-                        this.renderVocabularyList();
-                    }
-                    return;
-                }
-                
-                // 编辑按钮
-                if (target.classList.contains('edit-btn')) {
-                    const word = target.dataset.word;
-                    this.showEditWordModal(word);
-                    return;
-                }
-            };
-        }
-        
-        // 添加单词按钮
-        const addWordBtn = document.getElementById('btn-add-word');
-        if (addWordBtn) {
-            addWordBtn.onclick = () => this.toggleAddPanel();
-        }
-        
-        // 关闭添加单词
-        const closeAddBtn = document.getElementById('btn-close-add');
-        if (closeAddBtn) {
-            closeAddBtn.onclick = () => this.toggleAddPanel(false);
-        }
-        
-        // 提交单词
-        const submitWordBtn = document.getElementById('btn-submit-word');
-        if (submitWordBtn) {
-            submitWordBtn.onclick = () => this.submitNewWord();
-        }
+
         
         // 设置面板标签切换
         document.querySelectorAll('.settings-tab').forEach(tab => {
@@ -2935,66 +2717,145 @@ class App {
     }
     
     /**
+     * 检查昨天单词的训练情况
+     * 返回 true 表示昨天已完成训练，false 表示未完成
+     */
+    async checkYesterdayTraining() {
+        try {
+            // 获取历史日期列表
+            const historyDates = await vocabulary.getHistoryDates();
+            
+            // 如果没有历史记录，说明是新用户，允许训练
+            if (!historyDates || historyDates.length === 0) {
+                return true;
+            }
+            
+            // 获取今天的日期字符串
+            const today = new Date().toISOString().split('T')[0];
+            
+            // 过滤掉今天的日期，只保留历史日期
+            const pastDates = historyDates.filter(date => date !== today);
+            
+            // 如果没有历史日期（只有今天的记录），允许训练
+            if (pastDates.length === 0) {
+                return true;
+            }
+            
+            // 按日期降序排序（最近的在前）
+            pastDates.sort((a, b) => new Date(b) - new Date(a));
+            
+            // 获取最近的有记录的日期
+            const mostRecentDate = pastDates[0];
+            
+            // 获取该日期的记录
+            const records = await vocabulary.getDailyRecord(mostRecentDate);
+            
+            // 如果没有记录（理论上不应该发生），允许训练
+            if (!records || records.length === 0) {
+                return true;
+            }
+            
+            // 检查是否达到了每日目标（默认5个单词）
+            const dailyTarget = parseInt(document.getElementById('daily-word-count')?.value || 5);
+            const correctWords = records.filter(r => r.correct).length;
+            
+            // 如果正确单词数量达到每日目标，则认为通过
+            return correctWords >= dailyTarget;
+        } catch (error) {
+            console.error('检查昨天训练情况失败:', error);
+            // 出错时默认允许训练
+            return true;
+        }
+    }
+    
+    /**
      * 开始训练（根据配置选择模式）
      */
     async startTraining() {
-        // 获取训练范围
-        const rangeBtn = document.querySelector('#training-config .config-option[data-range].active');
-        const range = rangeBtn ? rangeBtn.dataset.range : 'today';
+        // 检查昨天单词的训练情况
+        const yesterdayPassed = await this.checkYesterdayTraining();
+        if (!yesterdayPassed) {
+            this.showVocabularyNotification('请先完成昨天的单词训练才能开始今天的学习', 'warning');
+            return;
+        }
         
-        // 获取训练模式
-        const modeBtn = document.querySelector('.config-card[data-mode].active');
-        const mode = modeBtn ? modeBtn.dataset.mode : 'recognition';
+        // 获取听写高级设置（从系统设置中读取）
+        let listeningInterval = 5000; // 默认5秒
+        let listeningPlayCount = 2; // 默认2次
+        let listeningShowChinese = true; // 默认显示中文释义
+        let listeningShowFirstLetter = false; // 默认不显示首字母
         
-        // 获取新词比例
-        const ratioSlider = document.getElementById('new-word-ratio');
-        const newWordRatio = ratioSlider ? parseInt(ratioSlider.value) / 100 : 0.7;
+        const intervalBtn = document.querySelector('[data-setting="listening-interval"].active');
+        listeningInterval = intervalBtn ? parseInt(intervalBtn.dataset.value) * 1000 : 5000;
         
-        // 获取单词列表
-        let words;
-        if (range === 'today') {
-            words = vocabulary.getTodayWords();
-        } else if (range === 'wrongbook') {
-            words = wrongBook.getUnmasteredWords().map(w => ({
+        const playCountBtn = document.querySelector('[data-setting="listening-play-count"].active');
+        listeningPlayCount = playCountBtn ? parseInt(playCountBtn.dataset.value) : 2;
+        
+        listeningShowChinese = document.getElementById('listening-show-chinese-hint')?.checked || false;
+        listeningShowFirstLetter = document.getElementById('listening-show-first-letter')?.checked || false;
+        
+        // 读取新词/复习比例设置
+        const newRatio = parseInt(document.getElementById('new-word-ratio')?.value || 70);
+        // 读取每天学习单词数量设置
+        const totalWords = parseInt(document.getElementById('daily-word-count')?.value || 5);
+        const newWordCount = Math.round(totalWords * newRatio / 100);
+        const reviewWordCount = totalWords - newWordCount;
+        
+        // 获取新词（来自记单词库中未在错题本中的单词）
+        const allVocabularyWords = vocabulary.getAll();
+        const wrongBookWords = new Set(wrongBook.getAll().map(w => w.word));
+        const newWords = allVocabularyWords.filter(w => !wrongBookWords.has(w.word) && !w.mastered)
+            .sort(() => Math.random() - 0.5)
+            .slice(0, newWordCount)
+            .map(w => ({
                 word: w.word,
                 meaning: w.meaning,
                 phonetic: w.phonetic || ''
             }));
-        } else {
-            // 全部词库：按新词/复习比例混合
-            const allWords = vocabulary.getAll();
-            const newWords = allWords.filter(w => (w.studyCount || 0) === 0 && !w.mastered);
-            const reviewWords = allWords.filter(w => (w.studyCount || 0) > 0 && !w.mastered);
-            
-            const totalCount = Math.min(allWords.length, 20); // 最多20个单词
-            const newCount = Math.round(totalCount * newWordRatio);
-            const reviewCount = totalCount - newCount;
-            
-            // 随机取词
-            const shuffledNew = [...newWords].sort(() => Math.random() - 0.5).slice(0, newCount);
-            const shuffledReview = [...reviewWords].sort(() => Math.random() - 0.5).slice(0, reviewCount);
-            
-            words = [...shuffledNew, ...shuffledReview].sort(() => Math.random() - 0.5);
-            
-            // 如果混合后没有单词，回退到未掌握单词
-            if (words.length === 0) {
-                words = vocabulary.getUnmasteredWords();
-            }
-        }
         
-        if (!words || words.length === 0) {
+        // 获取复习词（来自错题本中未掌握的单词）
+        const unmasteredWords = wrongBook.getUnmasteredWords();
+        const reviewWords = unmasteredWords
+            .sort(() => Math.random() - 0.5)
+            .slice(0, reviewWordCount)
+            .map(w => ({
+                word: w.word,
+                meaning: w.meaning,
+                phonetic: w.phonetic || ''
+            }));
+        
+        // 合并新词和复习词
+        const words = [...newWords, ...reviewWords];
+        
+        if (words.length === 0) {
             this.showVocabularyNotification('没有可学习的单词', 'warning');
             return;
         }
         
-        // 启动训练
-        this.trainingMode = mode;
+        // 启动多模式训练
+        this.trainingModes = ['recognition', 'spelling', 'listening']; // 三种模式依次进行
+        this.trainingModeIndex = 0; // 当前模式索引
+        this.trainingMode = this.trainingModes[0]; // 当前模式
         this.trainingWords = words;
         this.trainingIndex = 0;
         this.trainingCorrect = 0;
         this.trainingStartTime = Date.now();
         this.trainingAnswered = false;
         this.trainingErrors = [];
+        
+        // 多模式训练结果跟踪
+        this.trainingMultiModeResults = {
+            recognition: { correct: 0, errors: [] },
+            spelling: { correct: 0, errors: [] },
+            listening: { correct: 0, errors: [] }
+        };
+        this.trainingWordResults = {}; // 跟踪每个单词在每种模式下的结果
+        
+        // 听写模式设置
+        this.listeningInterval = listeningInterval;
+        this.listeningPlayCount = listeningPlayCount;
+        this.listeningShowChinese = listeningShowChinese;
+        this.listeningShowFirstLetter = listeningShowFirstLetter;
         
         // 显示训练界面
         const trainingInterface = document.getElementById('training-interface');
@@ -3017,8 +2878,51 @@ class App {
         if (prevBtn) prevBtn.onclick = () => this.prevTrainingWord();
         if (nextBtn) nextBtn.onclick = () => this.nextTrainingWord();
         
+        // 更新模式指示器
+        this.updateTrainingModeIndicator();
+        
         // 显示第一个单词
         this.showTrainingWord();
+    }
+    
+    /**
+     * 更新训练模式指示器
+     */
+    updateTrainingModeIndicator() {
+        const indicator = document.getElementById('training-mode-indicator');
+        if (!indicator) return;
+        
+        const modeInfo = {
+            recognition: { icon: '👁️', name: '认读模式' },
+            spelling: { icon: '✍️', name: '拼写模式' },
+            listening: { icon: '🎧', name: '听音模式' }
+        };
+        
+        const currentMode = this.trainingModes[this.trainingModeIndex];
+        const info = modeInfo[currentMode];
+        if (info) {
+            indicator.querySelector('.mode-icon').textContent = info.icon;
+            indicator.querySelector('.mode-name').textContent = info.name;
+        }
+    }
+    
+    /**
+     * 记录单词在特定模式下的结果
+     */
+    recordWordResult(word, mode, isCorrect) {
+        if (!this.trainingWordResults[word]) {
+            this.trainingWordResults[word] = {};
+        }
+        this.trainingWordResults[word][mode] = isCorrect;
+        
+        // 更新模式结果统计
+        if (this.trainingMultiModeResults[mode]) {
+            if (isCorrect) {
+                this.trainingMultiModeResults[mode].correct++;
+            } else {
+                this.trainingMultiModeResults[mode].errors.push(word);
+            }
+        }
     }
     
     /**
@@ -3109,6 +3013,9 @@ class App {
         // 记录学习结果
         await vocabulary.studyWord(word.word, isCorrect);
         await vocabulary.updateStudyStats(word.word, isCorrect);
+        
+        // 记录多模式训练结果
+        this.recordWordResult(word.word, 'recognition', isCorrect);
         
         if (isCorrect) {
             this.trainingCorrect++;
@@ -3214,6 +3121,9 @@ class App {
         // 记录学习结果
         await vocabulary.studyWord(word.word, isCorrect);
         await vocabulary.updateStudyStats(word.word, isCorrect);
+        
+        // 记录多模式训练结果
+        this.recordWordResult(word.word, 'spelling', isCorrect);
         
         const feedback = document.getElementById('spelling-feedback');
         
@@ -3331,6 +3241,9 @@ class App {
         await vocabulary.studyWord(word.word, isCorrect);
         await vocabulary.updateStudyStats(word.word, isCorrect);
         
+        // 记录多模式训练结果
+        this.recordWordResult(word.word, 'listening', isCorrect);
+        
         const feedback = document.getElementById('listening-feedback');
         
         if (isCorrect) {
@@ -3396,7 +3309,29 @@ class App {
     nextTrainingWord() {
         this.trainingIndex++;
         if (this.trainingIndex >= this.trainingWords.length) {
-            this.showTrainingResult();
+            // 当前模式完成，检查是否还有下一个模式
+            this.trainingModeIndex++;
+            if (this.trainingModeIndex < this.trainingModes.length) {
+                // 切换到下一个模式
+                this.trainingMode = this.trainingModes[this.trainingModeIndex];
+                this.trainingIndex = 0;
+                this.trainingCorrect = 0;
+                this.trainingErrors = [];
+                this.trainingAnswered = false;
+                
+                // 更新模式指示器
+                this.updateTrainingModeIndicator();
+                
+                // 显示模式切换提示
+                const modeNames = { recognition: '认读', spelling: '拼写', listening: '听音' };
+                this.showVocabularyNotification(`${modeNames[this.trainingMode]}模式开始`, 'info');
+                
+                // 显示第一个单词
+                setTimeout(() => this.showTrainingWord(), 500);
+            } else {
+                // 所有模式完成，显示结果
+                this.showTrainingResult();
+            }
         } else {
             this.showTrainingWord();
         }
@@ -3417,6 +3352,11 @@ class App {
      */
     exitTraining() {
         this.trainingMode = null;
+        this.trainingModes = null;
+        this.trainingModeIndex = 0;
+        this.trainingMultiModeResults = null;
+        this.trainingWordResults = null;
+        
         const trainingInterface = document.getElementById('training-interface');
         if (trainingInterface) {
             trainingInterface.classList.remove('active');
@@ -3446,11 +3386,36 @@ class App {
             resultInterface.classList.add('active');
         }
         
-        // 计算统计数据
+        // 计算多模式统计数据
         const duration = Math.round((Date.now() - this.trainingStartTime) / 60000);
-        const accuracy = this.trainingWords.length > 0 
-            ? Math.round((this.trainingCorrect / this.trainingWords.length) * 100) 
+        const totalWords = this.trainingWords.length;
+        const totalAttempts = totalWords * 3; // 每个单词3种模式
+        
+        // 计算总正确数（所有模式）
+        let totalCorrect = 0;
+        let allModeErrors = new Set();
+        
+        Object.values(this.trainingMultiModeResults).forEach(modeResult => {
+            totalCorrect += modeResult.correct;
+            modeResult.errors.forEach(word => allModeErrors.add(word));
+        });
+        
+        const accuracy = totalAttempts > 0 
+            ? Math.round((totalCorrect / totalAttempts) * 100) 
             : 0;
+        
+        // 计算完全掌握的单词数（三种模式全部通过）
+        let fullyMasteredCount = 0;
+        let partiallyMasteredWords = [];
+        
+        Object.entries(this.trainingWordResults).forEach(([word, modes]) => {
+            const allCorrect = modes.recognition && modes.spelling && modes.listening;
+            if (allCorrect) {
+                fullyMasteredCount++;
+            } else {
+                partiallyMasteredWords.push(word);
+            }
+        });
         
         // 更新结果数据
         const timeEl = document.getElementById('result-time');
@@ -3459,21 +3424,37 @@ class App {
         const accuracyEl = document.getElementById('result-accuracy');
         
         if (timeEl) timeEl.textContent = `${duration}分钟`;
-        if (newWordsEl) newWordsEl.textContent = this.trainingWords.length;
-        if (reviewWordsEl) reviewWordsEl.textContent = '0';
+        if (newWordsEl) newWordsEl.textContent = `${fullyMasteredCount}/${totalWords}`;
+        if (reviewWordsEl) reviewWordsEl.textContent = `${partiallyMasteredWords.length}个需复习`;
         if (accuracyEl) accuracyEl.textContent = `${accuracy}%`;
         
-        // 显示错误单词
+        // 更新标题
+        const resultTitle = document.querySelector('.result-title');
+        if (resultTitle) {
+            resultTitle.textContent = `训练完成 - ${fullyMasteredCount}个单词完全掌握`;
+        }
+        
+        // 显示错误单词（部分掌握的单词）
         const errorList = document.getElementById('error-words-list');
-        if (errorList && this.trainingErrors.length > 0) {
-            errorList.innerHTML = this.trainingErrors.map(w => `
-                <div class="error-word-item">
-                    <div class="word">${w.word}</div>
-                    <div class="meaning">${w.meaning}</div>
-                </div>
-            `).join('');
+        if (errorList && partiallyMasteredWords.length > 0) {
+            errorList.innerHTML = `
+                <div class="error-section-title">未完全掌握的单词（需复习）</div>
+                ${partiallyMasteredWords.map(word => {
+                    const modes = this.trainingWordResults[word] || {};
+                    const modeStatus = [];
+                    if (modes.recognition === false) modeStatus.push('认读');
+                    if (modes.spelling === false) modeStatus.push('拼写');
+                    if (modes.listening === false) modeStatus.push('听音');
+                    return `
+                        <div class="error-word-item">
+                            <div class="word">${word}</div>
+                            <div class="meaning">${modeStatus.join('、')}错误</div>
+                        </div>
+                    `;
+                }).join('')}
+            `;
         } else if (errorList) {
-            errorList.innerHTML = '<div style="color:var(--vb-text-muted)">没有错误，太棒了！</div>';
+            errorList.innerHTML = '<div style="color:var(--vb-text-muted)">全部掌握，太棒了！🎉</div>';
         }
         
         // 按钮事件
@@ -3482,10 +3463,10 @@ class App {
         const backHomeBtn = document.getElementById('btn-back-home');
         
         if (viewErrorsBtn) {
-            viewErrorsBtn.onclick = () => {
+            viewErrorsBtn.onclick = async () => {
                 resultInterface.classList.remove('active');
                 resultInterface.classList.add('hidden');
-                this.switchVocabularyModule('wrong-book');
+                await this.switchVocabularyModule('wrong-book');
             };
         }
         
@@ -3721,7 +3702,7 @@ class App {
     }
     
     /**
-     * 显示背单词通知
+     * 显示记单词通知
      */
     showVocabularyNotification(message, type = 'info') {
         // 移除现有通知
@@ -4026,6 +4007,150 @@ class App {
         } catch (error) {
             console.error('添加单词失败:', error);
             this.showVocabularyNotification('添加单词失败', 'error');
+        }
+    }
+    
+    /**
+     * 切换历史单词面板（保留兼容性）
+     */
+    async toggleHistoryWords() {
+        await this.switchVocabularyModule('history-words');
+    }
+    
+    /**
+     * 渲染历史单词列表
+     */
+    async renderHistoryWords() {
+        const historyList = document.getElementById('history-list');
+        const historyStats = document.getElementById('history-stats');
+        if (!historyList || !historyStats) return;
+        
+        try {
+            // 获取历史日期列表
+            const historyDates = await vocabulary.getHistoryDates();
+            
+            if (historyDates.length === 0) {
+                historyStats.innerHTML = `
+                    <div class="history-empty">
+                        <div class="empty-icon">📚</div>
+                        <div class="empty-text">暂无学习记录</div>
+                        <div class="empty-subtext">开始训练后，历史记录将显示在这里</div>
+                    </div>
+                `;
+                historyList.innerHTML = '';
+                return;
+            }
+            
+            // 显示统计信息
+            const totalDays = historyDates.length;
+            const totalWords = historyDates.reduce((sum, date) => sum + date.wordCount, 0);
+            const avgAccuracy = historyDates.reduce((sum, date) => sum + parseFloat(date.accuracy), 0) / totalDays;
+            
+            historyStats.innerHTML = `
+                <div class="history-stats-grid">
+                    <div class="history-stat-card">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-value">${totalDays}</div>
+                        <div class="stat-label">学习天数</div>
+                    </div>
+                    <div class="history-stat-card">
+                        <div class="stat-icon">📝</div>
+                        <div class="stat-value">${totalWords}</div>
+                        <div class="stat-label">学习单词数</div>
+                    </div>
+                    <div class="history-stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-value">${avgAccuracy.toFixed(1)}%</div>
+                        <div class="stat-label">平均正确率</div>
+                    </div>
+                </div>
+            `;
+            
+            // 按日期分组显示历史单词
+            let historyHtml = '';
+            
+            for (const dateInfo of historyDates) {
+                const date = dateInfo.date;
+                const formattedDate = this.formatDate(date);
+                
+                historyHtml += `
+                    <div class="history-date-group">
+                        <div class="history-date-header">
+                            <div class="date-label">
+                                <span class="date-icon">📅</span>
+                                <span class="date-text">${formattedDate}</span>
+                            </div>
+                            <div class="date-stats">
+                                <span class="date-stat">${dateInfo.wordCount} 个单词</span>
+                                <span class="date-stat">正确率: ${dateInfo.accuracy}%</span>
+                            </div>
+                        </div>
+                        <div class="history-date-words" id="history-words-${date}">
+                            <div class="loading-words">加载中...</div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            historyList.innerHTML = historyHtml;
+            
+            // 异步加载每个日期的单词
+            for (const dateInfo of historyDates) {
+                const date = dateInfo.date;
+                const words = await vocabulary.getDailyRecord(date);
+                const wordsContainer = document.getElementById(`history-words-${date}`);
+                
+                if (wordsContainer && words.length > 0) {
+                    wordsContainer.innerHTML = words.map(word => `
+                        <div class="history-word-item ${word.correct ? 'correct' : 'incorrect'}">
+                            <div class="word-info">
+                                <div class="word-text">${word.word}</div>
+                                <div class="word-phonetic">${word.phonetic || ''}</div>
+                            </div>
+                            <div class="word-meaning">${word.meaning || ''}</div>
+                            <div class="word-status">
+                                <span class="status-icon">${word.correct ? '✅' : '❌'}</span>
+                                <span class="status-text">${word.correct ? '正确' : '错误'}</span>
+                            </div>
+                        </div>
+                    `).join('');
+                } else if (wordsContainer) {
+                    wordsContainer.innerHTML = '<div class="no-words">暂无记录</div>';
+                }
+            }
+            
+        } catch (error) {
+            console.error('渲染历史单词失败:', error);
+            historyList.innerHTML = `
+                <div class="history-error">
+                    <div class="error-icon">⚠️</div>
+                    <div class="error-text">加载历史记录失败</div>
+                    <div class="error-subtext">${error.message}</div>
+                </div>
+            `;
+        }
+    }
+    
+    /**
+     * 格式化日期
+     */
+    formatDate(dateStr) {
+        const date = new Date(dateStr);
+        const today = new Date();
+        const yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate() - 1);
+        
+        if (dateStr === today.toISOString().split('T')[0]) {
+            return '今天';
+        } else if (dateStr === yesterday.toISOString().split('T')[0]) {
+            return '昨天';
+        } else {
+            return date.toLocaleDateString('zh-CN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'short'
+            });
         }
     }
     

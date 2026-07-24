@@ -445,6 +445,9 @@ class WordMatchGame {
       if (newWord && pair) {
         pair.word = newWord.word;
         pair.meaning = newWord.meaning;
+        pair.phonetic = newWord.phonetic || '';
+        pair.rootAffix = newWord.rootAffix || '';
+        pair.example = newWord.example || '';
         pair.active = true;
       }
 
@@ -476,7 +479,7 @@ class WordMatchGame {
           rootAffix: failedPair.rootAffix || '',
           phonetic: failedPair.phonetic || '',
           from: 'wordmatch',
-          grade: this.config ? this.config.grade : 'all'
+          grade: this.s.grade || 'all'
         }).catch(err => console.error('保存错题失败:', err));
       }
     }

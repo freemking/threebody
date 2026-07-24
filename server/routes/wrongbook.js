@@ -9,21 +9,34 @@ router.get('/list', async (req, res) => {
             'SELECT * FROM wrong_book WHERE deleted = 0 ORDER BY last_wrong_time DESC'
         );
         // 转换字段名为驼峰
-        const data = rows.map(row => ({
-            word: row.word,
-            meaning: row.meaning,
-            example: row.example,
-            rootAffix: row.root_affix,
-            phonetic: row.phonetic,
-            from: row.from_source,
-            fromList: JSON.parse(row.from_list || '[]'),
-            grade: row.grade,
-            wrongCount: row.wrong_count,
-            firstWrongTime: row.first_wrong_time,
-            lastWrongTime: row.last_wrong_time,
-            mastered: !!row.mastered,
-            errorType: row.error_type || 'all'
-        }));
+        const data = rows.map(row => {
+            let fromList = [];
+            try {
+                fromList = JSON.parse(row.from_list || '[]');
+                if (!Array.isArray(fromList)) {
+                    fromList = [fromList];
+                }
+            } catch (e) {
+                // 如果解析失败，将原始值作为数组元素
+                fromList = row.from_list ? [row.from_list] : [];
+            }
+            
+            return {
+                word: row.word,
+                meaning: row.meaning,
+                example: row.example,
+                rootAffix: row.root_affix,
+                phonetic: row.phonetic,
+                from: row.from_source,
+                fromList: fromList,
+                grade: row.grade,
+                wrongCount: row.wrong_count,
+                firstWrongTime: row.first_wrong_time,
+                lastWrongTime: row.last_wrong_time,
+                mastered: !!row.mastered,
+                errorType: row.error_type || 'all'
+            };
+        });
         res.json({ success: true, data });
     } catch (error) {
         console.error('获取错题列表失败:', error);
