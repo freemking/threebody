@@ -182,6 +182,26 @@
 .recognition-detail .detail-phonetic { font-size:1rem; color:var(--vb-text-muted); margin-bottom:var(--vb-space-sm); font-family:var(--vb-font-mono); }
 .recognition-detail .detail-example { font-size:.95rem; color:var(--vb-text-secondary); font-style:italic; }
 
+/* 复习标识 */
+.review-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.2), rgba(255, 152, 0, 0.15));
+    border: 1px solid rgba(255, 193, 7, 0.4);
+    border-radius: 20px;
+    color: #ffc107;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.3px;
+}
+.review-badge::before {
+    content: '🔄';
+    font-size: 0.9rem;
+}
+
 /* 拼写/听音模式专用 */
 .spelling-card { text-align:center; max-width:500px; width:100%; }
 .spelling-prompt { font-size:1.5rem; font-weight:700; color:var(--vb-text-primary); margin-bottom:var(--vb-space-sm); }

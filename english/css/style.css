@@ -1040,10 +1040,9 @@ body::after {
 }
 
 .word-phonetic {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: var(--light-text);
     margin-bottom: var(--space-lg);
-    font-style: italic;
     font-family: var(--font-mono);
 }
 

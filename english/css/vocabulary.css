@@ -1649,7 +1649,7 @@
 }
 
 .word-phonetic {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     color: var(--vb-text-accent);
     font-family: var(--vb-font-mono);
 }

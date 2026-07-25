@@ -3,6 +3,17 @@ const router = express.Router();
 const { queryWithRetry } = require('../db');
 const { calculateLevel, checkAchievements, calculateConsecutiveDays, LEVEL_CONFIG } = require('../vocabulary-levels');
 
+/**
+ * 获取本地日期字符串（YYYY-MM-DD格式）
+ * 使用服务器本地时区，避免UTC时区问题
+ */
+function getLocalDate(date = new Date()) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
+
 // 获取记单词词库列表（直接使用错题本数据）
 router.get('/list', async (req, res) => {
     try {
@@ -234,9 +245,10 @@ router.post('/clear-all', async (req, res) => {
 });
 
 // 获取今日记单词（每天5个，从vocabulary_daily_record读取，不存在则初始化）
+// 如果存在历史单词，先根据记忆曲线复习之前的单词
 router.get('/today', async (req, res) => {
     try {
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDate();
         
         // 从 vocabulary_daily_record 查询今天已学习的单词（包含remembered字段）
         const [todayRecords] = await queryWithRetry(
@@ -266,21 +278,70 @@ router.get('/today', async (req, res) => {
                 data, 
                 studied: todayRecords.length,
                 total: 5,
-                completed: true
+                completed: true,
+                hasReview: false
             });
         }
         
-        // 如果今天记录不足5个，从wrong_book中随机选择未掌握且未在今天的记录中的单词
+        // 检查是否存在历史单词数据
+        const [historyCount] = await queryWithRetry(
+            `SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE study_date < ?`,
+            [today]
+        );
+        const hasHistory = historyCount[0].count > 0;
+        
+        // 获取需要复习的单词（根据记忆曲线）
+        let reviewWords = [];
+        if (hasHistory) {
+            // 获取最近7天内学习过的单词，按学习时间排序，优先复习最近的
+            const [recentRecords] = await queryWithRetry(
+                `SELECT d.word, MAX(d.study_date) as last_study_date,
+                        w.meaning, w.phonetic, w.example, w.root_affix, w.grade
+                 FROM vocabulary_daily_record d
+                 JOIN wrong_book w ON d.word = w.word
+                 WHERE d.study_date < ? AND w.deleted = 0
+                 GROUP BY d.word
+                 ORDER BY last_study_date DESC
+                 LIMIT 10`,
+                [today]
+            );
+            
+            // 标记这些单词为复习单词
+            reviewWords = recentRecords.map(row => ({
+                word: row.word,
+                meaning: row.meaning,
+                phonetic: row.phonetic,
+                example: row.example,
+                rootAffix: row.root_affix,
+                grade: row.grade,
+                remembered: 0,
+                isReview: true
+            }));
+        }
+        
+        // 如果今天记录不足5个，从wrong_book中随机选择未掌握且未在最近3天内学习过的单词
         const studiedWords = todayRecords.map(r => r.word);
-        const needCount = 5 - todayRecords.length;
+        const reviewWordList = reviewWords.map(w => w.word);
+        const needCount = Math.max(0, 5 - todayRecords.length - reviewWords.length);
+        
+        // 获取最近3天内学习过的单词（排除今天和复习单词）
+        const [recentRecords] = await queryWithRetry(
+            `SELECT DISTINCT word FROM vocabulary_daily_record 
+             WHERE study_date >= DATE_SUB(?, INTERVAL 3 DAY) AND study_date != ?`,
+            [today, today]
+        );
+        const recentWords = recentRecords.map(r => r.word);
+        
+        // 合并需要排除的单词（今天已学习的 + 最近3天内学习过的 + 复习单词）
+        const excludeWords = [...new Set([...studiedWords, ...recentWords, ...reviewWordList])];
         
         let newWords = [];
         if (needCount > 0) {
-            const placeholders = studiedWords.length > 0 
-                ? `AND word NOT IN (${studiedWords.map(() => '?').join(',')})` 
+            const placeholders = excludeWords.length > 0 
+                ? `AND word NOT IN (${excludeWords.map(() => '?').join(',')})` 
                 : '';
-            const params = studiedWords.length > 0 
-                ? [...studiedWords, needCount] 
+            const params = excludeWords.length > 0 
+                ? [...excludeWords, needCount] 
                 : [needCount];
             
             const [rows] = await queryWithRetry(
@@ -301,8 +362,9 @@ router.get('/today', async (req, res) => {
             }
         }
         
-        // 合并已有记录和新插入的记录，返回完整数据
+        // 合并已有记录、复习单词和新插入的记录，返回完整数据
         const allWords = [
+            ...reviewWords,
             ...todayRecords.map(row => ({
                 word: row.word,
                 meaning: row.meaning,
@@ -310,7 +372,8 @@ router.get('/today', async (req, res) => {
                 example: row.example,
                 rootAffix: row.root_affix,
                 grade: row.grade,
-                remembered: row.remembered || 0
+                remembered: row.remembered || 0,
+                isReview: false
             })),
             ...newWords.map(row => ({
                 word: row.word,
@@ -319,7 +382,8 @@ router.get('/today', async (req, res) => {
                 example: row.example,
                 rootAffix: row.root_affix,
                 grade: row.grade,
-                remembered: 0
+                remembered: 0,
+                isReview: false
             }))
         ];
         
@@ -328,7 +392,9 @@ router.get('/today', async (req, res) => {
             data: allWords, 
             studied: todayRecords.length,
             total: 5,
-            completed: false
+            completed: false,
+            hasReview: reviewWords.length > 0,
+            reviewCount: reviewWords.length
         });
     } catch (error) {
         console.error('获取今日记单词失败:', error);
@@ -345,7 +411,7 @@ router.post('/study', async (req, res) => {
             return res.json({ success: false, error: '单词不能为空' });
         }
 
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDate();
         const now = new Date();
 
         // 检查今天是否已经学习过这个单词
@@ -431,7 +497,7 @@ router.post('/remembered', async (req, res) => {
             return res.json({ success: false, error: '单词不能为空' });
         }
 
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDate();
 
         // 检查今天是否已有记录
         const [existing] = await queryWithRetry(
@@ -465,7 +531,7 @@ router.post('/remembered', async (req, res) => {
 router.get('/daily-record', async (req, res) => {
     try {
         const { date } = req.query;
-        const queryDate = date || new Date().toISOString().split('T')[0];
+        const queryDate = date || getLocalDate();
         
         const [rows] = await queryWithRetry(
             `SELECT dr.*, wb.meaning, wb.phonetic, wb.example 
@@ -534,6 +600,7 @@ router.get('/history-dates', async (req, res) => {
                     COUNT(*) as total_count
              FROM vocabulary_daily_record 
              GROUP BY study_date 
+             HAVING COUNT(DISTINCT word) > 0
              ORDER BY study_date DESC`
         );
         
@@ -555,7 +622,7 @@ router.get('/history-dates', async (req, res) => {
 // 获取学习统计
 router.get('/stats', async (req, res) => {
     try {
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDate();
         
         // 获取词库总数（从错题本中）
         const [totalWords] = await queryWithRetry(
@@ -672,7 +739,7 @@ router.get('/user-stats', async (req, res) => {
         );
         
         // 获取今日学习统计
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDate();
         const [todayStats] = await queryWithRetry(
             `SELECT 
                 COUNT(DISTINCT word) as studied,
@@ -824,7 +891,7 @@ router.post('/update-stats', async (req, res) => {
             return res.json({ success: false, error: '单词不能为空' });
         }
         
-        const today = new Date().toISOString().split('T')[0];
+        const today = getLocalDate();
         
         // 更新连续学习天数
         const [userStats] = await queryWithRetry(
