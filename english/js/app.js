@@ -4203,9 +4203,14 @@ class App {
                         <div class="history-word-item ${word.correct ? 'correct' : 'incorrect'}">
                             <div class="word-info">
                                 <div class="word-text">${word.word}</div>
-                                <div class="word-phonetic">${word.phonetic || ''}</div>
+                                <div class="word-phonetic">
+                                    <span>${word.phonetic || ''}</span>
+                                    <button class="btn-pronunciation" data-word="${word.word}" title="朗读单词">🔊</button>
+                                </div>
                             </div>
                             <div class="word-meaning">${word.meaning || ''}</div>
+                            ${word.rootAffix ? `<div class="history-word-rootAffix"><span class="root-affix-label">词根词缀:</span> ${word.rootAffix}</div>` : ''}
+                            ${word.example ? `<div class="history-word-example">"${word.example}"</div>` : ''}
                             <div class="word-status">
                                 <span class="status-icon">${word.correct ? '✅' : '❌'}</span>
                                 <span class="status-text">${word.correct ? '正确' : '错误'}</span>

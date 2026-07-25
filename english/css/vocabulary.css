@@ -1603,12 +1603,26 @@
 
 .history-word-item {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     padding: var(--vb-space-md);
     background: var(--vb-bg-card);
     border-radius: var(--vb-radius-md);
     transition: all var(--vb-transition-fast);
+    gap: var(--vb-space-xs);
+}
+
+.history-word-item .word-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-word-item .word-status {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--vb-space-xs);
+    margin-top: var(--vb-space-xs);
 }
 
 .history-word-item:hover {
@@ -1659,6 +1673,33 @@
 .status-text {
     font-size: 0.85rem;
     color: var(--vb-text-muted);
+}
+
+.history-word-rootAffix {
+    font-size: 0.9rem;
+    color: var(--vb-text-accent, #f59e0b);
+    margin-top: var(--vb-space-xs);
+    padding: var(--vb-space-xs) var(--vb-space-sm);
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--vb-radius-sm, 4px);
+    border-left: 3px solid rgba(245, 158, 11, 0.5);
+    line-height: 1.4;
+}
+
+.history-word-rootAffix .root-affix-label {
+    font-weight: 700;
+    color: var(--vb-accent-light, #fbbf24);
+}
+
+.history-word-example {
+    font-size: 0.85rem;
+    color: var(--vb-text-muted);
+    font-style: italic;
+    margin-top: var(--vb-space-xs);
+    padding: var(--vb-space-xs) var(--vb-space-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--vb-radius-sm, 4px);
+    line-height: 1.4;
 }
 
 .loading-words {
