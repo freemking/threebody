@@ -538,7 +538,7 @@ router.get('/history-dates', async (req, res) => {
         );
         
         const data = rows.map(row => ({
-            date: row.study_date,
+            date: typeof row.study_date === 'string' ? row.study_date : row.study_date.toISOString().split('T')[0],
             wordCount: row.word_count,
             correctCount: row.correct_count,
             totalCount: row.total_count,

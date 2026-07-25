@@ -1389,9 +1389,11 @@ class App {
                 }
                 break;
             case ' ':
-                e.preventDefault();
-                // 播放发音
-                this.playCurrentTrainingWord();
+                // 播放发音（仅当输入框未聚焦时）
+                if (document.activeElement.tagName !== 'INPUT') {
+                    e.preventDefault();
+                    this.playCurrentTrainingWord();
+                }
                 break;
             case 'r': case 'R':
                 // 重播发音
@@ -2685,6 +2687,7 @@ class App {
                             </button>
                         </div>
                         <div class="vocabulary-word-meaning">${word.meaning}</div>
+                        ${word.rootAffix ? `<div class="vocabulary-word-rootAffix"><span class="root-affix-label">词根词缀:</span> ${word.rootAffix}</div>` : ''}
                         ${word.example ? `<div class="vocabulary-word-example">"${word.example}"</div>` : ''}
                     </div>
                 `).join('');
@@ -3013,7 +3016,6 @@ class App {
         if (prevBtn) prevBtn.disabled = this.trainingIndex === 0;
         if (nextBtn) {
             nextBtn.disabled = true;
-            nextBtn.querySelector('span:last-child').textContent = '下一个';
         }
         
         // 渲染内容
@@ -3179,7 +3181,10 @@ class App {
         }
         
         this.trainingAnswered = true;
-        const isCorrect = userAnswer === word.word.toLowerCase();
+        // 标准化空格：将多个空格合并为一个，然后比较
+        const normalizedUserAnswer = userAnswer.replace(/\s+/g, ' ');
+        const normalizedCorrectAnswer = word.word.toLowerCase().replace(/\s+/g, ' ');
+        const isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
         
         // 记录学习结果
         await vocabulary.studyWord(word.word, isCorrect);
@@ -3297,7 +3302,10 @@ class App {
         }
         
         this.trainingAnswered = true;
-        const isCorrect = userAnswer === word.word.toLowerCase();
+        // 标准化空格：将多个空格合并为一个，然后比较
+        const normalizedUserAnswer = userAnswer.replace(/\s+/g, ' ');
+        const normalizedCorrectAnswer = word.word.toLowerCase().replace(/\s+/g, ' ');
+        const isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
         
         await vocabulary.studyWord(word.word, isCorrect);
         await vocabulary.updateStudyStats(word.word, isCorrect);
@@ -4154,7 +4162,10 @@ class App {
             let historyHtml = '';
             
             for (const dateInfo of historyDates) {
-                const date = dateInfo.date;
+                // 确保日期格式为YYYY-MM-DD（兼容ISO格式）
+                const date = typeof dateInfo.date === 'string' && dateInfo.date.includes('T') 
+                    ? dateInfo.date.split('T')[0] 
+                    : dateInfo.date;
                 const formattedDate = this.formatDate(date);
                 
                 historyHtml += `
@@ -4180,7 +4191,10 @@ class App {
             
             // 异步加载每个日期的单词
             for (const dateInfo of historyDates) {
-                const date = dateInfo.date;
+                // 确保日期格式为YYYY-MM-DD（与HTML ID一致）
+                const date = typeof dateInfo.date === 'string' && dateInfo.date.includes('T') 
+                    ? dateInfo.date.split('T')[0] 
+                    : dateInfo.date;
                 const words = await vocabulary.getDailyRecord(date);
                 const wordsContainer = document.getElementById(`history-words-${date}`);
                 

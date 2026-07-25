@@ -301,6 +301,22 @@
     margin-bottom: var(--vb-space-md);
 }
 
+.vocabulary-word-rootAffix {
+    font-size: 0.95rem;
+    color: var(--vb-text-accent, #f59e0b);
+    margin-bottom: var(--vb-space-md);
+    padding: var(--vb-space-sm) var(--vb-space-md);
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--vb-radius-md, 8px);
+    border-left: 3px solid rgba(245, 158, 11, 0.5);
+    line-height: 1.5;
+}
+
+.vocabulary-word-rootAffix .root-affix-label {
+    font-weight: 700;
+    color: var(--vb-accent-light, #fbbf24);
+}
+
 .vocabulary-word-meta {
     display: flex;
     justify-content: space-between;

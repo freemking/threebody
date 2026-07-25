@@ -281,7 +281,12 @@ class Vocabulary {
      */
     async getDailyRecord(date) {
         try {
-            const url = date ? `/daily-record?date=${date}` : '/daily-record';
+            // 确保日期格式为YYYY-MM-DD
+            let queryDate = date;
+            if (date && typeof date === 'string' && date.includes('T')) {
+                queryDate = date.split('T')[0];
+            }
+            const url = queryDate ? `/daily-record?date=${queryDate}` : '/daily-record';
             const result = await this._apiRequest(url);
             if (result && result.success) {
                 return result.data;
@@ -347,21 +352,6 @@ class Vocabulary {
             }
         } catch (error) {
             console.error('获取历史学习日期失败:', error);
-        }
-        return [];
-    }
-
-    /**
-     * 获取指定日期的学习记录
-     */
-    async getDailyRecord(date) {
-        try {
-            const result = await this._apiRequest(`/daily-record?date=${date}`);
-            if (result && result.success) {
-                return result.data;
-            }
-        } catch (error) {
-            console.error('获取每日学习记录失败:', error);
         }
         return [];
     }
