@@ -409,7 +409,7 @@ class WordBlastGame {
     wordAudioBtn.onclick = (e) => {
       e.preventDefault();
       audioManager.playClick();
-      audioManager.speak(q.word, 'en-US');
+      audioManager.speak(q.word, 'en-US').catch(() => {});
     };
     audioBtnWrap.appendChild(wordAudioBtn);
 

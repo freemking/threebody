@@ -349,7 +349,7 @@ class WordMatchGame {
     
     // 播放选中音效 + 朗读英文单词
     audioManager.playSelect();
-    audioManager.speak(pair.word, 'en-US');
+    audioManager.speak(pair.word, 'en-US').catch(() => {});
     
     // 清除之前的选中
     document.querySelectorAll('.wm-item.selected').forEach(e => {

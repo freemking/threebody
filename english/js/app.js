@@ -857,9 +857,7 @@ class App {
         const vocabularyBtn = document.getElementById('btn-vocabulary');
         if (vocabularyBtn) vocabularyBtn.addEventListener('click', () => this.showVocabulary());
         
-        // 音效切换按钮
-        const soundToggleBtn = document.getElementById('btn-sound-toggle');
-        if (soundToggleBtn) soundToggleBtn.addEventListener('click', () => this.toggleSound());
+
         
         // 返回按钮
         const backBtn = document.getElementById('btn-back');
@@ -1135,11 +1133,8 @@ class App {
      * 加载音效设置
      */
     loadSoundSettings() {
-        const settings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
-        // 默认声音开启：只有明确保存为 false 时才关闭
-        const soundEnabled = settings.soundEnabled === false ? false : true;
-        audioManager.setSoundEnabled(soundEnabled);
-        this.updateSoundButton(soundEnabled);
+        // 声音按钮已移除，声音默认开启
+        audioManager.setSoundEnabled(true);
     }
     
     /**
@@ -1167,10 +1162,7 @@ class App {
      * 更新音效按钮图标
      */
     updateSoundButton(soundEnabled) {
-        const soundToggleBtn = document.getElementById('btn-sound-toggle');
-        if (soundToggleBtn) {
-            soundToggleBtn.textContent = soundEnabled ? '🔊' : '🔇';
-        }
+        // 声音按钮已移除，此方法保留但不执行任何操作
     }
     
     // ===== 语言切换相关方法 =====
@@ -1180,36 +1172,13 @@ class App {
      */
     loadLanguageSettings() {
         const settings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
-        this.lang = settings.lang || 'en';
-        
-        // 更新滑动按钮状态
-        const langToggle = document.getElementById('lang-toggle');
-        if (langToggle) {
-            langToggle.checked = (this.lang === 'en');
-            langToggle.addEventListener('change', () => this.toggleLanguage());
-        }
+        this.lang = settings.lang || 'zh';
         
         // 应用语言
         this.applyLanguage();
     }
     
-    /**
-     * 切换语言
-     */
-    toggleLanguage() {
-        this.lang = this.lang === 'zh' ? 'en' : 'zh';
-        
-        // 保存设置
-        const settings = JSON.parse(localStorage.getItem('gameSettings') || '{}');
-        settings.lang = this.lang;
-        localStorage.setItem('gameSettings', JSON.stringify(settings));
-        
-        // 应用语言
-        this.applyLanguage();
-        
-        // 播放点击音效
-        audioManager.playClick();
-    }
+
     
     /**
      * 应用语言到界面
@@ -1331,7 +1300,7 @@ class App {
         const wordText = document.querySelector('.word-text');
         if (wordText) {
             const word = wordText.textContent;
-            audioManager.speak(word, 'en-US');
+            audioManager.speak(word, 'en-US').catch(() => {});
         }
     }
     

@@ -558,7 +558,7 @@ const VocabularyAppMixin = {
         // 训练配置
         this.setupTrainingConfig();
         
-        // 听写配置（已整合到单词训练中）
+        // 听写配置（已整合到记单词中）
         // this.setupDictationConfig();
         
         // 错题本模块监听
@@ -587,7 +587,7 @@ const VocabularyAppMixin = {
         
         // 更新标题
         const titleMap = {
-            'memory-training': '单词训练',
+            'memory-training': '记单词',
             'history-words': '历史单词',
             'wrong-book': '单词库',
             'learning-data': '学习数据',
@@ -986,7 +986,7 @@ const VocabularyAppMixin = {
                     e.stopPropagation();
                     const word = target.dataset.word;
                     if (word && typeof audioManager !== 'undefined') {
-                        audioManager.speak(word, 'en-US');
+                        audioManager.speak(word, 'en-US').catch(() => {});
                         // 添加朗读动画
                         target.classList.add('speaking');
                         setTimeout(() => target.classList.remove('speaking'), 1000);
@@ -1598,7 +1598,7 @@ const VocabularyAppMixin = {
         // 检查昨天单词的训练情况
         const yesterdayPassed = await this.checkYesterdayTraining();
         if (!yesterdayPassed) {
-            this.showVocabularyNotification('请先完成昨天的单词训练才能开始今天的学习', 'warning');
+            this.showVocabularyNotification('请先完成昨天的记单词才能开始今天的学习', 'warning');
             return;
         }
         
@@ -1846,12 +1846,12 @@ const VocabularyAppMixin = {
         const selectedMeaning = btn.dataset.meaning;
         const isCorrect = selectedMeaning === word.meaning;
         
-        // 记录学习结果
-        await vocabulary.studyWord(word.word, isCorrect);
-        await vocabulary.updateStudyStats(word.word, isCorrect);
-        
-        // 记录多模式训练结果
+        // 先记录多模式训练结果（同步操作，确保结果立即记录）
         this.recordWordResult(word.word, 'recognition', isCorrect);
+        
+        // 记录学习结果（异步操作，不影响训练结果记录）
+        vocabulary.studyWord(word.word, isCorrect).catch(err => console.error('记录学习失败:', err));
+        vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
         
         if (isCorrect) {
             this.trainingCorrect++;
@@ -1957,12 +1957,12 @@ const VocabularyAppMixin = {
         const normalizedCorrectAnswer = word.word.toLowerCase().replace(/\s+/g, ' ');
         const isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
         
-        // 记录学习结果
-        await vocabulary.studyWord(word.word, isCorrect);
-        await vocabulary.updateStudyStats(word.word, isCorrect);
-        
-        // 记录多模式训练结果
+        // 先记录多模式训练结果（同步操作，确保结果立即记录）
         this.recordWordResult(word.word, 'spelling', isCorrect);
+        
+        // 记录学习结果（异步操作，不影响训练结果记录）
+        vocabulary.studyWord(word.word, isCorrect).catch(err => console.error('记录学习失败:', err));
+        vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
         
         const feedback = document.getElementById('spelling-feedback');
         
@@ -2081,11 +2081,12 @@ const VocabularyAppMixin = {
         const normalizedCorrectAnswer = word.word.toLowerCase().replace(/\s+/g, ' ');
         const isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
         
-        await vocabulary.studyWord(word.word, isCorrect);
-        await vocabulary.updateStudyStats(word.word, isCorrect);
-        
-        // 记录多模式训练结果
+        // 先记录多模式训练结果（同步操作，确保结果立即记录）
         this.recordWordResult(word.word, 'listening', isCorrect);
+        
+        // 记录学习结果（异步操作，不影响训练结果记录）
+        vocabulary.studyWord(word.word, isCorrect).catch(err => console.error('记录学习失败:', err));
+        vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
         
         const feedback = document.getElementById('listening-feedback');
         
@@ -2141,7 +2142,7 @@ const VocabularyAppMixin = {
         if (!word) return;
         
         if (typeof audioManager !== 'undefined' && audioManager.speak) {
-            audioManager.speak(word.word, 'en-US');
+            audioManager.speak(word.word, 'en-US').catch(() => {});
         }
     },
 
@@ -2510,7 +2511,7 @@ const VocabularyAppMixin = {
         if (!word) return;
         
         if (typeof audioManager !== 'undefined' && audioManager.speak) {
-            audioManager.speak(word.word, 'en-US');
+            audioManager.speak(word.word, 'en-US').catch(() => {});
         }
     },
 
@@ -3001,7 +3002,7 @@ const VocabularyAppMixin = {
                     e.stopPropagation();
                     const word = pronunciationBtn.dataset.word;
                     if (word) {
-                        audioManager.speak(word, 'en-US');
+                        audioManager.speak(word, 'en-US').catch(() => {});
                     }
                 }
             });

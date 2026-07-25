@@ -13,8 +13,46 @@ class AudioManager {
         this.currentAudio = null;
         this.isSpeaking = false;
         
-        // Initialize audio context
-        this.initAudioContext();
+        // AudioContext 状态
+        this._contextReady = false;
+        this._pendingSounds = [];
+        
+        // 用户交互时初始化并恢复 AudioContext
+        this._initOnInteraction = () => {
+            if (this._contextReady) return;
+            
+            // 创建 AudioContext
+            this.initAudioContext();
+            
+            if (this.audioContext) {
+                // 尝试恢复 AudioContext
+                this.audioContext.resume().then(() => {
+                    this._contextReady = true;
+                    console.log('AudioContext initialized and resumed after user interaction');
+                    
+                    // 播放所有等待中的声音
+                    this._flushPendingSounds();
+                }).catch(e => {
+                    console.warn('AudioContext resume failed:', e);
+                });
+            }
+            
+            // 移除监听器，只执行一次
+            document.removeEventListener('click', this._initOnInteraction);
+            document.removeEventListener('touchstart', this._initOnInteraction);
+        };
+        document.addEventListener('click', this._initOnInteraction, { once: false });
+        document.addEventListener('touchstart', this._initOnInteraction, { once: false });
+    }
+    
+    /**
+     * 播放等待中的声音
+     */
+    _flushPendingSounds() {
+        while (this._pendingSounds.length > 0) {
+            const { name, volume } = this._pendingSounds.shift();
+            this._playSoundInternal(name, volume);
+        }
     }
     
     /**
@@ -51,15 +89,72 @@ class AudioManager {
     }
     
     /**
+     * 确保 AudioContext 处于运行状态
+     * @returns {Promise<boolean>} 是否已恢复
+     */
+    async ensureAudioContext() {
+        // 如果 AudioContext 还未初始化，尝试初始化
+        if (!this.audioContext && !this._contextInitialized) {
+            this.initAudioContext();
+            this._contextInitialized = true;
+        }
+        
+        if (!this.audioContext) return false;
+        
+        if (this.audioContext.state === 'suspended') {
+            try {
+                await this.audioContext.resume();
+                this._contextResumed = true;
+                console.log('AudioContext resumed');
+            } catch (e) {
+                console.warn('AudioContext resume failed:', e);
+                return false;
+            }
+        }
+        return this.audioContext.state === 'running';
+    }
+    
+    /**
      * 播放音效
      * @param {string} name 音效名称
      * @param {number} volume 音量（0-1）
      */
     playSound(name, volume = 1.0) {
         if (!this.soundEnabled) return;
+        
+        // 如果 AudioContext 还未准备好，加入等待队列
+        if (!this._contextReady) {
+            this._pendingSounds.push({ name, volume });
+            return;
+        }
+        
+        this._playSoundInternal(name, volume);
+    }
+    
+    /**
+     * 内部播放音效方法
+     * @param {string} name 音效名称
+     * @param {number} volume 音量（0-1）
+     */
+    _playSoundInternal(name, volume = 1.0) {
         if (!this.sounds[name]) {
-            console.warn(`Sound ${name} not loaded, using synthetic sound`);
             this.generateTone(name, volume);
+            return;
+        }
+        
+        // 如果 AudioContext 是 suspended，尝试恢复后重新播放
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume().then(() => {
+                console.log('AudioContext resumed for sound:', name);
+                this._playSoundInternal(name, volume);
+            }).catch(e => {
+                console.warn('AudioContext resume failed:', e);
+            });
+            return;
+        }
+        
+        if (this.audioContext.state !== 'running') {
+            console.warn('AudioContext state:', this.audioContext.state, 'for sound:', name);
             return;
         }
         
@@ -85,7 +180,27 @@ class AudioManager {
      * @param {number} volume 音量（0-1）
      */
     generateTone(name, volume = 1.0) {
-        if (!this.audioContext) return;
+        if (!this.audioContext) {
+            console.log('AudioContext not ready for tone:', name);
+            return;
+        }
+        
+        // 如果 AudioContext 是 suspended，尝试恢复
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume().then(() => {
+                console.log('AudioContext resumed for tone:', name);
+                // 恢复后重新播放
+                this.generateTone(name, volume);
+            }).catch(e => {
+                console.warn('AudioContext resume failed:', e);
+            });
+            return;
+        }
+        
+        if (this.audioContext.state !== 'running') {
+            console.warn('AudioContext state:', this.audioContext.state, 'for tone:', name);
+            return;
+        }
         
         try {
             const oscillator = this.audioContext.createOscillator();
@@ -216,8 +331,13 @@ class AudioManager {
             
             utterance.onerror = (event) => {
                 this.isSpeaking = false;
-                console.warn('Speech synthesis error:', event.error);
-                reject(event.error);
+                // "interrupted" 是正常行为（用户快速点击），不需要 reject
+                if (event.error === 'interrupted') {
+                    resolve();
+                } else {
+                    console.warn('Speech synthesis error:', event.error);
+                    reject(event.error);
+                }
             };
             
             // 保存当前语音引用
@@ -323,7 +443,7 @@ class AudioManager {
      */
     playComplete() {
         this.playSound('complete', 0.7);
-        setTimeout(() => this.speak('Good job!', 'en-US'), 300);
+        setTimeout(() => this.speak('Good job!', 'en-US').catch(() => {}), 300);
     }
     
     /**
@@ -418,7 +538,7 @@ class AudioManager {
      */
     playMatchError() {
         this.playSound('error', 0.4);
-        setTimeout(() => this.speak('Try again!', 'en-US'), 200);
+        setTimeout(() => this.speak('Try again!', 'en-US').catch(() => {}), 200);
     }
     
     /**

@@ -590,6 +590,16 @@ router.get('/total-record', async (req, res) => {
     }
 });
 
+// 辅助函数：将UTC日期转换为本地日期字符串 (YYYY-MM-DD)
+function utcDateToLocalString(date) {
+    if (typeof date === 'string') {
+        return date.split('T')[0];
+    }
+    // 使用本地时区偏移，将UTC时间转换为本地时间
+    const localDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
+    return localDate.toISOString().split('T')[0];
+}
+
 // 获取历史学习日期列表
 router.get('/history-dates', async (req, res) => {
     try {
@@ -599,20 +609,24 @@ router.get('/history-dates', async (req, res) => {
                     SUM(CASE WHEN correct = 1 THEN 1 ELSE 0 END) as correct_count,
                     COUNT(*) as total_count
              FROM vocabulary_daily_record 
+             WHERE word IS NOT NULL AND word != ''
              GROUP BY study_date 
              HAVING COUNT(DISTINCT word) > 0
              ORDER BY study_date DESC`
         );
         
         const data = rows.map(row => ({
-            date: typeof row.study_date === 'string' ? row.study_date : row.study_date.toISOString().split('T')[0],
+            date: utcDateToLocalString(row.study_date),
             wordCount: row.word_count,
             correctCount: row.correct_count,
             totalCount: row.total_count,
             accuracy: row.total_count > 0 ? (row.correct_count / row.total_count * 100).toFixed(1) : 0
         }));
         
-        res.json({ success: true, data });
+        // 额外过滤：确保返回的数据中wordCount大于0
+        const filteredData = data.filter(d => d.wordCount > 0);
+        
+        res.json({ success: true, data: filteredData });
     } catch (error) {
         console.error('获取历史学习日期失败:', error);
         res.json({ success: false, error: error.message });
@@ -681,7 +695,7 @@ router.get('/weekly-chart', async (req, res) => {
         for (let i = 29; i >= 0; i--) {
             const date = new Date();
             date.setDate(date.getDate() - i);
-            dates.push(date.toISOString().split('T')[0]);
+            dates.push(getLocalDate(date));
         }
         
         const chartData = [];

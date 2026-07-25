@@ -1213,12 +1213,12 @@ class GameEngine {
 
         // 自动朗读当前挑战的单词
         setTimeout(() => {
-            audioManager.speak(w.word, 'en-US');
+            audioManager.speak(w.word, 'en-US').catch(() => {});
             // 句子挑战额外朗读例句
             if (ms.chalStep === 3) {
                 const sentence = w.example || `I like ${w.word}.`;
                 setTimeout(() => {
-                    audioManager.speak(sentence, 'en-US');
+                    audioManager.speak(sentence, 'en-US').catch(() => {});
                 }, 800);
             }
         }, 400);
@@ -1254,7 +1254,7 @@ class GameEngine {
             btn.addEventListener('click', () => {
                 cleanup();
                 // 点击时朗读英文单词
-                audioManager.speak(w.word, 'en-US');
+                audioManager.speak(w.word, 'en-US').catch(() => {});
                 if (o === w.meaning) self._onCorrect();
                 else self._onWrong();
             });
@@ -1283,7 +1283,7 @@ class GameEngine {
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 cleanup();
-                audioManager.speak(w.word, 'en-US');
+                audioManager.speak(w.word, 'en-US').catch(() => {});
                 if (opts[selectedIdx] === w.meaning) self._onCorrect();
                 else self._onWrong();
             }
@@ -1324,7 +1324,7 @@ class GameEngine {
             btn.addEventListener('click', () => {
                 cleanup();
                 // 点击时朗读该英文单词
-                audioManager.speak(o, 'en-US');
+                audioManager.speak(o, 'en-US').catch(() => {});
                 if (o === w.word) self._onCorrect();
                 else self._onWrong();
             });
@@ -1353,7 +1353,7 @@ class GameEngine {
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 cleanup();
-                audioManager.speak(opts[selectedIdx], 'en-US');
+                audioManager.speak(opts[selectedIdx], 'en-US').catch(() => {});
                 if (opts[selectedIdx] === w.word) self._onCorrect();
                 else self._onWrong();
             }
@@ -1508,7 +1508,7 @@ class GameEngine {
             cleanup();
             const result = buildResult();
             // 确认时朗读完整单词/词组
-            audioManager.speak(word, 'en-US');
+            audioManager.speak(word, 'en-US').catch(() => {});
             if (result === word) self._onCorrect();
             else self._onWrong();
         });
@@ -1607,7 +1607,7 @@ class GameEngine {
             btn.addEventListener('click', () => {
                 cleanup();
                 // 点击时朗读句子
-                audioManager.speak(o.s, 'en-US');
+                audioManager.speak(o.s, 'en-US').catch(() => {});
                 if (o.ok) self._onCorrect();
                 else self._onWrong();
             });
@@ -1636,7 +1636,7 @@ class GameEngine {
             } else if (e.key === 'Enter') {
                 e.preventDefault();
                 cleanup();
-                audioManager.speak(opts[selectedIdx].s, 'en-US');
+                audioManager.speak(opts[selectedIdx].s, 'en-US').catch(() => {});
                 if (opts[selectedIdx].ok) self._onCorrect();
                 else self._onWrong();
             }
