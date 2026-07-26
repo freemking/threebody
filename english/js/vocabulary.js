@@ -1556,7 +1556,7 @@ const VocabularyAppMixin = {
             const today = new Date().toISOString().split('T')[0];
             
             // 过滤掉今天的日期，只保留历史日期
-            const pastDates = historyDates.filter(date => date !== today);
+            const pastDates = historyDates.filter(d => d.date !== today);
             
             // 如果没有历史日期（只有今天的记录），允许训练
             if (pastDates.length === 0) {
@@ -1564,10 +1564,10 @@ const VocabularyAppMixin = {
             }
             
             // 按日期降序排序（最近的在前）
-            pastDates.sort((a, b) => new Date(b) - new Date(a));
+            pastDates.sort((a, b) => new Date(b.date) - new Date(a.date));
             
             // 获取最近的有记录的日期
-            const mostRecentDate = pastDates[0];
+            const mostRecentDate = pastDates[0].date;
             
             // 获取该日期的记录
             const records = await vocabulary.getDailyRecord(mostRecentDate);

@@ -63,7 +63,15 @@ router.post('/add', async (req, res) => {
         if (existing.length > 0) {
             // 已存在，更新（如果是软删除的则恢复）
             const item = existing[0];
-            let fromList = JSON.parse(item.from_list || '[]');
+            let fromList;
+            try {
+                fromList = JSON.parse(item.from_list || '[]');
+                if (!Array.isArray(fromList)) {
+                    fromList = [fromList];
+                }
+            } catch (e) {
+                fromList = item.from_list ? [item.from_list] : [];
+            }
             if (from && !fromList.includes(from)) {
                 fromList.push(from);
             }

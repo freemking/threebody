@@ -291,9 +291,11 @@ router.get('/today', async (req, res) => {
         const hasHistory = historyCount[0].count > 0;
         
         // 获取需要复习的单词（根据记忆曲线）
+        // 计算剩余名额，确保每天总共5个单词
+        const remainingSlots = 5 - todayRecords.length;
         let reviewWords = [];
-        if (hasHistory) {
-            // 获取最近7天内学习过的单词，按学习时间排序，优先复习最近的
+        if (hasHistory && remainingSlots > 0) {
+            // 获取所有历史学过的单词，按学习时间排序，优先复习最近的
             const [recentRecords] = await queryWithRetry(
                 `SELECT d.word, MAX(d.study_date) as last_study_date,
                         w.meaning, w.phonetic, w.example, w.root_affix, w.grade
@@ -302,8 +304,8 @@ router.get('/today', async (req, res) => {
                  WHERE d.study_date < ? AND w.deleted = 0
                  GROUP BY d.word
                  ORDER BY last_study_date DESC
-                 LIMIT 10`,
-                [today]
+                 LIMIT ?`,
+                [today, remainingSlots]
             );
             
             // 标记这些单词为复习单词
@@ -319,21 +321,20 @@ router.get('/today', async (req, res) => {
             }));
         }
         
-        // 如果今天记录不足5个，从wrong_book中随机选择未掌握且未在最近3天内学习过的单词
+        // 如果今天记录不足5个，从wrong_book中随机选择真正从未学过的单词
         const studiedWords = todayRecords.map(r => r.word);
         const reviewWordList = reviewWords.map(w => w.word);
         const needCount = Math.max(0, 5 - todayRecords.length - reviewWords.length);
         
-        // 获取最近3天内学习过的单词（排除今天和复习单词）
-        const [recentRecords] = await queryWithRetry(
-            `SELECT DISTINCT word FROM vocabulary_daily_record 
-             WHERE study_date >= DATE_SUB(?, INTERVAL 3 DAY) AND study_date != ?`,
-            [today, today]
+        // 获取所有历史学过的单词（排除今天），确保新单词是真正全新的
+        const [allHistoryRecords] = await queryWithRetry(
+            `SELECT DISTINCT word FROM vocabulary_daily_record WHERE study_date != ?`,
+            [today]
         );
-        const recentWords = recentRecords.map(r => r.word);
+        const allHistoryWords = allHistoryRecords.map(r => r.word);
         
-        // 合并需要排除的单词（今天已学习的 + 最近3天内学习过的 + 复习单词）
-        const excludeWords = [...new Set([...studiedWords, ...recentWords, ...reviewWordList])];
+        // 合并需要排除的单词（今天已学习的 + 所有历史学过的 + 复习单词）
+        const excludeWords = [...new Set([...studiedWords, ...allHistoryWords, ...reviewWordList])];
         
         let newWords = [];
         if (needCount > 0) {
@@ -531,7 +532,8 @@ router.post('/remembered', async (req, res) => {
 router.get('/daily-record', async (req, res) => {
     try {
         const { date } = req.query;
-        const queryDate = date || getLocalDate();
+        // 确保queryDate是字符串格式，防止传入对象导致SQL错误
+        const queryDate = (typeof date === 'string' && date.trim()) ? date.trim() : getLocalDate();
         
         const [rows] = await queryWithRetry(
             `SELECT dr.*, wb.meaning, wb.phonetic, wb.example 
