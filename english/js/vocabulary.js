@@ -1341,6 +1341,21 @@ const VocabularyAppMixin = {
         
         const startBtn = document.getElementById('btn-start-training');
         const lock = document.getElementById('training-lock');
+        const titleElement = document.getElementById('vocabulary-today-title');
+        
+        // 获取今日单词，检查是否有复习单词
+        const todayWords = vocabulary.getTodayWords();
+        const hasReviewWords = todayWords.some(w => w.isReview);
+        
+        // 根据条件设置标题
+        let title = '📖 今日记单词';
+        if (!yesterdayPassed) {
+            // 昨天没有完成训练，显示复习标题
+            title = '📖 复习昨天的单词';
+        } else if (hasReviewWords) {
+            // 昨天完成了训练，但显示的是复习单词，也显示复习标题
+            title = '📖 复习昨天的单词';
+        }
         
         if (!yesterdayPassed) {
             // 显示锁定状态
@@ -1356,6 +1371,10 @@ const VocabularyAppMixin = {
                 startBtn.classList.remove('disabled');
             }
             if (lock) lock.classList.add('hidden');
+        }
+        
+        if (titleElement) {
+            titleElement.textContent = title;
         }
     },
 
@@ -1417,9 +1436,30 @@ const VocabularyAppMixin = {
         const todayWordsContainer = document.getElementById('vocabulary-today-words');
         const progressText = document.getElementById('today-progress-text');
         const progressFill = document.getElementById('today-progress-fill');
+        const titleElement = document.getElementById('vocabulary-today-title');
         
         const stats = vocabulary.getStats();
         const todayWords = vocabulary.getTodayWords();
+        
+        // 检查是否有复习单词
+        const hasReviewWords = todayWords.some(w => w.isReview);
+        
+        // 检查昨天训练状态并更新标题
+        const yesterdayPassed = await this.checkYesterdayTraining();
+        
+        // 根据条件设置标题
+        let title = '📖 今日记单词';
+        if (!yesterdayPassed) {
+            // 昨天没有完成训练，显示复习标题
+            title = '📖 复习昨天的单词';
+        } else if (hasReviewWords) {
+            // 昨天完成了训练，但显示的是复习单词，也显示复习标题
+            title = '📖 复习昨天的单词';
+        }
+        
+        if (titleElement) {
+            titleElement.textContent = title;
+        }
         
         // 更新今日记单词进度
         if (progressText && progressFill) {
@@ -1435,7 +1475,7 @@ const VocabularyAppMixin = {
                 todayWordsContainer.innerHTML = `
                     <div class="vocabulary-empty">
                         <span class="vocabulary-empty-icon">📖</span>
-                        <div class="vocabulary-empty-text">今日暂无记单词</div>
+                        <div class="vocabulary-empty-text">${yesterdayPassed ? '今日暂无记单词' : '请先完成昨天的训练'}</div>
                     </div>`;
             } else {
                 todayWordsContainer.innerHTML = todayWords.map(word => `
