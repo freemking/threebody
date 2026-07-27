@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const { queryWithRetry } = require('../db');
+const { authenticateToken } = require('../middleware/auth');
 
 // 获取所有错题
-router.get('/list', async (req, res) => {
+router.get('/list', authenticateToken, async (req, res) => {
     try {
+        const userId = req.user.id;
         const [rows] = await queryWithRetry(
-            'SELECT * FROM wrong_book WHERE deleted = 0 ORDER BY last_wrong_time DESC'
+            'SELECT * FROM wrong_book WHERE user_id = ? AND deleted = 0 ORDER BY last_wrong_time DESC',
+            [userId]
         );
         // 转换字段名为驼峰
         const data = rows.map(row => {
@@ -45,8 +48,9 @@ router.get('/list', async (req, res) => {
 });
 
 // 添加错题
-router.post('/add', async (req, res) => {
+router.post('/add', authenticateToken, async (req, res) => {
     try {
+        const userId = req.user.id;
         const { word, meaning, example, rootAffix, phonetic, from, grade, errorType } = req.body;
 
         if (!word) {
@@ -57,7 +61,7 @@ router.post('/add', async (req, res) => {
 
         // 检查是否已存在（包括已软删除的）
         const [existing] = await queryWithRetry(
-            'SELECT * FROM wrong_book WHERE word = ?', [word]
+            'SELECT * FROM wrong_book WHERE user_id = ? AND word = ?', [userId, word]
         );
 
         if (existing.length > 0) {
@@ -87,16 +91,16 @@ router.post('/add', async (req, res) => {
                     phonetic = IF(? != '', ?, phonetic),
                     error_type = IF(? != '', ?, error_type),
                     deleted = 0
-                WHERE word = ?`,
-                [now, JSON.stringify(fromList), meaning || '', meaning || '', example || '', example || '', rootAffix || '', rootAffix || '', phonetic || '', phonetic || '', errorType || '', errorType || '', word]
+                WHERE user_id = ? AND word = ?`,
+                [now, JSON.stringify(fromList), meaning || '', meaning || '', example || '', example || '', rootAffix || '', rootAffix || '', phonetic || '', phonetic || '', errorType || '', errorType || '', userId, word]
             );
         } else {
             // 新增
             await queryWithRetry(
                 `INSERT INTO wrong_book 
-                    (word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered, error_type)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, 0, ?)`,
-                [word, meaning || '', example || '', rootAffix || '', phonetic || '', from || 'unknown', JSON.stringify([from || 'unknown']), grade || '', now, now, errorType || 'all']
+                    (user_id, word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered, error_type)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?, 0, ?)`,
+                [userId, word, meaning || '', example || '', rootAffix || '', phonetic || '', from || 'unknown', JSON.stringify([from || 'unknown']), grade || '', now, now, errorType || 'all']
             );
         }
 
@@ -108,15 +112,16 @@ router.post('/add', async (req, res) => {
 });
 
 // 删除错题（软删除）
-router.post('/remove', async (req, res) => {
+router.post('/remove', authenticateToken, async (req, res) => {
     try {
+        const userId = req.user.id;
         const { word } = req.body;
 
         if (!word) {
             return res.json({ success: false, error: '单词不能为空' });
         }
 
-        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE word = ?', [word]);
+        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE user_id = ? AND word = ?', [userId, word]);
         res.json({ success: true });
     } catch (error) {
         console.error('删除错题失败:', error);
@@ -125,8 +130,9 @@ router.post('/remove', async (req, res) => {
 });
 
 // 标记/取消掌握
-router.post('/mastered', async (req, res) => {
+router.post('/mastered', authenticateToken, async (req, res) => {
     try {
+        const userId = req.user.id;
         const { word, mastered } = req.body;
 
         if (!word) {
@@ -134,8 +140,8 @@ router.post('/mastered', async (req, res) => {
         }
 
         await queryWithRetry(
-            'UPDATE wrong_book SET mastered = ? WHERE word = ?',
-            [mastered ? 1 : 0, word]
+            'UPDATE wrong_book SET mastered = ? WHERE user_id = ? AND word = ?',
+            [mastered ? 1 : 0, userId, word]
         );
         res.json({ success: true });
     } catch (error) {
@@ -145,9 +151,10 @@ router.post('/mastered', async (req, res) => {
 });
 
 // 清除已掌握（软删除）
-router.post('/clear-mastered', async (req, res) => {
+router.post('/clear-mastered', authenticateToken, async (req, res) => {
     try {
-        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE mastered = 1 AND deleted = 0');
+        const userId = req.user.id;
+        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE user_id = ? AND mastered = 1 AND deleted = 0', [userId]);
         res.json({ success: true });
     } catch (error) {
         console.error('清除已掌握错题失败:', error);
@@ -156,9 +163,10 @@ router.post('/clear-mastered', async (req, res) => {
 });
 
 // 清空全部（软删除）
-router.post('/clear-all', async (req, res) => {
+router.post('/clear-all', authenticateToken, async (req, res) => {
     try {
-        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE deleted = 0');
+        const userId = req.user.id;
+        await queryWithRetry('UPDATE wrong_book SET deleted = 1 WHERE user_id = ? AND deleted = 0', [userId]);
         res.json({ success: true });
     } catch (error) {
         console.error('清空错题本失败:', error);
@@ -167,8 +175,9 @@ router.post('/clear-all', async (req, res) => {
 });
 
 // 恢复已删除的错题
-router.post('/restore', async (req, res) => {
+router.post('/restore', authenticateToken, async (req, res) => {
     try {
+        const userId = req.user.id;
         const { word } = req.body;
 
         if (!word) {
@@ -176,8 +185,8 @@ router.post('/restore', async (req, res) => {
         }
 
         const [result] = await queryWithRetry(
-            'UPDATE wrong_book SET deleted = 0 WHERE word = ? AND deleted = 1',
-            [word]
+            'UPDATE wrong_book SET deleted = 0 WHERE user_id = ? AND word = ? AND deleted = 1',
+            [userId, word]
         );
         res.json({ success: true, restored: result.affectedRows > 0 });
     } catch (error) {
@@ -187,10 +196,12 @@ router.post('/restore', async (req, res) => {
 });
 
 // 获取已删除的错题列表
-router.get('/list-deleted', async (req, res) => {
+router.get('/list-deleted', authenticateToken, async (req, res) => {
     try {
+        const userId = req.user.id;
         const [rows] = await queryWithRetry(
-            'SELECT * FROM wrong_book WHERE deleted = 1 ORDER BY updated_at DESC'
+            'SELECT * FROM wrong_book WHERE user_id = ? AND deleted = 1 ORDER BY updated_at DESC',
+            [userId]
         );
         const data = rows.map(row => ({
             word: row.word,
@@ -206,8 +217,9 @@ router.get('/list-deleted', async (req, res) => {
 });
 
 // 从localStorage同步到数据库
-router.post('/sync', async (req, res) => {
+router.post('/sync', authenticateToken, async (req, res) => {
     try {
+        const userId = req.user.id;
         const { words } = req.body;
 
         if (!Array.isArray(words)) {
@@ -219,16 +231,17 @@ router.post('/sync', async (req, res) => {
             if (!item.word) continue;
 
             const [existing] = await queryWithRetry(
-                'SELECT id, deleted FROM wrong_book WHERE word = ?', [item.word]
+                'SELECT id, deleted FROM wrong_book WHERE user_id = ? AND word = ?', [userId, item.word]
             );
 
             if (existing.length === 0) {
                 // 新增
                 await queryWithRetry(
                     `INSERT INTO wrong_book 
-                        (word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                        (user_id, word, meaning, example, root_affix, phonetic, from_source, from_list, grade, wrong_count, first_wrong_time, last_wrong_time, mastered)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                     [
+                        userId,
                         item.word,
                         item.meaning || '',
                         item.example || '',
@@ -254,13 +267,14 @@ router.post('/sync', async (req, res) => {
                         root_affix = ?,
                         phonetic = ?,
                         mastered = ?
-                    WHERE word = ?`,
+                    WHERE user_id = ? AND word = ?`,
                     [
                         item.meaning || '',
                         item.example || '',
                         item.rootAffix || '',
                         item.phonetic || '',
                         item.mastered ? 1 : 0,
+                        userId,
                         item.word
                     ]
                 );

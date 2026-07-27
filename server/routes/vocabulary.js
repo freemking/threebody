@@ -662,15 +662,9 @@ router.get('/stats', authenticateToken, async (req, res) => {
         const userId = req.user.id;
         const today = getLocalDate();
         
-        // 获取词库总数（从错题本中）
-        const [totalWords] = await queryWithRetry(
-            'SELECT COUNT(*) as count FROM wrong_book WHERE user_id = ? AND deleted = 0',
-            [userId]
-        );
-        
-        // 获取已掌握单词数
-        const [masteredWords] = await queryWithRetry(
-            'SELECT COUNT(*) as count FROM wrong_book WHERE user_id = ? AND mastered = 1 AND deleted = 0',
+        // 获取用户统计信息（从 vocabulary_user_stats 表）
+        const [userStats] = await queryWithRetry(
+            'SELECT * FROM vocabulary_user_stats WHERE user_id = ?',
             [userId]
         );
         
@@ -697,9 +691,9 @@ router.get('/stats', authenticateToken, async (req, res) => {
         );
         
         const stats = {
-            totalWords: totalWords[0].count,
-            masteredWords: masteredWords[0].count,
-            unmasteredWords: totalWords[0].count - masteredWords[0].count,
+            totalWords: userStats.length > 0 ? userStats[0].total_words_learned : 0,
+            masteredWords: userStats.length > 0 ? userStats[0].total_words_mastered : 0,
+            unmasteredWords: (userStats.length > 0 ? userStats[0].total_words_learned : 0) - (userStats.length > 0 ? userStats[0].total_words_mastered : 0),
             todayStudied: todayStudied[0].count,
             todayTarget: 5,
             todayAccuracy: todayAccuracy[0].total > 0 
@@ -770,15 +764,15 @@ router.get('/user-stats', authenticateToken, async (req, res) => {
             [userId]
         );
         
-        // 获取总学习单词数（从错题本）
+        // 获取总学习单词数（从每日学习记录）
         const [totalWords] = await queryWithRetry(
-            'SELECT COUNT(*) as count FROM wrong_book WHERE user_id = ? AND deleted = 0',
+            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ?',
             [userId]
         );
         
-        // 获取已掌握单词数
+        // 获取已掌握单词数（从每日学习记录）
         const [masteredWords] = await queryWithRetry(
-            'SELECT COUNT(*) as count FROM wrong_book WHERE user_id = ? AND mastered = 1 AND deleted = 0',
+            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND remembered = 1',
             [userId]
         );
         
@@ -944,11 +938,29 @@ router.post('/update-stats', authenticateToken, async (req, res) => {
             [userId]
         );
         
+        // 获取总学习单词数和已掌握单词数（从每日学习记录）
+        const [totalWords] = await queryWithRetry(
+            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ?',
+            [userId]
+        );
+        
+        const [masteredWords] = await queryWithRetry(
+            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND remembered = 1',
+            [userId]
+        );
+        
+        // 计算等级
+        const levelInfo = calculateLevel(totalWords[0].count);
+        
         if (userStats.length > 0) {
             const consecutiveInfo = calculateConsecutiveDays(userStats[0].last_study_date, userStats[0].consecutive_days);
             
+            // 合并为一个UPDATE语句，确保数据一致性
             await queryWithRetry(
                 `UPDATE vocabulary_user_stats SET 
+                    level = ?,
+                    total_words_learned = ?,
+                    total_words_mastered = ?,
                     consecutive_days = ?,
                     max_consecutive_days = GREATEST(max_consecutive_days, ?),
                     last_study_date = ?,
@@ -956,12 +968,23 @@ router.post('/update-stats', authenticateToken, async (req, res) => {
                     updated_at = NOW()
                 WHERE user_id = ?`,
                 [
+                    levelInfo.level,
+                    totalWords[0].count,
+                    masteredWords[0].count,
                     consecutiveInfo.consecutiveDays,
                     consecutiveInfo.consecutiveDays,
                     today,
                     consecutiveInfo.isNewStreak ? 1 : 0,
                     userId
                 ]
+            );
+        } else {
+            // 创建用户记录
+            await queryWithRetry(
+                `INSERT INTO vocabulary_user_stats 
+                    (user_id, level, total_words_learned, total_words_mastered, total_study_days, consecutive_days, max_consecutive_days, last_study_date)
+                VALUES (?, ?, ?, ?, 1, 1, 1, ?)`,
+                [userId, levelInfo.level, totalWords[0].count, masteredWords[0].count, today]
             );
         }
         
