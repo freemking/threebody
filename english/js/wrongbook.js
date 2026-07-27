@@ -38,6 +38,11 @@ class WrongBook {
         };
         if (body) options.body = JSON.stringify(body);
         
+        // 添加认证头
+        if (typeof auth !== 'undefined' && auth.getToken()) {
+            options.headers['Authorization'] = `Bearer ${auth.getToken()}`;
+        }
+        
         const url = `${this.API_BASE}${endpoint}`;
         console.log(`API请求: ${method} ${url}`);
         

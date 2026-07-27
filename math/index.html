@@ -83,6 +83,26 @@ body {
   letter-spacing: 1px;
 }
 
+.back-to-home-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(0, 255, 255, 0.1);
+  color: var(--accent);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.back-to-home-btn:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
 .header .subtitle {
   color: var(--text-secondary);
   font-size: 0.9rem;
@@ -888,6 +908,7 @@ body {
   <!-- Header -->
   <div class="header">
     <h1>🔢 除法口算练习</h1>
+    <a href="/" class="back-to-home-btn">← 返回首页</a>
   </div>
 
   <!-- Score Panel -->

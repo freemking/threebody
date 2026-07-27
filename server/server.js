@@ -5,6 +5,7 @@ const wrongbookRouter = require('./routes/wrongbook');
 const leaderboardRouter = require('./routes/leaderboard');
 const englishLeaderboardRouter = require('./routes/english_leaderboard');
 const vocabularyRouter = require('./routes/vocabulary');
+const authRouter = require('./routes/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -12,6 +13,9 @@ const PORT = process.env.PORT || 3000;
 // 中间件
 app.use(cors());
 app.use(express.json());
+
+// 认证路由
+app.use('/api/auth', authRouter.router);
 
 // API路由
 app.use('/api/wrongbook', wrongbookRouter);
@@ -34,5 +38,6 @@ console.log(`API接口: http://localhost:${PORT}/api/wrongbook`);
 console.log(`排行榜接口: http://localhost:${PORT}/api/leaderboard`);
 console.log(`英语排行榜接口: http://localhost:${PORT}/api/english-leaderboard`);
 console.log(`记单词接口: http://localhost:${PORT}/api/vocabulary`);
+console.log(`认证接口: http://localhost:${PORT}/api/auth`);
 
 });

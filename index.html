@@ -14,19 +14,60 @@
     <div id="fleet-container" class="fleet-container"></div>
     <div id="radio-telescope-container" class="radio-telescope-container"></div>
     <div id="three-suns-container" class="three-suns-container"></div>
+    
+    <!-- 用户信息栏 -->
+    <div class="user-info" id="userInfo" style="display: none;">
+        <span class="user-greeting">欢迎, <strong id="userName"></strong></span>
+        <button class="btn-logout" id="btnLogout">退出</button>
+    </div>
+    
+    <!-- 登录模态框 -->
+    <div class="login-modal-overlay" id="loginModal">
+        <div class="login-modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2 class="modal-title">欢迎回来</h2>
+            <p class="modal-subtitle">请登录以继续探索三体空间</p>
+            <div class="login-error" id="loginError"></div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginPhone">手机号</label>
+                    <input type="tel" id="loginPhone" placeholder="请输入手机号" maxlength="11" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码</label>
+                    <input type="password" id="loginPassword" placeholder="请输入密码" required>
+                </div>
+                <button type="submit" class="login-btn">登录</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- 自定义确认框 -->
+    <div class="confirm-modal-overlay" id="confirmModal">
+        <div class="confirm-modal">
+            <div class="confirm-icon" id="confirmIcon">?</div>
+            <h3 class="confirm-title" id="confirmTitle">确认操作</h3>
+            <p class="confirm-message" id="confirmMessage">确定要执行此操作吗？</p>
+            <div class="confirm-buttons">
+                <button class="confirm-btn confirm-cancel" id="confirmCancel">取消</button>
+                <button class="confirm-btn confirm-ok" id="confirmOk">确定</button>
+            </div>
+        </div>
+    </div>
+    
     <div class="container">
         <header class="header">
             <h1 class="title">三体学习空间</h1>
             <p class="subtitle">探索知识的宇宙，超越维度的限制</p>
             <div class="quotes-container">
-                <p class="quote">“不要回答！不要回答！不要回答！”</p>
-                <p class="quote">“给岁月以文明，而不是给文明以岁月。”</p>
-                <p class="quote">“弱小和无知不是生存的障碍，傲慢才是。”</p>
+                <p class="quote">"不要回答！不要回答！不要回答！"</p>
+                <p class="quote">"给岁月以文明，而不是给文明以岁月。"</p>
+                <p class="quote">"弱小和无知不是生存的障碍，傲慢才是。"</p>
             </div>
         </header>
         <main class="main-content">
             <div class="card-grid">
-                <a href="english/index.html" class="card" target="_blank" data-module="english">
+                <a href="javascript:void(0)" class="card" data-url="english/index.html" data-module="english">
                     <div class="card-icon">
                         <i class="fas fa-language"></i>
                     </div>
@@ -34,7 +75,7 @@
                     <p class="card-description">跨越语言维度，解锁星际沟通的密码</p>
                     <div class="card-button">进入飞船</div>
                 </a>
-                <a href="math/index.html" class="card" target="_blank" data-module="math">
+                <a href="javascript:void(0)" class="card" data-url="math/index.html" data-module="math">
                     <div class="card-icon">
                         <i class="fas fa-divide"></i>
                     </div>
@@ -42,7 +83,7 @@
                     <p class="card-description">掌握数学规律，破解宇宙的底层逻辑</p>
                     <div class="card-button">进入飞船</div>
                 </a>
-                <a href="sudoku/magic-sudoku.html" class="card"  target="_blank"  data-module="sudoku">
+                <a href="javascript:void(0)" class="card" data-url="sudoku/magic-sudoku.html" data-module="sudoku">
                     <div class="card-icon">
                         <i class="fas fa-th"></i>
                     </div>
@@ -50,12 +91,174 @@
                     <p class="card-description">在九宫格中寻找秩序，训练高维思维</p>
                     <div class="card-button">进入飞船</div>
                 </a>
+                <a href="admin/index.html" class="card admin-card" id="adminCard" style="display: none;">
+                    <div class="card-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h2 class="card-title">指挥中心</h2>
+                    <p class="card-description">管理系统用户和数据</p>
+                    <div class="card-button">进入指挥中心</div>
+                </a>
             </div>
         </main>
         <footer class="footer">
             <p>© 2026 三体学习空间 - 知识是跨越维度的唯一桥梁</p>
         </footer>
     </div>
+    <script src="auth.js"></script>
     <script src="script.js"></script>
+    <script>
+        // 待跳转的URL
+        let pendingUrl = null;
+        
+        // 页面加载时检查登录状态（不强制跳转）
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 如果已登录，验证token并显示用户信息
+            if (auth.isLoggedIn()) {
+                const isValid = await auth.verifyToken();
+                if (isValid) {
+                    updateUIForLogin();
+                } else {
+                    auth.logoutLocal();
+                }
+            }
+            
+            // 绑定飞船卡片点击事件（需要登录才能进入）
+            document.querySelectorAll('.card[data-url]').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = card.getAttribute('data-url');
+                    
+                    if (auth.isLoggedIn()) {
+                        // 已登录，直接跳转
+                        window.location.href = url;
+                    } else {
+                        // 未登录，显示登录模态框
+                        pendingUrl = url;
+                        showLoginModal();
+                    }
+                });
+            });
+            
+            // 绑定退出按钮
+            document.getElementById('btnLogout').addEventListener('click', () => {
+                showConfirm('退出登录', '确定要退出登录吗？', () => {
+                    auth.logoutLocal();
+                    updateUIForLogout();
+                });
+            });
+            
+            // 登录模态框事件
+            document.getElementById('modalClose').addEventListener('click', hideLoginModal);
+            document.getElementById('loginModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('loginModal')) {
+                    hideLoginModal();
+                }
+            });
+            
+            // 登录表单提交
+            document.getElementById('loginForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                await handleLogin();
+            });
+            
+            // 确认框事件
+            document.getElementById('confirmCancel').addEventListener('click', hideConfirm);
+            document.getElementById('confirmModal').addEventListener('click', (e) => {
+                if (e.target === document.getElementById('confirmModal')) {
+                    hideConfirm();
+                }
+            });
+        });
+        
+        // 更新登录后的UI
+        function updateUIForLogin() {
+            const user = auth.getUser();
+            document.getElementById('userName').textContent = user.nickname || user.phone;
+            document.getElementById('userInfo').style.display = 'flex';
+            
+            if (auth.isAdmin()) {
+                document.getElementById('adminCard').style.display = 'block';
+            }
+        }
+        
+        // 更新退出后的UI
+        function updateUIForLogout() {
+            document.getElementById('userInfo').style.display = 'none';
+            document.getElementById('adminCard').style.display = 'none';
+        }
+        
+        // 显示登录模态框
+        function showLoginModal() {
+            document.getElementById('loginModal').classList.add('active');
+            document.getElementById('loginPhone').focus();
+            document.getElementById('loginError').classList.remove('active');
+        }
+        
+        // 隐藏登录模态框
+        function hideLoginModal() {
+            document.getElementById('loginModal').classList.remove('active');
+            document.getElementById('loginForm').reset();
+            pendingUrl = null;
+        }
+        
+        // 显示确认框
+        function showConfirm(title, message, onConfirm) {
+            document.getElementById('confirmTitle').textContent = title;
+            document.getElementById('confirmMessage').textContent = message;
+            document.getElementById('confirmModal').classList.add('active');
+            
+            // 移除旧的事件监听器
+            const okBtn = document.getElementById('confirmOk');
+            const newOkBtn = okBtn.cloneNode(true);
+            okBtn.parentNode.replaceChild(newOkBtn, okBtn);
+            
+            // 绑定新的确认事件
+            newOkBtn.addEventListener('click', () => {
+                hideConfirm();
+                if (onConfirm) onConfirm();
+            });
+        }
+        
+        // 隐藏确认框
+        function hideConfirm() {
+            document.getElementById('confirmModal').classList.remove('active');
+        }
+        
+        // 处理登录
+        async function handleLogin() {
+            const phone = document.getElementById('loginPhone').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const errorEl = document.getElementById('loginError');
+            
+            if (!phone || !password) {
+                errorEl.textContent = '请输入手机号和密码';
+                errorEl.classList.add('active');
+                return;
+            }
+            
+            try {
+                // 使用auth.login()确保状态同步
+                const result = await auth.login(phone, password);
+                
+                if (result.success) {
+                    hideLoginModal();
+                    updateUIForLogin();
+                    
+                    // 跳转到之前点击的页面
+                    if (pendingUrl) {
+                        window.location.href = pendingUrl;
+                    }
+                } else {
+                    errorEl.textContent = result.message || '登录失败';
+                    errorEl.classList.add('active');
+                }
+            } catch (error) {
+                console.error('登录失败:', error);
+                errorEl.textContent = '网络错误，请稍后重试';
+                errorEl.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>

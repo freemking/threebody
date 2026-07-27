@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>指挥中心 - 三体学习空间</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #0c0c1e 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            color: #e0e0ff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(20, 20, 40, 0.9);
+            border-radius: 15px;
+            border: 1px solid rgba(100, 100, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 1.8rem;
+            color: #7b68ee;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #7b68ee, #6c5ce7);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(123, 104, 238, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(100, 100, 255, 0.2);
+            color: #b0b0dd;
+            border: 1px solid rgba(100, 100, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(100, 100, 255, 0.3);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .card {
+            background: rgba(20, 20, 40, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(100, 100, 255, 0.2);
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            color: #7b68ee;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(100, 100, 255, 0.2);
+        }
+        
+        th {
+            background: rgba(30, 30, 60, 0.8);
+            color: #b0b0dd;
+            font-weight: 500;
+        }
+        
+        tr:hover {
+            background: rgba(30, 30, 60, 0.5);
+        }
+        
+        .role-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .role-admin {
+            background: rgba(123, 104, 238, 0.2);
+            color: #7b68ee;
+            border: 1px solid rgba(123, 104, 238, 0.3);
+        }
+        
+        .role-user {
+            background: rgba(100, 100, 255, 0.2);
+            color: #b0b0dd;
+            border: 1px solid rgba(100, 100, 255, 0.3);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: rgba(20, 20, 40, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            border: 1px solid rgba(100, 100, 255, 0.3);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .modal-title {
+            font-size: 1.3rem;
+            color: #7b68ee;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            color: #b0b0dd;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #b0b0dd;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid rgba(100, 100, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(30, 30, 60, 0.8);
+            color: #e0e0ff;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #7b68ee;
+            box-shadow: 0 0 10px rgba(123, 104, 238, 0.3);
+        }
+        
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237b68ee' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            padding-right: 35px;
+        }
+        
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .success-message {
+            color: #51cf66;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .loading .spinner {
+            border: 3px solid rgba(123, 104, 238, 0.3);
+            border-top: 3px solid #7b68ee;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background: rgba(30, 30, 60, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(100, 100, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #7b68ee;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #b0b0dd;
+            font-size: 0.9rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #7b68ee;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #6666aa;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">
+            <i class="fas fa-arrow-left"></i> 返回主页
+        </a>
+        
+        <div class="header">
+            <h1><i class="fas fa-cog"></i> 指挥中心</h1>
+            <div class="header-actions">
+                <button class="btn btn-primary" id="btnAddUser">
+                    <i class="fas fa-plus"></i> 添加用户
+                </button>
+                <button class="btn btn-secondary" id="btnRefresh">
+                    <i class="fas fa-sync-alt"></i> 刷新
+                </button>
+            </div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalUsers">0</div>
+                <div class="stat-label">总用户数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="adminUsers">0</div>
+                <div class="stat-label">管理员</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="normalUsers">0</div>
+                <div class="stat-label">普通用户</div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">用户列表</h2>
+            </div>
+            
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <span>加载中...</span>
+            </div>
+            
+            <div class="table-container">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>手机号</th>
+                            <th>昵称</th>
+                            <th>角色</th>
+                            <th>创建时间</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <i class="fas fa-users"></i>
+                <p>暂无用户数据</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 添加/编辑用户模态框 -->
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">添加用户</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="userPhone">手机号</label>
+                    <input type="tel" id="userPhone" placeholder="请输入手机号" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userNickname">昵称</label>
+                    <input type="text" id="userNickname" placeholder="请输入昵称" required>
+                </div>
+                
+                <div class="form-group" id="passwordGroup">
+                    <label for="userPassword">密码</label>
+                    <input type="password" id="userPassword" placeholder="请输入密码" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userRole">角色</label>
+                    <select id="userRole">
+                        <option value="user">普通用户</option>
+                        <option value="admin">管理员</option>
+                    </select>
+                </div>
+                
+                <div class="error-message" id="errorMessage"></div>
+                <div class="success-message" id="successMessage"></div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-save"></i> 保存
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- 重置密码模态框 -->
+    <div class="modal" id="resetPasswordModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">重置密码</h3>
+                <button class="modal-close" id="resetPasswordClose">&times;</button>
+            </div>
+            
+            <form id="resetPasswordForm">
+                <div class="form-group">
+                    <label for="newPassword">新密码</label>
+                    <input type="password" id="newPassword" placeholder="请输入新密码" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">确认密码</label>
+                    <input type="password" id="confirmPassword" placeholder="请再次输入新密码" required>
+                </div>
+                
+                <div class="error-message" id="resetPasswordError"></div>
+                <div class="success-message" id="resetPasswordSuccess"></div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-key"></i> 重置密码
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="/auth.js"></script>
+    <script>
+        // API基础URL
+        const API_BASE = '/api';
+        
+        // 当前编辑的用户ID
+        let currentEditUserId = null;
+        let currentResetUserId = null;
+        
+        // 页面加载时检查权限
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 检查登录状态
+            if (!auth.isLoggedIn()) {
+                window.location.href = '/login.html';
+                return;
+            }
+            
+            // 验证token有效性
+            const isValid = await auth.verifyToken();
+            if (!isValid) {
+                window.location.href = '/login.html';
+                return;
+            }
+            
+            // 检查是否是管理员
+            if (!auth.isAdmin()) {
+                alert('需要管理员权限');
+                window.location.href = '/';
+                return;
+            }
+            
+            // 加载用户列表
+            loadUsers();
+            
+            // 绑定事件
+            bindEvents();
+        });
+        
+        // 绑定事件
+        function bindEvents() {
+            // 添加用户按钮
+            document.getElementById('btnAddUser').addEventListener('click', () => {
+                currentEditUserId = null;
+                document.getElementById('modalTitle').textContent = '添加用户';
+                document.getElementById('userForm').reset();
+                document.getElementById('passwordGroup').style.display = 'block';
+                document.getElementById('userPhone').disabled = false;
+                document.getElementById('errorMessage').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'none';
+                document.getElementById('userModal').style.display = 'flex';
+            });
+            
+            // 刷新按钮
+            document.getElementById('btnRefresh').addEventListener('click', loadUsers);
+            
+            // 关闭模态框
+            document.getElementById('modalClose').addEventListener('click', () => {
+                document.getElementById('userModal').style.display = 'none';
+            });
+            
+            document.getElementById('resetPasswordClose').addEventListener('click', () => {
+                document.getElementById('resetPasswordModal').style.display = 'none';
+            });
+            
+            // 点击模态框外部关闭
+            window.addEventListener('click', (e) => {
+                if (e.target === document.getElementById('userModal')) {
+                    document.getElementById('userModal').style.display = 'none';
+                }
+                if (e.target === document.getElementById('resetPasswordModal')) {
+                    document.getElementById('resetPasswordModal').style.display = 'none';
+                }
+            });
+            
+            // 用户表单提交
+            document.getElementById('userForm').addEventListener('submit', handleUserSubmit);
+            
+            // 重置密码表单提交
+            document.getElementById('resetPasswordForm').addEventListener('submit', handleResetPassword);
+        }
+        
+        // 加载用户列表
+        async function loadUsers() {
+            const loading = document.getElementById('loading');
+            const table = document.getElementById('userTable');
+            const emptyState = document.getElementById('emptyState');
+            
+            loading.style.display = 'block';
+            table.style.display = 'none';
+            emptyState.style.display = 'none';
+            
+            try {
+                const response = await auth.authenticatedFetch(`${API_BASE}/auth/users`);
+                
+                if (!response) {
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    renderUsers(data.data);
+                    updateStats(data.data);
+                } else {
+                    alert('加载用户列表失败: ' + data.message);
+                }
+            } catch (error) {
+                console.error('加载用户列表失败:', error);
+                alert('加载用户列表失败');
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+        
+        // 渲染用户列表
+        function renderUsers(users) {
+            const tbody = document.getElementById('userTableBody');
+            const table = document.getElementById('userTable');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (users.length === 0) {
+                table.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            table.style.display = 'table';
+            emptyState.style.display = 'none';
+            
+            tbody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.nickname}</td>
+                    <td>
+                        <span class="role-badge ${user.role === 'admin' ? 'role-admin' : 'role-user'}">
+                            ${user.role === 'admin' ? '管理员' : '普通用户'}
+                        </span>
+                    </td>
+                    <td>${new Date(user.created_at).toLocaleString('zh-CN')}</td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-secondary btn-sm" onclick="editUser(${user.id})">
+                                <i class="fas fa-edit"></i> 编辑
+                            </button>
+                            <button class="btn btn-secondary btn-sm" onclick="showResetPassword(${user.id})">
+                                <i class="fas fa-key"></i> 重置密码
+                            </button>
+                            ${user.id !== auth.getUser().id ? `
+                                <button class="btn btn-danger btn-sm" onclick="deleteUser(${user.id}, '${user.nickname}')">
+                                    <i class="fas fa-trash"></i> 删除
+                                </button>
+                            ` : ''}
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        // 更新统计信息
+        function updateStats(users) {
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('adminUsers').textContent = users.filter(u => u.role === 'admin').length;
+            document.getElementById('normalUsers').textContent = users.filter(u => u.role === 'user').length;
+        }
+        
+        // 编辑用户
+        async function editUser(userId) {
+            try {
+                const response = await auth.authenticatedFetch(`${API_BASE}/auth/users`);
+                
+                if (!response) {
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    const user = data.data.find(u => u.id === userId);
+                    if (user) {
+                        currentEditUserId = userId;
+                        document.getElementById('modalTitle').textContent = '编辑用户';
+                        document.getElementById('userPhone').value = user.phone;
+                        document.getElementById('userPhone').disabled = true;
+                        document.getElementById('userNickname').value = user.nickname;
+                        document.getElementById('userRole').value = user.role;
+                        document.getElementById('passwordGroup').style.display = 'none';
+                        document.getElementById('errorMessage').style.display = 'none';
+                        document.getElementById('successMessage').style.display = 'none';
+                        document.getElementById('userModal').style.display = 'flex';
+                    }
+                }
+            } catch (error) {
+                console.error('获取用户信息失败:', error);
+            }
+        }
+        
+        // 处理用户表单提交
+        async function handleUserSubmit(e) {
+            e.preventDefault();
+            
+            const phone = document.getElementById('userPhone').value.trim();
+            const nickname = document.getElementById('userNickname').value.trim();
+            const password = document.getElementById('userPassword').value;
+            const role = document.getElementById('userRole').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // 验证手机号格式
+            if (!/^1[3-9]\d{9}$/.test(phone)) {
+                errorMessage.textContent = '请输入正确的手机号码';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            if (!nickname) {
+                errorMessage.textContent = '请输入昵称';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            if (!currentEditUserId && !password) {
+                errorMessage.textContent = '请输入密码';
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            try {
+                let response;
+                
+                if (currentEditUserId) {
+                    // 编辑用户
+                    response = await auth.authenticatedFetch(`${API_BASE}/auth/users/${currentEditUserId}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ nickname, role })
+                    });
+                } else {
+                    // 添加用户
+                    response = await auth.authenticatedFetch(`${API_BASE}/auth/users`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ phone, nickname, password, role })
+                    });
+                }
+                
+                if (!response) {
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    successMessage.textContent = currentEditUserId ? '用户信息更新成功' : '用户添加成功';
+                    successMessage.style.display = 'block';
+                    
+                    // 1秒后关闭模态框并刷新列表
+                    setTimeout(() => {
+                        document.getElementById('userModal').style.display = 'none';
+                        loadUsers();
+                    }, 1000);
+                } else {
+                    errorMessage.textContent = data.message || '操作失败';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('操作失败:', error);
+                errorMessage.textContent = '网络错误，请稍后重试';
+                errorMessage.style.display = 'block';
+            }
+        }
+        
+        // 显示重置密码模态框
+        function showResetPassword(userId) {
+            currentResetUserId = userId;
+            document.getElementById('resetPasswordForm').reset();
+            document.getElementById('resetPasswordError').style.display = 'none';
+            document.getElementById('resetPasswordSuccess').style.display = 'none';
+            document.getElementById('resetPasswordModal').style.display = 'flex';
+        }
+        
+        // 处理重置密码
+        async function handleResetPassword(e) {
+            e.preventDefault();
+            
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorElement = document.getElementById('resetPasswordError');
+            const successElement = document.getElementById('resetPasswordSuccess');
+            
+            errorElement.style.display = 'none';
+            successElement.style.display = 'none';
+            
+            if (newPassword.length < 6) {
+                errorElement.textContent = '密码长度不能少于6位';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                errorElement.textContent = '两次输入的密码不一致';
+                errorElement.style.display = 'block';
+                return;
+            }
+            
+            try {
+                const response = await auth.authenticatedFetch(`${API_BASE}/auth/users/${currentResetUserId}/reset-password`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ newPassword })
+                });
+                
+                if (!response) {
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    successElement.textContent = '密码重置成功';
+                    successElement.style.display = 'block';
+                    
+                    // 1秒后关闭模态框
+                    setTimeout(() => {
+                        document.getElementById('resetPasswordModal').style.display = 'none';
+                    }, 1000);
+                } else {
+                    errorElement.textContent = data.message || '重置失败';
+                    errorElement.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('重置密码失败:', error);
+                errorElement.textContent = '网络错误，请稍后重试';
+                errorElement.style.display = 'block';
+            }
+        }
+        
+        // 删除用户
+        async function deleteUser(userId, userName) {
+            if (!confirm(`确定要删除用户 "${userName}" 吗？删除后该用户的所有数据将被永久删除。`)) {
+                return;
+            }
+            
+            try {
+                const response = await auth.authenticatedFetch(`${API_BASE}/auth/users/${userId}`, {
+                    method: 'DELETE'
+                });
+                
+                if (!response) {
+                    return;
+                }
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert('用户删除成功');
+                    loadUsers();
+                } else {
+                    alert('删除失败: ' + data.message);
+                }
+            } catch (error) {
+                console.error('删除用户失败:', error);
+                alert('删除用户失败');
+            }
+        }
+    </script>
+</body>
+</html>

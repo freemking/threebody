@@ -412,6 +412,26 @@ body::after {
     border-left-color: var(--primary-color);
 }
 
+.back-to-home-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.back-to-home-btn:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
 .menu-btn:hover::before {
     left: 100%;
 }

@@ -1608,21 +1608,7 @@
     background: var(--vb-bg-card);
     border-radius: var(--vb-radius-md);
     transition: all var(--vb-transition-fast);
-    gap: var(--vb-space-xs);
-}
-
-.history-word-item .word-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.history-word-item .word-status {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: var(--vb-space-xs);
-    margin-top: var(--vb-space-xs);
+    gap: var(--vb-space-sm);
 }
 
 .history-word-item:hover {
@@ -1636,34 +1622,6 @@
 
 .history-word-item.incorrect {
     border-left: 3px solid var(--vb-danger);
-}
-
-.word-info {
-    display: flex;
-    flex-direction: column;
-}
-
-.word-text {
-    font-weight: 600;
-    color: var(--vb-text-primary);
-}
-
-.word-phonetic {
-    font-size: 1.1rem;
-    color: var(--vb-text-accent);
-    font-family: var(--vb-font-mono);
-}
-
-.word-meaning {
-    color: var(--vb-text-secondary);
-    flex: 1;
-    margin: 0 var(--vb-space-md);
-}
-
-.word-status {
-    display: flex;
-    align-items: center;
-    gap: var(--vb-space-xs);
 }
 
 .status-icon {
@@ -1700,6 +1658,85 @@
     background: rgba(255, 255, 255, 0.05);
     border-radius: var(--vb-radius-sm, 4px);
     line-height: 1.4;
+}
+
+/* 历史单词新样式 - 参考单词库样式 */
+.history-word-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-word-header .history-word {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--vb-text-primary);
+    letter-spacing: 0.5px;
+}
+
+.history-word-header .history-word-badges {
+    display: flex;
+    gap: var(--vb-space-sm);
+    flex-wrap: wrap;
+}
+
+.history-word-header .history-badge {
+    padding: 2px 8px;
+    border-radius: var(--vb-radius-sm);
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.history-word-header .history-badge.correct {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--vb-success);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.history-word-header .history-badge.incorrect {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--vb-danger);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.history-word-phonetic {
+    font-size: 1.1rem;
+    color: var(--vb-text-accent);
+    font-family: var(--vb-font-mono);
+    margin: var(--vb-space-sm) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--vb-space-md);
+}
+
+.history-word-phonetic span {
+    flex: 1;
+}
+
+.history-word-phonetic .btn-pronunciation {
+    padding: 4px 8px;
+    border-radius: var(--vb-radius-sm);
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--vb-primary);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    cursor: pointer;
+    transition: all var(--vb-transition-fast);
+    font-size: 1rem;
+}
+
+.history-word-phonetic .btn-pronunciation:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: scale(1.1);
+}
+
+.history-word-meaning {
+    font-size: 1rem;
+    color: var(--vb-text-secondary);
+    line-height: 1.5;
+    padding: var(--vb-space-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--vb-radius-sm);
+    border-left: 3px solid var(--vb-primary);
 }
 
 .loading-words {

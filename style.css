@@ -169,6 +169,288 @@ body {
     box-shadow: var(--glow-primary);
 }
 
+.user-info {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(20, 20, 40, 0.9);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(10px);
+    animation: fadeInDown 1s ease-out;
+}
+
+.user-info .user-greeting {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.user-info .user-greeting strong {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.btn-logout {
+    background: transparent;
+    border: 1px solid rgba(255, 100, 100, 0.4);
+    color: #ff6b6b;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.05rem;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 100, 100, 0.15);
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 100, 100, 0.3);
+}
+
+/* 登录模态框 */
+.login-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.login-modal-overlay.active {
+    display: flex;
+}
+
+.login-modal {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    animation: fadeInUp 0.4s ease-out;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+}
+
+.login-modal .modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.login-modal .modal-close:hover {
+    color: var(--primary-color);
+}
+
+.login-modal .modal-title {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.login-modal .modal-subtitle {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.login-modal .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.login-modal .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05rem;
+}
+
+.login-modal .form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.login-modal .form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.login-modal .form-group input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+.login-modal .login-btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+    border: 1px solid var(--primary-color);
+    border-radius: 10px;
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.15rem;
+    margin-top: 0.5rem;
+}
+
+.login-modal .login-btn:hover {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    box-shadow: var(--glow-primary);
+}
+
+.login-modal .login-error {
+    background: rgba(255, 100, 100, 0.1);
+    border: 1px solid rgba(255, 100, 100, 0.3);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    display: none;
+}
+
+.login-modal .login-error.active {
+    display: block;
+}
+
+/* 自定义确认框 */
+.confirm-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.confirm-modal-overlay.active {
+    display: flex;
+}
+
+.confirm-modal {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    animation: fadeInUp 0.4s ease-out;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+}
+
+.confirm-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    animation: pulse-glow 2s infinite;
+}
+
+.confirm-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.confirm-message {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.confirm-btn {
+    padding: 0.7rem 2rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.1rem;
+    min-width: 100px;
+}
+
+.confirm-cancel {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-secondary);
+}
+
+.confirm-cancel:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.confirm-ok {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.confirm-ok:hover {
+    background: var(--primary-color);
+    color: var(--background-dark);
+    box-shadow: var(--glow-primary);
+}
+
 .footer {
     text-align: center;
     margin-top: 4rem;
