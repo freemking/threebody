@@ -293,48 +293,11 @@ router.get('/today', authenticateToken, async (req, res) => {
             });
         }
         
-        // 检查是否存在历史单词数据
-        const [historyCount] = await queryWithRetry(
-            `SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date < ?`,
-            [userId, today]
-        );
-        const hasHistory = historyCount[0].count > 0;
-        
-        // 获取需要复习的单词（根据记忆曲线）
-        // 计算剩余名额，确保每天总共5个单词
+        // 计算剩余名额
         const remainingSlots = 5 - todayRecords.length;
-        let reviewWords = [];
-        if (hasHistory && remainingSlots > 0) {
-            // 获取所有历史学过的单词，按学习时间排序，优先复习最近的
-            const [recentRecords] = await queryWithRetry(
-                `SELECT d.word, MAX(d.study_date) as last_study_date,
-                        w.meaning, w.phonetic, w.example, w.root_affix, w.grade
-                 FROM vocabulary_daily_record d
-                 JOIN wrong_book w ON d.word = w.word AND d.user_id = w.user_id
-                 WHERE d.user_id = ? AND d.study_date < ? AND w.deleted = 0
-                 GROUP BY d.word
-                 ORDER BY last_study_date DESC
-                 LIMIT ?`,
-                [userId, today, remainingSlots]
-            );
-            
-            // 标记这些单词为复习单词
-            reviewWords = recentRecords.map(row => ({
-                word: row.word,
-                meaning: row.meaning,
-                phonetic: row.phonetic,
-                example: row.example,
-                rootAffix: row.root_affix,
-                grade: row.grade,
-                remembered: 0,
-                isReview: true
-            }));
-        }
         
-        // 如果今天记录不足5个，从wrong_book中随机选择真正从未学过的单词
+        // 优先选择全新单词，然后再补充复习单词
         const studiedWords = todayRecords.map(r => r.word);
-        const reviewWordList = reviewWords.map(w => w.word);
-        const needCount = Math.max(0, 5 - todayRecords.length - reviewWords.length);
         
         // 获取所有历史学过的单词（排除今天），确保新单词是真正全新的
         const [allHistoryRecords] = await queryWithRetry(
@@ -343,17 +306,18 @@ router.get('/today', authenticateToken, async (req, res) => {
         );
         const allHistoryWords = allHistoryRecords.map(r => r.word);
         
-        // 合并需要排除的单词（今天已学习的 + 所有历史学过的 + 复习单词）
-        const excludeWords = [...new Set([...studiedWords, ...allHistoryWords, ...reviewWordList])];
+        // 合并需要排除的单词（今天已学习的 + 所有历史学过的）
+        const excludeWords = [...new Set([...studiedWords, ...allHistoryWords])];
         
+        // 第一步：优先选择全新单词（最多5个，或者剩余名额）
         let newWords = [];
-        if (needCount > 0) {
+        if (remainingSlots > 0) {
             const placeholders = excludeWords.length > 0 
                 ? `AND word NOT IN (${excludeWords.map(() => '?').join(',')})` 
                 : '';
             const params = excludeWords.length > 0 
-                ? [userId, ...excludeWords, needCount] 
-                : [userId, needCount];
+                ? [userId, ...excludeWords, remainingSlots] 
+                : [userId, remainingSlots];
             
             const [rows] = await queryWithRetry(
                 `SELECT * FROM wrong_book 
@@ -370,6 +334,65 @@ router.get('/today', authenticateToken, async (req, res) => {
                      VALUES (?, ?, ?, 0, 0, 0)`,
                     [userId, word.word, today]
                 );
+            }
+        }
+        
+        // 第二步：如果新单词不足5个，用复习单词补充剩余名额
+        // 复习单词选择策略：排除最近2天内学过的单词，按记忆曲线间隔选择需要复习的单词
+        const newWordList = newWords.map(w => w.word);
+        const reviewSlots = remainingSlots - newWords.length;
+        let reviewWords = [];
+        
+        if (reviewSlots > 0) {
+            // 获取最近2天的日期，排除这些日期的单词（避免连续重复）
+            const twoDaysAgo = new Date();
+            twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+            const twoDaysAgoStr = getLocalDate(twoDaysAgo);
+            
+            // 选择需要复习的单词：排除今天和最近2天学过的，按记忆曲线间隔（优先复习间隔最久的）
+            const excludeForReview = [...new Set([...studiedWords, ...newWordList])];
+            const excludeReviewPlaceholders = excludeForReview.length > 0 
+                ? `AND d.word NOT IN (${excludeForReview.map(() => '?').join(',')})` 
+                : '';
+            
+            const [reviewRecords] = await queryWithRetry(
+                `SELECT d.word, MAX(d.study_date) as last_study_date,
+                        w.meaning, w.phonetic, w.example, w.root_affix, w.grade,
+                        DATEDIFF(?, MAX(d.study_date)) as days_since_study
+                 FROM vocabulary_daily_record d
+                 JOIN wrong_book w ON d.word = w.word AND d.user_id = w.user_id
+                 WHERE d.user_id = ? AND d.study_date < ? AND d.study_date <= ? AND w.deleted = 0 ${excludeReviewPlaceholders}
+                 GROUP BY d.word
+                 HAVING days_since_study >= 2
+                 ORDER BY days_since_study DESC
+                 LIMIT ?`,
+                [today, userId, today, twoDaysAgoStr, ...excludeForReview, reviewSlots]
+            );
+            
+            reviewWords = reviewRecords.map(row => ({
+                word: row.word,
+                meaning: row.meaning,
+                phonetic: row.phonetic,
+                example: row.example,
+                rootAffix: row.root_affix,
+                grade: row.grade,
+                remembered: 0,
+                isReview: true
+            }));
+            
+            // 将复习单词也保存到今天的记录中，防止重复加载
+            for (const word of reviewWords) {
+                const [existingToday] = await queryWithRetry(
+                    'SELECT * FROM vocabulary_daily_record WHERE user_id = ? AND word = ? AND study_date = ?',
+                    [userId, word.word, today]
+                );
+                if (existingToday.length === 0) {
+                    await queryWithRetry(
+                        `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, response_time, remembered) 
+                         VALUES (?, ?, ?, 0, 0, 0)`,
+                        [userId, word.word, today]
+                    );
+                }
             }
         }
         
