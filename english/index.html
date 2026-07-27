@@ -270,6 +270,10 @@
                                 <span class="nav-icon">📝</span>
                                 <span class="nav-text">记单词</span>
                             </button>
+                            <button class="nav-item" data-module="weekly-quiz">
+                                <span class="nav-icon">📋</span>
+                                <span class="nav-text">周末测验</span>
+                            </button>
                             <button class="nav-item" data-module="history-words">
                                 <span class="nav-icon">📚</span>
                                 <span class="nav-text">历史单词</span>
@@ -584,6 +588,120 @@
                         <div id="achievements-module" class="vocabulary-module">
                             <div class="achievements-content">
                                 <div class="achievements-grid" id="achievements-grid"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 周末测验模块 -->
+                        <div id="weekly-quiz-module" class="vocabulary-module">
+                            <div class="weekly-quiz-content">
+                                <!-- 测验配置区 -->
+                                <div class="quiz-config" id="quiz-config">
+                                    <div class="training-hero">
+                                        <div class="training-hero-content">
+                                            <div class="training-hero-header">
+                                                <div class="training-hero-icon">📋</div>
+                                                <div class="training-hero-info">
+                                                    <h3 class="training-hero-title">周末测验</h3>
+                                                    <p class="training-hero-desc">测试最近7天学习的所有单词，巩固记忆</p>
+                                                </div>
+                                            </div>
+                                            <div class="quiz-stats-preview">
+                                                <div class="stat-item">
+                                                    <span class="stat-value" id="quiz-total-words">0</span>
+                                                    <span class="stat-label">待测单词</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-value" id="quiz-date-range">-</span>
+                                                    <span class="stat-label">测验范围</span>
+                                                </div>
+                                            </div>
+                                            <div class="quiz-mode-options">
+                                                <h4>选择测验模式</h4>
+                                                <div class="mode-buttons">
+                                                    <button class="mode-btn active" data-mode="meaning">
+                                                        <span class="mode-icon">📖</span>
+                                                        <span class="mode-name">看英文选释义</span>
+                                                    </button>
+                                                    <button class="mode-btn" data-mode="word">
+                                                        <span class="mode-icon">🔤</span>
+                                                        <span class="mode-name">看释义选英文</span>
+                                                    </button>
+                                                    <button class="mode-btn" data-mode="spelling">
+                                                        <span class="mode-icon">✍️</span>
+                                                        <span class="mode-name">拼写练习</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <button id="btn-start-weekly-quiz" class="training-hero-btn">
+                                                <span class="btn-icon">🚀</span>
+                                                <span>开始测验</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- 测验进行区 -->
+                                <div class="quiz-testing hidden" id="quiz-testing">
+                                    <div class="quiz-header">
+                                        <div class="quiz-progress-info">
+                                            <span class="quiz-current">第 <span id="quiz-current-num">1</span> 题</span>
+                                            <span class="quiz-total">共 <span id="quiz-total-num">0</span> 题</span>
+                                        </div>
+                                        <div class="quiz-progress-bar">
+                                            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+                                        </div>
+                                        <div class="quiz-score">
+                                            <span class="correct-count" id="quiz-correct-count">0</span> / 
+                                            <span class="total-answered" id="quiz-total-answered">0</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quiz-question-area">
+                                        <div class="quiz-word-display" id="quiz-word-display"></div>
+                                        <div class="quiz-options" id="quiz-options"></div>
+                                        <div class="quiz-spelling-input hidden" id="quiz-spelling-input">
+                                            <input type="text" id="spelling-answer" placeholder="请输入单词拼写" autocomplete="off">
+                                            <button id="btn-check-spelling" class="check-btn">确认</button>
+                                        </div>
+                                        <div class="quiz-feedback hidden" id="quiz-feedback"></div>
+                                        <button id="btn-next-question" class="next-btn hidden">下一题</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- 测验结果区 -->
+                                <div class="quiz-result hidden" id="quiz-result">
+                                    <div class="result-card">
+                                        <div class="result-header">
+                                            <div class="result-icon">🏆</div>
+                                            <h3 class="result-title">测验完成！</h3>
+                                        </div>
+                                        <div class="result-stats">
+                                            <div class="result-stat">
+                                                <span class="result-stat-value" id="result-total">0</span>
+                                                <span class="result-stat-label">总题数</span>
+                                            </div>
+                                            <div class="result-stat">
+                                                <span class="result-stat-value" id="result-correct">0</span>
+                                                <span class="result-stat-label">正确</span>
+                                            </div>
+                                            <div class="result-stat">
+                                                <span class="result-stat-value" id="result-accuracy">0%</span>
+                                                <span class="result-stat-label">正确率</span>
+                                            </div>
+                                        </div>
+                                        <div class="result-wrong-words" id="result-wrong-words"></div>
+                                        <div class="result-actions">
+                                            <button id="btn-retry-quiz" class="result-btn retry-btn">
+                                                <span class="btn-icon">🔄</span>
+                                                <span>重新测验</span>
+                                            </button>
+                                            <button id="btn-back-to-config" class="result-btn back-btn">
+                                                <span class="btn-icon">↩️</span>
+                                                <span>返回配置</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         

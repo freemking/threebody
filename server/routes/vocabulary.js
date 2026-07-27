@@ -679,6 +679,60 @@ router.get('/history-dates', authenticateToken, async (req, res) => {
     }
 });
 
+// 获取最近7天学习的单词（用于周末测验）
+router.get('/weekly-quiz-words', authenticateToken, async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const today = getLocalDate();
+        
+        // 计算7天前的日期
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+        const sevenDaysAgoStr = getLocalDate(sevenDaysAgo);
+        
+        // 获取最近7天学习的所有不重复单词
+        const [rows] = await queryWithRetry(
+            `SELECT DISTINCT d.word, 
+                    w.meaning, w.phonetic, w.example, w.root_affix, w.grade,
+                    MAX(d.study_date) as last_study_date,
+                    COUNT(*) as study_count,
+                    SUM(CASE WHEN d.correct = 1 THEN 1 ELSE 0 END) as correct_count
+             FROM vocabulary_daily_record d
+             JOIN wrong_book w ON d.word = w.word AND d.user_id = w.user_id
+             WHERE d.user_id = ? AND d.study_date >= ? AND d.study_date <= ? AND w.deleted = 0
+             GROUP BY d.word, w.meaning, w.phonetic, w.example, w.root_affix, w.grade
+             ORDER BY RAND()`,
+            [userId, sevenDaysAgoStr, today]
+        );
+        
+        const words = rows.map(row => ({
+            word: row.word,
+            meaning: row.meaning,
+            phonetic: row.phonetic,
+            example: row.example,
+            rootAffix: row.root_affix,
+            grade: row.grade,
+            lastStudyDate: utcDateToLocalString(row.last_study_date),
+            studyCount: row.study_count,
+            correctCount: row.correct_count,
+            accuracy: row.study_count > 0 ? Math.round(row.correct_count / row.study_count * 100) : 0
+        }));
+        
+        res.json({ 
+            success: true, 
+            data: words,
+            totalWords: words.length,
+            dateRange: {
+                start: sevenDaysAgoStr,
+                end: today
+            }
+        });
+    } catch (error) {
+        console.error('获取周末测验单词失败:', error);
+        res.json({ success: false, error: error.message });
+    }
+});
+
 // 获取学习统计
 router.get('/stats', authenticateToken, async (req, res) => {
     try {
