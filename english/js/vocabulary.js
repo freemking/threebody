@@ -2960,9 +2960,10 @@ const VocabularyAppMixin = {
             });
             
             gridContainer.innerHTML = allAchievements.map(achievement => {
-                const progressPercent = achievement.target > 0 
-                    ? Math.min((achievement.progress / achievement.target) * 100, 100) 
-                    : 0;
+                // 等级成就的progress已经是百分比(0-100)，普通成就的progress是实际进度值
+                const progressPercent = achievement.isLevel 
+                    ? Math.min(achievement.progress, 100) 
+                    : (achievement.target > 0 ? Math.min((achievement.progress / achievement.target) * 100, 100) : 0);
                 
                 return `
                     <div class="achievement-item ${achievement.unlocked ? 'unlocked' : 'locked'}">
