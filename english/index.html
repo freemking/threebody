@@ -22,6 +22,7 @@
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
 </head>
 <body>
+    <a href="/" class="back-to-home-btn">← 返回首页</a>
     <div id="game-container">
         <div id="loading-screen">
             <h1 class="text-glow">📚 English Word Adventure</h1>
@@ -44,8 +45,6 @@
                 <button id="btn-wordmatch" class="menu-btn" data-i18n="btnWordmatch">🃏 Word Match</button>
                 <button id="btn-wordblast" class="menu-btn" data-i18n="btnWordblast">✏️ 单词填空</button>
             </div>
-            <a href="/" class="back-to-home-btn">← 返回首页</a>
-
 
             <!-- <div class="player-info">
                 <div class="player-avatar float">🎩</div>
@@ -658,6 +657,7 @@
                                     
                                     <div class="quiz-question-area">
                                         <div class="quiz-word-display" id="quiz-word-display"></div>
+                                        <button class="quiz-pronunciation-btn" id="btn-quiz-pronunciation" title="朗读单词">🔊</button>
                                         <div class="quiz-options" id="quiz-options"></div>
                                         <div class="quiz-spelling-input hidden" id="quiz-spelling-input">
                                             <input type="text" id="spelling-answer" placeholder="请输入单词拼写" autocomplete="off">

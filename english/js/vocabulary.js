@@ -3530,6 +3530,28 @@ const VocabularyAppMixin = {
         const optionsContainer = document.getElementById('quiz-options');
         const spellingInput = document.getElementById('quiz-spelling-input');
         
+        // 更新发音按钮状态和事件
+        const pronunciationBtn = document.getElementById('btn-quiz-pronunciation');
+        if (pronunciationBtn) {
+            // 所有模式都显示发音按钮
+            pronunciationBtn.classList.remove('hidden');
+            
+            // 移除旧事件监听器
+            const newPronunciationBtn = pronunciationBtn.cloneNode(true);
+            pronunciationBtn.parentNode.replaceChild(newPronunciationBtn, pronunciationBtn);
+            
+            // 添加新的点击事件
+            newPronunciationBtn.addEventListener('click', () => {
+                if (audioManager && currentWord.word) {
+                    audioManager.speak(currentWord.word, { 
+                        rate: 0.8, 
+                        onStart: () => newPronunciationBtn.classList.add('playing'),
+                        onEnd: () => newPronunciationBtn.classList.remove('playing')
+                    });
+                }
+            });
+        }
+        
         if (this.weeklyQuizMode === 'spelling') {
             // 拼写模式
             wordDisplay.innerHTML = `
@@ -3540,6 +3562,13 @@ const VocabularyAppMixin = {
             spellingInput?.classList.remove('hidden');
             document.getElementById('spelling-answer').value = '';
             document.getElementById('spelling-answer').focus();
+            
+            // 拼写模式下自动朗读（延迟一点让用户先看到题目）
+            setTimeout(() => {
+                if (audioManager && currentWord.word) {
+                    audioManager.speak(currentWord.word, { rate: 0.8 });
+                }
+            }, 500);
         } else if (this.weeklyQuizMode === 'meaning') {
             // 看英文选释义
             wordDisplay.innerHTML = `
@@ -3548,6 +3577,13 @@ const VocabularyAppMixin = {
             `;
             spellingInput?.classList.add('hidden');
             this.renderQuizOptions(currentWord, 'meaning');
+            
+            // 自动朗读单词
+            setTimeout(() => {
+                if (audioManager && currentWord.word) {
+                    audioManager.speak(currentWord.word, { rate: 0.8 });
+                }
+            }, 300);
         } else {
             // 看释义选英文
             wordDisplay.innerHTML = `
@@ -3556,6 +3592,13 @@ const VocabularyAppMixin = {
             `;
             spellingInput?.classList.add('hidden');
             this.renderQuizOptions(currentWord, 'word');
+            
+            // 看释义选英文模式也自动朗读（帮助记忆发音）
+            setTimeout(() => {
+                if (audioManager && currentWord.word) {
+                    audioManager.speak(currentWord.word, { rate: 0.8 });
+                }
+            }, 300);
         }
     },
     
