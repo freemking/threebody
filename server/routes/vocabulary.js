@@ -271,8 +271,12 @@ router.get('/today', authenticateToken, async (req, res) => {
             [userId, today]
         );
         
-        // 如果今天已有5个记录，直接返回
-        if (todayRecords.length >= 5) {
+        // 检查是否所有单词都已学习完成
+        const unlearnedWords = todayRecords.filter(r => !r.remembered);
+        const learnedWords = todayRecords.filter(r => r.remembered);
+        
+        // 如果已有5个已学习的单词，且没有未学习的单词，直接返回
+        if (learnedWords.length >= 5 && unlearnedWords.length === 0) {
             const data = todayRecords.map(row => ({
                 word: row.word,
                 meaning: row.meaning,
@@ -286,17 +290,18 @@ router.get('/today', authenticateToken, async (req, res) => {
             return res.json({ 
                 success: true, 
                 data, 
-                studied: todayRecords.length,
+                studied: learnedWords.length,
                 total: 5,
                 completed: true,
                 hasReview: false
             });
         }
         
-        // 计算剩余名额
-        const remainingSlots = 5 - todayRecords.length;
+        // 计算剩余名额（基于今天所有记录数，包括已学习和未学习的）
+        const remainingSlots = Math.max(0, 5 - todayRecords.length);
         
         // 优先选择全新单词，然后再补充复习单词
+        // 排除今天所有已记录的单词（包括已学习和未学习的），防止重复插入
         const studiedWords = todayRecords.map(r => r.word);
         
         // 获取所有历史学过的单词（排除今天），确保新单词是真正全新的
@@ -327,13 +332,19 @@ router.get('/today', authenticateToken, async (req, res) => {
             );
             newWords = rows;
             
-            // 将新选择的单词初始化到vocabulary_daily_record表
+            // 将新选择的单词初始化到vocabulary_daily_record表（先检查是否已存在，防止重复插入）
             for (const word of newWords) {
-                await queryWithRetry(
-                    `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, response_time, remembered) 
-                     VALUES (?, ?, ?, 0, 0, 0)`,
+                const [existingRecord] = await queryWithRetry(
+                    'SELECT id FROM vocabulary_daily_record WHERE user_id = ? AND word = ? AND study_date = ?',
                     [userId, word.word, today]
                 );
+                if (existingRecord.length === 0) {
+                    await queryWithRetry(
+                        `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, response_time, remembered) 
+                         VALUES (?, ?, ?, 0, 0, 0)`,
+                        [userId, word.word, today]
+                    );
+                }
             }
         }
         
@@ -397,9 +408,10 @@ router.get('/today', authenticateToken, async (req, res) => {
         }
         
         // 合并已有记录、复习单词和新插入的记录，返回完整数据
+        // 只返回未学习的单词 + 新选择的单词 + 复习单词
         const allWords = [
             ...reviewWords,
-            ...todayRecords.map(row => ({
+            ...unlearnedWords.map(row => ({
                 word: row.word,
                 meaning: row.meaning,
                 phonetic: row.phonetic,
@@ -424,7 +436,7 @@ router.get('/today', authenticateToken, async (req, res) => {
         res.json({ 
             success: true, 
             data: allWords, 
-            studied: todayRecords.length,
+            studied: learnedWords.length,
             total: 5,
             completed: false,
             hasReview: reviewWords.length > 0,

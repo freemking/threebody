@@ -1682,11 +1682,6 @@ const VocabularyAppMixin = {
                                     <button class="btn-pronunciation" data-word="${word.word}" title="朗读单词">🔊</button>
                                 </div>
                             </div>
-                            <button class="btn-remembered ${word.is_reviewed ? 'active' : ''}" 
-                                    data-word="${word.word}" 
-                                    title="${word.is_reviewed ? '取消复习' : '标记为已复习'}">
-                                ${word.is_reviewed ? '✅' : '⬜'}
-                            </button>
                         </div>
                         <div class="vocabulary-word-meaning">${word.meaning}</div>
                         ${word.rootAffix ? `<div class="vocabulary-word-rootAffix"><span class="root-affix-label">词根词缀:</span> ${word.rootAffix}</div>` : ''}
@@ -1694,76 +1689,7 @@ const VocabularyAppMixin = {
                     </div>
                 `).join('');
                 
-                // 添加复习按钮事件监听
-                todayWordsContainer.querySelectorAll('.btn-remembered').forEach(btn => {
-                    btn.onclick = async (e) => {
-                        e.stopPropagation();
-                        const word = btn.dataset.word;
-                        const isReviewed = btn.classList.contains('active');
-                        const newReviewed = !isReviewed;
-                        
-                        let success = false;
-                        if (isYesterdayWords) {
-                            // 昨天的单词，调用API标记为已复习
-                            const yesterdayStr = vocabulary._getLocalDateStr(new Date(Date.now() - 86400000));
-                            success = await vocabulary.markAsReviewed(word, yesterdayStr);
-                            
-                            if (success) {
-                                // 更新本地状态
-                                const wordObj = wordsToShow.find(w => w.word === word);
-                                if (wordObj) {
-                                    wordObj.is_reviewed = newReviewed ? 1 : 0;
-                                }
-                                
-                                // 检查昨天的单词是否全部复习
-                                const allReviewed = wordsToShow.every(w => {
-                                    // 只检查is_reviewed字段
-                                    return w.is_reviewed === 1;
-                                });
-                                if (allReviewed) {
-                                    // 昨天的单词全部复习，重新渲染（会自动切换到今天的单词）
-                                    setTimeout(() => this.renderVocabularyList(), 300);
-                                }
-                            }
-                        } else {
-                            // 今天的单词，调用API
-                            success = await vocabulary.toggleRemembered(word, newReviewed);
-                        }
-                        
-                        if (success) {
-                            // 更新UI
-                            btn.classList.toggle('active', newReviewed);
-                            btn.innerHTML = newReviewed ? '✅' : '⬜';
-                            btn.title = newReviewed ? '取消复习' : '标记为已复习';
-                            
-                            // 更新卡片样式
-                            const card = btn.closest('.vocabulary-word-card');
-                            if (card) {
-                                card.classList.toggle('remembered', newReviewed);
-                            }
-                            
-                            // 更新进度
-                            if (progressText && progressFill) {
-                                if (isYesterdayWords) {
-                                    const reviewedCount = wordsToShow.filter(w => {
-                                        // 只检查is_reviewed字段
-                                        return w.is_reviewed === 1;
-                                    }).length;
-                                    const totalYesterday = wordsToShow.length;
-                                    const progressPercent = totalYesterday > 0 ? Math.min((reviewedCount / totalYesterday) * 100, 100) : 0;
-                                    progressText.textContent = `${reviewedCount}/${totalYesterday}`;
-                                    progressFill.style.width = `${progressPercent}%`;
-                                } else {
-                                    const stats = vocabulary.getStats();
-                                    const todayStudied = stats ? stats.todayStudied : 0;
-                                    const progressPercent = Math.min((todayStudied / 5) * 100, 100);
-                                    progressText.textContent = `${todayStudied}/5`;
-                                    progressFill.style.width = `${progressPercent}%`;
-                                }
-                            }
-                        }
-                    };
-                });
+
                 
                 // 添加发音按钮事件监听
                 todayWordsContainer.querySelectorAll('.btn-pronunciation').forEach(btn => {
