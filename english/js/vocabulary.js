@@ -3438,6 +3438,7 @@ const VocabularyAppMixin = {
         
         // 重置测验状态
         this.weeklyQuizWords = [];
+        this.weeklyQuizShuffledWords = [];
         this.weeklyQuizMode = 'meaning';
         this.weeklyQuizCurrentIndex = 0;
         this.weeklyQuizCorrectCount = 0;
@@ -3528,14 +3529,14 @@ const VocabularyAppMixin = {
         // 拼写确认按钮
         const checkBtn = document.getElementById('btn-check-spelling');
         if (checkBtn) {
-            checkBtn.onclick = () => this.checkSpellingAnswer();
+            checkBtn.onclick = () => this.checkWeeklyQuizSpellingAnswer();
         }
         
         // 拼写输入回车
         const spellingInput = document.getElementById('spelling-answer');
         if (spellingInput) {
             spellingInput.onkeydown = (e) => {
-                if (e.key === 'Enter') this.checkSpellingAnswer();
+                if (e.key === 'Enter') this.checkWeeklyQuizSpellingAnswer();
             };
         }
         
@@ -3741,9 +3742,9 @@ const VocabularyAppMixin = {
     },
     
     /**
-     * 检查拼写答案
+     * 检查周末测验拼写答案
      */
-    checkSpellingAnswer() {
+    checkWeeklyQuizSpellingAnswer() {
         const currentWord = this.weeklyQuizShuffledWords[this.weeklyQuizCurrentIndex];
         if (!currentWord) return;
         
