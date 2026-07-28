@@ -1330,9 +1330,8 @@ class App {
         switch (e.key) {
             case 'Escape':
                 this.closeModal();
-                // 关闭历史/添加/成就面板
+                // 关闭历史/成就面板
                 this.toggleHistoryPanel(false);
-                this.toggleAddPanel(false);
                 this.toggleAchievementsPanel(false);
                 break;
         }
