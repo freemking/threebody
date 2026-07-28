@@ -8,7 +8,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "eleven.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Eleven is the number 11."
   },
   {
     "id": "g4_002",
@@ -19,7 +20,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "twelve.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Twelve is the number 12."
   },
   {
     "id": "g4_003",
@@ -31,7 +33,8 @@
     "difficulty": 4,
     "audio": "thirteen.mp3",
     "unit": 1,
-    "rootAffix": "thir（=three，三）+teen（比十还多）→十三"
+    "rootAffix": "thir（=three，三）+teen（比十还多）→十三",
+    "explain": "Thirteen is the number 13."
   },
   {
     "id": "g4_004",
@@ -43,7 +46,8 @@
     "difficulty": 4,
     "audio": "fourteen.mp3",
     "unit": 1,
-    "rootAffix": "four（四）+teen（比十还多）→十四"
+    "rootAffix": "four（四）+teen（比十还多）→十四",
+    "explain": "Fourteen is the number 14."
   },
   {
     "id": "g4_005",
@@ -55,7 +59,8 @@
     "difficulty": 4,
     "audio": "fifteen.mp3",
     "unit": 1,
-    "rootAffix": "fif（=five，五）+teen（比十还多）→十五"
+    "rootAffix": "fif（=five，五）+teen（比十还多）→十五",
+    "explain": "Fifteen is the number 15."
   },
   {
     "id": "g4_006",
@@ -67,7 +72,8 @@
     "difficulty": 4,
     "audio": "sixteen.mp3",
     "unit": 1,
-    "rootAffix": "six（六）+teen（比十还多）→十六"
+    "rootAffix": "six（六）+teen（比十还多）→十六",
+    "explain": "Sixteen is the number 16."
   },
   {
     "id": "g4_007",
@@ -78,7 +84,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "her.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Her describes something that is 她."
   },
   {
     "id": "g4_008",
@@ -89,7 +96,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "his.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "His describes something that is 他."
   },
   {
     "id": "g4_009",
@@ -100,7 +108,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "every.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "every means 每一个."
   },
   {
     "id": "g4_010",
@@ -111,7 +120,8 @@
     "category": "家具",
     "difficulty": 4,
     "audio": "desk.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Desk is a piece of furniture with a flat top for working."
   },
   {
     "id": "g4_011",
@@ -122,7 +132,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "live.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A live is 居住."
   },
   {
     "id": "g4_012",
@@ -133,7 +144,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "mask.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A mask is 面具."
   },
   {
     "id": "g4_013",
@@ -144,7 +156,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "meet.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A meet is 遇见."
   },
   {
     "id": "g4_014",
@@ -155,7 +168,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "near.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A near is 在附近."
   },
   {
     "id": "g4_015",
@@ -166,7 +180,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "number.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Number is a word or symbol for counting."
   },
   {
     "id": "g4_016",
@@ -177,7 +192,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sit.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Sit is to rest with your weight on your bottom."
   },
   {
     "id": "g4_017",
@@ -188,7 +204,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "skip.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To skip means to to move forward by jumping on one foot then the other."
   },
   {
     "id": "g4_018",
@@ -200,7 +217,8 @@
     "difficulty": 4,
     "audio": "student.mp3",
     "unit": 1,
-    "rootAffix": "stud（=study，学习）+ent（形容词后缀）→正在学习的（人）→学生"
+    "rootAffix": "stud（=study，学习）+ent（形容词后缀）→正在学习的（人）→学生",
+    "explain": "Student is a person who is learning at school."
   },
   {
     "id": "g4_019",
@@ -211,7 +229,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "walk.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Walk is to move on foot at a regular speed."
   },
   {
     "id": "g4_020",
@@ -222,7 +241,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "well.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A well is 好."
   },
   {
     "id": "g4_021",
@@ -234,7 +254,8 @@
     "difficulty": 4,
     "audio": "classmate.mp3",
     "unit": 1,
-    "rootAffix": "class（班级）+mate（同伴）→同一个班级的同学→同班同学"
+    "rootAffix": "class（班级）+mate（同伴）→同一个班级的同学→同班同学",
+    "explain": "A classmate is 同学."
   },
   {
     "id": "g4_022",
@@ -245,7 +266,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "bird.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Bird is an animal with wings that can fly."
   },
   {
     "id": "g4_023",
@@ -256,7 +278,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "both.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A both is 两个都."
   },
   {
     "id": "g4_024",
@@ -267,7 +290,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "climb.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A climb is 爬."
   },
   {
     "id": "g4_025",
@@ -278,7 +302,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "crisp.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A crisp is 薯片."
   },
   {
     "id": "g4_026",
@@ -289,7 +314,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "dolphin.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A dolphin is an animal that is 海豚."
   },
   {
     "id": "g4_027",
@@ -300,7 +326,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "draw.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To draw means to to make a picture using a pencil, pen, or crayons."
   },
   {
     "id": "g4_028",
@@ -311,7 +338,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "everyone.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "An everyone is 每人."
   },
   {
     "id": "g4_029",
@@ -322,7 +350,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fast.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Fast is moving quickly."
   },
   {
     "id": "g4_030",
@@ -333,7 +362,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "fly.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To fly means to to move through the air using wings."
   },
   {
     "id": "g4_031",
@@ -344,7 +374,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "guest.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Guest is a person who visits someone."
   },
   {
     "id": "g4_032",
@@ -355,7 +386,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "her.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A her is 她（宾格）."
   },
   {
     "id": "g4_033",
@@ -366,7 +398,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "high.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A high is 高."
   },
   {
     "id": "g4_034",
@@ -377,7 +410,8 @@
     "category": "身体部位",
     "difficulty": 4,
     "audio": "hop.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To hop means to to jump on one foot."
   },
   {
     "id": "g4_035",
@@ -389,7 +423,8 @@
     "difficulty": 4,
     "audio": "interview.mp3",
     "unit": 1,
-    "rootAffix": "inter（相互）+view（见）→相互见面→接见，采访，面谈"
+    "rootAffix": "inter（相互）+view（见）→相互见面→接见，采访，面谈",
+    "explain": "An interview is 采访."
   },
   {
     "id": "g4_036",
@@ -400,7 +435,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "jump.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To jump means to to push yourself up into the air."
   },
   {
     "id": "g4_037",
@@ -411,7 +447,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "paint.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To paint means to 用颜料画画."
   },
   {
     "id": "g4_038",
@@ -423,7 +460,8 @@
     "difficulty": 4,
     "audio": "picture.mp3",
     "unit": 1,
-    "rootAffix": "pict（画）+ure（名词后缀）→画出来的结果→图画"
+    "rootAffix": "pict（画）+ure（名词后缀）→画出来的结果→图画",
+    "explain": "A picture is 照片."
   },
   {
     "id": "g4_039",
@@ -434,7 +472,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "read.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To read means to to look at and understand written words."
   },
   {
     "id": "g4_040",
@@ -445,7 +484,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "run.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To run means to to move quickly on foot."
   },
   {
     "id": "g4_041",
@@ -456,7 +496,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "swim.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To swim means to to move through water using your arms and legs."
   },
   {
     "id": "g4_042",
@@ -467,7 +508,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "time.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Time is the ongoing sequence of events."
   },
   {
     "id": "g4_043",
@@ -479,7 +521,8 @@
     "difficulty": 4,
     "audio": "very.mp3",
     "unit": 1,
-    "rootAffix": "ver（真实的）+y（形容词后缀）→真的→恰好是→非常"
+    "rootAffix": "ver（真实的）+y（形容词后缀）→真的→恰好是→非常",
+    "explain": "A very is 非常."
   },
   {
     "id": "g4_044",
@@ -490,7 +533,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "wasp.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A wasp is 黄蜂."
   },
   {
     "id": "g4_045",
@@ -502,7 +546,8 @@
     "difficulty": 4,
     "audio": "welcome.mp3",
     "unit": 1,
-    "rootAffix": "wel（=will，心意）+come（来）→来得符合心意→受欢迎的"
+    "rootAffix": "wel（=will，心意）+come（来）→来得符合心意→受欢迎的",
+    "explain": "A welcome is 欢迎."
   },
   {
     "id": "g4_046",
@@ -513,7 +558,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "write.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Write is to form letters on a surface."
   },
   {
     "id": "g4_047",
@@ -524,7 +570,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "back.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Back is the rear part."
   },
   {
     "id": "g4_048",
@@ -536,7 +583,8 @@
     "difficulty": 4,
     "audio": "biscuit.mp3",
     "unit": 1,
-    "rootAffix": "bis（两次）+cuit（烹调）→烤了两次的面包→饼干"
+    "rootAffix": "bis（两次）+cuit（烹调）→烤了两次的面包→饼干",
+    "explain": "A biscuit is a small flat dry cake that is sweet or savory."
   },
   {
     "id": "g4_049",
@@ -547,7 +595,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bottle.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A bottle is 瓶."
   },
   {
     "id": "g4_050",
@@ -558,7 +607,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bright.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Bright describes something that is 明亮."
   },
   {
     "id": "g4_051",
@@ -569,7 +619,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "crow.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A crow is 乌鸦."
   },
   {
     "id": "g4_052",
@@ -580,7 +631,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "drink.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To drink means to a liquid for swallowing."
   },
   {
     "id": "g4_053",
@@ -591,7 +643,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "dry.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Dry describes something that is 干燥."
   },
   {
     "id": "g4_054",
@@ -602,7 +655,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "each_other.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "each other means 互相."
   },
   {
     "id": "g4_055",
@@ -613,7 +667,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "full.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Full describes something that is 饱."
   },
   {
     "id": "g4_056",
@@ -625,7 +680,8 @@
     "difficulty": 4,
     "audio": "happy.mp3",
     "unit": 1,
-    "rootAffix": "happ（幸运）+y（形容词后缀）→幸运的→幸福的"
+    "rootAffix": "happ（幸运）+y（形容词后缀）→幸运的→幸福的",
+    "explain": "Happy is feeling pleasure."
   },
   {
     "id": "g4_057",
@@ -636,7 +692,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "home.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A home is 到家."
   },
   {
     "id": "g4_058",
@@ -648,7 +705,8 @@
     "difficulty": 4,
     "audio": "hungry.mp3",
     "unit": 1,
-    "rootAffix": "hung(e)r（饥饿）+y（形容词后缀）→饥饿的"
+    "rootAffix": "hung(e)r（饥饿）+y（形容词后缀）→饥饿的",
+    "explain": "Hungry means feeling that you want to eat food."
   },
   {
     "id": "g4_059",
@@ -659,7 +717,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "idea.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Idea is a plan or suggestion."
   },
   {
     "id": "g4_060",
@@ -670,7 +729,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "lamp_post.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "lamp post means 路灯柱."
   },
   {
     "id": "g4_061",
@@ -681,7 +741,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "new.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "New is recently made."
   },
   {
     "id": "g4_062",
@@ -692,7 +753,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "pebble.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A pebble is an animal that is 鹅卵石."
   },
   {
     "id": "g4_063",
@@ -704,7 +766,8 @@
     "difficulty": 4,
     "audio": "postman.mp3",
     "unit": 1,
-    "rootAffix": "post（邮递）+man（人）→邮递员"
+    "rootAffix": "post（邮递）+man（人）→邮递员",
+    "explain": "A postman is 邮递员."
   },
   {
     "id": "g4_064",
@@ -715,7 +778,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sad.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Sad is feeling sorrow."
   },
   {
     "id": "g4_065",
@@ -726,7 +790,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "so.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A so is 太."
   },
   {
     "id": "g4_066",
@@ -737,7 +802,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "then.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A then is 那么."
   },
   {
     "id": "g4_067",
@@ -749,7 +815,8 @@
     "difficulty": 4,
     "audio": "thirsty.mp3",
     "unit": 1,
-    "rootAffix": "thirst（口渴）+y（形容词后缀）→口渴的"
+    "rootAffix": "thirst（口渴）+y（形容词后缀）→口渴的",
+    "explain": "Thirsty means feeling that you want to drink something."
   },
   {
     "id": "g4_068",
@@ -761,7 +828,8 @@
     "difficulty": 4,
     "audio": "tired.mp3",
     "unit": 1,
-    "rootAffix": "tir(e)（使疲倦，使厌烦）+ed（过去分词形式）→疲倦的，厌倦的"
+    "rootAffix": "tir(e)（使疲倦，使厌烦）+ed（过去分词形式）→疲倦的，厌倦的",
+    "explain": "Tired describes something that is 累."
   },
   {
     "id": "g4_069",
@@ -772,7 +840,8 @@
     "category": "食物",
     "difficulty": 4,
     "audio": "toast.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A toast is a food that is 烤面包片."
   },
   {
     "id": "g4_070",
@@ -783,7 +852,8 @@
     "category": "饮料",
     "difficulty": 4,
     "audio": "water.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Water is a clear liquid essential for life."
   },
   {
     "id": "g4_071",
@@ -794,7 +864,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "word.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A word is 单词."
   },
   {
     "id": "g4_072",
@@ -805,7 +876,8 @@
     "category": "家庭",
     "difficulty": 4,
     "audio": "aunt.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "An aunt is 姑母/姨母."
   },
   {
     "id": "g4_073",
@@ -816,7 +888,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "cloud.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A cloud is 云."
   },
   {
     "id": "g4_074",
@@ -827,7 +900,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "cool.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Cool means slightly cold, pleasantly cool."
   },
   {
     "id": "g4_075",
@@ -838,7 +912,8 @@
     "category": "家庭",
     "difficulty": 4,
     "audio": "cousin.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A cousin is 表兄妹."
   },
   {
     "id": "g4_076",
@@ -849,7 +924,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "dish.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A dish is 碟子."
   },
   {
     "id": "g4_077",
@@ -860,7 +936,8 @@
     "category": "饮料",
     "difficulty": 4,
     "audio": "dive.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A dive is 跳水."
   },
   {
     "id": "g4_078",
@@ -871,7 +948,8 @@
     "category": "食物",
     "difficulty": 4,
     "audio": "fish.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Fish is an animal that lives in water."
   },
   {
     "id": "g4_079",
@@ -882,7 +960,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "garden.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A garden is 花园."
   },
   {
     "id": "g4_080",
@@ -893,7 +972,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "man.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Man is an adult male."
   },
   {
     "id": "g4_081",
@@ -904,7 +984,8 @@
     "category": "时间",
     "difficulty": 4,
     "audio": "mooncake.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A mooncake is 月饼."
   },
   {
     "id": "g4_082",
@@ -915,7 +996,8 @@
     "category": "职业",
     "difficulty": 4,
     "audio": "police_officer.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "police officer means 警察."
   },
   {
     "id": "g4_083",
@@ -926,7 +1008,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "riddle.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A riddle is 谜语."
   },
   {
     "id": "g4_084",
@@ -938,7 +1021,8 @@
     "difficulty": 4,
     "audio": "right.mp3",
     "unit": 2,
-    "rootAffix": "rig（正的）+ht→正确的"
+    "rootAffix": "rig（正的）+ht→正确的",
+    "explain": "Right describes something that is 对."
   },
   {
     "id": "g4_085",
@@ -950,7 +1034,8 @@
     "difficulty": 4,
     "audio": "sometimes.mp3",
     "unit": 2,
-    "rootAffix": "some（某）+times（时）→有时"
+    "rootAffix": "some（某）+times（时）→有时",
+    "explain": "A sometimes is 有时."
   },
   {
     "id": "g4_086",
@@ -961,7 +1046,8 @@
     "category": "家庭",
     "difficulty": 4,
     "audio": "uncle.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "An uncle is 叔叔."
   },
   {
     "id": "g4_087",
@@ -972,7 +1058,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "wash.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A wash is 洗."
   },
   {
     "id": "g4_088",
@@ -983,7 +1070,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "afraid.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Afraid describes something that is 害怕."
   },
   {
     "id": "g4_089",
@@ -994,7 +1082,8 @@
     "category": "交通",
     "difficulty": 4,
     "audio": "bus.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Bus is a large vehicle carrying passengers."
   },
   {
     "id": "g4_090",
@@ -1005,7 +1094,8 @@
     "category": "职业",
     "difficulty": 4,
     "audio": "bus_driver.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "bus driver means 公交车司机."
   },
   {
     "id": "g4_091",
@@ -1016,7 +1106,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "busy.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Busy describes something that is 忙碌."
   },
   {
     "id": "g4_092",
@@ -1027,7 +1118,8 @@
     "category": "职业",
     "difficulty": 4,
     "audio": "cook.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Cook is a person who prepares food."
   },
   {
     "id": "g4_093",
@@ -1039,7 +1131,8 @@
     "difficulty": 4,
     "audio": "dangerous.mp3",
     "unit": 2,
-    "rootAffix": "danger（危险）+ous（形容词后缀）→危险的"
+    "rootAffix": "danger（危险）+ous（形容词后缀）→危险的",
+    "explain": "Dangerous describes something that is 危险."
   },
   {
     "id": "g4_094",
@@ -1051,7 +1144,8 @@
     "difficulty": 4,
     "audio": "doctor.mp3",
     "unit": 2,
-    "rootAffix": "doct（教授）+or（者）→（有资格）收徒授课者→博士→医学博士，医生"
+    "rootAffix": "doct（教授）+or（者）→（有资格）收徒授课者→博士→医学博士，医生",
+    "explain": "A doctor is a person who 医生."
   },
   {
     "id": "g4_095",
@@ -1062,7 +1156,8 @@
     "category": "服装",
     "difficulty": 4,
     "audio": "dress.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A dress is a piece of clothing for women or girls that covers the top of the body and skirts."
   },
   {
     "id": "g4_096",
@@ -1074,7 +1169,8 @@
     "difficulty": 4,
     "audio": "driver.mp3",
     "unit": 2,
-    "rootAffix": "driv(e)（驾驶）+er（者）→驾驶员"
+    "rootAffix": "driv(e)（驾驶）+er（者）→驾驶员",
+    "explain": "Driver is a person who drives a vehicle."
   },
   {
     "id": "g4_097",
@@ -1085,7 +1181,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fire.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A fire is 火."
   },
   {
     "id": "g4_098",
@@ -1096,7 +1193,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fire_engine.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "fire engine means 消防车."
   },
   {
     "id": "g4_099",
@@ -1107,7 +1205,8 @@
     "category": "职业",
     "difficulty": 4,
     "audio": "firefighter.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A firefighter is a person who 消防员."
   },
   {
     "id": "g4_100",
@@ -1118,7 +1217,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fire_station.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "fire station means 消防站."
   },
   {
     "id": "g4_101",
@@ -1129,7 +1229,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "job.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A job is 工作."
   },
   {
     "id": "g4_102",
@@ -1141,7 +1242,8 @@
     "difficulty": 4,
     "audio": "nurse.mp3",
     "unit": 2,
-    "rootAffix": "nurs（=nutr，滋养，哺育）+e→喂奶→照顾，护理，当保姆"
+    "rootAffix": "nurs（=nutr，滋养，哺育）+e→喂奶→照顾，护理，当保姆",
+    "explain": "Nurse is a person who cares for sick people."
   },
   {
     "id": "g4_103",
@@ -1153,7 +1255,8 @@
     "difficulty": 4,
     "audio": "people.mp3",
     "unit": 2,
-    "rootAffix": "peopl（=popul，民众）+e→人们，人们，民众"
+    "rootAffix": "peopl（=popul，民众）+e→人们，人们，民众",
+    "explain": "People is persons in general."
   },
   {
     "id": "g4_104",
@@ -1164,7 +1267,8 @@
     "category": "职业",
     "difficulty": 4,
     "audio": "police_station.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "police station means 警察局."
   },
   {
     "id": "g4_105",
@@ -1176,7 +1280,8 @@
     "difficulty": 4,
     "audio": "princess.mp3",
     "unit": 2,
-    "rootAffix": "princ(e)（王子）+ess（阴性名词后缀）→公主，王妃"
+    "rootAffix": "princ(e)（王子）+ess（阴性名词后缀）→公主，王妃",
+    "explain": "Princess is the daughter of a king or queen."
   },
   {
     "id": "g4_106",
@@ -1188,7 +1293,8 @@
     "difficulty": 4,
     "audio": "teacher.mp3",
     "unit": 2,
-    "rootAffix": "teach（教）+er（者）→教师"
+    "rootAffix": "teach（教）+er（者）→教师",
+    "explain": "Teacher is a person who teaches students."
   },
   {
     "id": "g4_107",
@@ -1199,7 +1305,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bite.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A bite is 咬."
   },
   {
     "id": "g4_108",
@@ -1210,7 +1317,8 @@
     "category": "职业",
     "difficulty": 4,
     "audio": "blouse.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A blouse is a shirt for women, usually with a collar and buttons."
   },
   {
     "id": "g4_109",
@@ -1221,7 +1329,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "friend.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Friend is a person you like and enjoy spending time with."
   },
   {
     "id": "g4_110",
@@ -1232,7 +1341,8 @@
     "category": "颜色",
     "difficulty": 4,
     "audio": "grey.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Grey describes something that is 灰色."
   },
   {
     "id": "g4_111",
@@ -1243,7 +1353,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "jeans.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A jeans is an animal that is 牛仔裤."
   },
   {
     "id": "g4_112",
@@ -1254,7 +1365,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "net.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A net is 网."
   },
   {
     "id": "g4_113",
@@ -1265,7 +1377,8 @@
     "category": "颜色",
     "difficulty": 4,
     "audio": "pink.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Pink means a pale red color."
   },
   {
     "id": "g4_114",
@@ -1276,7 +1389,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sharp.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Sharp describes something that is 锋利."
   },
   {
     "id": "g4_115",
@@ -1287,7 +1401,8 @@
     "category": "服装",
     "difficulty": 4,
     "audio": "shirt.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A shirt is a piece of clothing for the upper body with a collar and buttons."
   },
   {
     "id": "g4_116",
@@ -1298,7 +1413,8 @@
     "category": "服装",
     "difficulty": 4,
     "audio": "shorts.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A shorts is short trousers that end above the knee."
   },
   {
     "id": "g4_117",
@@ -1309,7 +1425,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "skate.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To skate means to to move on ice or smooth surfaces wearing special shoes."
   },
   {
     "id": "g4_118",
@@ -1320,7 +1437,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "skirt.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A skirt is 短裙."
   },
   {
     "id": "g4_119",
@@ -1331,7 +1449,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "strong.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Strong describes something that is 强壮."
   },
   {
     "id": "g4_120",
@@ -1343,7 +1462,8 @@
     "difficulty": 4,
     "audio": "sweater.mp3",
     "unit": 2,
-    "rootAffix": "sweat（出汗）+er（者）→使人出汗的衣服→运动衫"
+    "rootAffix": "sweat（出汗）+er（者）→使人出汗的衣服→运动衫",
+    "explain": "A sweater is a warm knitted piece of clothing covering the upper body."
   },
   {
     "id": "g4_121",
@@ -1354,7 +1474,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "tooth.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A tooth is 牙齿."
   },
   {
     "id": "g4_122",
@@ -1365,7 +1486,8 @@
     "category": "服装",
     "difficulty": 4,
     "audio": "t-shirt.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A t-shirt is a short-sleeved casual top made of cotton."
   },
   {
     "id": "g4_123",
@@ -1376,7 +1498,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "a_lot_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a lot of means 许多."
   },
   {
     "id": "g4_124",
@@ -1388,7 +1511,8 @@
     "difficulty": 4,
     "audio": "behind.mp3",
     "unit": 3,
-    "rootAffix": "be（在）+hind（后面）→在……后面"
+    "rootAffix": "be（在）+hind（后面）→在……后面",
+    "explain": "A behind is 在后面."
   },
   {
     "id": "g4_125",
@@ -1399,7 +1523,8 @@
     "category": "家具",
     "difficulty": 4,
     "audio": "bookshelf.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A bookshelf is a piece of furniture, specifically 书架."
   },
   {
     "id": "g4_126",
@@ -1411,7 +1536,8 @@
     "difficulty": 4,
     "audio": "building.mp3",
     "unit": 3,
-    "rootAffix": "build（建筑）+ing（现在分词形式）→建筑物"
+    "rootAffix": "build（建筑）+ing（现在分词形式）→建筑物",
+    "explain": "A building is 大楼."
   },
   {
     "id": "g4_127",
@@ -1422,7 +1548,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "busy.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Busy describes something that is 忙碌."
   },
   {
     "id": "g4_128",
@@ -1434,7 +1561,8 @@
     "difficulty": 4,
     "audio": "canteen.mp3",
     "unit": 3,
-    "rootAffix": "cant（角落）+een（指小名词后缀）→小角落→酒窖，储藏间→军营中卖酒水零食的小店→食堂，小卖部"
+    "rootAffix": "cant（角落）+een（指小名词后缀）→小角落→酒窖，储藏间→军营中卖酒水零食的小店→食堂，小卖部",
+    "explain": "Canteen is a place where meals are served."
   },
   {
     "id": "g4_129",
@@ -1445,7 +1573,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "clean.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Clean describes something that is 干净."
   },
   {
     "id": "g4_130",
@@ -1457,7 +1586,8 @@
     "difficulty": 4,
     "audio": "computer.mp3",
     "unit": 3,
-    "rootAffix": "com（加强语气）+put（计算）+er（者）→计算机"
+    "rootAffix": "com（加强语气）+put（计算）+er（者）→计算机",
+    "explain": "A computer is 电脑."
   },
   {
     "id": "g4_131",
@@ -1468,7 +1598,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "computer_lab.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "computer lab means 电脑房."
   },
   {
     "id": "g4_132",
@@ -1480,7 +1611,8 @@
     "difficulty": 4,
     "audio": "cupboard.mp3",
     "unit": 3,
-    "rootAffix": "cup（杯子）+board（木板）→碗柜"
+    "rootAffix": "cup（杯子）+board（木板）→碗柜",
+    "explain": "A cupboard is a piece of furniture, specifically 橱柜."
   },
   {
     "id": "g4_133",
@@ -1491,7 +1623,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "floor.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A floor is 楼层."
   },
   {
     "id": "g4_134",
@@ -1502,7 +1635,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "forest.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A forest is 森林."
   },
   {
     "id": "g4_135",
@@ -1514,7 +1648,8 @@
     "difficulty": 4,
     "audio": "grandpa.mp3",
     "unit": 3,
-    "rootAffix": "grand（隔代的）+pa（父亲）→爷爷，外公"
+    "rootAffix": "grand（隔代的）+pa（父亲）→爷爷，外公",
+    "explain": "A grandpa is （外）祖父."
   },
   {
     "id": "g4_136",
@@ -1525,7 +1660,8 @@
     "category": "学科",
     "difficulty": 4,
     "audio": "gym.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Gym is a place for physical exercise."
   },
   {
     "id": "g4_137",
@@ -1536,7 +1672,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "have_lunch.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To have lunch means to 吃午餐."
   },
   {
     "id": "g4_138",
@@ -1547,7 +1684,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "in_front_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "in front of means 在前面."
   },
   {
     "id": "g4_139",
@@ -1559,7 +1697,8 @@
     "difficulty": 4,
     "audio": "lesson.mp3",
     "unit": 3,
-    "rootAffix": "less（=lect，阅读）+on（=ion，名词后缀）→阅读，学生的阅读内容→课"
+    "rootAffix": "less（=lect，阅读）+on（=ion，名词后缀）→阅读，学生的阅读内容→课",
+    "explain": "Lesson is a period of learning."
   },
   {
     "id": "g4_140",
@@ -1570,7 +1709,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "lunch.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A lunch is 午餐."
   },
   {
     "id": "g4_141",
@@ -1582,7 +1722,8 @@
     "difficulty": 4,
     "audio": "office.mp3",
     "unit": 3,
-    "rootAffix": "of（=op，工作）+fic（做）+e→做工作→公职、公务→办公室"
+    "rootAffix": "of（=op，工作）+fic（做）+e→做工作→公职、公务→办公室",
+    "explain": "Office is a room where people work."
   },
   {
     "id": "g4_142",
@@ -1593,7 +1734,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "rabbit.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Rabbit is a small animal with long ears."
   },
   {
     "id": "g4_143",
@@ -1604,7 +1746,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "show...around.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A show...around is 带领参观."
   },
   {
     "id": "g4_144",
@@ -1615,7 +1758,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "think.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Think is to use your mind."
   },
   {
     "id": "g4_145",
@@ -1627,7 +1771,8 @@
     "difficulty": 4,
     "audio": "tidy.mp3",
     "unit": 3,
-    "rootAffix": "tid(e)（潮流，在此指季节）+y（形容词后缀）→适时的→整齐的"
+    "rootAffix": "tid(e)（潮流，在此指季节）+y（形容词后缀）→适时的→整齐的",
+    "explain": "Tidy describes something that is 整洁."
   },
   {
     "id": "g4_146",
@@ -1638,7 +1783,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "try.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Try is to make an effort."
   },
   {
     "id": "g4_147",
@@ -1650,7 +1796,8 @@
     "difficulty": 4,
     "audio": "around.mp3",
     "unit": 3,
-    "rootAffix": "a（处在）+round（周围，围绕）→在四周，围绕"
+    "rootAffix": "a（处在）+round（周围，围绕）→在四周，围绕",
+    "explain": "An around is 在周围."
   },
   {
     "id": "g4_148",
@@ -1662,7 +1809,8 @@
     "difficulty": 4,
     "audio": "bakery.mp3",
     "unit": 3,
-    "rootAffix": "bak（=bake，烘烤）+ery（名词后缀，表场所）→烘烤（面包）的场所→面包房→面包店"
+    "rootAffix": "bak（=bake，烘烤）+ery（名词后缀，表场所）→烘烤（面包）的场所→面包房→面包店",
+    "explain": "A bakery is a food that is 面包房."
   },
   {
     "id": "g4_149",
@@ -1674,7 +1822,8 @@
     "difficulty": 4,
     "audio": "between.mp3",
     "unit": 3,
-    "rootAffix": "be（=by，在）+tween（=two，二者）→在二者之间→在中间"
+    "rootAffix": "be（=by，在）+tween（=two，二者）→在二者之间→在中间",
+    "explain": "A between is 在中间."
   },
   {
     "id": "g4_150",
@@ -1686,7 +1835,8 @@
     "difficulty": 4,
     "audio": "centre.mp3",
     "unit": 3,
-    "rootAffix": "centr（中央）+e→中央，中心"
+    "rootAffix": "centr（中央）+e→中央，中心",
+    "explain": "A centre is 中心."
   },
   {
     "id": "g4_151",
@@ -1698,7 +1848,8 @@
     "difficulty": 4,
     "audio": "city.mp3",
     "unit": 3,
-    "rootAffix": "ci（市民）+ty（名词后缀）→市民身份，全体市民→城市"
+    "rootAffix": "ci（市民）+ty（名词后缀）→市民身份，全体市民→城市",
+    "explain": "City is a large town."
   },
   {
     "id": "g4_152",
@@ -1710,7 +1861,8 @@
     "difficulty": 4,
     "audio": "corner.mp3",
     "unit": 3,
-    "rootAffix": "corn（角，突出物）+er（名词后缀）→角落，拐角处"
+    "rootAffix": "corn（角，突出物）+er（名词后缀）→角落，拐角处",
+    "explain": "Corner is the point where two lines meet."
   },
   {
     "id": "g4_153",
@@ -1722,7 +1874,8 @@
     "difficulty": 4,
     "audio": "hotel.mp3",
     "unit": 3,
-    "rootAffix": "hot（=host，接待客人）+el（=al，形容词后缀）→接待客人的（地方）→旅馆"
+    "rootAffix": "hot（=host，接待客人）+el（=al，形容词后缀）→接待客人的（地方）→旅馆",
+    "explain": "A hotel is a place where you can 旅馆."
   },
   {
     "id": "g4_154",
@@ -1733,7 +1886,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "light.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A light is 灯光."
   },
   {
     "id": "g4_155",
@@ -1744,7 +1898,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "many.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A many is 许多."
   },
   {
     "id": "g4_156",
@@ -1755,7 +1910,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "next_to.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "next to means 紧邻."
   },
   {
     "id": "g4_157",
@@ -1767,7 +1923,8 @@
     "difficulty": 4,
     "audio": "other.mp3",
     "unit": 3,
-    "rootAffix": "alter（另一个），其中o对应al，ther对应ter"
+    "rootAffix": "alter（另一个），其中o对应al，ther对应ter",
+    "explain": "Other describes something that is 其他."
   },
   {
     "id": "g4_158",
@@ -1779,7 +1936,8 @@
     "difficulty": 4,
     "audio": "pleasure.mp3",
     "unit": 3,
-    "rootAffix": "pleas（使高兴，使满意）+ure（名词后缀）→高兴，快乐"
+    "rootAffix": "pleas（使高兴，使满意）+ure（名词后缀）→高兴，快乐",
+    "explain": "A pleasure is 乐事."
   },
   {
     "id": "g4_159",
@@ -1790,7 +1948,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "post_office.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Post office means 邮政局."
   },
   {
     "id": "g4_160",
@@ -1802,7 +1961,8 @@
     "difficulty": 4,
     "audio": "postcard.mp3",
     "unit": 3,
-    "rootAffix": "post（邮递）+card（卡片）→明信片"
+    "rootAffix": "post（邮递）+card（卡片）→明信片",
+    "explain": "A postcard is 明信片."
   },
   {
     "id": "g4_161",
@@ -1814,7 +1974,8 @@
     "difficulty": 4,
     "audio": "restaurant.mp3",
     "unit": 3,
-    "rootAffix": "re（再次）+staur（使挺立）+ant（形容词后缀）→使人恢复体力的（肉汤）→餐馆、饭店"
+    "rootAffix": "re（再次）+staur（使挺立）+ant（形容词后缀）→使人恢复体力的（肉汤）→餐馆、饭店",
+    "explain": "A restaurant is 餐馆."
   },
   {
     "id": "g4_162",
@@ -1825,7 +1986,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "road.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A road is 道路."
   },
   {
     "id": "g4_163",
@@ -1836,7 +1998,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "send.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A send is 寄."
   },
   {
     "id": "g4_164",
@@ -1847,7 +2010,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "shop.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Shop is a place where goods are sold."
   },
   {
     "id": "g4_165",
@@ -1858,7 +2022,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "show.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Show is to let someone see."
   },
   {
     "id": "g4_166",
@@ -1869,7 +2034,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "slide.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To slide means to a smooth surface for sliding down, often in a playground."
   },
   {
     "id": "g4_167",
@@ -1880,7 +2046,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "snake.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Snake is a long thin animal with no legs."
   },
   {
     "id": "g4_168",
@@ -1891,7 +2058,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "some.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "some means 一些."
   },
   {
     "id": "g4_169",
@@ -1903,7 +2071,8 @@
     "difficulty": 4,
     "audio": "stay.mp3",
     "unit": 3,
-    "rootAffix": "sta（站着，静止不动）+y→停留，停下"
+    "rootAffix": "sta（站着，静止不动）+y→停留，停下",
+    "explain": "A stay is 停留."
   },
   {
     "id": "g4_170",
@@ -1914,7 +2083,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "street.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Street is a public road in a town."
   },
   {
     "id": "g4_171",
@@ -1926,7 +2096,8 @@
     "difficulty": 4,
     "audio": "supermarket.mp3",
     "unit": 3,
-    "rootAffix": "super（超级的）+market（市场）→超级市场"
+    "rootAffix": "super（超级的）+market（市场）→超级市场",
+    "explain": "A supermarket is a place where you can 超市."
   },
   {
     "id": "g4_172",
@@ -1937,7 +2108,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "swing.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To swing means to a seat hanging from ropes or chains for swinging on."
   },
   {
     "id": "g4_173",
@@ -1948,7 +2120,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "then.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A then is 那时."
   },
   {
     "id": "g4_174",
@@ -1959,7 +2132,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "thing.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A thing is 东西."
   },
   {
     "id": "g4_175",
@@ -1971,7 +2145,8 @@
     "difficulty": 4,
     "audio": "visit.mp3",
     "unit": 3,
-    "rootAffix": "vis（看）+it（反复动词形式）→反复看→参观，访问，视察"
+    "rootAffix": "vis（看）+it（反复动词形式）→反复看→参观，访问，视察",
+    "explain": "A visit is 参观."
   },
   {
     "id": "g4_176",
@@ -1982,7 +2157,8 @@
     "category": "身体部位",
     "difficulty": 4,
     "audio": "watch.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A watch is a small clock worn on your wrist."
   },
   {
     "id": "g4_177",
@@ -1993,7 +2169,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "way.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A way is 路."
   },
   {
     "id": "g4_178",
@@ -2004,7 +2181,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_bar_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a bar of means 一块."
   },
   {
     "id": "g4_179",
@@ -2015,7 +2193,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_bottle_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a bottle of means 一瓶."
   },
   {
     "id": "g4_180",
@@ -2026,7 +2205,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_bowl_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a bowl of means 一碗."
   },
   {
     "id": "g4_181",
@@ -2037,7 +2217,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_loaf_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a loaf of means 一条面包."
   },
   {
     "id": "g4_182",
@@ -2048,7 +2229,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_packet_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a packet of means 一包."
   },
   {
     "id": "g4_183",
@@ -2059,7 +2241,8 @@
     "category": "家具",
     "difficulty": 4,
     "audio": "bowl.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A bowl is a round container for holding food or liquid."
   },
   {
     "id": "g4_184",
@@ -2070,7 +2253,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "chocolate.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A chocolate is 巧克力."
   },
   {
     "id": "g4_185",
@@ -2081,7 +2265,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "glasses.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A glasses is 眼镜."
   },
   {
     "id": "g4_186",
@@ -2093,7 +2278,8 @@
     "difficulty": 4,
     "audio": "magic.mp3",
     "unit": 3,
-    "rootAffix": "mag（拜火教祭司）+ic（形容词后缀）→拜火教祭司的→有魔力的，不可思议的（事情）→巫术，魔法，戏法"
+    "rootAffix": "mag（拜火教祭司）+ic（形容词后缀）→拜火教祭司的→有魔力的，不可思议的（事情）→巫术，魔法，戏法",
+    "explain": "Magic describes something that is 有魔力."
   },
   {
     "id": "g4_187",
@@ -2104,7 +2290,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "mole.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A mole is an animal that is 鼹鼠."
   },
   {
     "id": "g4_188",
@@ -2115,7 +2302,8 @@
     "category": "食物",
     "difficulty": 4,
     "audio": "noodle.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A noodle is a food that is 面条."
   },
   {
     "id": "g4_189",
@@ -2126,7 +2314,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "panda.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A panda is a large black and white animal from China that looks like a bear."
   },
   {
     "id": "g4_190",
@@ -2137,7 +2326,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "put_on.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To put on means to 戴上/穿上."
   },
   {
     "id": "g4_191",
@@ -2149,7 +2339,8 @@
     "difficulty": 4,
     "audio": "section.mp3",
     "unit": 3,
-    "rootAffix": "sect（切割）+ion（名词后缀）→切割之行为或结果→截面，部分，部门，地区，章节"
+    "rootAffix": "sect（切割）+ion（名词后缀）→切割之行为或结果→截面，部分，部门，地区，章节",
+    "explain": "A section is 部分."
   },
   {
     "id": "g4_192",
@@ -2160,7 +2351,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "smoke.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A smoke is 烟."
   },
   {
     "id": "g4_193",
@@ -2171,7 +2363,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "spider.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A spider is 蜘蛛."
   },
   {
     "id": "g4_194",
@@ -2182,7 +2375,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "too.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A too is 太."
   },
   {
     "id": "g4_195",
@@ -2193,7 +2387,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "worry.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A worry is 担心."
   },
   {
     "id": "g4_196",
@@ -2204,7 +2399,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bin.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A bin is 垃圾箱."
   },
   {
     "id": "g4_197",
@@ -2215,7 +2411,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "corn.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A corn is 谷物."
   },
   {
     "id": "g4_198",
@@ -2226,7 +2423,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "cow.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Cow is a large farm animal kept for milk."
   },
   {
     "id": "g4_199",
@@ -2237,7 +2435,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "duck.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Duck is a water bird with a flat bill."
   },
   {
     "id": "g4_200",
@@ -2248,7 +2447,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "farm.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A farm is 农场."
   },
   {
     "id": "g4_201",
@@ -2259,7 +2459,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "feed.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A feed is 喂养."
   },
   {
     "id": "g4_202",
@@ -2270,7 +2471,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "grass.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Grass is a common plant with thin green leaves."
   },
   {
     "id": "g4_203",
@@ -2281,7 +2483,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "hay.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A hay is 干草."
   },
   {
     "id": "g4_204",
@@ -2292,7 +2495,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "hen.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A hen is a female chicken."
   },
   {
     "id": "g4_205",
@@ -2303,7 +2507,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "litter.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A litter is 乱扔垃圾."
   },
   {
     "id": "g4_206",
@@ -2314,7 +2519,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "meat.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A meat is the flesh of animals used as food."
   },
   {
     "id": "g4_207",
@@ -2326,7 +2532,8 @@
     "difficulty": 4,
     "audio": "outside.mp3",
     "unit": 4,
-    "rootAffix": "out（外部）+side（边）→外面"
+    "rootAffix": "out（外部）+side（边）→外面",
+    "explain": "Outside is the outer part."
   },
   {
     "id": "g4_208",
@@ -2337,7 +2544,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "pen.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Pen is a tool for writing with ink."
   },
   {
     "id": "g4_209",
@@ -2348,7 +2556,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "pick.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A pick is 采摘."
   },
   {
     "id": "g4_210",
@@ -2359,7 +2568,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "rubbish.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A rubbish is 垃圾."
   },
   {
     "id": "g4_211",
@@ -2370,7 +2580,8 @@
     "category": "身体部位",
     "difficulty": 4,
     "audio": "stone.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A stone is a part of the body, specifically 石头."
   },
   {
     "id": "g4_212",
@@ -2381,7 +2592,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "swing.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To swing means to a seat hanging from ropes or chains for swinging on."
   },
   {
     "id": "g4_213",
@@ -2392,7 +2604,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "throw.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A throw is 扔."
   },
   {
     "id": "g4_214",
@@ -2404,7 +2617,8 @@
     "difficulty": 4,
     "audio": "visit.mp3",
     "unit": 4,
-    "rootAffix": "vis（看）+it（反复动词形式）→反复看→参观，访问，视察"
+    "rootAffix": "vis（看）+it（反复动词形式）→反复看→参观，访问，视察",
+    "explain": "A visit is 游览."
   },
   {
     "id": "g4_215",
@@ -2415,7 +2629,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "aviary.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "An aviary is an animal that is 鸟舍."
   },
   {
     "id": "g4_216",
@@ -2427,7 +2642,8 @@
     "difficulty": 4,
     "audio": "beside.mp3",
     "unit": 4,
-    "rootAffix": "be（在）+side（旁边）→在……旁边"
+    "rootAffix": "be（在）+side（旁边）→在……旁边",
+    "explain": "A beside is 在旁边."
   },
   {
     "id": "g4_217",
@@ -2438,7 +2654,8 @@
     "category": "服装",
     "difficulty": 4,
     "audio": "cap.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A cap is a piece of clothing, specifically 帽子."
   },
   {
     "id": "g4_218",
@@ -2449,7 +2666,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "far_away.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "far away means 距离远."
   },
   {
     "id": "g4_219",
@@ -2460,7 +2678,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fountain.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A fountain is 喷泉."
   },
   {
     "id": "g4_220",
@@ -2471,7 +2690,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "map.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Map means 地图, describing how something is done."
   },
   {
     "id": "g4_221",
@@ -2482,7 +2702,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sketchbook.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A sketchbook is 写生簿."
   },
   {
     "id": "g4_222",
@@ -2493,7 +2714,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sleep.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Sleep is to rest with eyes closed."
   },
   {
     "id": "g4_223",
@@ -2504,7 +2726,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "take.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Take is to get or receive something."
   },
   {
     "id": "g4_224",
@@ -2515,7 +2738,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "watch.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A watch is a small clock worn on your wrist."
   },
   {
     "id": "g4_225",
@@ -2527,7 +2751,8 @@
     "difficulty": 4,
     "audio": "always.mp3",
     "unit": 4,
-    "rootAffix": "al（=all，全部、所有）+way（道路）+s（副词后缀）→一路上→一直，总是"
+    "rootAffix": "al（=all，全部、所有）+way（道路）+s（副词后缀）→一路上→一直，总是",
+    "explain": "An always is 总是."
   },
   {
     "id": "g4_226",
@@ -2538,7 +2763,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "april.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "April means 四月."
   },
   {
     "id": "g4_227",
@@ -2550,7 +2776,8 @@
     "difficulty": 4,
     "audio": "august.mp3",
     "unit": 4,
-    "rootAffix": "aug（增加）+ust（最高级形式）→至高无上的→威严的"
+    "rootAffix": "aug（增加）+ust（最高级形式）→至高无上的→威严的",
+    "explain": "August means 八月."
   },
   {
     "id": "g4_228",
@@ -2562,7 +2789,8 @@
     "difficulty": 4,
     "audio": "australia.mp3",
     "unit": 4,
-    "rootAffix": "austr（南方的）+al（形容词后缀）+ia（名词后缀，表地方）→南方的大陆→澳洲，澳大利亚"
+    "rootAffix": "austr（南方的）+al（形容词后缀）+ia（名词后缀，表地方）→南方的大陆→澳洲，澳大利亚",
+    "explain": "An Australia is 澳大利亚."
   },
   {
     "id": "g4_229",
@@ -2573,7 +2801,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "best_wishes.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "best wishes means 最好的祝愿."
   },
   {
     "id": "g4_230",
@@ -2584,7 +2813,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "china.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A China is 中国."
   },
   {
     "id": "g4_231",
@@ -2596,7 +2826,8 @@
     "difficulty": 4,
     "audio": "christmas.mp3",
     "unit": 4,
-    "rootAffix": "Christ（基督）+mas（=mass，弥撒）→庆祝基督诞生的弥撒"
+    "rootAffix": "Christ（基督）+mas（=mass，弥撒）→庆祝基督诞生的弥撒",
+    "explain": "Christmas is a celebration or festival, meaning 圣诞节."
   },
   {
     "id": "g4_232",
@@ -2608,7 +2839,8 @@
     "difficulty": 4,
     "audio": "cloudy.mp3",
     "unit": 4,
-    "rootAffix": "cloud（云）+y（形容词后缀）→多云的，阴天的"
+    "rootAffix": "cloud（云）+y（形容词后缀）→多云的，阴天的",
+    "explain": "Cloudy means covered with clouds."
   },
   {
     "id": "g4_233",
@@ -2619,7 +2851,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "come.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Come is to move toward someone."
   },
   {
     "id": "g4_234",
@@ -2631,7 +2864,8 @@
     "difficulty": 4,
     "audio": "december.mp3",
     "unit": 4,
-    "rootAffix": "decem（十）+ber（源自拉丁语membris，月份）→（古罗马历）第十个月→十二月"
+    "rootAffix": "decem（十）+ber（源自拉丁语membris，月份）→（古罗马历）第十个月→十二月",
+    "explain": "December means 十二月."
   },
   {
     "id": "g4_235",
@@ -2642,7 +2876,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "e-mail.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "An E-mail is 电子邮件."
   },
   {
     "id": "g4_236",
@@ -2653,7 +2888,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fall.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A fall is 掉落."
   },
   {
     "id": "g4_237",
@@ -2665,7 +2901,8 @@
     "difficulty": 4,
     "audio": "february.mp3",
     "unit": 4,
-    "rootAffix": "Febru（=Februalia，净化节）+ary（形容词后缀）→净化节的（月份）→二月"
+    "rootAffix": "Febru（=Februalia，净化节）+ary（形容词后缀）→净化节的（月份）→二月",
+    "explain": "February means 二月."
   },
   {
     "id": "g4_238",
@@ -2676,7 +2913,8 @@
     "category": "天气",
     "difficulty": 4,
     "audio": "hot.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Hot is having a high temperature."
   },
   {
     "id": "g4_239",
@@ -2688,7 +2926,8 @@
     "difficulty": 4,
     "audio": "january.mp3",
     "unit": 4,
-    "rootAffix": "janu（=Janus，门神雅努斯）+ary（形容词后缀）→门神雅努斯的（月份）→一月"
+    "rootAffix": "janu（=Janus，门神雅努斯）+ary（形容词后缀）→门神雅努斯的（月份）→一月",
+    "explain": "January means 一月."
   },
   {
     "id": "g4_240",
@@ -2699,7 +2938,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "july.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "July means 七月."
   },
   {
     "id": "g4_241",
@@ -2710,7 +2950,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "june.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "June means 六月."
   },
   {
     "id": "g4_242",
@@ -2721,7 +2962,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "make_phone_calls.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To make phone calls means to 打电话."
   },
   {
     "id": "g4_243",
@@ -2732,7 +2974,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "march.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "March means 三月."
   },
   {
     "id": "g4_244",
@@ -2743,7 +2986,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "may.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "May means 五月."
   },
   {
     "id": "g4_245",
@@ -2755,7 +2999,8 @@
     "difficulty": 4,
     "audio": "november.mp3",
     "unit": 4,
-    "rootAffix": "novem（九）+ber（形容词后缀）→（古罗马历）第九个（月）→十一月"
+    "rootAffix": "novem（九）+ber（形容词后缀）→（古罗马历）第九个（月）→十一月",
+    "explain": "November means 十一月."
   },
   {
     "id": "g4_246",
@@ -2767,7 +3012,8 @@
     "difficulty": 4,
     "audio": "october.mp3",
     "unit": 4,
-    "rootAffix": "octo（八）+ber（形容词后缀）→（古罗马历）第八个（月）→十月"
+    "rootAffix": "octo（八）+ber（形容词后缀）→（古罗马历）第八个（月）→十月",
+    "explain": "October means 十月."
   },
   {
     "id": "g4_247",
@@ -2778,7 +3024,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "path.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A path is 小径."
   },
   {
     "id": "g4_248",
@@ -2790,7 +3037,8 @@
     "difficulty": 4,
     "audio": "rainy.mp3",
     "unit": 4,
-    "rootAffix": "rain（雨）+y（形容词后缀）→下雨的，多雨的"
+    "rootAffix": "rain（雨）+y（形容词后缀）→下雨的，多雨的",
+    "explain": "Rainy means having a lot of rain."
   },
   {
     "id": "g4_249",
@@ -2802,7 +3050,8 @@
     "difficulty": 4,
     "audio": "receive.mp3",
     "unit": 4,
-    "rootAffix": "re（向后）+ceiv（=cap-，拿）+e→向后拿→收到"
+    "rootAffix": "re（向后）+ceiv（=cap-，拿）+e→向后拿→收到",
+    "explain": "A receive is 收到."
   },
   {
     "id": "g4_250",
@@ -2814,7 +3063,8 @@
     "difficulty": 4,
     "audio": "september.mp3",
     "unit": 4,
-    "rootAffix": "septem（七）+ber（形容词后缀）→（古罗马历）第七个（月）→九月"
+    "rootAffix": "septem（七）+ber（形容词后缀）→（古罗马历）第七个（月）→九月",
+    "explain": "September means 九月."
   },
   {
     "id": "g4_251",
@@ -2825,7 +3075,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "shine.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A shine is 照耀."
   },
   {
     "id": "g4_252",
@@ -2837,7 +3088,8 @@
     "difficulty": 4,
     "audio": "snowy.mp3",
     "unit": 4,
-    "rootAffix": "snow（雪）+y（形容词后缀）→下雪的，多雪的"
+    "rootAffix": "snow（雪）+y（形容词后缀）→下雪的，多雪的",
+    "explain": "Snowy describes something that is 下雪多."
   },
   {
     "id": "g4_253",
@@ -2849,7 +3101,8 @@
     "difficulty": 4,
     "audio": "subject.mp3",
     "unit": 4,
-    "rootAffix": "sub（下面）+ject（扔）→扔到下面→使隶属，使屈从于→讨论的对象→主题"
+    "rootAffix": "sub（下面）+ject（扔）→扔到下面→使隶属，使屈从于→讨论的对象→主题",
+    "explain": "Subject is an area of knowledge studied in school."
   },
   {
     "id": "g4_254",
@@ -2861,7 +3114,8 @@
     "difficulty": 4,
     "audio": "sunny.mp3",
     "unit": 4,
-    "rootAffix": "sun（太阳，阳光）+n+y（形容词后缀）→有很多阳光的→阳光明媚的"
+    "rootAffix": "sun（太阳，阳光）+n+y（形容词后缀）→有很多阳光的→阳光明媚的",
+    "explain": "Sunny means having a lot of sunshine."
   },
   {
     "id": "g4_255",
@@ -2872,7 +3126,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "tell.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Tell is to give information to someone."
   },
   {
     "id": "g4_256",
@@ -2883,7 +3138,8 @@
     "category": "天气",
     "difficulty": 4,
     "audio": "warm.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Warm means having a pleasant temperature, not too hot or too cold."
   },
   {
     "id": "g4_257",
@@ -2894,7 +3150,8 @@
     "category": "天气",
     "difficulty": 4,
     "audio": "weather.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Weather describes something that is 天气."
   },
   {
     "id": "g4_258",
@@ -2905,7 +3162,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "wet.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Wet describes something that is 湿."
   },
   {
     "id": "g4_259",
@@ -2916,7 +3174,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "why.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A why is 为什么."
   },
   {
     "id": "g4_260",
@@ -2928,7 +3187,8 @@
     "difficulty": 4,
     "audio": "windy.mp3",
     "unit": 4,
-    "rootAffix": "wind（风）+y（形容词后缀）→有风的"
+    "rootAffix": "wind（风）+y（形容词后缀）→有风的",
+    "explain": "Windy means having a lot of wind."
   },
   {
     "id": "g4_261",
@@ -2939,7 +3199,8 @@
     "category": "时间",
     "difficulty": 4,
     "audio": "year.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Year is a period of 365 days."
   },
   {
     "id": "g4_262",
@@ -2950,7 +3211,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_glass_of.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "a glass of means 一杯."
   },
   {
     "id": "g4_263",
@@ -2961,7 +3223,8 @@
     "category": "食物",
     "difficulty": 4,
     "audio": "cherry.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A cherry is a food that is 樱桃."
   },
   {
     "id": "g4_264",
@@ -2972,7 +3235,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "crunchy.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Crunchy describes something that is 爽脆."
   },
   {
     "id": "g4_265",
@@ -2983,7 +3247,8 @@
     "category": "食物",
     "difficulty": 4,
     "audio": "grape.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Grape is a small round fruit growing in bunches."
   },
   {
     "id": "g4_266",
@@ -2994,7 +3259,8 @@
     "category": "饮料",
     "difficulty": 4,
     "audio": "juice.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Juice is a drink made from fruit liquid."
   },
   {
     "id": "g4_267",
@@ -3005,7 +3271,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "not...at_all.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "not...at all means 一点也不."
   },
   {
     "id": "g4_268",
@@ -3016,7 +3283,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "plum.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A plum is 李子."
   },
   {
     "id": "g4_269",
@@ -3028,7 +3296,8 @@
     "difficulty": 4,
     "audio": "strawberry.mp3",
     "unit": 1,
-    "rootAffix": "straw（稻草）+berry（莓，浆果）→草莓"
+    "rootAffix": "straw（稻草）+berry（莓，浆果）→草莓",
+    "explain": "A strawberry is a food that is 草莓."
   },
   {
     "id": "g4_270",
@@ -3039,7 +3308,8 @@
     "category": "食物",
     "difficulty": 4,
     "audio": "vine.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A vine is a food that is 葡萄藤."
   },
   {
     "id": "g4_271",
@@ -3050,7 +3320,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "want.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Want is to desire something."
   },
   {
     "id": "g4_272",
@@ -3062,7 +3333,8 @@
     "difficulty": 4,
     "audio": "watermelon.mp3",
     "unit": 1,
-    "rootAffix": "water（水）+melon（甜瓜）→多汁甜瓜→西瓜"
+    "rootAffix": "water（水）+melon（甜瓜）→多汁甜瓜→西瓜",
+    "explain": "Watermelon is a large fruit with green skin and red flesh."
   },
   {
     "id": "g4_273",
@@ -3073,7 +3345,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "yum.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A yum is （表示味道好）."
   },
   {
     "id": "g4_274",
@@ -3084,7 +3357,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "all.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "An all is 所有."
   },
   {
     "id": "g4_275",
@@ -3096,7 +3370,8 @@
     "difficulty": 4,
     "audio": "another.mp3",
     "unit": 1,
-    "rootAffix": "an（一个）+other（其他的）→另一个"
+    "rootAffix": "an（一个）+other（其他的）→另一个",
+    "explain": "another means 另一个."
   },
   {
     "id": "g4_276",
@@ -3107,7 +3382,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "blind.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Blind describes something that is 盲."
   },
   {
     "id": "g4_277",
@@ -3118,7 +3394,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "blunt.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Blunt describes something that is 钝."
   },
   {
     "id": "g4_278",
@@ -3129,7 +3406,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "floor.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Floor means 地板, describing how something is done."
   },
   {
     "id": "g4_279",
@@ -3140,7 +3418,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "hard.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Hard means firm and difficult to press or bend."
   },
   {
     "id": "g4_280",
@@ -3151,7 +3430,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "key.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A key is 钥匙."
   },
   {
     "id": "g4_281",
@@ -3162,7 +3442,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "knife.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A knife is 小刀."
   },
   {
     "id": "g4_282",
@@ -3173,7 +3454,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "lost-property_office.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "lost-property office means 失物招领处."
   },
   {
     "id": "g4_283",
@@ -3184,7 +3466,8 @@
     "category": "学习用品",
     "difficulty": 4,
     "audio": "pencil_case.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "pencil case means 铅笔袋."
   },
   {
     "id": "g4_284",
@@ -3195,7 +3478,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "purse.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A purse is （女式）钱包."
   },
   {
     "id": "g4_285",
@@ -3206,7 +3490,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "rough.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Rough means not smooth, with an uneven surface."
   },
   {
     "id": "g4_286",
@@ -3217,7 +3502,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sand.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A sand is 沙."
   },
   {
     "id": "g4_287",
@@ -3228,7 +3514,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sharp.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Sharp describes something that is 尖."
   },
   {
     "id": "g4_288",
@@ -3239,7 +3526,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "smooth.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Smooth means having an even surface without bumps."
   },
   {
     "id": "g4_289",
@@ -3250,7 +3538,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "soft.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Soft means easy to press or bend, not hard."
   },
   {
     "id": "g4_290",
@@ -3262,7 +3551,8 @@
     "difficulty": 4,
     "audio": "something.mp3",
     "unit": 1,
-    "rootAffix": "some（某）+thing（事物）→某事，某物"
+    "rootAffix": "some（某）+thing（事物）→某事，某物",
+    "explain": "A something is 某物."
   },
   {
     "id": "g4_291",
@@ -3273,7 +3563,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "take_off.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To take off means to 脱下."
   },
   {
     "id": "g4_292",
@@ -3284,7 +3575,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "thick.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Thick describes something that is 厚."
   },
   {
     "id": "g4_293",
@@ -3295,7 +3587,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "thin.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Thin means having very little body weight."
   },
   {
     "id": "g4_294",
@@ -3306,7 +3599,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "whose.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Whose describes something that is 谁."
   },
   {
     "id": "g4_295",
@@ -3318,7 +3612,8 @@
     "difficulty": 4,
     "audio": "again.mp3",
     "unit": 1,
-    "rootAffix": "a（位于）+gain（对着）→位于相反方向→返回来，重头再来→再一次"
+    "rootAffix": "a（位于）+gain（对着）→位于相反方向→返回来，重头再来→再一次",
+    "explain": "An again is 又."
   },
   {
     "id": "g4_296",
@@ -3330,7 +3625,8 @@
     "difficulty": 4,
     "audio": "also.mp3",
     "unit": 1,
-    "rootAffix": "al（=all，全部）+so（这样）→全部这样→同样，也"
+    "rootAffix": "al（=all，全部）+so（这样）→全部这样→同样，也",
+    "explain": "An also is 也."
   },
   {
     "id": "g4_297",
@@ -3341,7 +3637,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "at_noon.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "at noon means 在中午."
   },
   {
     "id": "g4_298",
@@ -3353,7 +3650,8 @@
     "difficulty": 4,
     "audio": "away.mp3",
     "unit": 1,
-    "rootAffix": "a（位于）+way（道路）→在路上→在远处，离去"
+    "rootAffix": "a（位于）+way（道路）→在路上→在远处，离去",
+    "explain": "An away is 离开."
   },
   {
     "id": "g4_299",
@@ -3364,7 +3662,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "back.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Back is the rear part."
   },
   {
     "id": "g4_300",
@@ -3375,7 +3674,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bench.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A bench is 长椅."
   },
   {
     "id": "g4_301",
@@ -3386,7 +3686,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bite.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A bite is 咬."
   },
   {
     "id": "g4_302",
@@ -3397,7 +3698,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "deer.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A deer is an animal that is 鹿."
   },
   {
     "id": "g4_303",
@@ -3408,7 +3710,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "down.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A down is 向下."
   },
   {
     "id": "g4_304",
@@ -3419,7 +3722,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "follow.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A follow is 跟随."
   },
   {
     "id": "g4_305",
@@ -3430,7 +3734,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "grow.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A grow is 变得."
   },
   {
     "id": "g4_306",
@@ -3441,7 +3746,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "high.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "High describes something that is 高."
   },
   {
     "id": "g4_307",
@@ -3452,7 +3758,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "hill.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A hill is 小山."
   },
   {
     "id": "g4_308",
@@ -3463,7 +3770,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "lawn.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A lawn is 草坪."
   },
   {
     "id": "g4_309",
@@ -3474,7 +3782,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "like.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Like is to find enjoyable."
   },
   {
     "id": "g4_310",
@@ -3485,7 +3794,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "path.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A path is 小路."
   },
   {
     "id": "g4_311",
@@ -3496,7 +3806,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "rise.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A rise is 升起."
   },
   {
     "id": "g4_312",
@@ -3507,7 +3818,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "shadow.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A shadow is 影子."
   },
   {
     "id": "g4_313",
@@ -3519,7 +3831,8 @@
     "difficulty": 4,
     "audio": "stay.mp3",
     "unit": 1,
-    "rootAffix": "sta（站着，静止不动）+y→停留，停下"
+    "rootAffix": "sta（站着，静止不动）+y→停留，停下",
+    "explain": "A stay is 停留."
   },
   {
     "id": "g4_314",
@@ -3530,7 +3843,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sun.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Sun is the star that gives us light and heat."
   },
   {
     "id": "g4_315",
@@ -3541,7 +3855,8 @@
     "category": "饮料",
     "difficulty": 4,
     "audio": "tea.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Tea is a hot drink made from dried leaves."
   },
   {
     "id": "g4_316",
@@ -3552,7 +3867,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "tear.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A tear is 眼泪."
   },
   {
     "id": "g4_317",
@@ -3563,7 +3879,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "wait.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Wait is to stay until something happens."
   },
   {
     "id": "g4_318",
@@ -3574,7 +3891,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "go_down.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To go down means to 落下."
   },
   {
     "id": "g4_319",
@@ -3585,7 +3903,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "ask.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Ask is to request information."
   },
   {
     "id": "g4_320",
@@ -3597,7 +3916,8 @@
     "difficulty": 4,
     "audio": "before.mp3",
     "unit": 2,
-    "rootAffix": "be（=by，在）+for（前面）+e→在……前面"
+    "rootAffix": "be（=by，在）+for（前面）+e→在……前面",
+    "explain": "A before is 在之前."
   },
   {
     "id": "g4_321",
@@ -3608,7 +3928,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "club.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A club is 俱乐部."
   },
   {
     "id": "g4_322",
@@ -3620,7 +3941,8 @@
     "difficulty": 4,
     "audio": "enjoy.mp3",
     "unit": 2,
-    "rootAffix": "en（变得）+joy（快乐）→（因……而）变得快乐→享受"
+    "rootAffix": "en（变得）+joy（快乐）→（因……而）变得快乐→享受",
+    "explain": "An enjoy is 享受乐趣."
   },
   {
     "id": "g4_323",
@@ -3632,7 +3954,8 @@
     "difficulty": 4,
     "audio": "exercise.mp3",
     "unit": 2,
-    "rootAffix": "ex（出来）+erc（=arc，约束）+ise（动词后缀）→摆脱约束→运动"
+    "rootAffix": "ex（出来）+erc（=arc，约束）+ise（动词后缀）→摆脱约束→运动",
+    "explain": "An exercise is 运动."
   },
   {
     "id": "g4_324",
@@ -3643,7 +3966,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fun.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Fun describes something that is 有趣."
   },
   {
     "id": "g4_325",
@@ -3655,7 +3979,8 @@
     "difficulty": 4,
     "audio": "healthy.mp3",
     "unit": 2,
-    "rootAffix": "health（健康）+y（形容词后缀）→健康的，有益于健康的"
+    "rootAffix": "health（健康）+y（形容词后缀）→健康的，有益于健康的",
+    "explain": "Healthy describes something that is 健康."
   },
   {
     "id": "g4_326",
@@ -3666,7 +3991,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "join.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A join is 加入."
   },
   {
     "id": "g4_327",
@@ -3677,7 +4003,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "make.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Make is to create or produce something."
   },
   {
     "id": "g4_328",
@@ -3689,7 +4016,8 @@
     "difficulty": 4,
     "audio": "notice.mp3",
     "unit": 2,
-    "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告"
+    "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告",
+    "explain": "A notice is 通知."
   },
   {
     "id": "g4_329",
@@ -3700,7 +4028,8 @@
     "category": "玩具",
     "difficulty": 4,
     "audio": "play_badminton.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To play badminton means to take part in the sport or game of badminton."
   },
   {
     "id": "g4_330",
@@ -3711,7 +4040,8 @@
     "category": "玩具",
     "difficulty": 4,
     "audio": "play_basketball.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To play basketball means to to throw a ball through a hoop."
   },
   {
     "id": "g4_331",
@@ -3722,7 +4052,8 @@
     "category": "玩具",
     "difficulty": 4,
     "audio": "play_football.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To play football means to to kick a ball and try to score goals."
   },
   {
     "id": "g4_332",
@@ -3733,7 +4064,8 @@
     "category": "玩具",
     "difficulty": 4,
     "audio": "play_table_tennis.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To play table tennis means to take part in the sport or game of table tennis."
   },
   {
     "id": "g4_333",
@@ -3744,7 +4076,8 @@
     "category": "玩具",
     "difficulty": 4,
     "audio": "play_volleyball.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To play volleyball means to take part in the sport or game of volleyball."
   },
   {
     "id": "g4_334",
@@ -3756,7 +4089,8 @@
     "difficulty": 4,
     "audio": "poster.mp3",
     "unit": 2,
-    "rootAffix": "post（张贴）+er（者）→张贴之物→海报"
+    "rootAffix": "post（张贴）+er（者）→张贴之物→海报",
+    "explain": "A poster is 海报."
   },
   {
     "id": "g4_335",
@@ -3768,7 +4102,8 @@
     "difficulty": 4,
     "audio": "remember.mp3",
     "unit": 2,
-    "rootAffix": "re（再次）+member（=memor，记忆，想起）→再次想起→记得，记起"
+    "rootAffix": "re（再次）+member（=memor，记忆，想起）→再次想起→记得，记起",
+    "explain": "A remember is 记得."
   },
   {
     "id": "g4_336",
@@ -3779,7 +4114,8 @@
     "category": "学科",
     "difficulty": 4,
     "audio": "sport.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Sport is a physical activity or competition."
   },
   {
     "id": "g4_337",
@@ -3791,7 +4127,8 @@
     "difficulty": 4,
     "audio": "sure.mp3",
     "unit": 2,
-    "rootAffix": "sur（确信的、肯定的）+e→确信的，肯定的"
+    "rootAffix": "sur（确信的、肯定的）+e→确信的，肯定的",
+    "explain": "A sure is 当然."
   },
   {
     "id": "g4_338",
@@ -3802,7 +4139,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "swimming_goggles.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "swimming goggles means 泳镜."
   },
   {
     "id": "g4_339",
@@ -3813,7 +4151,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "swimming_pool.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "swimming pool means 游泳池."
   },
   {
     "id": "g4_340",
@@ -3824,7 +4163,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "swimsuit.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A swimsuit is 泳衣."
   },
   {
     "id": "g4_341",
@@ -3836,7 +4176,8 @@
     "difficulty": 4,
     "audio": "tomorrow.mp3",
     "unit": 2,
-    "rootAffix": "to（去，趋向）+morrow（=morning，早晨）→即将到来的早晨→明天"
+    "rootAffix": "to（去，趋向）+morrow（=morning，早晨）→即将到来的早晨→明天",
+    "explain": "Tomorrow is the day after today."
   },
   {
     "id": "g4_342",
@@ -3847,7 +4188,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "warm-up.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A warm-up is 准备活动."
   },
   {
     "id": "g4_343",
@@ -3859,7 +4201,8 @@
     "difficulty": 4,
     "audio": "angry.mp3",
     "unit": 2,
-    "rootAffix": "ang(e)r（愤怒）+y（形容词后缀）→愤怒的"
+    "rootAffix": "ang(e)r（愤怒）+y（形容词后缀）→愤怒的",
+    "explain": "Angry describes something that is 生气."
   },
   {
     "id": "g4_344",
@@ -3870,7 +4213,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "basket.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A basket is 篮子."
   },
   {
     "id": "g4_345",
@@ -3881,7 +4225,8 @@
     "category": "身体部位",
     "difficulty": 4,
     "audio": "bone.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A bone is a part of the body, specifically 骨头."
   },
   {
     "id": "g4_346",
@@ -3892,7 +4237,8 @@
     "category": "家具",
     "difficulty": 4,
     "audio": "bowl.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A bowl is a round container for holding food or liquid."
   },
   {
     "id": "g4_347",
@@ -3903,7 +4249,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "cat_food.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "cat food means 猫粮."
   },
   {
     "id": "g4_348",
@@ -3914,7 +4261,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "catch.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A catch is 逮住."
   },
   {
     "id": "g4_349",
@@ -3925,7 +4273,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "cute.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Cute describes something that is 可爱."
   },
   {
     "id": "g4_350",
@@ -3936,7 +4285,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "dog_food.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "dog food means 狗粮."
   },
   {
     "id": "g4_351",
@@ -3947,7 +4297,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "goat.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A goat is an animal that is 山羊."
   },
   {
     "id": "g4_352",
@@ -3959,7 +4310,8 @@
     "difficulty": 4,
     "audio": "hole.mp3",
     "unit": 2,
-    "rootAffix": "hol（藏）+e→（动物的）藏身之处→洞穴→孔洞"
+    "rootAffix": "hol（藏）+e→（动物的）藏身之处→洞穴→孔洞",
+    "explain": "A hole is 洞."
   },
   {
     "id": "g4_353",
@@ -3971,7 +4323,8 @@
     "difficulty": 4,
     "audio": "onto.mp3",
     "unit": 2,
-    "rootAffix": "on（在上面）+to（去）→到……之上"
+    "rootAffix": "on（在上面）+to（去）→到……之上",
+    "explain": "An onto is 朝向."
   },
   {
     "id": "g4_354",
@@ -3982,7 +4335,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "large.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Large describes something that is 大."
   },
   {
     "id": "g4_355",
@@ -3993,7 +4347,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "parrot.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A parrot is an animal that is 鹦鹉."
   },
   {
     "id": "g4_356",
@@ -4004,7 +4359,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "shake.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A shake is 摇动."
   },
   {
     "id": "g4_357",
@@ -4015,7 +4371,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sleep.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Sleep is to rest with eyes closed."
   },
   {
     "id": "g4_358",
@@ -4026,7 +4383,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "tortoise.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A tortoise is an animal that is 乌龟."
   },
   {
     "id": "g4_359",
@@ -4037,7 +4395,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "wake_up.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To wake up means to 醒来."
   },
   {
     "id": "g4_360",
@@ -4048,7 +4407,8 @@
     "category": "食物",
     "difficulty": 4,
     "audio": "fish.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Fish is an animal that lives in water."
   },
   {
     "id": "g4_361",
@@ -4059,7 +4419,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "about.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "An about is 关于."
   },
   {
     "id": "g4_362",
@@ -4071,7 +4432,8 @@
     "difficulty": 4,
     "audio": "bathroom.mp3",
     "unit": 2,
-    "rootAffix": "bath（洗澡）+room（房间）→浴室"
+    "rootAffix": "bath（洗澡）+room（房间）→浴室",
+    "explain": "A bathroom is 卫生间."
   },
   {
     "id": "g4_363",
@@ -4083,7 +4445,8 @@
     "difficulty": 4,
     "audio": "bedroom.mp3",
     "unit": 2,
-    "rootAffix": "bed（床）+room（房间）→卧室"
+    "rootAffix": "bed（床）+room（房间）→卧室",
+    "explain": "A bedroom is 卧室."
   },
   {
     "id": "g4_364",
@@ -4094,7 +4457,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bedtime.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A bedtime is 就寝时间."
   },
   {
     "id": "g4_365",
@@ -4105,7 +4469,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "chat.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A chat is 聊天."
   },
   {
     "id": "g4_366",
@@ -4116,7 +4481,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "cook.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Cook is a person who prepares food."
   },
   {
     "id": "g4_367",
@@ -4127,7 +4493,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "dinner.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A dinner is 正餐."
   },
   {
     "id": "g4_368",
@@ -4138,7 +4505,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "go_swimming.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To go swimming means to 去游泳."
   },
   {
     "id": "g4_369",
@@ -4149,7 +4517,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fairy_tale.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "fairy tale means 童话."
   },
   {
     "id": "g4_370",
@@ -4160,7 +4529,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "have_a_holiday.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To have a holiday means to 度假."
   },
   {
     "id": "g4_371",
@@ -4171,7 +4541,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "have_a_look.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To have a look means to 看一看."
   },
   {
     "id": "g4_372",
@@ -4183,7 +4554,8 @@
     "difficulty": 4,
     "audio": "homework.mp3",
     "unit": 2,
-    "rootAffix": "home（在家）+work（工作，任务）→家庭作业"
+    "rootAffix": "home（在家）+work（工作，任务）→家庭作业",
+    "explain": "Homework is schoolwork done at home."
   },
   {
     "id": "g4_373",
@@ -4195,7 +4567,8 @@
     "difficulty": 4,
     "audio": "interesting.mp3",
     "unit": 2,
-    "rootAffix": "interest（使感兴趣）+ing（现在分词形式）→有趣的"
+    "rootAffix": "interest（使感兴趣）+ing（现在分词形式）→有趣的",
+    "explain": "Interesting describes something that is 有趣."
   },
   {
     "id": "g4_374",
@@ -4207,7 +4580,8 @@
     "difficulty": 4,
     "audio": "kitchen.mp3",
     "unit": 2,
-    "rootAffix": "kitch（烹调）+en（=ine，场所）→烹调食物的场所→厨房"
+    "rootAffix": "kitch（烹调）+en（=ine，场所）→烹调食物的场所→厨房",
+    "explain": "A kitchen is 厨房."
   },
   {
     "id": "g4_375",
@@ -4218,7 +4592,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "light.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A light is 灯."
   },
   {
     "id": "g4_376",
@@ -4229,7 +4604,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "living_room.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "living room means 客厅."
   },
   {
     "id": "g4_377",
@@ -4240,7 +4616,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "make.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Make is to create or produce something."
   },
   {
     "id": "g4_378",
@@ -4251,7 +4628,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "model_plane.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "model plane means 飞机模型."
   },
   {
     "id": "g4_379",
@@ -4262,7 +4640,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "noise.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A noise is 噪音."
   },
   {
     "id": "g4_380",
@@ -4273,7 +4652,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "star.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Star is a bright point of light in the sky."
   },
   {
     "id": "g4_381",
@@ -4285,7 +4665,8 @@
     "difficulty": 4,
     "audio": "themselves.mp3",
     "unit": 2,
-    "rootAffix": "them（他们）+selves（自己）→他们自己"
+    "rootAffix": "them（他们）+selves（自己）→他们自己",
+    "explain": "A themselves is 他们自己."
   },
   {
     "id": "g4_382",
@@ -4296,7 +4677,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "turn_off.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To turn off means to 关掉."
   },
   {
     "id": "g4_383",
@@ -4307,7 +4689,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "wash.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A wash is 洗."
   },
   {
     "id": "g4_384",
@@ -4318,7 +4701,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "watch_tv.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To watch TV means to 看电视."
   },
   {
     "id": "g4_385",
@@ -4330,7 +4714,8 @@
     "difficulty": 4,
     "audio": "awake.mp3",
     "unit": 3,
-    "rootAffix": "a（=ad，去）+wake（醒）→唤醒，醒来"
+    "rootAffix": "a（=ad，去）+wake（醒）→唤醒，醒来",
+    "explain": "Awake describes something that is 醒着."
   },
   {
     "id": "g4_386",
@@ -4341,7 +4726,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bell.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A bell is 铃."
   },
   {
     "id": "g4_387",
@@ -4352,7 +4738,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "doorbell.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A doorbell is 门铃."
   },
   {
     "id": "g4_388",
@@ -4363,7 +4750,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "doze.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A doze is 打盹."
   },
   {
     "id": "g4_389",
@@ -4374,7 +4762,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "fly_away.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "fly away means 飞走."
   },
   {
     "id": "g4_390",
@@ -4385,7 +4774,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "have_a_bath.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To have a bath means to 洗澡."
   },
   {
     "id": "g4_391",
@@ -4396,7 +4786,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "have_a_nap.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To have a nap means to 小睡."
   },
   {
     "id": "g4_392",
@@ -4407,7 +4798,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "loud.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Loud describes something that is 大声."
   },
   {
     "id": "g4_393",
@@ -4419,7 +4811,8 @@
     "difficulty": 4,
     "audio": "noisy.mp3",
     "unit": 3,
-    "rootAffix": "nois(e)（噪音）+y（形容词后缀）→嘈杂的"
+    "rootAffix": "nois(e)（噪音）+y（形容词后缀）→嘈杂的",
+    "explain": "Noisy describes something that is 吵闹."
   },
   {
     "id": "g4_394",
@@ -4431,7 +4824,8 @@
     "difficulty": 4,
     "audio": "puzzled.mp3",
     "unit": 3,
-    "rootAffix": "puzzl(e)（使困惑）+ed（过去分词形式）→困惑的"
+    "rootAffix": "puzzl(e)（使困惑）+ed（过去分词形式）→困惑的",
+    "explain": "Puzzled describes something that is 迷惑不解."
   },
   {
     "id": "g4_395",
@@ -4442,7 +4836,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "quiet.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Quiet describes something that is 轻声."
   },
   {
     "id": "g4_396",
@@ -4453,7 +4848,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "ring.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A ring is 响起铃声."
   },
   {
     "id": "g4_397",
@@ -4464,7 +4860,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "sound.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A sound is 声音."
   },
   {
     "id": "g4_398",
@@ -4476,7 +4873,8 @@
     "difficulty": 4,
     "audio": "square.mp3",
     "unit": 3,
-    "rootAffix": "s（=ex，出来）+quar（四）+e→使变成四方的→四方的→正方形"
+    "rootAffix": "s（=ex，出来）+quar（四）+e→使变成四方的→四方的→正方形",
+    "explain": "A square is a shape with four equal sides and four right angles."
   },
   {
     "id": "g4_399",
@@ -4487,7 +4885,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "television_(tv).mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "television (TV) means 电视."
   },
   {
     "id": "g4_400",
@@ -4499,7 +4898,8 @@
     "difficulty": 4,
     "audio": "unhappy.mp3",
     "unit": 3,
-    "rootAffix": "un（不）+happy（快乐的）→不快乐的"
+    "rootAffix": "un（不）+happy（快乐的）→不快乐的",
+    "explain": "Unhappy describes something that is 不高兴."
   },
   {
     "id": "g4_401",
@@ -4510,7 +4910,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "week.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Week is a period of seven days."
   },
   {
     "id": "g4_402",
@@ -4521,7 +4922,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_quarter_past_seven.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a quarter past seven means 七点十五分."
   },
   {
     "id": "g4_403",
@@ -4532,7 +4934,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "a_quarter_to_eight.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a quarter to eight means 七点四十五分."
   },
   {
     "id": "g4_404",
@@ -4543,7 +4946,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "all_the_way.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "all the way means 一路上."
   },
   {
     "id": "g4_405",
@@ -4555,7 +4959,8 @@
     "difficulty": 4,
     "audio": "battery.mp3",
     "unit": 3,
-    "rootAffix": "batt（连续重击）+ery（名词后缀，表设施）→用来连续重击的设施→火炮组→电池"
+    "rootAffix": "batt（连续重击）+ery（名词后缀，表设施）→用来连续重击的设施→火炮组→电池",
+    "explain": "A battery is 电池."
   },
   {
     "id": "g4_406",
@@ -4566,7 +4971,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "brush.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A brush is 刷."
   },
   {
     "id": "g4_407",
@@ -4577,7 +4983,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "brush_my_teeth.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To brush my teeth means to 刷牙."
   },
   {
     "id": "g4_408",
@@ -4589,7 +4996,8 @@
     "difficulty": 4,
     "audio": "cartoon.mp3",
     "unit": 3,
-    "rootAffix": "cart（卡片、纸张）+oon（=on，指大名词后缀）→厚纸板"
+    "rootAffix": "cart（卡片、纸张）+oon（=on，指大名词后缀）→厚纸板",
+    "explain": "To cartoon means to 动画片."
   },
   {
     "id": "g4_409",
@@ -4601,7 +5009,8 @@
     "difficulty": 4,
     "audio": "finish.mp3",
     "unit": 3,
-    "rootAffix": "fin（终结）+ish（动词后缀）→完成，结束，终结"
+    "rootAffix": "fin（终结）+ish（动词后缀）→完成，结束，终结",
+    "explain": "A finish is 完成."
   },
   {
     "id": "g4_410",
@@ -4612,7 +5021,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "from.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A from is 从来."
   },
   {
     "id": "g4_411",
@@ -4623,7 +5033,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "get_up.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To get up means to 起床."
   },
   {
     "id": "g4_412",
@@ -4634,7 +5045,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "half_past_seven.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "half past seven means 七点半."
   },
   {
     "id": "g4_413",
@@ -4645,7 +5057,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "have_breakfast.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To have breakfast means to 吃早餐."
   },
   {
     "id": "g4_414",
@@ -4656,7 +5069,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "have_dinner.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To have dinner means to 吃晚餐."
   },
   {
     "id": "g4_415",
@@ -4667,7 +5081,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "last_night.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "last night means 昨天晚上."
   },
   {
     "id": "g4_416",
@@ -4678,7 +5093,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "late.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Late describes something that is 迟到."
   },
   {
     "id": "g4_417",
@@ -4689,7 +5105,8 @@
     "category": "身体部位",
     "difficulty": 4,
     "audio": "owl.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An owl is a part of the body, specifically 猫头鹰."
   },
   {
     "id": "g4_418",
@@ -4700,7 +5117,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "puzzle.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A puzzle is 拼图游戏."
   },
   {
     "id": "g4_419",
@@ -4711,7 +5129,8 @@
     "category": "数字",
     "difficulty": 4,
     "audio": "seven_o'clock.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "seven o'clock means 七点钟."
   },
   {
     "id": "g4_420",
@@ -4722,7 +5141,8 @@
     "category": "家具",
     "difficulty": 4,
     "audio": "sofa.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A sofa is a piece of furniture, specifically 沙发."
   },
   {
     "id": "g4_421",
@@ -4733,7 +5153,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "start.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Start is to begin."
   },
   {
     "id": "g4_422",
@@ -4745,7 +5166,8 @@
     "difficulty": 4,
     "audio": "tomorrow.mp3",
     "unit": 3,
-    "rootAffix": "to（去，趋向）+morrow（=morning，早晨）→即将到来的早晨→明天"
+    "rootAffix": "to（去，趋向）+morrow（=morning，早晨）→即将到来的早晨→明天",
+    "explain": "Tomorrow is the day after today."
   },
   {
     "id": "g4_423",
@@ -4756,7 +5178,8 @@
     "category": "身体部位",
     "difficulty": 4,
     "audio": "wash_my_face.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To wash my face means to 洗脸."
   },
   {
     "id": "g4_424",
@@ -4767,7 +5190,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "a_little.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a little means 有点."
   },
   {
     "id": "g4_425",
@@ -4779,7 +5203,8 @@
     "difficulty": 4,
     "audio": "activity.mp3",
     "unit": 3,
-    "rootAffix": "activ(e)（活跃的）+ity（名词后缀）→活跃度→活动"
+    "rootAffix": "activ(e)（活跃的）+ity（名词后缀）→活跃度→活动",
+    "explain": "An activity is 活动."
   },
   {
     "id": "g4_426",
@@ -4791,7 +5216,8 @@
     "difficulty": 4,
     "audio": "always.mp3",
     "unit": 3,
-    "rootAffix": "al（=all，全部、所有）+way（道路）+s（副词后缀）→一路上→一直，总是"
+    "rootAffix": "al（=all，全部、所有）+way（道路）+s（副词后缀）→一路上→一直，总是",
+    "explain": "An always is 总是."
   },
   {
     "id": "g4_427",
@@ -4802,7 +5228,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "at_weekends.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "at weekends means 在周末."
   },
   {
     "id": "g4_428",
@@ -4813,7 +5240,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "bow.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A bow is 鞠躬."
   },
   {
     "id": "g4_429",
@@ -4824,7 +5252,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "chinese_chess.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Chinese chess means 象棋."
   },
   {
     "id": "g4_430",
@@ -4835,7 +5264,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "clever.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Clever describes something that is 聪明."
   },
   {
     "id": "g4_431",
@@ -4847,7 +5277,8 @@
     "difficulty": 4,
     "audio": "friday.mp3",
     "unit": 3,
-    "rootAffix": "fri（=frigg，爱神弗丽嘉）+s（……的）+day（日子）→弗丽嘉之日→星期五"
+    "rootAffix": "fri（=frigg，爱神弗丽嘉）+s（……的）+day（日子）→弗丽嘉之日→星期五",
+    "explain": "Friday means 星期五."
   },
   {
     "id": "g4_432",
@@ -4858,7 +5289,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "get.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Get is to obtain or receive."
   },
   {
     "id": "g4_433",
@@ -4869,7 +5301,8 @@
     "category": "动作",
     "difficulty": 4,
     "audio": "have_a_good_time.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To have a good time means to 玩得高兴."
   },
   {
     "id": "g4_434",
@@ -4880,7 +5313,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "in_the_middle_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "in the middle of means 在中间."
   },
   {
     "id": "g4_435",
@@ -4891,7 +5325,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "kind.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Kind describes something that is 友善."
   },
   {
     "id": "g4_436",
@@ -4903,7 +5338,8 @@
     "difficulty": 4,
     "audio": "meeting.mp3",
     "unit": 3,
-    "rootAffix": "meet（会见）+ing（现在分词形式）→会议"
+    "rootAffix": "meet（会见）+ing（现在分词形式）→会议",
+    "explain": "A meeting is 会议."
   },
   {
     "id": "g4_437",
@@ -4915,7 +5351,8 @@
     "difficulty": 4,
     "audio": "monday.mp3",
     "unit": 3,
-    "rootAffix": "mon（=moon，月亮）+day（日）→月亮神之日→星期一"
+    "rootAffix": "mon（=moon，月亮）+day（日）→月亮神之日→星期一",
+    "explain": "Monday means 星期一."
   },
   {
     "id": "g4_438",
@@ -4927,7 +5364,8 @@
     "difficulty": 4,
     "audio": "never.mp3",
     "unit": 3,
-    "rootAffix": "n(e)（不）+ever（曾经）→从未，决不"
+    "rootAffix": "n(e)（不）+ever（曾经）→从未，决不",
+    "explain": "A never is 从不."
   },
   {
     "id": "g4_439",
@@ -4938,7 +5376,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "often.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An often is 经常."
   },
   {
     "id": "g4_440",
@@ -4950,7 +5389,8 @@
     "difficulty": 4,
     "audio": "really.mp3",
     "unit": 3,
-    "rootAffix": "real（真正的）+ly（副词后缀）→真正地"
+    "rootAffix": "real（真正的）+ly（副词后缀）→真正地",
+    "explain": "A really is 的确."
   },
   {
     "id": "g4_441",
@@ -4962,7 +5402,8 @@
     "difficulty": 4,
     "audio": "saturday.mp3",
     "unit": 3,
-    "rootAffix": "Satur（=Saturn，农神萨图恩）+day（日子）→萨图恩之日→星期六"
+    "rootAffix": "Satur（=Saturn，农神萨图恩）+day（日子）→萨图恩之日→星期六",
+    "explain": "Saturday means 星期六."
   },
   {
     "id": "g4_442",
@@ -4973,7 +5414,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "show.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Show is to let someone see."
   },
   {
     "id": "g4_443",
@@ -4984,7 +5426,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "shy.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Shy describes something that is 害羞."
   },
   {
     "id": "g4_444",
@@ -4995,7 +5438,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "smile.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A smile is 微笑."
   },
   {
     "id": "g4_445",
@@ -5007,7 +5451,8 @@
     "difficulty": 4,
     "audio": "sometimes.mp3",
     "unit": 3,
-    "rootAffix": "some（某）+times（时）→有时"
+    "rootAffix": "some（某）+times（时）→有时",
+    "explain": "A sometimes is 有时候."
   },
   {
     "id": "g4_446",
@@ -5019,7 +5464,8 @@
     "difficulty": 4,
     "audio": "sunday.mp3",
     "unit": 3,
-    "rootAffix": "sun（太阳）+day（日）→太阳神之日→星期日"
+    "rootAffix": "sun（太阳）+day（日）→太阳神之日→星期日",
+    "explain": "A Sunday is 星期日."
   },
   {
     "id": "g4_447",
@@ -5031,7 +5477,8 @@
     "difficulty": 4,
     "audio": "thursday.mp3",
     "unit": 3,
-    "rootAffix": "thur（=Thor，雷神）+s（…的）+day（日子）→雷神之日→星期四"
+    "rootAffix": "thur（=Thor，雷神）+s（…的）+day（日子）→雷神之日→星期四",
+    "explain": "Thursday means 星期四."
   },
   {
     "id": "g4_448",
@@ -5043,7 +5490,8 @@
     "difficulty": 4,
     "audio": "tuesday.mp3",
     "unit": 3,
-    "rootAffix": "tue（=Tiw，战神蒂乌）+s（…的）+day（日）→战神之日→星期二"
+    "rootAffix": "tue（=Tiw，战神蒂乌）+s（…的）+day（日）→战神之日→星期二",
+    "explain": "Tuesday means 星期二."
   },
   {
     "id": "g4_449",
@@ -5055,7 +5503,8 @@
     "difficulty": 4,
     "audio": "usually.mp3",
     "unit": 3,
-    "rootAffix": "usual（通常的）+ly（副词后缀）→通常"
+    "rootAffix": "usual（通常的）+ly（副词后缀）→通常",
+    "explain": "An usually is 通常."
   },
   {
     "id": "g4_450",
@@ -5067,7 +5516,8 @@
     "difficulty": 4,
     "audio": "wednesday.mp3",
     "unit": 3,
-    "rootAffix": "Wedne（=Woden，奥丁神）+s（……的）+day（日）→奥丁神之日→星期三"
+    "rootAffix": "Wedne（=Woden，奥丁神）+s（……的）+day（日）→奥丁神之日→星期三",
+    "explain": "Wednesday means 星期三."
   },
   {
     "id": "g4_451",
@@ -5078,7 +5528,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "while.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A while is 然而."
   },
   {
     "id": "g4_452",
@@ -5089,7 +5540,8 @@
     "category": "乐器",
     "difficulty": 4,
     "audio": "drum.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A drum is a musical instrument, specifically 鼓."
   },
   {
     "id": "g4_453",
@@ -5100,7 +5552,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "be_full_of.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To be full of means to 充满."
   },
   {
     "id": "g4_454",
@@ -5111,7 +5564,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "gold.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A gold is 金子."
   },
   {
     "id": "g4_455",
@@ -5122,7 +5576,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "mouse_(mice).mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "mouse (mice) means 老鼠."
   },
   {
     "id": "g4_456",
@@ -5134,7 +5589,8 @@
     "difficulty": 4,
     "audio": "music.mp3",
     "unit": 4,
-    "rootAffix": "mus（缪斯女神）+ic（形容词后缀）→缪斯女神的（艺术）→音乐"
+    "rootAffix": "mus（缪斯女神）+ic（形容词后缀）→缪斯女神的（艺术）→音乐",
+    "explain": "Music is pleasant arranged sounds."
   },
   {
     "id": "g4_457",
@@ -5145,7 +5601,8 @@
     "category": "乐器",
     "difficulty": 4,
     "audio": "piano.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A piano is a musical instrument, specifically 钢琴."
   },
   {
     "id": "g4_458",
@@ -5156,7 +5613,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "piper.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A piper is 吹笛子的人."
   },
   {
     "id": "g4_459",
@@ -5168,7 +5626,8 @@
     "difficulty": 4,
     "audio": "triangle.mp3",
     "unit": 4,
-    "rootAffix": "tri（三）+angle（角）→三角"
+    "rootAffix": "tri（三）+angle（角）→三角",
+    "explain": "A triangle is a shape with three sides and three angles."
   },
   {
     "id": "g4_460",
@@ -5179,7 +5638,8 @@
     "category": "乐器",
     "difficulty": 4,
     "audio": "violin.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A violin is a musical instrument, specifically 小提琴."
   },
   {
     "id": "g4_461",
@@ -5190,7 +5650,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "colourful.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Colourful describes something that is 色彩缤纷."
   },
   {
     "id": "g4_462",
@@ -5201,7 +5662,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "dragon_boat_race.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "dragon boat race means 龙舟赛."
   },
   {
     "id": "g4_463",
@@ -5212,7 +5674,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "dumpling.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A dumpling is 饺子."
   },
   {
     "id": "g4_464",
@@ -5224,7 +5687,8 @@
     "difficulty": 4,
     "audio": "during.mp3",
     "unit": 4,
-    "rootAffix": "dur（硬，坚挺）+ing（现在分词形式）→一直坚挺着→持续→在……的期间"
+    "rootAffix": "dur（硬，坚挺）+ing（现在分词形式）→一直坚挺着→持续→在……的期间",
+    "explain": "A during is 在期间."
   },
   {
     "id": "g4_465",
@@ -5236,7 +5700,8 @@
     "difficulty": 4,
     "audio": "festival.mp3",
     "unit": 4,
-    "rootAffix": "fest（=feast，喜庆的）+iv（形容词后缀）+al（形容词后缀）→喜庆的（日子）→节日"
+    "rootAffix": "fest（=feast，喜庆的）+iv（形容词后缀）+al（形容词后缀）→喜庆的（日子）→节日",
+    "explain": "A festival is 节日."
   },
   {
     "id": "g4_466",
@@ -5247,7 +5712,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "fireworks.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A fireworks is 烟花表演."
   },
   {
     "id": "g4_467",
@@ -5259,7 +5725,8 @@
     "difficulty": 4,
     "audio": "important.mp3",
     "unit": 4,
-    "rootAffix": "import（传达）+ant（形容词后缀）→正在传达信息或含义的→有重大意义的→重要的，重大的"
+    "rootAffix": "import（传达）+ant（形容词后缀）→正在传达信息或含义的→有重大意义的→重要的，重大的",
+    "explain": "Important describes something that is 重要."
   },
   {
     "id": "g4_468",
@@ -5270,7 +5737,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "money.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A money is 钱."
   },
   {
     "id": "g4_469",
@@ -5281,7 +5749,8 @@
     "category": "节日",
     "difficulty": 4,
     "audio": "new_year's_eve.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "New Year's Eve means 除夕."
   },
   {
     "id": "g4_470",
@@ -5292,7 +5761,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "red_envelope.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "red envelope means 红包."
   },
   {
     "id": "g4_471",
@@ -5304,7 +5774,8 @@
     "difficulty": 4,
     "audio": "relative.mp3",
     "unit": 4,
-    "rootAffix": "relat(e)（使关联）+ive（形容词后缀）→有关系的（人或物）"
+    "rootAffix": "relat(e)（使关联）+ive（形容词后缀）→有关系的（人或物）",
+    "explain": "A relative is 亲戚."
   },
   {
     "id": "g4_472",
@@ -5315,7 +5786,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "rice_dumpling.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "rice dumpling means 粽子."
   },
   {
     "id": "g4_473",
@@ -5326,7 +5798,8 @@
     "category": "节日",
     "difficulty": 4,
     "audio": "the_double_ninth_festival.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "the Double Ninth Festival refers to 重阳节."
   },
   {
     "id": "g4_474",
@@ -5337,7 +5810,8 @@
     "category": "节日",
     "difficulty": 4,
     "audio": "the_dragon_boat_festival.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "the Dragon Boat Festival refers to 端午节."
   },
   {
     "id": "g4_475",
@@ -5348,7 +5822,8 @@
     "category": "节日",
     "difficulty": 4,
     "audio": "the_mid-autumn_festival.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "the Mid-autumn Festival refers to 中秋节."
   },
   {
     "id": "g4_476",
@@ -5359,7 +5834,8 @@
     "category": "节日",
     "difficulty": 4,
     "audio": "the_spring_festival.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "the Spring Festival refers to 春节."
   },
   {
     "id": "g4_477",
@@ -5371,7 +5847,8 @@
     "difficulty": 4,
     "audio": "traditional.mp3",
     "unit": 4,
-    "rootAffix": "tradition（传统）+al（形容词后缀）→传统的"
+    "rootAffix": "tradition（传统）+al（形容词后缀）→传统的",
+    "explain": "Traditional describes something that is 传统."
   },
   {
     "id": "g4_478",
@@ -5382,7 +5859,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "drive...away.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A drive...away is 把赶走."
   },
   {
     "id": "g4_479",
@@ -5394,7 +5872,8 @@
     "difficulty": 4,
     "audio": "fourth.mp3",
     "unit": 4,
-    "rootAffix": "four（四）+th（第……，……分之一）→第四，四分之一"
+    "rootAffix": "four（四）+th（第……，……分之一）→第四，四分之一",
+    "explain": "Fourth is coming after the third."
   },
   {
     "id": "g4_480",
@@ -5406,7 +5885,8 @@
     "difficulty": 4,
     "audio": "lonely.mp3",
     "unit": 4,
-    "rootAffix": "lone（=alone，单独的）+ly（形容词后缀）→寂寞的"
+    "rootAffix": "lone（=alone，单独的）+ly（形容词后缀）→寂寞的",
+    "explain": "Lonely describes something that is 孤独."
   },
   {
     "id": "g4_481",
@@ -5417,7 +5897,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "swan.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A swan is an animal that is 天鹅."
   },
   {
     "id": "g4_482",
@@ -5428,7 +5909,8 @@
     "category": "动物",
     "difficulty": 4,
     "audio": "duckling.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A duckling is an animal that is 小鸭子."
   },
   {
     "id": "g4_483",
@@ -5439,7 +5921,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "heavy.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Heavy describes something that is 重."
   },
   {
     "id": "g4_484",
@@ -5450,7 +5933,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "nest.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A nest is 巢."
   },
   {
     "id": "g4_485",
@@ -5461,7 +5945,8 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "ugly.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Ugly describes something that is 丑."
   },
   {
     "id": "g4_486",
@@ -5472,6 +5957,7 @@
     "category": "其他",
     "difficulty": 4,
     "audio": "worm.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A worm is 虫子."
   }
 ]

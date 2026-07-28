@@ -1633,6 +1633,19 @@
     color: var(--vb-text-muted);
 }
 
+/* 历史单词英文释义 */
+.history-word-explain {
+    font-size: 0.9rem;
+    color: var(--vb-text-body, #e2e8f0);
+    margin-top: var(--vb-space-xs);
+    padding: var(--vb-space-xs) var(--vb-space-sm);
+    background: rgba(59, 130, 246, 0.08);
+    border-radius: var(--vb-radius-sm, 4px);
+    border-left: 3px solid rgba(59, 130, 246, 0.4);
+    line-height: 1.4;
+    font-style: italic;
+}
+
 .history-word-rootAffix {
     font-size: 0.9rem;
     color: var(--vb-text-accent, #f59e0b);

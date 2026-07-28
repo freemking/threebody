@@ -366,6 +366,20 @@
     line-height: 1.5;
 }
 
+/* 英文释义 */
+.wrongbook-explain {
+    color: var(--wb-text-body);
+    font-size: 0.9rem;
+    margin-bottom: var(--wb-space-md);
+    padding: var(--wb-space-sm) var(--wb-space-md);
+    background: rgba(59, 130, 246, 0.08);
+    border-radius: var(--wb-radius-md);
+    border-left: 3px solid rgba(59, 130, 246, 0.4);
+    font-family: var(--wb-font-body);
+    font-style: italic;
+    line-height: 1.5;
+}
+
 /* 词根词缀 */
 .wrongbook-rootAffix {
     color: var(--wb-text-accent);
@@ -864,6 +878,7 @@
 
 /* 测验模式下隐藏非测验内容 */
 .wrongbook-container.quiz-mode .wrongbook-meaning,
+.wrongbook-container.quiz-mode .wrongbook-explain,
 .wrongbook-container.quiz-mode .wrongbook-rootAffix,
 .wrongbook-container.quiz-mode .wrongbook-example,
 .wrongbook-container.quiz-mode .wrongbook-meta {

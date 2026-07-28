@@ -94,6 +94,7 @@ CREATE TABLE IF NOT EXISTS vocabulary_daily_record (
     correct TINYINT(1) DEFAULT 0,
     response_time INT DEFAULT 0 COMMENT '回答时间(毫秒)',
     remembered TINYINT(1) DEFAULT 0 COMMENT '是否已记住(0-未记住, 1-已记住)',
+    is_reviewed TINYINT(1) DEFAULT 0 COMMENT '是否已复习(0-未复习, 1-已复习)',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     INDEX idx_user_id (user_id),
     INDEX idx_word (word),
@@ -157,6 +158,24 @@ CREATE TABLE IF NOT EXISTS vocabulary_achievements (
     UNIQUE KEY idx_user_achievement (user_id, achievement_id),
     INDEX idx_user_id (user_id),
     INDEX idx_unlocked (unlocked),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 单词测验记录表（用于周测验功能）
+CREATE TABLE IF NOT EXISTS word_quiz_records (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL COMMENT '用户ID',
+    word VARCHAR(100) NOT NULL,
+    meaning TEXT,
+    phonetic VARCHAR(100),
+    grade VARCHAR(20),
+    unit VARCHAR(20),
+    quiz_date DATE NOT NULL COMMENT '测验日期',
+    correct TINYINT(1) DEFAULT 0 COMMENT '是否答对',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_user_id (user_id),
+    INDEX idx_quiz_date (quiz_date),
+    INDEX idx_user_date (user_id, quiz_date),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

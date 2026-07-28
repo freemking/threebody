@@ -19,17 +19,28 @@ class Vocabulary {
 
     /**
      * 初始化：从数据库加载数据
+     * 注意：不再预加载今日单词，由renderVocabularyList按需加载
      */
     async init() {
         if (this._loading) return;
         this._loading = true;
         try {
             await this._loadFromDatabase();
-            await this._loadTodayWords();
             await this._loadStats();
         } finally {
             this._loading = false;
         }
+    }
+
+    /**
+     * 获取本地日期字符串（YYYY-MM-DD格式）
+     * 使用本地时间而不是UTC时间，与后端保持一致
+     */
+    _getLocalDateStr(date = new Date()) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
     }
 
     /**
@@ -107,10 +118,10 @@ class Vocabulary {
      */
     async _loadYesterdayWords() {
         try {
-            // 获取昨天的日期
+            // 获取昨天的日期（使用本地时间）
             const yesterday = new Date();
             yesterday.setDate(yesterday.getDate() - 1);
-            const yesterdayStr = yesterday.toISOString().split('T')[0];
+            const yesterdayStr = this._getLocalDateStr(yesterday);
             
             // 获取昨天的学习记录
             const records = await this.getDailyRecord(yesterdayStr);
@@ -127,7 +138,8 @@ class Vocabulary {
                 phonetic: record.phonetic || '',
                 rootAffix: record.rootAffix || '',
                 example: record.example || '',
-                remembered: record.correct ? 1 : 0, // 正确的单词视为已记住
+                remembered: record.remembered || 0, // 使用数据库中的remembered字段
+                is_reviewed: record.is_reviewed || 0, // 使用数据库中的is_reviewed字段
                 isYesterday: true, // 标记为昨天的单词
                 yesterdayCorrect: record.correct // 记录昨天的正确状态
             }));
@@ -141,29 +153,47 @@ class Vocabulary {
     }
 
     /**
+     * 检查昨天单词的训练情况
+     * 返回 true 表示昨天已完成训练，false 表示未完成
+     */
+    async checkYesterdayTraining() {
+        try {
+            // 获取昨天的日期（使用本地时间）
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            const yesterdayStr = this._getLocalDateStr(yesterday);
+            
+            // 获取昨天的学习记录
+            const records = await this.getDailyRecord(yesterdayStr);
+            
+            // 如果昨天没有学习记录，说明是新用户或昨天没有学习，允许训练
+            if (!records || records.length === 0) {
+                return true;
+            }
+            
+            // 检查是否所有单词都已复习（只检查is_reviewed字段）
+            const allReviewed = records.every(record => {
+                // 如果is_reviewed为1，认为已复习
+                return record.is_reviewed === 1;
+            });
+            
+            // 如果所有单词都已复习，返回true；否则返回false
+            return allReviewed;
+        } catch (error) {
+            console.error('检查昨天训练情况失败:', error);
+            // 出错时默认不允许训练，确保用户能完成昨天的单词
+            return false;
+        }
+    }
+
+    /**
      * 检查昨天的单词是否已经全部记住
      * 返回 true 表示昨天的单词已经全部记住，可以显示今天的单词
      * 返回 false 表示昨天的单词还没有全部记住，需要继续显示昨天的单词
      */
     async checkYesterdayWordsRemembered() {
-        try {
-            const yesterdayWords = await this._loadYesterdayWords();
-            
-            // 如果没有昨天的单词，视为已通过
-            if (yesterdayWords.length === 0) {
-                return true;
-            }
-            
-            // 检查是否所有单词都标记为已记住
-            const allRemembered = yesterdayWords.every(word => word.remembered === 1);
-            
-            console.log(`昨天单词训练状态: ${allRemembered ? '已全部记住' : '未全部记住'}`);
-            return allRemembered;
-        } catch (error) {
-            console.error('检查昨天单词训练状态失败:', error);
-            // 出错时默认显示今天的单词
-            return true;
-        }
+        // 直接调用 checkYesterdayTraining()，保持逻辑一致
+        return await this.checkYesterdayTraining();
     }
 
     /**
@@ -325,13 +355,21 @@ class Vocabulary {
     /**
      * 记录学习单词
      */
-    async studyWord(word, correct, responseTime = 0) {
+    async studyWord(word, correct, responseTime = 0, wordData = null) {
         try {
-            const result = await this._apiRequest('/study', 'POST', {
+            const payload = {
                 word,
                 correct,
                 responseTime
-            });
+            };
+            // 传递单词详细信息用于周测验
+            if (wordData) {
+                payload.meaning = wordData.meaning || '';
+                payload.phonetic = wordData.phonetic || '';
+                payload.grade = wordData.grade || '';
+                payload.unit = wordData.unit || '';
+            }
+            const result = await this._apiRequest('/study', 'POST', payload);
 
             if (result.success) {
                 console.log(`学习记录已保存: ${word}, 正确: ${correct}`);
@@ -492,6 +530,29 @@ class Vocabulary {
     }
 
     /**
+     * 标记单词为已复习（仅更新复习状态，不改变记住状态）
+     * @param {string} word - 单词
+     * @param {string} date - 日期（可选，默认今天）
+     * @returns {Promise<boolean>} - 是否成功
+     */
+    async markAsReviewed(word, date = null) {
+        try {
+            const result = await this._apiRequest('/reviewed', 'POST', {
+                word,
+                date
+            });
+
+            if (result.success) {
+                console.log(`单词已标记为复习: ${word}`);
+                return true;
+            }
+        } catch (error) {
+            console.error('标记复习状态失败:', error);
+        }
+        return false;
+    }
+
+    /**
      * 更新学习统计（学习单词时调用）
      */
     async updateStudyStats(word, correct, responseTime = 0) {
@@ -580,6 +641,21 @@ window.addEventListener('load', async () => {
 // 导出模块
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { Vocabulary, vocabulary };
+}
+
+/**
+ * 从 wordData (JSON数据) 中查找单词的 explain
+ * @param {string} wordName 单词
+ * @returns {string} explain 文本，未找到返回空字符串
+ */
+function getWordExplain(wordName) {
+    if (typeof wordData === 'undefined' || !wordData || !wordData.words) return '';
+    const lower = wordName.toLowerCase();
+    for (const gradeKey in wordData.words) {
+        const found = wordData.words[gradeKey].find(w => w.word && w.word.toLowerCase() === lower);
+        if (found && found.explain) return found.explain;
+    }
+    return '';
 }
 
 // ==================== 背单词UI模块 ====================
@@ -928,6 +1004,11 @@ const VocabularyAppMixin = {
                     <button class="wrongbook-speak-btn" data-word="${w.word}" title="朗读单词">🔊</button>
                 </div>`;
             
+            // 英文释义
+            const explain = getWordExplain(w.word);
+            const explainHtml = explain ? `
+                <div class="wrongbook-explain">${explain}</div>` : '';
+
             // 词根词缀
             const rootAffixHtml = w.rootAffix ? `
                 <div class="wrongbook-rootAffix">
@@ -962,6 +1043,7 @@ const VocabularyAppMixin = {
                     </div>
                     ${phoneticHtml}
                     <div class="wrongbook-meaning">${w.meaning}</div>
+                    ${explainHtml}
                     ${rootAffixHtml}
                     ${exampleHtml}
                     <div class="wrongbook-meta">
@@ -1432,10 +1514,10 @@ const VocabularyAppMixin = {
         }
         
         if (!yesterdayWordsRemembered) {
-            // 显示锁定状态
+            // 显示锁定状态，但按钮仍可点击（点击后会加载昨天的单词进行训练）
             if (startBtn) {
-                startBtn.disabled = true;
-                startBtn.classList.add('disabled');
+                startBtn.disabled = false;
+                startBtn.classList.remove('disabled');
             }
             if (lock) lock.classList.remove('hidden');
         } else {
@@ -1506,6 +1588,7 @@ const VocabularyAppMixin = {
     /**
      * 渲染记单词列表
      * 逻辑：先显示昨天的单词列表，等昨天的单词训练通过后，再显示今天的单词列表
+     * 使用is_reviewed字段判断是否已复习
      */
     async renderVocabularyList() {
         const todayWordsContainer = document.getElementById('vocabulary-today-words');
@@ -1514,26 +1597,38 @@ const VocabularyAppMixin = {
         const titleElement = document.getElementById('vocabulary-today-title');
         
         // 检查昨天训练状态
-        const yesterdayPassed = await this.checkYesterdayTraining();
+        const yesterdayPassed = await vocabulary.checkYesterdayTraining();
         
         let wordsToShow = [];
         let title = '';
         let isYesterdayWords = false;
+        let allYesterdayWords = []; // 保存完整的昨天单词列表用于进度计算
         
         if (!yesterdayPassed) {
             // 昨天没有完成训练，显示昨天的单词
-            wordsToShow = await vocabulary._loadYesterdayWords();
-            title = '📖 请先完成昨天的单词';
-            isYesterdayWords = true;
+            allYesterdayWords = await vocabulary._loadYesterdayWords();
             
-            // 如果昨天没有单词，则显示今天的单词
-            if (wordsToShow.length === 0) {
+            // 过滤出没有复习的单词（is_reviewed=0的都算未完成）
+            const unreviewedWords = allYesterdayWords.filter(w => {
+                // 只检查is_reviewed字段
+                return w.is_reviewed !== 1;
+            });
+            
+            if (unreviewedWords.length > 0) {
+                // 还有没复习的单词，显示这些单词
+                wordsToShow = unreviewedWords;
+                title = '📖 请先复习昨天的单词';
+                isYesterdayWords = true;
+            } else {
+                // 所有昨天单词都已复习，加载并显示今天的单词
+                await vocabulary._loadTodayWords();
                 wordsToShow = vocabulary.getTodayWords();
                 title = '📖 今日记单词';
                 isYesterdayWords = false;
             }
         } else {
-            // 昨天已经完成训练，显示今天的单词
+            // 昨天已经完成训练，加载并显示今天的单词
+            await vocabulary._loadTodayWords();
             wordsToShow = vocabulary.getTodayWords();
             
             // 检查是否有复习单词
@@ -1546,19 +1641,26 @@ const VocabularyAppMixin = {
             titleElement.textContent = title;
         }
         
-        // 更新进度（只有今天的单词才更新进度）
-        if (progressText && progressFill && !isYesterdayWords) {
-            const stats = vocabulary.getStats();
-            const todayStudied = stats ? stats.todayStudied : 0;
-            const progressPercent = Math.min((todayStudied / 5) * 100, 100);
-            progressText.textContent = `${todayStudied}/5`;
-            progressFill.style.width = `${progressPercent}%`;
-        } else if (progressText && progressFill && isYesterdayWords) {
-            // 昨天单词的进度
-            const yesterdayRemembered = wordsToShow.filter(w => w.remembered).length;
-            const progressPercent = Math.min((yesterdayRemembered / wordsToShow.length) * 100, 100);
-            progressText.textContent = `${yesterdayRemembered}/${wordsToShow.length}`;
-            progressFill.style.width = `${progressPercent}%`;
+        // 更新进度
+        if (progressText && progressFill) {
+            if (isYesterdayWords) {
+                // 昨天单词的进度：显示已复习/总数
+                const totalYesterday = allYesterdayWords.length;
+                const reviewedCount = allYesterdayWords.filter(w => {
+                    // 只检查is_reviewed字段
+                    return w.is_reviewed === 1;
+                }).length;
+                const progressPercent = totalYesterday > 0 ? Math.min((reviewedCount / totalYesterday) * 100, 100) : 0;
+                progressText.textContent = `${reviewedCount}/${totalYesterday}`;
+                progressFill.style.width = `${progressPercent}%`;
+            } else {
+                // 今天的单词进度
+                const stats = vocabulary.getStats();
+                const todayStudied = stats ? stats.todayStudied : 0;
+                const progressPercent = Math.min((todayStudied / 5) * 100, 100);
+                progressText.textContent = `${todayStudied}/5`;
+                progressFill.style.width = `${progressPercent}%`;
+            }
         }
         
         // 更新单词列表
@@ -1571,7 +1673,7 @@ const VocabularyAppMixin = {
                     </div>`;
             } else {
                 todayWordsContainer.innerHTML = wordsToShow.map(word => `
-                    <div class="vocabulary-word-card ${word.remembered ? 'remembered' : ''}" data-word="${word.word}">
+                    <div class="vocabulary-word-card ${word.is_reviewed ? 'remembered' : ''}" data-word="${word.word}">
                         <div class="vocabulary-word-header">
                             <div>
                                 <div class="vocabulary-word-text">${word.word}</div>
@@ -1580,10 +1682,10 @@ const VocabularyAppMixin = {
                                     <button class="btn-pronunciation" data-word="${word.word}" title="朗读单词">🔊</button>
                                 </div>
                             </div>
-                            <button class="btn-remembered ${word.remembered ? 'active' : ''}" 
+                            <button class="btn-remembered ${word.is_reviewed ? 'active' : ''}" 
                                     data-word="${word.word}" 
-                                    title="${word.remembered ? '取消记住' : '标记为已记住'}">
-                                ${word.remembered ? '✅' : '⬜'}
+                                    title="${word.is_reviewed ? '取消复习' : '标记为已复习'}">
+                                ${word.is_reviewed ? '✅' : '⬜'}
                             </button>
                         </div>
                         <div class="vocabulary-word-meaning">${word.meaning}</div>
@@ -1592,53 +1694,64 @@ const VocabularyAppMixin = {
                     </div>
                 `).join('');
                 
-                // 添加记忆按钮事件监听
+                // 添加复习按钮事件监听
                 todayWordsContainer.querySelectorAll('.btn-remembered').forEach(btn => {
                     btn.onclick = async (e) => {
                         e.stopPropagation();
                         const word = btn.dataset.word;
-                        const isRemembered = btn.classList.contains('active');
-                        const newRemembered = !isRemembered;
+                        const isReviewed = btn.classList.contains('active');
+                        const newReviewed = !isReviewed;
                         
                         let success = false;
                         if (isYesterdayWords) {
-                            // 昨天的单词，更新本地状态
-                            success = true;
-                            // 找到对应的单词对象并更新状态
-                            const wordObj = wordsToShow.find(w => w.word === word);
-                            if (wordObj) {
-                                wordObj.remembered = newRemembered ? 1 : 0;
-                            }
+                            // 昨天的单词，调用API标记为已复习
+                            const yesterdayStr = vocabulary._getLocalDateStr(new Date(Date.now() - 86400000));
+                            success = await vocabulary.markAsReviewed(word, yesterdayStr);
                             
-                            // 检查昨天的单词是否全部记住
-                            const allRemembered = wordsToShow.every(w => w.remembered);
-                            if (allRemembered) {
-                                // 昨天的单词全部记住，重新渲染（会自动切换到今天的单词）
-                                setTimeout(() => this.renderVocabularyList(), 300);
+                            if (success) {
+                                // 更新本地状态
+                                const wordObj = wordsToShow.find(w => w.word === word);
+                                if (wordObj) {
+                                    wordObj.is_reviewed = newReviewed ? 1 : 0;
+                                }
+                                
+                                // 检查昨天的单词是否全部复习
+                                const allReviewed = wordsToShow.every(w => {
+                                    // 只检查is_reviewed字段
+                                    return w.is_reviewed === 1;
+                                });
+                                if (allReviewed) {
+                                    // 昨天的单词全部复习，重新渲染（会自动切换到今天的单词）
+                                    setTimeout(() => this.renderVocabularyList(), 300);
+                                }
                             }
                         } else {
                             // 今天的单词，调用API
-                            success = await vocabulary.toggleRemembered(word, newRemembered);
+                            success = await vocabulary.toggleRemembered(word, newReviewed);
                         }
                         
                         if (success) {
                             // 更新UI
-                            btn.classList.toggle('active', newRemembered);
-                            btn.innerHTML = newRemembered ? '✅' : '⬜';
-                            btn.title = newRemembered ? '取消记住' : '标记为已记住';
+                            btn.classList.toggle('active', newReviewed);
+                            btn.innerHTML = newReviewed ? '✅' : '⬜';
+                            btn.title = newReviewed ? '取消复习' : '标记为已复习';
                             
                             // 更新卡片样式
                             const card = btn.closest('.vocabulary-word-card');
                             if (card) {
-                                card.classList.toggle('remembered', newRemembered);
+                                card.classList.toggle('remembered', newReviewed);
                             }
                             
                             // 更新进度
                             if (progressText && progressFill) {
                                 if (isYesterdayWords) {
-                                    const yesterdayRemembered = wordsToShow.filter(w => w.remembered).length;
-                                    const progressPercent = Math.min((yesterdayRemembered / wordsToShow.length) * 100, 100);
-                                    progressText.textContent = `${yesterdayRemembered}/${wordsToShow.length}`;
+                                    const reviewedCount = wordsToShow.filter(w => {
+                                        // 只检查is_reviewed字段
+                                        return w.is_reviewed === 1;
+                                    }).length;
+                                    const totalYesterday = wordsToShow.length;
+                                    const progressPercent = totalYesterday > 0 ? Math.min((reviewedCount / totalYesterday) * 100, 100) : 0;
+                                    progressText.textContent = `${reviewedCount}/${totalYesterday}`;
                                     progressFill.style.width = `${progressPercent}%`;
                                 } else {
                                     const stats = vocabulary.getStats();
@@ -1707,68 +1820,11 @@ const VocabularyAppMixin = {
 
     
     /**
-     * 检查昨天单词的训练情况
-     * 返回 true 表示昨天已完成训练，false 表示未完成
-     */
-    async checkYesterdayTraining() {
-        try {
-            // 获取历史日期列表
-            const historyDates = await vocabulary.getHistoryDates();
-            
-            // 如果没有历史记录，说明是新用户，允许训练
-            if (!historyDates || historyDates.length === 0) {
-                return true;
-            }
-            
-            // 获取今天的日期字符串
-            const today = new Date().toISOString().split('T')[0];
-            
-            // 过滤掉今天的日期，只保留历史日期
-            const pastDates = historyDates.filter(d => d.date !== today);
-            
-            // 如果没有历史日期（只有今天的记录），允许训练
-            if (pastDates.length === 0) {
-                return true;
-            }
-            
-            // 按日期降序排序（最近的在前）
-            pastDates.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // 获取最近的有记录的日期
-            const mostRecentDate = pastDates[0].date;
-            
-            // 获取该日期的记录
-            const records = await vocabulary.getDailyRecord(mostRecentDate);
-            
-            // 如果没有记录（理论上不应该发生），允许训练
-            if (!records || records.length === 0) {
-                return true;
-            }
-            
-            // 检查是否达到了每日目标（默认5个单词）
-            const dailyTarget = parseInt(document.getElementById('daily-word-count')?.value || 5);
-            const correctWords = records.filter(r => r.correct).length;
-            
-            // 如果正确单词数量达到每日目标，则认为通过
-            return correctWords >= dailyTarget;
-        } catch (error) {
-            console.error('检查昨天训练情况失败:', error);
-            // 出错时默认允许训练
-            return true;
-        }
-    },
-
-    
-    /**
      * 开始训练（根据配置选择模式）
      */
     async startTraining() {
         // 检查昨天单词的训练情况
-        const yesterdayPassed = await this.checkYesterdayTraining();
-        if (!yesterdayPassed) {
-            this.showVocabularyNotification('请先完成昨天的记单词才能开始今天的学习', 'warning');
-            return;
-        }
+        const yesterdayPassed = await vocabulary.checkYesterdayTraining();
         
         // 获取听写高级设置（从系统设置中读取）
         const listeningInterval = 5000; // 固定5秒间隔
@@ -1785,27 +1841,46 @@ const VocabularyAppMixin = {
         // 读取每天学习单词数量设置
         const totalWords = parseInt(document.getElementById('daily-word-count')?.value || 5);
         
-        // 优先使用今日单词（从API获取的今日要记的单词）
-        let words = vocabulary.getTodayWords();
+        // 如果昨天没有完成训练，使用昨天的单词
+        let words = [];
+        if (!yesterdayPassed) {
+            console.log('昨天的训练未完成，使用昨天的单词进行训练');
+            const yesterdayWords = await vocabulary._loadYesterdayWords();
+            
+            // 过滤出未复习的单词（is_reviewed=0，不管remembered状态）
+            words = yesterdayWords.filter(w => {
+                return w.is_reviewed !== 1;
+            });
+            
+            if (words.length > 0) {
+                this.showVocabularyNotification('请先完成昨天的单词训练', 'info');
+            }
+        }
         
-        // 如果今日单词为空，则使用配置生成单词列表
-        if (!words || words.length === 0) {
-            console.log('今日单词为空，使用配置生成单词列表');
+        // 如果昨天已完成或没有昨天的单词，使用今日单词
+        if (words.length === 0) {
+            // 优先使用今日单词（从API获取的今日要记的单词）
+            words = vocabulary.getTodayWords();
             
-            // 获取复习词（来自错题本中未掌握的单词）
-            const unmasteredWords = wrongBook.getUnmasteredWords();
-            const reviewWords = unmasteredWords
-                .sort(() => Math.random() - 0.5)
-                .slice(0, totalWords)
-                .map(w => ({
-                    word: w.word,
-                    meaning: w.meaning,
-                    phonetic: w.phonetic || ''
-                }));
-            
-            words = reviewWords;
-        } else {
-            console.log(`使用今日单词进行训练: ${words.length} 个单词`);
+            // 如果今日单词为空，则使用配置生成单词列表
+            if (!words || words.length === 0) {
+                console.log('今日单词为空，使用配置生成单词列表');
+                
+                // 获取复习词（来自错题本中未掌握的单词）
+                const unmasteredWords = wrongBook.getUnmasteredWords();
+                const reviewWords = unmasteredWords
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, totalWords)
+                    .map(w => ({
+                        word: w.word,
+                        meaning: w.meaning,
+                        phonetic: w.phonetic || ''
+                    }));
+                
+                words = reviewWords;
+            } else {
+                console.log(`使用今日单词进行训练: ${words.length} 个单词`);
+            }
         }
         
         // 检查是否有复习单词
@@ -2018,7 +2093,7 @@ const VocabularyAppMixin = {
         this.recordWordResult(word.word, 'recognition', isCorrect);
         
         // 记录学习结果（异步操作，不影响训练结果记录）
-        vocabulary.studyWord(word.word, isCorrect).catch(err => console.error('记录学习失败:', err));
+        vocabulary.studyWord(word.word, isCorrect, 0, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit }).catch(err => console.error('记录学习失败:', err));
         vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
         
         if (isCorrect) {
@@ -2129,7 +2204,7 @@ const VocabularyAppMixin = {
         this.recordWordResult(word.word, 'spelling', isCorrect);
         
         // 记录学习结果（异步操作，不影响训练结果记录）
-        vocabulary.studyWord(word.word, isCorrect).catch(err => console.error('记录学习失败:', err));
+        vocabulary.studyWord(word.word, isCorrect, 0, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit }).catch(err => console.error('记录学习失败:', err));
         vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
         
         const feedback = document.getElementById('spelling-feedback');
@@ -2253,7 +2328,7 @@ const VocabularyAppMixin = {
         this.recordWordResult(word.word, 'listening', isCorrect);
         
         // 记录学习结果（异步操作，不影响训练结果记录）
-        vocabulary.studyWord(word.word, isCorrect).catch(err => console.error('记录学习失败:', err));
+        vocabulary.studyWord(word.word, isCorrect, 0, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit }).catch(err => console.error('记录学习失败:', err));
         vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
         
         const feedback = document.getElementById('listening-feedback');
@@ -2705,10 +2780,10 @@ const VocabularyAppMixin = {
         if (isCorrect) {
             this.dictationCorrect++;
             input.classList.add('correct');
-            vocabulary.studyWord(word.word, true);
+            vocabulary.studyWord(word.word, true, 0, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit });
         } else {
             input.classList.add('wrong');
-            vocabulary.studyWord(word.word, false);
+            vocabulary.studyWord(word.word, false, 0, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit });
             this.dictationResults.push({ word, userAnswer });
         }
         
@@ -2802,8 +2877,8 @@ const VocabularyAppMixin = {
         
         if (show) {
             panel.classList.remove('hidden');
-            // 设置默认日期为今天
-            const today = new Date().toISOString().split('T')[0];
+            // 设置默认日期为今天（使用本地时间）
+            const today = vocabulary._getLocalDateStr(new Date());
             const dateInput = document.getElementById('history-date');
             if (dateInput) dateInput.value = today;
             this.loadHistory();
@@ -3200,6 +3275,7 @@ const VocabularyAppMixin = {
                                 <button class="btn-pronunciation" data-word="${word.word}" title="朗读单词">🔊</button>
                             </div>
                             <div class="history-word-meaning">${word.meaning || ''}</div>
+                            ${(() => { const exp = getWordExplain(word.word); return exp ? `<div class="history-word-explain">${exp}</div>` : ''; })()}
                             ${word.rootAffix ? `<div class="history-word-rootAffix"><span class="root-affix-label">词根词缀:</span> ${word.rootAffix}</div>` : ''}
                             ${word.example ? `<div class="history-word-example">"${word.example}"</div>` : ''}
                         </div>
@@ -3231,9 +3307,9 @@ const VocabularyAppMixin = {
         const yesterday = new Date(today);
         yesterday.setDate(yesterday.getDate() - 1);
         
-        if (dateStr === today.toISOString().split('T')[0]) {
+        if (dateStr === vocabulary._getLocalDateStr(today)) {
             return '今天';
-        } else if (dateStr === yesterday.toISOString().split('T')[0]) {
+        } else if (dateStr === vocabulary._getLocalDateStr(yesterday)) {
             return '昨天';
         } else {
             return date.toLocaleDateString('zh-CN', {

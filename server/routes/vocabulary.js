@@ -440,7 +440,7 @@ router.get('/today', authenticateToken, async (req, res) => {
 router.post('/study', authenticateToken, async (req, res) => {
     try {
         const userId = req.user.id;
-        const { word, correct, responseTime } = req.body;
+        const { word, correct, responseTime, meaning, phonetic, grade, unit } = req.body;
 
         if (!word) {
             return res.json({ success: false, error: '单词不能为空' });
@@ -448,6 +448,15 @@ router.post('/study', authenticateToken, async (req, res) => {
 
         const today = getLocalDate();
         const now = new Date();
+
+        // 插入周测验记录（如果提供了单词详细信息）
+        if (meaning !== undefined) {
+            await queryWithRetry(
+                `INSERT INTO word_quiz_records (user_id, word, meaning, phonetic, grade, unit, quiz_date, correct)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+                [userId, word, meaning || '', phonetic || '', grade || '', unit || '', today, correct ? 1 : 0]
+            );
+        }
 
         // 检查今天是否已经学习过这个单词
         const [existing] = await queryWithRetry(
@@ -461,7 +470,8 @@ router.post('/study', authenticateToken, async (req, res) => {
                 `UPDATE vocabulary_daily_record SET 
                     study_time = ?,
                     correct = ?,
-                    response_time = ?
+                    response_time = ?,
+                    is_reviewed = 1
                 WHERE user_id = ? AND word = ? AND study_date = ?`,
                 [now, correct ? 1 : 0, responseTime || 0, userId, word, today]
             );
@@ -469,8 +479,8 @@ router.post('/study', authenticateToken, async (req, res) => {
             // 新增学习记录
             await queryWithRetry(
                 `INSERT INTO vocabulary_daily_record 
-                    (user_id, word, study_date, study_time, correct, response_time)
-                VALUES (?, ?, ?, ?, ?, ?)`,
+                    (user_id, word, study_date, study_time, correct, response_time, is_reviewed)
+                VALUES (?, ?, ?, ?, ?, ?, 1)`,
                 [userId, word, today, now, correct ? 1 : 0, responseTime || 0]
             );
         }
@@ -527,38 +537,80 @@ router.post('/study', authenticateToken, async (req, res) => {
 router.post('/remembered', authenticateToken, async (req, res) => {
     try {
         const userId = req.user.id;
-        const { word, remembered } = req.body;
+        const { word, remembered, date } = req.body;
 
         if (!word) {
             return res.json({ success: false, error: '单词不能为空' });
         }
 
-        const today = getLocalDate();
+        // 支持指定日期，默认为今天
+        const targetDate = date || getLocalDate();
 
-        // 检查今天是否已有记录
+        // 检查是否已有记录
         const [existing] = await queryWithRetry(
             'SELECT * FROM vocabulary_daily_record WHERE user_id = ? AND word = ? AND study_date = ?',
-            [userId, word, today]
+            [userId, word, targetDate]
         );
 
         if (existing.length > 0) {
-            // 更新记忆状态
+            // 更新记忆状态，同时设置is_reviewed为1（记住即视为复习过）
             await queryWithRetry(
-                'UPDATE vocabulary_daily_record SET remembered = ? WHERE user_id = ? AND word = ? AND study_date = ?',
-                [remembered ? 1 : 0, userId, word, today]
+                'UPDATE vocabulary_daily_record SET remembered = ?, is_reviewed = 1 WHERE user_id = ? AND word = ? AND study_date = ?',
+                [remembered ? 1 : 0, userId, word, targetDate]
             );
         } else {
-            // 如果不存在记录，插入新记录
+            // 如果不存在记录，插入新记录，同时设置is_reviewed为1
             await queryWithRetry(
-                `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, response_time, remembered) 
-                 VALUES (?, ?, ?, 0, 0, ?)`,
-                [userId, word, today, remembered ? 1 : 0]
+                `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, response_time, remembered, is_reviewed) 
+                 VALUES (?, ?, ?, 0, 0, ?, 1)`,
+                [userId, word, targetDate, remembered ? 1 : 0]
             );
         }
 
         res.json({ success: true });
     } catch (error) {
         console.error('更新记忆状态失败:', error);
+        res.json({ success: false, error: error.message });
+    }
+});
+
+// 更新单词复习状态（仅标记为已复习，不改变remembered状态）
+router.post('/reviewed', authenticateToken, async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const { word, date } = req.body;
+
+        if (!word) {
+            return res.json({ success: false, error: '单词不能为空' });
+        }
+
+        // 支持指定日期，默认为今天
+        const targetDate = date || getLocalDate();
+
+        // 检查是否已有记录
+        const [existing] = await queryWithRetry(
+            'SELECT * FROM vocabulary_daily_record WHERE user_id = ? AND word = ? AND study_date = ?',
+            [userId, word, targetDate]
+        );
+
+        if (existing.length > 0) {
+            // 更新复习状态
+            await queryWithRetry(
+                'UPDATE vocabulary_daily_record SET is_reviewed = 1 WHERE user_id = ? AND word = ? AND study_date = ?',
+                [userId, word, targetDate]
+            );
+        } else {
+            // 如果不存在记录，插入新记录
+            await queryWithRetry(
+                `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, response_time, remembered, is_reviewed) 
+                 VALUES (?, ?, ?, 0, 0, 0, 1)`,
+                [userId, word, targetDate]
+            );
+        }
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error('更新复习状态失败:', error);
         res.json({ success: false, error: error.message });
     }
 });
@@ -589,7 +641,8 @@ router.get('/daily-record', authenticateToken, async (req, res) => {
             studyTime: row.study_time,
             correct: !!row.correct,
             responseTime: row.response_time,
-            remembered: row.remembered || 0
+            remembered: row.remembered || 0,
+            is_reviewed: row.is_reviewed || 0
         }));
         
         console.log(`daily-record API 返回数据 (${queryDate}):`, JSON.stringify(data.slice(0, 3), null, 2));
@@ -745,19 +798,19 @@ router.get('/stats', authenticateToken, async (req, res) => {
             [userId]
         );
         
-        // 获取今日学习单词数
+        // 获取今日学习单词数（只统计真正学习过的，remembered=1）
         const [todayStudied] = await queryWithRetry(
-            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ?',
+            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ? AND remembered = 1',
             [userId, today]
         );
         
-        // 获取今日正确率
+        // 获取今日正确率（只统计真正学习过的）
         const [todayAccuracy] = await queryWithRetry(
             `SELECT 
                 COUNT(*) as total,
                 SUM(CASE WHEN correct = 1 THEN 1 ELSE 0 END) as correct
              FROM vocabulary_daily_record 
-             WHERE user_id = ? AND study_date = ?`,
+             WHERE user_id = ? AND study_date = ? AND remembered = 1`,
             [userId, today]
         );
         
@@ -801,7 +854,7 @@ router.get('/weekly-chart', authenticateToken, async (req, res) => {
         
         for (const date of dates) {
             const [count] = await queryWithRetry(
-                'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ?',
+                'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ? AND remembered = 1',
                 [userId, date]
             );
             
@@ -810,7 +863,7 @@ router.get('/weekly-chart', authenticateToken, async (req, res) => {
                     COUNT(*) as total,
                     SUM(CASE WHEN correct = 1 THEN 1 ELSE 0 END) as correct
                  FROM vocabulary_daily_record 
-                 WHERE user_id = ? AND study_date = ?`,
+                 WHERE user_id = ? AND study_date = ? AND remembered = 1`,
                 [userId, date]
             );
             
@@ -853,7 +906,7 @@ router.get('/user-stats', authenticateToken, async (req, res) => {
             [userId]
         );
         
-        // 获取今日学习统计
+        // 获取今日学习统计（只统计真正学习过的，remembered=1）
         const today = getLocalDate();
         const [todayStats] = await queryWithRetry(
             `SELECT 
@@ -861,7 +914,7 @@ router.get('/user-stats', authenticateToken, async (req, res) => {
                 SUM(CASE WHEN correct = 1 THEN 1 ELSE 0 END) as correct,
                 COUNT(*) as total
              FROM vocabulary_daily_record 
-             WHERE user_id = ? AND study_date = ?`,
+             WHERE user_id = ? AND study_date = ? AND remembered = 1`,
             [userId, today]
         );
         

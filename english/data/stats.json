@@ -1,0 +1,201 @@
+{
+  "grade1.json": {
+    "count": 97,
+    "difficulty": 1,
+    "sampleWord": "morning",
+    "categories": [
+      "时间",
+      "学习用品",
+      "身体部位",
+      "动作",
+      "家庭",
+      "其他",
+      "数字",
+      "食物",
+      "动物",
+      "颜色",
+      "玩具",
+      "饮料",
+      "天气",
+      "季节",
+      "服装",
+      "职业"
+    ]
+  },
+  "grade2.json": {
+    "count": 95,
+    "difficulty": 2,
+    "sampleWord": "morning",
+    "categories": [
+      "时间",
+      "其他",
+      "数字",
+      "动作",
+      "身体部位",
+      "学习用品",
+      "家具",
+      "食物",
+      "动物",
+      "颜色",
+      "交通",
+      "玩具",
+      "季节",
+      "天气",
+      "服装",
+      "饮料"
+    ]
+  },
+  "grade3.json": {
+    "count": 117,
+    "difficulty": 3,
+    "sampleWord": "Miss",
+    "categories": [
+      "职业",
+      "数字",
+      "其他",
+      "家庭",
+      "身体部位",
+      "地点",
+      "食物",
+      "玩具",
+      "动物",
+      "动作",
+      "交通",
+      "饮料",
+      "服装"
+    ]
+  },
+  "grade4.json": {
+    "count": 486,
+    "difficulty": 4,
+    "sampleWord": "eleven",
+    "categories": [
+      "数字",
+      "其他",
+      "家具",
+      "动作",
+      "动物",
+      "身体部位",
+      "食物",
+      "饮料",
+      "家庭",
+      "时间",
+      "职业",
+      "交通",
+      "服装",
+      "颜色",
+      "学科",
+      "地点",
+      "节日",
+      "天气",
+      "学习用品",
+      "玩具",
+      "乐器"
+    ]
+  },
+  "grade5.json": {
+    "count": 356,
+    "difficulty": 5,
+    "sampleWord": "begin",
+    "categories": [
+      "其他",
+      "数字",
+      "交通",
+      "动物",
+      "职业",
+      "动作",
+      "n.",
+      "家庭",
+      "食物",
+      "地点",
+      "身体部位",
+      "饮料",
+      "学习用品",
+      "学科",
+      "时间",
+      "家具",
+      "节日"
+    ]
+  },
+  "grade6.json": {
+    "count": 390,
+    "difficulty": 6,
+    "sampleWord": "life",
+    "categories": [
+      "n",
+      "det & pron",
+      "v",
+      "pron",
+      "adv",
+      "abbr",
+      "adj",
+      "prep",
+      "det & adj",
+      "v & n",
+      "v.",
+      "conj",
+      "modal v",
+      "n & v",
+      "adj & pron",
+      "adj.",
+      "v./n.",
+      "n.",
+      "phrase",
+      "modal v."
+    ]
+  },
+  "grade7.json": {
+    "count": 106,
+    "difficulty": 7,
+    "sampleWord": "curious",
+    "categories": [
+      "adj.",
+      "n.",
+      "v./n.",
+      "v.",
+      "v",
+      "n",
+      "adv",
+      "adj",
+      "adv.",
+      "phrase",
+      "pron",
+      "prep"
+    ]
+  },
+  "grade8.json": {
+    "count": 95,
+    "difficulty": 8,
+    "sampleWord": "fact",
+    "categories": [
+      "n.",
+      "v.",
+      "adj.",
+      "n./v.",
+      "n",
+      "adj",
+      "v",
+      "phrase",
+      "adv",
+      "prep",
+      "conj.",
+      "adv.",
+      "abbr."
+    ]
+  },
+  "grade9.json": {
+    "count": 94,
+    "difficulty": 9,
+    "sampleWord": "genius",
+    "categories": [
+      "n.",
+      "adj.",
+      "v.",
+      "adj",
+      "n",
+      "v",
+      "phrase",
+      "v./n."
+    ]
+  }
+}

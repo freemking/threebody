@@ -8,7 +8,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "life.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A life is 生活；生命."
   },
   {
     "id": "g6_002",
@@ -19,7 +20,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "break.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A break is 课间休息；间歇；休息."
   },
   {
     "id": "g6_003",
@@ -30,7 +32,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "ict.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "An ICT is 信息通信技术（课程）."
   },
   {
     "id": "g6_004",
@@ -42,7 +45,8 @@
     "difficulty": 6,
     "audio": "geography.mp3",
     "unit": 1,
-    "rootAffix": "geo-(大地) + -graphy(写,记录) → 大地的描述 → 地理"
+    "rootAffix": "geo-(大地) + -graphy(写,记录) → 大地的描述 → 地理",
+    "explain": "Geography is the study of the earth's surface."
   },
   {
     "id": "g6_005",
@@ -54,7 +58,8 @@
     "difficulty": 6,
     "audio": "history.mp3",
     "unit": 1,
-    "rootAffix": "histor-(历史,故事) + -y(名词后缀) → 历史"
+    "rootAffix": "histor-(历史,故事) + -y(名词后缀) → 历史",
+    "explain": "History is the study of past events."
   },
   {
     "id": "g6_006",
@@ -65,7 +70,8 @@
     "category": "det & pron",
     "difficulty": 6,
     "audio": "more.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "More describes something that is 更多."
   },
   {
     "id": "g6_007",
@@ -77,7 +83,8 @@
     "difficulty": 6,
     "audio": "instruction.mp3",
     "unit": 1,
-    "rootAffix": "in-(进入) + struct-(构造,码放) + -ion(名词后缀) → 指示;命令"
+    "rootAffix": "in-(进入) + struct-(构造,码放) + -ion(名词后缀) → 指示;命令",
+    "explain": "An instruction is 指示；命令."
   },
   {
     "id": "g6_008",
@@ -89,7 +96,8 @@
     "difficulty": 6,
     "audio": "experiment.mp3",
     "unit": 1,
-    "rootAffix": "ex-(出来) + peri-(尝试) + -ment(名词后缀) → 尝试出来的 → 实验"
+    "rootAffix": "ex-(出来) + peri-(尝试) + -ment(名词后缀) → 尝试出来的 → 实验",
+    "explain": "An experiment is 实验；试验."
   },
   {
     "id": "g6_009",
@@ -101,7 +109,8 @@
     "difficulty": 6,
     "audio": "activity.mp3",
     "unit": 1,
-    "rootAffix": "act-(动作) + -ivity(名词后缀,表状态) → 活动"
+    "rootAffix": "act-(动作) + -ivity(名词后缀,表状态) → 活动",
+    "explain": "An activity is 活动."
   },
   {
     "id": "g6_010",
@@ -112,7 +121,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "club.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A club is 社团."
   },
   {
     "id": "g6_011",
@@ -124,7 +134,8 @@
     "difficulty": 6,
     "audio": "calligraphy.mp3",
     "unit": 1,
-    "rootAffix": "calli-(美丽) + -graphy(写) → 美丽的书写 → 书法"
+    "rootAffix": "calli-(美丽) + -graphy(写) → 美丽的书写 → 书法",
+    "explain": "A calligraphy is 书法."
   },
   {
     "id": "g6_012",
@@ -135,7 +146,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "join.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To join means to 加入."
   },
   {
     "id": "g6_013",
@@ -147,7 +159,8 @@
     "difficulty": 6,
     "audio": "technology.mp3",
     "unit": 1,
-    "rootAffix": "techn-(技术,技艺) + -ology(学科,学问) → 科技"
+    "rootAffix": "techn-(技术,技艺) + -ology(学科,学问) → 科技",
+    "explain": "A technology is 科技."
   },
   {
     "id": "g6_014",
@@ -158,7 +171,8 @@
     "category": "pron",
     "difficulty": 6,
     "audio": "everyone.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Everyone is a pronoun in English."
   },
   {
     "id": "g6_015",
@@ -169,7 +183,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "lab.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Lab is a room for scientific experiments."
   },
   {
     "id": "g6_016",
@@ -180,7 +195,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "field.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Field means 场地, describing how something is done."
   },
   {
     "id": "g6_017",
@@ -192,7 +208,8 @@
     "difficulty": 6,
     "audio": "grade.mp3",
     "unit": 1,
-    "rootAffix": "grad(等级) + e → 级别"
+    "rootAffix": "grad(等级) + e → 级别",
+    "explain": "Grade is a level of quality or rank."
   },
   {
     "id": "g6_018",
@@ -204,7 +221,8 @@
     "difficulty": 6,
     "audio": "excuse.mp3",
     "unit": 1,
-    "rootAffix": "ex-(出来) + cus-(指控,要求解释原因) + e → 逃脱指控 → 原谅"
+    "rootAffix": "ex-(出来) + cus-(指控,要求解释原因) + e → 逃脱指控 → 原谅",
+    "explain": "To excuse means to 原谅；宽恕."
   },
   {
     "id": "g6_019",
@@ -215,7 +233,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "excuse_me.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "excuse me means （因打扰别人或失礼表示歉意）对不起；劳驾."
   },
   {
     "id": "g6_020",
@@ -226,7 +245,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "of_course.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "of course means 当然."
   },
   {
     "id": "g6_021",
@@ -238,7 +258,8 @@
     "difficulty": 6,
     "audio": "project.mp3",
     "unit": 1,
-    "rootAffix": "pro-(向前) + ject-(扔) → 向前扔 → 项目"
+    "rootAffix": "pro-(向前) + ject-(扔) → 向前扔 → 项目",
+    "explain": "A project is 项目."
   },
   {
     "id": "g6_022",
@@ -249,7 +270,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "start.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To start means to to begin."
   },
   {
     "id": "g6_023",
@@ -261,7 +283,8 @@
     "difficulty": 6,
     "audio": "topic.mp3",
     "unit": 1,
-    "rootAffix": "top（地方，位置）+ic（形容词后缀）→地方的"
+    "rootAffix": "top（地方，位置）+ic（形容词后缀）→地方的",
+    "explain": "A topic is 话题；主题."
   },
   {
     "id": "g6_024",
@@ -272,7 +295,8 @@
     "category": "adv",
     "difficulty": 6,
     "audio": "online.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Online is an adverb in English."
   },
   {
     "id": "g6_025",
@@ -284,7 +308,8 @@
     "difficulty": 6,
     "audio": "receive.mp3",
     "unit": 1,
-    "rootAffix": "re-(回) + -ceive(拿,抓) → 拿回来 → 接到;收到"
+    "rootAffix": "re-(回) + -ceive(拿,抓) → 拿回来 → 接到;收到",
+    "explain": "To receive means to 接到；收到."
   },
   {
     "id": "g6_026",
@@ -296,7 +321,8 @@
     "difficulty": 6,
     "audio": "reply.mp3",
     "unit": 1,
-    "rootAffix": "re(回) + ply(叠) → 折叠回去 → 回答"
+    "rootAffix": "re(回) + ply(叠) → 折叠回去 → 回答",
+    "explain": "A reply is 回答；答复."
   },
   {
     "id": "g6_027",
@@ -307,7 +333,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "group.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Group is a number of people or things together."
   },
   {
     "id": "g6_028",
@@ -318,7 +345,8 @@
     "category": "adv",
     "difficulty": 6,
     "audio": "most.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Most is an adverb in English."
   },
   {
     "id": "g6_029",
@@ -329,7 +357,8 @@
     "category": "abbr",
     "difficulty": 6,
     "audio": "am.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A.m. is an abbreviation in English."
   },
   {
     "id": "g6_030",
@@ -340,7 +369,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "end.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To end means to the final part of something."
   },
   {
     "id": "g6_031",
@@ -351,7 +381,8 @@
     "category": "abbr",
     "difficulty": 6,
     "audio": "pm.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "P.m. is an abbreviation in English."
   },
   {
     "id": "g6_032",
@@ -363,7 +394,8 @@
     "difficulty": 6,
     "audio": "difference.mp3",
     "unit": 1,
-    "rootAffix": "differ-(不同) + -ence(名词后缀) → 差别;不同之处"
+    "rootAffix": "differ-(不同) + -ence(名词后缀) → 差别;不同之处",
+    "explain": "Difference is the way things are not the same."
   },
   {
     "id": "g6_033",
@@ -375,7 +407,8 @@
     "difficulty": 6,
     "audio": "same.mp3",
     "unit": 1,
-    "rootAffix": "sam(同一) + e → 同一的，相同的"
+    "rootAffix": "sam(同一) + e → 同一的，相同的",
+    "explain": "Same describes something that is 一样."
   },
   {
     "id": "g6_034",
@@ -387,7 +420,8 @@
     "difficulty": 6,
     "audio": "during.mp3",
     "unit": 1,
-    "rootAffix": "dur（硬，坚挺）+ing（现在分词形式）→一直坚挺着→持续→在……的期间"
+    "rootAffix": "dur（硬，坚挺）+ing（现在分词形式）→一直坚挺着→持续→在……的期间",
+    "explain": "During is a preposition in English."
   },
   {
     "id": "g6_035",
@@ -399,7 +433,8 @@
     "difficulty": 6,
     "audio": "outside.mp3",
     "unit": 1,
-    "rootAffix": "out（外部）+side（边）→外面"
+    "rootAffix": "out（外部）+side（边）→外面",
+    "explain": "Outside means the outer part."
   },
   {
     "id": "g6_036",
@@ -410,7 +445,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "noon.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A noon is 正午；中午."
   },
   {
     "id": "g6_037",
@@ -422,7 +458,8 @@
     "difficulty": 6,
     "audio": "connect.mp3",
     "unit": 1,
-    "rootAffix": "con-(共同,一起) + nect-(连接) → 连接"
+    "rootAffix": "con-(共同,一起) + nect-(连接) → 连接",
+    "explain": "To connect means to 连接."
   },
   {
     "id": "g6_038",
@@ -434,7 +471,8 @@
     "difficulty": 6,
     "audio": "comment.mp3",
     "unit": 1,
-    "rootAffix": "com-(共同) + ment-(心智,思考) → 共同思考 → 评论"
+    "rootAffix": "com-(共同) + ment-(心智,思考) → 共同思考 → 评论",
+    "explain": "A comment is 议论；评论；解释；v. 表达意见."
   },
   {
     "id": "g6_039",
@@ -445,7 +483,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "tie.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A tie is 联系；关系；纽带."
   },
   {
     "id": "g6_040",
@@ -457,7 +496,8 @@
     "difficulty": 6,
     "audio": "relation.mp3",
     "unit": 2,
-    "rootAffix": "re-(回) + lat-(承载) + -ion(名词后缀) → 关系"
+    "rootAffix": "re-(回) + lat-(承载) + -ion(名词后缀) → 关系",
+    "explain": "A relation is 关系；联系."
   },
   {
     "id": "g6_041",
@@ -469,7 +509,8 @@
     "difficulty": 6,
     "audio": "introduce.mp3",
     "unit": 2,
-    "rootAffix": "intro-(向内) + duc-(引导) + e → 向内引导 → 介绍"
+    "rootAffix": "intro-(向内) + duc-(引导) + e → 向内引导 → 介绍",
+    "explain": "To introduce means to 介绍."
   },
   {
     "id": "g6_042",
@@ -481,7 +522,8 @@
     "difficulty": 6,
     "audio": "classmate.mp3",
     "unit": 2,
-    "rootAffix": "class-(班级) + mate-(伙伴) → 同班同学"
+    "rootAffix": "class-(班级) + mate-(伙伴) → 同班同学",
+    "explain": "A classmate is 同班同学."
   },
   {
     "id": "g6_043",
@@ -493,7 +535,8 @@
     "difficulty": 6,
     "audio": "relative.mp3",
     "unit": 2,
-    "rootAffix": "re-(回) + lat-(承载) + -ive(形容词/名词后缀) → 亲戚"
+    "rootAffix": "re-(回) + lat-(承载) + -ive(形容词/名词后缀) → 亲戚",
+    "explain": "A relative is 亲戚；亲属."
   },
   {
     "id": "g6_044",
@@ -505,7 +548,8 @@
     "difficulty": 6,
     "audio": "only.mp3",
     "unit": 2,
-    "rootAffix": "on(e)(唯一) + ly(形容词和副词后缀) → 唯一的，仅仅"
+    "rootAffix": "on(e)(唯一) + ly(形容词和副词后缀) → 唯一的，仅仅",
+    "explain": "Only describes something that is 仅有的；唯一."
   },
   {
     "id": "g6_045",
@@ -516,7 +560,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "only_child.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "only child means 独生子女（或女）."
   },
   {
     "id": "g6_046",
@@ -527,7 +572,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "twin.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A twin is 双胞胎之一."
   },
   {
     "id": "g6_047",
@@ -538,7 +584,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "husband.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A husband is 丈夫."
   },
   {
     "id": "g6_048",
@@ -549,7 +596,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "wife.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A wife is 妻子."
   },
   {
     "id": "g6_049",
@@ -560,7 +608,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "son.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A son is 儿子."
   },
   {
     "id": "g6_050",
@@ -571,7 +620,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "daughter.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A daughter is 女儿."
   },
   {
     "id": "g6_051",
@@ -583,7 +633,8 @@
     "difficulty": 6,
     "audio": "other.mp3",
     "unit": 2,
-    "rootAffix": "alter（另一个），其中o对应al，ther对应ter"
+    "rootAffix": "alter（另一个），其中o对应al，ther对应ter",
+    "explain": "Other describes something that is 另外；其他；pron. 另外的人（或物）."
   },
   {
     "id": "g6_052",
@@ -595,7 +646,8 @@
     "difficulty": 6,
     "audio": "member.mp3",
     "unit": 2,
-    "rootAffix": "mem-(记忆) + -ber → 记住的人 → 成员"
+    "rootAffix": "mem-(记忆) + -ber → 记住的人 → 成员",
+    "explain": "A member is 成员；分子."
   },
   {
     "id": "g6_053",
@@ -607,7 +659,8 @@
     "difficulty": 6,
     "audio": "add.mp3",
     "unit": 2,
-    "rootAffix": "ad(to，趋近) + d(给) → 给过去，给到一起 → 加，增加"
+    "rootAffix": "ad(to，趋近) + d(给) → 给过去，给到一起 → 加，增加",
+    "explain": "To add means to 添加；增加."
   },
   {
     "id": "g6_054",
@@ -619,7 +672,8 @@
     "difficulty": 6,
     "audio": "note.mp3",
     "unit": 2,
-    "rootAffix": "not（知道）+e→让人能识别的标识→注解"
+    "rootAffix": "not（知道）+e→让人能识别的标识→注解",
+    "explain": "A note is 笔记；记录；音符."
   },
   {
     "id": "g6_055",
@@ -631,7 +685,8 @@
     "difficulty": 6,
     "audio": "album.mp3",
     "unit": 2,
-    "rootAffix": "alb（空白的）+um（名词后缀）→空白之物，待填写或填充内容之物→相簿、集邮簿、签名册→唱片集"
+    "rootAffix": "alb（空白的）+um（名词后缀）→空白之物，待填写或填充内容之物→相簿、集邮簿、签名册→唱片集",
+    "explain": "An album is 相册；影集."
   },
   {
     "id": "g6_056",
@@ -642,7 +697,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "teach.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To teach means to to give instruction."
   },
   {
     "id": "g6_057",
@@ -654,7 +710,8 @@
     "difficulty": 6,
     "audio": "homework.mp3",
     "unit": 2,
-    "rootAffix": "home（在家）+work（工作，任务）→家庭作业"
+    "rootAffix": "home（在家）+work（工作，任务）→家庭作业",
+    "explain": "Homework is schoolwork done at home."
   },
   {
     "id": "g6_058",
@@ -665,7 +722,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "guitar.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A guitar is 吉他."
   },
   {
     "id": "g6_059",
@@ -677,7 +735,8 @@
     "difficulty": 6,
     "audio": "elder.mp3",
     "unit": 2,
-    "rootAffix": "eld（=old，年老的）+er（→更老的→年长的"
+    "rootAffix": "eld（=old，年老的）+er（→更老的→年长的",
+    "explain": "Elder describes something that is 年长的；年龄较大."
   },
   {
     "id": "g6_060",
@@ -688,7 +747,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "sofa.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A sofa is 长沙发."
   },
   {
     "id": "g6_061",
@@ -700,7 +760,8 @@
     "difficulty": 6,
     "audio": "round.mp3",
     "unit": 2,
-    "rootAffix": "ro（=rot，滚动）+und（形容词后缀，相当于ent）→正在滚动的→圆的；围绕，循环"
+    "rootAffix": "ro（=rot，滚动）+und（形容词后缀，相当于ent）→正在滚动的→圆的；围绕，循环",
+    "explain": "Round describes something that is 圆形."
   },
   {
     "id": "g6_062",
@@ -711,7 +772,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "dark.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Dark describes something that is 乌黑的；深色的；黑暗."
   },
   {
     "id": "g6_063",
@@ -722,7 +784,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "chess.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A chess is 国际象棋."
   },
   {
     "id": "g6_064",
@@ -734,7 +797,8 @@
     "difficulty": 6,
     "audio": "duty.mp3",
     "unit": 2,
-    "rootAffix": "du（欠）+ty（名词后缀）→所欠的事→应该去做的事→责任"
+    "rootAffix": "du（欠）+ty（名词后缀）→所欠的事→应该去做的事→责任",
+    "explain": "A duty is 责任；义务；本分."
   },
   {
     "id": "g6_065",
@@ -745,7 +809,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "born.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To born means to （仅用于被动语态 be born）出生；出世."
   },
   {
     "id": "g6_066",
@@ -757,7 +822,8 @@
     "difficulty": 6,
     "audio": "weekend.mp3",
     "unit": 2,
-    "rootAffix": "week（一周）+end（尽头）→周末"
+    "rootAffix": "week（一周）+end（尽头）→周末",
+    "explain": "A weekend is 星期六和星期日；周末."
   },
   {
     "id": "g6_067",
@@ -768,7 +834,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "thing.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A thing is 事情；事件."
   },
   {
     "id": "g6_068",
@@ -779,7 +846,8 @@
     "category": "adv",
     "difficulty": 6,
     "audio": "enough.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Enough is an adverb in English."
   },
   {
     "id": "g6_069",
@@ -790,7 +858,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "well_done.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Well done! means 做得好！干得好！."
   },
   {
     "id": "g6_070",
@@ -801,7 +870,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "dish.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A dish is 碟子；盘子；一道菜；菜肴."
   },
   {
     "id": "g6_071",
@@ -813,7 +883,8 @@
     "difficulty": 6,
     "audio": "usually.mp3",
     "unit": 2,
-    "rootAffix": "us-(使用) + -ual(形容词后缀) + -ly(副词后缀) → 通常地"
+    "rootAffix": "us-(使用) + -ual(形容词后缀) + -ly(副词后缀) → 通常地",
+    "explain": "Usually is an adverb in English."
   },
   {
     "id": "g6_072",
@@ -824,7 +895,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "quick.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Quick describes something that is 快的；迅速."
   },
   {
     "id": "g6_073",
@@ -836,7 +908,8 @@
     "difficulty": 6,
     "audio": "together.mp3",
     "unit": 2,
-    "rootAffix": "to-(到) + gether-(聚集) → 聚集到一起 → 在一起"
+    "rootAffix": "to-(到) + gether-(聚集) → 聚集到一起 → 在一起",
+    "explain": "Together is an adverb in English."
   },
   {
     "id": "g6_074",
@@ -847,7 +920,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "flat.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A flat is 公寓；一套房间."
   },
   {
     "id": "g6_075",
@@ -858,7 +932,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "fun.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A fun is 乐趣；快乐."
   },
   {
     "id": "g6_076",
@@ -870,7 +945,8 @@
     "difficulty": 6,
     "audio": "celebration.mp3",
     "unit": 2,
-    "rootAffix": "celebr-(庆祝,颂扬) + -ation(名词后缀) → 庆典"
+    "rootAffix": "celebr-(庆祝,颂扬) + -ation(名词后缀) → 庆典",
+    "explain": "A celebration is 庆典；庆祝活动."
   },
   {
     "id": "g6_077",
@@ -882,7 +958,8 @@
     "difficulty": 6,
     "audio": "prepare.mp3",
     "unit": 2,
-    "rootAffix": "pre-(前,先) + par-(准备,出现) + e → 提前准备 → 准备"
+    "rootAffix": "pre-(前,先) + par-(准备,出现) + e → 提前准备 → 准备",
+    "explain": "To prepare means to 做好准备；把……预备好."
   },
   {
     "id": "g6_078",
@@ -894,7 +971,8 @@
     "difficulty": 6,
     "audio": "decorate.mp3",
     "unit": 2,
-    "rootAffix": "decor-(装饰) + -ate(动词后缀) → 装饰"
+    "rootAffix": "decor-(装饰) + -ate(动词后缀) → 装饰",
+    "explain": "To decorate means to 装饰."
   },
   {
     "id": "g6_079",
@@ -905,7 +983,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "living_room.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "living room means 客厅；起居室."
   },
   {
     "id": "g6_080",
@@ -917,7 +996,8 @@
     "difficulty": 6,
     "audio": "balloon.mp3",
     "unit": 2,
-    "rootAffix": "ball-(球) + -oon(名词后缀,表大) → 大球 → 气球"
+    "rootAffix": "ball-(球) + -oon(名词后缀,表大) → 大球 → 气球",
+    "explain": "A balloon is a thin rubber bag that you fill with air or gas."
   },
   {
     "id": "g6_081",
@@ -928,7 +1008,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "set.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To set means to 放置；摆放."
   },
   {
     "id": "g6_082",
@@ -940,7 +1021,8 @@
     "difficulty": 6,
     "audio": "surprised.mp3",
     "unit": 2,
-    "rootAffix": "sur-(超过) + pris-(抓) + -ed(形容词后缀) → 惊奇的"
+    "rootAffix": "sur-(超过) + pris-(抓) + -ed(形容词后缀) → 惊奇的",
+    "explain": "Surprised describes something that is 惊奇的；惊讶的；感觉意外."
   },
   {
     "id": "g6_083",
@@ -952,7 +1034,8 @@
     "difficulty": 6,
     "audio": "superexcited.mp3",
     "unit": 2,
-    "rootAffix": "super-(超级) + excited-(兴奋的) → 超级激动的"
+    "rootAffix": "super-(超级) + excited-(兴奋的) → 超级激动的",
+    "explain": "Super-excited describes something that is 超级激动的；格外兴奋."
   },
   {
     "id": "g6_084",
@@ -963,7 +1046,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "joy.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Joy is a feeling of great happiness."
   },
   {
     "id": "g6_085",
@@ -974,7 +1058,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "jump_for_joy.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "jump for joy means 欢呼雀跃."
   },
   {
     "id": "g6_086",
@@ -986,7 +1071,8 @@
     "difficulty": 6,
     "audio": "something.mp3",
     "unit": 3,
-    "rootAffix": "some（某）+thing（事物）→某事，某物"
+    "rootAffix": "some（某）+thing（事物）→某事，某物",
+    "explain": "Something is a pronoun in English."
   },
   {
     "id": "g6_087",
@@ -997,7 +1083,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "beef.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A beef is 牛肉."
   },
   {
     "id": "g6_088",
@@ -1008,7 +1095,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "tofu.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A tofu is 豆腐."
   },
   {
     "id": "g6_089",
@@ -1019,7 +1107,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "pepper.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A pepper is 甜椒."
   },
   {
     "id": "g6_090",
@@ -1030,7 +1119,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "cabbage.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A cabbage is 卷心菜."
   },
   {
     "id": "g6_091",
@@ -1041,7 +1131,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "onion.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An onion is 洋葱."
   },
   {
     "id": "g6_092",
@@ -1052,7 +1143,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "carrot.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A carrot is a long orange vegetable that grows underground."
   },
   {
     "id": "g6_093",
@@ -1064,7 +1156,8 @@
     "difficulty": 6,
     "audio": "watermelon.mp3",
     "unit": 3,
-    "rootAffix": "water（水）+melon（甜瓜）→多汁甜瓜→西瓜"
+    "rootAffix": "water（水）+melon（甜瓜）→多汁甜瓜→西瓜",
+    "explain": "Watermelon is a large fruit with green skin and red flesh."
   },
   {
     "id": "g6_094",
@@ -1075,7 +1168,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "cucumber.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A cucumber is 黄瓜."
   },
   {
     "id": "g6_095",
@@ -1087,7 +1181,8 @@
     "difficulty": 6,
     "audio": "strawberry.mp3",
     "unit": 3,
-    "rootAffix": "straw（稻草）+berry（莓，浆果）→草莓"
+    "rootAffix": "straw（稻草）+berry（莓，浆果）→草莓",
+    "explain": "A strawberry is 草莓."
   },
   {
     "id": "g6_096",
@@ -1098,7 +1193,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "pear.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A pear is a sweet yellow or green fruit with a round bottom and narrow top."
   },
   {
     "id": "g6_097",
@@ -1109,7 +1205,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "yogurt.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A yogurt is 酸奶；一份酸奶."
   },
   {
     "id": "g6_098",
@@ -1120,7 +1217,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "cheese.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A cheese is 干酪；奶酪."
   },
   {
     "id": "g6_099",
@@ -1131,7 +1229,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "corn.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A corn is （小麦等）谷物；玉米."
   },
   {
     "id": "g6_100",
@@ -1142,7 +1241,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "butter.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A butter is 黄油."
   },
   {
     "id": "g6_101",
@@ -1153,7 +1253,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "oil.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An oil is 食用油."
   },
   {
     "id": "g6_102",
@@ -1164,7 +1265,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "salt.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A salt is a white substance used to flavor food."
   },
   {
     "id": "g6_103",
@@ -1175,7 +1277,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "bean.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A bean is 豆；豆科植物."
   },
   {
     "id": "g6_104",
@@ -1187,7 +1290,8 @@
     "difficulty": 6,
     "audio": "product.mp3",
     "unit": 3,
-    "rootAffix": "pro-(向前) + duct-(引导) → 向前引导 → 产品"
+    "rootAffix": "pro-(向前) + duct-(引导) → 向前引导 → 产品",
+    "explain": "A product is 产品；制品."
   },
   {
     "id": "g6_105",
@@ -1198,7 +1302,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "grain.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A grain is 谷物；谷粒."
   },
   {
     "id": "g6_106",
@@ -1210,7 +1315,8 @@
     "difficulty": 6,
     "audio": "rainbow.mp3",
     "unit": 3,
-    "rootAffix": "rain（下雨）+bow（弓状物）→彩虹"
+    "rootAffix": "rain（下雨）+bow（弓状物）→彩虹",
+    "explain": "A rainbow is 虹；彩虹."
   },
   {
     "id": "g6_107",
@@ -1221,7 +1327,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "balanced.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Balanced describes something that is 保持（或显示）平衡."
   },
   {
     "id": "g6_108",
@@ -1233,7 +1340,8 @@
     "difficulty": 6,
     "audio": "diet.mp3",
     "unit": 3,
-    "rootAffix": "di（日）+et→每天的定量→规定饮食"
+    "rootAffix": "di（日）+et→每天的定量→规定饮食",
+    "explain": "A diet is 日常饮食；日常食物."
   },
   {
     "id": "g6_109",
@@ -1244,7 +1352,8 @@
     "category": "det & pron",
     "difficulty": 6,
     "audio": "each.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An each is （两个或以上的人或物中）各自，各个，每个."
   },
   {
     "id": "g6_110",
@@ -1256,7 +1365,8 @@
     "difficulty": 6,
     "audio": "plenty.mp3",
     "unit": 3,
-    "rootAffix": "plen（装满）+ty（名词后缀）→大量"
+    "rootAffix": "plen（装满）+ty（名词后缀）→大量",
+    "explain": "Plenty is a pronoun in English."
   },
   {
     "id": "g6_111",
@@ -1267,7 +1377,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "plenty_of.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "plenty of means 大量；很多的."
   },
   {
     "id": "g6_112",
@@ -1278,7 +1389,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "choice.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Choice is the act of choosing."
   },
   {
     "id": "g6_113",
@@ -1289,7 +1401,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "list.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A list is 一览表；清单."
   },
   {
     "id": "g6_114",
@@ -1300,7 +1413,8 @@
     "category": "det & adj",
     "difficulty": 6,
     "audio": "few.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Few describes something that is 不多；很少."
   },
   {
     "id": "g6_115",
@@ -1311,7 +1425,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "a_few.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "a few means 有些；几个（用于可数名词之前）."
   },
   {
     "id": "g6_116",
@@ -1323,7 +1438,8 @@
     "difficulty": 6,
     "audio": "pleasure.mp3",
     "unit": 3,
-    "rootAffix": "pleas-(使高兴) + -ure(名词后缀) → 高兴;快乐"
+    "rootAffix": "pleas-(使高兴) + -ure(名词后缀) → 高兴;快乐",
+    "explain": "A pleasure is 高兴；快乐；愉快."
   },
   {
     "id": "g6_117",
@@ -1335,7 +1451,8 @@
     "difficulty": 6,
     "audio": "ingredient.mp3",
     "unit": 3,
-    "rootAffix": "in-(进入) + gredi-(走) + -ent(名词后缀) → 走进去 → 成分"
+    "rootAffix": "in-(进入) + gredi-(走) + -ent(名词后缀) → 走进去 → 成分",
+    "explain": "An ingredient is （尤指烹饪）材料；成分."
   },
   {
     "id": "g6_118",
@@ -1347,7 +1464,8 @@
     "difficulty": 6,
     "audio": "tasty.mp3",
     "unit": 3,
-    "rootAffix": "tast(e)(味道) + y(形容词后缀) → 美味的"
+    "rootAffix": "tast(e)(味道) + y(形容词后缀) → 美味的",
+    "explain": "Tasty describes something that is 美味的；可口."
   },
   {
     "id": "g6_119",
@@ -1358,7 +1476,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "need.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To need means to to require something."
   },
   {
     "id": "g6_120",
@@ -1369,7 +1488,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "fridge.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A fridge is 冰箱."
   },
   {
     "id": "g6_121",
@@ -1381,7 +1501,8 @@
     "difficulty": 6,
     "audio": "surprise.mp3",
     "unit": 3,
-    "rootAffix": "sur-(超过,在上) + pris-(抓) + e → 从上面抓住 → 使惊奇"
+    "rootAffix": "sur-(超过,在上) + pris-(抓) + e → 从上面抓住 → 使惊奇",
+    "explain": "Surprise is a feeling caused by something unexpected."
   },
   {
     "id": "g6_122",
@@ -1392,7 +1513,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "blog.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A blog is 博客；网志."
   },
   {
     "id": "g6_123",
@@ -1403,7 +1525,8 @@
     "category": "prep",
     "difficulty": 6,
     "audio": "as.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "As is a preposition in English."
   },
   {
     "id": "g6_124",
@@ -1414,7 +1537,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "soy_sauce.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "soy sauce means 酱油."
   },
   {
     "id": "g6_125",
@@ -1426,7 +1550,8 @@
     "difficulty": 6,
     "audio": "into.mp3",
     "unit": 3,
-    "rootAffix": "in（在里面）+to（去）→到……里"
+    "rootAffix": "in（在里面）+to（去）→到……里",
+    "explain": "Into is a preposition in English."
   },
   {
     "id": "g6_126",
@@ -1437,7 +1562,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "piece.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A piece is 碎片；碎块."
   },
   {
     "id": "g6_127",
@@ -1448,7 +1574,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "fry.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To fry means to 油炒；油煎."
   },
   {
     "id": "g6_128",
@@ -1460,7 +1587,8 @@
     "difficulty": 6,
     "audio": "finally.mp3",
     "unit": 3,
-    "rootAffix": "fin-(终点,界限) + -al(形容词后缀) + -ly(副词后缀) → 最后"
+    "rootAffix": "fin-(终点,界限) + -al(形容词后缀) + -ly(副词后缀) → 最后",
+    "explain": "Finally is an adverb in English."
   },
   {
     "id": "g6_129",
@@ -1471,7 +1599,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "boil.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To boil means to 煮沸；烧开."
   },
   {
     "id": "g6_130",
@@ -1482,7 +1611,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "side.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Side is a surface of something."
   },
   {
     "id": "g6_131",
@@ -1493,7 +1623,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "side_dish.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "side dish means （随同主菜一起上的）配菜."
   },
   {
     "id": "g6_132",
@@ -1504,7 +1635,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "mutton.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A mutton is 羊肉."
   },
   {
     "id": "g6_133",
@@ -1516,7 +1648,8 @@
     "difficulty": 6,
     "audio": "recipe.mp3",
     "unit": 3,
-    "rootAffix": "re-(回) + cip-(拿,抓) + e → 拿回来 → 食谱"
+    "rootAffix": "re-(回) + cip-(拿,抓) + e → 拿回来 → 食谱",
+    "explain": "A recipe is 食谱；烹饪法."
   },
   {
     "id": "g6_134",
@@ -1528,7 +1661,8 @@
     "difficulty": 6,
     "audio": "beat.mp3",
     "unit": 3,
-    "rootAffix": "b(e)at=bat（击打）→击打"
+    "rootAffix": "b(e)at=bat（击打）→击打",
+    "explain": "To beat means to （用叉等）快速搅拌；打."
   },
   {
     "id": "g6_135",
@@ -1540,7 +1674,8 @@
     "difficulty": 6,
     "audio": "chopsticks.mp3",
     "unit": 3,
-    "rootAffix": "chop（广东话“快”或“筷”的音译）+sticks（小棍子）→筷子"
+    "rootAffix": "chop（广东话“快”或“筷”的音译）+sticks（小棍子）→筷子",
+    "explain": "A chopsticks is two thin sticks used for eating food, especially in Asian countries."
   },
   {
     "id": "g6_136",
@@ -1551,7 +1686,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "bowl.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A bowl is a round container for holding food or liquid."
   },
   {
     "id": "g6_137",
@@ -1562,7 +1698,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "menu.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A menu is 菜单."
   },
   {
     "id": "g6_138",
@@ -1574,7 +1711,8 @@
     "difficulty": 6,
     "audio": "date.mp3",
     "unit": 4,
-    "rootAffix": "d(给) + at(完成分词后缀) + e → 已经给出 → 把信交给邮差的日期 → 日期"
+    "rootAffix": "d(给) + at(完成分词后缀) + e → 已经给出 → 把信交给邮差的日期 → 日期",
+    "explain": "A date is 日期；日子."
   },
   {
     "id": "g6_139",
@@ -1585,7 +1723,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "ground.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Ground means （特定用途的）场地；地面, describing how something is done."
   },
   {
     "id": "g6_140",
@@ -1596,7 +1735,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "sports_ground.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "sports ground means 运动场；操场."
   },
   {
     "id": "g6_141",
@@ -1607,7 +1747,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "gym.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Gym is a place for physical exercise."
   },
   {
     "id": "g6_142",
@@ -1618,7 +1759,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "team.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Team is a group of people working together."
   },
   {
     "id": "g6_143",
@@ -1629,7 +1771,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "high.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "High describes something that is 高."
   },
   {
     "id": "g6_144",
@@ -1640,7 +1783,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "rope.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A rope is 绳."
   },
   {
     "id": "g6_145",
@@ -1651,7 +1795,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "kick.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To kick means to 踢."
   },
   {
     "id": "g6_146",
@@ -1662,7 +1807,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "rock.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A rock is 岩石."
   },
   {
     "id": "g6_147",
@@ -1673,7 +1819,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "climb.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To climb means to 攀登；爬."
   },
   {
     "id": "g6_148",
@@ -1684,7 +1831,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "rock_climbing.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "rock climbing means 攀岩."
   },
   {
     "id": "g6_149",
@@ -1695,7 +1843,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "kung_fu.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "kung fu means 功夫（中国拳术）."
   },
   {
     "id": "g6_150",
@@ -1707,7 +1856,8 @@
     "difficulty": 6,
     "audio": "active.mp3",
     "unit": 4,
-    "rootAffix": "act-(动作) + -ive(形容词后缀) → 活跃的"
+    "rootAffix": "act-(动作) + -ive(形容词后缀) → 活跃的",
+    "explain": "Active describes something that is 活跃的；充满活力的；积极."
   },
   {
     "id": "g6_151",
@@ -1718,7 +1868,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "part.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A part is 部分."
   },
   {
     "id": "g6_152",
@@ -1729,7 +1880,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "take_part_in.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To take part in means to 参加."
   },
   {
     "id": "g6_153",
@@ -1741,7 +1893,8 @@
     "difficulty": 6,
     "audio": "baseball.mp3",
     "unit": 4,
-    "rootAffix": "base(基础，垒) + ball(球) → 垒球 → 棒球"
+    "rootAffix": "base(基础，垒) + ball(球) → 垒球 → 棒球",
+    "explain": "A baseball is 棒球运动."
   },
   {
     "id": "g6_154",
@@ -1753,7 +1906,8 @@
     "difficulty": 6,
     "audio": "volleyball.mp3",
     "unit": 4,
-    "rootAffix": "volley（截击，凌空抽射）+ball（球）→在空中截击的球→排球"
+    "rootAffix": "volley（截击，凌空抽射）+ball（球）→在空中截击的球→排球",
+    "explain": "A volleyball is 排球；排球运动."
   },
   {
     "id": "g6_155",
@@ -1764,7 +1918,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "badminton.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A badminton is 羽毛球运动."
   },
   {
     "id": "g6_156",
@@ -1775,7 +1930,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "tennis.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A tennis is 网球."
   },
   {
     "id": "g6_157",
@@ -1786,7 +1942,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "pull.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To pull means to 拉；拔出."
   },
   {
     "id": "g6_158",
@@ -1797,7 +1954,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "jog.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To jog means to 慢跑."
   },
   {
     "id": "g6_159",
@@ -1809,7 +1967,8 @@
     "difficulty": 6,
     "audio": "safety.mp3",
     "unit": 4,
-    "rootAffix": "safe(安全的) + ty(名词后缀) → 安全"
+    "rootAffix": "safe(安全的) + ty(名词后缀) → 安全",
+    "explain": "A safety is 安全；平安."
   },
   {
     "id": "g6_160",
@@ -1821,7 +1980,8 @@
     "difficulty": 6,
     "audio": "ankle.mp3",
     "unit": 4,
-    "rootAffix": "ank(弯折，弯钩) + le(指小名词后缀) → (人体的)弯折部位 → 踝关节"
+    "rootAffix": "ank(弯折，弯钩) + le(指小名词后缀) → (人体的)弯折部位 → 踝关节",
+    "explain": "An ankle is 踝；踝关节."
   },
   {
     "id": "g6_161",
@@ -1832,7 +1992,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "match.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A match is 比赛."
   },
   {
     "id": "g6_162",
@@ -1843,7 +2004,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "gear.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A gear is （某种活动的）设备，用具，衣服."
   },
   {
     "id": "g6_163",
@@ -1855,7 +2017,8 @@
     "difficulty": 6,
     "audio": "example.mp3",
     "unit": 4,
-    "rootAffix": "ex（出来）+ampl（衍生自词根empt-，拿）+e→拿出来的东西→例子，榜样"
+    "rootAffix": "ex（出来）+ampl（衍生自词根empt-，拿）+e→拿出来的东西→例子，榜样",
+    "explain": "Example is something that shows what something is like."
   },
   {
     "id": "g6_164",
@@ -1866,7 +2029,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "for_example.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "for example means 例如."
   },
   {
     "id": "g6_165",
@@ -1877,7 +2041,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "warm_up.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "warm up means （为体育活动或表演）做适应性练习，做准备活动；热身."
   },
   {
     "id": "g6_166",
@@ -1888,7 +2053,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "watch_out.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To watch out means to 小心；留神；注意."
   },
   {
     "id": "g6_167",
@@ -1900,7 +2066,8 @@
     "difficulty": 6,
     "audio": "matter.mp3",
     "unit": 4,
-    "rootAffix": "mater（母）→万物之母，基质→物质"
+    "rootAffix": "mater（母）→万物之母，基质→物质",
+    "explain": "A matter is 问题；事情."
   },
   {
     "id": "g6_168",
@@ -1911,7 +2078,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "whats_the_matter.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "What's the matter? means 怎么了？."
   },
   {
     "id": "g6_169",
@@ -1923,7 +2091,8 @@
     "difficulty": 6,
     "audio": "happen.mp3",
     "unit": 4,
-    "rootAffix": "happ（偶然）+en（动词后缀）→偶然发生→发生，碰巧"
+    "rootAffix": "happ（偶然）+en（动词后缀）→偶然发生→发生，碰巧",
+    "explain": "To happen means to 发生."
   },
   {
     "id": "g6_170",
@@ -1934,7 +2103,8 @@
     "category": "adv",
     "difficulty": 6,
     "audio": "just.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Just is an adverb in English."
   },
   {
     "id": "g6_171",
@@ -1945,7 +2115,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "fall.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To fall means to 突然倒下；跌倒."
   },
   {
     "id": "g6_172",
@@ -1956,7 +2127,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "guess.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To guess means to 猜测；估计."
   },
   {
     "id": "g6_173",
@@ -1967,7 +2139,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "knee.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A knee is the joint in the middle of your leg."
   },
   {
     "id": "g6_174",
@@ -1978,7 +2151,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "how_come.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "How come? means 怎么回事？怎么发生的？."
   },
   {
     "id": "g6_175",
@@ -1989,7 +2163,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "seem.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To seem means to 好像；似乎；看来."
   },
   {
     "id": "g6_176",
@@ -2001,7 +2176,8 @@
     "difficulty": 6,
     "audio": "problem.mp3",
     "unit": 4,
-    "rootAffix": "pro（向前向外）+ble（扔）+m（名词后缀）→向前扔出来的东西→难题，问题"
+    "rootAffix": "pro（向前向外）+ble（扔）+m（名词后缀）→向前扔出来的东西→难题，问题",
+    "explain": "Problem is something difficult that needs solving."
   },
   {
     "id": "g6_177",
@@ -2012,7 +2188,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "score.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To score means to 得（分）；进（球）."
   },
   {
     "id": "g6_178",
@@ -2023,7 +2200,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "goal.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Goal is an aim or desired result."
   },
   {
     "id": "g6_179",
@@ -2034,7 +2212,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "goalkeeper.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A goalkeeper is 守门员."
   },
   {
     "id": "g6_180",
@@ -2045,7 +2224,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "hold.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To hold means to ……保持在某位置；拿着；抓住."
   },
   {
     "id": "g6_181",
@@ -2056,7 +2236,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "throw.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To throw means to 投；抛；掷."
   },
   {
     "id": "g6_182",
@@ -2067,7 +2248,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "point.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A point is 得分；点."
   },
   {
     "id": "g6_183",
@@ -2079,7 +2261,8 @@
     "difficulty": 6,
     "audio": "control.mp3",
     "unit": 4,
-    "rootAffix": "contr-(对立,相反) + -rol(滚) → 对着滚 → 控制"
+    "rootAffix": "contr-(对立,相反) + -rol(滚) → 对着滚 → 控制",
+    "explain": "To control means to 控制；管理."
   },
   {
     "id": "g6_184",
@@ -2090,7 +2273,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "mind.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A mind is 头脑；心智；v. 当心；注意."
   },
   {
     "id": "g6_185",
@@ -2102,7 +2286,8 @@
     "difficulty": 6,
     "audio": "powerful.mp3",
     "unit": 4,
-    "rootAffix": "power-(力量) + -ful(形容词后缀,充满...的) → 强有力的"
+    "rootAffix": "power-(力量) + -ful(形容词后缀,充满...的) → 强有力的",
+    "explain": "Powerful describes something that is 强有力."
   },
   {
     "id": "g6_186",
@@ -2113,7 +2298,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "style.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A style is 风格；样式."
   },
   {
     "id": "g6_187",
@@ -2125,7 +2311,8 @@
     "difficulty": 6,
     "audio": "moment.mp3",
     "unit": 4,
-    "rootAffix": "mo(=mov，移动) + ment(名词后缀) → (时间的)移动 → 时刻"
+    "rootAffix": "mo(=mov，移动) + ment(名词后缀) → (时间的)移动 → 时刻",
+    "explain": "A moment is 片刻；瞬间."
   },
   {
     "id": "g6_188",
@@ -2137,7 +2324,8 @@
     "difficulty": 6,
     "audio": "report.mp3",
     "unit": 4,
-    "rootAffix": "re-(回) + port-(运载) → 运回来 → 报告"
+    "rootAffix": "re-(回) + port-(运载) → 运回来 → 报告",
+    "explain": "To report means to 汇报；报告；报道."
   },
   {
     "id": "g6_189",
@@ -2149,7 +2337,8 @@
     "difficulty": 6,
     "audio": "newspaper.mp3",
     "unit": 4,
-    "rootAffix": "news-(新闻) + paper-(纸) → 新闻纸 → 报纸"
+    "rootAffix": "news-(新闻) + paper-(纸) → 新闻纸 → 报纸",
+    "explain": "A newspaper is 报纸."
   },
   {
     "id": "g6_190",
@@ -2160,7 +2349,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "court.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A court is 球场."
   },
   {
     "id": "g6_191",
@@ -2172,7 +2362,8 @@
     "difficulty": 6,
     "audio": "against.mp3",
     "unit": 4,
-    "rootAffix": "a（位于）+gain（对着）+st（无意义成分）→位于相反方向→反对，逆着"
+    "rootAffix": "a（位于）+gain（对着）+st（无意义成分）→位于相反方向→反对，逆着",
+    "explain": "Against is a preposition in English."
   },
   {
     "id": "g6_192",
@@ -2183,7 +2374,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "shoot.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To shoot means to 射门；投篮."
   },
   {
     "id": "g6_193",
@@ -2194,7 +2386,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "basket.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A basket is （篮球运动的）篮；筐."
   },
   {
     "id": "g6_194",
@@ -2205,7 +2398,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "tie.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To tie means to （比赛或竞争中）得分相同."
   },
   {
     "id": "g6_195",
@@ -2217,7 +2411,8 @@
     "difficulty": 6,
     "audio": "track.mp3",
     "unit": 4,
-    "rootAffix": "trac（拖）+k→拖行留下的痕迹→足迹，踪迹"
+    "rootAffix": "trac（拖）+k→拖行留下的痕迹→足迹，踪迹",
+    "explain": "A track is （赛跑、赛车等的）跑道."
   },
   {
     "id": "g6_196",
@@ -2229,7 +2424,8 @@
     "difficulty": 6,
     "audio": "amazing.mp3",
     "unit": 5,
-    "rootAffix": "amaz-(惊奇) + -ing(形容词后缀) → 令人惊奇的"
+    "rootAffix": "amaz-(惊奇) + -ing(形容词后缀) → 令人惊奇的",
+    "explain": "Amazing describes something that is 令人大为惊奇的；令人惊喜或惊叹."
   },
   {
     "id": "g6_197",
@@ -2241,7 +2437,8 @@
     "difficulty": 6,
     "audio": "website.mp3",
     "unit": 5,
-    "rootAffix": "web-(网) + site-(地点) → 网站"
+    "rootAffix": "web-(网) + site-(地点) → 网站",
+    "explain": "A website is 网站."
   },
   {
     "id": "g6_198",
@@ -2252,7 +2449,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "feed.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To feed means to 给（人或动物）食物；喂养."
   },
   {
     "id": "g6_199",
@@ -2263,7 +2461,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "herd.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To herd means to 牧放（牲畜、兽群）."
   },
   {
     "id": "g6_200",
@@ -2274,7 +2473,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "goat.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A goat is 山羊."
   },
   {
     "id": "g6_201",
@@ -2286,7 +2486,8 @@
     "difficulty": 6,
     "audio": "remember.mp3",
     "unit": 5,
-    "rootAffix": "re(再次) + member(记忆) → 再次想起 → 记起"
+    "rootAffix": "re(再次) + member(记忆) → 再次想起 → 记起",
+    "explain": "To remember means to 记得；记起."
   },
   {
     "id": "g6_202",
@@ -2298,7 +2499,8 @@
     "difficulty": 6,
     "audio": "collect.mp3",
     "unit": 5,
-    "rootAffix": "col-(共同,一起) + lect-(采集) → 一起采集 → 收集"
+    "rootAffix": "col-(共同,一起) + lect-(采集) → 一起采集 → 收集",
+    "explain": "To collect means to 收集；采集."
   },
   {
     "id": "g6_203",
@@ -2309,7 +2511,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "recognise_ame_recognize_reknaz_v.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To recognise means to 识别；认出（美式 recognize）."
   },
   {
     "id": "g6_204",
@@ -2320,7 +2523,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "care.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A care is 照顾；照看."
   },
   {
     "id": "g6_205",
@@ -2331,7 +2535,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "take_care_of.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To take care of means to 照顾；照料."
   },
   {
     "id": "g6_206",
@@ -2343,7 +2548,8 @@
     "difficulty": 6,
     "audio": "prefer.mp3",
     "unit": 5,
-    "rootAffix": "pre-(前,先) + -fer(承载) → 先拿 → 更喜欢"
+    "rootAffix": "pre-(前,先) + -fer(承载) → 先拿 → 更喜欢",
+    "explain": "To prefer means to 较喜欢；喜欢……多于……."
   },
   {
     "id": "g6_207",
@@ -2354,7 +2560,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "get_along_with.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To get along with means to 和睦相处；关系良好."
   },
   {
     "id": "g6_208",
@@ -2365,7 +2572,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "sign.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A sign is 标牌；指示牌."
   },
   {
     "id": "g6_209",
@@ -2376,7 +2584,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "bite.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To bite means to 咬；n. 咬；咬下的一口."
   },
   {
     "id": "g6_210",
@@ -2388,7 +2597,8 @@
     "difficulty": 6,
     "audio": "warning.mp3",
     "unit": 5,
-    "rootAffix": "warn-(警告) + -ing(名词后缀) → 警告"
+    "rootAffix": "warn-(警告) + -ing(名词后缀) → 警告",
+    "explain": "A warning is 警告；警示."
   },
   {
     "id": "g6_211",
@@ -2399,7 +2609,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "peck.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To peck means to 啄."
   },
   {
     "id": "g6_212",
@@ -2410,7 +2621,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "sweet.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A sweet is a small piece of candy or chocolate."
   },
   {
     "id": "g6_213",
@@ -2421,7 +2633,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "calf.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A calf is 小牛；牛犊."
   },
   {
     "id": "g6_214",
@@ -2432,7 +2645,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "loud.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "Loud describes something that is 大声的；喧闹."
   },
   {
     "id": "g6_215",
@@ -2444,7 +2658,8 @@
     "difficulty": 6,
     "audio": "noise.mp3",
     "unit": 5,
-    "rootAffix": "nois-(噪音) + e → 噪音"
+    "rootAffix": "nois-(噪音) + e → 噪音",
+    "explain": "A noise is 噪音；响声."
   },
   {
     "id": "g6_216",
@@ -2456,7 +2671,8 @@
     "difficulty": 6,
     "audio": "meaning.mp3",
     "unit": 5,
-    "rootAffix": "mean-(意味) + -ing(名词后缀) → 意义;意思"
+    "rootAffix": "mean-(意味) + -ing(名词后缀) → 意义;意思",
+    "explain": "A meaning is 意义；意思."
   },
   {
     "id": "g6_217",
@@ -2467,7 +2683,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "shout.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To shout means to 大声说；叫."
   },
   {
     "id": "g6_218",
@@ -2479,7 +2696,8 @@
     "difficulty": 6,
     "audio": "jacket.mp3",
     "unit": 5,
-    "rootAffix": "jack(古代一种束腰外衣) + et(指小名词后缀) → 较短的外衣 → 夹克，短上衣"
+    "rootAffix": "jack(古代一种束腰外衣) + et(指小名词后缀) → 较短的外衣 → 夹克，短上衣",
+    "explain": "A jacket is a short coat for the upper body."
   },
   {
     "id": "g6_219",
@@ -2490,7 +2708,8 @@
     "category": "conj",
     "difficulty": 6,
     "audio": "if.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "If is a conjunction in English."
   },
   {
     "id": "g6_220",
@@ -2501,7 +2720,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "snack.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A snack is 点心；小吃."
   },
   {
     "id": "g6_221",
@@ -2512,7 +2732,8 @@
     "category": "modal v",
     "difficulty": 6,
     "audio": "could.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To could means to （询问是否可以做某事）能；可以."
   },
   {
     "id": "g6_222",
@@ -2523,7 +2744,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "hen.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A hen is a female chicken."
   },
   {
     "id": "g6_223",
@@ -2535,7 +2757,8 @@
     "difficulty": 6,
     "audio": "diary.mp3",
     "unit": 5,
-    "rootAffix": "di-(日,天) + -ary(名词后缀) → 每天记录 → 日记"
+    "rootAffix": "di-(日,天) + -ary(名词后缀) → 每天记录 → 日记",
+    "explain": "A diary is 日记；日记簿."
   },
   {
     "id": "g6_224",
@@ -2547,7 +2770,8 @@
     "difficulty": 6,
     "audio": "cookie.mp3",
     "unit": 5,
-    "rootAffix": "cook（=cake，饼干）+ie→小饼干"
+    "rootAffix": "cook（=cake，饼干）+ie→小饼干",
+    "explain": "A cookie is 曲奇饼."
   },
   {
     "id": "g6_225",
@@ -2559,7 +2783,8 @@
     "difficulty": 6,
     "audio": "direct.mp3",
     "unit": 5,
-    "rootAffix": "di-(离开) + rect-(直的) → 使变直 → 指导"
+    "rootAffix": "di-(离开) + rect-(直的) → 使变直 → 指导",
+    "explain": "To direct means to 指路；领路；指导."
   },
   {
     "id": "g6_226",
@@ -2570,7 +2795,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "yard.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "Yard means （某种用途的）区域，场地, describing how something is done."
   },
   {
     "id": "g6_227",
@@ -2582,7 +2808,8 @@
     "difficulty": 6,
     "audio": "glad.mp3",
     "unit": 5,
-    "rootAffix": "gl（闪亮）+ad→（脸庞）闪亮的→欢乐的"
+    "rootAffix": "gl（闪亮）+ad→（脸庞）闪亮的→欢乐的",
+    "explain": "Glad describes something that is 高兴；愉快."
   },
   {
     "id": "g6_228",
@@ -2593,7 +2820,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "believe.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To believe means to 相信."
   },
   {
     "id": "g6_229",
@@ -2605,7 +2833,8 @@
     "difficulty": 6,
     "audio": "unforgettable.mp3",
     "unit": 5,
-    "rootAffix": "un-(不) + forget-(忘记) + -able(形容词后缀) → 令人难忘的"
+    "rootAffix": "un-(不) + forget-(忘记) + -able(形容词后缀) → 令人难忘的",
+    "explain": "Unforgettable describes something that is 令人难忘."
   },
   {
     "id": "g6_230",
@@ -2616,7 +2845,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "smooth.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "Smooth means having an even surface without bumps."
   },
   {
     "id": "g6_231",
@@ -2627,7 +2857,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "neck.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A neck is 颈；脖子."
   },
   {
     "id": "g6_232",
@@ -2639,7 +2870,8 @@
     "difficulty": 6,
     "audio": "friendly.mp3",
     "unit": 5,
-    "rootAffix": "friend-(朋友) + -ly(形容词后缀) → 友好的"
+    "rootAffix": "friend-(朋友) + -ly(形容词后缀) → 友好的",
+    "explain": "Friendly describes something that is 友爱的；友好."
   },
   {
     "id": "g6_233",
@@ -2650,7 +2882,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "ride.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To ride means to to sit on and control an animal or vehicle."
   },
   {
     "id": "g6_234",
@@ -2662,7 +2895,8 @@
     "difficulty": 6,
     "audio": "around.mp3",
     "unit": 6,
-    "rootAffix": "a(位于) + round(圆，周围) → 在……周围"
+    "rootAffix": "a(位于) + round(圆，周围) → 在……周围",
+    "explain": "Around is a preposition in English."
   },
   {
     "id": "g6_235",
@@ -2674,7 +2908,8 @@
     "difficulty": 6,
     "audio": "vacation.mp3",
     "unit": 6,
-    "rootAffix": "vac-(空) + -ation(名词后缀) → 空闲时间 → 假期"
+    "rootAffix": "vac-(空) + -ation(名词后缀) → 空闲时间 → 假期",
+    "explain": "Vacation is a period of time for rest and travel."
   },
   {
     "id": "g6_236",
@@ -2685,7 +2920,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "trip.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "A trip is （尤指短程往返的）旅行；旅游；出行."
   },
   {
     "id": "g6_237",
@@ -2697,7 +2933,8 @@
     "difficulty": 6,
     "audio": "popular.mp3",
     "unit": 6,
-    "rootAffix": "popul-(民众) + -ar(形容词后缀) → 民众的 → 流行的"
+    "rootAffix": "popul-(民众) + -ar(形容词后缀) → 民众的 → 流行的",
+    "explain": "Popular describes something that is 大众喜爱的；广受欢迎的；当红."
   },
   {
     "id": "g6_238",
@@ -2708,7 +2945,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "tour.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "A tour is 旅行；旅游."
   },
   {
     "id": "g6_239",
@@ -2719,7 +2957,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "tip.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "A tip is 指点；实用的提示."
   },
   {
     "id": "g6_240",
@@ -2731,7 +2970,8 @@
     "difficulty": 6,
     "audio": "footprint.mp3",
     "unit": 6,
-    "rootAffix": "foot-(脚) + print-(印) → 脚印"
+    "rootAffix": "foot-(脚) + print-(印) → 脚印",
+    "explain": "A footprint is 脚印；足迹."
   },
   {
     "id": "g6_241",
@@ -2742,7 +2982,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "hike.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "To hike means to 徒步旅行."
   },
   {
     "id": "g6_242",
@@ -2754,7 +2995,8 @@
     "difficulty": 6,
     "audio": "nature.mp3",
     "unit": 6,
-    "rootAffix": "nat-(出生) + -ure(名词后缀) → 出生的地方 → 大自然"
+    "rootAffix": "nat-(出生) + -ure(名词后缀) → 出生的地方 → 大自然",
+    "explain": "A nature is 大自然."
   },
   {
     "id": "g6_243",
@@ -2766,7 +3008,8 @@
     "difficulty": 6,
     "audio": "enjoy.mp3",
     "unit": 6,
-    "rootAffix": "en-(使,进入) + joy-(高兴) → 使高兴 → 享受"
+    "rootAffix": "en-(使,进入) + joy-(高兴) → 使高兴 → 享受",
+    "explain": "To enjoy means to 享受；欣赏."
   },
   {
     "id": "g6_244",
@@ -2778,7 +3021,8 @@
     "difficulty": 6,
     "audio": "local.mp3",
     "unit": 6,
-    "rootAffix": "loc-(位置,地方) + -al(形容词后缀) → 地方的 → 当地的"
+    "rootAffix": "loc-(位置,地方) + -al(形容词后缀) → 地方的 → 当地的",
+    "explain": "Local describes something that is 当地."
   },
   {
     "id": "g6_245",
@@ -2789,7 +3033,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "lazy.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Lazy describes something that is 懒散的；悠闲."
   },
   {
     "id": "g6_246",
@@ -2800,7 +3045,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "roof.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "A roof is 屋顶；顶部."
   },
   {
     "id": "g6_247",
@@ -2811,7 +3057,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "ski.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "To ski means to to move on snow wearing long flat pieces on your feet."
   },
   {
     "id": "g6_248",
@@ -2823,7 +3070,8 @@
     "difficulty": 6,
     "audio": "reason.mp3",
     "unit": 6,
-    "rootAffix": "reas（=rat，算计、理性思考）+on（=ion，名词后缀）→理性思考这个行为或结果→理由，理性"
+    "rootAffix": "reas（=rat，算计、理性思考）+on（=ion，名词后缀）→理性思考这个行为或结果→理由，理性",
+    "explain": "Reason is a cause or explanation."
   },
   {
     "id": "g6_249",
@@ -2834,7 +3082,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "drive.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "To drive means to 驾驶；开车."
   },
   {
     "id": "g6_250",
@@ -2845,7 +3094,8 @@
     "category": "modal v",
     "difficulty": 6,
     "audio": "shall.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "To shall means to （同I和we连用，表示将来）将要；将会."
   },
   {
     "id": "g6_251",
@@ -2856,7 +3106,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "afraid.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Afraid describes something that is 害怕；畏惧."
   },
   {
     "id": "g6_252",
@@ -2867,7 +3118,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "im_afraid.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "I'm afraid means 我怕；恐怕；很遗憾；对不起."
   },
   {
     "id": "g6_253",
@@ -2879,7 +3131,8 @@
     "difficulty": 6,
     "audio": "expensive.mp3",
     "unit": 6,
-    "rootAffix": "ex-(出来) + pens-(支付) + -ive(形容词后缀) → 需要付出很多 → 昂贵的"
+    "rootAffix": "ex-(出来) + pens-(支付) + -ive(形容词后缀) → 需要付出很多 → 昂贵的",
+    "explain": "Expensive describes something that is 昂贵的；价格高."
   },
   {
     "id": "g6_254",
@@ -2891,7 +3144,8 @@
     "difficulty": 6,
     "audio": "price.mp3",
     "unit": 6,
-    "rootAffix": "pric(=prec-，价值) + e → 价格"
+    "rootAffix": "pric(=prec-，价值) + e → 价格",
+    "explain": "Price is the amount of money something costs."
   },
   {
     "id": "g6_255",
@@ -2903,7 +3157,8 @@
     "difficulty": 6,
     "audio": "ticket.mp3",
     "unit": 6,
-    "rootAffix": "tick（=stick，贴纸，便签条）+ et（指小名词形式）→小纸条"
+    "rootAffix": "tick（=stick，贴纸，便签条）+ et（指小名词形式）→小纸条",
+    "explain": "A ticket is 票；入场券."
   },
   {
     "id": "g6_256",
@@ -2914,7 +3169,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "better.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Better describes something that is （good的比较级）较好的；更好的；adv. （well的比较级）更好."
   },
   {
     "id": "g6_257",
@@ -2926,7 +3182,8 @@
     "difficulty": 6,
     "audio": "convenient.mp3",
     "unit": 6,
-    "rootAffix": "con-(共同) + ven-(来) + -ient(形容词后缀) → 一起来的 → 方便的"
+    "rootAffix": "con-(共同) + ven-(来) + -ient(形容词后缀) → 一起来的 → 方便的",
+    "explain": "Convenient describes something that is 方便的；便利的；省事."
   },
   {
     "id": "g6_258",
@@ -2937,7 +3194,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "speed.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Speed is how fast something moves."
   },
   {
     "id": "g6_259",
@@ -2948,7 +3206,8 @@
     "category": "adj",
     "difficulty": 6,
     "audio": "highspeed.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "High-speed describes something that is 高速."
   },
   {
     "id": "g6_260",
@@ -2960,7 +3219,8 @@
     "difficulty": 6,
     "audio": "comfortable.mp3",
     "unit": 6,
-    "rootAffix": "comfort-(舒适) + -able(形容词后缀,能...的) → 舒适的"
+    "rootAffix": "comfort-(舒适) + -able(形容词后缀,能...的) → 舒适的",
+    "explain": "To comfortable means to 人舒服的；舒适的."
   },
   {
     "id": "g6_261",
@@ -2971,7 +3231,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "view.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "A view is 景色；（尤指）乡间美景；视野；（个人的）看法."
   },
   {
     "id": "g6_262",
@@ -2983,7 +3244,8 @@
     "difficulty": 6,
     "audio": "carry.mp3",
     "unit": 6,
-    "rootAffix": "carri(运载) → 运载"
+    "rootAffix": "carri(运载) → 运载",
+    "explain": "To carry means to to hold and take somewhere."
   },
   {
     "id": "g6_263",
@@ -2994,7 +3256,8 @@
     "category": "n & v",
     "difficulty": 6,
     "audio": "plan.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Plan is a detailed proposal for action."
   },
   {
     "id": "g6_264",
@@ -3005,7 +3268,8 @@
     "category": "adj & pron",
     "difficulty": 6,
     "audio": "own.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Own describes something that is （用于强调）自己的，本人."
   },
   {
     "id": "g6_265",
@@ -3017,7 +3281,8 @@
     "difficulty": 6,
     "audio": "historical.mp3",
     "unit": 6,
-    "rootAffix": "histor-(历史,故事) + -ical(形容词后缀) → 历史的"
+    "rootAffix": "histor-(历史,故事) + -ical(形容词后缀) → 历史的",
+    "explain": "Historical describes something that is （有关）历史."
   },
   {
     "id": "g6_266",
@@ -3028,7 +3293,8 @@
     "category": "det & pron",
     "difficulty": 6,
     "audio": "such.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Such describes something that is 这样的；那样的；类似."
   },
   {
     "id": "g6_267",
@@ -3039,7 +3305,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "such_as.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "such as means 例如；诸如."
   },
   {
     "id": "g6_268",
@@ -3050,7 +3317,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "palace.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "A palace is 宫殿."
   },
   {
     "id": "g6_269",
@@ -3062,7 +3330,8 @@
     "difficulty": 6,
     "audio": "museum.mp3",
     "unit": 6,
-    "rootAffix": "muse-(缪斯,艺术女神) + -um(场所) → 供奉缪斯的场所 → 博物馆"
+    "rootAffix": "muse-(缪斯,艺术女神) + -um(场所) → 供奉缪斯的场所 → 博物馆",
+    "explain": "A museum is 博物馆."
   },
   {
     "id": "g6_270",
@@ -3074,7 +3343,8 @@
     "difficulty": 6,
     "audio": "national.mp3",
     "unit": 6,
-    "rootAffix": "nation-(国家) + -al(形容词后缀) → 国家的;全国的"
+    "rootAffix": "nation-(国家) + -al(形容词后缀) → 国家的;全国的",
+    "explain": "National describes something that is 国家的；全国."
   },
   {
     "id": "g6_271",
@@ -3085,7 +3355,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "forest.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "A forest is 森林；林区."
   },
   {
     "id": "g6_272",
@@ -3097,7 +3368,8 @@
     "difficulty": 6,
     "audio": "mountain.mp3",
     "unit": 6,
-    "rootAffix": "mount（山）+ain（=an，形容词后缀）→山的→（转作名词）山脉"
+    "rootAffix": "mount（山）+ain（=an，形容词后缀）→山的→（转作名词）山脉",
+    "explain": "A mountain is a very high area of land."
   },
   {
     "id": "g6_273",
@@ -3109,7 +3381,8 @@
     "difficulty": 6,
     "audio": "postcard.mp3",
     "unit": 6,
-    "rootAffix": "post-(邮政) + card-(卡片) → 明信片"
+    "rootAffix": "post-(邮政) + card-(卡片) → 明信片",
+    "explain": "A postcard is 明信片."
   },
   {
     "id": "g6_274",
@@ -3121,7 +3394,8 @@
     "difficulty": 6,
     "audio": "volunteer.mp3",
     "unit": 6,
-    "rootAffix": "volunt-(自愿) + -eer(人) → 自愿的人 → 志愿者"
+    "rootAffix": "volunt-(自愿) + -eer(人) → 自愿的人 → 志愿者",
+    "explain": "Volunteer is a person who works without pay."
   },
   {
     "id": "g6_275",
@@ -3133,7 +3407,8 @@
     "difficulty": 6,
     "audio": "opera.mp3",
     "unit": 6,
-    "rootAffix": "oper-(工作) + -a → 工作的成果 → 歌剧"
+    "rootAffix": "oper-(工作) + -a → 工作的成果 → 歌剧",
+    "explain": "An opera is 歌剧."
   },
   {
     "id": "g6_276",
@@ -3145,7 +3420,8 @@
     "difficulty": 6,
     "audio": "myself.mp3",
     "unit": 6,
-    "rootAffix": "my（我的）+self（自己）→我自己"
+    "rootAffix": "my（我的）+self（自己）→我自己",
+    "explain": "Myself is a pronoun in English."
   },
   {
     "id": "g6_277",
@@ -3156,7 +3432,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "enjoy_oneself.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "enjoy oneself means 过得快乐；玩得高兴."
   },
   {
     "id": "g6_278",
@@ -3168,7 +3445,8 @@
     "difficulty": 6,
     "audio": "different.mp3",
     "unit": 1,
-    "rootAffix": "differ（相异）+ent（形容词后缀）→不同的"
+    "rootAffix": "differ（相异）+ent（形容词后缀）→不同的",
+    "explain": "Different describes something that is 不同的；有区别."
   },
   {
     "id": "g6_279",
@@ -3180,7 +3458,8 @@
     "difficulty": 6,
     "audio": "notice.mp3",
     "unit": 1,
-    "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告"
+    "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告",
+    "explain": "To notice means to 注意；通知."
   },
   {
     "id": "g6_280",
@@ -3191,7 +3470,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "slim.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Slim describes something that is 苗条的；纤细."
   },
   {
     "id": "g6_281",
@@ -3202,7 +3482,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "fat.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Fat means having too much body weight."
   },
   {
     "id": "g6_282",
@@ -3213,7 +3494,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "curly.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Curly describes something that is 卷曲."
   },
   {
     "id": "g6_283",
@@ -3224,7 +3506,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "straight.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Straight describes something that is 直."
   },
   {
     "id": "g6_284",
@@ -3235,7 +3518,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "size.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Size is how big or small something is."
   },
   {
     "id": "g6_285",
@@ -3246,7 +3530,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "shape.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Shape is the outer form of something."
   },
   {
     "id": "g6_286",
@@ -3257,7 +3542,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "skin.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A skin is 皮肤."
   },
   {
     "id": "g6_287",
@@ -3269,7 +3555,8 @@
     "difficulty": 6,
     "audio": "personality.mp3",
     "unit": 1,
-    "rootAffix": "personal（个人的）+ity（名词后缀）→个性，人格"
+    "rootAffix": "personal（个人的）+ity（名词后缀）→个性，人格",
+    "explain": "Personality is the qualities that make a person unique."
   },
   {
     "id": "g6_288",
@@ -3281,7 +3568,8 @@
     "difficulty": 6,
     "audio": "cheerful.mp3",
     "unit": 1,
-    "rootAffix": "cheer（愉快）+ful（形容词后缀）→快乐的"
+    "rootAffix": "cheer（愉快）+ful（形容词后缀）→快乐的",
+    "explain": "Cheerful describes something that is 快乐的；开朗."
   },
   {
     "id": "g6_289",
@@ -3292,7 +3580,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "hard-working.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Hard-working describes something that is 勤奋."
   },
   {
     "id": "g6_290",
@@ -3303,7 +3592,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "swan.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A swan is 天鹅."
   },
   {
     "id": "g6_291",
@@ -3315,7 +3605,8 @@
     "difficulty": 6,
     "audio": "partner.mp3",
     "unit": 1,
-    "rootAffix": "part（划分）+n（=ition，动名词后缀）+er（者）→持有股份的人→合伙人→伙伴，配偶"
+    "rootAffix": "part（划分）+n（=ition，动名词后缀）+er（者）→持有股份的人→合伙人→伙伴，配偶",
+    "explain": "A partner is 搭档；同伴."
   },
   {
     "id": "g6_292",
@@ -3326,7 +3617,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "t-shirt.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A t-shirt is a short-sleeved casual top made of cotton."
   },
   {
     "id": "g6_293",
@@ -3337,7 +3629,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "jeans.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A jeans is 牛仔裤."
   },
   {
     "id": "g6_294",
@@ -3348,7 +3641,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "look-like.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To look like means to 看起来像."
   },
   {
     "id": "g6_295",
@@ -3359,7 +3653,8 @@
     "category": "phrase",
     "difficulty": 6,
     "audio": "the-same-as.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "\"the same as\" is an English expression."
   },
   {
     "id": "g6_296",
@@ -3370,7 +3665,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "be-good-at.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To be good at means to 擅长."
   },
   {
     "id": "g6_297",
@@ -3382,7 +3678,8 @@
     "difficulty": 6,
     "audio": "rule.mp3",
     "unit": 2,
-    "rootAffix": "rul（管理，规则）+e→统治，管辖；规则"
+    "rootAffix": "rul（管理，规则）+e→统治，管辖；规则",
+    "explain": "A rule is 规则."
   },
   {
     "id": "g6_298",
@@ -3393,7 +3690,8 @@
     "category": "modal v.",
     "difficulty": 6,
     "audio": "must.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To must means to 必须."
   },
   {
     "id": "g6_299",
@@ -3404,7 +3702,8 @@
     "category": "modal v.",
     "difficulty": 6,
     "audio": "mustn't.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To mustn't means to 禁止；不准."
   },
   {
     "id": "g6_300",
@@ -3415,7 +3714,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "keep.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To keep means to 保持."
   },
   {
     "id": "g6_301",
@@ -3426,7 +3726,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "quiet.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Quiet describes something that is 安静."
   },
   {
     "id": "g6_302",
@@ -3437,7 +3738,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "litter.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To litter means to 乱扔垃圾."
   },
   {
     "id": "g6_303",
@@ -3448,7 +3750,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "smoke.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To smoke means to 吸烟."
   },
   {
     "id": "g6_304",
@@ -3459,7 +3762,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "seat.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A seat is 座位."
   },
   {
     "id": "g6_305",
@@ -3470,7 +3774,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "leave.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To leave means to 离开；留下."
   },
   {
     "id": "g6_306",
@@ -3481,7 +3786,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "rubbish.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A rubbish is 垃圾."
   },
   {
     "id": "g6_307",
@@ -3493,7 +3799,8 @@
     "difficulty": 6,
     "audio": "underground.mp3",
     "unit": 2,
-    "rootAffix": "under（在下面）+ground（地面）→在地下"
+    "rootAffix": "under（在下面）+ground（地面）→在地下",
+    "explain": "Underground means 地铁, describing how something is done."
   },
   {
     "id": "g6_308",
@@ -3505,7 +3812,8 @@
     "difficulty": 6,
     "audio": "station.mp3",
     "unit": 2,
-    "rootAffix": "stat（站立，固定）+ion（名词后缀）→站立不动（之物）→车站"
+    "rootAffix": "stat（站立，固定）+ion（名词后缀）→站立不动（之物）→车站",
+    "explain": "A station is 车站."
   },
   {
     "id": "g6_309",
@@ -3516,7 +3824,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "lean.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "To lean means to 倚靠；倾斜."
   },
   {
     "id": "g6_310",
@@ -3527,7 +3836,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "gap.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A gap is 缺口；间隙."
   },
   {
     "id": "g6_311",
@@ -3538,7 +3848,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "escalator.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "An escalator is 自动扶梯."
   },
   {
     "id": "g6_312",
@@ -3550,7 +3861,8 @@
     "difficulty": 6,
     "audio": "announcement.mp3",
     "unit": 2,
-    "rootAffix": "announce（宣布，播报）+ment（名词后缀）→公告"
+    "rootAffix": "announce（宣布，播报）+ment（名词后缀）→公告",
+    "explain": "An announcement is 公告；通告."
   },
   {
     "id": "g6_313",
@@ -3562,7 +3874,8 @@
     "difficulty": 6,
     "audio": "passenger.mp3",
     "unit": 2,
-    "rootAffix": "passeng（=passage，通路）+er（者）→通路上经过的人→旅客，过路人"
+    "rootAffix": "passeng（=passage，通路）+er（者）→通路上经过的人→旅客，过路人",
+    "explain": "A passenger is 乘客."
   },
   {
     "id": "g6_314",
@@ -3573,7 +3886,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "lift.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A lift is 电梯."
   },
   {
     "id": "g6_315",
@@ -3585,7 +3899,8 @@
     "difficulty": 6,
     "audio": "platform.mp3",
     "unit": 2,
-    "rootAffix": "plat（平的）+form（形态）→平台→月台，站台，讲台"
+    "rootAffix": "plat（平的）+form（形态）→平台→月台，站台，讲台",
+    "explain": "A platform is 站台."
   },
   {
     "id": "g6_316",
@@ -3596,7 +3911,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "keep-quiet.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "keep quiet means 保持安静."
   },
   {
     "id": "g6_317",
@@ -3607,7 +3923,8 @@
     "category": "phrase",
     "difficulty": 6,
     "audio": "no-smoking.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "\"no smoking\" is an English expression."
   },
   {
     "id": "g6_318",
@@ -3618,7 +3935,8 @@
     "category": "phrase",
     "difficulty": 6,
     "audio": "no-littering.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "\"no littering\" is an English expression."
   },
   {
     "id": "g6_319",
@@ -3630,7 +3948,8 @@
     "difficulty": 6,
     "audio": "festival.mp3",
     "unit": 3,
-    "rootAffix": "fest（=feast，喜庆的）+iv（形容词后缀）+al（形容词后缀）→喜庆的（日子）→节日"
+    "rootAffix": "fest（=feast，喜庆的）+iv（形容词后缀）+al（形容词后缀）→喜庆的（日子）→节日",
+    "explain": "A festival is 节日."
   },
   {
     "id": "g6_320",
@@ -3642,7 +3961,8 @@
     "difficulty": 6,
     "audio": "culture.mp3",
     "unit": 3,
-    "rootAffix": "cult（耕作，栽培）+ure（名词后缀）→栽培，培育→文化，修养"
+    "rootAffix": "cult（耕作，栽培）+ure（名词后缀）→栽培，培育→文化，修养",
+    "explain": "Culture is the customs of a group of people."
   },
   {
     "id": "g6_321",
@@ -3654,7 +3974,8 @@
     "difficulty": 6,
     "audio": "traditional.mp3",
     "unit": 3,
-    "rootAffix": "tradition（传统）+al（形容词后缀）→传统的"
+    "rootAffix": "tradition（传统）+al（形容词后缀）→传统的",
+    "explain": "Traditional describes something that is 传统."
   },
   {
     "id": "g6_322",
@@ -3666,7 +3987,8 @@
     "difficulty": 6,
     "audio": "lucky.mp3",
     "unit": 3,
-    "rootAffix": "luck（好运）+y（形容词后缀）→幸运的"
+    "rootAffix": "luck（好运）+y（形容词后缀）→幸运的",
+    "explain": "Lucky describes something that is 幸运."
   },
   {
     "id": "g6_323",
@@ -3677,7 +3999,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "eve.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An eve is 前夜；前夕."
   },
   {
     "id": "g6_324",
@@ -3689,7 +4012,8 @@
     "difficulty": 6,
     "audio": "country.mp3",
     "unit": 3,
-    "rootAffix": "countr（对面的）+y（形容词后缀）→对面的（土地）→农村→国家"
+    "rootAffix": "countr（对面的）+y（形容词后缀）→对面的（土地）→农村→国家",
+    "explain": "Country is a nation with its own government."
   },
   {
     "id": "g6_325",
@@ -3701,7 +4025,8 @@
     "difficulty": 6,
     "audio": "celebrate.mp3",
     "unit": 3,
-    "rootAffix": "celebr（很多人一起致敬）+ate（动词后缀）→庆祝神灵的生日→庆祝"
+    "rootAffix": "celebr（很多人一起致敬）+ate（动词后缀）→庆祝神灵的生日→庆祝",
+    "explain": "To celebrate means to 庆祝."
   },
   {
     "id": "g6_326",
@@ -3713,7 +4038,8 @@
     "difficulty": 6,
     "audio": "invitation.mp3",
     "unit": 3,
-    "rootAffix": "invit(e)（邀请）+at（动词后缀）+ion（名词后缀）→邀请"
+    "rootAffix": "invit(e)（邀请）+at（动词后缀）+ion（名词后缀）→邀请",
+    "explain": "An invitation is 邀请."
   },
   {
     "id": "g6_327",
@@ -3725,7 +4051,8 @@
     "difficulty": 6,
     "audio": "performance.mp3",
     "unit": 3,
-    "rootAffix": "perform（执行）+ance（名词后缀）→执行情况→性能，绩效"
+    "rootAffix": "perform（执行）+ance（名词后缀）→执行情况→性能，绩效",
+    "explain": "A performance is 表演；演出."
   },
   {
     "id": "g6_328",
@@ -3737,7 +4064,8 @@
     "difficulty": 6,
     "audio": "across.mp3",
     "unit": 3,
-    "rootAffix": "a（位于）+cross（交叉）→位于交叉之处→横穿"
+    "rootAffix": "a（位于）+cross（交叉）→位于交叉之处→横穿",
+    "explain": "Across is a preposition in English."
   },
   {
     "id": "g6_329",
@@ -3748,7 +4076,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "luck.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Luck is good things that happen by chance."
   },
   {
     "id": "g6_330",
@@ -3759,7 +4088,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "spring-roll.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "spring roll means 春卷."
   },
   {
     "id": "g6_331",
@@ -3770,7 +4100,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "porridge.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A porridge is 粥."
   },
   {
     "id": "g6_332",
@@ -3781,7 +4112,8 @@
     "category": "v",
     "difficulty": 6,
     "audio": "click.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To click means to 点击."
   },
   {
     "id": "g6_333",
@@ -3793,7 +4125,8 @@
     "difficulty": 6,
     "audio": "wealth.mp3",
     "unit": 3,
-    "rootAffix": "weal（=well，良好的，幸福的）+th（名词后缀，表状态）→福利→财富"
+    "rootAffix": "weal（=well，良好的，幸福的）+th（名词后缀，表状态）→福利→财富",
+    "explain": "A wealth is 钱财；财富."
   },
   {
     "id": "g6_334",
@@ -3805,7 +4138,8 @@
     "difficulty": 6,
     "audio": "prince.mp3",
     "unit": 3,
-    "rootAffix": "prin（=prim，最前面的）+ce（=cap，take，拿）→放在第一位的（人）→元首，第一公民→亲王，王子"
+    "rootAffix": "prin（=prim，最前面的）+ce（=cap，take，拿）→放在第一位的（人）→元首，第一公民→亲王，王子",
+    "explain": "Prince is the son of a king or queen."
   },
   {
     "id": "g6_335",
@@ -3816,7 +4150,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "take-place.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To take place means to 举行；发生."
   },
   {
     "id": "g6_336",
@@ -3827,7 +4162,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "dress-up.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "dress up means 装扮."
   },
   {
     "id": "g6_337",
@@ -3838,7 +4174,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "job.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A job is 工作."
   },
   {
     "id": "g6_338",
@@ -3850,7 +4187,8 @@
     "difficulty": 6,
     "audio": "doctor.mp3",
     "unit": 4,
-    "rootAffix": "doct（教授）+or（者）→（有资格）收徒授课者→博士→医学博士，医生"
+    "rootAffix": "doct（教授）+or（者）→（有资格）收徒授课者→博士→医学博士，医生",
+    "explain": "A doctor is 医生."
   },
   {
     "id": "g6_339",
@@ -3862,7 +4200,8 @@
     "difficulty": 6,
     "audio": "nurse.mp3",
     "unit": 4,
-    "rootAffix": "nurs（=nutr，滋养，哺育）+e→喂奶→照顾，护理，当保姆"
+    "rootAffix": "nurs（=nutr，滋养，哺育）+e→喂奶→照顾，护理，当保姆",
+    "explain": "Nurse is a person who cares for sick people."
   },
   {
     "id": "g6_340",
@@ -3874,7 +4213,8 @@
     "difficulty": 6,
     "audio": "teacher.mp3",
     "unit": 4,
-    "rootAffix": "teach（教）+er（者）→教师"
+    "rootAffix": "teach（教）+er（者）→教师",
+    "explain": "Teacher is a person who teaches students."
   },
   {
     "id": "g6_341",
@@ -3886,7 +4226,8 @@
     "difficulty": 6,
     "audio": "driver.mp3",
     "unit": 4,
-    "rootAffix": "driv(e)（驾驶）+er（者）→驾驶员"
+    "rootAffix": "driv(e)（驾驶）+er（者）→驾驶员",
+    "explain": "Driver is a person who drives a vehicle."
   },
   {
     "id": "g6_342",
@@ -3898,7 +4239,8 @@
     "difficulty": 6,
     "audio": "policeman.mp3",
     "unit": 4,
-    "rootAffix": "police（警方）+man（人）→警察"
+    "rootAffix": "police（警方）+man（人）→警察",
+    "explain": "A policeman is 警察."
   },
   {
     "id": "g6_343",
@@ -3910,7 +4252,8 @@
     "difficulty": 6,
     "audio": "interview.mp3",
     "unit": 4,
-    "rootAffix": "inter（相互）+view（见）→相互见面→接见，采访，面谈"
+    "rootAffix": "inter（相互）+view（见）→相互见面→接见，采访，面谈",
+    "explain": "To interview means to 采访."
   },
   {
     "id": "g6_344",
@@ -3922,7 +4265,8 @@
     "difficulty": 6,
     "audio": "engineer.mp3",
     "unit": 4,
-    "rootAffix": "engine（引擎，精巧器械）+er（者）→设计精巧器械的人→工程师"
+    "rootAffix": "engine（引擎，精巧器械）+er（者）→设计精巧器械的人→工程师",
+    "explain": "Engineer is a person who designs and builds things."
   },
   {
     "id": "g6_345",
@@ -3934,7 +4278,8 @@
     "difficulty": 6,
     "audio": "architect.mp3",
     "unit": 4,
-    "rootAffix": "arch（首领）+i（连接字母）+tec（建造）+t（者）→建筑工人的首领→建筑师"
+    "rootAffix": "arch（首领）+i（连接字母）+tec（建造）+t（者）→建筑工人的首领→建筑师",
+    "explain": "Architect is a person who designs buildings."
   },
   {
     "id": "g6_346",
@@ -3946,7 +4291,8 @@
     "difficulty": 6,
     "audio": "lawyer.mp3",
     "unit": 4,
-    "rootAffix": "law（法律）+y+er（者）→从事法律工作的人→律师，法学家"
+    "rootAffix": "law（法律）+y+er（者）→从事法律工作的人→律师，法学家",
+    "explain": "Lawyer is a person who practices law."
   },
   {
     "id": "g6_347",
@@ -3958,7 +4304,8 @@
     "difficulty": 6,
     "audio": "manager.mp3",
     "unit": 4,
-    "rootAffix": "manag(e)（管理）+er（者）→管理人员，经理"
+    "rootAffix": "manag(e)（管理）+er（者）→管理人员，经理",
+    "explain": "Manager is a person who controls or organizes."
   },
   {
     "id": "g6_348",
@@ -3970,7 +4317,8 @@
     "difficulty": 6,
     "audio": "reporter.mp3",
     "unit": 4,
-    "rootAffix": "report（报告）+er（者）→报告者→记者"
+    "rootAffix": "report（报告）+er（者）→报告者→记者",
+    "explain": "Reporter is a person who writes news stories."
   },
   {
     "id": "g6_349",
@@ -3982,7 +4330,8 @@
     "difficulty": 6,
     "audio": "salary.mp3",
     "unit": 4,
-    "rootAffix": "sal（盐）+ary（形容词和名词后缀）→用来买盐的（钱）→工资"
+    "rootAffix": "sal（盐）+ary（形容词和名词后缀）→用来买盐的（钱）→工资",
+    "explain": "Salary is money earned for work."
   },
   {
     "id": "g6_350",
@@ -3994,7 +4343,8 @@
     "difficulty": 6,
     "audio": "dentist.mp3",
     "unit": 4,
-    "rootAffix": "dent（牙齿）+ist（专业人士）→牙科医生"
+    "rootAffix": "dent（牙齿）+ist（专业人士）→牙科医生",
+    "explain": "Dentist is a person who treats teeth."
   },
   {
     "id": "g6_351",
@@ -4005,7 +4355,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "pilot.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Pilot is a person who flies an airplane."
   },
   {
     "id": "g6_352",
@@ -4017,7 +4368,8 @@
     "difficulty": 6,
     "audio": "fireman.mp3",
     "unit": 4,
-    "rootAffix": "fire（火）+man（人）→灭火的人→消防队员"
+    "rootAffix": "fire（火）+man（人）→灭火的人→消防队员",
+    "explain": "A fireman is 消防员."
   },
   {
     "id": "g6_353",
@@ -4029,7 +4381,8 @@
     "difficulty": 6,
     "audio": "postman.mp3",
     "unit": 4,
-    "rootAffix": "post（邮递）+man（人）→邮递员"
+    "rootAffix": "post（邮递）+man（人）→邮递员",
+    "explain": "A postman is 邮递员."
   },
   {
     "id": "g6_354",
@@ -4040,7 +4393,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "shop-assistant.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "shop assistant means 店员."
   },
   {
     "id": "g6_355",
@@ -4051,7 +4405,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "put-out-fires.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To put out fires means to 灭火."
   },
   {
     "id": "g6_356",
@@ -4062,7 +4417,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "make-sick-people-better.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To make sick people better means to 治愈病人."
   },
   {
     "id": "g6_357",
@@ -4073,7 +4429,8 @@
     "category": "modal v.",
     "difficulty": 6,
     "audio": "would-like-to.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "would like to means 想要."
   },
   {
     "id": "g6_358",
@@ -4084,7 +4441,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "find-out.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To find out means to 查明."
   },
   {
     "id": "g6_359",
@@ -4095,7 +4453,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "france.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A France is 法国."
   },
   {
     "id": "g6_360",
@@ -4106,7 +4465,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "japan.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A Japan is 日本."
   },
   {
     "id": "g6_361",
@@ -4117,7 +4477,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "thailand.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A Thailand is 泰国."
   },
   {
     "id": "g6_362",
@@ -4129,7 +4490,8 @@
     "difficulty": 6,
     "audio": "famous.mp3",
     "unit": 5,
-    "rootAffix": "fam（评论）+ous（形容词后缀）→有很多人评论的→著名的"
+    "rootAffix": "fam（评论）+ous（形容词后缀）→有很多人评论的→著名的",
+    "explain": "Famous describes something that is 著名."
   },
   {
     "id": "g6_363",
@@ -4141,7 +4503,8 @@
     "difficulty": 6,
     "audio": "prefer.mp3",
     "unit": 5,
-    "rootAffix": "pre（前面）+fer（携带）→带到前面去，使其更靠前→更喜欢"
+    "rootAffix": "pre（前面）+fer（携带）→带到前面去，使其更靠前→更喜欢",
+    "explain": "To prefer means to 更喜欢."
   },
   {
     "id": "g6_364",
@@ -4153,7 +4516,8 @@
     "difficulty": 6,
     "audio": "sightseeing.mp3",
     "unit": 5,
-    "rootAffix": "sight（景色）+see（观看）+ing（现在分词形式）→观光"
+    "rootAffix": "sight（景色）+see（观看）+ing（现在分词形式）→观光",
+    "explain": "A sightseeing is 观光."
   },
   {
     "id": "g6_365",
@@ -4165,7 +4529,8 @@
     "difficulty": 6,
     "audio": "excellent.mp3",
     "unit": 5,
-    "rootAffix": "ex（出来）+cell（掩盖）+ent（形容词后缀）→脱颖而出的→杰出的，卓越的"
+    "rootAffix": "ex（出来）+cell（掩盖）+ent（形容词后缀）→脱颖而出的→杰出的，卓越的",
+    "explain": "Excellent describes something that is 极好."
   },
   {
     "id": "g6_366",
@@ -4176,7 +4541,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "flag.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A flag is 国旗；旗帜."
   },
   {
     "id": "g6_367",
@@ -4188,7 +4554,8 @@
     "difficulty": 6,
     "audio": "capital.mp3",
     "unit": 5,
-    "rootAffix": "capit（头）+al（形容词后缀）→头的→首都的，重要的，大写→首都，资产，大写字母"
+    "rootAffix": "capit（头）+al（形容词后缀）→头的→首都的，重要的，大写→首都，资产，大写字母",
+    "explain": "A capital is 首都."
   },
   {
     "id": "g6_368",
@@ -4199,7 +4566,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "italy.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "An Italy is 意大利."
   },
   {
     "id": "g6_369",
@@ -4210,7 +4578,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "germany.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "A Germany is 德国."
   },
   {
     "id": "g6_370",
@@ -4221,7 +4590,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "landmark.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "Landmark means 地标, describing how something is done."
   },
   {
     "id": "g6_371",
@@ -4233,7 +4603,8 @@
     "difficulty": 6,
     "audio": "local.mp3",
     "unit": 5,
-    "rootAffix": "loc（地方）+al（形容词后缀）→地方性的→本地的，局部的"
+    "rootAffix": "loc（地方）+al（形容词后缀）→地方性的→本地的，局部的",
+    "explain": "Local describes something that is 当地."
   },
   {
     "id": "g6_372",
@@ -4244,7 +4615,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "travel-guide.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "travel guide means 旅行手册."
   },
   {
     "id": "g6_373",
@@ -4255,7 +4627,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "places-of-interest.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "places of interest means 名胜古迹."
   },
   {
     "id": "g6_374",
@@ -4266,7 +4639,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "be-famous-for.mp3",
-    "unit": 5
+    "unit": 5,
+    "explain": "To be famous for means to 因……而闻名."
   },
   {
     "id": "g6_375",
@@ -4278,7 +4652,8 @@
     "difficulty": 6,
     "audio": "famous.mp3",
     "unit": 6,
-    "rootAffix": "fam（评论）+ous（形容词后缀）→有很多人评论的→著名的"
+    "rootAffix": "fam（评论）+ous（形容词后缀）→有很多人评论的→著名的",
+    "explain": "Famous describes something that is 著名."
   },
   {
     "id": "g6_376",
@@ -4289,7 +4664,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "history.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "History is the study of past events."
   },
   {
     "id": "g6_377",
@@ -4301,7 +4677,8 @@
     "difficulty": 6,
     "audio": "inventor.mp3",
     "unit": 6,
-    "rootAffix": "invent（发明）+or（者）→发明家"
+    "rootAffix": "invent（发明）+or（者）→发明家",
+    "explain": "Inventor is a person who creates new things."
   },
   {
     "id": "g6_378",
@@ -4313,7 +4690,8 @@
     "difficulty": 6,
     "audio": "invent.mp3",
     "unit": 6,
-    "rootAffix": "in（on，upon，触及）+vent（到来）→偶然遇到→发现，找到→发明，创造"
+    "rootAffix": "in（on，upon，触及）+vent（到来）→偶然遇到→发现，找到→发明，创造",
+    "explain": "To invent means to 发明."
   },
   {
     "id": "g6_379",
@@ -4324,7 +4702,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "real.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Real describes something that is 真正."
   },
   {
     "id": "g6_380",
@@ -4335,7 +4714,8 @@
     "category": "adj.",
     "difficulty": 6,
     "audio": "smart.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Smart describes something that is 聪明的；机敏."
   },
   {
     "id": "g6_381",
@@ -4346,7 +4726,8 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "hero.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Hero is a person admired for bravery."
   },
   {
     "id": "g6_382",
@@ -4358,7 +4739,8 @@
     "difficulty": 6,
     "audio": "painter.mp3",
     "unit": 6,
-    "rootAffix": "paint（油漆，绘画）+er→画家，油漆匠"
+    "rootAffix": "paint（油漆，绘画）+er→画家，油漆匠",
+    "explain": "Painter is a person who paints pictures."
   },
   {
     "id": "g6_383",
@@ -4370,7 +4752,8 @@
     "difficulty": 6,
     "audio": "scientist.mp3",
     "unit": 6,
-    "rootAffix": "scienti（=science，科学）+(i)st（专业人士）→从事科学研究的专业人士→科学家"
+    "rootAffix": "scienti（=science，科学）+(i)st（专业人士）→从事科学研究的专业人士→科学家",
+    "explain": "Scientist is a person who studies science."
   },
   {
     "id": "g6_384",
@@ -4382,7 +4765,8 @@
     "difficulty": 6,
     "audio": "musician.mp3",
     "unit": 6,
-    "rootAffix": "music（音乐）+i+an（形容词后缀）→以音乐为职业的（人）→音乐家"
+    "rootAffix": "music（音乐）+i+an（形容词后缀）→以音乐为职业的（人）→音乐家",
+    "explain": "A musician is 音乐家."
   },
   {
     "id": "g6_385",
@@ -4393,7 +4777,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "writer.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Writer is a person who writes books."
   },
   {
     "id": "g6_386",
@@ -4405,7 +4790,8 @@
     "difficulty": 6,
     "audio": "president.mp3",
     "unit": 6,
-    "rootAffix": "pre（在前面）+sid（坐）+ent（形容词后缀）→坐在前面的（人）→总统，董事长，校长，主席"
+    "rootAffix": "pre（在前面）+sid（坐）+ent（形容词后缀）→坐在前面的（人）→总统，董事长，校长，主席",
+    "explain": "President is the leader of a country."
   },
   {
     "id": "g6_387",
@@ -4416,7 +4802,8 @@
     "category": "n",
     "difficulty": 6,
     "audio": "explorer.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "Explorer is a person who travels to new places."
   },
   {
     "id": "g6_388",
@@ -4427,7 +4814,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "be-born.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "To be born means to 出生."
   },
   {
     "id": "g6_389",
@@ -4438,7 +4826,8 @@
     "category": "v.",
     "difficulty": 6,
     "audio": "come-from.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "To come from means to 来自."
   },
   {
     "id": "g6_390",
@@ -4449,6 +4838,7 @@
     "category": "n.",
     "difficulty": 6,
     "audio": "all-over-the-world.mp3",
-    "unit": 6
+    "unit": 6,
+    "explain": "all over the world means 全世界."
   }
 ]

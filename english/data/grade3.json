@@ -8,7 +8,8 @@
     "category": "职业",
     "difficulty": 3,
     "audio": "miss.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A miss is a title used before a girl's or unmarried woman's name."
   },
   {
     "id": "g3_002",
@@ -19,7 +20,8 @@
     "category": "职业",
     "difficulty": 3,
     "audio": "mr.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A mr is a title used before a man's name."
   },
   {
     "id": "g3_003",
@@ -30,7 +32,8 @@
     "category": "职业",
     "difficulty": 3,
     "audio": "mrs.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A mrs is a title used before a married woman's name."
   },
   {
     "id": "g3_004",
@@ -42,7 +45,8 @@
     "difficulty": 3,
     "audio": "one.mp3",
     "unit": 1,
-    "rootAffix": "on（一）+e→一，一的，唯一的"
+    "rootAffix": "on（一）+e→一，一的，唯一的",
+    "explain": "An one is the number 1."
   },
   {
     "id": "g3_005",
@@ -53,7 +57,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "two.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A two is the number 2."
   },
   {
     "id": "g3_006",
@@ -64,7 +69,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "three.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A three is the number 3."
   },
   {
     "id": "g3_007",
@@ -75,7 +81,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "four.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A four is the number 4."
   },
   {
     "id": "g3_008",
@@ -86,7 +93,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "five.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A five is the number 5."
   },
   {
     "id": "g3_009",
@@ -97,7 +105,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "six.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A six is the number 6."
   },
   {
     "id": "g3_010",
@@ -108,7 +117,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "seven.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A seven is the number 7."
   },
   {
     "id": "g3_011",
@@ -119,7 +129,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "eight.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "An eight is the number 8."
   },
   {
     "id": "g3_012",
@@ -130,7 +141,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "nine.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A nine is the number 9."
   },
   {
     "id": "g3_013",
@@ -141,7 +153,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "ten.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A ten is the number 10."
   },
   {
     "id": "g3_014",
@@ -152,7 +165,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "fat.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Fat means having too much body weight."
   },
   {
     "id": "g3_015",
@@ -163,7 +177,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "thin.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Thin means having very little body weight."
   },
   {
     "id": "g3_016",
@@ -174,7 +189,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "tall.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A tall is having great height."
   },
   {
     "id": "g3_017",
@@ -185,7 +201,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "short.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A short is measuring a small distance."
   },
   {
     "id": "g3_018",
@@ -196,7 +213,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "boy.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A boy is a male child."
   },
   {
     "id": "g3_019",
@@ -207,7 +225,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "girl.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A girl is a female child."
   },
   {
     "id": "g3_020",
@@ -219,7 +238,8 @@
     "difficulty": 3,
     "audio": "grandfather.mp3",
     "unit": 2,
-    "rootAffix": "grand（隔代的）+father（父亲）→祖父，外祖父"
+    "rootAffix": "grand（隔代的）+father（父亲）→祖父，外祖父",
+    "explain": "A grandfather is the father of your father or mother."
   },
   {
     "id": "g3_021",
@@ -231,7 +251,8 @@
     "difficulty": 3,
     "audio": "grandmother.mp3",
     "unit": 2,
-    "rootAffix": "grand（隔代的）+mother（母亲）→祖母，外祖母"
+    "rootAffix": "grand（隔代的）+mother（母亲）→祖母，外祖母",
+    "explain": "A grandmother is the mother of your father or mother."
   },
   {
     "id": "g3_022",
@@ -242,7 +263,8 @@
     "category": "家庭",
     "difficulty": 3,
     "audio": "father.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A father is a male parent."
   },
   {
     "id": "g3_023",
@@ -253,7 +275,8 @@
     "category": "家庭",
     "difficulty": 3,
     "audio": "mother.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A mother is a female parent."
   },
   {
     "id": "g3_024",
@@ -264,7 +287,8 @@
     "category": "家庭",
     "difficulty": 3,
     "audio": "brother.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A brother is a boy with the same parents as you."
   },
   {
     "id": "g3_025",
@@ -275,7 +299,8 @@
     "category": "家庭",
     "difficulty": 3,
     "audio": "sister.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A sister is a girl with the same parents as you."
   },
   {
     "id": "g3_026",
@@ -286,7 +311,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "me.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A me is the person who is speaking (the first person pronoun)."
   },
   {
     "id": "g3_027",
@@ -297,7 +323,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "eye.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "An eye is an organ used for seeing."
   },
   {
     "id": "g3_028",
@@ -308,7 +335,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "hair.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A hair is the thin threads that grow on your head and body."
   },
   {
     "id": "g3_029",
@@ -319,7 +347,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "nose.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A nose is the part of the face for smelling and breathing."
   },
   {
     "id": "g3_030",
@@ -330,7 +359,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "ear.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "An ear is an organ used for hearing."
   },
   {
     "id": "g3_031",
@@ -341,7 +371,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "mouth.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A mouth is the opening in the face for eating and speaking."
   },
   {
     "id": "g3_032",
@@ -352,7 +383,8 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "school.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A school is a place where students go to learn."
   },
   {
     "id": "g3_033",
@@ -364,7 +396,8 @@
     "difficulty": 3,
     "audio": "library.mp3",
     "unit": 3,
-    "rootAffix": "libr（图书）+ary（名词后缀）→存放图书的（场所）→图书馆"
+    "rootAffix": "libr（图书）+ary（名词后缀）→存放图书的（场所）→图书馆",
+    "explain": "A library is a building where books are kept."
   },
   {
     "id": "g3_034",
@@ -376,7 +409,8 @@
     "difficulty": 3,
     "audio": "toilet.mp3",
     "unit": 3,
-    "rootAffix": "toil（一种薄麻布）+et（指小名词形式）→一小块薄麻布→铺有薄麻布的梳妆台→梳妆室→厕所"
+    "rootAffix": "toil（一种薄麻布）+et（指小名词形式）→一小块薄麻布→铺有薄麻布的梳妆台→梳妆室→厕所",
+    "explain": "A toilet is a bowl for sitting on when you go to the bathroom."
   },
   {
     "id": "g3_035",
@@ -387,7 +421,8 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "hall.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A hall is a large room or building for meetings or events."
   },
   {
     "id": "g3_036",
@@ -399,7 +434,8 @@
     "difficulty": 3,
     "audio": "playground.mp3",
     "unit": 3,
-    "rootAffix": "play（游戏）+ground（地面）→运动场"
+    "rootAffix": "play（游戏）+ground（地面）→运动场",
+    "explain": "A playground is an outdoor area for children to play."
   },
   {
     "id": "g3_037",
@@ -411,7 +447,8 @@
     "difficulty": 3,
     "audio": "classroom.mp3",
     "unit": 3,
-    "rootAffix": "class（班级）+room（房间）→班级的房间→教室"
+    "rootAffix": "class（班级）+room（房间）→班级的房间→教室",
+    "explain": "A classroom is a room where students have lessons."
   },
   {
     "id": "g3_038",
@@ -422,7 +459,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "an_apple.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An apple is a round fruit with red, yellow, or green skin."
   },
   {
     "id": "g3_039",
@@ -433,7 +471,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "an_orange.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An orange is a round citrus fruit with thick orange skin."
   },
   {
     "id": "g3_040",
@@ -444,7 +483,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "a_banana.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A banana is a long curved fruit with yellow skin."
   },
   {
     "id": "g3_041",
@@ -455,7 +495,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "a_peach.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A peach is a soft round fruit with sweet yellow or red flesh."
   },
   {
     "id": "g3_042",
@@ -466,7 +507,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "apples.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "apples are plural of apple."
   },
   {
     "id": "g3_043",
@@ -477,7 +519,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "oranges.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "oranges are plural of orange."
   },
   {
     "id": "g3_044",
@@ -488,7 +531,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "bananas.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "bananas are plural of banana."
   },
   {
     "id": "g3_045",
@@ -499,7 +543,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "peaches.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "peaches are plural of peach."
   },
   {
     "id": "g3_046",
@@ -510,7 +555,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "boat.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A boat is a small vehicle for traveling on water."
   },
   {
     "id": "g3_047",
@@ -522,7 +568,8 @@
     "difficulty": 3,
     "audio": "balloon.mp3",
     "unit": 4,
-    "rootAffix": "ball（球）+oon（指大名词后缀）→大球→热气球→气球"
+    "rootAffix": "ball（球）+oon（指大名词后缀）→大球→热气球→气球",
+    "explain": "A balloon is a thin rubber bag that you fill with air or gas."
   },
   {
     "id": "g3_048",
@@ -533,7 +580,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "flower.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A flower is the colorful part of a plant."
   },
   {
     "id": "g3_049",
@@ -544,7 +592,8 @@
     "category": "玩具",
     "difficulty": 3,
     "audio": "kite.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A kite is a toy made of light material flown in the wind at the end of a string."
   },
   {
     "id": "g3_050",
@@ -555,7 +604,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "ladybird.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A ladybird is a small red insect with black spots."
   },
   {
     "id": "g3_051",
@@ -566,7 +616,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "bee.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A bee is a black and yellow flying insect that makes honey."
   },
   {
     "id": "g3_052",
@@ -578,7 +629,8 @@
     "difficulty": 3,
     "audio": "butterfly.mp3",
     "unit": 4,
-    "rootAffix": "butter（黄油）+fly（飞虫）→喜欢偷吃黄油的飞虫→蝴蝶"
+    "rootAffix": "butter（黄油）+fly（飞虫）→喜欢偷吃黄油的飞虫→蝴蝶",
+    "explain": "A butterfly is a flying insect with large colorful wings."
   },
   {
     "id": "g3_053",
@@ -589,7 +641,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "ant.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "An ant is a small insect that lives in large groups."
   },
   {
     "id": "g3_054",
@@ -600,7 +653,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "chick.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A chick is a young bird, especially a young chicken."
   },
   {
     "id": "g3_055",
@@ -611,7 +665,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "hen.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A hen is a female chicken."
   },
   {
     "id": "g3_056",
@@ -622,7 +677,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "duck.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A duck is a water bird with a flat bill."
   },
   {
     "id": "g3_057",
@@ -633,7 +689,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "pig.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A pig is a pink farm animal."
   },
   {
     "id": "g3_058",
@@ -644,7 +701,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "dog.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A dog is a common pet animal."
   },
   {
     "id": "g3_059",
@@ -655,7 +713,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "cat.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A cat is a small furry pet animal."
   },
   {
     "id": "g3_060",
@@ -666,7 +725,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "leaves.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "leaves are the flat green parts of a plant or tree."
   },
   {
     "id": "g3_061",
@@ -677,7 +737,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "branch.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A branch is a part of a tree that grows out from the trunk."
   },
   {
     "id": "g3_062",
@@ -688,7 +749,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "trunk.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A trunk is the thick main stem of a tree."
   },
   {
     "id": "g3_063",
@@ -699,7 +761,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "roots.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "roots are the part of a plant that grows underground."
   },
   {
     "id": "g3_064",
@@ -711,7 +774,8 @@
     "difficulty": 3,
     "audio": "aeroplane.mp3",
     "unit": 1,
-    "rootAffix": "aer（空气）+o+plan（平面，滑翔）+e→在空中滑翔之物→飞机"
+    "rootAffix": "aer（空气）+o+plan（平面，滑翔）+e→在空中滑翔之物→飞机",
+    "explain": "To aeroplane means to a vehicle that flies in the air with wings and engines."
   },
   {
     "id": "g3_065",
@@ -722,7 +786,8 @@
     "category": "交通",
     "difficulty": 3,
     "audio": "bus.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A bus is a large vehicle carrying passengers."
   },
   {
     "id": "g3_066",
@@ -733,7 +798,8 @@
     "category": "交通",
     "difficulty": 3,
     "audio": "ship.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A ship is a large boat that travels on the sea."
   },
   {
     "id": "g3_067",
@@ -744,7 +810,8 @@
     "category": "交通",
     "difficulty": 3,
     "audio": "car.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A car is a road vehicle with four wheels."
   },
   {
     "id": "g3_068",
@@ -756,7 +823,8 @@
     "difficulty": 3,
     "audio": "pineapple.mp3",
     "unit": 1,
-    "rootAffix": "pine（松果）+apple（水果）→像松果一样的水果→菠萝"
+    "rootAffix": "pine（松果）+apple（水果）→像松果一样的水果→菠萝",
+    "explain": "A pineapple is a large tropical fruit with sweet yellow flesh."
   },
   {
     "id": "g3_069",
@@ -767,7 +835,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "cake.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A cake is a sweet baked food."
   },
   {
     "id": "g3_070",
@@ -778,7 +847,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "bread.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A bread is a food made from flour and baked."
   },
   {
     "id": "g3_071",
@@ -790,7 +860,8 @@
     "difficulty": 3,
     "audio": "glass.mp3",
     "unit": 1,
-    "rootAffix": "gl（闪亮）+ass→亮闪闪的东西→玻璃"
+    "rootAffix": "gl（闪亮）+ass→亮闪闪的东西→玻璃",
+    "explain": "glass are a transparent material used for windows and drinking vessels."
   },
   {
     "id": "g3_072",
@@ -801,7 +872,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "sweet.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A sweet is a small piece of candy or chocolate."
   },
   {
     "id": "g3_073",
@@ -812,7 +884,8 @@
     "category": "食物",
     "difficulty": 3,
     "audio": "lemon.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A lemon is a yellow citrus fruit with a sour taste."
   },
   {
     "id": "g3_074",
@@ -823,7 +896,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "sour.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Sour means having a sharp taste like a lemon."
   },
   {
     "id": "g3_075",
@@ -834,7 +908,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "salt.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A salt is a white substance used to flavor food."
   },
   {
     "id": "g3_076",
@@ -846,7 +921,8 @@
     "difficulty": 3,
     "audio": "salty.mp3",
     "unit": 1,
-    "rootAffix": "salt（盐）+y（形容词后缀）→含盐的→咸的"
+    "rootAffix": "salt（盐）+y（形容词后缀）→含盐的→咸的",
+    "explain": "Salty means containing or tasting of salt."
   },
   {
     "id": "g3_077",
@@ -857,7 +933,8 @@
     "category": "饮料",
     "difficulty": 3,
     "audio": "coffee.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A coffee is a hot drink made from roasted coffee beans."
   },
   {
     "id": "g3_078",
@@ -868,7 +945,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "bitter.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "Bitter means having a sharp unpleasant taste."
   },
   {
     "id": "g3_079",
@@ -879,7 +957,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "tiger.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A tiger is a large wild cat with stripes."
   },
   {
     "id": "g3_080",
@@ -890,7 +969,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "lion.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A lion is a large wild cat with a mane."
   },
   {
     "id": "g3_081",
@@ -901,7 +981,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "panda.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A panda is a large black and white animal from China that looks like a bear."
   },
   {
     "id": "g3_082",
@@ -912,7 +993,8 @@
     "category": "动物",
     "difficulty": 3,
     "audio": "monkey.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A monkey is an animal that climbs trees."
   },
   {
     "id": "g3_083",
@@ -923,7 +1005,8 @@
     "category": "动作",
     "difficulty": 3,
     "audio": "toy_train.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A toy train is a small train used as a toy for children."
   },
   {
     "id": "g3_084",
@@ -934,7 +1017,8 @@
     "category": "玩具",
     "difficulty": 3,
     "audio": "doll.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A doll is a toy that looks like a small person or baby."
   },
   {
     "id": "g3_085",
@@ -946,7 +1030,8 @@
     "difficulty": 3,
     "audio": "skateboard.mp3",
     "unit": 2,
-    "rootAffix": "skate（滑冰）+board（木板）→滑板"
+    "rootAffix": "skate（滑冰）+board（木板）→滑板",
+    "explain": "A skateboard is a short board with wheels for riding on."
   },
   {
     "id": "g3_086",
@@ -957,7 +1042,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "robot.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A robot is a machine that can do work automatically."
   },
   {
     "id": "g3_087",
@@ -968,7 +1054,8 @@
     "category": "服装",
     "difficulty": 3,
     "audio": "hat.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A hat is a covering for the head."
   },
   {
     "id": "g3_088",
@@ -979,7 +1066,8 @@
     "category": "服装",
     "difficulty": 3,
     "audio": "scarf.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A scarf is a piece of cloth worn around the neck for warmth."
   },
   {
     "id": "g3_089",
@@ -991,7 +1079,8 @@
     "difficulty": 3,
     "audio": "jacket.mp3",
     "unit": 2,
-    "rootAffix": "jack（古代一种束腰外衣）+et（指小名词后缀）→较短的外衣→夹克，短上衣"
+    "rootAffix": "jack（古代一种束腰外衣）+et（指小名词后缀）→较短的外衣→夹克，短上衣",
+    "explain": "A jacket is a short coat for the upper body."
   },
   {
     "id": "g3_090",
@@ -1002,7 +1091,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "a_pair_of_gloves.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "a pair of gloves are two matching gloves for both hands."
   },
   {
     "id": "g3_091",
@@ -1013,7 +1103,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "a_pair_of_socks.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "a pair of socks are two matching socks for both feet."
   },
   {
     "id": "g3_092",
@@ -1024,7 +1115,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "a_pair_of_shoes.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "a pair of shoes are two matching shoes for both feet."
   },
   {
     "id": "g3_093",
@@ -1036,7 +1128,8 @@
     "difficulty": 3,
     "audio": "circle.mp3",
     "unit": 3,
-    "rootAffix": "circ（圆圈）+le（=ule，指小名词后缀）→小圆圈→圆圈，循环"
+    "rootAffix": "circ（圆圈）+le（=ule，指小名词后缀）→小圆圈→圆圈，循环",
+    "explain": "A circle is a perfectly round shape."
   },
   {
     "id": "g3_094",
@@ -1048,7 +1141,8 @@
     "difficulty": 3,
     "audio": "square.mp3",
     "unit": 3,
-    "rootAffix": "s（=ex，出来）+quar（四）+e→使变成四方的→四方的→正方形"
+    "rootAffix": "s（=ex，出来）+quar（四）+e→使变成四方的→四方的→正方形",
+    "explain": "A square is a shape with four equal sides and four right angles."
   },
   {
     "id": "g3_095",
@@ -1060,7 +1154,8 @@
     "difficulty": 3,
     "audio": "triangle.mp3",
     "unit": 3,
-    "rootAffix": "tri（三）+angle（角）→三角"
+    "rootAffix": "tri（三）+angle（角）→三角",
+    "explain": "A triangle is a shape with three sides and three angles."
   },
   {
     "id": "g3_096",
@@ -1071,7 +1166,8 @@
     "category": "数字",
     "difficulty": 3,
     "audio": "star.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A star is a bright point of light in the sky."
   },
   {
     "id": "g3_097",
@@ -1083,7 +1179,8 @@
     "difficulty": 3,
     "audio": "rectangle.mp3",
     "unit": 3,
-    "rootAffix": "rect（直的）+angle（角）→直角形状→矩形"
+    "rootAffix": "rect（直的）+angle（角）→直角形状→矩形",
+    "explain": "A rectangle is a shape with four sides and four right angles."
   },
   {
     "id": "g3_098",
@@ -1094,7 +1191,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "sky.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A sky is the area above the earth."
   },
   {
     "id": "g3_099",
@@ -1105,7 +1203,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "sea.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A sea is a large area of salt water."
   },
   {
     "id": "g3_100",
@@ -1117,7 +1216,8 @@
     "difficulty": 3,
     "audio": "mountain.mp3",
     "unit": 3,
-    "rootAffix": "mount（山）+ain（=an，形容词后缀）→山的→（转作名词）山脉"
+    "rootAffix": "mount（山）+ain（=an，形容词后缀）→山的→（转作名词）山脉",
+    "explain": "A mountain is a very high area of land."
   },
   {
     "id": "g3_101",
@@ -1129,7 +1229,8 @@
     "difficulty": 3,
     "audio": "river.mp3",
     "unit": 3,
-    "rootAffix": "riv（河岸）+er（=ery，名词后缀）→河流"
+    "rootAffix": "riv（河岸）+er（=ery，名词后缀）→河流",
+    "explain": "A river is a long natural stream of water."
   },
   {
     "id": "g3_102",
@@ -1140,7 +1241,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "plant.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A plant is a living thing that grows in the ground and has leaves and roots."
   },
   {
     "id": "g3_103",
@@ -1151,7 +1253,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "picnic.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A picnic is a meal eaten outdoors."
   },
   {
     "id": "g3_104",
@@ -1162,7 +1265,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "ice-skate.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To ice-skate means to to move on ice wearing special boots with blades."
   },
   {
     "id": "g3_105",
@@ -1173,7 +1277,8 @@
     "category": "其他",
     "difficulty": 3,
     "audio": "ski.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "To ski means to to move on snow wearing long flat pieces on your feet."
   },
   {
     "id": "g3_106",
@@ -1184,7 +1289,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "head.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A head is the top part of the body with the brain and face."
   },
   {
     "id": "g3_107",
@@ -1195,7 +1301,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "body.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A body is the physical structure of a person."
   },
   {
     "id": "g3_108",
@@ -1206,7 +1313,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "finger.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A finger is one of the five parts at the end of your hand."
   },
   {
     "id": "g3_109",
@@ -1217,7 +1325,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "knee.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A knee is the joint in the middle of your leg."
   },
   {
     "id": "g3_110",
@@ -1228,7 +1337,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "foot.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A foot is the part at the end of the leg for standing."
   },
   {
     "id": "g3_111",
@@ -1239,7 +1349,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "shoulder.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A shoulder is the part of your body between your neck and arm."
   },
   {
     "id": "g3_112",
@@ -1250,7 +1361,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "arm.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "An arm is the body part from shoulder to hand."
   },
   {
     "id": "g3_113",
@@ -1261,7 +1373,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "hand.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A hand is the part at the end of the arm with fingers."
   },
   {
     "id": "g3_114",
@@ -1272,7 +1385,8 @@
     "category": "身体部位",
     "difficulty": 3,
     "audio": "leg.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A leg is the body part used for walking."
   },
   {
     "id": "g3_115",
@@ -1283,7 +1397,8 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "park.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A park is a public area of grass and trees."
   },
   {
     "id": "g3_116",
@@ -1294,7 +1409,8 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "cinema.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A cinema is a place where you go to watch films."
   },
   {
     "id": "g3_117",
@@ -1305,6 +1421,7 @@
     "category": "地点",
     "difficulty": 3,
     "audio": "zoo.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A zoo is a place where wild animals are kept for people to see."
   }
 ]

@@ -8,7 +8,8 @@
     "category": "时间",
     "difficulty": 1,
     "audio": "morning.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A morning is the early part of the day before noon."
   },
   {
     "id": "g1_002",
@@ -20,7 +21,8 @@
     "difficulty": 1,
     "audio": "afternoon.mp3",
     "unit": 1,
-    "rootAffix": "after（在……后面）+noon（正午）→午后"
+    "rootAffix": "after（在……后面）+noon（正午）→午后",
+    "explain": "An afternoon is the time between noon and evening."
   },
   {
     "id": "g1_003",
@@ -31,7 +33,8 @@
     "category": "学习用品",
     "difficulty": 1,
     "audio": "book.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A book is a set of printed pages bound together for reading."
   },
   {
     "id": "g1_004",
@@ -43,7 +46,8 @@
     "difficulty": 1,
     "audio": "ruler.mp3",
     "unit": 1,
-    "rootAffix": "rul（统治，使走直线）+er（者）→统治者，尺"
+    "rootAffix": "rul（统治，使走直线）+er（者）→统治者，尺",
+    "explain": "A ruler is a straight tool for measuring or drawing lines."
   },
   {
     "id": "g1_005",
@@ -54,7 +58,8 @@
     "category": "学习用品",
     "difficulty": 1,
     "audio": "pencil.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A pencil is a writing tool with a graphite core."
   },
   {
     "id": "g1_006",
@@ -66,7 +71,8 @@
     "difficulty": 1,
     "audio": "rubber.mp3",
     "unit": 1,
-    "rootAffix": "rubb（=rub，摩擦）+er（者）→用于擦除之物→橡皮"
+    "rootAffix": "rubb（=rub，摩擦）+er（者）→用于擦除之物→橡皮",
+    "explain": "A rubber is a small piece of rubber used to remove pencil marks from paper."
   },
   {
     "id": "g1_007",
@@ -77,7 +83,8 @@
     "category": "身体部位",
     "difficulty": 1,
     "audio": "eye.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "An eye is an organ used for seeing."
   },
   {
     "id": "g1_008",
@@ -88,7 +95,8 @@
     "category": "身体部位",
     "difficulty": 1,
     "audio": "mouth.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A mouth is the opening in the face for eating and speaking."
   },
   {
     "id": "g1_009",
@@ -99,7 +107,8 @@
     "category": "身体部位",
     "difficulty": 1,
     "audio": "face.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A face is the front part of the head."
   },
   {
     "id": "g1_010",
@@ -110,7 +119,8 @@
     "category": "身体部位",
     "difficulty": 1,
     "audio": "nose.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A nose is the part of the face for smelling and breathing."
   },
   {
     "id": "g1_011",
@@ -121,7 +131,8 @@
     "category": "身体部位",
     "difficulty": 1,
     "audio": "ear.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "An ear is an organ used for hearing."
   },
   {
     "id": "g1_012",
@@ -132,7 +143,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "dance.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To dance means to moving the body to music."
   },
   {
     "id": "g1_013",
@@ -143,7 +155,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "read.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To read means to to look at and understand written words."
   },
   {
     "id": "g1_014",
@@ -154,7 +167,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "sing.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To sing means to to make music with your voice."
   },
   {
     "id": "g1_015",
@@ -165,7 +179,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "draw.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "To draw means to to make a picture using a pencil, pen, or crayons."
   },
   {
     "id": "g1_016",
@@ -177,7 +192,8 @@
     "difficulty": 1,
     "audio": "grandmother.mp3",
     "unit": 2,
-    "rootAffix": "grand（隔代的）+mother（母亲）→祖母，外祖母"
+    "rootAffix": "grand（隔代的）+mother（母亲）→祖母，外祖母",
+    "explain": "A grandmother is the mother of your father or mother."
   },
   {
     "id": "g1_017",
@@ -189,7 +205,8 @@
     "difficulty": 1,
     "audio": "grandfather.mp3",
     "unit": 2,
-    "rootAffix": "grand（隔代的）+father（父亲）→祖父，外祖父"
+    "rootAffix": "grand（隔代的）+father（父亲）→祖父，外祖父",
+    "explain": "A grandfather is the father of your father or mother."
   },
   {
     "id": "g1_018",
@@ -200,7 +217,8 @@
     "category": "家庭",
     "difficulty": 1,
     "audio": "father.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A father is a male parent."
   },
   {
     "id": "g1_019",
@@ -211,7 +229,8 @@
     "category": "家庭",
     "difficulty": 1,
     "audio": "mother.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A mother is a female parent."
   },
   {
     "id": "g1_020",
@@ -222,7 +241,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "me.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A me is the person who is speaking (the first person pronoun)."
   },
   {
     "id": "g1_021",
@@ -233,7 +253,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "fat.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Fat means having too much body weight."
   },
   {
     "id": "g1_022",
@@ -244,7 +265,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "thin.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "Thin means having very little body weight."
   },
   {
     "id": "g1_023",
@@ -255,7 +277,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "tall.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A tall is having great height."
   },
   {
     "id": "g1_024",
@@ -266,7 +289,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "short.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A short is measuring a small distance."
   },
   {
     "id": "g1_025",
@@ -278,7 +302,8 @@
     "difficulty": 1,
     "audio": "one.mp3",
     "unit": 2,
-    "rootAffix": "on（一）+e→一，一的，唯一的"
+    "rootAffix": "on（一）+e→一，一的，唯一的",
+    "explain": "An one is the number 1."
   },
   {
     "id": "g1_026",
@@ -289,7 +314,8 @@
     "category": "数字",
     "difficulty": 1,
     "audio": "two.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A two is the number 2."
   },
   {
     "id": "g1_027",
@@ -300,7 +326,8 @@
     "category": "数字",
     "difficulty": 1,
     "audio": "three.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A three is the number 3."
   },
   {
     "id": "g1_028",
@@ -311,7 +338,8 @@
     "category": "数字",
     "difficulty": 1,
     "audio": "four.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A four is the number 4."
   },
   {
     "id": "g1_029",
@@ -322,7 +350,8 @@
     "category": "数字",
     "difficulty": 1,
     "audio": "five.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A five is the number 5."
   },
   {
     "id": "g1_030",
@@ -333,7 +362,8 @@
     "category": "数字",
     "difficulty": 1,
     "audio": "six.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A six is the number 6."
   },
   {
     "id": "g1_031",
@@ -344,7 +374,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "apple.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An apple is a round fruit, usually red or green."
   },
   {
     "id": "g1_032",
@@ -355,7 +386,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "pear.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A pear is a sweet yellow or green fruit with a round bottom and narrow top."
   },
   {
     "id": "g1_033",
@@ -366,7 +398,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "peach.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A peach is a soft round fruit with sweet yellow or red flesh."
   },
   {
     "id": "g1_034",
@@ -377,7 +410,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "orange.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "An orange is a round citrus fruit with sweet juice."
   },
   {
     "id": "g1_035",
@@ -389,7 +423,8 @@
     "difficulty": 1,
     "audio": "hamburger.mp3",
     "unit": 3,
-    "rootAffix": "Hamburg+er（者）→汉堡市的居民→汉堡市的特产→汉堡牛排→用汉堡牛排做的三明治→汉堡包"
+    "rootAffix": "Hamburg+er（者）→汉堡市的居民→汉堡市的特产→汉堡牛排→用汉堡牛排做的三明治→汉堡包",
+    "explain": "A hamburger is a round flat piece of minced beef cooked and eaten in a bread roll."
   },
   {
     "id": "g1_036",
@@ -400,7 +435,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "pizza.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A pizza is a flat round bread topped with tomatoes, cheese, and other foods."
   },
   {
     "id": "g1_037",
@@ -411,7 +447,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "cake.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A cake is a sweet baked food."
   },
   {
     "id": "g1_038",
@@ -422,7 +459,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "pie.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A pie is a baked food with a filling covered by pastry."
   },
   {
     "id": "g1_039",
@@ -433,7 +471,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "chick.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A chick is a young bird, especially a young chicken."
   },
   {
     "id": "g1_040",
@@ -444,7 +483,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "duck.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A duck is a water bird with a flat bill."
   },
   {
     "id": "g1_041",
@@ -455,7 +495,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "cow.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A cow is a large farm animal kept for milk."
   },
   {
     "id": "g1_042",
@@ -466,7 +507,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "pig.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A pig is a pink farm animal."
   },
   {
     "id": "g1_043",
@@ -477,7 +519,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "bear.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A bear is a large heavy animal with thick fur."
   },
   {
     "id": "g1_044",
@@ -488,7 +531,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "tiger.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A tiger is a large wild cat with stripes."
   },
   {
     "id": "g1_045",
@@ -499,7 +543,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "monkey.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A monkey is an animal that climbs trees."
   },
   {
     "id": "g1_046",
@@ -510,7 +555,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "panda.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A panda is a large black and white animal from China that looks like a bear."
   },
   {
     "id": "g1_047",
@@ -521,7 +567,8 @@
     "category": "颜色",
     "difficulty": 1,
     "audio": "red.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Red means the color of blood."
   },
   {
     "id": "g1_048",
@@ -532,7 +579,8 @@
     "category": "颜色",
     "difficulty": 1,
     "audio": "blue.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Blue means the color of the sky."
   },
   {
     "id": "g1_049",
@@ -543,7 +591,8 @@
     "category": "颜色",
     "difficulty": 1,
     "audio": "yellow.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Yellow means the color of the sun."
   },
   {
     "id": "g1_050",
@@ -554,7 +603,8 @@
     "category": "颜色",
     "difficulty": 1,
     "audio": "green.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "Green means the color of grass."
   },
   {
     "id": "g1_051",
@@ -565,7 +615,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "frog.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A frog is a small green animal that jumps."
   },
   {
     "id": "g1_052",
@@ -576,7 +627,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "rabbit.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A rabbit is a small animal with long ears."
   },
   {
     "id": "g1_053",
@@ -587,7 +639,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "bee.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A bee is a black and yellow flying insect that makes honey."
   },
   {
     "id": "g1_054",
@@ -598,7 +651,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "bird.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A bird is an animal with wings that can fly."
   },
   {
     "id": "g1_055",
@@ -609,7 +663,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "sheep.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A sheep is a farm animal with thick wool that gives us meat and wool."
   },
   {
     "id": "g1_056",
@@ -620,7 +675,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "hen.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A hen is a female chicken."
   },
   {
     "id": "g1_057",
@@ -631,7 +687,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "dog.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A dog is a common pet animal."
   },
   {
     "id": "g1_058",
@@ -642,7 +699,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "cat.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A cat is a small furry pet animal."
   },
   {
     "id": "g1_059",
@@ -653,7 +711,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "rice.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A rice is grains that are cooked and eaten."
   },
   {
     "id": "g1_060",
@@ -664,7 +723,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "soup.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A soup is a hot liquid food made by boiling meat, vegetables, or fish in water."
   },
   {
     "id": "g1_061",
@@ -675,7 +735,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "egg.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "An egg is an oval object laid by a chicken."
   },
   {
     "id": "g1_062",
@@ -686,7 +747,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "noodles.mp3",
-    "unit": 1
+    "unit": 1,
+    "explain": "A noodles is long thin strips of pasta cooked in boiling water."
   },
   {
     "id": "g1_063",
@@ -697,7 +759,8 @@
     "category": "玩具",
     "difficulty": 1,
     "audio": "ball.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A ball is a round object used for throwing, hitting, or kicking in games."
   },
   {
     "id": "g1_064",
@@ -708,7 +771,8 @@
     "category": "玩具",
     "difficulty": 1,
     "audio": "doll.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A doll is a toy that looks like a small person or baby."
   },
   {
     "id": "g1_065",
@@ -720,7 +784,8 @@
     "difficulty": 1,
     "audio": "bicycle.mp3",
     "unit": 2,
-    "rootAffix": "bi（两）+cycl（循环、车轮）+e→两轮（车）→自行车"
+    "rootAffix": "bi（两）+cycl（循环、车轮）+e→两轮（车）→自行车",
+    "explain": "A bicycle is a two-wheeled vehicle you pedal."
   },
   {
     "id": "g1_066",
@@ -731,7 +796,8 @@
     "category": "玩具",
     "difficulty": 1,
     "audio": "kite.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A kite is a toy made of light material flown in the wind at the end of a string."
   },
   {
     "id": "g1_067",
@@ -742,7 +808,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "jelly.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A jelly is a soft sweet food made from fruit juice and sugar."
   },
   {
     "id": "g1_068",
@@ -753,7 +820,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "ice_cream.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "An ice cream is a sweet frozen food made from milk and cream."
   },
   {
     "id": "g1_069",
@@ -764,7 +832,8 @@
     "category": "食物",
     "difficulty": 1,
     "audio": "sweet.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A sweet is a small piece of candy or chocolate."
   },
   {
     "id": "g1_070",
@@ -776,7 +845,8 @@
     "difficulty": 1,
     "audio": "biscuit.mp3",
     "unit": 2,
-    "rootAffix": "bis（两次）+cuit（烹调）→烤了两次的面包→饼干"
+    "rootAffix": "bis（两次）+cuit（烹调）→烤了两次的面包→饼干",
+    "explain": "A biscuit is a small flat dry cake that is sweet or savory."
   },
   {
     "id": "g1_071",
@@ -787,7 +857,8 @@
     "category": "饮料",
     "difficulty": 1,
     "audio": "cola.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A cola is a sweet brown fizzy drink."
   },
   {
     "id": "g1_072",
@@ -798,7 +869,8 @@
     "category": "饮料",
     "difficulty": 1,
     "audio": "juice.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A juice is a drink made from fruit liquid."
   },
   {
     "id": "g1_073",
@@ -809,7 +881,8 @@
     "category": "饮料",
     "difficulty": 1,
     "audio": "milk.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A milk is a white liquid from mammals."
   },
   {
     "id": "g1_074",
@@ -820,7 +893,8 @@
     "category": "饮料",
     "difficulty": 1,
     "audio": "water.mp3",
-    "unit": 2
+    "unit": 2,
+    "explain": "A water is a clear liquid essential for life."
   },
   {
     "id": "g1_075",
@@ -831,7 +905,8 @@
     "category": "天气",
     "difficulty": 1,
     "audio": "warm.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "Warm means having a pleasant temperature, not too hot or too cold."
   },
   {
     "id": "g1_076",
@@ -842,7 +917,8 @@
     "category": "天气",
     "difficulty": 1,
     "audio": "hot.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A hot is having a high temperature."
   },
   {
     "id": "g1_077",
@@ -853,7 +929,8 @@
     "category": "季节",
     "difficulty": 1,
     "audio": "spring.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A spring is the season after winter."
   },
   {
     "id": "g1_078",
@@ -864,7 +941,8 @@
     "category": "季节",
     "difficulty": 1,
     "audio": "summer.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A summer is the warmest season."
   },
   {
     "id": "g1_079",
@@ -876,7 +954,8 @@
     "difficulty": 1,
     "audio": "sunny.mp3",
     "unit": 3,
-    "rootAffix": "sun（太阳，阳光）+n+y（形容词后缀）→有很多阳光的→阳光明媚的"
+    "rootAffix": "sun（太阳，阳光）+n+y（形容词后缀）→有很多阳光的→阳光明媚的",
+    "explain": "Sunny means having a lot of sunshine."
   },
   {
     "id": "g1_080",
@@ -888,7 +967,8 @@
     "difficulty": 1,
     "audio": "cloudy.mp3",
     "unit": 3,
-    "rootAffix": "cloud（云）+y（形容词后缀）→多云的，阴天的"
+    "rootAffix": "cloud（云）+y（形容词后缀）→多云的，阴天的",
+    "explain": "Cloudy means covered with clouds."
   },
   {
     "id": "g1_081",
@@ -900,7 +980,8 @@
     "difficulty": 1,
     "audio": "rainy.mp3",
     "unit": 3,
-    "rootAffix": "rain（雨）+y（形容词后缀）→下雨的，多雨的"
+    "rootAffix": "rain（雨）+y（形容词后缀）→下雨的，多雨的",
+    "explain": "Rainy means having a lot of rain."
   },
   {
     "id": "g1_082",
@@ -912,7 +993,8 @@
     "difficulty": 1,
     "audio": "windy.mp3",
     "unit": 3,
-    "rootAffix": "wind（风）+y（形容词后缀）→有风的"
+    "rootAffix": "wind（风）+y（形容词后缀）→有风的",
+    "explain": "Windy means having a lot of wind."
   },
   {
     "id": "g1_083",
@@ -923,7 +1005,8 @@
     "category": "服装",
     "difficulty": 1,
     "audio": "t-shirt.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A t-shirt is a short-sleeved casual top made of cotton."
   },
   {
     "id": "g1_084",
@@ -934,7 +1017,8 @@
     "category": "服装",
     "difficulty": 1,
     "audio": "dress.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A dress is a piece of clothing for women or girls that covers the top of the body and skirts."
   },
   {
     "id": "g1_085",
@@ -945,7 +1029,8 @@
     "category": "服装",
     "difficulty": 1,
     "audio": "shorts.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A shorts is short trousers that end above the knee."
   },
   {
     "id": "g1_086",
@@ -956,7 +1041,8 @@
     "category": "服装",
     "difficulty": 1,
     "audio": "blouse.mp3",
-    "unit": 3
+    "unit": 3,
+    "explain": "A blouse is a shirt for women, usually with a collar and buttons."
   },
   {
     "id": "g1_087",
@@ -967,7 +1053,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "ride.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To ride means to to sit on and control an animal or vehicle."
   },
   {
     "id": "g1_088",
@@ -978,7 +1065,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "skip.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To skip means to to move forward by jumping on one foot then the other."
   },
   {
     "id": "g1_089",
@@ -989,7 +1077,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "play.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To play means to to do something for fun."
   },
   {
     "id": "g1_090",
@@ -1000,7 +1089,8 @@
     "category": "动作",
     "difficulty": 1,
     "audio": "fly.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "To fly means to to move through the air using wings."
   },
   {
     "id": "g1_091",
@@ -1011,7 +1101,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "gift.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A gift is something you give to someone, especially on a special occasion."
   },
   {
     "id": "g1_092",
@@ -1022,7 +1113,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "card.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A card is a flat piece of thick paper used for writing messages."
   },
   {
     "id": "g1_093",
@@ -1033,7 +1125,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "firecracker.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A firecracker is a small explosive device that makes a loud noise when lit."
   },
   {
     "id": "g1_094",
@@ -1045,7 +1138,8 @@
     "difficulty": 1,
     "audio": "firework.mp3",
     "unit": 4,
-    "rootAffix": "fire（火）+work（产品）→带火的产品→烟火"
+    "rootAffix": "fire（火）+work（产品）→带火的产品→烟火",
+    "explain": "A firework is a device that explodes in the air to make colorful lights and patterns."
   },
   {
     "id": "g1_095",
@@ -1056,7 +1150,8 @@
     "category": "其他",
     "difficulty": 1,
     "audio": "boy.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A boy is a male child."
   },
   {
     "id": "g1_096",
@@ -1067,7 +1162,8 @@
     "category": "动物",
     "difficulty": 1,
     "audio": "wolf.mp3",
-    "unit": 4
+    "unit": 4,
+    "explain": "A wolf is a wild animal that looks like a large dog and hunts in groups."
   },
   {
     "id": "g1_097",
@@ -1079,6 +1175,7 @@
     "difficulty": 1,
     "audio": "farmer.mp3",
     "unit": 4,
-    "rootAffix": "farm（农场）+er（者）→在农场里面工作的人→农夫；农场主"
+    "rootAffix": "farm（农场）+er（者）→在农场里面工作的人→农夫；农场主",
+    "explain": "A farmer is a person who works on a farm."
   }
 ]
