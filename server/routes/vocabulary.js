@@ -300,51 +300,28 @@ router.get('/today', authenticateToken, async (req, res) => {
         // 计算剩余名额（基于今天所有记录数，包括已学习和未学习的）
         const remainingSlots = Math.max(0, 5 - todayRecords.length);
         
-        // 优先选择全新单词，然后再补充复习单词
-        // 排除今天所有已记录的单词（包括已学习和未学习的），防止重复插入
-        const studiedWords = todayRecords.map(r => r.word);
-        
-        // 获取所有历史学过的单词（排除今天），确保新单词是真正全新的
-        const [allHistoryRecords] = await queryWithRetry(
-            `SELECT DISTINCT word FROM vocabulary_daily_record WHERE user_id = ? AND study_date != ?`,
-            [userId, today]
-        );
-        const allHistoryWords = allHistoryRecords.map(r => r.word);
-        
-        // 合并需要排除的单词（今天已学习的 + 所有历史学过的）
-        const excludeWords = [...new Set([...studiedWords, ...allHistoryWords])];
-        
         // 第一步：优先选择全新单词（最多5个，或者剩余名额）
+        // 直接在SQL中排除vocabulary_daily_record中已有的单词，避免应用层处理
         let newWords = [];
         if (remainingSlots > 0) {
-            const placeholders = excludeWords.length > 0 
-                ? `AND word NOT IN (${excludeWords.map(() => '?').join(',')})` 
-                : '';
-            const params = excludeWords.length > 0 
-                ? [userId, ...excludeWords, remainingSlots] 
-                : [userId, remainingSlots];
-            
             const [rows] = await queryWithRetry(
-                `SELECT * FROM wrong_book 
-                 WHERE user_id = ? AND mastered = 0 AND deleted = 0 ${placeholders}
+                `SELECT wb.* FROM wrong_book wb
+                 WHERE wb.user_id = ? AND wb.mastered = 0 AND wb.deleted = 0
+                   AND wb.word NOT IN (
+                       SELECT DISTINCT vdr.word FROM vocabulary_daily_record vdr WHERE vdr.user_id = ?
+                   )
                  ORDER BY RAND() LIMIT ?`,
-                params
+                [userId, userId, remainingSlots]
             );
             newWords = rows;
             
-            // 将新选择的单词初始化到vocabulary_daily_record表（先检查是否已存在，防止重复插入）
+            // 将新选择的单词初始化到vocabulary_daily_record表（INSERT IGNORE防止重复插入）
             for (const word of newWords) {
-                const [existingRecord] = await queryWithRetry(
-                    'SELECT id FROM vocabulary_daily_record WHERE user_id = ? AND word = ? AND study_date = ?',
+                await queryWithRetry(
+                    `INSERT IGNORE INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
+                     VALUES (?, ?, ?, 0, 0)`,
                     [userId, word.word, today]
                 );
-                if (existingRecord.length === 0) {
-                    await queryWithRetry(
-                        `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
-                         VALUES (?, ?, ?, 0, 0)`,
-                        [userId, word.word, today]
-                    );
-                }
             }
         }
         
@@ -391,19 +368,13 @@ router.get('/today', authenticateToken, async (req, res) => {
                 isReview: true
             }));
             
-            // 将复习单词也保存到今天的记录中，防止重复加载
+            // 将复习单词也保存到今天的记录中，防止重复加载（使用INSERT IGNORE防止并发重复插入）
             for (const word of reviewWords) {
-                const [existingToday] = await queryWithRetry(
-                    'SELECT * FROM vocabulary_daily_record WHERE user_id = ? AND word = ? AND study_date = ?',
+                await queryWithRetry(
+                    `INSERT IGNORE INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
+                     VALUES (?, ?, ?, 0, 0)`,
                     [userId, word.word, today]
                 );
-                if (existingToday.length === 0) {
-                    await queryWithRetry(
-                        `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
-                         VALUES (?, ?, ?, 0, 0)`,
-                        [userId, word.word, today]
-                    );
-                }
             }
         }
         

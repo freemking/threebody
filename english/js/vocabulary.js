@@ -1117,7 +1117,7 @@ const VocabularyAppMixin = {
         if (reviewBtn) {
             reviewBtn.onclick = async () => {
                 await this.switchVocabularyModule('memory-training');
-                this.startTraining();
+                await this.startTraining();
             };
         }
         
@@ -1477,7 +1477,7 @@ const VocabularyAppMixin = {
         // 开始训练按钮（配置区内）
         const startBtn = document.getElementById('btn-start-training');
         if (startBtn) {
-            startBtn.onclick = () => this.startTraining();
+            startBtn.onclick = async () => await this.startTraining();
         }
 
         
@@ -2020,14 +2020,7 @@ const VocabularyAppMixin = {
         // 记录学习结果（异步操作，不影响训练结果记录）
         vocabulary.studyWord(word.word, isCorrect, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit }).catch(err => console.error('记录学习失败:', err));
         vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
-        
-        // 如果是昨天的单词，标记为已复习（更新昨天的记录）
-        if (word.isYesterday) {
-            const yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
-            const yesterdayStr = vocabulary._getLocalDateStr(yesterday);
-            vocabulary.markAsReviewed(word.word, yesterdayStr).catch(err => console.error('标记复习状态失败:', err));
-        }
+        // 注意：reviewed标记已移至showTrainingResult中，等3种模式全部完成后才统一标记
         
         if (isCorrect) {
             this.trainingCorrect++;
@@ -2139,14 +2132,7 @@ const VocabularyAppMixin = {
         // 记录学习结果（异步操作，不影响训练结果记录）
         vocabulary.studyWord(word.word, isCorrect, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit }).catch(err => console.error('记录学习失败:', err));
         vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
-        
-        // 如果是昨天的单词，标记为已复习（更新昨天的记录）
-        if (word.isYesterday) {
-            const yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
-            const yesterdayStr = vocabulary._getLocalDateStr(yesterday);
-            vocabulary.markAsReviewed(word.word, yesterdayStr).catch(err => console.error('标记复习状态失败:', err));
-        }
+        // 注意：reviewed标记已移至showTrainingResult中，等3种模式全部完成后才统一标记
         
         const feedback = document.getElementById('spelling-feedback');
         
@@ -2272,13 +2258,7 @@ const VocabularyAppMixin = {
         vocabulary.studyWord(word.word, isCorrect, { meaning: word.meaning, phonetic: word.phonetic, grade: word.grade, unit: word.unit }).catch(err => console.error('记录学习失败:', err));
         vocabulary.updateStudyStats(word.word, isCorrect).catch(err => console.error('更新学习统计失败:', err));
         
-        // 如果是昨天的单词，标记为已复习（更新昨天的记录）
-        if (word.isYesterday) {
-            const yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
-            const yesterdayStr = vocabulary._getLocalDateStr(yesterday);
-            vocabulary.markAsReviewed(word.word, yesterdayStr).catch(err => console.error('标记复习状态失败:', err));
-        }
+        // 注意：reviewed标记已移至showTrainingResult中，等3种模式全部完成后才统一标记
         
         const feedback = document.getElementById('listening-feedback');
         
@@ -2342,7 +2322,7 @@ const VocabularyAppMixin = {
     /**
      * 下一个训练单词
      */
-    nextTrainingWord() {
+    async nextTrainingWord() {
         this.trainingIndex++;
         if (this.trainingIndex >= this.trainingWords.length) {
             // 当前模式完成，检查是否还有下一个模式
@@ -2366,7 +2346,7 @@ const VocabularyAppMixin = {
                 setTimeout(() => this.showTrainingWord(), 500);
             } else {
                 // 所有模式完成，显示结果
-                this.showTrainingResult();
+                await this.showTrainingResult();
             }
         } else {
             this.showTrainingWord();
@@ -2441,10 +2421,23 @@ const VocabularyAppMixin = {
         let totalCorrect = 0;
         let allModeErrors = new Set();
         
-        Object.values(this.trainingMultiModeResults).forEach(modeResult => {
-            totalCorrect += modeResult.correct;
-            modeResult.errors.forEach(word => allModeErrors.add(word));
-        });
+        // 安全检查：确保 trainingMultiModeResults 已初始化
+        if (this.trainingMultiModeResults) {
+            Object.values(this.trainingMultiModeResults).forEach(modeResult => {
+                totalCorrect += modeResult.correct;
+                modeResult.errors.forEach(word => allModeErrors.add(word));
+            });
+        } else {
+            console.warn('trainingMultiModeResults 未初始化，使用 trainingWordResults 计算');
+            // 如果 trainingMultiModeResults 未初始化，从 trainingWordResults 计算
+            if (this.trainingWordResults) {
+                Object.values(this.trainingWordResults).forEach(modes => {
+                    Object.values(modes).forEach(isCorrect => {
+                        if (isCorrect) totalCorrect++;
+                    });
+                });
+            }
+        }
         
         const accuracy = totalAttempts > 0 
             ? Math.round((totalCorrect / totalAttempts) * 100) 
@@ -2470,6 +2463,17 @@ const VocabularyAppMixin = {
         // 自动将完全掌握的单词标记为已记住
         for (const word of fullyMasteredWords) {
             await vocabulary.toggleRemembered(word, true);
+        }
+        
+        // 将昨天的单词中全部3种模式都答对的标记为已复习（统一在此处标记，避免未完成全部模式就被标记）
+        const yesterdayDate = new Date();
+        yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+        const yesterdayStr = vocabulary._getLocalDateStr(yesterdayDate);
+        for (const word of fullyMasteredWords) {
+            const wordData = this.trainingWords.find(w => w.word === word);
+            if (wordData && wordData.isYesterday) {
+                vocabulary.markAsReviewed(word, yesterdayStr).catch(err => console.error('标记复习状态失败:', err));
+            }
         }
         
         // 更新结果数据
@@ -2526,10 +2530,10 @@ const VocabularyAppMixin = {
         }
         
         if (practiceAgainBtn) {
-            practiceAgainBtn.onclick = () => {
+            practiceAgainBtn.onclick = async () => {
                 resultInterface.classList.remove('active');
                 resultInterface.classList.add('hidden');
-                this.startTraining();
+                await this.startTraining();
             };
         }
         

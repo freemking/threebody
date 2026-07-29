@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS vocabulary_daily_record (
     INDEX idx_user_id (user_id),
     INDEX idx_word (word),
     INDEX idx_study_date (study_date),
-    INDEX idx_word_date (word, study_date),
+    UNIQUE INDEX idx_user_word_date (user_id, word, study_date),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
