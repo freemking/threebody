@@ -10,7 +10,7 @@
     "audio": "genius.mp3",
     "unit": 1,
     "rootAffix": "gen（出生）+i+us（名词后缀）→出生时有的东西→，守护神，天赋",
-    "explain": "A genius is 天才."
+    "explain": "A genius is a person of exceptional ability or intelligence."
   },
   {
     "id": "g9_002",
@@ -23,7 +23,7 @@
     "audio": "wise.mp3",
     "unit": 1,
     "rootAffix": "wis（见）+e→见多识广的→有智慧的，明智的，英明的，明察善断的",
-    "explain": "Wise describes something that is 明智."
+    "explain": "Wise means a common English word."
   },
   {
     "id": "g9_003",
@@ -36,7 +36,7 @@
     "audio": "invent.mp3",
     "unit": 1,
     "rootAffix": "in（on，upon，触及）+vent（到来）→偶然遇到→发现，找到→发明，创造",
-    "explain": "To invent means to 发明."
+    "explain": "An invent is to create something new."
   },
   {
     "id": "g9_004",
@@ -49,7 +49,7 @@
     "audio": "discover.mp3",
     "unit": 1,
     "rootAffix": "dis（去掉）+cover（遮盖）→去掉遮盖→发现，发觉",
-    "explain": "To discover means to 发现."
+    "explain": "A discover is to find first."
   },
   {
     "id": "g9_005",
@@ -62,7 +62,7 @@
     "audio": "solve.mp3",
     "unit": 1,
     "rootAffix": "solv（松开）+e→解开→解决，解答，溶解",
-    "explain": "To solve means to 解决."
+    "explain": "To solve means a common English word."
   },
   {
     "id": "g9_006",
@@ -75,7 +75,7 @@
     "audio": "ancient.mp3",
     "unit": 1,
     "rootAffix": "anci（=ante，在前面）+ent（形容词后缀）→（很久）以前的→古代的",
-    "explain": "Ancient describes something that is 古代."
+    "explain": "An ancient is very old."
   },
   {
     "id": "g9_007",
@@ -87,7 +87,7 @@
     "difficulty": 9,
     "audio": "war.mp3",
     "unit": 1,
-    "explain": "A war is 战争."
+    "explain": "A war is a state of armed conflict between countries."
   },
   {
     "id": "g9_008",
@@ -99,7 +99,7 @@
     "difficulty": 9,
     "audio": "pyramid.mp3",
     "unit": 1,
-    "explain": "A pyramid is 金字塔."
+    "explain": "A pyramid is a large stone structure with a square base and triangular sides."
   },
   {
     "id": "g9_009",
@@ -137,7 +137,7 @@
     "difficulty": 9,
     "audio": "huge.mp3",
     "unit": 1,
-    "explain": "Huge describes something that is 巨大."
+    "explain": "Huge means a common English word."
   },
   {
     "id": "g9_012",
@@ -149,7 +149,7 @@
     "difficulty": 9,
     "audio": "empty.mp3",
     "unit": 1,
-    "explain": "Empty describes something that is 空."
+    "explain": "Empty means a common English word."
   },
   {
     "id": "g9_013",
@@ -175,7 +175,7 @@
     "audio": "army.mp3",
     "unit": 1,
     "rootAffix": "arm（武装）+y（形容词后缀）→武装的（力量）→武装力量→军队",
-    "explain": "An army is 陆军部队."
+    "explain": "An army is a large organized group of soldiers."
   },
   {
     "id": "g9_015",
@@ -188,7 +188,7 @@
     "audio": "succeed.mp3",
     "unit": 1,
     "rootAffix": "suc（=sub，从下面）+ceed（=ced，走）→从下面走上去→成功，继任",
-    "explain": "To succeed means to 成功."
+    "explain": "Succeed is a verb in past tense."
   },
   {
     "id": "g9_016",
@@ -200,7 +200,7 @@
     "difficulty": 9,
     "audio": "trick.mp3",
     "unit": 1,
-    "explain": "A trick is 计谋."
+    "explain": "A trick is a clever action performed to entertain or deceive."
   },
   {
     "id": "g9_017",
@@ -212,7 +212,7 @@
     "difficulty": 9,
     "audio": "trojan.mp3",
     "unit": 1,
-    "explain": "Trojan describes something that is 特洛伊."
+    "explain": "Trojan means a common English word."
   },
   {
     "id": "g9_018",
@@ -225,7 +225,7 @@
     "audio": "midnight.mp3",
     "unit": 1,
     "rootAffix": "mid（中间的）+night（夜晚）→夜晚的中间→午夜",
-    "explain": "A midnight is 午夜."
+    "explain": "A midnight is twelve o'clock at night."
   },
   {
     "id": "g9_019",
@@ -237,7 +237,7 @@
     "difficulty": 9,
     "audio": "pull.mp3",
     "unit": 1,
-    "explain": "To pull means to 拉."
+    "explain": "To pull means a common English word."
   },
   {
     "id": "g9_020",
@@ -250,7 +250,7 @@
     "audio": "celebrate.mp3",
     "unit": 1,
     "rootAffix": "celebr（很多人一起致敬）+ate（动词后缀）→庆祝神灵的生日→庆祝",
-    "explain": "To celebrate means to 庆祝."
+    "explain": "A celebrate is to mark an occasion."
   },
   {
     "id": "g9_021",
@@ -262,7 +262,7 @@
     "difficulty": 9,
     "audio": "trick-sb-into-doing-sth-.mp3",
     "unit": 1,
-    "explain": "\"trick sb into doing sth.\" is an English expression."
+    "explain": "\"trick sb into doing sth.\" is an expression meaning a common English word."
   },
   {
     "id": "g9_022",
@@ -274,7 +274,7 @@
     "difficulty": 9,
     "audio": "succeed-in-doing-sth-.mp3",
     "unit": 1,
-    "explain": "succeed in doing sth. means 成功做某事."
+    "explain": "To succeed in doing sth. means a common English word."
   },
   {
     "id": "g9_023",
@@ -286,7 +286,7 @@
     "difficulty": 9,
     "audio": "take-over.mp3",
     "unit": 1,
-    "explain": "To take over means to 攻占."
+    "explain": "To take over means to perform the action related to over."
   },
   {
     "id": "g9_024",
@@ -298,7 +298,7 @@
     "difficulty": 9,
     "audio": "mind.mp3",
     "unit": 2,
-    "explain": "A mind is 头脑；心智."
+    "explain": "A mind is ；."
   },
   {
     "id": "g9_025",
@@ -311,7 +311,7 @@
     "audio": "consider.mp3",
     "unit": 2,
     "rootAffix": "con（一起，利用）+sider（星星）→观看群星，思索吉凶→考虑",
-    "explain": "To consider means to 认为；考虑."
+    "explain": "To consider means to ；."
   },
   {
     "id": "g9_026",
@@ -324,7 +324,7 @@
     "audio": "sense.mp3",
     "unit": 2,
     "rootAffix": "sens（=sent，感觉，感知）+e→感知，意识，探测",
-    "explain": "A sense is 道理；意义."
+    "explain": "A sense is ；."
   },
   {
     "id": "g9_027",
@@ -336,7 +336,7 @@
     "difficulty": 9,
     "audio": "humour.mp3",
     "unit": 2,
-    "explain": "A humour is 幽默."
+    "explain": "A humour is the quality of being amusing."
   },
   {
     "id": "g9_028",
@@ -349,7 +349,7 @@
     "audio": "invitation.mp3",
     "unit": 2,
     "rootAffix": "invit(e)（邀请）+at（动词后缀）+ion（名词后缀）→邀请",
-    "explain": "An invitation is 邀请."
+    "explain": "An invitation is a request to come to an event or place."
   },
   {
     "id": "g9_029",
@@ -362,7 +362,7 @@
     "audio": "university.mp3",
     "unit": 2,
     "rootAffix": "univers（包罗万象的）+ity（名词后缀）→包罗万象之物→综合性大学",
-    "explain": "An university is 大学."
+    "explain": "An university is an institution of higher education."
   },
   {
     "id": "g9_030",
@@ -375,7 +375,7 @@
     "audio": "pleasure.mp3",
     "unit": 2,
     "rootAffix": "pleas（使高兴，使满意）+ure（名词后缀）→高兴，快乐",
-    "explain": "A pleasure is 高兴；快乐."
+    "explain": "A pleasure is enjoyment."
   },
   {
     "id": "g9_031",
@@ -400,7 +400,7 @@
     "audio": "applause.mp3",
     "unit": 2,
     "rootAffix": "ap（=ad，去，趋近）+plaus（鼓掌）+e→鼓掌→喝彩，欢呼",
-    "explain": "An applause is 掌声."
+    "explain": "An applause is the sound of people clapping their hands."
   },
   {
     "id": "g9_033",
@@ -413,7 +413,7 @@
     "audio": "professor.mp3",
     "unit": 2,
     "rootAffix": "pro（向前，向外）+fess（承认）+or（者）→公开宣布（是某个领域专家）的人→教授",
-    "explain": "A professor is 教授."
+    "explain": "A professor is a teacher of the highest rank at a university."
   },
   {
     "id": "g9_034",
@@ -426,7 +426,7 @@
     "audio": "physicist.mp3",
     "unit": 2,
     "rootAffix": "phys（物理）+ic（形容词后缀）+ist（专业人士）→物理学家",
-    "explain": "A physicist is 物理学家."
+    "explain": "A physicist is a person who studies physics."
   },
   {
     "id": "g9_035",
@@ -438,7 +438,7 @@
     "difficulty": 9,
     "audio": "have-a-sense-of-humour.mp3",
     "unit": 2,
-    "explain": "\"have a sense of humour\" is an English expression."
+    "explain": "\"have a sense of humour\" is an expression meaning a common English word."
   },
   {
     "id": "g9_036",
@@ -450,7 +450,7 @@
     "difficulty": 9,
     "audio": "let-sb-down.mp3",
     "unit": 2,
-    "explain": "\"let sb down\" is an English expression."
+    "explain": "\"let sb down\" is an expression meaning a common English word."
   },
   {
     "id": "g9_037",
@@ -462,7 +462,7 @@
     "difficulty": 9,
     "audio": "take-a-seat.mp3",
     "unit": 2,
-    "explain": "To take a seat means to 坐下."
+    "explain": "To take a seat means to perform the action related to seat."
   },
   {
     "id": "g9_038",
@@ -474,7 +474,7 @@
     "difficulty": 9,
     "audio": "stress.mp3",
     "unit": 3,
-    "explain": "A stress is 心理压力；紧张."
+    "explain": "A stress is pressure."
   },
   {
     "id": "g9_039",
@@ -487,7 +487,7 @@
     "audio": "responsibility.mp3",
     "unit": 3,
     "rootAffix": "responsibil（=responsible，负责的，有责任的）+ity（名词后缀）→责任，职责",
-    "explain": "A responsibility is 职责；责任."
+    "explain": "A responsibility is ；."
   },
   {
     "id": "g9_040",
@@ -500,7 +500,7 @@
     "audio": "focus.mp3",
     "unit": 3,
     "rootAffix": "foc（火）+us（拉丁语名词后缀）→壁炉",
-    "explain": "To focus means to 集中."
+    "explain": "To focus means a common English word."
   },
   {
     "id": "g9_041",
@@ -513,7 +513,7 @@
     "audio": "affect.mp3",
     "unit": 3,
     "rootAffix": "af（=ad，去，趋近）+fect（做，作用）→去做，去发挥作用→影响；做作",
-    "explain": "To affect means to 影响."
+    "explain": "To affect means a common English word."
   },
   {
     "id": "g9_042",
@@ -526,7 +526,7 @@
     "audio": "manage.mp3",
     "unit": 3,
     "rootAffix": "man（手）+age（动词后缀）→用手去操纵马匹，训练马匹→管理，经营",
-    "explain": "To manage means to 管理；完成."
+    "explain": "To manage means to ；."
   },
   {
     "id": "g9_043",
@@ -539,7 +539,7 @@
     "audio": "independent.mp3",
     "unit": 3,
     "rootAffix": "in（不）+depend（依赖）+ent（形容词后缀）→独立的",
-    "explain": "Independent describes something that is 独立."
+    "explain": "Independent means a common English word."
   },
   {
     "id": "g9_044",
@@ -552,7 +552,7 @@
     "audio": "support.mp3",
     "unit": 3,
     "rootAffix": "sup（=sub，在下面）+port（承载）→在下面承载→支持，支撑",
-    "explain": "To support means to 支持."
+    "explain": "A support is to help."
   },
   {
     "id": "g9_045",
@@ -565,7 +565,7 @@
     "audio": "expect.mp3",
     "unit": 3,
     "rootAffix": "ex（向外）+(s)pec（看）+t（完成分词后缀）→向外看→期望",
-    "explain": "To expect means to 期望."
+    "explain": "An expect is to anticipate."
   },
   {
     "id": "g9_046",
@@ -578,7 +578,7 @@
     "audio": "emotional.mp3",
     "unit": 3,
     "rootAffix": "emotion（情绪）+al（形容词后缀）→与情绪有关的，易于激动的，感动人的",
-    "explain": "Emotional describes something that is 情绪."
+    "explain": "Emotional means a common English word."
   },
   {
     "id": "g9_047",
@@ -591,7 +591,7 @@
     "audio": "pressure.mp3",
     "unit": 3,
     "rootAffix": "press（压）+ure（名词后缀）→压力，压迫，压强",
-    "explain": "A pressure is 压力."
+    "explain": "A pressure is the force applied to a surface."
   },
   {
     "id": "g9_048",
@@ -603,7 +603,7 @@
     "difficulty": 9,
     "audio": "counselor.mp3",
     "unit": 3,
-    "explain": "A counselor is 顾问."
+    "explain": "A counselor is a person who gives advice."
   },
   {
     "id": "g9_049",
@@ -615,7 +615,7 @@
     "difficulty": 9,
     "audio": "be-responsible-for.mp3",
     "unit": 3,
-    "explain": "To be responsible for means to 对……负责."
+    "explain": "To be responsible for means to perform the action related to for."
   },
   {
     "id": "g9_050",
@@ -627,7 +627,7 @@
     "difficulty": 9,
     "audio": "care-for.mp3",
     "unit": 3,
-    "explain": "\"care for\" is an English expression."
+    "explain": "\"care for\" is an expression meaning a common English word."
   },
   {
     "id": "g9_051",
@@ -639,7 +639,7 @@
     "difficulty": 9,
     "audio": "grow-up.mp3",
     "unit": 3,
-    "explain": "grow up means 长大."
+    "explain": "To grow up means a common English word."
   },
   {
     "id": "g9_052",
@@ -651,7 +651,7 @@
     "difficulty": 9,
     "audio": "bully.mp3",
     "unit": 4,
-    "explain": "A bully is 霸凌者."
+    "explain": "A bully is a person who hurts or frightens someone smaller or weaker."
   },
   {
     "id": "g9_053",
@@ -663,7 +663,7 @@
     "difficulty": 9,
     "audio": "embarrassed.mp3",
     "unit": 4,
-    "explain": "Embarrassed describes something that is 窘迫."
+    "explain": "Embarrassed is a verb in past tense."
   },
   {
     "id": "g9_054",
@@ -676,7 +676,7 @@
     "audio": "ashamed.mp3",
     "unit": 4,
     "rootAffix": "a（加强语气）+shame（使羞愧）+ed（过去分词形式）→羞愧的",
-    "explain": "Ashamed describes something that is 惭愧."
+    "explain": "Ashamed is a verb in past tense."
   },
   {
     "id": "g9_055",
@@ -689,7 +689,7 @@
     "audio": "sympathy.mp3",
     "unit": 4,
     "rootAffix": "sym（一起）+path（忍受，受苦）+y（名词后缀）→一起忍受→同情",
-    "explain": "A sympathy is 同情."
+    "explain": "A sympathy is the feeling of caring about someone's suffering."
   },
   {
     "id": "g9_056",
@@ -701,7 +701,7 @@
     "difficulty": 9,
     "audio": "helpline.mp3",
     "unit": 4,
-    "explain": "A helpline is 服务热线."
+    "explain": "A helpline is a telephone service providing help and advice."
   },
   {
     "id": "g9_057",
@@ -714,7 +714,7 @@
     "audio": "situation.mp3",
     "unit": 4,
     "rootAffix": "sit（放置，使位于）+u+ation（动名词后缀）→位于某处→位置，处境→情况，状况，形势",
-    "explain": "A situation is 情况."
+    "explain": "A situation is the set of conditions at a particular time."
   },
   {
     "id": "g9_058",
@@ -727,7 +727,7 @@
     "audio": "solve.mp3",
     "unit": 4,
     "rootAffix": "solv（松开）+e→解开→解决，解答，溶解",
-    "explain": "To solve means to 解决."
+    "explain": "To solve means a common English word."
   },
   {
     "id": "g9_059",
@@ -740,7 +740,7 @@
     "audio": "regret.mp3",
     "unit": 4,
     "rootAffix": "re（加强语气）+gret（后悔）→后悔",
-    "explain": "To regret means to 后悔."
+    "explain": "A regret is to feel sorry."
   },
   {
     "id": "g9_060",
@@ -766,7 +766,7 @@
     "audio": "fault.mp3",
     "unit": 4,
     "rootAffix": "faul（=fall，使失败，使犯错）+t（完成分词后缀）→错误，故障，缺点",
-    "explain": "A fault is 过错."
+    "explain": "A fault is responsibility for a mistake."
   },
   {
     "id": "g9_062",
@@ -779,7 +779,7 @@
     "audio": "suggestion.mp3",
     "unit": 4,
     "rootAffix": "suggest（提议）+ion（名词后缀）→建议",
-    "explain": "A suggestion is 建议."
+    "explain": "A suggestion is an idea offered for consideration."
   },
   {
     "id": "g9_063",
@@ -791,7 +791,7 @@
     "difficulty": 9,
     "audio": "set-a-goal.mp3",
     "unit": 4,
-    "explain": "To set a goal means to 设定目标."
+    "explain": "To set a goal means to perform the action related to goal."
   },
   {
     "id": "g9_064",
@@ -803,7 +803,7 @@
     "difficulty": 9,
     "audio": "make-a-plan.mp3",
     "unit": 4,
-    "explain": "\"make a plan\" is an English expression."
+    "explain": "\"make a plan\" is an expression meaning a common English word."
   },
   {
     "id": "g9_065",
@@ -815,7 +815,7 @@
     "difficulty": 9,
     "audio": "deal-with.mp3",
     "unit": 4,
-    "explain": "\"deal with\" is an English expression."
+    "explain": "\"deal with\" is an expression meaning a common English word."
   },
   {
     "id": "g9_066",
@@ -828,7 +828,7 @@
     "audio": "action.mp3",
     "unit": 5,
     "rootAffix": "act（行动）+ion（名词后缀）→行动",
-    "explain": "An action is 行动."
+    "explain": "An action is the process of doing something."
   },
   {
     "id": "g9_067",
@@ -841,7 +841,7 @@
     "audio": "environment.mp3",
     "unit": 5,
     "rootAffix": "en（=in）+viron（围绕）+ment（名词后缀）→围绕之物→环境",
-    "explain": "An environment is 环境."
+    "explain": "An environment is the natural world."
   },
   {
     "id": "g9_068",
@@ -854,7 +854,7 @@
     "audio": "protect.mp3",
     "unit": 5,
     "rootAffix": "pro（在前面）+tect（遮盖）→在前面遮盖→保护",
-    "explain": "To protect means to 保护."
+    "explain": "A protect is to keep safe."
   },
   {
     "id": "g9_069",
@@ -867,7 +867,7 @@
     "audio": "recycle.mp3",
     "unit": 5,
     "rootAffix": "re（回来，反复）+cycl（循环）+e→再循环",
-    "explain": "To recycle means to 回收利用."
+    "explain": "To recycle means a common English word."
   },
   {
     "id": "g9_070",
@@ -880,7 +880,7 @@
     "audio": "reduce.mp3",
     "unit": 5,
     "rootAffix": "re（向后）+duc（引导）+e→向后引导→减少",
-    "explain": "To reduce means to 减少."
+    "explain": "A reduce is to make smaller."
   },
   {
     "id": "g9_071",
@@ -892,7 +892,7 @@
     "difficulty": 9,
     "audio": "reusable.mp3",
     "unit": 5,
-    "explain": "Reusable describes something that is 可重复使用."
+    "explain": "Reusable means a common English word."
   },
   {
     "id": "g9_072",
@@ -905,7 +905,7 @@
     "audio": "pollute.mp3",
     "unit": 5,
     "rootAffix": "pollu（弄脏）+te（=ate，动词后缀）→弄脏，污染",
-    "explain": "To pollute means to 污染."
+    "explain": "To pollute means a common English word."
   },
   {
     "id": "g9_073",
@@ -917,7 +917,7 @@
     "difficulty": 9,
     "audio": "waste.mp3",
     "unit": 5,
-    "explain": "To waste means to 浪费；废弃物."
+    "explain": "To waste means to ；."
   },
   {
     "id": "g9_074",
@@ -929,7 +929,7 @@
     "difficulty": 9,
     "audio": "be-in-good-health.mp3",
     "unit": 5,
-    "explain": "To be in good health means to 身体健康."
+    "explain": "To be in good health means to perform the action related to health."
   },
   {
     "id": "g9_075",
@@ -941,7 +941,7 @@
     "difficulty": 9,
     "audio": "global-warming.mp3",
     "unit": 5,
-    "explain": "global warming means 全球变暖."
+    "explain": "Global warming is a verb in present participle form."
   },
   {
     "id": "g9_076",
@@ -953,7 +953,7 @@
     "difficulty": 9,
     "audio": "take-action.mp3",
     "unit": 5,
-    "explain": "To take action means to 采取行动."
+    "explain": "To take action means to perform the action related to action."
   },
   {
     "id": "g9_077",
@@ -965,7 +965,7 @@
     "difficulty": 9,
     "audio": "throw-away.mp3",
     "unit": 5,
-    "explain": "To throw away means to 扔掉."
+    "explain": "To throw away means to perform the action related to away."
   },
   {
     "id": "g9_078",
@@ -977,7 +977,7 @@
     "difficulty": 9,
     "audio": "be-harmful-to.mp3",
     "unit": 5,
-    "explain": "To be harmful to means to 对……有害."
+    "explain": "To be harmful to means to perform the action related to to."
   },
   {
     "id": "g9_079",
@@ -990,7 +990,7 @@
     "audio": "diet.mp3",
     "unit": 6,
     "rootAffix": "di（日）+et→每天的定量→规定饮食",
-    "explain": "A diet is 饮食."
+    "explain": "A diet is the food a person usually eats."
   },
   {
     "id": "g9_080",
@@ -1003,7 +1003,7 @@
     "audio": "vitamin.mp3",
     "unit": 6,
     "rootAffix": "vit（生命）+amin（胺）→生命不可或缺的胺→维生素",
-    "explain": "A vitamin is 维生素."
+    "explain": "A vitamin is a substance needed for good health."
   },
   {
     "id": "g9_081",
@@ -1016,7 +1016,7 @@
     "audio": "protein.mp3",
     "unit": 6,
     "rootAffix": "prot（第一的，首要的）+e+in（名词后缀，表化学物质）→（构成生命的）首要物质→蛋白质",
-    "explain": "A protein is 蛋白质."
+    "explain": "A protein is a substance in food that helps build the body."
   },
   {
     "id": "g9_082",
@@ -1029,7 +1029,7 @@
     "audio": "mineral.mp3",
     "unit": 6,
     "rootAffix": "miner（矿）+al（形容词后缀）→矿物的",
-    "explain": "A mineral is 矿物质."
+    "explain": "A mineral is a natural substance found in the earth."
   },
   {
     "id": "g9_083",
@@ -1042,7 +1042,7 @@
     "audio": "balance.mp3",
     "unit": 6,
     "rootAffix": "ba（=bi，两）+lance（盘子）→有两个盘子的东西→天平→平衡→余额",
-    "explain": "A balance is 平衡."
+    "explain": "A balance is an even distribution of weight."
   },
   {
     "id": "g9_084",
@@ -1055,7 +1055,7 @@
     "audio": "nutrition.mp3",
     "unit": 6,
     "rootAffix": "nutr（滋养，提供营养）+ition（动名词后缀）→营养，营养物质，营养学",
-    "explain": "A nutrition is 营养."
+    "explain": "A nutrition is the process of providing food necessary for health."
   },
   {
     "id": "g9_085",
@@ -1068,7 +1068,7 @@
     "audio": "healthy.mp3",
     "unit": 6,
     "rootAffix": "health（健康）+y（形容词后缀）→健康的，有益于健康的",
-    "explain": "Healthy describes something that is 健康."
+    "explain": "A healthy is in good health."
   },
   {
     "id": "g9_086",
@@ -1081,7 +1081,7 @@
     "audio": "necessary.mp3",
     "unit": 6,
     "rootAffix": "ne（不）+cess（走开）+ary（形容词后缀）→不能离开的→必需的，必要的",
-    "explain": "Necessary describes something that is 必要."
+    "explain": "A necessary is needed."
   },
   {
     "id": "g9_087",
@@ -1105,7 +1105,7 @@
     "difficulty": 9,
     "audio": "sugar.mp3",
     "unit": 6,
-    "explain": "A sugar is 糖."
+    "explain": "A sugar is a sweet substance used in food."
   },
   {
     "id": "g9_089",
@@ -1117,7 +1117,7 @@
     "difficulty": 9,
     "audio": "fiber.mp3",
     "unit": 6,
-    "explain": "A fiber is 纤维."
+    "explain": "A fiber is the parts of plants that help with digestion."
   },
   {
     "id": "g9_090",
@@ -1129,7 +1129,7 @@
     "difficulty": 9,
     "audio": "dairy-product.mp3",
     "unit": 6,
-    "explain": "\"dairy product\" is an English expression."
+    "explain": "\"dairy product\" is an expression meaning a common English word."
   },
   {
     "id": "g9_091",
@@ -1141,7 +1141,7 @@
     "difficulty": 9,
     "audio": "fried-food.mp3",
     "unit": 6,
-    "explain": "fried food means 油炸食品."
+    "explain": "A fried food is food cooked in hot oil."
   },
   {
     "id": "g9_092",
@@ -1153,7 +1153,7 @@
     "difficulty": 9,
     "audio": "soft-drink.mp3",
     "unit": 6,
-    "explain": "soft drink means 软饮料."
+    "explain": "A soft drink is a cold drink that is not alcoholic."
   },
   {
     "id": "g9_093",
@@ -1165,7 +1165,7 @@
     "difficulty": 9,
     "audio": "lose-weight.mp3",
     "unit": 6,
-    "explain": "lose weight means 减肥."
+    "explain": "To lose weight means a common English word."
   },
   {
     "id": "g9_094",
@@ -1177,6 +1177,6 @@
     "difficulty": 9,
     "audio": "keep-fit.mp3",
     "unit": 6,
-    "explain": "keep fit means 保持健康."
+    "explain": "To keep fit means a common English word."
   }
 ]

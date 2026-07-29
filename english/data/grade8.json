@@ -22,7 +22,7 @@
     "difficulty": 8,
     "audio": "cover.mp3",
     "unit": 1,
-    "explain": "To cover means to 覆盖."
+    "explain": "To cover means a common English word."
   },
   {
     "id": "g8_003",
@@ -47,7 +47,7 @@
     "difficulty": 8,
     "audio": "fresh.mp3",
     "unit": 1,
-    "explain": "Fresh describes something that is 淡水的；新鲜."
+    "explain": "Fresh means ；."
   },
   {
     "id": "g8_005",
@@ -60,7 +60,7 @@
     "audio": "percent.mp3",
     "unit": 1,
     "rootAffix": "per（依据，相比于）+cent（百）→百分之……的",
-    "explain": "A percent is 百分之……."
+    "explain": "A percent is ……."
   },
   {
     "id": "g8_006",
@@ -73,7 +73,7 @@
     "audio": "available.mp3",
     "unit": 1,
     "rootAffix": "a（=ad，去）+vail（有价值）+able（可以）→可以带来价值的，有益的→有效的，能产生作用的→可用的，有空的",
-    "explain": "Available describes something that is 可获得."
+    "explain": "Available means a common English word."
   },
   {
     "id": "g8_007",
@@ -86,7 +86,7 @@
     "audio": "necessary.mp3",
     "unit": 1,
     "rootAffix": "ne（不）+cess（走开）+ary（形容词后缀）→不能离开的→必需的，必要的",
-    "explain": "Necessary describes something that is 必要."
+    "explain": "A necessary is needed."
   },
   {
     "id": "g8_008",
@@ -99,7 +99,7 @@
     "audio": "survive.mp3",
     "unit": 1,
     "rootAffix": "sur（=super，超越）+viv（活）+e→越过（灾难）活下来，比...活得长→幸免于，比……活得长",
-    "explain": "To survive means to 生存."
+    "explain": "A survive is to continue living."
   },
   {
     "id": "g8_009",
@@ -111,7 +111,7 @@
     "difficulty": 8,
     "audio": "drop.mp3",
     "unit": 1,
-    "explain": "To drop means to 滴；掉落."
+    "explain": "To drop means to ；."
   },
   {
     "id": "g8_010",
@@ -124,7 +124,7 @@
     "audio": "precious.mp3",
     "unit": 1,
     "rootAffix": "preci（价值）+ous（形容词后缀，多，富于）→有很多价值的→宝贵的，珍贵的",
-    "explain": "Precious describes something that is 宝贵."
+    "explain": "Precious means a common English word."
   },
   {
     "id": "g8_011",
@@ -137,7 +137,7 @@
     "audio": "limited.mp3",
     "unit": 1,
     "rootAffix": "limit（限制）+ed（过去分词形式）→受限制的→有限的",
-    "explain": "Limited describes something that is 有限."
+    "explain": "Limited is a verb in past tense."
   },
   {
     "id": "g8_012",
@@ -150,7 +150,7 @@
     "audio": "raise.mp3",
     "unit": 1,
     "rootAffix": "rais（=ris）+e=rise→升起",
-    "explain": "To raise means to 提升；筹集."
+    "explain": "To raise means to ；."
   },
   {
     "id": "g8_013",
@@ -162,7 +162,7 @@
     "difficulty": 8,
     "audio": "awareness.mp3",
     "unit": 1,
-    "explain": "An awareness is 意识."
+    "explain": "An awareness is knowledge or understanding of a situation."
   },
   {
     "id": "g8_014",
@@ -175,7 +175,7 @@
     "audio": "shortage.mp3",
     "unit": 1,
     "rootAffix": "short（不足的）+age（名词后缀，表状态）→缺乏",
-    "explain": "A shortage is 短缺."
+    "explain": "A shortage is a situation where there is not enough of something."
   },
   {
     "id": "g8_015",
@@ -187,7 +187,7 @@
     "difficulty": 8,
     "audio": "dry.mp3",
     "unit": 1,
-    "explain": "Dry describes something that is 干燥."
+    "explain": "A dry is not wet."
   },
   {
     "id": "g8_016",
@@ -200,7 +200,7 @@
     "audio": "desert.mp3",
     "unit": 1,
     "rootAffix": "de（反义）+sert（加入）→从行列中拿出来→抛弃，遗弃",
-    "explain": "A desert is 沙漠."
+    "explain": "A desert is a large area of land with very little water and few plants."
   },
   {
     "id": "g8_017",
@@ -239,7 +239,7 @@
     "audio": "difficult.mp3",
     "unit": 1,
     "rootAffix": "dif（=dis，反义）+fic（做）+ul（易于……的）+t→不容易做的→困难的",
-    "explain": "Difficult describes something that is 困难."
+    "explain": "A difficult is not easy."
   },
   {
     "id": "g8_020",
@@ -252,7 +252,7 @@
     "audio": "manage.mp3",
     "unit": 1,
     "rootAffix": "man（手）+age（动词后缀）→用手去操纵马匹，训练马匹→管理，经营",
-    "explain": "To manage means to 设法做到."
+    "explain": "To manage means a common English word."
   },
   {
     "id": "g8_021",
@@ -277,7 +277,7 @@
     "difficulty": 8,
     "audio": "water-shortage.mp3",
     "unit": 1,
-    "explain": "\"water shortage\" is an English expression."
+    "explain": "\"water shortage\" is an expression meaning a common English word."
   },
   {
     "id": "g8_023",
@@ -289,7 +289,7 @@
     "difficulty": 8,
     "audio": "dry-climate.mp3",
     "unit": 1,
-    "explain": "\"dry climate\" is an English expression."
+    "explain": "\"dry climate\" is an expression meaning a common English word."
   },
   {
     "id": "g8_024",
@@ -301,7 +301,7 @@
     "difficulty": 8,
     "audio": "manage-to-do-sth-.mp3",
     "unit": 1,
-    "explain": "manage to do sth. means 设法做成某事."
+    "explain": "To manage to do sth. means a common English word."
   },
   {
     "id": "g8_025",
@@ -325,7 +325,7 @@
     "difficulty": 8,
     "audio": "count.mp3",
     "unit": 2,
-    "explain": "To count means to 数；计数."
+    "explain": "To count means to ；."
   },
   {
     "id": "g8_027",
@@ -338,7 +338,7 @@
     "audio": "system.mp3",
     "unit": 2,
     "rootAffix": "sy（一起）+ste（=sta，站立）+m（=ma，名词后缀）→站在一起的东西→系统",
-    "explain": "A system is 系统."
+    "explain": "A system is a set of connected parts."
   },
   {
     "id": "g8_028",
@@ -351,7 +351,7 @@
     "audio": "symbol.mp3",
     "unit": 2,
     "rootAffix": "sym（一起）+bol（扔）→扔到一起的东西→符号，标志→象征",
-    "explain": "A symbol is 符号."
+    "explain": "A symbol is a sign representing something."
   },
   {
     "id": "g8_029",
@@ -364,7 +364,7 @@
     "audio": "calculate.mp3",
     "unit": 2,
     "rootAffix": "calc（石灰岩，石头）+ul（指小名词后缀）+ate（动词后缀）→用小石子来做某件事→计算",
-    "explain": "To calculate means to 计算."
+    "explain": "To calculate means a common English word."
   },
   {
     "id": "g8_030",
@@ -377,7 +377,7 @@
     "audio": "accurate.mp3",
     "unit": 2,
     "rootAffix": "ac（=ad，去，趋近）+cur（小心，注意）+ate（形容词后缀）→小心的，谨小慎微的→准确的，精确的",
-    "explain": "Accurate describes something that is 精确."
+    "explain": "Accurate means a common English word."
   },
   {
     "id": "g8_031",
@@ -390,7 +390,7 @@
     "audio": "invention.mp3",
     "unit": 2,
     "rootAffix": "invent（发明）+ion（名词后缀）→发明",
-    "explain": "An invention is 发明."
+    "explain": "An invention is something that has been created for the first time."
   },
   {
     "id": "g8_032",
@@ -403,7 +403,7 @@
     "audio": "develop.mp3",
     "unit": 2,
     "rootAffix": "de（反义）+velop（包裹）→打开包裹，展开→发展",
-    "explain": "To develop means to 发展."
+    "explain": "A develop is to grow or change."
   },
   {
     "id": "g8_033",
@@ -416,7 +416,7 @@
     "audio": "ancient.mp3",
     "unit": 2,
     "rootAffix": "anci（=ante，在前面）+ent（形容词后缀）→（很久）以前的→古代的",
-    "explain": "Ancient describes something that is 古代."
+    "explain": "An ancient is very old."
   },
   {
     "id": "g8_034",
@@ -467,7 +467,7 @@
     "audio": "multiply.mp3",
     "unit": 2,
     "rootAffix": "multi（多）+ply（=plic，折叠）→多次折叠→成倍增加，乘",
-    "explain": "To multiply means to 乘."
+    "explain": "To multiply means a common English word."
   },
   {
     "id": "g8_038",
@@ -480,7 +480,7 @@
     "audio": "divide.mp3",
     "unit": 2,
     "rootAffix": "divid（分开）+e→分开",
-    "explain": "To divide means to 除."
+    "explain": "To divide means a common English word."
   },
   {
     "id": "g8_039",
@@ -492,7 +492,7 @@
     "difficulty": 8,
     "audio": "at-least.mp3",
     "unit": 2,
-    "explain": "\"at least\" is an English expression."
+    "explain": "\"at least\" is an expression meaning a common English word."
   },
   {
     "id": "g8_040",
@@ -504,7 +504,7 @@
     "difficulty": 8,
     "audio": "in-ancient-times.mp3",
     "unit": 2,
-    "explain": "\"in ancient times\" is an English expression."
+    "explain": "\"in ancient times\" is an expression meaning a common English word."
   },
   {
     "id": "g8_041",
@@ -517,7 +517,7 @@
     "audio": "computer.mp3",
     "unit": 3,
     "rootAffix": "com（加强语气）+put（计算）+er（者）→计算机",
-    "explain": "A computer is 计算机."
+    "explain": "A computer is an electronic device."
   },
   {
     "id": "g8_042",
@@ -530,7 +530,7 @@
     "audio": "keyboard.mp3",
     "unit": 3,
     "rootAffix": "key（键）+board（木板）→键盘",
-    "explain": "A keyboard is 键盘."
+    "explain": "A keyboard is a set of keys for operating a computer."
   },
   {
     "id": "g8_043",
@@ -542,7 +542,7 @@
     "difficulty": 8,
     "audio": "mouse.mp3",
     "unit": 3,
-    "explain": "A mouse is 鼠标."
+    "explain": "A mouse is a small device moved by hand to control a computer."
   },
   {
     "id": "g8_044",
@@ -554,7 +554,7 @@
     "difficulty": 8,
     "audio": "screen.mp3",
     "unit": 3,
-    "explain": "A screen is 屏幕."
+    "explain": "A screen is the flat surface on which images are shown."
   },
   {
     "id": "g8_045",
@@ -567,7 +567,7 @@
     "audio": "program.mp3",
     "unit": 3,
     "rootAffix": "pro（向前向外）+gram（文字）→在前面公布出来的文字→通告→程序，计划",
-    "explain": "A program is 程序."
+    "explain": "A program is a set of instructions that a computer follows."
   },
   {
     "id": "g8_046",
@@ -580,7 +580,7 @@
     "audio": "internet.mp3",
     "unit": 3,
     "rootAffix": "inter（在……之间）+net（网）→在多个网络之间（的网络）→互联网",
-    "explain": "An Internet is 互联网."
+    "explain": "An internet is the global computer network."
   },
   {
     "id": "g8_047",
@@ -593,7 +593,7 @@
     "audio": "information.mp3",
     "unit": 3,
     "rootAffix": "inform（通知）+ation（动名词后缀）→信息",
-    "explain": "An information is 信息."
+    "explain": "An information is facts about a subject."
   },
   {
     "id": "g8_048",
@@ -606,7 +606,7 @@
     "audio": "technology.mp3",
     "unit": 3,
     "rootAffix": "techn（手艺，技巧）+o（连接字母）+log（学问）+y（名词后缀）→关于手艺和技巧的学问→技术",
-    "explain": "A technology is 技术."
+    "explain": "A technology is applied science."
   },
   {
     "id": "g8_049",
@@ -619,7 +619,7 @@
     "audio": "speaker.mp3",
     "unit": 3,
     "rootAffix": "speak（说话）+er（者）→说话者",
-    "explain": "A speaker is 扬声器."
+    "explain": "A speaker is a device that produces sound."
   },
   {
     "id": "g8_050",
@@ -632,7 +632,7 @@
     "audio": "printer.mp3",
     "unit": 3,
     "rootAffix": "print（打印、印刷）+er（者）→打印或印刷的人或工具",
-    "explain": "A printer is 打印机."
+    "explain": "A printer is a device that produces text or images on paper."
   },
   {
     "id": "g8_051",
@@ -644,7 +644,7 @@
     "difficulty": 8,
     "audio": "hard-disk.mp3",
     "unit": 3,
-    "explain": "\"hard disk\" is an English expression."
+    "explain": "\"hard disk\" is an expression meaning a common English word."
   },
   {
     "id": "g8_052",
@@ -656,7 +656,7 @@
     "difficulty": 8,
     "audio": "be-made-of.mp3",
     "unit": 3,
-    "explain": "To be made of means to 由……制成."
+    "explain": "To be made of means to perform the action related to of."
   },
   {
     "id": "g8_053",
@@ -668,7 +668,7 @@
     "difficulty": 8,
     "audio": "work-as.mp3",
     "unit": 3,
-    "explain": "\"work as\" is an English expression."
+    "explain": "\"work as\" is an expression meaning a common English word."
   },
   {
     "id": "g8_054",
@@ -680,7 +680,7 @@
     "difficulty": 8,
     "audio": "in-the-future.mp3",
     "unit": 3,
-    "explain": "\"in the future\" is an English expression."
+    "explain": "\"in the future\" is an expression meaning a common English word."
   },
   {
     "id": "g8_055",
@@ -693,7 +693,7 @@
     "audio": "growth.mp3",
     "unit": 4,
     "rootAffix": "grow（生长）+th（名词后缀，表行为）→生长",
-    "explain": "A growth is 增长；成长."
+    "explain": "A growth is ；."
   },
   {
     "id": "g8_056",
@@ -706,7 +706,7 @@
     "audio": "countryside.mp3",
     "unit": 4,
     "rootAffix": "country（农村）+side（边）→农村",
-    "explain": "A countryside is 乡村；农村."
+    "explain": "A countryside is ；."
   },
   {
     "id": "g8_057",
@@ -732,7 +732,7 @@
     "audio": "unpleasant.mp3",
     "unit": 4,
     "rootAffix": "un（反义前缀）+pleasant（令人愉快的）→令人不愉快的",
-    "explain": "Unpleasant describes something that is 令人不快."
+    "explain": "Unpleasant means a common English word."
   },
   {
     "id": "g8_059",
@@ -744,7 +744,7 @@
     "difficulty": 8,
     "audio": "bath.mp3",
     "unit": 4,
-    "explain": "A bath is 浴缸；洗澡."
+    "explain": "A bath is ；."
   },
   {
     "id": "g8_060",
@@ -770,7 +770,7 @@
     "audio": "smelly.mp3",
     "unit": 4,
     "rootAffix": "smell（发出气味）+y（形容词后缀）→发臭的",
-    "explain": "Smelly describes something that is 有臭味."
+    "explain": "Smelly means a common English word."
   },
   {
     "id": "g8_062",
@@ -783,7 +783,7 @@
     "audio": "wealthy.mp3",
     "unit": 4,
     "rootAffix": "wealth（财富）+y（形容词后缀）→富有的",
-    "explain": "Wealthy describes something that is 富有."
+    "explain": "Wealthy means a common English word."
   },
   {
     "id": "g8_063",
@@ -808,7 +808,7 @@
     "difficulty": 8,
     "audio": "foreign.mp3",
     "unit": 4,
-    "explain": "Foreign describes something that is 外国."
+    "explain": "Foreign means a common English word."
   },
   {
     "id": "g8_065",
@@ -821,7 +821,7 @@
     "audio": "mine.mp3",
     "unit": 4,
     "rootAffix": "min（矿）+e→矿，矿藏",
-    "explain": "A mine is 矿井；矿."
+    "explain": "A mine is belonging to me."
   },
   {
     "id": "g8_066",
@@ -833,7 +833,7 @@
     "difficulty": 8,
     "audio": "severe.mp3",
     "unit": 4,
-    "explain": "Severe describes something that is 严重."
+    "explain": "A severe is very serious."
   },
   {
     "id": "g8_067",
@@ -846,7 +846,7 @@
     "audio": "punish.mp3",
     "unit": 4,
     "rootAffix": "pun（惩罚）+ish（动词后缀）→惩罚",
-    "explain": "To punish means to 处罚；惩罚."
+    "explain": "To punish means to ；."
   },
   {
     "id": "g8_068",
@@ -859,7 +859,7 @@
     "audio": "punishment.mp3",
     "unit": 4,
     "rootAffix": "punish（惩罚）+ment（名词后缀）→惩罚",
-    "explain": "A punishment is 惩罚."
+    "explain": "A punishment is a penalty for breaking a rule."
   },
   {
     "id": "g8_069",
@@ -871,7 +871,7 @@
     "difficulty": 8,
     "audio": "burn.mp3",
     "unit": 4,
-    "explain": "To burn means to 燃烧."
+    "explain": "To burn means a common English word."
   },
   {
     "id": "g8_070",
@@ -883,7 +883,7 @@
     "difficulty": 8,
     "audio": "result-in.mp3",
     "unit": 4,
-    "explain": "result in means 造成；导致."
+    "explain": "To result in means to ；."
   },
   {
     "id": "g8_071",
@@ -895,7 +895,7 @@
     "difficulty": 8,
     "audio": "get-rid-of.mp3",
     "unit": 4,
-    "explain": "To get rid of means to 摆脱."
+    "explain": "To get rid of means to perform the action related to of."
   },
   {
     "id": "g8_072",
@@ -908,7 +908,7 @@
     "audio": "exchange.mp3",
     "unit": 5,
     "rootAffix": "ex（出来）+change（变化，换）→拿出来换→交换",
-    "explain": "To exchange means to 交流；交换."
+    "explain": "To exchange means to ；."
   },
   {
     "id": "g8_073",
@@ -959,7 +959,7 @@
     "audio": "fantastic.mp3",
     "unit": 5,
     "rootAffix": "fan（=phan-，显露）+t（形容词后缀）+as（动词后缀，使变得）+tic（形容词后缀）→异想天开的，奇异的→极好的，不可思议的",
-    "explain": "Fantastic describes something that is 极好."
+    "explain": "Fantastic means a common English word."
   },
   {
     "id": "g8_077",
@@ -972,7 +972,7 @@
     "audio": "improve.mp3",
     "unit": 5,
     "rootAffix": "im（=en，使）+prov（获益）+e→使获益→改善",
-    "explain": "To improve means to 提高；改善."
+    "explain": "An improve is to make better."
   },
   {
     "id": "g8_078",
@@ -985,7 +985,7 @@
     "audio": "scholarship.mp3",
     "unit": 5,
     "rootAffix": "scholar（学者）+ship→奖学金",
-    "explain": "A scholarship is 奖学金."
+    "explain": "A scholarship is money given to a student to help pay for education."
   },
   {
     "id": "g8_079",
@@ -998,7 +998,7 @@
     "audio": "application.mp3",
     "unit": 5,
     "rootAffix": "ap（=ad，去，趋近）+plic（折叠，合拢）+ation（动名词后缀）结果→应用，申请，敷用",
-    "explain": "An application is 申请."
+    "explain": "An application is a formal request for something."
   },
   {
     "id": "g8_080",
@@ -1010,7 +1010,7 @@
     "difficulty": 8,
     "audio": "take-part-in.mp3",
     "unit": 5,
-    "explain": "To take part in means to 参加."
+    "explain": "To take part in means to perform the action related to in."
   },
   {
     "id": "g8_081",
@@ -1022,7 +1022,7 @@
     "difficulty": 8,
     "audio": "learn-about.mp3",
     "unit": 5,
-    "explain": "\"learn about\" is an English expression."
+    "explain": "\"learn about\" is an expression meaning a common English word."
   },
   {
     "id": "g8_082",
@@ -1034,7 +1034,7 @@
     "difficulty": 8,
     "audio": "at-first.mp3",
     "unit": 5,
-    "explain": "\"at first\" is an English expression."
+    "explain": "\"at first\" is an expression meaning a common English word."
   },
   {
     "id": "g8_083",
@@ -1046,7 +1046,7 @@
     "difficulty": 8,
     "audio": "so-far.mp3",
     "unit": 5,
-    "explain": "\"so far\" is an English expression."
+    "explain": "\"so far\" is an expression meaning a common English word."
   },
   {
     "id": "g8_084",
@@ -1059,7 +1059,7 @@
     "audio": "virtual.mp3",
     "unit": 6,
     "rootAffix": "virt（功效）+u（连接成分）+al（形容词后缀）→具有相同功效的，从效果上来看一样的→虚拟的，等效的",
-    "explain": "Virtual describes something that is 虚拟."
+    "explain": "Virtual means a common English word."
   },
   {
     "id": "g8_085",
@@ -1072,7 +1072,7 @@
     "audio": "reality.mp3",
     "unit": 6,
     "rootAffix": "real（真实的，实际的）+ity（名词后缀）→现实，实际",
-    "explain": "A reality is 现实."
+    "explain": "A reality is the state of things as they actually exist."
   },
   {
     "id": "g8_086",
@@ -1097,7 +1097,7 @@
     "audio": "technology.mp3",
     "unit": 6,
     "rootAffix": "techn（手艺，技巧）+o（连接字母）+log（学问）+y（名词后缀）→关于手艺和技巧的学问→技术",
-    "explain": "A technology is 技术."
+    "explain": "A technology is applied science."
   },
   {
     "id": "g8_088",
@@ -1110,7 +1110,7 @@
     "audio": "predict.mp3",
     "unit": 6,
     "rootAffix": "pre（在前面）+dict（说）→提前说→预报，预言",
-    "explain": "To predict means to 预测."
+    "explain": "A predict is to forecast."
   },
   {
     "id": "g8_089",
@@ -1146,7 +1146,7 @@
     "difficulty": 8,
     "audio": "headset.mp3",
     "unit": 6,
-    "explain": "A headset is 头戴式设备."
+    "explain": "A headset is a pair of headphones with a microphone."
   },
   {
     "id": "g8_092",
@@ -1158,7 +1158,7 @@
     "difficulty": 8,
     "audio": "hologram.mp3",
     "unit": 6,
-    "explain": "A hologram is 全息图."
+    "explain": "A hologram is a three-dimensional image formed by light."
   },
   {
     "id": "g8_093",
@@ -1170,7 +1170,7 @@
     "difficulty": 8,
     "audio": "in-the-future.mp3",
     "unit": 6,
-    "explain": "\"in the future\" is an English expression."
+    "explain": "\"in the future\" is an expression meaning a common English word."
   },
   {
     "id": "g8_094",
@@ -1182,7 +1182,7 @@
     "difficulty": 8,
     "audio": "be-like.mp3",
     "unit": 6,
-    "explain": "To be like means to 像……一样."
+    "explain": "To be like means to perform the action related to like."
   },
   {
     "id": "g8_095",
@@ -1194,6 +1194,6 @@
     "difficulty": 8,
     "audio": "come-true.mp3",
     "unit": 6,
-    "explain": "To come true means to 实现."
+    "explain": "To come true means to perform the action related to true."
   }
 ]
