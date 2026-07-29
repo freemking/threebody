@@ -47,7 +47,7 @@
     "difficulty": 8,
     "audio": "fresh.mp3",
     "unit": 1,
-    "explain": "Fresh means ；."
+    "explain": "Fresh means newly made or recently obtained, not stale or spoiled."
   },
   {
     "id": "g8_005",
@@ -111,7 +111,7 @@
     "difficulty": 8,
     "audio": "drop.mp3",
     "unit": 1,
-    "explain": "To drop means to ；."
+    "explain": "To drop means to let something fall or to decrease in amount."
   },
   {
     "id": "g8_010",
@@ -150,7 +150,7 @@
     "audio": "raise.mp3",
     "unit": 1,
     "rootAffix": "rais（=ris）+e=rise→升起",
-    "explain": "To raise means to ；."
+    "explain": "To raise means to lift something up or increase the level of something."
   },
   {
     "id": "g8_013",
@@ -325,7 +325,7 @@
     "difficulty": 8,
     "audio": "count.mp3",
     "unit": 2,
-    "explain": "To count means to ；."
+    "explain": "To count means to determine the total number of items in a group."
   },
   {
     "id": "g8_027",
@@ -693,7 +693,7 @@
     "audio": "growth.mp3",
     "unit": 4,
     "rootAffix": "grow（生长）+th（名词后缀，表行为）→生长",
-    "explain": "A growth is ；."
+    "explain": "Growth is the process of increasing in size or developing over time."
   },
   {
     "id": "g8_056",
@@ -706,7 +706,7 @@
     "audio": "countryside.mp3",
     "unit": 4,
     "rootAffix": "country（农村）+side（边）→农村",
-    "explain": "A countryside is ；."
+    "explain": "Countryside is the land and scenery of a rural area outside towns and cities."
   },
   {
     "id": "g8_057",
@@ -744,7 +744,7 @@
     "difficulty": 8,
     "audio": "bath.mp3",
     "unit": 4,
-    "explain": "A bath is ；."
+    "explain": "A bath is the act of washing the body in water, or a container for this purpose."
   },
   {
     "id": "g8_060",
@@ -846,7 +846,7 @@
     "audio": "punish.mp3",
     "unit": 4,
     "rootAffix": "pun（惩罚）+ish（动词后缀）→惩罚",
-    "explain": "To punish means to ；."
+    "explain": "To punish means to impose a penalty on someone for wrongdoing."
   },
   {
     "id": "g8_068",
@@ -883,7 +883,7 @@
     "difficulty": 8,
     "audio": "result-in.mp3",
     "unit": 4,
-    "explain": "To result in means to ；."
+    "explain": "To result in means to cause something to happen."
   },
   {
     "id": "g8_071",
@@ -908,7 +908,7 @@
     "audio": "exchange.mp3",
     "unit": 5,
     "rootAffix": "ex（出来）+change（变化，换）→拿出来换→交换",
-    "explain": "To exchange means to ；."
+    "explain": "To exchange means to give something and receive something else in return."
   },
   {
     "id": "g8_073",

@@ -9,7 +9,7 @@
     "difficulty": 6,
     "audio": "life.mp3",
     "unit": 1,
-    "explain": "A life is ；."
+    "explain": "A life is the state of being alive."
   },
   {
     "id": "g6_002",
@@ -21,7 +21,7 @@
     "difficulty": 6,
     "audio": "break.mp3",
     "unit": 1,
-    "explain": "A break is ；；."
+    "explain": "A break is a pause or rest."
   },
   {
     "id": "g6_003",
@@ -84,7 +84,7 @@
     "audio": "instruction.mp3",
     "unit": 1,
     "rootAffix": "in-(进入) + struct-(构造,码放) + -ion(名词后缀) → 指示;命令",
-    "explain": "An instruction is ；."
+    "explain": "An instruction is a direction or order."
   },
   {
     "id": "g6_008",
@@ -222,7 +222,7 @@
     "audio": "excuse.mp3",
     "unit": 1,
     "rootAffix": "ex-(出来) + cus-(指控,要求解释原因) + e → 逃脱指控 → 原谅",
-    "explain": "To excuse means to ；."
+    "explain": "To excuse means to forgive or justify."
   },
   {
     "id": "g6_019",
@@ -234,7 +234,7 @@
     "difficulty": 6,
     "audio": "excuse_me.mp3",
     "unit": 1,
-    "explain": "An excuse me is （）；."
+    "explain": "An excuse me is a polite apology."
   },
   {
     "id": "g6_020",
@@ -284,7 +284,7 @@
     "audio": "topic.mp3",
     "unit": 1,
     "rootAffix": "top（地方，位置）+ic（形容词后缀）→地方的",
-    "explain": "A topic is ；."
+    "explain": "A topic is a subject of discussion."
   },
   {
     "id": "g6_024",
@@ -322,7 +322,7 @@
     "audio": "reply.mp3",
     "unit": 1,
     "rootAffix": "re(回) + ply(叠) → 折叠回去 → 回答",
-    "explain": "A reply is ；."
+    "explain": "A reply is a response."
   },
   {
     "id": "g6_027",
@@ -446,7 +446,7 @@
     "difficulty": 6,
     "audio": "noon.mp3",
     "unit": 1,
-    "explain": "A noon is ；."
+    "explain": "A noon is the middle of the day."
   },
   {
     "id": "g6_037",
@@ -472,7 +472,7 @@
     "audio": "comment.mp3",
     "unit": 1,
     "rootAffix": "com-(共同) + ment-(心智,思考) → 共同思考 → 评论",
-    "explain": "A comment is ；；；v.."
+    "explain": "A comment is a remark or opinion."
   },
   {
     "id": "g6_039",
@@ -484,7 +484,7 @@
     "difficulty": 6,
     "audio": "tie.mp3",
     "unit": 2,
-    "explain": "A tie is ；；."
+    "explain": "A tie is a necktie or a draw."
   },
   {
     "id": "g6_040",
@@ -497,7 +497,7 @@
     "audio": "relation.mp3",
     "unit": 2,
     "rootAffix": "re-(回) + lat-(承载) + -ion(名词后缀) → 关系",
-    "explain": "A relation is ；."
+    "explain": "A relation is a connection or association between people or things."
   },
   {
     "id": "g6_041",
@@ -536,7 +536,7 @@
     "audio": "relative.mp3",
     "unit": 2,
     "rootAffix": "re-(回) + lat-(承载) + -ive(形容词/名词后缀) → 亲戚",
-    "explain": "A relative is ；."
+    "explain": "A relative is a person connected by blood or marriage."
   },
   {
     "id": "g6_044",
@@ -549,7 +549,7 @@
     "audio": "only.mp3",
     "unit": 2,
     "rootAffix": "on(e)(唯一) + ly(形容词和副词后缀) → 唯一的，仅仅",
-    "explain": "Only means ；."
+    "explain": "Only means no more than or just."
   },
   {
     "id": "g6_045",
@@ -647,7 +647,7 @@
     "audio": "member.mp3",
     "unit": 2,
     "rootAffix": "mem-(记忆) + -ber → 记住的人 → 成员",
-    "explain": "A member is ；."
+    "explain": "A member is a person belonging to a group or organization."
   },
   {
     "id": "g6_053",
@@ -660,7 +660,7 @@
     "audio": "add.mp3",
     "unit": 2,
     "rootAffix": "ad(to，趋近) + d(给) → 给过去，给到一起 → 加，增加",
-    "explain": "To add means to ；."
+    "explain": "To add means to put something together with something else to increase the amount."
   },
   {
     "id": "g6_054",
@@ -673,7 +673,7 @@
     "audio": "note.mp3",
     "unit": 2,
     "rootAffix": "not（知道）+e→让人能识别的标识→注解",
-    "explain": "A note is ；；."
+    "explain": "A note is a short written message or a musical sound of a particular pitch."
   },
   {
     "id": "g6_055",
@@ -686,7 +686,7 @@
     "audio": "album.mp3",
     "unit": 2,
     "rootAffix": "alb（空白的）+um（名词后缀）→空白之物，待填写或填充内容之物→相簿、集邮簿、签名册→唱片集",
-    "explain": "An album is ；."
+    "explain": "An album is a collection of recordings or photographs bound together."
   },
   {
     "id": "g6_056",
@@ -736,7 +736,7 @@
     "audio": "elder.mp3",
     "unit": 2,
     "rootAffix": "eld（=old，年老的）+er（→更老的→年长的",
-    "explain": "Elder means ；."
+    "explain": "Elder means older or a person of greater age."
   },
   {
     "id": "g6_060",
@@ -773,7 +773,7 @@
     "difficulty": 6,
     "audio": "dark.mp3",
     "unit": 2,
-    "explain": "Dark means ；；."
+    "explain": "Dark means having little or no light."
   },
   {
     "id": "g6_063",
@@ -798,7 +798,7 @@
     "audio": "duty.mp3",
     "unit": 2,
     "rootAffix": "du（欠）+ty（名词后缀）→所欠的事→应该去做的事→责任",
-    "explain": "A duty is ；；."
+    "explain": "A duty is a task or responsibility that one is required to do."
   },
   {
     "id": "g6_065",
@@ -810,7 +810,7 @@
     "difficulty": 6,
     "audio": "born.mp3",
     "unit": 2,
-    "explain": "To born means to （ be born）；."
+    "explain": "Born means brought into life or existing since birth."
   },
   {
     "id": "g6_066",
@@ -823,7 +823,7 @@
     "audio": "weekend.mp3",
     "unit": 2,
     "rootAffix": "week（一周）+end（尽头）→周末",
-    "explain": "A weekend is ；."
+    "explain": "A weekend is Saturday and Sunday, the days of rest at the end of the week."
   },
   {
     "id": "g6_067",
@@ -896,7 +896,7 @@
     "difficulty": 6,
     "audio": "quick.mp3",
     "unit": 2,
-    "explain": "Quick means ；."
+    "explain": "Quick means moving fast or done in a short time."
   },
   {
     "id": "g6_073",
@@ -921,7 +921,7 @@
     "difficulty": 6,
     "audio": "flat.mp3",
     "unit": 2,
-    "explain": "A flat is ；."
+    "explain": "A flat is an apartment or a level area of ground."
   },
   {
     "id": "g6_075",
@@ -946,7 +946,7 @@
     "audio": "celebration.mp3",
     "unit": 2,
     "rootAffix": "celebr-(庆祝,颂扬) + -ation(名词后缀) → 庆典",
-    "explain": "A celebration is ；."
+    "explain": "A celebration is a joyful event or activity to mark a special occasion."
   },
   {
     "id": "g6_077",
@@ -1009,7 +1009,7 @@
     "difficulty": 6,
     "audio": "set.mp3",
     "unit": 2,
-    "explain": "To set means to ；."
+    "explain": "To set means to put something in a particular place or position."
   },
   {
     "id": "g6_082",
@@ -1206,7 +1206,7 @@
     "difficulty": 6,
     "audio": "yogurt.mp3",
     "unit": 3,
-    "explain": "A yogurt is ；."
+    "explain": "Yogurt is a thick, creamy food made from fermented milk."
   },
   {
     "id": "g6_098",
@@ -1218,7 +1218,7 @@
     "difficulty": 6,
     "audio": "cheese.mp3",
     "unit": 3,
-    "explain": "A cheese is ；."
+    "explain": "Cheese is a food made from milk that can be soft or hard."
   },
   {
     "id": "g6_099",
@@ -1278,7 +1278,7 @@
     "difficulty": 6,
     "audio": "bean.mp3",
     "unit": 3,
-    "explain": "A bean is ；."
+    "explain": "A bean is a seed from a plant used as food."
   },
   {
     "id": "g6_104",
@@ -1291,7 +1291,7 @@
     "audio": "product.mp3",
     "unit": 3,
     "rootAffix": "pro-(向前) + duct-(引导) → 向前引导 → 产品",
-    "explain": "A product is ；."
+    "explain": "A product is something made or manufactured for sale."
   },
   {
     "id": "g6_105",
@@ -1303,7 +1303,7 @@
     "difficulty": 6,
     "audio": "grain.mp3",
     "unit": 3,
-    "explain": "A grain is ；."
+    "explain": "A grain is a small, hard seed of a cereal plant like wheat or rice."
   },
   {
     "id": "g6_106",
@@ -1316,7 +1316,7 @@
     "audio": "rainbow.mp3",
     "unit": 3,
     "rootAffix": "rain（下雨）+bow（弓状物）→彩虹",
-    "explain": "A rainbow is ；."
+    "explain": "A rainbow is an arc of colors that appears in the sky after rain."
   },
   {
     "id": "g6_107",
@@ -1341,7 +1341,7 @@
     "audio": "diet.mp3",
     "unit": 3,
     "rootAffix": "di（日）+et→每天的定量→规定饮食",
-    "explain": "A diet is ；."
+    "explain": "A diet is the food and drink that a person regularly consumes."
   },
   {
     "id": "g6_109",
@@ -1378,7 +1378,7 @@
     "difficulty": 6,
     "audio": "plenty_of.mp3",
     "unit": 3,
-    "explain": "A plenty of is ；."
+    "explain": "Plenty of means a large amount or more than enough of something."
   },
   {
     "id": "g6_112",
@@ -1402,7 +1402,7 @@
     "difficulty": 6,
     "audio": "list.mp3",
     "unit": 3,
-    "explain": "A list is ；."
+    "explain": "A list is a series of items written or printed together."
   },
   {
     "id": "g6_114",
@@ -1414,7 +1414,7 @@
     "difficulty": 6,
     "audio": "few.mp3",
     "unit": 3,
-    "explain": "Few means ；."
+    "explain": "Few means not many or a small number of."
   },
   {
     "id": "g6_115",
@@ -1426,7 +1426,7 @@
     "difficulty": 6,
     "audio": "a_few.mp3",
     "unit": 3,
-    "explain": "An a few is ；（）."
+    "explain": "A few means a small number of, more than two but not many."
   },
   {
     "id": "g6_116",
@@ -1452,7 +1452,7 @@
     "audio": "ingredient.mp3",
     "unit": 3,
     "rootAffix": "in-(进入) + gredi-(走) + -ent(名词后缀) → 走进去 → 成分",
-    "explain": "An ingredient is （）；."
+    "explain": "An ingredient is a food item that is combined with others to make a dish."
   },
   {
     "id": "g6_118",
@@ -1465,7 +1465,7 @@
     "audio": "tasty.mp3",
     "unit": 3,
     "rootAffix": "tast(e)(味道) + y(形容词后缀) → 美味的",
-    "explain": "Tasty means ；."
+    "explain": "Tasty means having a pleasant flavor or good taste."
   },
   {
     "id": "g6_119",
@@ -1514,7 +1514,7 @@
     "difficulty": 6,
     "audio": "blog.mp3",
     "unit": 3,
-    "explain": "A blog is ；."
+    "explain": "A blog is a website where a person writes about personal experiences or opinions."
   },
   {
     "id": "g6_123",
@@ -1563,7 +1563,7 @@
     "difficulty": 6,
     "audio": "piece.mp3",
     "unit": 3,
-    "explain": "A piece is ；."
+    "explain": "A piece is a part or portion of something larger."
   },
   {
     "id": "g6_127",
@@ -1575,7 +1575,7 @@
     "difficulty": 6,
     "audio": "fry.mp3",
     "unit": 3,
-    "explain": "To fry means to ；."
+    "explain": "To fry means to cook food in hot oil or fat."
   },
   {
     "id": "g6_128",
@@ -1600,7 +1600,7 @@
     "difficulty": 6,
     "audio": "boil.mp3",
     "unit": 3,
-    "explain": "To boil means to ；."
+    "explain": "To boil means to heat a liquid until it reaches the temperature where it bubbles rapidly."
   },
   {
     "id": "g6_130",
@@ -1662,7 +1662,7 @@
     "audio": "beat.mp3",
     "unit": 3,
     "rootAffix": "b(e)at=bat（击打）→击打",
-    "explain": "To beat means to （）；."
+    "explain": "To beat means to mix ingredients by stirring vigorously or to defeat someone."
   },
   {
     "id": "g6_135",
@@ -1712,7 +1712,7 @@
     "audio": "date.mp3",
     "unit": 4,
     "rootAffix": "d(给) + at(完成分词后缀) + e → 已经给出 → 把信交给邮差的日期 → 日期",
-    "explain": "A date is ；."
+    "explain": "A date is a specific day of the month or year, or a social meeting."
   },
   {
     "id": "g6_139",
@@ -1724,7 +1724,7 @@
     "difficulty": 6,
     "audio": "ground.mp3",
     "unit": 4,
-    "explain": "A ground is （）；."
+    "explain": "Ground is the solid surface of the earth."
   },
   {
     "id": "g6_140",
@@ -1736,7 +1736,7 @@
     "difficulty": 6,
     "audio": "sports_ground.mp3",
     "unit": 4,
-    "explain": "A sports ground is ；."
+    "explain": "A sports ground is an outdoor area where sports and games are played."
   },
   {
     "id": "g6_141",
@@ -1857,7 +1857,7 @@
     "audio": "active.mp3",
     "unit": 4,
     "rootAffix": "act-(动作) + -ive(形容词后缀) → 活跃的",
-    "explain": "Active means ；；."
+    "explain": "Active means engaging in physical movement or taking part in activities."
   },
   {
     "id": "g6_151",
@@ -1907,7 +1907,7 @@
     "audio": "volleyball.mp3",
     "unit": 4,
     "rootAffix": "volley（截击，凌空抽射）+ball（球）→在空中截击的球→排球",
-    "explain": "A volleyball is ；."
+    "explain": "Volleyball is a team sport played with a ball over a high net."
   },
   {
     "id": "g6_155",
@@ -1943,7 +1943,7 @@
     "difficulty": 6,
     "audio": "pull.mp3",
     "unit": 4,
-    "explain": "To pull means to ；."
+    "explain": "To pull means to move something toward yourself by using force."
   },
   {
     "id": "g6_158",
@@ -1968,7 +1968,7 @@
     "audio": "safety.mp3",
     "unit": 4,
     "rootAffix": "safe(安全的) + ty(名词后缀) → 安全",
-    "explain": "A safety is ；."
+    "explain": "Safety is the condition of being protected from danger or risk."
   },
   {
     "id": "g6_160",
@@ -1981,7 +1981,7 @@
     "audio": "ankle.mp3",
     "unit": 4,
     "rootAffix": "ank(弯折，弯钩) + le(指小名词后缀) → (人体的)弯折部位 → 踝关节",
-    "explain": "An ankle is ；."
+    "explain": "An ankle is the joint connecting the foot to the leg."
   },
   {
     "id": "g6_161",
@@ -2042,7 +2042,7 @@
     "difficulty": 6,
     "audio": "warm_up.mp3",
     "unit": 4,
-    "explain": "A warm up is （），；."
+    "explain": "A warm up is a series of exercises to prepare the body for physical activity."
   },
   {
     "id": "g6_166",
@@ -2067,7 +2067,7 @@
     "audio": "matter.mp3",
     "unit": 4,
     "rootAffix": "mater（母）→万物之母，基质→物质",
-    "explain": "A matter is ；."
+    "explain": "A matter is a subject or situation being considered or dealt with."
   },
   {
     "id": "g6_168",
@@ -2128,7 +2128,7 @@
     "difficulty": 6,
     "audio": "guess.mp3",
     "unit": 4,
-    "explain": "To guess means to ；."
+    "explain": "To guess means to estimate or suppose something without enough information to be sure."
   },
   {
     "id": "g6_173",
@@ -2164,7 +2164,7 @@
     "difficulty": 6,
     "audio": "seem.mp3",
     "unit": 4,
-    "explain": "To seem means to ；；."
+    "explain": "To seem means to give the impression of being something."
   },
   {
     "id": "g6_176",
@@ -2189,7 +2189,7 @@
     "difficulty": 6,
     "audio": "score.mp3",
     "unit": 4,
-    "explain": "To score means to （）；（）."
+    "explain": "To score means to gain points in a game or test."
   },
   {
     "id": "g6_178",
@@ -2225,7 +2225,7 @@
     "difficulty": 6,
     "audio": "hold.mp3",
     "unit": 4,
-    "explain": "To hold means to ……；；."
+    "explain": "To hold means to grasp or carry something in one's hands."
   },
   {
     "id": "g6_181",
@@ -2249,7 +2249,7 @@
     "difficulty": 6,
     "audio": "point.mp3",
     "unit": 4,
-    "explain": "A point is ；."
+    "explain": "A point is a particular spot, position, or purpose."
   },
   {
     "id": "g6_183",
@@ -2262,7 +2262,7 @@
     "audio": "control.mp3",
     "unit": 4,
     "rootAffix": "contr-(对立,相反) + -rol(滚) → 对着滚 → 控制",
-    "explain": "To control means to ；."
+    "explain": "To control means to direct or manage something."
   },
   {
     "id": "g6_184",
@@ -2274,7 +2274,7 @@
     "difficulty": 6,
     "audio": "mind.mp3",
     "unit": 4,
-    "explain": "A mind is ；；v. ；."
+    "explain": "A mind is the part of a person that thinks, feels, and remembers."
   },
   {
     "id": "g6_185",
@@ -2299,7 +2299,7 @@
     "difficulty": 6,
     "audio": "style.mp3",
     "unit": 4,
-    "explain": "A style is ；."
+    "explain": "A style is a way of doing, wearing, or making something."
   },
   {
     "id": "g6_187",
@@ -2312,7 +2312,7 @@
     "audio": "moment.mp3",
     "unit": 4,
     "rootAffix": "mo(=mov，移动) + ment(名词后缀) → (时间的)移动 → 时刻",
-    "explain": "A moment is ；."
+    "explain": "A moment is a very short period of time."
   },
   {
     "id": "g6_188",
@@ -2325,7 +2325,7 @@
     "audio": "report.mp3",
     "unit": 4,
     "rootAffix": "re-(回) + port-(运载) → 运回来 → 报告",
-    "explain": "To report means to ；；."
+    "explain": "To report means to give an account of something that has been observed or done."
   },
   {
     "id": "g6_189",
@@ -2375,7 +2375,7 @@
     "difficulty": 6,
     "audio": "shoot.mp3",
     "unit": 4,
-    "explain": "To shoot means to ；."
+    "explain": "To shoot means to fire a weapon or to kick or throw a ball toward a goal."
   },
   {
     "id": "g6_193",
@@ -2500,7 +2500,7 @@
     "audio": "collect.mp3",
     "unit": 5,
     "rootAffix": "col-(共同,一起) + lect-(采集) → 一起采集 → 收集",
-    "explain": "To collect means to ；."
+    "explain": "To collect means to gather items together from different places."
   },
   {
     "id": "g6_203",
@@ -2512,7 +2512,7 @@
     "difficulty": 6,
     "audio": "recognise_ame_recognize_reknaz_v.mp3",
     "unit": 5,
-    "explain": "To recognise means to ；（ recognize）."
+    "explain": "To recognise means to identify someone or something from previous experience."
   },
   {
     "id": "g6_204",
@@ -2524,7 +2524,7 @@
     "difficulty": 6,
     "audio": "care.mp3",
     "unit": 5,
-    "explain": "A care is ；."
+    "explain": "Care is the provision of attention or support to someone or something."
   },
   {
     "id": "g6_205",
@@ -2573,7 +2573,7 @@
     "difficulty": 6,
     "audio": "sign.mp3",
     "unit": 5,
-    "explain": "A sign is ；."
+    "explain": "A sign is a notice giving information or a symbol with a specific meaning."
   },
   {
     "id": "g6_209",
@@ -2634,7 +2634,7 @@
     "difficulty": 6,
     "audio": "calf.mp3",
     "unit": 5,
-    "explain": "A calf is ；."
+    "explain": "A calf is a young cow or the back part of the lower leg."
   },
   {
     "id": "g6_214",
@@ -2684,7 +2684,7 @@
     "difficulty": 6,
     "audio": "shout.mp3",
     "unit": 5,
-    "explain": "To shout means to ；."
+    "explain": "To shout means to call out loudly."
   },
   {
     "id": "g6_218",
@@ -2721,7 +2721,7 @@
     "difficulty": 6,
     "audio": "snack.mp3",
     "unit": 5,
-    "explain": "A snack is ；."
+    "explain": "A snack is a small amount of food eaten between meals."
   },
   {
     "id": "g6_221",
@@ -2733,7 +2733,7 @@
     "difficulty": 6,
     "audio": "could.mp3",
     "unit": 5,
-    "explain": "To could means to （）；."
+    "explain": "Could is used to express possibility or past ability."
   },
   {
     "id": "g6_222",
@@ -2758,7 +2758,7 @@
     "audio": "diary.mp3",
     "unit": 5,
     "rootAffix": "di-(日,天) + -ary(名词后缀) → 每天记录 → 日记",
-    "explain": "A diary is ；."
+    "explain": "A diary is a book in which one keeps a daily record of events and experiences."
   },
   {
     "id": "g6_224",
@@ -2784,7 +2784,7 @@
     "audio": "direct.mp3",
     "unit": 5,
     "rootAffix": "di-(离开) + rect-(直的) → 使变直 → 指导",
-    "explain": "To direct means to ；；."
+    "explain": "To direct means to manage or guide the making of something."
   },
   {
     "id": "g6_226",
@@ -2809,7 +2809,7 @@
     "audio": "glad.mp3",
     "unit": 5,
     "rootAffix": "gl（闪亮）+ad→（脸庞）闪亮的→欢乐的",
-    "explain": "Glad means ；."
+    "explain": "Glad means feeling pleasure or happiness."
   },
   {
     "id": "g6_228",
@@ -2858,7 +2858,7 @@
     "difficulty": 6,
     "audio": "neck.mp3",
     "unit": 5,
-    "explain": "A neck is ；."
+    "explain": "A neck is the part of the body connecting the head to the shoulders."
   },
   {
     "id": "g6_232",
@@ -2871,7 +2871,7 @@
     "audio": "friendly.mp3",
     "unit": 5,
     "rootAffix": "friend-(朋友) + -ly(形容词后缀) → 友好的",
-    "explain": "Friendly means ；."
+    "explain": "Friendly means kind and pleasant toward others."
   },
   {
     "id": "g6_233",
@@ -2921,7 +2921,7 @@
     "difficulty": 6,
     "audio": "trip.mp3",
     "unit": 6,
-    "explain": "A trip is （）；；."
+    "explain": "A trip is a journey to a place and back."
   },
   {
     "id": "g6_237",
@@ -2934,7 +2934,7 @@
     "audio": "popular.mp3",
     "unit": 6,
     "rootAffix": "popul-(民众) + -ar(形容词后缀) → 民众的 → 流行的",
-    "explain": "Popular means ；；."
+    "explain": "Popular means liked or enjoyed by many people."
   },
   {
     "id": "g6_238",
@@ -2946,7 +2946,7 @@
     "difficulty": 6,
     "audio": "tour.mp3",
     "unit": 6,
-    "explain": "A tour is ；."
+    "explain": "A tour is a journey during which several places are visited."
   },
   {
     "id": "g6_239",
@@ -2958,7 +2958,7 @@
     "difficulty": 6,
     "audio": "tip.mp3",
     "unit": 6,
-    "explain": "A tip is ；."
+    "explain": "A tip is a useful piece of advice or the pointed end of something."
   },
   {
     "id": "g6_240",
@@ -2971,7 +2971,7 @@
     "audio": "footprint.mp3",
     "unit": 6,
     "rootAffix": "foot-(脚) + print-(印) → 脚印",
-    "explain": "A footprint is ；."
+    "explain": "A footprint is a mark left by a foot on a surface."
   },
   {
     "id": "g6_241",
@@ -3034,7 +3034,7 @@
     "difficulty": 6,
     "audio": "lazy.mp3",
     "unit": 6,
-    "explain": "Lazy means ；."
+    "explain": "Lazy means unwilling to work or use energy."
   },
   {
     "id": "g6_246",
@@ -3046,7 +3046,7 @@
     "difficulty": 6,
     "audio": "roof.mp3",
     "unit": 6,
-    "explain": "A roof is ；."
+    "explain": "A roof is the top covering of a building."
   },
   {
     "id": "g6_247",
@@ -3083,7 +3083,7 @@
     "difficulty": 6,
     "audio": "drive.mp3",
     "unit": 6,
-    "explain": "To drive means to ；."
+    "explain": "To drive means to operate and control a vehicle."
   },
   {
     "id": "g6_250",
@@ -3095,7 +3095,7 @@
     "difficulty": 6,
     "audio": "shall.mp3",
     "unit": 6,
-    "explain": "To shall means to （Iwe，）；."
+    "explain": "Shall is used to express future action or a suggestion."
   },
   {
     "id": "g6_251",
@@ -3119,7 +3119,7 @@
     "difficulty": 6,
     "audio": "im_afraid.mp3",
     "unit": 6,
-    "explain": "An i'm afraid is ；；；."
+    "explain": "I'm afraid is a polite expression used to deliver bad news or express regret."
   },
   {
     "id": "g6_253",
@@ -3132,7 +3132,7 @@
     "audio": "expensive.mp3",
     "unit": 6,
     "rootAffix": "ex-(出来) + pens-(支付) + -ive(形容词后缀) → 需要付出很多 → 昂贵的",
-    "explain": "Expensive means ；."
+    "explain": "Expensive means costing a lot of money."
   },
   {
     "id": "g6_254",
@@ -3158,7 +3158,7 @@
     "audio": "ticket.mp3",
     "unit": 6,
     "rootAffix": "tick（=stick，贴纸，便签条）+ et（指小名词形式）→小纸条",
-    "explain": "A ticket is ；."
+    "explain": "A ticket is a piece of paper or card that gives the holder a right to travel or enter a place."
   },
   {
     "id": "g6_256",
@@ -3220,7 +3220,7 @@
     "audio": "comfortable.mp3",
     "unit": 6,
     "rootAffix": "comfort-(舒适) + -able(形容词后缀,能...的) → 舒适的",
-    "explain": "Comfortable means ；."
+    "explain": "Comfortable means providing physical ease and relaxation."
   },
   {
     "id": "g6_261",
@@ -3232,7 +3232,7 @@
     "difficulty": 6,
     "audio": "view.mp3",
     "unit": 6,
-    "explain": "A view is ；（）；；（）."
+    "explain": "A view is what can be seen from a particular place, or a personal opinion."
   },
   {
     "id": "g6_262",
@@ -3294,7 +3294,7 @@
     "difficulty": 6,
     "audio": "such.mp3",
     "unit": 6,
-    "explain": "Such is a pronoun meaning ；；."
+    "explain": "Such means of the type already mentioned or about to be mentioned."
   },
   {
     "id": "g6_267",
@@ -3306,7 +3306,7 @@
     "difficulty": 6,
     "audio": "such_as.mp3",
     "unit": 6,
-    "explain": "A such as is ；."
+    "explain": "Such as means for example or of the kind that."
   },
   {
     "id": "g6_268",
@@ -3344,7 +3344,7 @@
     "audio": "national.mp3",
     "unit": 6,
     "rootAffix": "nation-(国家) + -al(形容词后缀) → 国家的;全国的",
-    "explain": "National means ；."
+    "explain": "National means relating to a whole nation or country."
   },
   {
     "id": "g6_271",
@@ -3433,7 +3433,7 @@
     "difficulty": 6,
     "audio": "enjoy_oneself.mp3",
     "unit": 6,
-    "explain": "An enjoy oneself is ；."
+    "explain": "To enjoy oneself means to have a good time or experience pleasure."
   },
   {
     "id": "g6_278",
@@ -3446,7 +3446,7 @@
     "audio": "different.mp3",
     "unit": 1,
     "rootAffix": "differ（相异）+ent（形容词后缀）→不同的",
-    "explain": "Different means ；."
+    "explain": "Different means not the same as another or each other."
   },
   {
     "id": "g6_279",
@@ -3471,7 +3471,7 @@
     "difficulty": 6,
     "audio": "slim.mp3",
     "unit": 1,
-    "explain": "Slim means ；."
+    "explain": "Slim means attractively thin or having a small chance of success."
   },
   {
     "id": "g6_281",
@@ -3569,7 +3569,7 @@
     "audio": "cheerful.mp3",
     "unit": 1,
     "rootAffix": "cheer（愉快）+ful（形容词后缀）→快乐的",
-    "explain": "Cheerful means ；."
+    "explain": "Cheerful means noticeably happy and optimistic."
   },
   {
     "id": "g6_289",
@@ -3606,7 +3606,7 @@
     "audio": "partner.mp3",
     "unit": 1,
     "rootAffix": "part（划分）+n（=ition，动名词后缀）+er（者）→持有股份的人→合伙人→伙伴，配偶",
-    "explain": "A partner is ；."
+    "explain": "A partner is a person who takes part in an activity with another."
   },
   {
     "id": "g6_292",
@@ -3703,7 +3703,7 @@
     "difficulty": 6,
     "audio": "mustn't.mp3",
     "unit": 2,
-    "explain": "To mustn't means to ；."
+    "explain": "Mustn't means must not, expressing prohibition."
   },
   {
     "id": "g6_300",
@@ -3775,7 +3775,7 @@
     "difficulty": 6,
     "audio": "leave.mp3",
     "unit": 2,
-    "explain": "To leave means to ；."
+    "explain": "To leave means to go away from a place."
   },
   {
     "id": "g6_306",
@@ -3825,7 +3825,7 @@
     "difficulty": 6,
     "audio": "lean.mp3",
     "unit": 2,
-    "explain": "To lean means to ；."
+    "explain": "To lean means to incline from a vertical position or rest against something."
   },
   {
     "id": "g6_310",
@@ -3837,7 +3837,7 @@
     "difficulty": 6,
     "audio": "gap.mp3",
     "unit": 2,
-    "explain": "A gap is ；."
+    "explain": "A gap is an opening or a space between two things."
   },
   {
     "id": "g6_311",
@@ -3862,7 +3862,7 @@
     "audio": "announcement.mp3",
     "unit": 2,
     "rootAffix": "announce（宣布，播报）+ment（名词后缀）→公告",
-    "explain": "An announcement is ；."
+    "explain": "An announcement is a public statement about something that has happened or will happen."
   },
   {
     "id": "g6_313",
@@ -4000,7 +4000,7 @@
     "difficulty": 6,
     "audio": "eve.mp3",
     "unit": 3,
-    "explain": "An eve is ；."
+    "explain": "An eve is the day or period of time before an event or holiday."
   },
   {
     "id": "g6_324",
@@ -4052,7 +4052,7 @@
     "audio": "performance.mp3",
     "unit": 3,
     "rootAffix": "perform（执行）+ance（名词后缀）→执行情况→性能，绩效",
-    "explain": "A performance is ；."
+    "explain": "A performance is an act of staging entertainment or a demonstration of ability."
   },
   {
     "id": "g6_328",
@@ -4126,7 +4126,7 @@
     "audio": "wealth.mp3",
     "unit": 3,
     "rootAffix": "weal（=well，良好的，幸福的）+th（名词后缀，表状态）→福利→财富",
-    "explain": "A wealth is ；."
+    "explain": "Wealth is a large amount of money, property, or valuable possessions."
   },
   {
     "id": "g6_334",
@@ -4542,7 +4542,7 @@
     "difficulty": 6,
     "audio": "flag.mp3",
     "unit": 5,
-    "explain": "A flag is ；."
+    "explain": "A flag is a piece of cloth with a design used as a symbol of a country or organization."
   },
   {
     "id": "g6_367",
@@ -4715,7 +4715,7 @@
     "difficulty": 6,
     "audio": "smart.mp3",
     "unit": 6,
-    "explain": "Smart means ；."
+    "explain": "Smart means intelligent or neatly dressed."
   },
   {
     "id": "g6_381",

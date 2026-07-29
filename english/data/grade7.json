@@ -121,7 +121,7 @@
     "difficulty": 7,
     "audio": "camp.mp3",
     "unit": 1,
-    "explain": "To camp means to ；."
+    "explain": "To camp means to live temporarily in a tent or outdoors."
   },
   {
     "id": "g7_011",
@@ -358,7 +358,7 @@
     "audio": "practise.mp3",
     "unit": 2,
     "rootAffix": "pract（实践）+ise（动词后缀）→实践",
-    "explain": "To practise means to ；."
+    "explain": "To practise means to do something regularly to improve one's skill."
   },
   {
     "id": "g7_030",
@@ -371,7 +371,7 @@
     "audio": "solve.mp3",
     "unit": 2,
     "rootAffix": "solv（松开）+e→解开→解决，解答，溶解",
-    "explain": "To solve means to ；."
+    "explain": "To solve means to find an answer or explanation to a problem."
   },
   {
     "id": "g7_031",
@@ -633,7 +633,7 @@
     "difficulty": 7,
     "audio": "hurt.mp3",
     "unit": 3,
-    "explain": "To hurt means to ；."
+    "explain": "To hurt means to cause physical pain or injury to someone."
   },
   {
     "id": "g7_052",
@@ -1035,7 +1035,7 @@
     "audio": "suit.mp3",
     "unit": 5,
     "rootAffix": "su（跟随）+it（=at，动词和形容词后缀）→跟随的→随从→随从穿的套装→能成为一套→适合；或者suit=su（追）+it→追究→诉讼",
-    "explain": "A suit is ；."
+    "explain": "A suit is a set of matching clothes, typically a jacket and trousers or a skirt."
   },
   {
     "id": "g7_084",
@@ -1047,7 +1047,7 @@
     "difficulty": 7,
     "audio": "tie.mp3",
     "unit": 5,
-    "explain": "To tie means to ；."
+    "explain": "A tie is a long piece of cloth worn around the neck, or an equal score in a competition."
   },
   {
     "id": "g7_085",
@@ -1160,7 +1160,7 @@
     "difficulty": 7,
     "audio": "waste.mp3",
     "unit": 6,
-    "explain": "To waste means to ；."
+    "explain": "To waste means to use something carelessly or without purpose."
   },
   {
     "id": "g7_094",
