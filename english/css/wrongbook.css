@@ -369,14 +369,13 @@
 /* 英文释义 */
 .wrongbook-explain {
     color: var(--wb-text-body);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     margin-bottom: var(--wb-space-md);
     padding: var(--wb-space-sm) var(--wb-space-md);
     background: rgba(59, 130, 246, 0.08);
     border-radius: var(--wb-radius-md);
     border-left: 3px solid rgba(59, 130, 246, 0.4);
     font-family: var(--wb-font-body);
-    font-style: italic;
     line-height: 1.5;
 }
 
@@ -401,7 +400,6 @@
 .wrongbook-example {
     color: var(--wb-text-muted);
     font-size: 1.2rem;
-    font-style: italic;
     margin-bottom: var(--wb-space-md);
     padding: var(--wb-space-sm) var(--wb-space-md);
     background: rgba(255, 255, 255, 0.05);

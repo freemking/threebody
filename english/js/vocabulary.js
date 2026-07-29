@@ -1682,6 +1682,7 @@ const VocabularyAppMixin = {
                             </div>
                         </div>
                         <div class="vocabulary-word-meaning">${word.meaning}</div>
+                        ${(() => { const exp = getWordExplain(word.word); return exp ? `<div class="vocabulary-word-explain">${exp}</div>` : ''; })()}
                         ${word.rootAffix ? `<div class="vocabulary-word-rootAffix"><span class="root-affix-label">词根词缀:</span> ${word.rootAffix}</div>` : ''}
                         ${word.example ? `<div class="vocabulary-word-example">"${word.example}"</div>` : ''}
                     </div>

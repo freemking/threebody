@@ -259,10 +259,20 @@
     line-height: 1.5;
 }
 
+.vocabulary-word-explain {
+    font-size: 1.1rem;
+    color: var(--vb-text-primary);
+    margin-bottom: var(--vb-space-md);
+    line-height: 1.6;
+    padding: var(--vb-space-sm) var(--vb-space-md);
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--vb-accent);
+    border-radius: 0 var(--vb-radius-sm) var(--vb-radius-sm) 0;
+}
+
 .vocabulary-word-example {
     font-size: 1.1rem;
     color: var(--vb-text-muted);
-    font-style: italic;
     line-height: 1.6;
     padding: var(--vb-space-sm);
     background: rgba(255, 255, 255, 0.05);
@@ -1508,7 +1518,7 @@
 
 /* 历史单词英文释义 */
 .history-word-explain {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     color: var(--vb-text-body, #e2e8f0);
     margin-top: var(--vb-space-xs);
     padding: var(--vb-space-xs) var(--vb-space-sm);
@@ -1516,7 +1526,6 @@
     border-radius: var(--vb-radius-sm, 4px);
     border-left: 3px solid rgba(59, 130, 246, 0.4);
     line-height: 1.4;
-    font-style: italic;
 }
 
 .history-word-rootAffix {
@@ -1536,9 +1545,8 @@
 }
 
 .history-word-example {
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     color: var(--vb-text-muted);
-    font-style: italic;
     margin-top: var(--vb-space-xs);
     padding: var(--vb-space-xs) var(--vb-space-sm);
     background: rgba(255, 255, 255, 0.05);

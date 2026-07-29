@@ -654,7 +654,7 @@ router.get('/daily-record', authenticateToken, async (req, res) => {
             reviewed: row.reviewed || 0
         }));
         
-        console.log(`daily-record API 返回数据 (${queryDate}):`, JSON.stringify(data.slice(0, 3), null, 2));
+
         
         res.json({ success: true, data });
     } catch (error) {
