@@ -1,0 +1,2061 @@
+/* ===== 音标学习页面样式 ===== */
+
+/* 新增容器样式 */
+.phonetics-progress-container,
+.phonetics-quiz-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.phonetics-progress-container .progress-center-content,
+.phonetics-quiz-container .quiz-selection-content {
+    background: var(--background-color);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-card);
+}
+
+.phonetics-progress-container .progress-center-header,
+.phonetics-quiz-container h2 {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.phonetics-progress-container .progress-center-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: var(--spacing-md);
+}
+
+.phonetics-progress-container .progress-tab {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    color: var(--text-secondary);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.phonetics-progress-container .progress-tab:hover {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--text-color);
+}
+
+.phonetics-progress-container .progress-tab.active {
+    background: rgba(0, 255, 255, 0.15);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.phonetics-progress-container .progress-tab-content {
+    display: none;
+}
+
+.phonetics-progress-container .progress-tab-content.active {
+    display: block;
+}
+
+/* 设计系统变量 - 补充 phonetics 专用变量 */
+:root {
+    /* 文本/背景辅助色 */
+    --white-color: #ffffff;
+    --card-bg: rgba(0, 255, 255, 0.05);
+    --card-border: rgba(0, 255, 255, 0.15);
+    --bg-light: rgba(0, 255, 255, 0.05);
+    --danger-color: #EF4444;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+    /* 字体大小 */
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+
+    /* 间距系统 */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+    
+    /* vocabulary-layout.css 需要的变量 */
+    --vb-primary: #00ffff;
+    --vb-primary-light: rgba(0, 255, 255, 0.7);
+    --vb-primary-dark: #00cccc;
+    --vb-accent: #FBBF24;
+    --vb-accent-light: #FEF3C7;
+    --vb-success: #10b981;
+    --vb-success-light: #34d399;
+    --vb-danger: #ef4444;
+    --vb-danger-light: #f87171;
+    --vb-warning: #F59E0B;
+    --vb-bg-primary: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 50%, #0a0a1a 100%);
+    --vb-bg-card: rgba(0, 255, 255, 0.05);
+    --vb-bg-card-hover: rgba(0, 255, 255, 0.1);
+    --vb-bg-card-mastered: rgba(16, 185, 129, 0.1);
+    --vb-text-primary: #ffffff;
+    --vb-text-secondary: rgba(255, 255, 255, 0.85);
+    --vb-text-muted: rgba(192, 192, 224, 0.7);
+    --vb-text-accent: rgba(0, 255, 255, 0.95);
+    --vb-border: rgba(0, 255, 255, 0.15);
+    --vb-border-mastered: rgba(16, 185, 129, 0.4);
+    --vb-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --vb-shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+    --vb-space-xs: 4px;
+    --vb-space-sm: 8px;
+    --vb-space-md: 12px;
+    --vb-space-lg: 16px;
+    --vb-space-xl: 24px;
+    --vb-space-2xl: 32px;
+    --vb-space-3xl: 48px;
+    --vb-space-4xl: 64px;
+    --vb-radius-sm: 6px;
+    --vb-radius-md: 10px;
+    --vb-radius-lg: 16px;
+    --vb-radius-xl: 20px;
+    --vb-radius-full: 9999px;
+    --vb-font-display: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --vb-font-body: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    --vb-font-mono: 'Fira Code', monospace;
+    --vb-transition-fast: 0.15s ease;
+    --vb-transition-normal: 0.25s ease;
+    --vb-transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --vb-transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 侧边栏导航 */
+.phonetics-subcategory-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.phonetics-subcategory-btn {
+    padding: 0.5rem 0.75rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--light-text);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-align: left;
+}
+
+.phonetics-subcategory-btn:hover {
+    background-color: rgba(0, 255, 255, 0.08);
+    color: var(--text-color);
+}
+
+.phonetics-subcategory-btn.active {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-left: 3px solid var(--primary-color);
+}
+
+/* 内容区域 */
+.phonetics-content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* 顶部状态栏 */
+.phonetics-status-bar {
+    display: flex;
+ justify-content: space-between;
+ align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+ background-color: rgba(0, 255, 255, 0.05);
+ border: 1px solid var(--border-light);
+ border-radius: var(--border-radius);
+}
+
+.phonetics-status-title {
+    display: flex;
+ align-items: center;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.phonetics-status-controls {
+    display: flex;
+ align-items: center;
+    gap: 0.75rem;
+}
+
+.phonetics-progress-mini {
+    padding: 0.375rem 0.75rem;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: var(--border-radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.phonetics-back-btn {
+    display: flex;
+ align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+ background-color: rgba(0, 255, 255, 0.08);
+ border: 1px solid var(--border-light);
+    border-radius: 0.5rem;
+    color: var(--light-text);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.phonetics-back-btn:hover {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: var(--text-color);
+    border-color: var(--primary-color);
+}
+
+/* ===== 分类选择界面 ===== */
+.phonetics-category-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2rem 0;
+    animation: fadeInUp 0.4s ease;
+}
+
+.phonetics-category-header {
+    text-align: center;
+}
+
+.phonetics-category-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-family: var(--font-display);
+}
+
+.phonetics-category-subtitle {
+    font-size: 1rem;
+    color: var(--light-text);
+}
+
+.phonetics-category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.phonetics-category-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.08) 0%, rgba(0, 255, 255, 0.02) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    overflow: hidden;
+}
+
+.phonetics-category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+ background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.phonetics-category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(0, 255, 255, 0.05) 100%);
+}
+
+.phonetics-category-card:hover::before {
+    opacity: 1;
+}
+
+.phonetics-category-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.25rem;
+    filter: drop-shadow(0 0 12px rgba(0, 255, 255, 0.3));
+    transition: var(--transition);
+}
+
+.phonetics-category-card:hover .phonetics-category-icon {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5));
+}
+
+.phonetics-category-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    font-family: var(--font-display);
+}
+
+.phonetics-category-count {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.phonetics-category-desc {
+    font-size: 0.85rem;
+    color: var(--light-text);
+}
+
+/* ===== 子分类选择界面 ===== */
+.phonetics-subcategory-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0;
+    animation: fadeInUp 0.4s ease;
+}
+
+.phonetics-subcategory-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.phonetics-back-to-category {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+ background-color: rgba(0, 255, 255, 0.08);
+ border: 1px solid var(--border-light);
+    border-radius: 0.5rem;
+    color: var(--light-text);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.phonetics-back-to-category:hover {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: var(--text-color);
+    border-color: var(--primary-color);
+}
+
+.phonetics-subcategory-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-color);
+    font-family: var(--font-display);
+}
+
+.phonetics-subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+}
+
+.phonetics-subcategory-card {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.06) 0%, rgba(0, 255, 255, 0.02) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.phonetics-subcategory-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.12) 0%, rgba(0, 255, 255, 0.04) 100%);
+}
+
+.phonetics-subcategory-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.375rem;
+}
+
+.phonetics-subcategory-count {
+    font-size: 0.8rem;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.phonetics-subcategory-progress {
+    height: 4px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.phonetics-subcategory-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    border-radius: 2px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== 音标网格 ===== */
+.phonetics-grid-container {
+    animation: fadeInUp 0.4s ease;
+}
+
+.phonetics-grid-header {
+    margin-bottom: 1.5rem;
+}
+
+.phonetics-grid-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.phonetics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 0.75rem;
+}
+
+.phonetics-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.06) 0%, rgba(0, 255, 255, 0.02) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.phonetics-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(0, 255, 255, 0.05) 100%);
+}
+
+.phonetics-card.learned {
+    border-color: var(--success-color);
+ background-color: rgba(16, 185, 129, 0.08);
+}
+
+.phonetics-card.learned::after {
+    content: '✓';
+    position: absolute;
+    top: 0.375rem;
+    right: 0.375rem;
+    font-size: 0.65rem;
+    color: var(--success-color);
+    font-weight: 700;
+}
+
+.phonetics-card-phonetic {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.375rem;
+    font-family: var(--font-display);
+    text-shadow: 0 0 12px rgba(0, 255, 255, 0.3);
+}
+
+.phonetics-card.learned .phonetics-card-phonetic {
+    color: var(--success-color);
+    text-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+}
+
+.phonetics-card-type {
+    font-size: 0.65rem;
+    color: var(--muted-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ===== 音标详情视图 ===== */
+.phonetics-detail-container {
+    padding: 1rem 0;
+    animation: fadeInUp 0.4s ease;
+}
+
+.phonetics-detail-container.hidden {
+    display: none;
+}
+
+.phonetics-detail-header {
+    display: flex;
+ justify-content: space-between;
+ align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.phonetics-detail-nav {
+    display: flex;
+ align-items: center;
+    gap: 1rem;
+}
+
+.phonetics-nav-btn {
+    padding: 0.5rem 1rem;
+ background-color: rgba(0, 255, 255, 0.08);
+ border: 1px solid var(--border-light);
+    border-radius: 0.5rem;
+    color: var(--light-text);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.phonetics-nav-btn:hover:not(:disabled) {
+    background-color: rgba(0, 255, 255, 0.15);
+    color: var(--text-color);
+    border-color: var(--primary-color);
+}
+
+.phonetics-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.phonetics-nav-info {
+    font-size: 0.875rem;
+    color: var(--light-text);
+}
+
+/* 音标符号展示 */
+.phonetics-symbol-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.08) 0%, rgba(0, 255, 255, 0.02) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.phonetics-symbol-display::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+.phonetics-symbol-main {
+    font-size: 5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-display);
+    text-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+    line-height: 1;
+    animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+    50% { text-shadow: 0 0 40px rgba(0, 255, 255, 0.6); }
+}
+
+.phonetics-symbol-category {
+    font-size: 0.9rem;
+    color: var(--light-text);
+    padding: 0.375rem 1rem;
+    background-color: rgba(0, 255, 255, 0.08);
+    border-radius: var(--border-radius-full);
+}
+
+.phonetics-audio-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--background-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.phonetics-audio-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+/* 发音描述 */
+.phonetics-description {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: rgba(0, 255, 255, 0.04);
+    border-radius: var(--border-radius);
+    border-left: 3px solid var(--primary-color);
+}
+
+.phonetics-description-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.75rem;
+}
+
+.phonetics-description-text {
+    font-size: 0.95rem;
+    color: var(--light-text);
+    line-height: 1.7;
+}
+
+/* 示例单词 */
+.phonetics-examples {
+    margin-bottom: 2rem;
+}
+
+.phonetics-examples-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.phonetics-examples-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+}
+
+.phonetics-example-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.06) 0%, rgba(0, 255, 255, 0.02) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: 0.75rem;
+    transition: var(--transition-fast);
+}
+
+.phonetics-example-item:hover {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.1) 0%, rgba(0, 255, 255, 0.04) 100%);
+}
+
+.phonetics-example-word {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.phonetics-example-phonetic {
+    font-size: 0.8rem;
+    color: var(--light-text);
+}
+
+.phonetics-example-meaning {
+    font-size: 0.8rem;
+    color: var(--muted-text);
+}
+
+/* 学习操作 */
+.phonetics-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.phonetics-action-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.phonetics-learned-btn {
+ background-color: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: var(--success-color);
+}
+
+.phonetics-learned-btn:hover {
+ background-color: rgba(16, 185, 129, 0.2);
+    border-color: var(--success-color);
+    transform: translateY(-2px);
+}
+
+.phonetics-learned-btn.is-learned {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.phonetics-quiz-btn {
+    background-color: rgba(0, 255, 255, 0.1);
+    border-color: rgba(0, 255, 255, 0.3);
+    color: var(--primary-color);
+}
+
+.phonetics-quiz-btn:hover {
+    background-color: rgba(0, 255, 255, 0.2);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/* ===== 听音选音标测验样式 ===== */
+.quiz-question {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.quiz-question-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.quiz-question-number {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+}
+
+.quiz-question-text {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.quiz-question-score {
+    margin-left: auto;
+    background: var(--accent-color);
+    color: var(--white-color);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.quiz-option {
+    background: var(--card-bg);
+    border: 2px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md) var(--spacing-lg);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    color: var(--text-color);
+}
+
+.quiz-option:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 255, 255, 0.05);
+    transform: translateY(-2px);
+}
+
+.quiz-option.selected {
+    border-color: var(--primary-color);
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+}
+
+.quiz-option.correct {
+    border-color: var(--success-color);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.quiz-option.incorrect {
+    border-color: var(--danger-color);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.quiz-option.disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.quiz-option-symbol {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+    color: var(--primary-color);
+}
+
+.quiz-feedback {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-card);
+}
+
+.quiz-feedback.correct {
+    border-color: var(--success-color);
+}
+
+.quiz-feedback.incorrect {
+    border-color: var(--danger-color);
+}
+
+.quiz-feedback-icon {
+    font-size: var(--font-size-xxl);
+    margin-bottom: var(--spacing-md);
+}
+
+.quiz-feedback-text {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.quiz-feedback-explanation {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.quiz-result {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-card);
+}
+
+.quiz-result-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.quiz-result-title {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.quiz-result-score {
+    font-size: var(--font-size-xl);
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: var(--spacing-lg);
+}
+
+.quiz-result-score span {
+    font-size: var(--font-size-xxl);
+    font-weight: 800;
+}
+
+.quiz-result-message {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.6;
+}
+
+.quiz-result-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.quiz-result-btn {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+}
+
+.quiz-result-btn.primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white-color);
+}
+
+.quiz-result-btn.secondary {
+    background: var(--bg-light);
+    color: var(--text-color);
+    border: 1px solid var(--border-light);
+}
+
+.quiz-result-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+/* ===== 测验页面布局 ===== */
+.phonetics-quiz-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: rgba(10, 10, 26, 0.95);
+    border-bottom: 1px solid var(--border-light);
+    backdrop-filter: blur(10px);
+}
+
+.quiz-back-btn {
+    background: none;
+    border: 1px solid var(--border-light);
+    color: var(--primary-color);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: var(--font-size-sm);
+}
+
+.quiz-back-btn:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: var(--primary-color);
+}
+
+.quiz-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.quiz-progress {
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    background: rgba(0, 255, 255, 0.1);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-full);
+}
+
+.quiz-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-question-container {
+    width: 100%;
+    max-width: 800px;
+    flex: 1;
+}
+
+.quiz-navigation {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg) 0;
+    width: 100%;
+    max-width: 800px;
+}
+
+.quiz-nav-btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border: 1px solid var(--border-light);
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    min-width: 120px;
+}
+
+.quiz-nav-btn:hover:not(:disabled) {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.quiz-nav-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.quiz-audio-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+}
+
+.quiz-audio-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.quiz-phonetic-display {
+    text-align: center;
+    margin: var(--spacing-lg) 0;
+}
+
+.quiz-phonetic-symbol {
+    font-size: 4rem;
+    font-weight: 700;
+    font-family: 'Fira Code', monospace;
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.quiz-description {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    text-align: center;
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+}
+
+.quiz-option-word {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.quiz-option-phonetic {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+    font-family: 'Fira Code', monospace;
+}
+
+.quiz-option-meaning {
+    font-size: var(--font-size-sm);
+    color: var(--muted-text);
+}
+
+.quiz-option-category {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* ===== 测验结果页面 ===== */
+.quiz-results {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-card);
+}
+
+.quiz-results-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xxl);
+}
+
+.quiz-results-title {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.quiz-results-score {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-xxl);
+    border-radius: var(--border-radius-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.quiz-results-score.excellent {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.1));
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.quiz-results-score.good {
+    background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 255, 255, 0.1));
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.quiz-results-score.fail {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1));
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.quiz-results-score.pass {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.1));
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+.quiz-score-number {
+    font-size: var(--font-size-xxl);
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+}
+
+.quiz-score-percent {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-top: var(--spacing-xs);
+}
+
+.quiz-results-message {
+    font-size: var(--font-size-lg);
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.quiz-results-details {
+    border-top: 1px solid var(--border-light);
+    padding-top: var(--spacing-xl);
+}
+
+.quiz-results-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.quiz-stat {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: rgba(0, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-light);
+}
+
+.quiz-stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--muted-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.quiz-stat-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.quiz-stat-value.correct {
+    color: var(--success-color);
+}
+
+.quiz-stat-value.incorrect {
+    color: var(--danger-color);
+}
+
+.quiz-results-wrong {
+    border-top: 1px solid var(--border-light);
+    padding-top: var(--spacing-xl);
+}
+
+.quiz-results-wrong h3 {
+    font-size: var(--font-size-lg);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.quiz-wrong-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.quiz-wrong-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: var(--border-radius);
+}
+
+.quiz-wrong-number {
+    font-weight: 700;
+    color: var(--danger-color);
+    min-width: 24px;
+}
+
+.quiz-wrong-content {
+    flex: 1;
+}
+
+.quiz-wrong-question {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.quiz-wrong-answer {
+    font-size: var(--font-size-sm);
+    color: var(--muted-text);
+}
+
+.quiz-wrong-answer span {
+    font-weight: 600;
+}
+
+.quiz-wrong-answer .correct {
+    color: var(--success-color);
+}
+
+.quiz-wrong-answer .incorrect {
+    color: var(--danger-color);
+}
+
+.quiz-results-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--border-light);
+}
+
+.quiz-retry-btn,
+.quiz-back-menu-btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    min-width: 140px;
+}
+
+.quiz-retry-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+}
+
+.quiz-back-menu-btn {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-light);
+}
+
+.quiz-retry-btn:hover,
+.quiz-back-menu-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ===== 测验选择弹窗 ===== */
+.phonetics-quiz-selection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.quiz-selection-content {
+    background: var(--background-color);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+}
+
+.quiz-selection-options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.quiz-selection-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-lg);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.quiz-selection-option:hover {
+    background: rgba(0, 255, 255, 0.1);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.quiz-selection-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+}
+
+.quiz-selection-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.quiz-selection-desc {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+    margin-top: var(--spacing-xs);
+}
+
+.quiz-selection-close {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    background: none;
+    border: none;
+    color: var(--muted-text);
+    font-size: var(--font-size-xl);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-full);
+}
+
+.quiz-selection-close:hover {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger-color);
+}
+
+/* ===== 错题本列表 ===== */
+.wrong-questions-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.wrong-question-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: var(--transition-fast);
+}
+
+.wrong-question-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-card);
+}
+
+.wrong-question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.wrong-question-number {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: var(--font-size-sm);
+}
+
+.wrong-question-type {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+    background: rgba(0, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.wrong-question-content {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.wrong-question-phonetic {
+    font-size: var(--font-size-lg);
+    font-family: 'Fira Code', monospace;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.wrong-question-answer {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+}
+
+/* ===== 测验历史列表 ===== */
+.quiz-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.quiz-history-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: var(--transition-fast);
+}
+
+.quiz-history-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-card);
+}
+
+.quiz-history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.quiz-history-type {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.quiz-history-date {
+    font-size: var(--font-size-sm);
+    color: var(--muted-text);
+}
+
+.quiz-history-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.quiz-history-score {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.quiz-history-percent {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+}
+
+.quiz-history-status {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 10px;
+}
+
+.quiz-history-status.passed {
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--success-color);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.quiz-history-status.failed {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--danger-color);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* ===== 响应式设计 ===== */
+@media (max-width: 768px) {
+    .phonetics-content {
+        padding: 1rem;
+    }
+    
+    .phonetics-status-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+    
+    .phonetics-category-title {
+        font-size: 1.5rem;
+    }
+    
+    .phonetics-category-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .phonetics-category-icon {
+        font-size: 3rem;
+    }
+    
+    .phonetics-subcategory-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .phonetics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+    }
+    
+    .phonetics-detail-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .phonetics-symbol-main {
+        font-size: 4rem;
+    }
+    
+    .phonetics-examples-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .phonetics-actions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .phonetics-grid {
+        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    }
+    
+    .phonetics-card {
+        padding: 1rem 0.5rem;
+    }
+    
+    .phonetics-card-phonetic {
+        font-size: 1.5rem;
+    }
+    
+    .phonetics-symbol-main {
+        font-size: 3rem;
+    }
+}
+
+/* ===== 动画 ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== 进度中心模态框 ===== */
+.phonetics-progress-center {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.3s ease;
+}
+
+.progress-center-content {
+    background: var(--background-color);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 1000px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: var(--shadow-hover);
+    border: 1px solid var(--border-light);
+    color: var(--text-color);
+}
+
+.progress-center-content h3 {
+    font-size: var(--font-size-xxl);
+    color: var(--text-color);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.progress-center-content h4 {
+    font-size: var(--font-size-lg);
+    color: var(--text-color);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+    font-weight: 600;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.progress-center-content h4::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+.stat-value {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+}
+
+.stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+    margin-top: var(--spacing-xs);
+}
+
+.history-list {
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: var(--spacing-sm);
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.history-item:hover {
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+}
+
+.history-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.phonetic-symbol {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.phonetic-word {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+}
+
+.history-time {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+}
+
+.history-score {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+}
+
+.history-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+}
+
+.history-actions button {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    transition: var(--transition);
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.history-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
+/* ===== 进度中心关闭按钮 ===== */
+.progress-close,
+.progress-center-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    color: var(--light-text);
+    cursor: pointer;
+    line-height: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+    background: none;
+    border: none;
+}
+
+.progress-close:hover,
+.progress-center-close:hover {
+    color: var(--danger-color);
+    background: rgba(220, 53, 69, 0.1);
+}
+
+/* ===== 进度中心头部 ===== */
+.progress-center-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.progress-center-header h2 {
+    font-size: var(--font-size-xxl);
+    color: var(--text-color);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== 进度中心标签页 ===== */
+.progress-center-tabs {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    background: var(--bg-light);
+    padding: var(--spacing-xs);
+    border-radius: var(--border-radius);
+}
+
+.progress-tab {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: none;
+    background: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: var(--font-size-base);
+    color: var(--light-text);
+    transition: var(--transition);
+    font-weight: 500;
+    flex: 1;
+    text-align: center;
+}
+
+.progress-tab:hover {
+    color: var(--text-color);
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.progress-tab.active {
+    background: rgba(0, 255, 255, 0.15);
+    color: var(--primary-color);
+    box-shadow: var(--shadow-card);
+    font-weight: 600;
+}
+
+/* ===== 进度中心内容区域 ===== */
+.progress-center-body {
+    min-height: 300px;
+}
+
+.progress-tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.progress-tab-content.active {
+    display: block;
+}
+
+/* ===== 进度统计网格 ===== */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.progress-stat {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition);
+    border: 1px solid var(--border-light);
+}
+
+.progress-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+    border-color: var(--primary-color);
+}
+
+.progress-stat-number {
+    font-size: var(--font-size-xxl);
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: var(--spacing-xs);
+}
+
+.progress-stat-label {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+    font-weight: 500;
+}
+
+/* ===== 分类进度项 ===== */
+.category-progress-item {
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.category-progress-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-card);
+}
+
+.category-progress-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.category-progress-icon {
+    font-size: var(--font-size-lg);
+    width: 30px;
+    text-align: center;
+}
+
+.category-progress-name {
+    flex: 1;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
+.category-progress-count {
+    font-size: var(--font-size-sm);
+    color: var(--light-text);
+    background: rgba(0, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+}
+
+.category-progress-bar {
+    height: 8px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: var(--spacing-xs);
+}
+
+.category-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    border-radius: 4px;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-progress-percent {
+    text-align: right;
+    font-size: var(--font-size-sm);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ===== 空状态 ===== */
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    color: var(--light-text);
+}
+
+.empty-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.5;
+}
+
+.empty-text {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+}
+
+/* ===== 进度详情标题 ===== */
+.progress-details h3 {
+    font-size: var(--font-size-lg);
+    color: var(--text-color);
+    margin: var(--spacing-xl) 0 var(--spacing-md);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.progress-details h3::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    display: inline-block;
+}

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>字母组合学习 - StarEnglish</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vocabulary.css">
+    <link rel="stylesheet" href="css/vocabulary-layout.css">
+    <link rel="stylesheet" href="css/combinations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="combinations-screen" class="ui-screen">
+        <div class="vocabulary-layout">
+            <!-- 侧边栏 -->
+            <div class="vocabulary-sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-title">🔗 字母组合</span>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">学习</div>
+                    <button class="nav-item active" data-section="home" onclick="showSection('home')">
+                        <span class="nav-icon">🏠</span>
+                        <span>首页</span>
+                    </button>
+                    <button class="nav-item" data-section="study" onclick="showSection('study')">
+                        <span class="nav-icon">📖</span>
+                        <span>学习</span>
+                    </button>
+                    <button class="nav-item" data-section="practice" onclick="showSection('practice')">
+                        <span class="nav-icon">✏️</span>
+                        <span>练习</span>
+                    </button>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-section-title">管理</div>
+                    <button class="nav-item" data-section="mastered" onclick="showSection('mastered')">
+                        <span class="nav-icon">✅</span>
+                        <span>已掌握</span>
+                    </button>
+                    <button class="nav-item" data-section="settings" onclick="showSection('settings')">
+                        <span class="nav-icon">⚙️</span>
+                        <span>设置</span>
+                    </button>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="nav-item" onclick="goBack()">
+                    <span class="nav-icon">←</span>
+                    <span>返回首页</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="vocabulary-main">
+            <!-- 顶部状态栏 -->
+            <div class="vocabulary-header">
+                <div class="header-left">
+                    <button class="toggle-sidebar-btn" onclick="toggleSidebar()">☰</button>
+                    <span class="header-title" id="headerTitle">字母组合学习</span>
+                </div>
+                <div class="header-center">
+                    <div class="progress-compact">
+                        <span class="progress-compact-label">学习进度</span>
+                        <div class="progress-compact-bar">
+                            <div class="progress-compact-fill" id="masteredProgress" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-compact-text" id="progressText">0/0</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-stats">
+                        <div class="header-stat">
+                            <span class="stat-icon">🎯</span>
+                            <span class="stat-value" id="headerMastered">0</span>
+                        </div>
+                        <div class="header-stat">
+                            <span class="stat-icon">📊</span>
+                            <span class="stat-value" id="headerAccuracy">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 内容区 -->
+            <div class="vocabulary-content">
+                <!-- 首页 -->
+                <div class="combinations-section" id="section-home">
+                    <div class="section-hero">
+                        <div class="hero-icon">🔗</div>
+                        <div class="hero-info">
+                            <h2 class="hero-title">字母组合学习</h2>
+                            <p class="hero-desc">掌握自然拼读的核心 - 常见字母组合的发音规律</p>
+                        </div>
+                    </div>
+
+                    <div class="section-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">📚</div>
+                            <div class="stat-info">
+                                <div class="stat-number" id="totalCombinations">0</div>
+                                <div class="stat-label">总组合</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-info">
+                                <div class="stat-number" id="masteredCount">0</div>
+                                <div class="stat-label">已掌握</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-info">
+                                <div class="stat-number" id="accuracyRate">0%</div>
+                                <div class="stat-label">正确率</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔗</div>
+                            <div class="stat-info">
+                                <div class="stat-number" id="groupProgress">0/11</div>
+                                <div class="stat-label">分组进度</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-actions">
+                        <div class="action-card primary" onclick="startLearning()">
+                            <div class="action-icon">📖</div>
+                            <div class="action-content">
+                                <div class="action-title">继续学习</div>
+                                <div class="action-desc" id="nextLearnText">准备学习新的字母组合</div>
+                            </div>
+                        </div>
+                        <div class="action-card" onclick="startPractice()">
+                            <div class="action-icon">✏️</div>
+                            <div class="action-content">
+                                <div class="action-title">练习</div>
+                                <div class="action-desc">测试已学内容</div>
+                            </div>
+                        </div>
+                        <div class="action-card" onclick="showSection('mastered')">
+                            <div class="action-icon">✅</div>
+                            <div class="action-content">
+                                <div class="action-title">已掌握</div>
+                                <div class="action-desc">查看学习成果</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-tip">
+                        <div class="tip-icon">💡</div>
+                        <div class="tip-content">
+                            <div class="tip-title">学习建议</div>
+                            <div class="tip-text" id="tipText">每天学习2-3组新组合，复习已学组合巩固记忆</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 学习界面 -->
+                <div class="combinations-section hidden" id="section-study">
+                    <div id="studyGroupInfo" class="group-info-card">
+                        <div class="group-header">
+                            <div class="group-icon">🔗</div>
+                            <div class="group-details">
+                                <h3 class="group-name" id="studyGroupName">元音组合</h3>
+                                <div class="group-desc" id="studyGroupDesc">ai, ee, ea, oa, oo 等</div>
+                            </div>
+                            <div class="group-progress-badge" id="studyGroupProgress">0/5</div>
+                        </div>
+                    </div>
+                    
+                    <div id="studyCombination" class="study-card">
+                        <div class="study-display">
+                            <div class="combination-text" id="studyText">ai</div>
+                            <div class="combination-pronunciation" id="studyPronunciation">/eɪ/</div>
+                            <div class="combination-sound" id="studySound">发音类似中文"诶"</div>
+                        </div>
+                        
+                        <div class="study-examples">
+                            <div class="examples-title">例词</div>
+                            <div class="example-words" id="studyExamples">
+                                <div class="example-word">
+                                    <span class="word-text">rain</span>
+                                    <span class="word-meaning">雨</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="study-tips">
+                            <div class="tips-title">记忆技巧</div>
+                            <div class="tips-content" id="studyTips">ai通常出现在词中，发长音/eɪ/</div>
+                        </div>
+                        
+                        <div class="study-common">
+                            <div class="common-title">常见单词</div>
+                            <div class="common-words" id="studyCommon">rain, train, main, pain, gain</div>
+                        </div>
+                        
+                        <div class="study-actions">
+                            <button class="study-btn secondary" id="prevBtn" onclick="prevCombination()" disabled>
+                                <span>← 上一个</span>
+                            </button>
+                            <button class="study-btn primary" id="nextBtn" onclick="nextCombination()">
+                                <span>下一个 →</span>
+                            </button>
+                        </div>
+                        
+                        <button class="mastery-btn" id="masteryBtn" onclick="toggleMastery()">
+                            <span class="mastery-icon" id="masteryIcon">○</span>
+                            <span class="mastery-text" id="masteryText">标记为已掌握</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 练习界面 -->
+                <div class="combinations-section hidden" id="section-practice">
+                    <div id="practiceConfig" class="practice-config">
+                        <div class="config-title">练习设置</div>
+                        <div class="config-options">
+                            <div class="config-group">
+                                <label class="config-label">练习模式</label>
+                                <div class="mode-options">
+                                    <button class="mode-btn active" data-mode="recognition" onclick="selectPracticeMode('recognition')">认读练习</button>
+                                    <button class="mode-btn" data-mode="chooseSound" onclick="selectPracticeMode('chooseSound')">听音选拼写</button>
+                                    <button class="mode-btn" data-mode="chooseWord" onclick="selectPracticeMode('chooseWord')">听音选词</button>
+                                    <button class="mode-btn" data-mode="spelling" onclick="selectPracticeMode('spelling')">听写练习</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="start-practice-btn" onclick="startPracticeSession()">开始练习</button>
+                    </div>
+                    
+                    <div id="practiceGame" class="hidden">
+                        <div class="practice-header">
+                            <div class="practice-info">
+                                <span class="practice-mode" id="practiceMode">认读练习</span>
+                                <span class="practice-progress" id="practiceProgress">1/10</span>
+                            </div>
+                            <div class="practice-score">
+                                <span class="score-label">得分</span>
+                                <span class="score-value" id="practiceScore">0</span>
+                            </div>
+                        </div>
+                        
+                        <div id="recognitionArea" class="practice-area">
+                            <div class="question-display">
+                                <div class="question-text" id="questionText">ai</div>
+                                <button class="sound-btn" id="playSoundBtn" onclick="playCurrentSound()">🔊</button>
+                            </div>
+                            <div class="options-grid" id="optionsGrid"></div>
+                        </div>
+                        
+                        <div id="spellingArea" class="practice-area hidden">
+                            <div class="spelling-question">
+                                <div class="spelling-prompt" id="spellingPrompt">听发音，输入字母组合</div>
+                                <div class="spelling-word" id="spellingWord">rain</div>
+                            </div>
+                            <div class="spelling-input-area">
+                                <input type="text" class="spelling-input" id="spellingInput" placeholder="输入字母组合" maxlength="10">
+                                <button class="submit-btn" onclick="checkSpelling()">确认</button>
+                            </div>
+                        </div>
+                        
+                        <div class="practice-feedback hidden" id="practiceFeedback">
+                            <div class="feedback-icon" id="feedbackIcon">✓</div>
+                            <div class="feedback-text" id="feedbackText">正确！</div>
+                            <div class="feedback-detail" id="feedbackDetail">ai 发 /eɪ/ 音</div>
+                        </div>
+                    </div>
+                    
+                    <div id="practiceResult" class="hidden">
+                        <div class="result-card">
+                            <div class="result-header">
+                                <div class="result-icon">🎯</div>
+                                <h3 class="result-title">练习完成！</h3>
+                            </div>
+                            <div class="result-stats">
+                                <div class="result-stat">
+                                    <div class="stat-icon">📊</div>
+                                    <div class="stat-value" id="resultScore">85</div>
+                                    <div class="stat-label">得分</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="stat-icon">✅</div>
+                                    <div class="stat-value" id="resultCorrect">8</div>
+                                    <div class="stat-label">正确</div>
+                                </div>
+                                <div class="result-stat">
+                                    <div class="stat-icon">❌</div>
+                                    <div class="stat-value" id="resultWrong">2</div>
+                                    <div class="stat-label">错误</div>
+                                </div>
+                            </div>
+                            <div class="result-actions">
+                                <button class="result-btn primary" onclick="restartPractice()">再来一次</button>
+                                <button class="result-btn secondary" onclick="showSection('home')">返回首页</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 已掌握列表 -->
+                <div class="combinations-section hidden" id="section-mastered">
+                    <div class="mastered-header">
+                        <h3 class="mastered-title">已掌握的字母组合</h3>
+                        <div class="mastered-filter">
+                            <button class="filter-btn active" data-filter="all" onclick="filterMastered('all')">全部</button>
+                            <button class="filter-btn" data-filter="vowel" onclick="filterMastered('vowel')">元音</button>
+                            <button class="filter-btn" data-filter="consonant" onclick="filterMastered('consonant')">辅音</button>
+                        </div>
+                    </div>
+                    <div class="mastered-grid" id="masteredGrid"></div>
+                </div>
+
+                <!-- 设置 -->
+                <div class="combinations-section hidden" id="section-settings">
+                    <div class="settings-content">
+                        <div class="settings-title">学习设置</div>
+                        <div class="setting-item">
+                            <label class="setting-label">自动播放发音</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="autoPlay" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-label">显示音标</label>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="showPhonetic" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-label">每组学习数量</label>
+                            <select class="setting-select" id="learnCount">
+                                <option value="3">3个</option>
+                                <option value="5" selected>5个</option>
+                                <option value="8">8个</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label class="setting-label">练习题目数量</label>
+                            <select class="setting-select" id="practiceCount">
+                                <option value="5">5题</option>
+                                <option value="10" selected>10题</option>
+                                <option value="15">15题</option>
+                                <option value="20">20题</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="js/combinations.js"></script>
+    <script src="js/combinations-quiz.js"></script>
+</body>
+</html>

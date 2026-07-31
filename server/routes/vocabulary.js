@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { queryWithRetry } = require('../db');
+const { queryWithRetry, getPool } = require('../db');
 const { calculateLevel, checkAchievements, calculateConsecutiveDays, LEVEL_CONFIG } = require('../vocabulary-levels');
 const { authenticateToken } = require('./auth');
 
@@ -14,6 +14,88 @@ function getLocalDate(date = new Date()) {
     const day = String(date.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
 }
+
+// 完成复习并插入今日新单词（原子操作，避免重复插入）
+router.post('/complete-review', authenticateToken, async (req, res) => {
+    let connection = null;
+    try {
+        const userId = req.user.id;
+        const today = getLocalDate();
+        const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+        
+        // 获取专用连接用于事务
+        const { getPool } = require('../db');
+        const pool = await getPool();
+        connection = await pool.getConnection();
+        
+        await connection.beginTransaction();
+        
+        try {
+            // 第一步：将昨天的单词标记为已复习
+            const [updateResult] = await connection.execute(
+                `UPDATE vocabulary_daily_record 
+                 SET reviewed = 1 
+                 WHERE user_id = ? AND study_date = ? AND reviewed = 0`,
+                [userId, yesterday]
+            );
+            
+            // 第二步：检查今天是否已有单词记录
+            const [todayRecords] = await connection.execute(
+                'SELECT word FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ?',
+                [userId, today]
+            );
+            
+            const todayWords = todayRecords.map(r => r.word);
+            
+            // 第三步：选择今天的新单词（排除今天已存在的）
+            // 从错题本中选择未掌握、未删除、且今天未学过的单词
+            let newWords = [];
+            if (todayWords.length < 5) {
+                const remainingSlots = 5 - todayWords.length;
+                const [rows] = await connection.execute(
+                    `SELECT wb.* FROM wrong_book wb
+                     WHERE wb.user_id = ? AND wb.mastered = 0 AND wb.deleted = 0
+                       AND wb.word NOT IN (
+                           SELECT DISTINCT vdr.word FROM vocabulary_daily_record vdr 
+                           WHERE vdr.user_id = ? AND vdr.study_date = ?
+                       )
+                     ORDER BY RAND() LIMIT ?`,
+                    [userId, userId, today, parseInt(remainingSlots)]
+                );
+                newWords = rows;
+                
+                // 第四步：插入今天的新单词（使用INSERT IGNORE避免重复插入）
+                for (const word of newWords) {
+                    await connection.execute(
+                        `INSERT IGNORE INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
+                         VALUES (?, ?, ?, 0, 0)`,
+                        [userId, word.word, today]
+                    );
+                }
+            }
+            
+            await connection.commit();
+            
+            res.json({ 
+                success: true, 
+                reviewedCount: updateResult.affectedRows,
+                newWordsCount: newWords.length,
+                todayTotalWords: todayWords.length + newWords.length,
+                newWords: newWords.map(w => w.word)
+            });
+            
+        } catch (error) {
+            if (connection) await connection.rollback();
+            throw error;
+        }
+        
+    } catch (error) {
+        console.error('完成复习并插入新单词失败:', error);
+        res.json({ success: false, error: error.message });
+    } finally {
+        if (connection) connection.release();
+    }
+});
 
 // 获取记单词词库列表（直接使用错题本数据）
 router.get('/list', authenticateToken, async (req, res) => {
@@ -41,6 +123,49 @@ router.get('/list', authenticateToken, async (req, res) => {
         res.json({ success: true, data });
     } catch (error) {
         console.error('获取记单词词库失败:', error);
+        res.json({ success: false, error: error.message });
+    }
+});
+
+// 更新学习进度（供React前端调用）
+router.post('/progress', authenticateToken, async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const { wordId, isCorrect } = req.body;
+
+        if (!wordId) {
+            return res.json({ success: false, message: 'wordId不能为空' });
+        }
+
+        // 获取单词信息
+        const [words] = await queryWithRetry(
+            'SELECT * FROM wrong_book WHERE id = ? AND user_id = ? AND deleted = 0',
+            [wordId, userId]
+        );
+
+        if (words.length === 0) {
+            return res.json({ success: false, message: '单词不存在' });
+        }
+
+        const word = words[0];
+
+        if (isCorrect) {
+            // 答对了，标记为已掌握
+            await queryWithRetry(
+                'UPDATE wrong_book SET mastered = 1, last_wrong_time = NOW() WHERE id = ?',
+                [wordId]
+            );
+        } else {
+            // 答错了，增加学习次数
+            await queryWithRetry(
+                'UPDATE wrong_book SET wrong_count = wrong_count + 1, mastered = 0, last_wrong_time = NOW() WHERE id = ?',
+                [wordId]
+            );
+        }
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error('更新学习进度失败:', error);
         res.json({ success: false, error: error.message });
     }
 });

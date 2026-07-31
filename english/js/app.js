@@ -857,7 +857,15 @@ class App {
         const vocabularyBtn = document.getElementById('btn-vocabulary');
         if (vocabularyBtn) vocabularyBtn.addEventListener('click', () => this.showVocabulary());
         
-
+        // 字母组合按钮
+        const combinationsBtn = document.getElementById('btn-combinations');
+        if (combinationsBtn) combinationsBtn.addEventListener('click', () => this.showCombinations());
+        
+        // 音标学习按钮
+        const phoneticsBtn = document.getElementById('btn-phonetics');
+        if (phoneticsBtn) phoneticsBtn.addEventListener('click', () => this.showPhonetics());
+        
+        
         
         // 返回按钮
         const backBtn = document.getElementById('btn-back');
@@ -1723,7 +1731,19 @@ class App {
         }
     }
 
+    /**
+     * 显示字母组合学习页面
+     */
+    showCombinations() {
+        window.location.href = 'combinations.html';
+    }
 
+    /**
+     * 显示音标学习页面
+     */
+    showPhonetics() {
+        window.location.href = 'phonetics.html';
+    }
     
 }
 

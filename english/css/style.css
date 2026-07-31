@@ -1,4 +1,4 @@
-﻿/* 全局样式 */
+/* 全局样式 */
 * {
     margin: 0;
     padding: 0;
@@ -462,6 +462,22 @@ body::after {
     transform: perspective(1000px) rotateX(5deg) translateY(-6px) scale(1.03);
 }
 
+.menu-btn:nth-child(5):hover {
+    transform: perspective(1000px) rotateY(-5deg) translateY(-6px) scale(1.03);
+}
+
+.menu-btn:nth-child(6):hover {
+    transform: perspective(1000px) rotateX(-5deg) translateY(-6px) scale(1.03);
+}
+
+.menu-btn:nth-child(7):hover {
+    transform: perspective(1000px) rotateY(5deg) translateY(-6px) scale(1.03);
+}
+
+.menu-btn:nth-child(8):hover {
+    transform: perspective(1000px) rotateX(5deg) translateY(-6px) scale(1.03);
+}
+
 /* 菜单按钮颜色 - 每个游戏独特的主题 */
 .menu-btn:nth-child(1) { /* 记单词 */
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
@@ -575,7 +591,75 @@ body::after {
     background: linear-gradient(135deg, var(--wordmatch-secondary), var(--wordmatch-primary));
 }
 
-.menu-btn:nth-child(4) { /* 单词爆炸 */
+.menu-btn:nth-child(4) { /* 字母组合 */
+    background: linear-gradient(135deg, #8B5CF6, #7C3AED);
+    border-left-color: #A78BFA;
+    font-size: 1.4rem;
+    padding: var(--space-xl) var(--space-2xl);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn:nth-child(4):hover {
+    box-shadow: 0 15px 35px -5px rgba(139, 92, 246, 0.5);
+    background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+}
+
+.menu-btn:nth-child(5) { /* 音标学习 */
+    background: linear-gradient(135deg, #F59E0B, #D97706);
+    border-left-color: #FBBF24;
+    font-size: 1.4rem;
+    padding: var(--space-xl) var(--space-2xl);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn:nth-child(5):hover {
+    box-shadow: 0 15px 35px -5px rgba(245, 158, 11, 0.5);
+    background: linear-gradient(135deg, #D97706, #F59E0B);
+}
+
+.menu-btn:nth-child(6) { /* Word Monopoly */
+    background: linear-gradient(135deg, var(--monopoly-primary), var(--monopoly-secondary));
+    border-left-color: var(--monopoly-accent);
+    font-size: 1.4rem;
+    padding: var(--space-xl) var(--space-2xl);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn:nth-child(6):hover {
+    box-shadow: 0 15px 35px -5px rgba(5, 150, 105, 0.5);
+    background: linear-gradient(135deg, var(--monopoly-secondary), var(--monopoly-primary));
+}
+
+.menu-btn:nth-child(7) { /* Word Match */
+    background: linear-gradient(135deg, var(--wordmatch-primary), var(--wordmatch-secondary));
+    border-left-color: var(--wordmatch-accent);
+    font-size: 1.4rem;
+    padding: var(--space-xl) var(--space-2xl);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-btn:nth-child(7):hover {
+    box-shadow: 0 15px 35px -5px rgba(139, 92, 246, 0.5);
+    background: linear-gradient(135deg, var(--wordmatch-secondary), var(--wordmatch-primary));
+}
+
+.menu-btn:nth-child(8) { /* 单词爆炸 */
     background: linear-gradient(135deg, var(--wordblast-primary), var(--wordblast-secondary));
     border-left-color: var(--wordblast-accent);
     font-size: 1.4rem;
@@ -587,7 +671,7 @@ body::after {
     overflow: hidden;
 }
 
-.menu-btn:nth-child(4)::before {
+.menu-btn:nth-child(8)::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -602,13 +686,13 @@ body::after {
     opacity: 0;
 }
 
-.menu-btn:nth-child(4):hover::before {
+.menu-btn:nth-child(8):hover::before {
     width: 300px;
     height: 300px;
     opacity: 1;
 }
 
-.menu-btn:nth-child(4):hover {
+.menu-btn:nth-child(8):hover {
     box-shadow: 0 15px 35px -5px rgba(239, 68, 68, 0.5), 0 0 30px rgba(255, 209, 102, 0.3);
     background: linear-gradient(135deg, var(--wordblast-secondary), var(--wordblast-primary));
 }
@@ -760,6 +844,7 @@ body::after {
     transition: var(--transition);
     font-family: var(--font-body);
     font-weight: 600;
+    text-decoration: none;
 }
 
 .back-btn:hover {

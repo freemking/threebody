@@ -64,6 +64,14 @@ class WrongBook {
      * 从数据库加载数据到内存缓存
      */
     async _loadFromDatabase() {
+        // 检查用户是否已登录
+        if (typeof auth === 'undefined' || !auth.isLoggedIn()) {
+            console.log('用户未登录，跳过从数据库加载错题');
+            this._cache = [];
+            this._loaded = true;
+            return [];
+        }
+        
         try {
             const result = await this._apiRequest('/list');
             if (result && result.success && Array.isArray(result.data)) {

@@ -79,6 +79,14 @@ class Vocabulary {
      * 从数据库加载数据到内存缓存
      */
     async _loadFromDatabase() {
+        // 检查用户是否已登录
+        if (typeof auth === 'undefined' || !auth.isLoggedIn()) {
+            console.log('用户未登录，跳过从数据库加载记单词');
+            this._cache = [];
+            this._loaded = true;
+            return [];
+        }
+        
         try {
             const result = await this._apiRequest('/list');
             if (result && result.success && Array.isArray(result.data)) {
@@ -2465,14 +2473,34 @@ const VocabularyAppMixin = {
             await vocabulary.toggleRemembered(word, true);
         }
         
-        // 将昨天的单词中全部3种模式都答对的标记为已复习（统一在此处标记，避免未完成全部模式就被标记）
-        const yesterdayDate = new Date();
-        yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-        const yesterdayStr = vocabulary._getLocalDateStr(yesterdayDate);
-        for (const word of fullyMasteredWords) {
-            const wordData = this.trainingWords.find(w => w.word === word);
-            if (wordData && wordData.isYesterday) {
-                vocabulary.markAsReviewed(word, yesterdayStr).catch(err => console.error('标记复习状态失败:', err));
+        // 检查是否有昨天的单词需要标记为已复习
+        const hasYesterdayWords = this.trainingWords.some(w => w.isYesterday);
+        
+        // 如果有昨天的单词，调用complete-review接口一次性完成：
+        // 1. 将昨天的单词标记为已复习
+        // 2. 插入今天的新单词（如果不存在）
+        if (hasYesterdayWords) {
+            try {
+                const completeResult = await vocabulary._apiRequest('/complete-review', 'POST');
+                if (completeResult.success) {
+                    console.log(`完成复习: 复习了 ${completeResult.reviewedCount} 个昨天的单词, 新增 ${completeResult.newWordsCount} 个今天的单词`);
+                    // 重新加载今日单词列表
+                    await vocabulary._loadTodayWords();
+                } else {
+                    console.error('完成复习失败:', completeResult.error);
+                }
+            } catch (err) {
+                console.error('调用complete-review接口失败:', err);
+                // 如果接口调用失败，回退到逐个标记的方式
+                const yesterdayDate = new Date();
+                yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+                const yesterdayStr = vocabulary._getLocalDateStr(yesterdayDate);
+                for (const word of fullyMasteredWords) {
+                    const wordData = this.trainingWords.find(w => w.word === word);
+                    if (wordData && wordData.isYesterday) {
+                        vocabulary.markAsReviewed(word, yesterdayStr).catch(err => console.error('标记复习状态失败:', err));
+                    }
+                }
             }
         }
         

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>记单词 - English Word Adventure</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wrongbook.css">
+    <link rel="stylesheet" href="css/vocabulary.css">
+    <link rel="stylesheet" href="css/vocabulary-layout.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+</head>
+<body>
+    <div id="vocabulary-screen" class="ui-screen">
+        <div class="vocabulary-layout">
+            <!-- 左侧导航栏 -->
+            <nav class="vocabulary-sidebar" id="vocabulary-sidebar">
+                <div class="sidebar-header">
+                    <a href="index.html" id="btn-back-vocabulary" class="back-btn">← 返回</a>
+                    <div class="sidebar-title">📚 记单词</div>
+                </div>
+                
+                <div class="sidebar-nav">
+                    <div class="nav-section">
+                        <div class="nav-section-title">学习功能</div>
+                        <button class="nav-item active" data-module="memory-training">
+                            <span class="nav-icon">📝</span>
+                            <span class="nav-text">记单词</span>
+                        </button>
+                        <button class="nav-item" data-module="weekly-quiz">
+                            <span class="nav-icon">📋</span>
+                            <span class="nav-text">周末测验</span>
+                        </button>
+                        <button class="nav-item" data-module="history-words">
+                            <span class="nav-icon">📚</span>
+                            <span class="nav-text">历史单词</span>
+                        </button>
+                        <button class="nav-item" data-module="wrong-book">
+                            <span class="nav-icon">📖</span>
+                            <span class="nav-text">单词库</span>
+                        </button>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <div class="nav-section-title">数据统计</div>
+                        <button class="nav-item" data-module="learning-data">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">学习数据</span>
+                        </button>
+                        <button class="nav-item" data-module="achievements">
+                            <span class="nav-icon">🏆</span>
+                            <span class="nav-text">成就徽章</span>
+                        </button>
+                    </div>
+                    
+                    <div class="nav-section">
+                        <div class="nav-section-title">系统设置</div>
+                        <button class="nav-item" data-module="settings">
+                            <span class="nav-icon">⚙️</span>
+                            <span class="nav-text">系统设置</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="sidebar-footer">
+                    <div class="user-level" id="sidebar-user-level">
+                        <span class="level-icon">🌱</span>
+                        <span class="level-text">Lv.1 萌芽期</span>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- 主内容区 -->
+            <main class="vocabulary-main">
+                <!-- 顶部状态栏 -->
+                <header class="vocabulary-header">
+                    <div class="header-left">
+                        <button id="btn-toggle-sidebar" class="toggle-sidebar-btn">
+                            <span class="toggle-icon">☰</span>
+                        </button>
+                        <h1 class="header-title" id="header-title">记单词</h1>
+                    </div>
+                    
+                    <div class="header-center">
+                        <div class="today-progress">
+                            <span class="progress-label">今日进度</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="header-progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span class="progress-text" id="header-progress-text">0/5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="header-right">
+                        <div class="header-stats">
+                            <div class="header-stat">
+                                <span class="stat-icon">📚</span>
+                                <span class="stat-value" id="header-total-words">0</span>
+                            </div>
+                            <div class="header-stat">
+                                <span class="stat-icon">✅</span>
+                                <span class="stat-value" id="header-mastered-words">0</span>
+                            </div>
+                        </div>
+                        <button id="btn-settings" class="settings-btn">
+                            <span class="settings-icon">⚙️</span>
+                        </button>
+                    </div>
+                </header>
+                
+                <!-- 模块内容区 -->
+                <div class="vocabulary-content">
+                    <!-- 记单词模块 -->
+                    <div id="memory-training-module" class="vocabulary-module active">
+                        <!-- 快速开始 -->
+                        <!-- 记单词整合区域 -->
+                        <div class="training-hero">
+                            <div class="training-hero-content">
+                                <div class="training-hero-header">
+                                    <div class="training-hero-icon">📝</div>
+                                    <div class="training-hero-info">
+                                        <h3 class="training-hero-title">记单词</h3>
+                                        <p class="training-hero-desc">依次完成认读→拼写→听音，全部通过才算掌握</p>
+                                    </div>
+                                </div>
+                                <div class="training-flow-section">
+                                    <h3 class="config-title">训练流程</h3>
+                                    <div class="training-flow-indicator">
+                                        <div class="flow-step">
+                                            <div class="flow-step-icon">👁️</div>
+                                            <div class="flow-step-name">认读</div>
+                                        </div>
+                                        <div class="flow-arrow">→</div>
+                                        <div class="flow-step">
+                                            <div class="flow-step-icon">✍️</div>
+                                            <div class="flow-step-name">拼写</div>
+                                        </div>
+                                        <div class="flow-arrow">→</div>
+                                        <div class="flow-step">
+                                            <div class="flow-step-icon">🎧</div>
+                                            <div class="flow-step-name">听音</div>
+                                        </div>
+                                    </div>
+                                    <p class="training-flow-desc">依次完成三种模式，全部通过才算掌握</p>
+                                </div>
+                                <button id="btn-start-training" class="start-training-btn">
+                                    <span class="btn-icon">🚀</span>
+                                    <span>开始训练</span>
+                                </button>
+                                <div id="training-lock" class="training-lock hidden">
+                                    <span class="lock-icon">🔒</span>
+                                    <span class="lock-text">请先完成昨天训练</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        
+                        
+                        <!-- 今日记单词 -->
+                        <div class="vocabulary-today">
+                            <div class="vocabulary-today-header">
+                                <h3 class="vocabulary-today-title" id="vocabulary-today-title">📖 今日记单词</h3>
+                                <div class="vocabulary-today-progress">
+                                    <span id="today-progress-text">0/5</span>
+                                    <div class="vocabulary-progress-bar">
+                                        <div class="vocabulary-progress-fill" id="today-progress-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="vocabulary-today-words"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 听写训练模块 -->
+                    <div id="dictation-training-module" class="vocabulary-module">
+                        <!-- 快速开始 -->
+                        <div class="training-hero">
+                            <div class="training-hero-content">
+                                <div class="training-hero-icon">🎤</div>
+                                <div class="training-hero-info">
+                                    <h3 class="training-hero-title">听写训练</h3>
+                                    <p class="training-hero-desc">听发音拼写单词，提升听力与拼写能力</p>
+                                </div>
+                                <button id="btn-quick-start-dictation" class="training-hero-btn">
+                                    <span class="btn-icon">🎤</span>
+                                    <span>开始听写</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="dictation-config expanded" id="dictation-config">
+                            <div class="config-section">
+                                <h3 class="config-title">听写范围</h3>
+                                <div class="config-options">
+                                    <button class="config-option active" data-range="today">今日单词</button>
+                                    <button class="config-option" data-range="all">全部词库</button>
+                                </div>
+                            </div>
+                            
+                            <div class="config-section">
+                                <h3 class="config-title">单词间隔</h3>
+                                <div class="interval-options">
+                                    <button class="interval-option" data-seconds="3">3秒</button>
+                                    <button class="interval-option active" data-seconds="5">5秒</button>
+                                    <button class="interval-option" data-seconds="8">8秒</button>
+                                    <button class="interval-option" data-seconds="10">10秒</button>
+                                </div>
+                            </div>
+                            
+                            <div class="config-section">
+                                <h3 class="config-title">播放次数</h3>
+                                <div class="play-count-options">
+                                    <button class="play-count-option" data-count="1">1次</button>
+                                    <button class="play-count-option active" data-count="2">2次</button>
+                                    <button class="play-count-option" data-count="3">3次</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 听写进行区域 -->
+                        <div id="dictation-session" class="dictation-session hidden">
+                            <div class="dictation-progress">
+                                <span class="dictation-progress-text" id="dictation-progress-text">1/10</span>
+                                <div class="dictation-progress-bar">
+                                    <div class="dictation-progress-fill" id="dictation-progress-fill"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="dictation-word-area">
+                                <div class="dictation-speaker" id="dictation-speaker">
+                                    <span class="speaker-icon">🔊</span>
+                                    <span class="speaker-text">点击播放发音</span>
+                                </div>
+                                
+                                <div class="dictation-input-area">
+                                    <input type="text" id="dictation-input" class="dictation-input" placeholder="请输入单词...">
+                                    <button id="dictation-submit" class="dictation-submit-btn">提交</button>
+                                </div>
+                                
+                                <div id="dictation-feedback" class="dictation-feedback hidden"></div>
+                            </div>
+                            
+                            <div class="dictation-controls">
+                                <button id="dictation-replay" class="dictation-control-btn">
+                                    <span>🔄</span> 重听
+                                </button>
+                                <button id="dictation-skip" class="dictation-control-btn">
+                                    <span>⏭️</span> 跳过
+                                </button>
+                                <button id="dictation-end" class="dictation-control-btn dictation-end-btn">
+                                    <span>⏹️</span> 结束
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 听写结果 -->
+                        <div id="dictation-result" class="dictation-result hidden">
+                            <div class="result-header">
+                                <h3 class="result-title">📊 听写结果</h3>
+                                <div class="result-score">
+                                    <span class="result-score-text" id="dictation-score">0/0</span>
+                                    <span class="result-score-label">正确率</span>
+                                </div>
+                            </div>
+                            
+                            <div class="result-details" id="dictation-result-details">
+                                <!-- 动态生成 -->
+                            </div>
+                            
+                            <div class="result-actions">
+                                <button id="dictation-retry" class="result-action-btn">
+                                    <span>🔄</span> 再来一次
+                                </button>
+                                <button id="dictation-back" class="result-action-btn">
+                                    <span>🏠</span> 返回
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/wrongbook.js"></script>
+    <script src="js/vocabulary.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

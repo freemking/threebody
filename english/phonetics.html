@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>音标学习 - English Word Adventure</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vocabulary-layout.css">
+    <link rel="stylesheet" href="css/phonetics.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔊</text></svg>">
+    
+    <style>
+        /* 新布局样式 */
+        .phonetics-new-layout {
+            padding: var(--spacing-xl);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .phonetics-hero {
+            text-align: center;
+            margin-bottom: var(--spacing-xxl);
+            padding: var(--spacing-xl);
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.05));
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-light);
+        }
+        
+        .phonetics-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .phonetics-hero p {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .phonetics-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .phonetics-stat-item {
+            text-align: center;
+        }
+        
+        .phonetics-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+        
+        .phonetics-stat-label {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+        
+        .phonetics-categories {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xxl);
+        }
+        
+        .phonetics-category {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-card);
+        }
+        
+        .phonetics-category-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .phonetics-category-icon {
+            font-size: 2.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+        }
+        
+        .phonetics-category-info {
+            flex: 1;
+        }
+        
+        .phonetics-category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 0 0 var(--spacing-xs);
+        }
+        
+        .phonetics-category-desc {
+            font-size: 1rem;
+            color: var(--light-text);
+            margin: 0;
+        }
+        
+        .phonetics-category-count {
+            background: rgba(0, 255, 255, 0.15);
+            color: var(--primary-color);
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--border-radius-full);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .phonetics-subcategories {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xl);
+        }
+        
+        .phonetics-subcategory {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-lg);
+        }
+        
+        .phonetics-subcategory-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .phonetics-subcategory-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+        
+        .phonetics-subcategory-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .phonetics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .phonetic-card {
+            background: rgba(0, 255, 255, 0.05);
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .phonetic-card:hover {
+            background: rgba(0, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 255, 255, 0.2);
+        }
+        
+        .phonetic-card.learned {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+        
+        .phonetic-card.learned::after {
+            content: '✓';
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 0.8rem;
+            color: var(--success-color);
+            font-weight: 700;
+        }
+        
+        .phonetic-card-symbol {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Fira Code', monospace;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .phonetic-card-example {
+            font-size: 0.8rem;
+            color: var(--light-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* 详情弹窗 */
+        .phonetic-detail-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .phonetic-detail-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .phonetic-detail-content {
+            background: var(--background-color);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xxl);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        
+        .phonetic-detail-modal.active .phonetic-detail-content {
+            transform: scale(1);
+        }
+        
+        .phonetic-detail-close {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: none;
+            border: none;
+            color: var(--muted-text);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-full);
+        }
+        
+        .phonetic-detail-close:hover {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger-color);
+        }
+        
+        .phonetic-detail-symbol {
+            font-size: 5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: var(--spacing-md);
+            font-family: 'Fira Code', monospace;
+            text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+        }
+        
+        .phonetic-detail-category {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--light-text);
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: rgba(0, 255, 255, 0.1);
+            border-radius: var(--border-radius-full);
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .phonetic-detail-section {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .phonetic-detail-section h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .phonetic-detail-section h3::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .phonetic-detail-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            padding: var(--spacing-lg);
+            background: rgba(0, 255, 255, 0.05);
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .phonetic-detail-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+        }
+        
+        .phonetic-example-item {
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            transition: all 0.2s ease;
+        }
+        
+        .phonetic-example-item:hover {
+            background: rgba(0, 255, 255, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .phonetic-example-word {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .phonetic-example-phonetic {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            font-family: 'Fira Code', monospace;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .phonetic-example-meaning {
+            font-size: 0.9rem;
+            color: var(--muted-text);
+        }
+        
+        .phonetic-detail-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-light);
+        }
+        
+        .phonetic-detail-btn {
+            flex: 1;
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .phonetic-detail-btn.primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--background-color);
+            border: none;
+        }
+        
+        .phonetic-detail-btn.secondary {
+            background: var(--card-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-light);
+        }
+        
+        .phonetic-detail-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .phonetics-new-layout {
+                padding: var(--spacing-md);
+            }
+            
+            .phonetics-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .phonetics-stats {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .phonetics-category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .phonetics-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+            
+            .phonetic-detail-content {
+                padding: var(--spacing-lg);
+            }
+            
+            .phonetic-detail-symbol {
+                font-size: 3rem;
+            }
+            
+            .phonetic-detail-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="phonetics-screen" class="ui-screen">
+        <div class="vocabulary-layout">
+            <!-- 左侧导航栏 -->
+            <nav class="vocabulary-sidebar" id="phonetics-sidebar">
+                <div class="sidebar-header">
+                    <a href="index.html" id="btn-back-phonetics" class="back-btn">← 返回</a>
+                    <div class="sidebar-title">🔊 音标学习</div>
+                </div>
+                
+                <div class="sidebar-nav">
+                    <div class="nav-section">
+                        <div class="nav-section-title">功能菜单</div>
+                        <button class="nav-item active" data-screen="learn">
+                            <span class="nav-icon">📚</span>
+                            <span class="nav-text">音标学习</span>
+                        </button>
+                        <button class="nav-item" data-screen="progress">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">个人学习中心</span>
+                        </button>
+                        <button class="nav-item" data-screen="quiz">
+                            <span class="nav-icon">🎧</span>
+                            <span class="nav-text">听音选音标</span>
+                        </button>
+                    </div>
+                    <div class="phonetics-subcategory-nav"></div>
+                </div>
+                
+                <div class="sidebar-footer">
+                    <div class="user-level" id="sidebar-user-level">
+                        <span class="level-icon">🌱</span>
+                        <span class="level-text">音标学习</span>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- 主内容区 -->
+            <main class="vocabulary-main">
+                <!-- 顶部状态栏 -->
+                <header class="vocabulary-header">
+                    <div class="header-left">
+                        <button class="toggle-sidebar-btn" id="toggle-sidebar-btn">☰</button>
+                        <h1 class="header-title">🔊 音标学习</h1>
+                    </div>
+                    <div class="header-right">
+                        <button id="phonetics-progress-btn" class="settings-btn" title="学习进度">📊</button>
+                        <button id="phonetics-quiz-btn" class="settings-btn" title="音标测验">📝</button>
+                    </div>
+                </header>
+                
+                <!-- 内容区域 -->
+                <div class="vocabulary-content">
+                    <!-- 新布局：直接展示所有音标 -->
+                    <div class="phonetics-new-layout" id="phonetics-main-content">
+                        <!-- 英雄区域 -->
+                        <div class="phonetics-hero">
+                            <h1>国际音标学习</h1>
+                            <p>掌握48个国际音标，开启纯正英语发音之旅</p>
+                            <div class="phonetics-stats">
+                                <div class="phonetics-stat-item">
+                                    <div class="phonetics-stat-number" id="total-phonetics">48</div>
+                                    <div class="phonetics-stat-label">总音标数</div>
+                                </div>
+                                <div class="phonetics-stat-item">
+                                    <div class="phonetics-stat-number" id="learned-phonetics">0</div>
+                                    <div class="phonetics-stat-label">已学习</div>
+                                </div>
+                                <div class="phonetics-stat-item">
+                                    <div class="phonetics-stat-number" id="learning-progress">0%</div>
+                                    <div class="phonetics-stat-label">完成率</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 音标分类展示 -->
+                        <div class="phonetics-categories" id="phonetics-categories">
+                            <!-- 内容将由JavaScript动态生成 -->
+                        </div>
+                    </div>
+                    
+                    <!-- 个人学习中心 -->
+                    <div id="phonetics-progress-container" class="phonetics-progress-container" style="display: none;">
+                        <!-- 内容将由 JavaScript 动态生成 -->
+                    </div>
+
+                    <!-- 听音选音标测验选择 -->
+                    <div id="phonetics-quiz-container" class="phonetics-quiz-container" style="display: none;">
+                        <!-- 内容将由 JavaScript 动态生成 -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- 音标详情弹窗 -->
+    <div class="phonetic-detail-modal" id="phonetic-detail-modal">
+        <div class="phonetic-detail-content">
+            <button class="phonetic-detail-close" id="phonetic-detail-close">✕</button>
+            <div class="phonetic-detail-symbol" id="phonetic-detail-symbol">/iː/</div>
+            <div style="text-align: center;">
+                <span class="phonetic-detail-category" id="phonetic-detail-category">单元音-长元音</span>
+            </div>
+            
+            <div class="phonetic-detail-section">
+                <h3>发音要点</h3>
+                <div class="phonetic-detail-description" id="phonetic-detail-description">
+                    长音发音，发音饱满拉长，嘴角舒展
+                </div>
+            </div>
+            
+            <div class="phonetic-detail-section">
+                <h3>高频例词</h3>
+                <div class="phonetic-detail-examples" id="phonetic-detail-examples">
+                    <!-- 动态生成例词 -->
+                </div>
+            </div>
+            
+            <div class="phonetic-detail-actions">
+                <button class="phonetic-detail-btn secondary" id="phonetic-detail-prev">
+                    ← 上一个
+                </button>
+                <button class="phonetic-detail-btn primary" id="phonetic-detail-mark">
+                    ✓ 标记已学
+                </button>
+                <button class="phonetic-detail-btn secondary" id="phonetic-detail-next">
+                    下一个 →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../auth.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/phonetics.js"></script>
+    <script src="js/phonetics-quiz.js"></script>
+    <script>
+        // Initialize phonetics when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.phonetics = new Phonetics();
+        });
+    </script>
+</body>
+</html>

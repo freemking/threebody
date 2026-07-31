@@ -2216,6 +2216,7 @@
     background: rgba(0, 255, 255, 0.1);
     border: 1px solid var(--vb-border);
     color: var(--vb-text-primary);
+    text-decoration: none;
 }
 
 .back-btn:hover {
