@@ -888,6 +888,12 @@ body {
 .btn-mode.mode-marathon:hover { border-color: #ef4444; background: rgba(239, 68, 68, 0.08); }
 .btn-mode.mode-boom:hover { border-color: #FBBF24; background: rgba(251, 191, 36, 0.08); }
 
+.btn-mode.selected { border-width: 2px; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+.btn-mode.mode-fast.selected { border-color: #10b981; background: rgba(16, 185, 129, 0.15); }
+.btn-mode.mode-normal.selected { border-color: var(--accent); background: rgba(0, 255, 255, 0.15); }
+.btn-mode.mode-marathon.selected { border-color: #ef4444; background: rgba(239, 68, 68, 0.15); }
+.btn-mode.mode-boom.selected { border-color: #FBBF24; background: rgba(251, 191, 36, 0.15); }
+
 @keyframes countdownPop {
   0% { transform: scale(1.8); opacity: 0; }
   50% { transform: scale(0.9); opacity: 1; }
@@ -909,6 +915,13 @@ body {
   <div class="header">
     <h1>🔢 除法口算练习</h1>
     <a href="/" class="back-to-home-btn">← 返回首页</a>
+  </div>
+
+  <!-- Tab bar -->
+  <div class="tab-bar" id="tabBar">
+    <button class="active" data-tab="main" onclick="switchTab('main')">📝 挑战</button>
+    <button data-tab="leaderboard" onclick="switchTab('leaderboard')">🏆 排行榜</button>
+    <button data-tab="wrongbook" onclick="switchTab('wrongbook')">📋 错题集</button>
   </div>
 
   <!-- Score Panel -->
@@ -940,22 +953,22 @@ body {
         </ul>
         <div id="modeSelection" class="mode-selection hidden">
           <div class="mode-buttons">
-            <button class="btn-mode mode-fast" onclick="selectMode(10, 50, '快速')">
+            <button class="btn-mode mode-fast" data-mode="快速" onclick="selectMode(10, 50, '快速')">
               <span class="mode-icon">⚡</span>
               <span class="mode-label">快速</span>
               <span class="mode-desc">10题 · 50秒</span>
             </button>
-            <button class="btn-mode mode-normal" onclick="selectMode(20, 100, '普通')">
+            <button class="btn-mode mode-normal selected" data-mode="普通" onclick="selectMode(20, 100, '普通')">
               <span class="mode-icon">📝</span>
               <span class="mode-label">普通</span>
               <span class="mode-desc">20题 · 100秒</span>
             </button>
-            <button class="btn-mode mode-marathon" onclick="selectMode(50, 250, '马拉松')">
+            <button class="btn-mode mode-marathon" data-mode="马拉松" onclick="selectMode(50, 250, '马拉松')">
               <span class="mode-icon">🏃</span>
               <span class="mode-label">马拉松</span>
               <span class="mode-desc">50题 · 250秒</span>
             </button>
-            <button class="btn-mode mode-boom" onclick="selectMode(5, 100, '大爆炸')">
+            <button class="btn-mode mode-boom" data-mode="大爆炸" onclick="selectMode(5, 100, '大爆炸')">
               <span class="mode-icon">💥</span>
               <span class="mode-label">大爆炸<span class="mode-hint">（有一点点难哦）</span></span>
               <span class="mode-desc">5题 · 100秒</span>
@@ -994,13 +1007,6 @@ body {
 
   </div>
 
-  <!-- Tab bar -->
-  <div class="tab-bar" id="tabBar">
-    <button class="active" data-tab="main" onclick="switchTab('main')">📝 挑战</button>
-    <button data-tab="leaderboard" onclick="switchTab('leaderboard')">🏆 排行榜</button>
-    <button data-tab="wrongbook" onclick="switchTab('wrongbook')">📋 错题集</button>
-  </div>
-
   <!-- Leaderboard -->
   <div class="leaderboard hidden" id="leaderboardPanel">
     <h3>🏆 排行榜 TOP 10</h3>
@@ -1029,6 +1035,7 @@ const POINTS_PER_Q = 5;
 let TOTAL_QUESTIONS = 20;
 let TIME_LIMIT = 100;
 let currentMode = '普通';
+let selectedMode = '普通';
 
 let questions = [];
 let currentIndex = 0;
@@ -1222,17 +1229,36 @@ function retryGame() {
   scorePanel.classList.add('hidden');
   $('tabBar').classList.remove('hidden');
   switchTab('main');
+  
+  // 重置选中状态为普通模式
+  selectedMode = '普通';
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.classList.remove('selected');
+    if (btn.dataset.mode === '普通') {
+      btn.classList.add('selected');
+    }
+  });
 }
 
 function startDefaultGame() {
-  selectMode(20, 100, '普通');
+  // 使用选中的难度开始游戏
+  currentMode = selectedMode;
+  startGame();
 }
 
 function selectMode(qCount, timeLimit, modeName) {
+  // 只选中难度，不立即开始
+  selectedMode = modeName;
   TOTAL_QUESTIONS = qCount;
   TIME_LIMIT = timeLimit;
-  currentMode = modeName;
-  startGame();
+  
+  // 高亮选中的按钮
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.classList.remove('selected');
+    if (btn.dataset.mode === modeName) {
+      btn.classList.add('selected');
+    }
+  });
 }
 
 // ===== Game Flow =====
