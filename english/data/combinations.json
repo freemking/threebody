@@ -25,7 +25,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["bee", "see", "tree", "free", "three"]
+    "common": ["bee", "see", "tree", "free", "three"],
+    "tips": "记忆技巧：ee 像两只眼睛 👀，看到(see)蜜蜂(bee)在树(tree)上。ee 总是发长音 /iː/，不会发短音。"
   },
   {
     "id": "vc02",
@@ -55,7 +56,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["tea", "eat", "sea", "meat", "clean"]
+    "common": ["tea", "eat", "sea", "meat", "clean"],
+    "tips": "记忆技巧：ea 多数发 /iː/（如 tea, eat），少数发 /e/（如 head, bread）。口诀：\"喝茶吃肉 ea 长，头和面包 ea 短\"。"
   },
   {
     "id": "vc03",
@@ -80,7 +82,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["rain", "wait", "train", "paint", "brain"]
+    "common": ["rain", "wait", "train", "paint", "brain"],
+    "tips": "记忆技巧：ai 像一条小河(a-i)在下雨(rain)。ai 在单词中间，下雨(rain)等(wait)火车(train)。"
   },
   {
     "id": "vc04",
@@ -106,7 +109,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": "1",
-    "common": ["day", "play", "stay", "say", "way"]
+    "common": ["day", "play", "stay", "say", "way"],
+    "tips": "记忆技巧：ay 总是在单词结尾，发 /eɪ/。口诀：\"每天(day)玩耍(play)说(say)路(way)\"。ay 和 ai 发音相同，但 ay 在词尾。"
   },
   {
     "id": "vc05",
@@ -134,7 +138,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["school", "food", "moon", "cool", "room"]
+    "common": ["school", "food", "moon", "cool", "room"],
+    "tips": "记忆技巧：oo 有两种发音！长音 /uː/（moon, food）和短音 /ʊ/（book, good）。口诀：\"月亮食物 oo 长，书本好看 oo 短\"。"
   },
   {
     "id": "vc06",
@@ -158,7 +163,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["boat", "goat", "road", "coat", "load"]
+    "common": ["boat", "goat", "road", "coat", "load"],
+    "tips": "记忆技巧：oa 像一条船(o)在水(a)上漂。小船(boat)外套(coat)山羊(goat)，都在路上(road)跑。oa 总是发 /əʊ/。"
   },
   {
     "id": "vc07",
@@ -188,7 +194,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["cow", "now", "how", "town", "down"]
+    "common": ["cow", "now", "how", "town", "down"],
+    "tips": "记忆技巧：ow 有两种发音！/aʊ/（cow, now）和 /əʊ/（slow, snow）。口诀：\"奶牛(cow)现在(now)叫 /aʊ/，慢(slow)雪(snow)落 /əʊ/。\""
   },
   {
     "id": "vc08",
@@ -217,7 +224,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["house", "mouse", "out", "loud", "cloud"]
+    "common": ["house", "mouse", "out", "loud", "cloud"],
+    "tips": "记忆技巧：ou 像嘴巴(o-u)在喊叫。房子(house)里老鼠(mouse)嘴巴(mouth)喊。ou 和 ow 发音相同 /aʊ/，但 ou 在词中间。"
   },
   {
     "id": "vc09",
@@ -240,7 +248,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["pie", "tie", "die", "lie", "field"]
+    "common": ["pie", "tie", "die", "lie", "field"],
+    "tips": "记忆技巧：ie 有两种发音！/iː/（piece, field）和 /aɪ/（tie, pie）。口诀：\"馅饼(pie)领带(tie)说 /aɪ/，田野(field)碎片(piece)说 /iː/\"。"
   },
   {
     "id": "vc10",
@@ -268,7 +277,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["car", "star", "park", "farm", "art"]
+    "common": ["car", "star", "park", "farm", "art"],
+    "tips": "记忆技巧：ar 像手臂(arm)在开车(car)。星星(star)公园(park)农场(farm)，都发 /ɑː/ 大张嘴。"
   },
   {
     "id": "vc11",
@@ -295,7 +305,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["for", "or", "short", "more", "door"]
+    "common": ["for", "or", "short", "more", "door"],
+    "tips": "记忆技巧：or 像嘴巴(o)在说\"哦\"。马(horse)短(short)门(door)多(more)，都发 /ɔː/ 圆嘴唇。"
   },
   {
     "id": "vc12",
@@ -320,7 +331,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["bird", "girl", "shirt", "first", "third"]
+    "common": ["bird", "girl", "shirt", "first", "third"],
+    "tips": "记忆技巧：ir, ur, er 在重读音节中都发 /ɜː/。小鸟(bird)女孩(girl)衬衫(shirt)，ir 发 /ɜː/ 不卷舌。"
   },
   {
     "id": "vc13",
@@ -344,7 +356,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["nurse", "turn", "burn", "hurt", "purple"]
+    "common": ["nurse", "turn", "burn", "hurt", "purple"],
+    "tips": "记忆技巧：ur 和 ir, er 发音相同 /ɜː/。护士(nurse)转身(turn)烧伤(burn)，紫色(purple)海龟(turtle)毛皮(fur)。"
   },
   {
     "id": "vc14",
@@ -367,7 +380,8 @@
     ],
     "gradeRange": "1-6",
     "difficulty": 1,
-    "common": ["her", "term", "verb", "person", "perfect"]
+    "common": ["her", "term", "verb", "person", "perfect"],
+    "tips": "记忆技巧：er 在重读音节发 /ɜː/，在非重读音节发 /ə/（如 teacher, water）。口诀：\"她(her)学期(term)动词(verb)重读，老师(teacher)水(water)轻读\"。"
   },
   {
     "id": "cc01",
@@ -395,7 +409,8 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["shop", "fish", "ship", "she", "wash"]
+    "common": ["shop", "fish", "ship", "she", "wash"],
+    "tips": "记忆技巧：sh 像蛇(s)和椅子(h)在一起发出\"嘘\"声。商店(shop)买鱼(fish)，船(ship)洗(wash)她(she)。sh 永远发 /ʃ/。"
   },
   {
     "id": "cc02",
@@ -422,7 +437,8 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["chair", "lunch", "teach", "child", "chicken"]
+    "common": ["chair", "lunch", "teach", "child", "chicken"],
+    "tips": "记忆技巧：ch 像火车\"切切切\"的声音。椅子(chair)午餐(lunch)教(teach)孩子(child)吃鸡(chicken)。ch 永远发 /tʃ/。"
   },
   {
     "id": "cc03",
@@ -450,7 +466,8 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["the", "this", "that", "with", "they"]
+    "common": ["the", "this", "that", "with", "they"],
+    "tips": "记忆技巧：th 有两种发音！清辅音 /θ/（three, think）和浊辅音 /ð/（the, this）。口诀：\"三(three)想(think)咬舌 /θ/，这那(the this)振动 /ð/\"。"
   },
   {
     "id": "cc04",

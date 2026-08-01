@@ -346,45 +346,59 @@
 .example-words {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
 }
 
 .example-word {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 16px;
+    padding: 12px 18px;
     background: rgba(0, 255, 255, 0.05);
     border: 1px solid var(--vb-border);
     border-radius: var(--vb-radius-md);
-    min-width: 80px;
+    min-width: 90px;
+    transition: all 0.2s ease;
+}
+
+.example-word:hover {
+    background: rgba(0, 255, 255, 0.1);
+    transform: translateY(-2px);
 }
 
 .word-text {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 700;
     color: var(--vb-primary);
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.word-phonetic {
+    font-size: 0.8rem;
+    color: var(--vb-text-muted);
     margin-bottom: 4px;
+    font-style: italic;
 }
 
 .word-meaning {
-    font-size: 0.75rem;
-    color: var(--vb-text-muted);
+    font-size: 0.85rem;
+    color: var(--vb-text-secondary);
 }
 
 /* 记忆技巧 */
 .study-tips {
     margin-bottom: 25px;
-    padding: 15px;
+    padding: 16px;
     background: rgba(255, 193, 7, 0.08);
     border-radius: var(--vb-radius-md);
     border: 1px solid rgba(255, 193, 7, 0.2);
 }
 
 .tips-content {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--vb-text-secondary);
-    line-height: 1.6;
+    line-height: 1.8;
 }
 
 /* 常见单词 */
@@ -393,9 +407,10 @@
 }
 
 .common-words {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--vb-text-secondary);
-    line-height: 1.6;
+    line-height: 1.8;
+    letter-spacing: 0.3px;
 }
 
 /* 学习操作按钮 */

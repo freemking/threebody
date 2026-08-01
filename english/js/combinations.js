@@ -57,8 +57,7 @@ function showSection(sectionId) {
     
     // 更新标题
     const titles = {
-        'home': '字母组合学习',
-        'study': '学习字母组合',
+        'home': '学习字母组合',
         'practice': '练习',
         'mastered': '已掌握列表',
         'settings': '设置'
@@ -71,8 +70,6 @@ function showSection(sectionId) {
     switch (sectionId) {
         case 'home':
             updateHomeStats();
-            break;
-        case 'study':
             initStudySection();
             break;
         case 'practice':
@@ -86,7 +83,7 @@ function showSection(sectionId) {
 
 // 开始学习
 function startLearning() {
-    showSection('study');
+    showSection('home');
 }
 
 // 开始练习
@@ -108,17 +105,6 @@ function updateHomeStats() {
         ? Math.round((CombinationsApp.correctAnswers / CombinationsApp.totalAnswered) * 100) 
         : 0;
     
-    // 计算分组进度
-    const totalGroups = CombinationGroups.length;
-    const masteredGroups = CombinationGroups.filter(group => 
-        group.combinations.every(index => data[index].mastered)
-    ).length;
-    
-    document.getElementById('totalCombinations').textContent = totalCombinations;
-    document.getElementById('masteredCount').textContent = masteredCount;
-    document.getElementById('accuracyRate').textContent = accuracy + '%';
-    document.getElementById('groupProgress').textContent = masteredGroups + '/' + totalGroups;
-    
     // 更新顶部进度条
     const progressPercent = totalCombinations > 0 ? (masteredCount / totalCombinations) * 100 : 0;
     document.getElementById('masteredProgress').style.width = progressPercent + '%';
@@ -127,15 +113,6 @@ function updateHomeStats() {
     // 更新顶部统计
     document.getElementById('headerMastered').textContent = masteredCount;
     document.getElementById('headerAccuracy').textContent = accuracy + '%';
-    
-    // 更新下一组学习提示
-    const nextGroupIndex = findNextLearnGroup();
-    if (nextGroupIndex >= 0) {
-        const nextGroup = CombinationGroups[nextGroupIndex];
-        document.getElementById('nextLearnText').textContent = `下一组: ${nextGroup.name}`;
-    } else {
-        document.getElementById('nextLearnText').textContent = '所有组合已学习完成！';
-    }
 }
 
 // 找到下一个需要学习的分组
@@ -187,13 +164,14 @@ function showCombination() {
     const examplesHTML = combination.examples.slice(0, 4).map(example => `
         <div class="example-word">
             <span class="word-text">${example.word}</span>
+            <span class="word-phonetic">${example.phonetic || ''}</span>
             <span class="word-meaning">${example.meaning || ''}</span>
         </div>
     `).join('');
     document.getElementById('studyExamples').innerHTML = examplesHTML;
     
     // 更新记忆技巧
-    document.getElementById('studyTips').textContent = combination.tips;
+    document.getElementById('studyTips').textContent = combination.tips || combination.description || '暂无记忆技巧';
     
     // 更新常见单词
     document.getElementById('studyCommon').textContent = combination.common ? combination.common.join(', ') : '暂无常见单词数据';
@@ -694,7 +672,7 @@ function viewCombination(combinationText) {
         }
     }
     
-    showSection('study');
+    showSection('home');
 }
 
 // 保存学习进度
@@ -786,7 +764,7 @@ function shuffleArray(array) {
 
 // 键盘快捷键
 document.addEventListener('keydown', function(e) {
-    if (CombinationsApp.currentSection === 'study') {
+    if (CombinationsApp.currentSection === 'home') {
         if (e.key === 'ArrowLeft') {
             prevCombination();
         } else if (e.key === 'ArrowRight') {
@@ -821,6 +799,8 @@ async function loadCombinationsData() {
         CombinationsData = rawData.map((item, index) => ({
             ...item,
             combination: item.pattern,
+            phonetic: item.pronunciation,
+            sound: item.pronunciation,
             index: index,
             learned: false,
             mastered: false

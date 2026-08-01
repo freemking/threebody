@@ -492,7 +492,7 @@ class Phonetics {
         container.innerHTML = `
             <div class="progress-center-content">
                 <div class="progress-center-header">
-                    <h2>个人学习中心</h2>
+                    <h2>个人中心</h2>
                 </div>
                 
                 <div class="progress-center-tabs">

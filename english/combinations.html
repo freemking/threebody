@@ -21,14 +21,10 @@
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <div class="nav-section-title">学习</div>
-                    <button class="nav-item active" data-section="home" onclick="showSection('home')">
-                        <span class="nav-icon">🏠</span>
-                        <span>首页</span>
-                    </button>
-                    <button class="nav-item" data-section="study" onclick="showSection('study')">
-                        <span class="nav-icon">📖</span>
-                        <span>学习</span>
-                    </button>
+                <button class="nav-item active" data-section="home" onclick="showSection('home')">
+                    <span class="nav-icon">📖</span>
+                    <span>学习</span>
+                </button>
                     <button class="nav-item" data-section="practice" onclick="showSection('practice')">
                         <span class="nav-icon">✏️</span>
                         <span>练习</span>
@@ -87,82 +83,8 @@
 
             <!-- 内容区 -->
             <div class="vocabulary-content">
-                <!-- 首页 -->
-                <div class="combinations-section" id="section-home">
-                    <div class="section-hero">
-                        <div class="hero-icon">🔗</div>
-                        <div class="hero-info">
-                            <h2 class="hero-title">字母组合学习</h2>
-                            <p class="hero-desc">掌握自然拼读的核心 - 常见字母组合的发音规律</p>
-                        </div>
-                    </div>
-
-                    <div class="section-stats">
-                        <div class="stat-card">
-                            <div class="stat-icon">📚</div>
-                            <div class="stat-info">
-                                <div class="stat-number" id="totalCombinations">0</div>
-                                <div class="stat-label">总组合</div>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">✅</div>
-                            <div class="stat-info">
-                                <div class="stat-number" id="masteredCount">0</div>
-                                <div class="stat-label">已掌握</div>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">🎯</div>
-                            <div class="stat-info">
-                                <div class="stat-number" id="accuracyRate">0%</div>
-                                <div class="stat-label">正确率</div>
-                            </div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-icon">🔗</div>
-                            <div class="stat-info">
-                                <div class="stat-number" id="groupProgress">0/11</div>
-                                <div class="stat-label">分组进度</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section-actions">
-                        <div class="action-card primary" onclick="startLearning()">
-                            <div class="action-icon">📖</div>
-                            <div class="action-content">
-                                <div class="action-title">继续学习</div>
-                                <div class="action-desc" id="nextLearnText">准备学习新的字母组合</div>
-                            </div>
-                        </div>
-                        <div class="action-card" onclick="startPractice()">
-                            <div class="action-icon">✏️</div>
-                            <div class="action-content">
-                                <div class="action-title">练习</div>
-                                <div class="action-desc">测试已学内容</div>
-                            </div>
-                        </div>
-                        <div class="action-card" onclick="showSection('mastered')">
-                            <div class="action-icon">✅</div>
-                            <div class="action-content">
-                                <div class="action-title">已掌握</div>
-                                <div class="action-desc">查看学习成果</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section-tip">
-                        <div class="tip-icon">💡</div>
-                        <div class="tip-content">
-                            <div class="tip-title">学习建议</div>
-                            <div class="tip-text" id="tipText">每天学习2-3组新组合，复习已学组合巩固记忆</div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- 学习界面 -->
-                <div class="combinations-section hidden" id="section-study">
+                <div class="combinations-section" id="section-home">
                     <div id="studyGroupInfo" class="group-info-card">
                         <div class="group-header">
                             <div class="group-icon">🔗</div>

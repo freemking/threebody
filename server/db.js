@@ -24,6 +24,7 @@ async function getPool() {
             password: config.password,
             database: config.dbname,
             charset: config.charset || 'utf8mb4',
+            timezone: '+08:00',  // 使用中国时区 (UTC+8)
             waitForConnections: true,
             connectionLimit: 10,
             queueLimit: 0,

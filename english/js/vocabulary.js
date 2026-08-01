@@ -1315,7 +1315,7 @@ const VocabularyAppMixin = {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `单词库_${new Date().toISOString().split('T')[0]}.tsv`;
+        a.download = `单词库_${this._getLocalDateStr()}.tsv`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

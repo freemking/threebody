@@ -21,7 +21,7 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
     try {
         const userId = req.user.id;
         const today = getLocalDate();
-        const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+        const yesterday = getLocalDate(new Date(Date.now() - 86400000));
         
         // 获取专用连接用于事务
         const { getPool } = require('../db');
@@ -433,10 +433,10 @@ router.get('/today', authenticateToken, async (req, res) => {
                 `SELECT wb.* FROM wrong_book wb
                  WHERE wb.user_id = ? AND wb.mastered = 0 AND wb.deleted = 0
                    AND wb.word NOT IN (
-                       SELECT DISTINCT vdr.word FROM vocabulary_daily_record vdr WHERE vdr.user_id = ?
+                       SELECT DISTINCT vdr.word FROM vocabulary_daily_record vdr WHERE vdr.user_id = ? AND vdr.study_date = ?
                    )
                  ORDER BY RAND() LIMIT ?`,
-                [userId, userId, remainingSlots]
+                [userId, userId, today, remainingSlots]
             );
             newWords = rows;
             
@@ -453,6 +453,7 @@ router.get('/today', authenticateToken, async (req, res) => {
         // 第二步：如果新单词不足5个，用复习单词补充剩余名额
         // 复习单词选择策略：排除最近2天内学过的单词，按记忆曲线间隔选择需要复习的单词
         const newWordList = newWords.map(w => w.word);
+        const todayWordList = todayRecords.map(r => r.word);
         const reviewSlots = remainingSlots - newWords.length;
         let reviewWords = [];
         
@@ -463,7 +464,7 @@ router.get('/today', authenticateToken, async (req, res) => {
             const twoDaysAgoStr = getLocalDate(twoDaysAgo);
             
             // 选择需要复习的单词：排除今天和最近2天学过的，按记忆曲线间隔（优先复习间隔最久的）
-            const excludeForReview = [...new Set([...studiedWords, ...newWordList])];
+            const excludeForReview = [...new Set([...todayWordList, ...newWordList])];
             const excludeReviewPlaceholders = excludeForReview.length > 0 
                 ? `AND d.word NOT IN (${excludeForReview.map(() => '?').join(',')})` 
                 : '';
