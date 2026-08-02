@@ -111,7 +111,8 @@ class Vocabulary {
                 this._todayWords = result.data || [];
                 this._todayStudied = result.studied || 0;
                 this._todayCompleted = result.completed || false;
-                console.log(`今日记单词: ${this._todayWords.length} 个`);
+                this._todayResult = result; // 保存完整结果，供渲染判断阶段(phase/total等)
+                console.log(`今日记单词: ${this._todayWords.length} 个, phase=${result.phase}`);
                 return this._todayWords;
             }
         } catch (error) {
@@ -1498,41 +1499,27 @@ const VocabularyAppMixin = {
      * 更新训练按钮状态
      */
     async updateTrainingButtons() {
-        // 检查昨天的单词是否已经全部记住
-        const yesterdayWordsRemembered = await vocabulary.checkYesterdayWordsRemembered();
-        
+        // 统一基于 /today 端点返回的阶段判断，避免双套逻辑
+        const result = vocabulary._todayResult || {};
+        const isReviewPhase = result.phase === 'review_yesterday';
+
         const startBtn = document.getElementById('btn-start-training');
         const lock = document.getElementById('training-lock');
         const titleElement = document.getElementById('vocabulary-today-title');
         
-        // 获取今日单词，检查是否有复习单词
-        const todayWords = vocabulary.getTodayWords();
-        const hasReviewWords = todayWords.some(w => w.isReview);
+        // 根据阶段设置标题
+        let title = isReviewPhase ? '📖 请先完成昨天的单词' : '📖 今日记单词';
         
-        // 根据条件设置标题
-        let title = '📖 今日记单词';
-        if (!yesterdayWordsRemembered) {
-            // 昨天没有全部记住，显示复习标题
-            title = '📖 请先完成昨天的单词';
-        } else if (hasReviewWords) {
-            // 昨天全部记住了，但显示的是复习单词，也显示复习标题
-            title = '📖 复习昨天的单词';
+        if (startBtn) {
+            startBtn.disabled = false;
+            startBtn.classList.remove('disabled');
         }
-        
-        if (!yesterdayWordsRemembered) {
-            // 显示锁定状态，但按钮仍可点击（点击后会加载昨天的单词进行训练）
-            if (startBtn) {
-                startBtn.disabled = false;
-                startBtn.classList.remove('disabled');
+        if (lock) {
+            if (isReviewPhase) {
+                lock.classList.remove('hidden');
+            } else {
+                lock.classList.add('hidden');
             }
-            if (lock) lock.classList.remove('hidden');
-        } else {
-            // 隐藏锁定状态
-            if (startBtn) {
-                startBtn.disabled = false;
-                startBtn.classList.remove('disabled');
-            }
-            if (lock) lock.classList.add('hidden');
         }
         
         if (titleElement) {
@@ -1601,70 +1588,43 @@ const VocabularyAppMixin = {
         const progressText = document.getElementById('today-progress-text');
         const progressFill = document.getElementById('today-progress-fill');
         const titleElement = document.getElementById('vocabulary-today-title');
-        
-        // 检查昨天训练状态
-        const yesterdayPassed = await vocabulary.checkYesterdayTraining();
-        
-        let wordsToShow = [];
-        let title = '';
-        let isYesterdayWords = false;
-        let allYesterdayWords = []; // 保存完整的昨天单词列表用于进度计算
-        
-        if (!yesterdayPassed) {
-            // 昨天没有完成训练，显示昨天的单词
-            allYesterdayWords = await vocabulary._loadYesterdayWords();
-            
-            // 过滤出没有复习的单词（reviewed=0的都算未完成）
-            const unreviewedWords = allYesterdayWords.filter(w => {
-                // 只检查reviewed字段
-                return w.reviewed !== 1;
-            });
-            
-            if (unreviewedWords.length > 0) {
-                // 还有没复习的单词，显示这些单词
-                wordsToShow = unreviewedWords;
-                title = '📖 请先复习昨天的单词';
-                isYesterdayWords = true;
-            } else {
-                // 所有昨天单词都已复习，加载并显示今天的单词
-                await vocabulary._loadTodayWords();
-                wordsToShow = vocabulary.getTodayWords();
-                title = '📖 今日记单词';
-                isYesterdayWords = false;
-            }
+
+        // 统一从 /today 端点获取数据，后端已按阶段返回，前端不再自己判断昨天/今天
+        await vocabulary._loadTodayWords();
+        const result = vocabulary._todayResult || {};
+        const wordsToShow = vocabulary.getTodayWords() || [];
+        const phase = result.phase; // 'review_yesterday' | 'today_new'
+        const isYesterdayWords = phase === 'review_yesterday';
+
+        let title;
+        if (isYesterdayWords) {
+            title = '📖 请先复习昨天的单词';
         } else {
-            // 昨天已经完成训练，加载并显示今天的单词
-            await vocabulary._loadTodayWords();
-            wordsToShow = vocabulary.getTodayWords();
-            
-            // 检查是否有复习单词
-            const hasReviewWords = wordsToShow.some(w => w.isReview);
-            title = hasReviewWords ? '📖 复习昨天的单词' : '📖 今日记单词';
+            title = '📖 今日记单词';
         }
-        
+
         // 更新标题
         if (titleElement) {
             titleElement.textContent = title;
         }
-        
+
         // 更新进度
         if (progressText && progressFill) {
             if (isYesterdayWords) {
-                // 昨天单词的进度：显示已复习/总数
-                const totalYesterday = allYesterdayWords.length;
-                const reviewedCount = allYesterdayWords.filter(w => {
-                    // 只检查reviewed字段
-                    return w.reviewed === 1;
-                }).length;
-                const progressPercent = totalYesterday > 0 ? Math.min((reviewedCount / totalYesterday) * 100, 100) : 0;
-                progressText.textContent = `${reviewedCount}/${totalYesterday}`;
+                // 昨天复习进度：已复习数 / 总数
+                const total = result.total || wordsToShow.length;
+                // 已复习数 = 昨天总数 - 当前未复习数
+                const reviewedCount = Math.max(0, total - wordsToShow.length);
+                const progressPercent = total > 0 ? Math.min((reviewedCount / total) * 100, 100) : 0;
+                progressText.textContent = `${reviewedCount}/${total}`;
                 progressFill.style.width = `${progressPercent}%`;
             } else {
                 // 今天的单词进度
                 const stats = vocabulary.getStats();
                 const todayStudied = stats ? stats.todayStudied : 0;
-                const progressPercent = Math.min((todayStudied / 5) * 100, 100);
-                progressText.textContent = `${todayStudied}/5`;
+                const totalToday = result.total || 5;
+                const progressPercent = totalToday > 0 ? Math.min((todayStudied / totalToday) * 100, 100) : 0;
+                progressText.textContent = `${todayStudied}/${totalToday}`;
                 progressFill.style.width = `${progressPercent}%`;
             }
         }
@@ -1756,9 +1716,6 @@ const VocabularyAppMixin = {
      * 开始训练（根据配置选择模式）
      */
     async startTraining() {
-        // 检查昨天单词的训练情况
-        const yesterdayPassed = await vocabulary.checkYesterdayTraining();
-        
         // 获取听写高级设置（从系统设置中读取）
         const listeningInterval = 5000; // 固定5秒间隔
         let listeningPlayCount = 2; // 默认2次
@@ -1774,55 +1731,28 @@ const VocabularyAppMixin = {
         // 读取每天学习单词数量设置
         const totalWords = parseInt(document.getElementById('daily-word-count')?.value || 5);
         
-        // 如果昨天没有完成训练，使用昨天的单词
-        let words = [];
-        if (!yesterdayPassed) {
-            console.log('昨天的训练未完成，使用昨天的单词进行训练');
-            const yesterdayWords = await vocabulary._loadYesterdayWords();
-            
-            // 过滤出未复习的单词（reviewed=0，不管remembered状态）
-            words = yesterdayWords.filter(w => {
-                return w.reviewed !== 1;
-            });
-            
-            if (words.length > 0) {
-                this.showVocabularyNotification('请先完成昨天的单词训练', 'info');
-            }
-        }
-        
-        // 如果昨天已完成或没有昨天的单词，使用今日单词
-        if (words.length === 0) {
-            // 优先使用今日单词（从API获取的今日要记的单词）
-            words = vocabulary.getTodayWords();
-            
-            // 如果今日单词为空，则使用配置生成单词列表
-            if (!words || words.length === 0) {
-                console.log('今日单词为空，使用配置生成单词列表');
-                
-                // 获取复习词（来自错题本中未掌握的单词）
-                const unmasteredWords = wrongBook.getUnmasteredWords();
-                const reviewWords = unmasteredWords
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, totalWords)
-                    .map(w => ({
-                        word: w.word,
-                        meaning: w.meaning,
-                        phonetic: w.phonetic || ''
-                    }));
-                
-                words = reviewWords;
-            } else {
-                console.log(`使用今日单词进行训练: ${words.length} 个单词`);
-            }
-        }
-        
-        // 检查是否有复习单词
-        const reviewWords = words.filter(w => w.isReview);
-        const newWords = words.filter(w => !w.isReview);
-        
-        // 如果有复习单词，显示提示
-        if (reviewWords.length > 0) {
-            this.showVocabularyNotification(`先复习 ${reviewWords.length} 个历史单词，再学习新词`, 'info');
+        // 统一从 /today 端点获取训练单词（后端已按阶段返回：复习昨天的 或 今天的新词）
+        await vocabulary._loadTodayWords();
+        const result = vocabulary._todayResult || {};
+        let words = vocabulary.getTodayWords() || [];
+
+        // 提示
+        if (result.phase === 'review_yesterday' && words.length > 0) {
+            this.showVocabularyNotification('请先完成昨天的单词训练', 'info');
+        } else if (!words || words.length === 0) {
+            // 今日单词为空，使用错题本兜底
+            console.log('今日单词为空，使用配置生成单词列表');
+            const unmasteredWords = wrongBook.getUnmasteredWords();
+            words = unmasteredWords
+                .sort(() => Math.random() - 0.5)
+                .slice(0, totalWords)
+                .map(w => ({
+                    word: w.word,
+                    meaning: w.meaning,
+                    phonetic: w.phonetic || ''
+                }));
+        } else {
+            console.log(`使用今日单词进行训练: ${words.length} 个单词`);
         }
         
         if (words.length === 0) {
@@ -2473,36 +2403,23 @@ const VocabularyAppMixin = {
             await vocabulary.toggleRemembered(word, true);
         }
         
-        // 检查是否有昨天的单词需要标记为已复习
-        const hasYesterdayWords = this.trainingWords.some(w => w.isYesterday);
-        
-        // 如果有昨天的单词，调用complete-review接口一次性完成：
-        // 1. 将昨天的单词标记为已复习
-        // 2. 插入今天的新单词（如果不存在）
-        if (hasYesterdayWords) {
-            try {
-                const completeResult = await vocabulary._apiRequest('/complete-review', 'POST');
-                if (completeResult.success) {
-                    console.log(`完成复习: 复习了 ${completeResult.reviewedCount} 个昨天的单词, 新增 ${completeResult.newWordsCount} 个今天的单词`);
-                    // 重新加载今日单词列表
-                    await vocabulary._loadTodayWords();
-                } else {
-                    console.error('完成复习失败:', completeResult.error);
-                }
-            } catch (err) {
-                console.error('调用complete-review接口失败:', err);
-                // 如果接口调用失败，回退到逐个标记的方式
-                const yesterdayDate = new Date();
-                yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-                const yesterdayStr = vocabulary._getLocalDateStr(yesterdayDate);
-                for (const word of fullyMasteredWords) {
-                    const wordData = this.trainingWords.find(w => w.word === word);
-                    if (wordData && wordData.isYesterday) {
-                        vocabulary.markAsReviewed(word, yesterdayStr).catch(err => console.error('标记复习状态失败:', err));
-                    }
+        // 将“3种模式全对”的昨天单词逐个标记为已复习（只有真正完成的单词才标记 reviewed=1）
+        const yesterdayDate = new Date();
+        yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+        const yesterdayStr = vocabulary._getLocalDateStr(yesterdayDate);
+        for (const word of fullyMasteredWords) {
+            const wordData = this.trainingWords.find(w => w.word === word);
+            if (wordData && wordData.isYesterday) {
+                try {
+                    await vocabulary.markAsReviewed(word, yesterdayStr);
+                } catch (err) {
+                    console.error('标记复习状态失败:', err);
                 }
             }
         }
+
+        // 重新加载今日单词列表（后端会根据昨天是否全部 reviewed 切换到今天的新词阶段）
+        await vocabulary._loadTodayWords();
         
         // 更新结果数据
         const timeEl = document.getElementById('result-time');

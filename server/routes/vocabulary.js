@@ -31,40 +31,36 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
         await connection.beginTransaction();
         
         try {
-            // 第一步：将昨天的单词标记为已复习
+            // 第一步：将昨天的单词标记为已复习（reviewed=1）
             const [updateResult] = await connection.execute(
                 `UPDATE vocabulary_daily_record 
                  SET reviewed = 1 
                  WHERE user_id = ? AND study_date = ? AND reviewed = 0`,
                 [userId, yesterday]
             );
-            
-            // 第二步：检查今天是否已有单词记录
-            const [todayRecords] = await connection.execute(
-                'SELECT word FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ?',
-                [userId, today]
+
+            // 第二步：确保今天已有 5 个全新单词（完全不存在于 vocabulary_daily_record 的）
+            // 新词的选择标准：wrong_book 中未掌握、未删除、且 vocabulary_daily_record 中【任何日期】都不存在的单词
+            const [newCountRows] = await connection.execute(
+                `SELECT COUNT(DISTINCT d.word) as cnt FROM vocabulary_daily_record d
+                 WHERE d.user_id = ? AND d.study_date = ?
+                   AND d.word NOT IN (SELECT word FROM vocabulary_daily_record WHERE user_id = ? AND study_date < ?)`,
+                [userId, today, userId, today]
             );
-            
-            const todayWords = todayRecords.map(r => r.word);
-            
-            // 第三步：选择今天的新单词（排除今天已存在的）
-            // 从错题本中选择未掌握、未删除、且今天未学过的单词
+            const newWordsToday = (newCountRows[0] && newCountRows[0].cnt) || 0;
+            const newRemaining = Math.max(0, 5 - newWordsToday);
+
             let newWords = [];
-            if (todayWords.length < 5) {
-                const remainingSlots = 5 - todayWords.length;
+            if (newRemaining > 0) {
                 const [rows] = await connection.execute(
                     `SELECT wb.* FROM wrong_book wb
                      WHERE wb.user_id = ? AND wb.mastered = 0 AND wb.deleted = 0
-                       AND wb.word NOT IN (
-                           SELECT DISTINCT vdr.word FROM vocabulary_daily_record vdr 
-                           WHERE vdr.user_id = ? AND vdr.study_date = ?
-                       )
+                       AND wb.word NOT IN (SELECT word FROM vocabulary_daily_record WHERE user_id = ?)
                      ORDER BY RAND() LIMIT ?`,
-                    [userId, userId, today, parseInt(remainingSlots)]
+                    [userId, userId, newRemaining]
                 );
                 newWords = rows;
-                
-                // 第四步：插入今天的新单词（使用INSERT IGNORE避免重复插入）
+
                 for (const word of newWords) {
                     await connection.execute(
                         `INSERT IGNORE INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
@@ -80,7 +76,7 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
                 success: true, 
                 reviewedCount: updateResult.affectedRows,
                 newWordsCount: newWords.length,
-                todayTotalWords: todayWords.length + newWords.length,
+                todayTotalWords: newWordsToday + newWords.length,
                 newWords: newWords.map(w => w.word)
             });
             
@@ -378,136 +374,124 @@ router.post('/clear-all', authenticateToken, async (req, res) => {
     }
 });
 
-// 获取今日记单词（每天5个，从vocabulary_daily_record读取，不存在则初始化）
-// 如果存在历史单词，先根据记忆曲线复习之前的单词
+// 获取今日记单词
+// 流程：先判断昨天单词是否全部复习完(reviewed=1)
+//   - 没复习完：只返回昨天未复习的单词，不插入任何新单词
+//   - 已复习完：只处理今天的5个全新单词（wrong_book中不存在于vocabulary_daily_record的），不再插入历史复习单词
 router.get('/today', authenticateToken, async (req, res) => {
     try {
         const userId = req.user.id;
         const today = getLocalDate();
-        
-        // 从 vocabulary_daily_record 查询今天已学习的单词（包含remembered字段）
-        const [todayRecords] = await queryWithRetry(
-            `SELECT d.word, d.correct, d.remembered, 
+
+        // ===== 阶段1：检查昨天单词是否全部复习完成 =====
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = getLocalDate(yesterday);
+
+        const [yesterdayRecords] = await queryWithRetry(
+            `SELECT d.word, d.remembered, d.reviewed,
                     w.meaning, w.phonetic, w.example, w.root_affix, w.grade
              FROM vocabulary_daily_record d
              JOIN wrong_book w ON d.word = w.word AND d.user_id = w.user_id
-             WHERE d.user_id = ? AND d.study_date = ? AND w.deleted = 0
+             WHERE d.user_id = ? AND d.study_date = ? AND w.deleted = 0`,
+            [userId, yesterdayStr]
+        );
+
+        const yesterdayUnreviewed = yesterdayRecords.filter(r => r.reviewed !== 1);
+
+        if (yesterdayUnreviewed.length > 0) {
+            // 昨天还有未复习的单词，只返回这些单词，不插入任何新单词
+            const data = yesterdayUnreviewed.map(row => ({
+                word: row.word,
+                meaning: row.meaning,
+                phonetic: row.phonetic,
+                example: row.example,
+                rootAffix: row.root_affix,
+                grade: row.grade,
+                remembered: row.remembered || 0,
+                isYesterday: true
+            }));
+
+            return res.json({
+                success: true,
+                data,
+                studied: 0,
+                total: data.length,
+                completed: false,
+                hasReview: true,
+                reviewCount: data.length,
+                phase: 'review_yesterday'
+            });
+        }
+
+        // ===== 阶段2：昨天已全部复习完成，处理今天的5个全新单词 =====
+        // 查询今天的记录（LEFT JOIN，避免 wrong_book 被软删除的单词被过滤掉导致数量不足）
+        const [todayRecords] = await queryWithRetry(
+            `SELECT d.word, d.correct, d.remembered, d.reviewed,
+                    w.meaning, w.phonetic, w.example, w.root_affix, w.grade,
+                    w.deleted as wb_deleted
+             FROM vocabulary_daily_record d
+             LEFT JOIN wrong_book w ON d.word = w.word AND d.user_id = w.user_id
+             WHERE d.user_id = ? AND d.study_date = ?
              ORDER BY d.study_time DESC`,
             [userId, today]
         );
-        
-        // 检查是否所有单词都已学习完成
-        const unlearnedWords = todayRecords.filter(r => !r.remembered);
-        const learnedWords = todayRecords.filter(r => r.remembered);
-        
-        // 如果已有5个已学习的单词，且没有未学习的单词，直接返回
-        if (learnedWords.length >= 5 && unlearnedWords.length === 0) {
-            const data = todayRecords.map(row => ({
-                word: row.word,
-                meaning: row.meaning,
-                phonetic: row.phonetic,
-                example: row.example,
-                rootAffix: row.root_affix,
-                grade: row.grade,
-                remembered: row.remembered || 0
-            }));
-            
-            return res.json({ 
-                success: true, 
-                data, 
-                studied: learnedWords.length,
-                total: 5,
-                completed: true,
-                hasReview: false
-            });
+
+        // 过滤掉 wrong_book 已被软删除的单词，并从 daily_record 中清理这些无效记录
+        const validTodayRecords = [];
+        for (const row of todayRecords) {
+            if (row.wb_deleted) {
+                // wrong_book 已软删除，删除今天的无效记录，避免占用名额
+                await queryWithRetry(
+                    'DELETE FROM vocabulary_daily_record WHERE user_id = ? AND word = ? AND study_date = ?',
+                    [userId, row.word, today]
+                );
+            } else {
+                validTodayRecords.push(row);
+            }
         }
-        
-        // 计算剩余名额（基于今天所有记录数，包括已学习和未学习的）
-        const remainingSlots = Math.max(0, 5 - todayRecords.length);
-        
-        // 第一步：优先选择全新单词（最多5个，或者剩余名额）
-        // 直接在SQL中排除vocabulary_daily_record中已有的单词，避免应用层处理
+
+        // 统计今天记录中的“全新单词”数量（之前从未学过的，基于清理后的有效记录）
+        const validWords = validTodayRecords.map(r => r.word);
+        let newWordsToday = 0;
+        if (validWords.length > 0) {
+            const [newCountRows] = await queryWithRetry(
+                `SELECT COUNT(DISTINCT word) as cnt FROM vocabulary_daily_record
+                 WHERE user_id = ? AND study_date = ?
+                   AND word IN (${validWords.map(() => '?').join(',')})
+                   AND word NOT IN (SELECT word FROM vocabulary_daily_record WHERE user_id = ? AND study_date < ?)`,
+                [userId, today, ...validWords, userId, today]
+            );
+            newWordsToday = (newCountRows[0] && newCountRows[0].cnt) || 0;
+        }
+        const newRemaining = Math.max(0, 5 - newWordsToday);
+
+        // 从 wrong_book 中挑选“完全不存在于 vocabulary_daily_record 表（任何日期）”的新单词插入
         let newWords = [];
-        if (remainingSlots > 0) {
+        if (newRemaining > 0) {
             const [rows] = await queryWithRetry(
                 `SELECT wb.* FROM wrong_book wb
                  WHERE wb.user_id = ? AND wb.mastered = 0 AND wb.deleted = 0
-                   AND wb.word NOT IN (
-                       SELECT DISTINCT vdr.word FROM vocabulary_daily_record vdr WHERE vdr.user_id = ? AND vdr.study_date = ?
-                   )
+                   AND wb.word NOT IN (SELECT word FROM vocabulary_daily_record WHERE user_id = ?)
                  ORDER BY RAND() LIMIT ?`,
-                [userId, userId, today, remainingSlots]
+                [userId, userId, newRemaining]
             );
             newWords = rows;
-            
-            // 将新选择的单词初始化到vocabulary_daily_record表（INSERT IGNORE防止重复插入）
+
             for (const word of newWords) {
                 await queryWithRetry(
-                    `INSERT IGNORE INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
+                    `INSERT IGNORE INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered)
                      VALUES (?, ?, ?, 0, 0)`,
                     [userId, word.word, today]
                 );
             }
         }
-        
-        // 第二步：如果新单词不足5个，用复习单词补充剩余名额
-        // 复习单词选择策略：排除最近2天内学过的单词，按记忆曲线间隔选择需要复习的单词
-        const newWordList = newWords.map(w => w.word);
-        const todayWordList = todayRecords.map(r => r.word);
-        const reviewSlots = remainingSlots - newWords.length;
-        let reviewWords = [];
-        
-        if (reviewSlots > 0) {
-            // 获取最近2天的日期，排除这些日期的单词（避免连续重复）
-            const twoDaysAgo = new Date();
-            twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
-            const twoDaysAgoStr = getLocalDate(twoDaysAgo);
-            
-            // 选择需要复习的单词：排除今天和最近2天学过的，按记忆曲线间隔（优先复习间隔最久的）
-            const excludeForReview = [...new Set([...todayWordList, ...newWordList])];
-            const excludeReviewPlaceholders = excludeForReview.length > 0 
-                ? `AND d.word NOT IN (${excludeForReview.map(() => '?').join(',')})` 
-                : '';
-            
-            const [reviewRecords] = await queryWithRetry(
-                `SELECT d.word, MAX(d.study_date) as last_study_date,
-                        w.meaning, w.phonetic, w.example, w.root_affix, w.grade,
-                        DATEDIFF(?, MAX(d.study_date)) as days_since_study
-                 FROM vocabulary_daily_record d
-                 JOIN wrong_book w ON d.word = w.word AND d.user_id = w.user_id
-                 WHERE d.user_id = ? AND d.study_date < ? AND d.study_date <= ? AND w.deleted = 0 ${excludeReviewPlaceholders}
-                 GROUP BY d.word
-                 HAVING days_since_study >= 2
-                 ORDER BY days_since_study DESC
-                 LIMIT ?`,
-                [today, userId, today, twoDaysAgoStr, ...excludeForReview, reviewSlots]
-            );
-            
-            reviewWords = reviewRecords.map(row => ({
-                word: row.word,
-                meaning: row.meaning,
-                phonetic: row.phonetic,
-                example: row.example,
-                rootAffix: row.root_affix,
-                grade: row.grade,
-                remembered: 0,
-                isReview: true
-            }));
-            
-            // 将复习单词也保存到今天的记录中，防止重复加载（使用INSERT IGNORE防止并发重复插入）
-            for (const word of reviewWords) {
-                await queryWithRetry(
-                    `INSERT IGNORE INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
-                     VALUES (?, ?, ?, 0, 0)`,
-                    [userId, word.word, today]
-                );
-            }
-        }
-        
-        // 合并已有记录、复习单词和新插入的记录，返回完整数据
-        // 只返回未学习的单词 + 新选择的单词 + 复习单词
+
+        // 组装返回数据：未学习单词在前，新插入的单词在后
+        const unlearnedWords = validTodayRecords.filter(r => !r.remembered);
+        const learnedWords = validTodayRecords.filter(r => r.remembered);
+
         const allWords = [
-            ...reviewWords,
             ...unlearnedWords.map(row => ({
                 word: row.word,
                 meaning: row.meaning,
@@ -529,15 +513,19 @@ router.get('/today', authenticateToken, async (req, res) => {
                 isReview: false
             }))
         ];
-        
-        res.json({ 
-            success: true, 
-            data: allWords, 
+
+        const total = allWords.length;
+        const completed = unlearnedWords.length === 0 && newRemaining === 0;
+
+        res.json({
+            success: true,
+            data: allWords,
             studied: learnedWords.length,
-            total: 5,
-            completed: false,
-            hasReview: reviewWords.length > 0,
-            reviewCount: reviewWords.length
+            total,
+            completed,
+            hasReview: false,
+            reviewCount: 0,
+            phase: 'today_new'
         });
     } catch (error) {
         console.error('获取今日记单词失败:', error);
