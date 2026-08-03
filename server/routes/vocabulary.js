@@ -648,17 +648,17 @@ router.post('/remembered', authenticateToken, async (req, res) => {
         );
 
         if (existing.length > 0) {
-            // 更新记忆状态（reviewed 由 /reviewed 接口单独控制，不在 /remembered 中设置）
+            // 更新记忆状态及正确率（reviewed 由 /reviewed 接口单独控制，不在 /remembered 中设置）
             await queryWithRetry(
-                'UPDATE vocabulary_daily_record SET remembered = ? WHERE user_id = ? AND word = ? AND study_date = ?',
-                [remembered ? 1 : 0, userId, word, targetDate]
+                'UPDATE vocabulary_daily_record SET remembered = ?, correct = ? WHERE user_id = ? AND word = ? AND study_date = ?',
+                [remembered ? 1 : 0, remembered ? 1 : 0, userId, word, targetDate]
             );
         } else {
-            // 如果不存在记录，插入新记录（reviewed 保持默认0）
+            // 如果不存在记录，插入新记录（reviewed 保持默认0，correct 与 remembered 同步）
             await queryWithRetry(
                 `INSERT INTO vocabulary_daily_record (user_id, word, study_date, correct, remembered) 
-                 VALUES (?, ?, ?, 0, ?)`,
-                [userId, word, targetDate, remembered ? 1 : 0]
+                 VALUES (?, ?, ?, ?, ?)`,
+                [userId, word, targetDate, remembered ? 1 : 0, remembered ? 1 : 0]
             );
         }
 
@@ -892,19 +892,19 @@ router.get('/stats', authenticateToken, async (req, res) => {
             [userId]
         );
         
-        // 获取今日学习单词数（只统计真正学习过的，remembered=1）
+        // 获取今日学习单词数（统计真正学习过的：remembered=1 或通过 studyWord 记录过的）
         const [todayStudied] = await queryWithRetry(
-            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ? AND remembered = 1',
+            'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ? AND (remembered = 1 OR study_time IS NOT NULL)',
             [userId, today]
         );
         
-        // 获取今日正确率（只统计真正学习过的）
+        // 获取今日正确率（统计真正学习过的，排除仅reviewed的记录）
         const [todayAccuracy] = await queryWithRetry(
             `SELECT 
                 COUNT(*) as total,
                 SUM(CASE WHEN correct = 1 THEN 1 ELSE 0 END) as correct
              FROM vocabulary_daily_record 
-             WHERE user_id = ? AND study_date = ? AND remembered = 1`,
+             WHERE user_id = ? AND study_date = ? AND (remembered = 1 OR study_time IS NOT NULL)`,
             [userId, today]
         );
         
@@ -948,7 +948,7 @@ router.get('/weekly-chart', authenticateToken, async (req, res) => {
         
         for (const date of dates) {
             const [count] = await queryWithRetry(
-                'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ? AND remembered = 1',
+                'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ? AND (remembered = 1 OR study_time IS NOT NULL)',
                 [userId, date]
             );
             
@@ -957,7 +957,7 @@ router.get('/weekly-chart', authenticateToken, async (req, res) => {
                     COUNT(*) as total,
                     SUM(CASE WHEN correct = 1 THEN 1 ELSE 0 END) as correct
                  FROM vocabulary_daily_record 
-                 WHERE user_id = ? AND study_date = ? AND remembered = 1`,
+                 WHERE user_id = ? AND study_date = ? AND (remembered = 1 OR study_time IS NOT NULL)`,
                 [userId, date]
             );
             
@@ -1000,7 +1000,7 @@ router.get('/user-stats', authenticateToken, async (req, res) => {
             [userId]
         );
         
-        // 获取今日学习统计（只统计真正学习过的，remembered=1）
+        // 获取今日学习统计（统计真正学习过的：remembered=1 或通过 studyWord 记录过的）
         const today = getLocalDate();
         const [todayStats] = await queryWithRetry(
             `SELECT 
@@ -1008,7 +1008,7 @@ router.get('/user-stats', authenticateToken, async (req, res) => {
                 SUM(CASE WHEN correct = 1 THEN 1 ELSE 0 END) as correct,
                 COUNT(*) as total
              FROM vocabulary_daily_record 
-             WHERE user_id = ? AND study_date = ? AND remembered = 1`,
+             WHERE user_id = ? AND study_date = ? AND (remembered = 1 OR study_time IS NOT NULL)`,
             [userId, today]
         );
         

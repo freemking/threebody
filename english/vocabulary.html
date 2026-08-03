@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>记单词 - English Word Adventure</title>
+    <script>
+        // 本页面为旧版独立页面，仅含部分模块容器且未加载 game.js，会导致初始化失败。
+        // 完整功能以 index.html（SPA）为准，这里直接重定向到主应用。
+        window.location.replace('index.html');
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -296,6 +301,14 @@
     <script src="js/audio.js"></script>
     <script src="js/wrongbook.js"></script>
     <script src="js/vocabulary.js"></script>
+    <script src="js/vocabulary-ui.js"></script>
+    <script src="js/vocabulary-wrongbook.js"></script>
+    <script src="js/vocabulary-settings.js"></script>
+    <script src="js/vocabulary-learning-data.js"></script>
+    <script src="js/vocabulary-history.js"></script>
+    <script src="js/vocabulary-training.js"></script>
+    <script src="js/vocabulary-dictation.js"></script>
+    <script src="js/vocabulary-weekly-quiz.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
