@@ -494,7 +494,7 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["what", "when", "where", "which", "white"]
+    "common": ["duck", "black", "back", "clock", "truck"]
   },
   {
     "id": "cc05",
@@ -519,7 +519,7 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["phone", "photo", "elephant", "graph", "paragraph"]
+    "common": ["song", "king", "ring", "thing", "long"]
   },
   {
     "id": "cc06",
@@ -544,7 +544,7 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["back", "black", "clock", "duck", "truck"]
+    "common": ["tree", "train", "truck", "try", "trip"]
   },
   {
     "id": "cc07",
@@ -568,7 +568,7 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["ring", "sing", "song", "king", "long"]
+    "common": ["dream", "drink", "drive", "draw", "dress"]
   },
   {
     "id": "cc08",
@@ -591,7 +591,7 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["queen", "quick", "quiet", "question", "quite"]
+    "common": ["cats", "hats", "boats", "fruits", "students"]
   },
   {
     "id": "cc09",
@@ -614,7 +614,7 @@
     ],
     "gradeRange": "3-6",
     "difficulty": 2,
-    "common": ["back", "black", "clock", "duck", "truck"]
+    "common": ["birds", "hands", "cards", "friends", "words"]
   },
   {
     "id": "cc10",
@@ -717,7 +717,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["government", "development", "movement", "agreement", "environment"]
+    "common": ["government", "development", "movement", "agreement", "achievement"]
   },
   {
     "id": "af04",
@@ -761,7 +761,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["beautiful", "wonderful", "careful", "helpful", "thankful"]
+    "common": ["teacher", "worker", "driver", "player", "singer"]
   },
   {
     "id": "af06",
@@ -782,7 +782,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["homeless", "careless", "useless", "helpless", "endless"]
+    "common": ["actor", "doctor", "sailor", "visitor", "inventor"]
   },
   {
     "id": "af07",
@@ -803,7 +803,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["comfortable", "enjoyable", "reasonable", "available", "suitable"]
+    "common": ["artist", "scientist", "tourist", "dentist", "journalist"]
   },
   {
     "id": "af08",
@@ -821,7 +821,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["dangerous", "famous", "nervous", "serious", "various"]
+    "common": ["careful", "helpful", "beautiful", "thankful", "powerful"]
   },
   {
     "id": "af09",
@@ -842,7 +842,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["quickly", "slowly", "usually", "carefully", "easily"]
+    "common": ["useless", "homeless", "careless", "endless", "helpless"]
   },
   {
     "id": "af10",
@@ -863,7 +863,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["teacher", "player", "worker", "bigger", "smaller"]
+    "common": ["valuable", "comfortable", "enjoyable", "reasonable", "suitable"]
   },
   {
     "id": "af11",
@@ -888,7 +888,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["biggest", "smallest", "fastest", "slowest", "oldest"]
+    "common": ["lucky", "happy", "sunny", "rainy", "funny"]
   },
   {
     "id": "af12",
@@ -930,7 +930,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["played", "walked", "wanted", "needed", "started"]
+    "common": ["unhappy", "unfair", "unusual", "unkind", "unlucky"]
   },
   {
     "id": "af14",
@@ -951,7 +951,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["action", "education", "station", "attention", "invitation"]
+    "common": ["dislike", "disagree", "disappear", "discover", "disobey"]
   },
   {
     "id": "af15",
@@ -972,7 +972,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["decision", "discussion", "television", "permission", "expression"]
+    "common": ["rewrite", "retell", "return", "review", "repeat"]
   },
   {
     "id": "af16",
@@ -990,7 +990,7 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["government", "development", "movement", "agreement", "environment"]
+    "common": ["bicycle", "bilingual", "biology", "biography", "billion"]
   },
   {
     "id": "af17",
@@ -1008,6 +1008,6 @@
     ],
     "gradeRange": "6-9",
     "difficulty": 3,
-    "common": ["business", "illness", "kindness", "darkness", "sadness"]
+    "common": ["triangle", "tricycle", "triple", "trio", "tripod"]
   }
 ]

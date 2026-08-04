@@ -434,7 +434,7 @@ class Phonetics {
     updateProgressDisplay() {
         const total = this.phoneticsData.length;
         const learned = this.learnedPhonetics.size;
-        const percentage = Math.round((learned / total) * 100);
+        const percentage = total > 0 ? Math.round((learned / total) * 100) : 0;
         
         document.getElementById('total-phonetics').textContent = total;
         document.getElementById('learned-phonetics').textContent = learned;
@@ -597,7 +597,7 @@ class Phonetics {
     getProgressData() {
         const total = this.phoneticsData.length;
         const learned = this.learnedPhonetics.size;
-        const percentage = Math.round((learned / total) * 100);
+        const percentage = total > 0 ? Math.round((learned / total) * 100) : 0;
         
         return {
             total,
@@ -708,7 +708,7 @@ class Phonetics {
     
     async saveQuizResult(type, score, total, wrongQuestions) {
         try {
-            const percentage = Math.round((score / total) * 100);
+            const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
             const result = await phoneticsApiRequest('/quiz-history', 'POST', {
                 type,
                 score,

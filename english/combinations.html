@@ -21,7 +21,7 @@
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <div class="nav-section-title">学习</div>
-                <button class="nav-item active" data-section="home" onclick="showSection('home')">
+                <button class="nav-item active" data-section="overview" onclick="showSection('overview')">
                     <span class="nav-icon">📖</span>
                     <span>学习</span>
                 </button>
@@ -83,8 +83,11 @@
 
             <!-- 内容区 -->
             <div class="vocabulary-content">
-                <!-- 学习界面 -->
-                <div class="combinations-section" id="section-home">
+                <!-- 学习详情界面 -->
+                <div class="combinations-section hidden" id="section-home">
+                    <div class="study-back-bar">
+                        <button class="study-back-btn" onclick="showSection('overview')">← 返回组合一览</button>
+                    </div>
                     <div id="studyGroupInfo" class="group-info-card">
                         <div class="group-header">
                             <div class="group-icon">🔗</div>
@@ -132,11 +135,32 @@
                             </button>
                         </div>
                         
-                        <button class="mastery-btn" id="masteryBtn" onclick="toggleMastery()">
-                            <span class="mastery-icon" id="masteryIcon">○</span>
-                            <span class="mastery-text" id="masteryText">标记为已掌握</span>
+                        <button class="mastery-btn" id="masteryBtn" onclick="practiceCurrentCombination()">
+                            <span class="mastery-icon" id="masteryIcon">📝</span>
+                            <span class="mastery-text" id="masteryText">练习</span>
                         </button>
                     </div>
+                </div>
+
+                <!-- 组合一览界面（学习主页） -->
+                <div class="combinations-section" id="section-overview">
+                    <div class="overview-header">
+                        <div class="overview-title">全部字母组合</div>
+                        <div class="overview-subtitle">共 <span id="overviewTotal">0</span> 个组合，按分类浏览</div>
+                    </div>
+
+                    <div class="overview-toolbar">
+                        <div class="overview-filters" id="overviewFilters">
+                            <button class="filter-btn active" data-category="all" onclick="filterOverview('all')">全部</button>
+                            <button class="filter-btn" data-category="元音组合" onclick="filterOverview('元音组合')">元音组合</button>
+                            <button class="filter-btn" data-category="辅音组合" onclick="filterOverview('辅音组合')">辅音组合</button>
+                        </div>
+                        <div class="overview-search">
+                            <input type="text" id="overviewSearch" placeholder="搜索组合或例词..." oninput="renderOverview()">
+                        </div>
+                    </div>
+
+                    <div class="overview-list" id="overviewList"></div>
                 </div>
 
                 <!-- 练习界面 -->
@@ -145,13 +169,8 @@
                         <div class="config-title">练习设置</div>
                         <div class="config-options">
                             <div class="config-group">
-                                <label class="config-label">练习模式</label>
-                                <div class="mode-options">
-                                    <button class="mode-btn active" data-mode="recognition" onclick="selectPracticeMode('recognition')">认读练习</button>
-                                    <button class="mode-btn" data-mode="chooseSound" onclick="selectPracticeMode('chooseSound')">听音选拼写</button>
-                                    <button class="mode-btn" data-mode="chooseWord" onclick="selectPracticeMode('chooseWord')">听音选词</button>
-                                    <button class="mode-btn" data-mode="spelling" onclick="selectPracticeMode('spelling')">听写练习</button>
-                                </div>
+                                <label class="config-label">练习方式</label>
+                                <p class="config-desc">给出一个字母组合，请写出 5 个包含该组合的单词。</p>
                             </div>
                         </div>
                         <button class="start-practice-btn" onclick="startPracticeSession()">开始练习</button>
@@ -160,7 +179,6 @@
                     <div id="practiceGame" class="hidden">
                         <div class="practice-header">
                             <div class="practice-info">
-                                <span class="practice-mode" id="practiceMode">认读练习</span>
                                 <span class="practice-progress" id="practiceProgress">1/10</span>
                             </div>
                             <div class="practice-score">
@@ -169,29 +187,20 @@
                             </div>
                         </div>
                         
-                        <div id="recognitionArea" class="practice-area">
-                            <div class="question-display">
-                                <div class="question-text" id="questionText">ai</div>
-                                <button class="sound-btn" id="playSoundBtn" onclick="playCurrentSound()">🔊</button>
+                        <div id="wordsArea" class="practice-area">
+                            <div class="words-question">
+                                <div class="words-prompt">写出 5 个包含以下字母组合的单词</div>
+                                <div class="words-pattern" id="wordsPattern">ee</div>
+                                <div class="words-phonetic" id="wordsPhonetic">/iː/</div>
                             </div>
-                            <div class="options-grid" id="optionsGrid"></div>
-                        </div>
-                        
-                        <div id="spellingArea" class="practice-area hidden">
-                            <div class="spelling-question">
-                                <div class="spelling-prompt" id="spellingPrompt">听发音，输入字母组合</div>
-                                <div class="spelling-word" id="spellingWord">rain</div>
-                            </div>
-                            <div class="spelling-input-area">
-                                <input type="text" class="spelling-input" id="spellingInput" placeholder="输入字母组合" maxlength="10">
-                                <button class="submit-btn" onclick="checkSpelling()">确认</button>
-                            </div>
+                            <div class="words-inputs" id="wordsInputs"></div>
+                            <button class="submit-btn" id="wordsSubmitBtn" onclick="checkWords()">提交</button>
                         </div>
                         
                         <div class="practice-feedback hidden" id="practiceFeedback">
                             <div class="feedback-icon" id="feedbackIcon">✓</div>
                             <div class="feedback-text" id="feedbackText">正确！</div>
-                            <div class="feedback-detail" id="feedbackDetail">ai 发 /eɪ/ 音</div>
+                            <div class="feedback-detail" id="feedbackDetail"></div>
                         </div>
                     </div>
                     
@@ -220,7 +229,7 @@
                             </div>
                             <div class="result-actions">
                                 <button class="result-btn primary" onclick="restartPractice()">再来一次</button>
-                                <button class="result-btn secondary" onclick="showSection('home')">返回首页</button>
+                                <button class="result-btn secondary" onclick="showSection('overview')">返回组合一览</button>
                             </div>
                         </div>
                     </div>

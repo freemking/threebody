@@ -99,7 +99,11 @@ class PhoneticsQuiz {
     
     generateDailyQuiz(phoneticId) {
         // 随堂小测：5道题
-        const phonetic = this.phoneticsData.find(p => p.id === phoneticId);
+        let phonetic = this.phoneticsData.find(p => p.id === phoneticId);
+        // 未指定音标（如从菜单直接进入）时，随机选择一个音标
+        if (!phonetic) {
+            phonetic = this.phoneticsData[Math.floor(Math.random() * this.phoneticsData.length)];
+        }
         if (!phonetic) return;
         
         // 生成5道题目
@@ -256,6 +260,7 @@ class PhoneticsQuiz {
         
         return {
             type: 'identify',
+            phoneticId: phonetic.id,
             question: '音标辨析',
             targetPhonetic: phonetic,
             options: options.map(p => ({
@@ -272,11 +277,12 @@ class PhoneticsQuiz {
     createDistinguishQuestion(phonetic) {
         // 易混音标区分
         // 找出相似的音标
+        // 优先找同分类（子分类）且首音素相同的音标，避免匹配到不相似的音标
         const similarPhonetics = this.phoneticsData
             .filter(p => 
                 p.id !== phonetic.id && 
                 (p.subcategory === phonetic.subcategory || 
-                 p.symbol.includes(phonetic.symbol.charAt(1)))
+                 p.symbol.charAt(1) === phonetic.symbol.charAt(1))
             )
             .sort(() => Math.random() - 0.5)
             .slice(0, 3);
@@ -290,6 +296,7 @@ class PhoneticsQuiz {
         
         return {
             type: 'distinguish',
+            phoneticId: phonetic.id,
             question: '易混音标区分',
             targetPhonetic: phonetic,
             options: options.map(p => ({
@@ -503,7 +510,10 @@ class PhoneticsQuiz {
                 if (!isCorrect) {
                     this.wrongQuestions.push({
                         question: question,
-                        selected: selectedAnswer
+                        selected: selectedAnswer,
+                        phoneticId: question.phoneticId,
+                        type: this.currentQuiz,
+                        correctAnswer: question.correctAnswer
                     });
                 }
                 
@@ -611,7 +621,7 @@ class PhoneticsQuiz {
         const container = document.getElementById('quiz-question-container');
         const totalQuestions = this.questions.length;
         const correctAnswers = this.score;
-        const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+        const percentage = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
         
         let resultMessage = '';
         let resultClass = '';
@@ -710,8 +720,7 @@ class PhoneticsQuiz {
             date: new Date().toISOString(),
             score: this.score,
             total: this.questions.length,
-            percentage: Math.round((this.score / this.questions.length) * 100),
-            wrongQuestions: this.wrongQuestions.length
+            percentage: this.questions.length > 0 ? Math.round((this.score / this.questions.length) * 100) : 0
         };
         
         try {
@@ -727,7 +736,11 @@ class PhoneticsQuiz {
             if (this.wrongQuestions.length > 0) {
                 for (const wrongQuestion of this.wrongQuestions) {
                     try {
-                        await quizApiRequest('/wrong-answers', 'POST', wrongQuestion);
+                        await quizApiRequest('/wrong-answers', 'POST', {
+                            phoneticId: wrongQuestion.phoneticId,
+                            type: wrongQuestion.type,
+                            correctAnswer: wrongQuestion.correctAnswer
+                        });
                         console.log('错题保存到数据库成功');
                     } catch (wrongError) {
                         console.error('错题保存到数据库失败:', wrongError);

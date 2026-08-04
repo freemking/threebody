@@ -57,7 +57,8 @@ function showSection(sectionId) {
     
     // 更新标题
     const titles = {
-        'home': '学习字母组合',
+        'home': '学习详情',
+        'overview': '学习',
         'practice': '练习',
         'mastered': '已掌握列表',
         'settings': '设置'
@@ -71,6 +72,9 @@ function showSection(sectionId) {
         case 'home':
             updateHomeStats();
             initStudySection();
+            break;
+        case 'overview':
+            renderOverview();
             break;
         case 'practice':
             resetPractice();
@@ -94,6 +98,98 @@ function startPractice() {
 // 返回首页
 function goBack() {
     window.location.href = 'index.html';
+}
+
+// 组合一览：当前筛选分类
+let OverviewCategory = 'all';
+
+// 切换一览筛选
+function filterOverview(category) {
+    OverviewCategory = category;
+    document.querySelectorAll('#overviewFilters .filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.category === category);
+    });
+    renderOverview();
+}
+
+// 渲染组合一览列表
+function renderOverview() {
+    const listEl = document.getElementById('overviewList');
+    if (!listEl) return;
+
+    const totalEl = document.getElementById('overviewTotal');
+    if (totalEl) totalEl.textContent = CombinationsData.length;
+
+    const keyword = (document.getElementById('overviewSearch').value || '').trim().toLowerCase();
+
+    let items = CombinationsData.filter(c => {
+        if (OverviewCategory !== 'all' && c.category !== OverviewCategory) return false;
+        if (keyword) {
+            const pattern = (c.pattern || '').toLowerCase();
+            const desc = (c.description || '').toLowerCase();
+            const examples = (c.examples || []).map(e => e.word).join(' ').toLowerCase();
+            const common = (c.common || []).join(' ').toLowerCase();
+            if (!pattern.includes(keyword) && !desc.includes(keyword) &&
+                !examples.includes(keyword) && !common.includes(keyword)) {
+                return false;
+            }
+        }
+        return true;
+    });
+
+    if (items.length === 0) {
+        listEl.innerHTML = '<div class="overview-empty">没有匹配的组合</div>';
+        return;
+    }
+
+    // 按分类分组（元音/辅音）
+    const groups = {};
+    items.forEach(c => {
+        const key = c.category || '其他';
+        if (!groups[key]) groups[key] = [];
+        groups[key].push(c);
+    });
+
+    listEl.innerHTML = Object.keys(groups).map(category => {
+        const cards = groups[category].map(c => {
+            const states = [
+                c.mastered ? '<span class="ov-state mastered">已掌握</span>' : '',
+                c.difficulty ? '<span class="ov-state diff">难度' + c.difficulty + '</span>' : ''
+            ].join('');
+            const examples = (c.examples || []).slice(0, 4).map(e =>
+                '<span class="ov-example">' + e.word + '</span>'
+            ).join('');
+            return '' +
+                '<div class="overview-card" onclick="startStudyFromOverview(\'' + c.id + '\')">' +
+                    '<div class="ov-card-top">' +
+                        '<div class="ov-pattern">' + (c.pattern || '') + '</div>' +
+                        '<div class="ov-pronunciation">' + (c.pronunciation || '') + '</div>' +
+                        '<div class="ov-states">' + states + '</div>' +
+                    '</div>' +
+                    '<div class="ov-subcategory">' + (c.subcategory || '') + '</div>' +
+                    '<div class="ov-examples">' + examples + '</div>' +
+                '</div>';
+        }).join('');
+        return '' +
+            '<div class="overview-group">' +
+                '<div class="overview-group-title">' + category + '（' + groups[category].length + '）</div>' +
+                '<div class="overview-cards">' + cards + '</div>' +
+            '</div>';
+    }).join('');
+}
+
+// 从一览跳转到学习该组合
+function startStudyFromOverview(combinationId) {
+    const idx = CombinationsData.findIndex(c => c.id === combinationId);
+    if (idx === -1) return;
+    const groupIdx = CombinationGroups.findIndex(g => g.combinations.includes(idx));
+    if (groupIdx === -1) return;
+    CombinationsApp.currentGroup = groupIdx;
+    CombinationsApp.currentCombination = CombinationGroups[groupIdx].combinations.indexOf(idx);
+    showSection('home');
+    // showSection 内部会调用 initStudySection 复位，这里重新定位到目标组合
+    updateGroupInfo();
+    showCombination();
 }
 
 // 更新首页统计
@@ -182,9 +278,6 @@ function showCombination() {
     const isLastInGroup = CombinationsApp.currentCombination >= group.combinations.length - 1;
     document.getElementById('nextBtn').textContent = isLastInGroup ? '下一组 →' : '下一个 →';
     
-    // 更新掌握状态
-    updateMasteryButton(combination.mastered);
-    
     // 自动播放发音
     if (CombinationsApp.settings.autoPlay) {
         playCombinationSound(combination.combination);
@@ -253,6 +346,26 @@ function updateMasteryButton(isMastered) {
     }
 }
 
+// 练习当前组合：写出 5 个包含该组合的单词
+function practiceCurrentCombination() {
+    const group = CombinationGroups[CombinationsApp.currentGroup];
+    const combinationIndex = group.combinations[CombinationsApp.currentCombination];
+    const combination = CombinationsData[combinationIndex];
+    if (!combination) return;
+    
+    showSection('practice');
+    
+    // 针对当前组合生成单题练习
+    CombinationsApp.practiceQuestions = [{ type: 'words', combination: combination }];
+    CombinationsApp.currentQuestion = 0;
+    
+    document.getElementById('practiceConfig').style.display = 'none';
+    document.getElementById('practiceGame').classList.remove('hidden');
+    document.getElementById('practiceResult').classList.add('hidden');
+    
+    showQuestion();
+}
+
 // 播放字母组合发音
 function playCombinationSound(combination) {
     // 使用Web Speech API
@@ -278,23 +391,12 @@ function resetPractice() {
     CombinationsApp.wrongCombinations = [];
 }
 
-// 选择练习模式
-function selectPracticeMode(mode) {
-    CombinationsApp.practiceMode = mode;
-    
-    document.querySelectorAll('.mode-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.mode === mode);
-    });
-}
-
 // 开始练习会话
 function startPracticeSession() {
-    // 获取已学习的组合
-    const learnedCombinations = CombinationsData.filter(c => c.learned);
-    
+    // 获取练习用的组合：优先已掌握，不足 2 个时回退到全部组合
+    let learnedCombinations = CombinationsData.filter(c => c.mastered);
     if (learnedCombinations.length < 2) {
-        alert('请先学习至少2个字母组合再开始练习');
-        return;
+        learnedCombinations = CombinationsData;
     }
     
     // 生成练习题目
@@ -305,134 +407,79 @@ function startPracticeSession() {
     document.getElementById('practiceGame').classList.remove('hidden');
     document.getElementById('practiceResult').classList.add('hidden');
     
-    // 更新模式显示
-    const modeNames = {
-        'recognition': '认读练习',
-        'chooseSound': '听音选拼写',
-        'chooseWord': '听音选词',
-        'spelling': '听写练习'
-    };
-    document.getElementById('practiceMode').textContent = modeNames[CombinationsApp.practiceMode];
-    
     // 显示第一题
     showQuestion();
 }
 
-// 生成练习题目
+// 生成练习题目：每题给出一个组合，要求写出 5 个包含该组合的单词
 function generatePracticeQuestions(combinations) {
     const questions = [];
     const count = CombinationsApp.settings.practiceCount;
+    const pool = combinations.slice();
     
-    for (let i = 0; i < count; i++) {
-        const randomIndex = Math.floor(Math.random() * combinations.length);
-        const combination = combinations[randomIndex];
+    for (let i = 0; i < count && pool.length > 0; i++) {
+        const randomIndex = Math.floor(Math.random() * pool.length);
+        const combination = pool[randomIndex];
+        pool.splice(randomIndex, 1);
         
-        let question;
-        switch (CombinationsApp.practiceMode) {
-            case 'recognition':
-                question = generateRecognitionQuestion(combination, combinations);
-                break;
-            case 'chooseSound':
-                question = generateChooseSoundQuestion(combination, combinations);
-                break;
-            case 'chooseWord':
-                question = generateChooseWordQuestion(combination, combinations);
-                break;
-            case 'spelling':
-                question = generateSpellingQuestion(combination);
-                break;
-        }
-        
-        questions.push(question);
+        questions.push({
+            type: 'words',
+            combination: combination
+        });
     }
     
     CombinationsApp.practiceQuestions = questions;
 }
 
-// 生成认读题目
-function generateRecognitionQuestion(correct, all) {
-    const options = [correct];
-    
-    while (options.length < 4) {
-        const random = all[Math.floor(Math.random() * all.length)];
-        if (!options.includes(random)) {
-            options.push(random);
-        }
-    }
-    
-    // 打乱选项顺序
-    shuffleArray(options);
-    
-    return {
-        type: 'recognition',
-        combination: correct,
-        options: options,
-        correctIndex: options.indexOf(correct)
-    };
+// 单词词典：word -> {phonetic, meaning}
+let WordDictionary = {};
+
+// 构建单词词典（从所有组合的例词中收集）
+function buildWordDictionary() {
+    WordDictionary = {};
+    CombinationsData.forEach(combo => {
+        (combo.examples || []).forEach(ex => {
+            if (ex && ex.word) {
+                const key = ex.word.toLowerCase();
+                if (!WordDictionary[key]) {
+                    WordDictionary[key] = {
+                        phonetic: ex.phonetic || '',
+                        meaning: ex.meaning || ''
+                    };
+                }
+            }
+        });
+    });
 }
 
-// 生成听音选拼写题目
-function generateChooseSoundQuestion(correct, all) {
-    const options = [correct.combination];
-    
-    while (options.length < 4) {
-        const random = all[Math.floor(Math.random() * all.length)];
-        if (!options.includes(random.combination)) {
-            options.push(random.combination);
-        }
-    }
-    
-    shuffleArray(options);
-    
-    return {
-        type: 'chooseSound',
-        combination: correct,
-        options: options,
-        correctIndex: options.indexOf(correct.combination)
-    };
+// 查询单词释义和音标
+function getWordInfo(word) {
+    const key = (word || '').trim().toLowerCase();
+    return WordDictionary[key] || null;
 }
 
-// 生成听音选词题目
-function generateChooseWordQuestion(correct, all) {
-    // 使用正确组合的例词
-    const correctWord = correct.examples[Math.floor(Math.random() * correct.examples.length)];
-    const options = [correctWord];
-    
-    // 从其他组合中选例词作为干扰项
-    const otherCombinations = all.filter(c => c !== correct);
-    while (options.length < 4 && otherCombinations.length > 0) {
-        const randomCombo = otherCombinations[Math.floor(Math.random() * otherCombinations.length)];
-        const randomWord = randomCombo.examples[Math.floor(Math.random() * randomCombo.examples.length)];
-        if (!options.includes(randomWord)) {
-            options.push(randomWord);
-        }
-    }
-    
-    // 如果选项不够，用其他常见单词补充
-    while (options.length < 4) {
-        const dummyWord = 'word' + options.length;
-        options.push(dummyWord);
-    }
-    
-    shuffleArray(options);
-    
-    return {
-        type: 'chooseWord',
-        combination: correct,
-        word: correctWord,
-        options: options,
-        correctIndex: options.indexOf(correctWord)
-    };
+// 提取组合的纯字母部分（去掉首尾的 -）
+function getCombinationCore(combination) {
+    return (combination.combination || '').replace(/^-|-$/g, '');
 }
 
-// 生成听写题目
-function generateSpellingQuestion(correct) {
-    const word = correct.examples[Math.floor(Math.random() * correct.examples.length)];
-    return {
-        type: 'spelling',
-        combination: correct,
-        word: word
-    };
+// 判断单词是否包含该组合
+function wordMatchesCombination(word, combination) {
+    const core = getCombinationCore(combination);
+    if (!core) return false;
+    const w = word.toLowerCase();
+    const pattern = combination.combination || '';
+    
+    if (pattern.startsWith('-')) {
+        // 后缀组合（如 -tion）：单词以 core 结尾
+        return w.endsWith(core);
+    }
+    if (pattern.endsWith('-')) {
+        // 前缀组合（如 un-）：单词以 core 开头
+        return w.startsWith(core);
+    }
+    // 普通组合（如 ee）：单词包含 core
+    return w.includes(core);
 }
 
 // 显示题目
@@ -452,121 +499,91 @@ function showQuestion() {
     // 隐藏反馈
     document.getElementById('practiceFeedback').classList.add('hidden');
     
-    // 根据题目类型显示不同界面
-    if (question.type === 'spelling') {
-        document.getElementById('recognitionArea').classList.add('hidden');
-        document.getElementById('spellingArea').classList.remove('hidden');
-        
-        document.getElementById('spellingWord').textContent = question.word;
-        document.getElementById('spellingInput').value = '';
-        document.getElementById('spellingInput').focus();
-    } else {
-        document.getElementById('recognitionArea').classList.remove('hidden');
-        document.getElementById('spellingArea').classList.add('hidden');
-        
-        // 显示问题
-        document.getElementById('questionText').textContent = question.combination.combination;
-        
-        // 显示选项
-        const optionsGrid = document.getElementById('optionsGrid');
-        optionsGrid.innerHTML = '';
-        
-        question.options.forEach((option, index) => {
-            const button = document.createElement('button');
-            button.className = 'option-btn';
-            
-            if (question.type === 'chooseSound') {
-                button.textContent = option;
-            } else if (question.type === 'chooseWord') {
-                button.textContent = option;
-            } else {
-                button.innerHTML = `
-                    <div style="font-size: 1.5rem; margin-bottom: 5px">${option.combination}</div>
-                    <div style="font-size: 0.8rem; color: var(--vb-text-muted)">${option.phonetic}</div>
-                `;
-            }
-            
-            button.onclick = () => checkAnswer(index);
-            optionsGrid.appendChild(button);
-        });
-        
-        // 自动播放发音
-        if (CombinationsApp.settings.autoPlay) {
-            playCombinationSound(question.combination.combination);
-        }
+    // 显示组合
+    document.getElementById('wordsPattern').textContent = question.combination.combination;
+    document.getElementById('wordsPhonetic').textContent = question.combination.phonetic || '';
+    
+    // 生成 5 个输入框
+    const inputs = document.getElementById('wordsInputs');
+    inputs.innerHTML = '';
+    for (let i = 0; i < 5; i++) {
+        const row = document.createElement('div');
+        row.className = 'words-input-row';
+        // 直接显示该组合例词的音标和中文释义作为提示
+        const example = (question.combination.examples || [])[i];
+        // 直接显示该组合例词的音标和中文释义作为提示，等待用户填入对应单词
+        const hint = example && example.word
+            ? `<span class="words-word-info has-info">${(example.phonetic || '')} ${(example.meaning || '')}</span>`
+            : `<span class="words-word-info" id="wordInfo_${i}"></span>`;
+        row.innerHTML = `
+            <span class="words-input-num">${i + 1}</span>
+            <input type="text" class="words-input" data-idx="${i}" placeholder="输入包含 ${question.combination.combination} 的单词" />
+            ${hint}
+        `;
+        inputs.appendChild(row);
     }
+    
+    // 重置提交按钮
+    const submitBtn = document.getElementById('wordsSubmitBtn');
+    submitBtn.disabled = false;
+    submitBtn.textContent = '提交';
+    
+    // 自动播放发音
+    if (CombinationsApp.settings.autoPlay) {
+        playCombinationSound(question.combination.combination);
+    }
+    
+    // 聚焦第一个输入框
+    const first = inputs.querySelector('.words-input');
+    if (first) first.focus();
 }
 
-// 检查答案
-function checkAnswer(selectedIndex) {
+// 检查单词答案
+function checkWords() {
     if (CombinationsApp.isProcessing) return;
     CombinationsApp.isProcessing = true;
     
     const question = CombinationsApp.practiceQuestions[CombinationsApp.currentQuestion];
-    const isCorrect = selectedIndex === question.correctIndex;
+    const inputs = document.querySelectorAll('.words-input');
+    let correctCount = 0;
     
-    // 更新统计
-    CombinationsApp.totalAnswered++;
-    if (isCorrect) {
-        CombinationsApp.correctAnswers++;
-        CombinationsApp.practiceScore += 10;
-    } else {
-        CombinationsApp.wrongCombinations.push(question.combination);
-    }
-    
-    // 高亮正确和错误选项
-    const options = document.querySelectorAll('.option-btn');
-    options.forEach((btn, index) => {
-        if (index === question.correctIndex) {
-            btn.classList.add('correct');
-        } else if (index === selectedIndex && !isCorrect) {
-            btn.classList.add('wrong');
+    inputs.forEach(input => {
+        const word = input.value.trim().toLowerCase();
+        const valid = word !== '' && wordMatchesCombination(word, question.combination);
+        input.classList.remove('correct', 'wrong');
+        if (valid) {
+            input.classList.add('correct');
+            correctCount++;
+        } else {
+            input.classList.add('wrong');
         }
-        btn.onclick = null;
     });
     
-    // 显示反馈
-    showFeedback(isCorrect, question.combination);
-    
-    // 延迟后进入下一题
-    setTimeout(() => {
-        CombinationsApp.currentQuestion++;
-        CombinationsApp.isProcessing = false;
-        showQuestion();
-    }, 1500);
-}
-
-// 检查拼写
-function checkSpelling() {
-    if (CombinationsApp.isProcessing) return;
-    CombinationsApp.isProcessing = true;
-    
-    const input = document.getElementById('spellingInput').value.trim().toLowerCase();
-    const question = CombinationsApp.practiceQuestions[CombinationsApp.currentQuestion];
-    const isCorrect = input === question.combination.combination;
-    
     // 更新统计
     CombinationsApp.totalAnswered++;
-    if (isCorrect) {
+    if (correctCount === 5) {
         CombinationsApp.correctAnswers++;
         CombinationsApp.practiceScore += 10;
     } else {
         CombinationsApp.wrongCombinations.push(question.combination);
     }
     
+    // 禁用提交按钮，防止重复提交
+    document.getElementById('wordsSubmitBtn').disabled = true;
+    
     // 显示反馈
-    showFeedback(isCorrect, question.combination);
+    showWordsFeedback(correctCount, question.combination);
     
     // 延迟后进入下一题
     setTimeout(() => {
         CombinationsApp.currentQuestion++;
         CombinationsApp.isProcessing = false;
         showQuestion();
-    }, 1500);
+    }, 2000);
 }
 
-// 显示反馈
-function showFeedback(isCorrect, combination) {
+// 显示单词练习反馈
+function showWordsFeedback(correctCount, combination) {
     const feedback = document.getElementById('practiceFeedback');
     const icon = document.getElementById('feedbackIcon');
     const text = document.getElementById('feedbackText');
@@ -574,17 +591,23 @@ function showFeedback(isCorrect, combination) {
     
     feedback.classList.remove('hidden');
     
-    if (isCorrect) {
+    if (correctCount === 5) {
         icon.textContent = '✓';
         icon.className = 'feedback-icon correct';
-        text.textContent = '正确！';
+        text.textContent = '太棒了！全部正确！';
+    } else if (correctCount >= 3) {
+        icon.textContent = '✓';
+        icon.className = 'feedback-icon correct';
+        text.textContent = `不错！正确 ${correctCount}/5`;
     } else {
         icon.textContent = '✗';
         icon.className = 'feedback-icon wrong';
-        text.textContent = '错误！';
+        text.textContent = `还需努力，正确 ${correctCount}/5`;
     }
     
-    detail.textContent = `${combination.combination} 发 ${combination.phonetic} 音`;
+    const core = getCombinationCore(combination);
+    const examples = combination.examples.slice(0, 5).map(e => e.word).join('、');
+    detail.textContent = `${combination.combination} 发 ${combination.phonetic} 音，包含 ${core} 的单词如：${examples}`;
 }
 
 // 播放当前发音
@@ -630,9 +653,9 @@ function renderMasteredList(filter = 'all') {
     let mastered = CombinationsData.filter(c => c.mastered);
     
     if (filter === 'vowel') {
-        mastered = mastered.filter(c => c.group === 'vowel');
+        mastered = mastered.filter(c => c.category === '元音组合');
     } else if (filter === 'consonant') {
-        mastered = mastered.filter(c => c.group === 'consonant');
+        mastered = mastered.filter(c => c.category === '辅音组合');
     }
     
     if (mastered.length === 0) {
@@ -773,16 +796,10 @@ document.addEventListener('keydown', function(e) {
             toggleMastery();
         }
     } else if (CombinationsApp.currentSection === 'practice') {
-        if (e.key === '1' || e.key === '2' || e.key === '3' || e.key === '4') {
-            const index = parseInt(e.key) - 1;
-            const options = document.querySelectorAll('.option-btn');
-            if (options[index]) {
-                options[index].click();
-            }
-        } else if (e.key === 'Enter') {
-            const spellingInput = document.getElementById('spellingInput');
-            if (document.activeElement === spellingInput) {
-                checkSpelling();
+        if (e.key === 'Enter') {
+            const wordsSubmitBtn = document.getElementById('wordsSubmitBtn');
+            if (wordsSubmitBtn && !wordsSubmitBtn.disabled) {
+                checkWords();
             }
         }
     }
@@ -823,6 +840,8 @@ async function loadCombinationsData() {
         
         CombinationGroups = Object.values(groupMap);
         
+        buildWordDictionary();
+        
         console.log('字母组合数据加载完成:', CombinationsData.length, '个组合,', CombinationGroups.length, '个分组');
     } catch (e) {
         console.error('加载字母组合数据失败:', e);
@@ -835,7 +854,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     loadProgress();
     applySettings();
     initSettingsListeners();
-    showSection('home');
+    showSection('overview');
 });
 
 // 定期自动保存

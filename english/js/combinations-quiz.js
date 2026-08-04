@@ -362,9 +362,9 @@ class CombinationsQuiz {
     }
 
     findCombination(id) {
-        // 这里需要从全局数据中查找组合
-        if (window.combinationsManager) {
-            return window.combinationsManager.combinations.find(c => c.id === id);
+        // 从全局数据中查找组合
+        if (typeof CombinationsData !== 'undefined') {
+            return CombinationsData.find(c => c.id === id);
         }
         return null;
     }
@@ -378,17 +378,16 @@ class CombinationsQuiz {
     backToMenu() {
         this.currentQuiz = null;
         this.stopTimer();
-        // 返回到测验菜单
-        if (window.combinationsManager) {
-            window.combinationsManager.currentTab = 'quiz';
-            window.combinationsManager.render();
+        // 返回到测验菜单（使用主应用的学习首页）
+        if (typeof showSection === 'function') {
+            showSection('home');
         }
     }
 
     viewWrongAnswers() {
-        if (window.combinationsManager) {
-            window.combinationsManager.currentTab = 'wrong';
-            window.combinationsManager.render();
+        // 查看已掌握/错题列表
+        if (typeof showSection === 'function') {
+            showSection('mastered');
         }
     }
 
