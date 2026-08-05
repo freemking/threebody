@@ -1089,6 +1089,7 @@
 .quiz-phonetic-symbol {
     font-size: 4rem;
     font-weight: 700;
+    font-style: normal;
     font-family: 'Fira Code', monospace;
     color: var(--primary-color);
     text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
@@ -1778,6 +1779,7 @@
 .phonetic-symbol {
     font-size: var(--font-size-lg);
     font-weight: 600;
+    font-style: normal;
     color: var(--primary-color);
 }
 

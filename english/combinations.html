@@ -103,7 +103,9 @@
                         <div class="study-display">
                             <div class="combination-text" id="studyText">ai</div>
                             <div class="combination-pronunciation" id="studyPronunciation">/eɪ/</div>
-                            <div class="combination-sound" id="studySound">发音类似中文"诶"</div>
+                            <button class="combination-sound-btn" id="studySoundBtn" onclick="speakCurrentCombination()" title="朗读发音">
+                                <span class="speak-icon">🔊</span>
+                            </button>
                         </div>
                         
                         <div class="study-examples">
@@ -121,24 +123,18 @@
                             <div class="tips-content" id="studyTips">ai通常出现在词中，发长音/eɪ/</div>
                         </div>
                         
-                        <div class="study-common">
-                            <div class="common-title">常见单词</div>
-                            <div class="common-words" id="studyCommon">rain, train, main, pain, gain</div>
-                        </div>
-                        
                         <div class="study-actions">
                             <button class="study-btn secondary" id="prevBtn" onclick="prevCombination()" disabled>
                                 <span>← 上一个</span>
+                            </button>
+                            <button class="mastery-btn" id="masteryBtn" onclick="practiceCurrentCombination()">
+                                <span class="mastery-icon" id="masteryIcon">📝</span>
+                                <span class="mastery-text" id="masteryText">练习</span>
                             </button>
                             <button class="study-btn primary" id="nextBtn" onclick="nextCombination()">
                                 <span>下一个 →</span>
                             </button>
                         </div>
-                        
-                        <button class="mastery-btn" id="masteryBtn" onclick="practiceCurrentCombination()">
-                            <span class="mastery-icon" id="masteryIcon">📝</span>
-                            <span class="mastery-text" id="masteryText">练习</span>
-                        </button>
                     </div>
                 </div>
 
@@ -154,6 +150,8 @@
                             <button class="filter-btn active" data-category="all" onclick="filterOverview('all')">全部</button>
                             <button class="filter-btn" data-category="元音组合" onclick="filterOverview('元音组合')">元音组合</button>
                             <button class="filter-btn" data-category="辅音组合" onclick="filterOverview('辅音组合')">辅音组合</button>
+                            <button class="filter-btn" data-category="前缀" onclick="filterOverview('前缀')">前缀</button>
+                            <button class="filter-btn" data-category="后缀" onclick="filterOverview('后缀')">后缀</button>
                         </div>
                         <div class="overview-search">
                             <input type="text" id="overviewSearch" placeholder="搜索组合或例词..." oninput="renderOverview()">

@@ -315,16 +315,38 @@
 }
 
 .combination-pronunciation {
+    display: inline-block;
     font-size: 1.5rem;
     color: var(--vb-text-secondary);
     margin-bottom: 8px;
     font-family: var(--vb-font-mono);
 }
 
-.combination-sound {
-    font-size: 0.9rem;
-    color: var(--vb-text-muted);
-    font-style: italic;
+.combination-sound-btn {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-left: 14px;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.12);
+    border: 1px solid var(--vb-border);
+    color: var(--vb-text-primary);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.combination-sound-btn:hover {
+    background: rgba(0, 255, 255, 0.25);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.35);
 }
 
 /* 例词区域 */
@@ -333,8 +355,7 @@
 }
 
 .examples-title,
-.tips-title,
-.common-title {
+.tips-title {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--vb-text-muted);
@@ -350,20 +371,36 @@
 }
 
 .example-word {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 12px 18px;
+    padding: 12px 18px 12px 16px;
     background: rgba(0, 255, 255, 0.05);
     border: 1px solid var(--vb-border);
     border-radius: var(--vb-radius-md);
     min-width: 90px;
+    cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .example-word:hover {
-    background: rgba(0, 255, 255, 0.1);
+    background: rgba(0, 255, 255, 0.15);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.25);
+}
+
+.word-speak {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    font-size: 0.75rem;
+    opacity: 0.45;
+    transition: opacity 0.2s ease;
+}
+
+.example-word:hover .word-speak {
+    opacity: 1;
 }
 
 .word-text {
@@ -375,10 +412,9 @@
 }
 
 .word-phonetic {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: var(--vb-text-muted);
     margin-bottom: 4px;
-    font-style: italic;
 }
 
 .word-meaning {
@@ -399,18 +435,6 @@
     font-size: 0.95rem;
     color: var(--vb-text-secondary);
     line-height: 1.8;
-}
-
-/* 常见单词 */
-.study-common {
-    margin-bottom: 30px;
-}
-
-.common-words {
-    font-size: 1.2rem;
-    color: var(--vb-text-secondary);
-    line-height: 1.8;
-    letter-spacing: 0.3px;
 }
 
 /* 学习操作按钮 */
@@ -457,6 +481,23 @@
     color: var(--vb-text-primary);
 }
 
+.study-btn.speak {
+    background: rgba(0, 255, 255, 0.1);
+    color: var(--vb-text-secondary);
+    border: 1px solid var(--vb-border);
+}
+
+.study-btn.speak:hover {
+    background: rgba(0, 255, 255, 0.2);
+    color: var(--vb-text-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+}
+
+.study-btn.speak .speak-icon {
+    font-size: 1rem;
+}
+
 .study-btn:disabled {
     opacity: 0.4;
     cursor: not-allowed;
@@ -479,6 +520,15 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+}
+
+.study-actions .mastery-btn {
+    flex: 1;
+    width: auto;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
 }
 
 .mastery-btn:hover {

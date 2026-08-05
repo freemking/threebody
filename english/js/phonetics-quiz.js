@@ -190,11 +190,8 @@ class PhoneticsQuiz {
     }
     
     createListenQuestion(phonetic) {
-        // 听音选音标
-        const otherPhonetics = this.phoneticsData
-            .filter(p => p.id !== phonetic.id)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3);
+        // 听音选音标：干扰项使用最易混淆的音标
+        const otherPhonetics = this.getSimilarPhonetics(phonetic, 3);
         
         const options = [phonetic, ...otherPhonetics]
             .sort(() => Math.random() - 0.5);
@@ -214,14 +211,11 @@ class PhoneticsQuiz {
     }
     
     createMatchQuestion(phonetic) {
-        // 看音标识单词
+        // 看音标识单词：干扰单词来自最易混淆的音标
         const correctExample = phonetic.examples[Math.floor(Math.random() * phonetic.examples.length)];
         
         const otherExamples = [];
-        const otherPhonetics = this.phoneticsData
-            .filter(p => p.id !== phonetic.id)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3);
+        const otherPhonetics = this.getSimilarPhonetics(phonetic, 3);
         
         otherPhonetics.forEach(p => {
             if (p.examples.length > 0) {
@@ -249,11 +243,8 @@ class PhoneticsQuiz {
     }
     
     createIdentifyQuestion(phonetic) {
-        // 音标辨析
-        const otherPhonetics = this.phoneticsData
-            .filter(p => p.id !== phonetic.id)
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3);
+        // 音标辨析：干扰项使用最易混淆的音标
+        const otherPhonetics = this.getSimilarPhonetics(phonetic, 3);
         
         const options = [phonetic, ...otherPhonetics]
             .sort(() => Math.random() - 0.5);
@@ -275,17 +266,8 @@ class PhoneticsQuiz {
     }
     
     createDistinguishQuestion(phonetic) {
-        // 易混音标区分
-        // 找出相似的音标
-        // 优先找同分类（子分类）且首音素相同的音标，避免匹配到不相似的音标
-        const similarPhonetics = this.phoneticsData
-            .filter(p => 
-                p.id !== phonetic.id && 
-                (p.subcategory === phonetic.subcategory || 
-                 p.symbol.charAt(1) === phonetic.symbol.charAt(1))
-            )
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 3);
+        // 易混音标区分：干扰项使用最易混淆的音标
+        const similarPhonetics = this.getSimilarPhonetics(phonetic, 3);
         
         if (similarPhonetics.length < 3) {
             return this.createMatchQuestion(phonetic);
@@ -308,6 +290,56 @@ class PhoneticsQuiz {
             correctAnswer: phonetic.id,
             explanation: `${phonetic.symbol} 的发音特点是：${phonetic.description}`
         };
+    }
+    
+    /**
+     * 获取与目标音标最易混淆（最相似）的若干音标，用于组成选项
+     * 相似度评分：
+     *  - 同子分类（如长元音/短元音、清/浊辅音）权重最高
+     *  - 去掉长音符号/ː 和重音/ˈ/ˌ后，基础音素字符相同（如 /iː/ 与 /ɪ/、/θ/ 与 /ð/）
+     *  - 辅音描述关键词相同（发音部位/方式一致，如 /p/ 与 /b/、/f/ 与 /v/）
+     *  - 同属元音或辅音大类
+     */
+    getSimilarPhonetics(phonetic, count = 3) {
+        const strip = s => s.replace(/[\/ˈˌː]/g, '').replace(/\s/g, '');
+        
+        const baseCharA = strip(phonetic.symbol);
+        
+        const scored = this.phoneticsData
+            .filter(p => p.id !== phonetic.id)
+            .map(p => {
+                let score = 0;
+                if (p.subcategory === phonetic.subcategory) score += 5;
+                if (p.category === phonetic.category) score += 1;
+                
+                // 基础音素相同（忽略长音符号、重音）
+                if (strip(p.symbol) === baseCharA) score += 4;
+                
+                // 辅音：描述关键词（发音部位/方式）重叠
+                if (phonetic.category === '辅音' && p.category === '辅音') {
+                    const kwA = (phonetic.description.match(/清辅音|浊辅音/g) || []);
+                    const kwB = (p.description.match(/清辅音|浊辅音/g) || []);
+                    if (kwA.length && kwB.length && kwA[0] === kwB[0]) score += 2;
+                    const placeA = (phonetic.description.match(/双唇|齿龈|唇齿|舌齿|软腭|硬腭|声门|鼻腔|舌侧/g) || []);
+                    const placeB = (p.description.match(/双唇|齿龈|唇齿|舌齿|软腭|硬腭|声门|鼻腔|舌侧/g) || []);
+                    if (placeA.length && placeB.length && placeA[0] === placeB[0]) score += 2;
+                }
+                
+                return { p, score };
+            })
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score || Math.random() - 0.5);
+        
+        if (scored.length === 0) {
+            // 兜底：随机取其它音标
+            return this.phoneticsData
+                .filter(p => p.id !== phonetic.id)
+                .sort(() => Math.random() - 0.5)
+                .slice(0, count);
+        }
+        
+        // 取相似度最高的若干，并随机打乱顺序
+        return scored.slice(0, count).map(item => item.p);
     }
     
     showQuizScreen() {

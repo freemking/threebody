@@ -346,6 +346,9 @@ class Phonetics {
         // 显示弹窗
         document.getElementById('phonetic-detail-modal').classList.add('active');
         document.body.style.overflow = 'hidden';
+        
+        // 自动播放发音
+        this.playAudio();
     }
     
     closeDetailModal() {
@@ -686,9 +689,13 @@ class Phonetics {
     playAudio() {
         if (!this.currentPhonetic) return;
         
-        if ('speechSynthesis' in window) {
+        const text = this.currentPhonetic.symbol.replace(/\//g, '');
+        
+        if (window.audioManager && typeof window.audioManager.speak === 'function') {
+            window.audioManager.speak(text, 'en-US');
+        } else if ('speechSynthesis' in window) {
             const utterance = new SpeechSynthesisUtterance();
-            utterance.text = this.currentPhonetic.symbol.replace(/\//g, '');
+            utterance.text = text;
             utterance.lang = 'en-US';
             utterance.rate = 0.8;
             speechSynthesis.speak(utterance);

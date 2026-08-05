@@ -290,6 +290,7 @@
         .phonetic-detail-symbol {
             font-size: 5rem;
             font-weight: 800;
+            font-style: normal;
             color: var(--primary-color);
             text-align: center;
             margin-bottom: var(--spacing-md);
@@ -419,6 +420,44 @@
             box-shadow: var(--shadow-md);
         }
         
+        .phonetic-detail-symbol {
+            display: inline-block;
+        }
+        
+        .phonetic-detail-symbol-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .phonetic-detail-speak {
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: none;
+            margin-left: 18px;
+            vertical-align: middle;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.12);
+            border: 1px solid var(--border-light);
+            color: var(--text-color);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: all 0.2s ease;
+        }
+        
+        .phonetic-detail-speak:hover {
+            background: rgba(0, 255, 255, 0.25);
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(0, 255, 255, 0.35);
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
             .phonetics-new-layout {
@@ -473,13 +512,13 @@
                             <span class="nav-icon">📚</span>
                             <span class="nav-text">音标学习</span>
                         </button>
-                        <button class="nav-item" data-screen="progress">
-                            <span class="nav-icon">📊</span>
-                            <span class="nav-text">个人中心</span>
-                        </button>
                         <button class="nav-item" data-screen="quiz">
                             <span class="nav-icon">🎧</span>
                             <span class="nav-text">听音选音标</span>
+                        </button>
+                        <button class="nav-item" data-screen="progress">
+                            <span class="nav-icon">📊</span>
+                            <span class="nav-text">个人中心</span>
                         </button>
                     </div>
                     <div class="phonetics-subcategory-nav"></div>
@@ -544,7 +583,12 @@
     <div class="phonetic-detail-modal" id="phonetic-detail-modal">
         <div class="phonetic-detail-content">
             <button class="phonetic-detail-close" id="phonetic-detail-close">✕</button>
-            <div class="phonetic-detail-symbol" id="phonetic-detail-symbol">/iː/</div>
+            <div class="phonetic-detail-symbol-row">
+                <div class="phonetic-detail-symbol" id="phonetic-detail-symbol">/iː/</div>
+                <button class="phonetic-detail-speak" id="phonetic-detail-speak" title="朗读发音" onclick="window.phonetics.playAudio()">
+                    <span class="speak-icon">🔊</span>
+                </button>
+            </div>
             <div style="text-align: center;">
                 <span class="phonetic-detail-category" id="phonetic-detail-category">单元音-长元音</span>
             </div>

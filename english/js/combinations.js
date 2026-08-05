@@ -184,10 +184,11 @@ function startStudyFromOverview(combinationId) {
     if (idx === -1) return;
     const groupIdx = CombinationGroups.findIndex(g => g.combinations.includes(idx));
     if (groupIdx === -1) return;
+    showSection('home');
+    // showSection 内部会调用 initStudySection 复位 currentGroup/currentCombination，
+    // 因此必须在 showSection 之后再定位到目标组合
     CombinationsApp.currentGroup = groupIdx;
     CombinationsApp.currentCombination = CombinationGroups[groupIdx].combinations.indexOf(idx);
-    showSection('home');
-    // showSection 内部会调用 initStudySection 复位，这里重新定位到目标组合
     updateGroupInfo();
     showCombination();
 }
@@ -254,14 +255,14 @@ function showCombination() {
     // 更新显示
     document.getElementById('studyText').textContent = combination.combination;
     document.getElementById('studyPronunciation').textContent = combination.phonetic;
-    document.getElementById('studySound').textContent = combination.sound;
     
-    // 更新例词
-    const examplesHTML = combination.examples.slice(0, 4).map(example => `
-        <div class="example-word">
+    // 更新例词（显示 5-10 个，点击可发音）
+    const examplesHTML = combination.examples.slice(0, 12).map(example => `
+        <div class="example-word" onclick="speakWord('${example.word.replace(/'/g, "\\'")}')" title="点击发音">
             <span class="word-text">${example.word}</span>
             <span class="word-phonetic">${example.phonetic || ''}</span>
             <span class="word-meaning">${example.meaning || ''}</span>
+            <span class="word-speak">🔊</span>
         </div>
     `).join('');
     document.getElementById('studyExamples').innerHTML = examplesHTML;
@@ -269,9 +270,7 @@ function showCombination() {
     // 更新记忆技巧
     document.getElementById('studyTips').textContent = combination.tips || combination.description || '暂无记忆技巧';
     
-    // 更新常见单词
-    document.getElementById('studyCommon').textContent = combination.common ? combination.common.join(', ') : '暂无常见单词数据';
-    
+
     // 更新按钮状态
     document.getElementById('prevBtn').disabled = CombinationsApp.currentCombination === 0;
     
@@ -289,6 +288,28 @@ function prevCombination() {
     if (CombinationsApp.currentCombination > 0) {
         CombinationsApp.currentCombination--;
         showCombination();
+    }
+}
+
+// 发言：朗读当前字母组合的发音
+function speakCurrentCombination() {
+    const group = CombinationGroups[CombinationsApp.currentGroup];
+    const combinationIndex = group.combinations[CombinationsApp.currentCombination];
+    const combination = CombinationsData[combinationIndex];
+    if (!combination) return;
+    playCombinationSound(combination.combination);
+}
+
+// 朗读单个例词
+function speakWord(word) {
+    if (!word) return;
+    if (window.audioManager && typeof window.audioManager.speak === 'function') {
+        window.audioManager.speak(word, 'en-US');
+    } else if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(word);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.8;
+        speechSynthesis.speak(utterance);
     }
 }
 
@@ -686,7 +707,8 @@ function viewCombination(combinationText) {
     const index = CombinationsData.findIndex(c => c.combination === combinationText);
     if (index === -1) return;
     
-    // 找到所属分组
+    showSection('home');
+    // showSection 内部会调用 initStudySection 复位，必须在之后定位到目标组合
     for (let i = 0; i < CombinationGroups.length; i++) {
         if (CombinationGroups[i].combinations.includes(index)) {
             CombinationsApp.currentGroup = i;
@@ -694,8 +716,8 @@ function viewCombination(combinationText) {
             break;
         }
     }
-    
-    showSection('home');
+    updateGroupInfo();
+    showCombination();
 }
 
 // 保存学习进度
