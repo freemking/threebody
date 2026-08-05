@@ -604,9 +604,19 @@ class PhoneticsQuiz {
     }
     
     playPhoneticAudio(phonetic) {
-        if ('speechSynthesis' in window) {
+        if (!phonetic) return;
+        
+        // IPA 符号英文 TTS 无法朗读会无声，改用对应例词发音兜底
+        let text = phonetic.symbol.replace(/\//g, '');
+        if (Array.isArray(phonetic.examples) && phonetic.examples.length > 0 && phonetic.examples[0].word) {
+            text = phonetic.examples[0].word;
+        }
+        
+        if (window.audioManager && typeof window.audioManager.speak === 'function') {
+            window.audioManager.speak(text, 'en-US');
+        } else if ('speechSynthesis' in window) {
             const utterance = new SpeechSynthesisUtterance();
-            utterance.text = phonetic.symbol.replace(/\//g, '');
+            utterance.text = text;
             utterance.lang = 'en-US';
             utterance.rate = 0.8;
             speechSynthesis.speak(utterance);

@@ -689,7 +689,29 @@ class Phonetics {
     playAudio() {
         if (!this.currentPhonetic) return;
         
-        const text = this.currentPhonetic.symbol.replace(/\//g, '');
+        // 优先使用真实录音文件（若存在）
+        const audioPath = this.currentPhonetic.audioPath;
+        if (audioPath) {
+            const audio = new Audio(audioPath);
+            audio.play().catch(() => {
+                this._speakPhoneticFallback();
+            });
+            return;
+        }
+        
+        this._speakPhoneticFallback();
+    }
+    
+    // TTS 兜底：IPA 符号（如 /θ/、/ʃ/、/ŋ/）英文 TTS 无法朗读会无声，
+    // 因此改用该音标对应的真实例词发音，保证点击一定有声音
+    _speakPhoneticFallback() {
+        const phonetic = this.currentPhonetic;
+        if (!phonetic) return;
+        
+        let text = phonetic.symbol.replace(/\//g, '');
+        if (Array.isArray(phonetic.examples) && phonetic.examples.length > 0 && phonetic.examples[0].word) {
+            text = phonetic.examples[0].word;
+        }
         
         if (window.audioManager && typeof window.audioManager.speak === 'function') {
             window.audioManager.speak(text, 'en-US');
