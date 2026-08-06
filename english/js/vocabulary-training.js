@@ -719,10 +719,22 @@
                 }
             }
 
-            // 如果本次训练包含昨天的单词，调用 /complete-review 完成复习（原子操作）：
-            // 将昨天所有未复习的单词标记为已复习，并为今天插入"从未学过"的新单词。
-            // 相比逐词标记，这样能保证复习完成后立即切换到今天的新词阶段，
-            // 且新词严格按"从未学过"生成，不会重复抽到旧词。
+            // 将"3种模式全对"的昨天单词逐个标记为已复习（只有真正完成的单词才标记 reviewed=1）。
+            // 没全对的词保持 reviewed=0，会继续留在复习阶段，直到全部复习通过才推进。
+            for (const word of fullyMasteredWords) {
+                const wordData = this.trainingWords.find(w => w.word === word);
+                if (wordData && wordData.isYesterday) {
+                    try {
+                        await vocabulary.markAsReviewed(word, yesterdayStr);
+                    } catch (err) {
+                        console.error('标记复习状态失败:', err);
+                    }
+                }
+            }
+
+            // 标记完成后调用 /complete-review 尝试推进：
+            // 后端仅在昨天的单词全部 reviewed=1 时，才为今天插入"从未学过"的新单词；
+            // 若还有单词未全对（reviewed=0），则不推进，这些词会在下次 /today 复习阶段继续出现。
             const hasYesterdayWords = this.trainingWords.some(w => w.isYesterday);
             if (hasYesterdayWords) {
                 await vocabulary.completeReview();

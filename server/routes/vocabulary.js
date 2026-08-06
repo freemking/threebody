@@ -31,15 +31,34 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
         await connection.beginTransaction();
         
         try {
-            // 第一步：将昨天的单词标记为已复习（reviewed=1）
-            const [updateResult] = await connection.execute(
-                `UPDATE vocabulary_daily_record 
-                 SET reviewed = 1 
-                 WHERE user_id = ? AND study_date = ? AND reviewed = 0`,
+            // 第一步：检查昨天的单词是否已全部复习（"必须全对才推进"）。
+            // 逐词标记由前端调用 /reviewed 完成（只标记 3 种模式全对的单词），
+            // 此处不强制标记。只要还有未复习的词，就不推进、不插入新词，
+            // 这些词会在下次 /today 时继续以 review_yesterday 阶段出现。
+            // 与 /today 阶段1 保持一致：只统计 wrong_book 中未软删除的单词，
+            // 避免已被删除的词（用户无法再复习）永远阻止推进
+            const [yesterdayRows] = await connection.execute(
+                `SELECT d.word, d.reviewed
+                 FROM vocabulary_daily_record d
+                 JOIN wrong_book w ON d.word = w.word AND d.user_id = w.user_id
+                 WHERE d.user_id = ? AND d.study_date = ? AND w.deleted = 0`,
                 [userId, yesterday]
             );
+            const unreviewedCount = yesterdayRows.filter(r => r.reviewed !== 1).length;
+            if (unreviewedCount > 0) {
+                await connection.rollback();
+                return res.json({
+                    success: true,
+                    advanced: false,
+                    remaining: unreviewedCount,
+                    reviewedCount: yesterdayRows.length - unreviewedCount,
+                    newWordsCount: 0,
+                    todayTotalWords: 0,
+                    newWords: []
+                });
+            }
 
-            // 第二步：确保今天已有 5 个全新单词（完全不存在于 vocabulary_daily_record 的）
+            // 第二步：昨天已全部复习（或昨天无单词），确保今天已有 5 个全新单词（完全不存在于 vocabulary_daily_record 的）
             // 新词的选择标准：wrong_book 中未掌握、未删除、且 vocabulary_daily_record 中【任何日期】都不存在的单词
             const [newCountRows] = await connection.execute(
                 `SELECT COUNT(DISTINCT d.word) as cnt FROM vocabulary_daily_record d
@@ -52,12 +71,15 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
 
             let newWords = [];
             if (newRemaining > 0) {
+                // newRemaining 为 0~5 的安全整数，直接内联 LIMIT。
+                // 不能用 LIMIT ? 占位符：部分 MySQL/MariaDB 版本下 mysql2 预处理语句
+                // 会报 "Incorrect arguments to mysqld_stmt_execute"
                 const [rows] = await connection.execute(
                     `SELECT wb.* FROM wrong_book wb
                      WHERE wb.user_id = ? AND wb.mastered = 0 AND wb.deleted = 0
                        AND wb.word NOT IN (SELECT word FROM vocabulary_daily_record WHERE user_id = ?)
-                     ORDER BY RAND() LIMIT ?`,
-                    [userId, userId, newRemaining]
+                     ORDER BY RAND() LIMIT ${Number(newRemaining)}`,
+                    [userId, userId]
                 );
                 newWords = rows;
 
@@ -74,7 +96,8 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
             
             res.json({ 
                 success: true, 
-                reviewedCount: updateResult.affectedRows,
+                advanced: true,
+                reviewedCount: yesterdayRows.length,
                 newWordsCount: newWords.length,
                 todayTotalWords: newWordsToday + newWords.length,
                 newWords: newWords.map(w => w.word)

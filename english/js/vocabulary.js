@@ -582,16 +582,22 @@ class Vocabulary {
     }
 
     /**
-     * 完成复习并生成今日新单词（原子操作）
-     * 后端会将昨天所有未复习的单词标记为已复习，并为今天插入"从未学过"的新单词
-     * （新词标准：wrong_book 中未掌握、未删除，且在 vocabulary_daily_record 任何日期都不存在）
-     * @returns {Promise<Object|null>} - 后端返回的结果（含 reviewedCount/newWordsCount/newWords），失败返回 null
+     * 尝试完成复习并生成今日新单词（原子操作，"必须全对才推进"）
+     * 后端仅在昨天的单词全部 reviewed=1 时，才为今天插入"从未学过"的新单词
+     * （新词标准：wrong_book 中未掌握、未删除，且在 vocabulary_daily_record 任何日期都不存在）；
+     * 若还有未复习的词（reviewed=0），返回 advanced=false 且不插入新词。
+     * 逐词标记请用 markAsReviewed()（只标记 3 种模式全对的单词）。
+     * @returns {Promise<Object|null>} - 后端返回的结果（含 advanced/reviewedCount/newWordsCount/newWords），失败返回 null
      */
     async completeReview() {
         try {
             const result = await this._apiRequest('/complete-review', 'POST', {});
             if (result && result.success) {
-                console.log(`完成复习: 复习 ${result.reviewedCount} 个昨日单词, 新增 ${result.newWordsCount} 个今日新词`);
+                if (result.advanced) {
+                    console.log(`完成复习: 复习 ${result.reviewedCount} 个昨日单词, 新增 ${result.newWordsCount} 个今日新词`);
+                } else {
+                    console.log(`复习未推进: 昨日还有 ${result.remaining} 个单词未完全复习`);
+                }
                 return result;
             }
         } catch (error) {
