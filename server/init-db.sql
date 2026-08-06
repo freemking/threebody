@@ -102,27 +102,6 @@ CREATE TABLE IF NOT EXISTS vocabulary_daily_record (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- 总体记单词记录表
-CREATE TABLE IF NOT EXISTS vocabulary_total_record (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL COMMENT '用户ID',
-    word VARCHAR(100) NOT NULL,
-    first_study_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    last_study_time DATETIME DEFAULT CURRENT_TIMESTAMP,
-    study_count INT DEFAULT 0,
-    correct_count INT DEFAULT 0,
-    mastered TINYINT(1) DEFAULT 0,
-    mastered_time DATETIME,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    UNIQUE KEY idx_user_word (user_id, word),
-    INDEX idx_user_id (user_id),
-    INDEX idx_word (word),
-    INDEX idx_mastered (mastered),
-    INDEX idx_mastered_time (mastered_time),
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 -- 用户等级和成就表
 CREATE TABLE IF NOT EXISTS vocabulary_user_stats (
     id INT AUTO_INCREMENT PRIMARY KEY,

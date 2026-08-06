@@ -1132,13 +1132,13 @@
   },
   {
     "id": "g5_093",
-    "word": "wild goose (geese)",
-    "phonetic": "/wild goose (geese)/",
+    "word": "wild goose",
+    "phonetic": "/wild goose/",
     "meaning": "大雁",
     "example": "Wild geese fly south in autumn.",
     "category": "其他",
     "difficulty": 5,
-    "audio": "wild_goose_(geese).mp3",
+    "audio": "wild_goose.mp3",
     "unit": 2,
     "explain": "A wild goose (geese) is a large wild bird that flies in a V formation."
   },

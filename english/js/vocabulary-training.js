@@ -34,17 +34,30 @@
             if (result.phase === 'review_yesterday' && words.length > 0) {
                 this.showVocabularyNotification('请先完成昨天的单词训练', 'info');
             } else if (!words || words.length === 0) {
-                // 今日单词为空，使用错题本兜底
-                console.log('今日单词为空，使用配置生成单词列表');
-                const unmasteredWords = wrongBook.getUnmasteredWords();
-                words = unmasteredWords
-                    .sort(() => Math.random() - 0.5)
-                    .slice(0, totalWords)
-                    .map(w => ({
-                        word: w.word,
-                        meaning: w.meaning,
-                        phonetic: w.phonetic || ''
-                    }));
+                // 今日单词为空。若今天还没有任何记录（尚未开始），优先调用 /complete-review
+                // 生成"从未学过"的新词，避免直接用错题本随机兜底而抽到旧词。
+                // 仅在 /today 请求成功（无加载错误）时才触发，防止网络/登录异常时误写数据。
+                const todayNotStarted = !vocabulary._todayLoadError &&
+                    (result.studied || 0) === 0 && (result.total || 0) === 0;
+                if (todayNotStarted) {
+                    console.log('今日尚无记录，调用 /complete-review 生成今日新词');
+                    await vocabulary.completeReview();
+                    await vocabulary._loadTodayWords();
+                    words = vocabulary.getTodayWords() || [];
+                }
+                // 仍然为空（如错题本已无"从未学过"的词，或今日已完成），再用错题本未掌握词随机兜底
+                if (!words || words.length === 0) {
+                    console.log('今日单词仍为空，使用错题本未掌握词随机兜底');
+                    const unmasteredWords = wrongBook.getUnmasteredWords();
+                    words = unmasteredWords
+                        .sort(() => Math.random() - 0.5)
+                        .slice(0, totalWords)
+                        .map(w => ({
+                            word: w.word,
+                            meaning: w.meaning,
+                            phonetic: w.phonetic || ''
+                        }));
+                }
             } else {
                 console.log(`使用今日单词进行训练: ${words.length} 个单词`);
             }
@@ -671,13 +684,24 @@
                 }
             });
 
+            // 昨天的日期。复习昨天的单词时，学习记录必须写到昨天的日期上，
+            // 否则会在今天生成一批和昨天相同的记录，导致"今天的单词和昨天一样"
+            const yesterdayDate = new Date();
+            yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+            const yesterdayStr = vocabulary._getLocalDateStr(yesterdayDate);
+
             // 自动将完全掌握的单词标记为已记住
+            // 复习昨天的单词时写到昨天的记录，避免在今天生成重复记录
             for (const word of fullyMasteredWords) {
-                await vocabulary.toggleRemembered(word, true);
+                const wordData = this.trainingWords.find(w => w.word === word);
+                const targetDate = (wordData && wordData.isYesterday) ? yesterdayStr : null;
+                await vocabulary.toggleRemembered(word, true, targetDate);
             }
 
             // 统一记录每个单词的学习结果（用3种模式的综合结果，避免竞态条件）
             for (const wordData of this.trainingWords) {
+                // 复习昨天的单词时不写入今天的学习记录，否则今天的词表会变得和昨天一样
+                if (wordData.isYesterday) continue;
                 const word = wordData.word;
                 const modes = this.trainingWordResults[word];
                 if (!modes) continue;
@@ -695,19 +719,13 @@
                 }
             }
 
-            // 将"3种模式全对"的昨天单词逐个标记为已复习（只有真正完成的单词才标记 reviewed=1）
-            const yesterdayDate = new Date();
-            yesterdayDate.setDate(yesterdayDate.getDate() - 1);
-            const yesterdayStr = vocabulary._getLocalDateStr(yesterdayDate);
-            for (const word of fullyMasteredWords) {
-                const wordData = this.trainingWords.find(w => w.word === word);
-                if (wordData && wordData.isYesterday) {
-                    try {
-                        await vocabulary.markAsReviewed(word, yesterdayStr);
-                    } catch (err) {
-                        console.error('标记复习状态失败:', err);
-                    }
-                }
+            // 如果本次训练包含昨天的单词，调用 /complete-review 完成复习（原子操作）：
+            // 将昨天所有未复习的单词标记为已复习，并为今天插入"从未学过"的新单词。
+            // 相比逐词标记，这样能保证复习完成后立即切换到今天的新词阶段，
+            // 且新词严格按"从未学过"生成，不会重复抽到旧词。
+            const hasYesterdayWords = this.trainingWords.some(w => w.isYesterday);
+            if (hasYesterdayWords) {
+                await vocabulary.completeReview();
             }
 
             // 重新加载今日单词列表（后端会根据昨天是否全部 reviewed 切换到今天的新词阶段）

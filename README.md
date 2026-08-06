@@ -184,5 +184,4 @@ MIT License
 使用MySQL数据库，主要表结构：
 - `wrong_book`：错题本表（单词库直接使用此表数据）
 - `vocabulary_daily_record`：每日学习记录表
-- `vocabulary_total_record`：总体学习记录表
 - `leaderboard`：排行榜表
