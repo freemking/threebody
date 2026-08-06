@@ -15,6 +15,23 @@ function getLocalDate(date = new Date()) {
     return `${year}-${month}-${day}`;
 }
 
+// 判断某一天的单词是否"全部学习完成且正确"（每个单词 correct=1 或 remembered=1）
+// 用于控制历史单词/学习数据图表：只有当天单词全部学完且全对，才在历史/图表中展示该天。
+// 与 /today 接口判定"已完成"的口径保持一致（correct===1 || remembered===1）。
+async function isDayFullyCompleted(userId, date) {
+    const [rows] = await queryWithRetry(
+        `SELECT COUNT(*) AS total,
+                SUM(CASE WHEN correct = 1 OR remembered = 1 THEN 1 ELSE 0 END) AS done
+         FROM vocabulary_daily_record
+         WHERE user_id = ? AND study_date = ? AND word IS NOT NULL`,
+        [userId, date]
+    );
+    const r = rows[0] || {};
+    const total = Number(r.total) || 0;
+    const done = Number(r.done) || 0;
+    return total > 0 && done === total;
+}
+
 // 完成复习并插入今日新单词（原子操作，避免重复插入）
 router.post('/complete-review', authenticateToken, async (req, res) => {
     let connection = null;
@@ -710,8 +727,15 @@ router.get('/history-dates', authenticateToken, async (req, res) => {
         }));
         
         // 额外过滤：确保返回的数据中wordCount大于0
-        const filteredData = data.filter(d => d.wordCount > 0);
-        
+        let filteredData = data.filter(d => d.wordCount > 0);
+
+        // 今天必须"全部学习完成且正确"才在历史单词中显示；过往日期正常显示
+        const today = getLocalDate();
+        const todayComplete = await isDayFullyCompleted(userId, today);
+        if (!todayComplete) {
+            filteredData = filteredData.filter(d => d.date !== today);
+        }
+
         res.json({ success: true, data: filteredData });
     } catch (error) {
         console.error('获取历史学习日期失败:', error);
@@ -838,8 +862,18 @@ router.get('/weekly-chart', authenticateToken, async (req, res) => {
         }
         
         const chartData = [];
-        
+
+        // 今天必须"全部学习完成且正确"才在图表中显示柱状图；过往日期正常显示
+        const today = getLocalDate();
+        const todayComplete = await isDayFullyCompleted(userId, today);
+
         for (const date of dates) {
+            // 今天尚未全部学完且全对时，不显示今天的柱状图
+            if (date === today && !todayComplete) {
+                chartData.push({ date, count: 0, accuracy: 0 });
+                continue;
+            }
+
             const [count] = await queryWithRetry(
                 'SELECT COUNT(DISTINCT word) as count FROM vocabulary_daily_record WHERE user_id = ? AND study_date = ? AND (remembered = 1 OR study_time IS NOT NULL)',
                 [userId, date]
