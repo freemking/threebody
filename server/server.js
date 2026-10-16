@@ -8,7 +8,6 @@ const englishLeaderboardRouter = require('./routes/english_leaderboard');
 const vocabularyRouter = require('./routes/vocabulary');
 const authRouter = require('./routes/auth');
 const combinationsRouter = require('./routes/combinations');
-const phoneticsRouter = require('./routes/phonetics');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,7 +25,6 @@ app.use('/api/leaderboard', leaderboardRouter);
 app.use('/api/english-leaderboard', englishLeaderboardRouter);
 app.use('/api/vocabulary', vocabularyRouter);
 app.use('/api/combinations', combinationsRouter);
-app.use('/api/phonetics', phoneticsRouter);
 
 // 静态文件服务（指向项目根目录）
 app.use(express.static(path.join(__dirname, '..')));
@@ -44,7 +42,6 @@ app.listen(PORT, async () => {
     console.log(`英语排行榜接口: http://localhost:${PORT}/api/english-leaderboard`);
     console.log(`记单词接口: http://localhost:${PORT}/api/vocabulary`);
     console.log(`字母组合接口: http://localhost:${PORT}/api/combinations`);
-    console.log(`音标学习接口: http://localhost:${PORT}/api/phonetics`);
     console.log(`认证接口: http://localhost:${PORT}/api/auth`);
     
 });

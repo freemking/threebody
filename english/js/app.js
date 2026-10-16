@@ -861,12 +861,6 @@ class App {
         const combinationsBtn = document.getElementById('btn-combinations');
         if (combinationsBtn) combinationsBtn.addEventListener('click', () => this.showCombinations());
         
-        // 音标学习按钮
-        const phoneticsBtn = document.getElementById('btn-phonetics');
-        if (phoneticsBtn) phoneticsBtn.addEventListener('click', () => this.showPhonetics());
-        
-        
-        
         // 返回按钮
         const backBtn = document.getElementById('btn-back');
         if (backBtn) backBtn.addEventListener('click', () => this.showMainMenu());
@@ -1737,14 +1731,6 @@ class App {
     showCombinations() {
         window.location.href = 'combinations.html';
     }
-
-    /**
-     * 显示音标学习页面
-     */
-    showPhonetics() {
-        window.location.href = 'phonetics.html';
-    }
-    
 }
 
 // Apply vocabulary mixin to App class
