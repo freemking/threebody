@@ -10,20 +10,28 @@
          * 开始训练（根据配置选择模式）
          */
         async startTraining() {
-            // 获取听写高级设置（从系统设置中读取）
+            // 获取听写高级设置（优先读界面控件，缺失时回退到已保存设置）
             const listeningInterval = 5000; // 固定5秒间隔
-            let listeningPlayCount = 2; // 默认2次
-            let listeningShowChinese = true; // 默认显示中文释义
-            let listeningShowFirstLetter = false; // 默认不显示首字母
+            const savedSettings = this.getVocabularySettings();
+            let listeningPlayCount = savedSettings.listeningPlayCount;
+            let listeningShowChinese = savedSettings.listeningShowChinese;
+            let listeningShowFirstLetter = savedSettings.listeningShowFirstLetter;
 
             const playCountBtn = document.querySelector('[data-setting="listening-play-count"].active');
-            listeningPlayCount = playCountBtn ? parseInt(playCountBtn.dataset.value) : 2;
+            if (playCountBtn) {
+                const value = parseInt(playCountBtn.dataset.value, 10);
+                if (!Number.isNaN(value)) listeningPlayCount = value;
+            }
 
-            listeningShowChinese = document.getElementById('listening-show-chinese-hint')?.checked || false;
-            listeningShowFirstLetter = document.getElementById('listening-show-first-letter')?.checked || false;
+            const chineseHintEl = document.getElementById('listening-show-chinese-hint');
+            if (chineseHintEl) listeningShowChinese = chineseHintEl.checked;
+            const firstLetterEl = document.getElementById('listening-show-first-letter');
+            if (firstLetterEl) listeningShowFirstLetter = firstLetterEl.checked;
 
             // 读取每天学习单词数量设置
-            const totalWords = parseInt(document.getElementById('daily-word-count')?.value || 5);
+            const totalWords = parseInt(
+                document.getElementById('daily-word-count')?.value || savedSettings.dailyWordCount
+            );
 
             // 统一从 /today 端点获取训练单词（后端已按阶段返回：复习昨天的 或 今天的新词）
             await vocabulary._loadTodayWords();
@@ -77,6 +85,12 @@
             this.trainingStartTime = Date.now();
             this.trainingAnswered = false;
             this.trainingErrors = [];
+            this.trainingTransitioning = false; // 模式切换中，防止重复点击"下一个"
+            if (this._trainingTransitionTimer) {
+                clearTimeout(this._trainingTransitionTimer);
+                this._trainingTransitionTimer = null;
+            }
+            this._speakToken = (this._speakToken || 0) + 1; // 终止上一次未完成的重复播放
 
             // 多模式训练结果跟踪
             this.trainingMultiModeResults = {
@@ -151,17 +165,33 @@
          * 记录单词在特定模式下的结果
          */
         recordWordResult(word, mode, isCorrect) {
+            if (!this.trainingWordResults) this.trainingWordResults = {};
             if (!this.trainingWordResults[word]) {
                 this.trainingWordResults[word] = {};
             }
+
+            const bucket = this.trainingMultiModeResults && this.trainingMultiModeResults[mode];
+            const previous = this.trainingWordResults[word][mode];
+
+            // 幂等：同词同模式重复作答（如点"上一个"回去重答）时，先撤销上一次的统计
+            if (previous !== undefined && bucket) {
+                if (previous) {
+                    bucket.correct = Math.max(0, bucket.correct - 1);
+                    this.trainingCorrect = Math.max(0, (this.trainingCorrect || 0) - 1);
+                } else {
+                    const idx = bucket.errors.indexOf(word);
+                    if (idx !== -1) bucket.errors.splice(idx, 1);
+                }
+            }
+
             this.trainingWordResults[word][mode] = isCorrect;
 
             // 更新模式结果统计
-            if (this.trainingMultiModeResults[mode]) {
+            if (bucket) {
                 if (isCorrect) {
-                    this.trainingMultiModeResults[mode].correct++;
-                } else {
-                    this.trainingMultiModeResults[mode].errors.push(word);
+                    bucket.correct++;
+                } else if (!bucket.errors.includes(word)) {
+                    bucket.errors.push(word);
                 }
             }
         },
@@ -210,27 +240,77 @@
         },
 
         /**
+         * HTML 转义，避免释义中的引号/尖括号破坏模板
+         */
+        escapeHtml(value) {
+            return String(value == null ? '' : value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        },
+
+        /**
+         * 构建认读模式选项：1 个正确释义 + 最多 3 个干扰释义
+         * 干扰项优先取错题本（难度贴近当前学习内容），不足时用 data.js 完整词库补齐；
+         * 按释义去重，避免出现两个相同选项
+         */
+        buildRecognitionOptions(word) {
+            const correctMeaning = String(word && word.meaning ? word.meaning : '').trim();
+            const correctWord = String(word && word.word ? word.word : '').toLowerCase();
+            const seen = new Set([correctMeaning.toLowerCase()]);
+            const candidates = [];
+
+            const collect = (list) => {
+                (list || []).forEach(item => {
+                    if (!item) return;
+                    const itemWord = String(item.word || '').toLowerCase();
+                    const meaning = String(item.meaning || '').trim();
+                    if (!meaning || itemWord === correctWord) return;
+                    const key = meaning.toLowerCase();
+                    if (seen.has(key)) return;
+                    seen.add(key);
+                    candidates.push(meaning);
+                });
+            };
+
+            // 1. 错题本词库
+            collect(vocabulary.getAll());
+
+            // 2. 完整词库兜底（词库为空时重新读取，避免首次加载未完成导致长期无干扰项）
+            if (candidates.length < 3 && typeof wordData !== 'undefined' && wordData && typeof wordData.getWordsByGrade === 'function') {
+                try {
+                    if (!Array.isArray(this._meaningPool) || this._meaningPool.length === 0) {
+                        this._meaningPool = wordData.getWordsByGrade('all') || [];
+                    }
+                    collect(this._meaningPool);
+                } catch (err) {
+                    console.warn('构建认读选项时读取词库失败:', err);
+                }
+            }
+
+            const distractors = candidates.sort(() => Math.random() - 0.5).slice(0, 3);
+            return [correctMeaning, ...distractors].sort(() => Math.random() - 0.5);
+        },
+
+        /**
          * 认读模式渲染
          */
         renderRecognitionMode(word, container, reviewBadge = '') {
-            const allWords = vocabulary.getAll();
-            const options = [word.meaning];
-            const otherWords = allWords.filter(w => w.word !== word.word)
-                .sort(() => Math.random() - 0.5)
-                .slice(0, 3);
-            otherWords.forEach(w => options.push(w.meaning));
-            options.sort(() => Math.random() - 0.5);
+            const options = this.buildRecognitionOptions(word);
+            const esc = (value) => this.escapeHtml(value);
 
             container.innerHTML = `
                 <div class="recognition-card">
                     ${reviewBadge}
-                    <div class="recognition-word" id="training-word">${word.word}</div>
-                    <div class="recognition-phonetic">${word.phonetic || ''}</div>
+                    <div class="recognition-word" id="training-word">${esc(word.word)}</div>
+                    <div class="recognition-phonetic">${esc(word.phonetic || '')}</div>
                     <div class="recognition-options" id="training-options">
                         ${options.map((opt, i) => `
-                            <button class="recognition-option" data-meaning="${opt}" data-index="${i}">
+                            <button class="recognition-option" data-meaning="${esc(opt)}" data-index="${i}">
                                 <span class="option-key">${i + 1}</span>
-                                ${opt}
+                                ${esc(opt)}
                             </button>
                         `).join('')}
                     </div>
@@ -252,7 +332,8 @@
             this.trainingAnswered = true;
 
             const selectedMeaning = btn.dataset.meaning;
-            const isCorrect = selectedMeaning === word.meaning;
+            // 两侧都 trim 后比较，避免释义首尾空格导致误判
+            const isCorrect = String(selectedMeaning || '').trim() === String(word.meaning || '').trim();
 
             // 先记录多模式训练结果（同步操作，确保结果立即记录）
             this.recordWordResult(word.word, 'recognition', isCorrect);
@@ -268,7 +349,9 @@
                 btn.classList.add('wrong');
                 // 高亮正确选项
                 document.querySelectorAll('.recognition-option').forEach(b => {
-                    if (b.dataset.meaning === word.meaning) b.classList.add('correct');
+                    if (String(b.dataset.meaning || '').trim() === String(word.meaning || '').trim()) {
+                        b.classList.add('correct');
+                    }
                 });
                 this.showVocabularyNotification('错误！', 'error');
                 this.trainingErrors.push(word);
@@ -278,7 +361,7 @@
                     word: word.word,
                     meaning: word.meaning,
                     phonetic: word.phonetic || '',
-                    fromList: 'vocabulary-recognition'
+                    from: 'vocabulary-recognition'
                 });
             }
 
@@ -287,9 +370,9 @@
             if (detail) {
                 detail.style.display = 'block';
                 detail.innerHTML = `
-                    <div class="detail-meaning">${word.meaning}</div>
-                    <div class="detail-phonetic">${word.phonetic || ''}</div>
-                    ${word.example ? `<div class="detail-example">"${word.example}"</div>` : ''}
+                    <div class="detail-meaning">${this.escapeHtml(word.meaning)}</div>
+                    <div class="detail-phonetic">${this.escapeHtml(word.phonetic || '')}</div>
+                    ${word.example ? `<div class="detail-example">"${this.escapeHtml(word.example)}"</div>` : ''}
                 `;
             }
 
@@ -386,7 +469,7 @@
                     word: word.word,
                     meaning: word.meaning,
                     phonetic: word.phonetic || '',
-                    fromList: 'vocabulary-spelling'
+                    from: 'vocabulary-spelling'
                 });
 
                 // 显示正确拼写，错误字母标红
@@ -450,12 +533,21 @@
                 };
             }
 
+            // 提示区：按系统设置决定是否默认显示中文释义 / 首字母
+            const hintEl = document.getElementById('listening-hint');
+            const renderHints = (full = false) => {
+                const parts = [];
+                if (full || this.listeningShowChinese) parts.push(word.meaning || '');
+                if (full || this.listeningShowFirstLetter) parts.push(`首字母: ${word.word[0]}`);
+                if (hintEl) hintEl.textContent = parts.filter(Boolean).join(' · ');
+            };
+            renderHints(false);
+
             const hintBtn = document.getElementById('btn-listening-hint');
             if (hintBtn) {
                 hintBtn.onclick = () => {
-                    const hintEl = document.getElementById('listening-hint');
-                    if (hintEl) hintEl.textContent = word.meaning;
-                    hintBtn.textContent = `首字母: ${word.word[0]}`;
+                    renderHints(true);
+                    hintBtn.textContent = '已显示提示';
                     hintBtn.disabled = true;
                 };
             }
@@ -507,7 +599,7 @@
                     word: word.word,
                     meaning: word.meaning,
                     phonetic: word.phonetic || '',
-                    fromList: 'vocabulary-listening'
+                    from: 'vocabulary-listening'
                 });
 
                 if (feedback) {
@@ -538,11 +630,36 @@
          * 播放当前训练单词发音
          */
         playCurrentTrainingWord() {
+            // 听音模式按「播放次数」设置重复朗读
+            const times = this.trainingMode === 'listening'
+                ? Math.max(1, parseInt(this.listeningPlayCount, 10) || 1)
+                : 1;
+            this._playTrainingWordRepeated(times);
+        },
+
+        /**
+         * 重复播放当前单词发音（串行，避免前一次朗读被打断）
+         */
+        async _playTrainingWordRepeated(times = 1) {
             const word = this.trainingWords[this.trainingIndex];
             if (!word) return;
 
-            if (typeof audioManager !== 'undefined' && audioManager.speak) {
-                audioManager.speak(word.word, 'en-US').catch(() => {});
+            // 通过 token 让切换单词后立刻终止尚未完成的重复播放
+            const token = (this._speakToken = (this._speakToken || 0) + 1);
+            const speakOnce = () => {
+                if (typeof audioManager === 'undefined' || !audioManager.speak) {
+                    return Promise.resolve();
+                }
+                return Promise.resolve(audioManager.speak(word.word, 'en-US')).catch(() => {});
+            };
+
+            for (let i = 0; i < times; i++) {
+                if (this._speakToken !== token) return;
+                await speakOnce();
+                if (this._speakToken !== token) return;
+                if (i < times - 1) {
+                    await new Promise(resolve => setTimeout(resolve, 500));
+                }
             }
         },
 
@@ -550,6 +667,9 @@
          * 下一个训练单词
          */
         async nextTrainingWord() {
+            // 模式切换动画期间忽略重复点击，否则会多加一次 trainingIndex 跳过首个单词
+            if (this.trainingTransitioning) return;
+
             this.trainingIndex++;
             if (this.trainingIndex >= this.trainingWords.length) {
                 // 当前模式完成，检查是否还有下一个模式
@@ -569,11 +689,25 @@
                     const modeNames = { recognition: '认读', spelling: '拼写', listening: '听音' };
                     this.showVocabularyNotification(`${modeNames[this.trainingMode]}模式开始`, 'info');
 
+                    // 切换期间锁住"下一个"按钮
+                    this.trainingTransitioning = true;
+                    const nextBtn = document.getElementById('btn-training-next');
+                    if (nextBtn) nextBtn.disabled = true;
+
                     // 显示第一个单词
-                    setTimeout(() => this.showTrainingWord(), 500);
+                    this._trainingTransitionTimer = setTimeout(() => {
+                        this._trainingTransitionTimer = null;
+                        this.trainingTransitioning = false;
+                        this.showTrainingWord();
+                    }, 500);
                 } else {
-                    // 所有模式完成，显示结果
-                    await this.showTrainingResult();
+                    // 所有模式完成，显示结果（加锁避免重复提交学习记录）
+                    this.trainingTransitioning = true;
+                    try {
+                        await this.showTrainingResult();
+                    } finally {
+                        this.trainingTransitioning = false;
+                    }
                 }
             } else {
                 this.showTrainingWord();
@@ -597,6 +731,12 @@
             this.trainingMode = null;
             this.trainingModes = null;
             this.trainingModeIndex = 0;
+            this.trainingTransitioning = false;
+            this._speakToken = (this._speakToken || 0) + 1; // 终止未完成的重复播放
+            if (this._trainingTransitionTimer) {
+                clearTimeout(this._trainingTransitionTimer);
+                this._trainingTransitionTimer = null;
+            }
             this.trainingMultiModeResults = null;
             this.trainingWordResults = null;
 

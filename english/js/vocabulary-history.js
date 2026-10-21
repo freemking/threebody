@@ -308,29 +308,27 @@
 
                 historyList.innerHTML = historyHtml;
 
-                // 添加历史单词发音按钮事件委托
-                historyList.addEventListener('click', (e) => {
+                // 发音按钮事件委托：使用 onclick 覆盖式绑定，重复渲染不会累积监听
+                historyList.onclick = (e) => {
                     const pronunciationBtn = e.target.closest('.btn-pronunciation');
-                    if (pronunciationBtn) {
-                        e.stopPropagation();
-                        const word = pronunciationBtn.dataset.word;
-                        if (word) {
-                            audioManager.speak(word, 'en-US').catch(() => {});
-                        }
+                    if (!pronunciationBtn) return;
+                    e.stopPropagation();
+                    const word = pronunciationBtn.dataset.word;
+                    if (word && typeof audioManager !== 'undefined') {
+                        audioManager.speak(word, 'en-US').catch(() => {});
                     }
-                });
+                };
 
-                // 异步加载每个日期的单词
-                for (const dateInfo of historyDates) {
+                // 并行加载每个日期的单词，避免 30 天记录串行请求
+                await Promise.all(historyDates.map(async (dateInfo) => {
                     // 确保日期格式为YYYY-MM-DD（与HTML ID一致）
                     const date = typeof dateInfo.date === 'string' && dateInfo.date.includes('T')
                         ? dateInfo.date.split('T')[0]
                         : dateInfo.date;
                     const words = await vocabulary.getDailyRecord(date);
-                    console.log(`历史单词数据 (${date}):`, words);
                     const wordsContainer = document.getElementById(`history-words-${date}`);
 
-                    if (wordsContainer && words.length > 0) {
+                    if (wordsContainer && words && words.length > 0) {
                         wordsContainer.innerHTML = words.map(word => `
                             <div class="history-word-item ${word.correct ? 'correct' : 'incorrect'}">
                                 <div class="history-word-header">
@@ -352,7 +350,7 @@
                     } else if (wordsContainer) {
                         wordsContainer.innerHTML = '<div class="no-words">暂无记录</div>';
                     }
-                }
+                }));
 
             } catch (error) {
                 console.error('渲染历史单词失败:', error);

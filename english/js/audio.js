@@ -292,10 +292,25 @@ class AudioManager {
     /**
      * 使用语音合成播放单词发音
      * @param {string} text 要朗读的文本
-     * @param {string} lang 语言代码
+     * @param {string|Object} langOrOptions 语言代码 'en-US'，或 { lang, rate, volume, onStart, onEnd }
      * @returns {Promise} 播放完成的Promise
      */
-    speak(text, lang = 'en-US') {
+    speak(text, langOrOptions = 'en-US') {
+        // 兼容两种调用方式：speak(text, 'en-US') 与 speak(text, { rate: 0.8, onStart, onEnd })
+        const options = typeof langOrOptions === 'string'
+            ? { lang: langOrOptions }
+            : (langOrOptions || {});
+        const lang = options.lang || 'en-US';
+        const finish = () => {
+            if (typeof options.onEnd === 'function') {
+                try {
+                    options.onEnd();
+                } catch (err) {
+                    console.error('语音结束回调执行失败:', err);
+                }
+            }
+        };
+
         return new Promise((resolve, reject) => {
             if (!this.soundEnabled) {
                 resolve();
@@ -314,24 +329,33 @@ class AudioManager {
             
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = lang;
-            utterance.rate = this.voiceSpeed;
+            utterance.rate = typeof options.rate === 'number' ? options.rate : this.voiceSpeed;
             utterance.pitch = 1.0;
-            utterance.volume = 1.0;
+            utterance.volume = typeof options.volume === 'number' ? options.volume : 1.0;
             
             utterance.onstart = () => {
                 this.isSpeaking = true;
                 console.log(`Started speaking: ${text}`);
+                if (typeof options.onStart === 'function') {
+                    try {
+                        options.onStart();
+                    } catch (err) {
+                        console.error('语音开始回调执行失败:', err);
+                    }
+                }
             };
             
             utterance.onend = () => {
                 this.isSpeaking = false;
                 console.log(`Finished speaking: ${text}`);
+                finish();
                 resolve();
             };
             
             utterance.onerror = (event) => {
                 this.isSpeaking = false;
                 // "interrupted" 是正常行为（用户快速点击），不需要 reject
+                finish();
                 if (event.error === 'interrupted') {
                     resolve();
                 } else {

@@ -12,7 +12,15 @@
         async renderLearningData() {
             try {
                 // 获取统计数据
-                const stats = vocabulary.getStats();
+                // getStats() 在首次加载未完成或 /stats 请求失败时返回 null，
+                // 直接解引用会让整个学习数据页白屏，这里先补加载再兜底默认值
+                let stats = vocabulary.getStats();
+                if (!stats) {
+                    stats = await vocabulary._loadStats();
+                }
+                if (!stats) {
+                    stats = { todayStudied: 0, totalWords: 0, todayAccuracy: 0 };
+                }
                 const userStats = await vocabulary.getUserStats();
                 const weeklyChart = await vocabulary.getWeeklyChart();
 
@@ -22,9 +30,9 @@
                 const accuracyEl = document.getElementById('data-accuracy');
                 const streakEl = document.getElementById('data-streak');
 
-                if (studyTimeEl) studyTimeEl.textContent = `${stats.todayStudied * 2}分钟`;
-                if (wordsLearnedEl) wordsLearnedEl.textContent = stats.totalWords;
-                if (accuracyEl) accuracyEl.textContent = `${stats.todayAccuracy}%`;
+                if (studyTimeEl) studyTimeEl.textContent = `${(stats.todayStudied || 0) * 2}分钟`;
+                if (wordsLearnedEl) wordsLearnedEl.textContent = stats.totalWords || 0;
+                if (accuracyEl) accuracyEl.textContent = `${stats.todayAccuracy || 0}%`;
                 if (streakEl) streakEl.textContent = `${userStats?.stats?.consecutiveDays || 0}天`;
 
                 // 渲染学习趋势图

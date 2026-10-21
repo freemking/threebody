@@ -39,6 +39,12 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
         const userId = req.user.id;
         const today = getLocalDate();
         const yesterday = getLocalDate(new Date(Date.now() - 86400000));
+
+        // 每日新词数量由前端设置传入，默认 5，限制在 1~20 之间
+        const requestedCount = parseInt(req.body && req.body.dailyCount, 10);
+        const dailyCount = Number.isNaN(requestedCount)
+            ? 5
+            : Math.min(20, Math.max(1, requestedCount));
         
         // 获取专用连接用于事务
         const { getPool } = require('../db');
@@ -75,7 +81,7 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
                 });
             }
 
-            // 第二步：昨天已全部复习（或昨天无单词），确保今天已有 5 个全新单词（完全不存在于 vocabulary_daily_record 的）
+            // 第二步：昨天已全部复习（或昨天无单词），确保今天已有 dailyCount 个全新单词（完全不存在于 vocabulary_daily_record 的）
             // 新词的选择标准：wrong_book 中未掌握、未删除、且 vocabulary_daily_record 中【任何日期】都不存在的单词
             const [newCountRows] = await connection.execute(
                 `SELECT COUNT(DISTINCT d.word) as cnt FROM vocabulary_daily_record d
@@ -84,7 +90,7 @@ router.post('/complete-review', authenticateToken, async (req, res) => {
                 [userId, today, userId, today]
             );
             const newWordsToday = (newCountRows[0] && newCountRows[0].cnt) || 0;
-            const newRemaining = Math.max(0, 5 - newWordsToday);
+            const newRemaining = Math.max(0, dailyCount - newWordsToday);
 
             let newWords = [];
             if (newRemaining > 0) {
@@ -416,6 +422,8 @@ router.get('/today', authenticateToken, async (req, res) => {
                 data,
                 studied: 0,
                 total: data.length,
+                // 昨天的单词总数（含已复习的），供前端计算「已复习/总数」进度
+                reviewTotal: yesterdayRecords.length,
                 completed: false,
                 hasReview: true,
                 reviewCount: data.length,
@@ -532,11 +540,14 @@ router.post('/study', authenticateToken, async (req, res) => {
             );
         }
 
-        // 更新错题本的学习次数
-        await queryWithRetry(
-            'UPDATE wrong_book SET wrong_count = wrong_count + 1, last_wrong_time = ? WHERE user_id = ? AND word = ?',
-            [now, userId, word]
-        );
+        // 更新错题本：只有答错才累加错误次数并刷新最近错误时间；
+        // 答对不修改 wrong_book，否则「错误次数」「高频错题」「最近错误时间排序」都会被答对污染
+        if (!correct) {
+            await queryWithRetry(
+                'UPDATE wrong_book SET wrong_count = wrong_count + 1, last_wrong_time = ? WHERE user_id = ? AND word = ?',
+                [now, userId, word]
+            );
+        }
 
         // 检查是否已掌握（基于每日学习记录：累计答对3次且正确率超过80%）
         if (correct) {
@@ -831,12 +842,17 @@ router.get('/stats', authenticateToken, async (req, res) => {
             [userId]
         );
         
+        const requestedTarget = parseInt(req.query.count, 10);
+        const dailyTarget = Number.isNaN(requestedTarget)
+            ? 5
+            : Math.min(20, Math.max(1, requestedTarget));
+
         const stats = {
             totalWords: userStats.length > 0 ? userStats[0].total_words_learned : 0,
             masteredWords: userStats.length > 0 ? userStats[0].total_words_mastered : 0,
             unmasteredWords: (userStats.length > 0 ? userStats[0].total_words_learned : 0) - (userStats.length > 0 ? userStats[0].total_words_mastered : 0),
             todayStudied: todayStudied[0].count,
-            todayTarget: 5,
+            todayTarget: dailyTarget,
             todayAccuracy: todayAccuracy[0].total > 0 
                 ? Math.round(todayAccuracy[0].correct / todayAccuracy[0].total * 100) 
                 : 0,

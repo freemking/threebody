@@ -264,20 +264,25 @@
             // 更新进度
             if (progressText && progressFill) {
                 if (isYesterdayWords) {
-                    // 昨天复习进度：已复习数 / 总数
-                    const total = result.total || wordsToShow.length;
+                    // 昨天复习进度：已复习数 / 昨天单词总数
+                    // result.total 是「未复习数」，用后端返回的 reviewTotal（昨天总数）作分母
+                    const total = result.reviewTotal || result.total || wordsToShow.length;
                     // 已复习数 = 昨天总数 - 当前未复习数
                     const reviewedCount = Math.max(0, total - wordsToShow.length);
                     const progressPercent = total > 0 ? Math.min((reviewedCount / total) * 100, 100) : 0;
                     progressText.textContent = `${reviewedCount}/${total}`;
                     progressFill.style.width = `${progressPercent}%`;
                 } else {
-                    // 今天的单词进度
+                    // 今天的单词进度：已记住数 / (已记住 + 未记住)
+                    // 注意 result.total 只是未记住的数量，会随着学习不断变小，不能直接当分母
                     const stats = vocabulary.getStats();
-                    const todayStudied = stats ? stats.todayStudied : 0;
-                    const totalToday = result.total || 5;
-                    const progressPercent = totalToday > 0 ? Math.min((todayStudied / totalToday) * 100, 100) : 0;
-                    progressText.textContent = `${todayStudied}/${totalToday}`;
+                    const remaining = result.total || 0;
+                    const studiedCount = typeof result.studied === 'number'
+                        ? result.studied
+                        : (stats ? stats.todayStudied : 0);
+                    const totalToday = (studiedCount + remaining) || (stats && stats.todayTarget) || 5;
+                    const progressPercent = totalToday > 0 ? Math.min((studiedCount / totalToday) * 100, 100) : 0;
+                    progressText.textContent = `${studiedCount}/${totalToday}`;
                     progressFill.style.width = `${progressPercent}%`;
                 }
             }

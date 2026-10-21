@@ -95,7 +95,12 @@
             const sourceNames = {
                 monopoly: '单词大富翁',
                 wordmatch: '单词配对',
-                wordblast: '单词填空'
+                wordblast: '单词填空',
+                'vocabulary-recognition': '认读训练',
+                'vocabulary-spelling': '拼写训练',
+                'vocabulary-listening': '听音训练',
+                'vocabulary-dictation': '听写训练',
+                'vocabulary-review': '单词复习'
             };
 
             // 渲染错题卡片
@@ -235,7 +240,12 @@
             if (listContainer) {
                 listContainer.onclick = async (e) => {
                     const target = e.target.closest('button');
-                    if (!target) return;
+                    if (!target) {
+                        // 卡片点击展开/收起详情（与按钮委托合并为同一个 onclick，避免重复绑定）
+                        const item = e.target.closest('.wrongbook-item');
+                        if (item) item.classList.toggle('expanded');
+                        return;
+                    }
 
                     // 朗读按钮
                     if (target.classList.contains('wrongbook-speak-btn')) {
@@ -291,15 +301,6 @@
                         return;
                     }
                 };
-
-                // 卡片点击展开/收起详情
-                listContainer.addEventListener('click', (e) => {
-                    const item = e.target.closest('.wrongbook-item');
-                    if (!item || e.target.closest('button')) return;
-
-                    // 切换卡片展开状态
-                    item.classList.toggle('expanded');
-                });
             }
 
             // 勾选框事件
@@ -316,11 +317,16 @@
             const clearSelectionBtn = document.getElementById('btn-clear-selection');
 
             // 勾选框变化事件
-            document.addEventListener('change', (e) => {
-                if (e.target.classList.contains('wrongbook-checkbox')) {
+            // 每次进入模块都会调用本方法，必须先解绑上一次的 handler，否则会累积重复监听
+            if (this._wrongbookChangeHandler) {
+                document.removeEventListener('change', this._wrongbookChangeHandler);
+            }
+            this._wrongbookChangeHandler = (e) => {
+                if (e.target && e.target.classList && e.target.classList.contains('wrongbook-checkbox')) {
                     this.updateWrongbookSelection();
                 }
-            });
+            };
+            document.addEventListener('change', this._wrongbookChangeHandler);
 
             // 添加到记单词按钮
             if (addToVocabBtn) {

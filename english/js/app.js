@@ -1382,10 +1382,14 @@ class App {
     handleDictationKeyPress(e) {
         switch (e.key) {
             case 'Enter':
-                // 提交答案
+                // 提交答案；已提交时进入下一个（与输入框内的回车行为保持一致）
                 const input = document.getElementById('dictation-input');
                 if (input && document.activeElement === input) {
-                    this.submitDictationAnswer();
+                    if (this.dictationSubmitted) {
+                        this.nextDictationWord();
+                    } else {
+                        this.submitDictationAnswer();
+                    }
                 }
                 break;
             case ' ':

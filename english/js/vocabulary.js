@@ -17,9 +17,15 @@
 class Vocabulary {
     constructor() {
         this.DAILY_TARGET = 5;
-        // 自动检测API地址：本地开发用3000端口，生产环境用相对路径
-        this.API_BASE = window.location.port === '8080' 
-            ? 'http://localhost:3000/api/vocabulary' 
+        // 自动检测API地址：本地静态服务器（8080/5500/8000 等任意端口）都指向后端 3000，
+        // 只有本身由后端（3000）或同源部署时才使用相对路径
+        const host = window.location.hostname;
+        const port = window.location.port;
+        const isFileProtocol = window.location.protocol === 'file:';
+        const isLocalStatic = (host === 'localhost' || host === '127.0.0.1')
+            && port !== '' && port !== '3000';
+        this.API_BASE = (isFileProtocol || isLocalStatic)
+            ? 'http://localhost:3000/api/vocabulary'
             : '/api/vocabulary';
         this._cache = []; // 内存缓存，从数据库加载
         this._todayWords = []; // 今日记单词列表
@@ -30,21 +36,49 @@ class Vocabulary {
         this._todayResult = null; // 今日单词完整结果
         this._todayStudied = 0; // 今日已学单词数
         this._todayCompleted = false; // 今日是否完成
+        this._statsStale = false; // 统计是否需要重新拉取
     }
 
     /**
      * 初始化：从数据库加载数据
      * 注意：不再预加载今日单词，由renderVocabularyList按需加载
      */
-    async init() {
+    async init(force = false) {
+        // 并发锁：同时多次调用时只发一轮请求
         if (this._loading) return;
+        // 已加载过则复用内存缓存，避免每次进入记单词都重复拉取 /list；
+        // 只有学习结果发生变化（_statsStale）时才刷新统计
+        if (this._loaded && !force) {
+            if (this._statsStale) {
+                await this._loadStats();
+                this._statsStale = false;
+            }
+            return;
+        }
         this._loading = true;
         try {
             await this._loadFromDatabase();
             await this._loadStats();
+            this._statsStale = false;
         } finally {
             this._loading = false;
         }
+    }
+
+    /**
+     * 读取每天学习单词数量设置（默认 5，范围 5~10）
+     */
+    _getDailyWordCount() {
+        let count = 5;
+        try {
+            const raw = localStorage.getItem('vocabulary_settings');
+            if (raw) {
+                const saved = JSON.parse(raw);
+                const value = parseInt(saved.dailyWordCount, 10);
+                if (!Number.isNaN(value)) count = value;
+            }
+        } catch (e) { /* 忽略读取失败 */ }
+        return Math.min(10, Math.max(5, count));
     }
 
     /**
@@ -234,7 +268,7 @@ class Vocabulary {
      */
     async _loadStats() {
         try {
-            const result = await this._apiRequest('/stats');
+            const result = await this._apiRequest(`/stats?count=${this._getDailyWordCount()}`);
             if (result && result.success) {
                 this._stats = result.data;
                 return this._stats;
@@ -550,6 +584,7 @@ class Vocabulary {
                 if (todayWord) {
                     todayWord.remembered = remembered ? 1 : 0;
                 }
+                this._statsStale = true;
                 return true;
             }
         } catch (error) {
@@ -591,7 +626,9 @@ class Vocabulary {
      */
     async completeReview() {
         try {
-            const result = await this._apiRequest('/complete-review', 'POST', {});
+            const result = await this._apiRequest('/complete-review', 'POST', {
+                dailyCount: this._getDailyWordCount()
+            });
             if (result && result.success) {
                 if (result.advanced) {
                     console.log(`完成复习: 复习 ${result.reviewedCount} 个昨日单词, 新增 ${result.newWordsCount} 个今日新词`);
@@ -616,6 +653,9 @@ class Vocabulary {
                 correct,
                 userId: 'default'
             });
+            if (result && result.success) {
+                this._statsStale = true;
+            }
             return result && result.success;
         } catch (error) {
             console.error('更新学习统计失败:', error);
