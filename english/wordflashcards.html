@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单词闪卡 - English Word Adventure</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.cn">
+    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+    <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/wordflashcards.css">
+
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
+</head>
+<body>
+    <div id="wordflashcards-screen" class="ui-screen wf-page">
+        <div class="wf-shell">
+            <header class="wf-topbar">
+                <a href="index.html" class="back-btn">← 返回</a>
+                <div class="wf-heading">
+                    <h1>🗂️ 单词闪卡</h1>
+                    <p>按年级与单元背诵，翻卡查看释义、常用用法和词形变化</p>
+                </div>
+                <button id="wf-reset-mastered" class="wf-text-btn" type="button">清除掌握记录</button>
+            </header>
+
+            <section id="wf-setup" class="wf-panel">
+                <div class="wf-section">
+                    <div class="wf-section-title">
+                        <span>📚</span>
+                        <h2>选择年级</h2>
+                    </div>
+                    <div id="wf-grade-grid" class="wf-chip-grid"></div>
+                </div>
+
+                <div class="wf-section">
+                    <div class="wf-section-title">
+                        <span>📖</span>
+                        <h2>选择单元</h2>
+                    </div>
+                    <div id="wf-unit-grid" class="wf-chip-grid"></div>
+                </div>
+
+                <div class="wf-options">
+                    <label class="wf-option">
+                        <input type="checkbox" id="wf-shuffle">
+                        <span>🎲 打乱顺序</span>
+                    </label>
+                    <label class="wf-option">
+                        <input type="checkbox" id="wf-hide-mastered">
+                        <span>✅ 隐藏已掌握</span>
+                    </label>
+                    <label class="wf-option">
+                        <input type="checkbox" id="wf-auto-speak" checked>
+                        <span>🔊 自动发音</span>
+                    </label>
+                </div>
+
+                <div class="wf-setup-footer">
+                    <div id="wf-word-count" class="wf-count">正在加载词库…</div>
+                    <button id="wf-start" class="wf-primary-btn" type="button">开始背诵 →</button>
+                </div>
+                <p id="wf-setup-empty" class="wf-empty hidden">该范围暂无单词，请切换年级或单元。</p>
+            </section>
+
+            <section id="wf-study" class="wf-study hidden">
+                <div class="wf-study-header">
+                    <button id="wf-back-setup" class="wf-secondary-btn" type="button">← 重新选择</button>
+                    <div class="wf-progress-wrap">
+                        <div class="wf-progress-meta">
+                            <span id="wf-progress-label">—</span>
+                            <span id="wf-progress-text">0 / 0</span>
+                        </div>
+                        <div class="wf-progress-bar">
+                            <div id="wf-progress-fill" class="wf-progress-fill"></div>
+                        </div>
+                    </div>
+                    <div id="wf-mastered-count" class="wf-mastered-count">已掌握 0 / 0</div>
+                </div>
+
+                <div id="wf-card-wrap" class="wf-card-wrap">
+                    <div id="wf-card" class="wf-card" role="button" tabindex="0" aria-label="点击翻转卡片">
+                        <div class="wf-card-inner">
+                            <div class="wf-face wf-front">
+                                <div id="wf-front-meta" class="wf-face-meta"></div>
+                                <div id="wf-word" class="wf-word"></div>
+                                <div class="wf-phonetic-row">
+                                    <span id="wf-phonetic" class="wf-phonetic"></span>
+                                    <button id="wf-speak-front" class="wf-speak-btn" type="button">🔊 发音</button>
+                                </div>
+                                <div class="wf-hint">点击卡片查看释义与用法</div>
+                            </div>
+                            <div class="wf-face wf-back">
+                                <div class="wf-back-top">
+                                    <span class="wf-face-meta">释义与用法</span>
+                                    <button id="wf-speak-back" class="wf-speak-btn" type="button">🔊 再听一次</button>
+                                </div>
+                                <div id="wf-meaning" class="wf-meaning"></div>
+                                <div id="wf-details" class="wf-details"></div>
+                                <div class="wf-hint">再次点击翻回正面</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="wf-controls" class="wf-controls">
+                    <button id="wf-prev" class="wf-secondary-btn" type="button">← 上一个</button>
+                    <button id="wf-flip" class="wf-flip-btn" type="button">翻转卡片</button>
+                    <button id="wf-next" class="wf-primary-btn" type="button">下一个 →</button>
+                    <button id="wf-mastered" class="wf-master-btn" type="button">⭐ 标记为已掌握</button>
+                </div>
+
+                <p class="wf-keyboard-tip">快捷键：← / → 切换单词，空格键翻转卡片</p>
+
+                <div id="wf-summary" class="wf-summary hidden">
+                    <div class="wf-summary-icon">🎉</div>
+                    <h2>本轮完成！</h2>
+                    <p id="wf-summary-text"></p>
+                    <div class="wf-summary-actions">
+                        <button id="wf-restart" class="wf-primary-btn" type="button">再来一轮</button>
+                        <button id="wf-summary-back" class="wf-secondary-btn" type="button">返回选择</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="../auth.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/wordflashcards.js"></script>
+</body>
+</html>

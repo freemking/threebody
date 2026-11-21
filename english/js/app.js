@@ -12,6 +12,7 @@ const i18nTexts = {
         btnMonopoly: '🏠 单词大富翁',
         btnWordmatch: '🃏 单词配对',
         btnWordblast: '✏️ 单词填空',
+        btnWordFlashcards: '🗂️ 单词闪卡',
         playerName: '小学霸',
         playerLevel: '等级: 1',
         playerExp: '经验: 0/100',
@@ -307,6 +308,7 @@ const i18nTexts = {
         btnMonopoly: '🏠 Word Monopoly',
         btnWordmatch: '🃏 Word Match',
         btnWordblast: '✏️ Word Fill',
+        btnWordFlashcards: '🗂️ Flashcards',
         playerName: 'Little Scholar',
         playerLevel: 'Level: 1',
         playerExp: 'EXP: 0/100',
@@ -860,6 +862,10 @@ class App {
         // 字母组合按钮
         const combinationsBtn = document.getElementById('btn-combinations');
         if (combinationsBtn) combinationsBtn.addEventListener('click', () => this.showCombinations());
+
+        // 单词闪卡按钮
+        const flashcardsBtn = document.getElementById('btn-wordflashcards');
+        if (flashcardsBtn) flashcardsBtn.addEventListener('click', () => this.showWordFlashcards());
         
         // 返回按钮
         const backBtn = document.getElementById('btn-back');
@@ -1734,6 +1740,13 @@ class App {
      */
     showCombinations() {
         window.location.href = 'combinations.html';
+    }
+
+    /**
+     * 显示单词闪卡页面
+     */
+    showWordFlashcards() {
+        window.location.href = 'wordflashcards.html';
     }
 }
 

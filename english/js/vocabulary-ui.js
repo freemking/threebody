@@ -63,6 +63,11 @@
          * 切换模块
          */
         async switchVocabularyModule(moduleName) {
+            if (moduleName === 'word-flashcards') {
+                window.location.href = 'wordflashcards.html';
+                return;
+            }
+
             this.currentVocabularyModule = moduleName;
 
             // 更新导航高亮
