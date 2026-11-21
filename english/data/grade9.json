@@ -10,7 +10,16 @@
     "audio": "genius.mp3",
     "unit": 1,
     "rootAffix": "gen（出生）+i+us（名词后缀）→出生时有的东西→，守护神，天赋",
-    "explain": "A genius is a person of exceptional ability or intelligence."
+    "explain": "A genius is a person of exceptional ability or intelligence.",
+    "usage": [
+      "a genius（天才）",
+      "a genius at maths（数学天才）"
+    ],
+    "wordForms": [
+      "geniuses（复数）",
+      "ingenious（adj. 巧妙的）",
+      "genius（n. 天赋）"
+    ]
   },
   {
     "id": "g9_002",
@@ -23,7 +32,18 @@
     "audio": "wise.mp3",
     "unit": 1,
     "rootAffix": "wis（见）+e→见多识广的→有智慧的，明智的，英明的，明察善断的",
-    "explain": "Wise means a common English word."
+    "explain": "Wise means a common English word.",
+    "usage": [
+      "a wise man（智者）",
+      "a wise choice（明智的选择）"
+    ],
+    "wordForms": [
+      "wisely（adv. 明智地）",
+      "wisdom（n. 智慧）",
+      "wiser（比较级）",
+      "wisest（最高级）",
+      "unwise（adj. 不明智的）"
+    ]
   },
   {
     "id": "g9_003",
@@ -36,7 +56,18 @@
     "audio": "invent.mp3",
     "unit": 1,
     "rootAffix": "in（on，upon，触及）+vent（到来）→偶然遇到→发现，找到→发明，创造",
-    "explain": "An invent is to create something new."
+    "explain": "An invent is to create something new.",
+    "usage": [
+      "invent a machine（发明机器）",
+      "invent a story（编故事）"
+    ],
+    "wordForms": [
+      "invents（第三人称单数）",
+      "invented（过去式）",
+      "inventing（现在分词）",
+      "invention（n. 发明）",
+      "inventor（n. 发明家）"
+    ]
   },
   {
     "id": "g9_004",
@@ -49,7 +80,18 @@
     "audio": "discover.mp3",
     "unit": 1,
     "rootAffix": "dis（去掉）+cover（遮盖）→去掉遮盖→发现，发觉",
-    "explain": "A discover is to find first."
+    "explain": "A discover is to find first.",
+    "usage": [
+      "discover a place（发现一个地方）",
+      "discover the truth（发现真相）"
+    ],
+    "wordForms": [
+      "discovers（第三人称单数）",
+      "discovered（过去式）",
+      "discovering（现在分词）",
+      "discovery（n. 发现）",
+      "discoverer（n. 发现者）"
+    ]
   },
   {
     "id": "g9_005",
@@ -62,7 +104,18 @@
     "audio": "solve.mp3",
     "unit": 1,
     "rootAffix": "solv（松开）+e→解开→解决，解答，溶解",
-    "explain": "To solve means a common English word."
+    "explain": "To solve means a common English word.",
+    "usage": [
+      "solve a problem（解决问题）",
+      "solve a mystery（解开谜团）"
+    ],
+    "wordForms": [
+      "solves（第三人称单数）",
+      "solved（过去式）",
+      "solving（现在分词）",
+      "solution（n. 解决办法）",
+      "solver（n. 解决者）"
+    ]
   },
   {
     "id": "g9_006",
@@ -75,7 +128,16 @@
     "audio": "ancient.mp3",
     "unit": 1,
     "rootAffix": "anci（=ante，在前面）+ent（形容词后缀）→（很久）以前的→古代的",
-    "explain": "An ancient is very old."
+    "explain": "An ancient is very old.",
+    "usage": [
+      "ancient China（古代中国）",
+      "ancient buildings（古代建筑）"
+    ],
+    "wordForms": [
+      "ancient（adj. 古代的）",
+      "anciently（adv. 古代地，少见）",
+      "modern（adj. 现代的，反义）"
+    ]
   },
   {
     "id": "g9_007",
@@ -87,7 +149,17 @@
     "difficulty": 9,
     "audio": "war.mp3",
     "unit": 1,
-    "explain": "A war is a state of armed conflict between countries."
+    "explain": "A war is a state of armed conflict between countries.",
+    "usage": [
+      "world war（世界大战）",
+      "fight in a war（参战）"
+    ],
+    "wordForms": [
+      "wars（复数）",
+      "warlike（adj. 好战的）",
+      "warrior（n. 战士）",
+      "peace（n. 和平，反义）"
+    ]
   },
   {
     "id": "g9_008",
@@ -99,7 +171,15 @@
     "difficulty": 9,
     "audio": "pyramid.mp3",
     "unit": 1,
-    "explain": "A pyramid is a large stone structure with a square base and triangular sides."
+    "explain": "A pyramid is a large stone structure with a square base and triangular sides.",
+    "usage": [
+      "the Great Pyramid（大金字塔）",
+      "a pyramid（金字塔）"
+    ],
+    "wordForms": [
+      "pyramids（复数）",
+      "pyramidal（adj. 金字塔形的）"
+    ]
   },
   {
     "id": "g9_009",
@@ -112,7 +192,15 @@
     "audio": "captain.mp3",
     "unit": 1,
     "rootAffix": "capt（=capit，头）+ain（=an，形容词后缀）→领头的（人）→首领→队长，船长",
-    "explain": "Captain is the leader of a team or ship."
+    "explain": "Captain is the leader of a team or ship.",
+    "usage": [
+      "the captain of the team（队长）",
+      "a ship's captain（船长）"
+    ],
+    "wordForms": [
+      "captains（复数）",
+      "captain（v. 带领）"
+    ]
   },
   {
     "id": "g9_010",
@@ -125,7 +213,16 @@
     "audio": "soldier.mp3",
     "unit": 1,
     "rootAffix": "sold（=soldum，和单词solid同源，古罗马的一种金币，因其比较厚实而得名）+i+er（者）→按月领取金币的人→士兵",
-    "explain": "Soldier is a person who serves in the army."
+    "explain": "Soldier is a person who serves in the army.",
+    "usage": [
+      "a soldier（士兵）",
+      "a soldier's uniform（军装）"
+    ],
+    "wordForms": [
+      "soldiers（复数）",
+      "soldierly（adj. 军人般的）",
+      "army（n. 军队）"
+    ]
   },
   {
     "id": "g9_011",
@@ -137,7 +234,17 @@
     "difficulty": 9,
     "audio": "huge.mp3",
     "unit": 1,
-    "explain": "Huge means a common English word."
+    "explain": "Huge means a common English word.",
+    "usage": [
+      "a huge building（巨大的建筑）",
+      "a huge success（巨大成功）"
+    ],
+    "wordForms": [
+      "hugely（adv. 巨大地）",
+      "hugeness（n. 巨大）",
+      "big（adj. 大的，近义）",
+      "small（adj. 小的，反义）"
+    ]
   },
   {
     "id": "g9_012",
@@ -149,7 +256,18 @@
     "difficulty": 9,
     "audio": "empty.mp3",
     "unit": 1,
-    "explain": "Empty means a common English word."
+    "explain": "Empty means a common English word.",
+    "usage": [
+      "an empty room（空房间）",
+      "empty the box（把盒子倒空）"
+    ],
+    "wordForms": [
+      "empties（第三人称单数）",
+      "emptied（过去式）",
+      "emptying（现在分词）",
+      "emptier（比较级）",
+      "emptiest（最高级）"
+    ]
   },
   {
     "id": "g9_013",
@@ -162,7 +280,16 @@
     "audio": "secret.mp3",
     "unit": 1,
     "rootAffix": "se（离开整体，单独）+cret（分开）→从整体中分离出来，放到一边去→隔离的，隐藏起来的→秘密的",
-    "explain": "Secret describes something that is something kept hidden."
+    "explain": "Secret describes something that is something kept hidden.",
+    "usage": [
+      "keep a secret（保守秘密）",
+      "a secret place（秘密的地方）"
+    ],
+    "wordForms": [
+      "secrets（复数）",
+      "secretly（adv. 秘密地）",
+      "secretary（n. 秘书）"
+    ]
   },
   {
     "id": "g9_014",
@@ -175,7 +302,15 @@
     "audio": "army.mp3",
     "unit": 1,
     "rootAffix": "arm（武装）+y（形容词后缀）→武装的（力量）→武装力量→军队",
-    "explain": "An army is a large organized group of soldiers."
+    "explain": "An army is a large organized group of soldiers.",
+    "usage": [
+      "join the army（参军）",
+      "army officer（军官）"
+    ],
+    "wordForms": [
+      "armies（复数）",
+      "armed（adj. 武装的）"
+    ]
   },
   {
     "id": "g9_015",
@@ -188,7 +323,18 @@
     "audio": "succeed.mp3",
     "unit": 1,
     "rootAffix": "suc（=sub，从下面）+ceed（=ced，走）→从下面走上去→成功，继任",
-    "explain": "Succeed is a verb in past tense."
+    "explain": "Succeed is a verb in past tense.",
+    "usage": [
+      "succeed in doing sth.（成功做某事）",
+      "succeed to the throne（继承王位）"
+    ],
+    "wordForms": [
+      "succeeds（第三人称单数）",
+      "succeeded（过去式）",
+      "succeeding（现在分词）",
+      "success（n. 成功）",
+      "successor（n. 继任者）"
+    ]
   },
   {
     "id": "g9_016",
@@ -200,7 +346,17 @@
     "difficulty": 9,
     "audio": "trick.mp3",
     "unit": 1,
-    "explain": "A trick is a clever action performed to entertain or deceive."
+    "explain": "A trick is a clever action performed to entertain or deceive.",
+    "usage": [
+      "play a trick on sb.（捉弄某人）",
+      "a magic trick（魔术）"
+    ],
+    "wordForms": [
+      "tricks（复数/第三人称单数）",
+      "tricked（过去式）",
+      "tricking（现在分词）",
+      "tricky（adj. 棘手的）"
+    ]
   },
   {
     "id": "g9_017",
@@ -212,7 +368,15 @@
     "difficulty": 9,
     "audio": "trojan.mp3",
     "unit": 1,
-    "explain": "Trojan means a common English word."
+    "explain": "Trojan means a common English word.",
+    "usage": [
+      "a Trojan horse（特洛伊木马）",
+      "the Trojan War（特洛伊战争）"
+    ],
+    "wordForms": [
+      "Trojans（复数）",
+      "Trojan（adj. 特洛伊的）"
+    ]
   },
   {
     "id": "g9_018",
@@ -225,7 +389,15 @@
     "audio": "midnight.mp3",
     "unit": 1,
     "rootAffix": "mid（中间的）+night（夜晚）→夜晚的中间→午夜",
-    "explain": "A midnight is twelve o'clock at night."
+    "explain": "A midnight is twelve o'clock at night.",
+    "usage": [
+      "at midnight（在午夜）",
+      "work until midnight（工作到午夜）"
+    ],
+    "wordForms": [
+      "midnights（复数）",
+      "midday（n. 中午，对应）"
+    ]
   },
   {
     "id": "g9_019",
@@ -237,7 +409,17 @@
     "difficulty": 9,
     "audio": "pull.mp3",
     "unit": 1,
-    "explain": "To pull means a common English word."
+    "explain": "To pull means a common English word.",
+    "usage": [
+      "pull the door（拉门）",
+      "pull out（拔出）"
+    ],
+    "wordForms": [
+      "pulls（第三人称单数）",
+      "pulled（过去式）",
+      "pulling（现在分词）",
+      "push（v. 推，反义）"
+    ]
   },
   {
     "id": "g9_020",
@@ -250,7 +432,17 @@
     "audio": "celebrate.mp3",
     "unit": 1,
     "rootAffix": "celebr（很多人一起致敬）+ate（动词后缀）→庆祝神灵的生日→庆祝",
-    "explain": "A celebrate is to mark an occasion."
+    "explain": "A celebrate is to mark an occasion.",
+    "usage": [
+      "celebrate a birthday（庆祝生日）",
+      "celebrate the Spring Festival（庆祝春节）"
+    ],
+    "wordForms": [
+      "celebrates（第三人称单数）",
+      "celebrated（过去式）",
+      "celebrating（现在分词）",
+      "celebration（n. 庆祝）"
+    ]
   },
   {
     "id": "g9_021",
@@ -262,7 +454,16 @@
     "difficulty": 9,
     "audio": "trick-sb-into-doing-sth-.mp3",
     "unit": 1,
-    "explain": "\"trick sb into doing sth.\" is an expression meaning a common English word."
+    "explain": "\"trick sb into doing sth.\" is an expression meaning a common English word.",
+    "usage": [
+      "trick sb. into buying sth.（骗某人买东西）",
+      "trick him into telling the truth（骗他说实话）"
+    ],
+    "wordForms": [
+      "tricks sb. into doing sth.（第三人称单数）",
+      "tricked sb. into doing sth.（过去式）",
+      "tricking sb. into doing sth.（现在分词）"
+    ]
   },
   {
     "id": "g9_022",
@@ -274,7 +475,16 @@
     "difficulty": 9,
     "audio": "succeed-in-doing-sth-.mp3",
     "unit": 1,
-    "explain": "To succeed in doing sth. means a common English word."
+    "explain": "To succeed in doing sth. means a common English word.",
+    "usage": [
+      "succeed in passing the exam（成功通过考试）",
+      "succeed in solving the problem（成功解决问题）"
+    ],
+    "wordForms": [
+      "succeeds in doing sth.（第三人称单数）",
+      "succeeded in doing sth.（过去式）",
+      "succeeding in doing sth.（现在分词）"
+    ]
   },
   {
     "id": "g9_023",
@@ -286,7 +496,17 @@
     "difficulty": 9,
     "audio": "take-over.mp3",
     "unit": 1,
-    "explain": "To take over means to perform the action related to over."
+    "explain": "To take over means to perform the action related to over.",
+    "usage": [
+      "take over a company（接管公司）",
+      "take over the world（统治世界）"
+    ],
+    "wordForms": [
+      "takes over（第三人称单数）",
+      "took over（过去式）",
+      "taken over（过去分词）",
+      "taking over（现在分词）"
+    ]
   },
   {
     "id": "g9_024",
@@ -298,7 +518,17 @@
     "difficulty": 9,
     "audio": "mind.mp3",
     "unit": 2,
-    "explain": "A mind is the part of a person that thinks, feels, and remembers."
+    "explain": "A mind is the part of a person that thinks, feels, and remembers.",
+    "usage": [
+      "never mind（没关系）",
+      "make up one's mind（下定决心）"
+    ],
+    "wordForms": [
+      "minds（复数/第三人称单数）",
+      "minded（过去式）",
+      "minding（现在分词）",
+      "mindful（adj. 留心的）"
+    ]
   },
   {
     "id": "g9_025",
@@ -311,7 +541,17 @@
     "audio": "consider.mp3",
     "unit": 2,
     "rootAffix": "con（一起，利用）+sider（星星）→观看群星，思索吉凶→考虑",
-    "explain": "To consider means to think carefully about something before making a decision."
+    "explain": "To consider means to think carefully about something before making a decision.",
+    "usage": [
+      "consider a plan（考虑计划）",
+      "consider doing sth.（考虑做某事）"
+    ],
+    "wordForms": [
+      "considers（第三人称单数）",
+      "considered（过去式）",
+      "considering（现在分词）",
+      "consideration（n. 考虑）"
+    ]
   },
   {
     "id": "g9_026",
@@ -324,7 +564,17 @@
     "audio": "sense.mp3",
     "unit": 2,
     "rootAffix": "sens（=sent，感觉，感知）+e→感知，意识，探测",
-    "explain": "A sense is a faculty by which the body perceives external stimuli, like sight or hearing."
+    "explain": "A sense is a faculty by which the body perceives external stimuli, like sight or hearing.",
+    "usage": [
+      "a sense of humour（幽默感）",
+      "make sense（有道理）"
+    ],
+    "wordForms": [
+      "senses（复数/第三人称单数）",
+      "sensed（过去式）",
+      "sensing（现在分词）",
+      "sensible（adj. 明智的）"
+    ]
   },
   {
     "id": "g9_027",
@@ -336,7 +586,17 @@
     "difficulty": 9,
     "audio": "humour.mp3",
     "unit": 2,
-    "explain": "A humour is the quality of being amusing."
+    "explain": "A humour is the quality of being amusing.",
+    "usage": [
+      "a sense of humour（幽默感）",
+      "have a good humour（心情好）"
+    ],
+    "wordForms": [
+      "humours（复数，指情绪）",
+      "humorous（adj. 幽默的）",
+      "humourless（adj. 幽默感缺乏的）",
+      "humor（美式拼写）"
+    ]
   },
   {
     "id": "g9_028",
@@ -349,7 +609,16 @@
     "audio": "invitation.mp3",
     "unit": 2,
     "rootAffix": "invit(e)（邀请）+at（动词后缀）+ion（名词后缀）→邀请",
-    "explain": "An invitation is a request to come to an event or place."
+    "explain": "An invitation is a request to come to an event or place.",
+    "usage": [
+      "an invitation to the party（聚会邀请）",
+      "send an invitation（发出邀请）"
+    ],
+    "wordForms": [
+      "invitations（复数）",
+      "invite（v. 邀请）",
+      "inviting（adj. 诱人的）"
+    ]
   },
   {
     "id": "g9_029",
@@ -362,7 +631,16 @@
     "audio": "university.mp3",
     "unit": 2,
     "rootAffix": "univers（包罗万象的）+ity（名词后缀）→包罗万象之物→综合性大学",
-    "explain": "An university is an institution of higher education."
+    "explain": "An university is an institution of higher education.",
+    "usage": [
+      "go to university（上大学）",
+      "a university student（大学生）"
+    ],
+    "wordForms": [
+      "universities（复数）",
+      "universal（adj. 普遍的）",
+      "universally（adv. 普遍地）"
+    ]
   },
   {
     "id": "g9_030",
@@ -375,7 +653,17 @@
     "audio": "pleasure.mp3",
     "unit": 2,
     "rootAffix": "pleas（使高兴，使满意）+ure（名词后缀）→高兴，快乐",
-    "explain": "A pleasure is enjoyment."
+    "explain": "A pleasure is enjoyment.",
+    "usage": [
+      "with pleasure（乐意效劳）",
+      "my pleasure（我的荣幸）"
+    ],
+    "wordForms": [
+      "pleasures（复数）",
+      "please（v. 使高兴）",
+      "pleased（adj. 高兴的）",
+      "pleasant（adj. 愉快的）"
+    ]
   },
   {
     "id": "g9_031",
@@ -387,7 +675,16 @@
     "difficulty": 9,
     "audio": "gift.mp3",
     "unit": 2,
-    "explain": "A gift is something you give to someone, especially on a special occasion."
+    "explain": "A gift is something you give to someone, especially on a special occasion.",
+    "usage": [
+      "a birthday gift（生日礼物）",
+      "a gift for sb.（给某人的礼物）"
+    ],
+    "wordForms": [
+      "gifts（复数）",
+      "gifted（adj. 有天赋的）",
+      "giftedness（n. 天赋）"
+    ]
   },
   {
     "id": "g9_032",
@@ -400,7 +697,15 @@
     "audio": "applause.mp3",
     "unit": 2,
     "rootAffix": "ap（=ad，去，趋近）+plaus（鼓掌）+e→鼓掌→喝彩，欢呼",
-    "explain": "An applause is the sound of people clapping their hands."
+    "explain": "An applause is the sound of people clapping their hands.",
+    "usage": [
+      "give applause（鼓掌）",
+      "applause from the audience（观众的掌声）"
+    ],
+    "wordForms": [
+      "applaud（v. 鼓掌）",
+      "applause（n. 掌声，无常用复数）"
+    ]
   },
   {
     "id": "g9_033",
@@ -413,7 +718,16 @@
     "audio": "professor.mp3",
     "unit": 2,
     "rootAffix": "pro（向前，向外）+fess（承认）+or（者）→公开宣布（是某个领域专家）的人→教授",
-    "explain": "A professor is a teacher of the highest rank at a university."
+    "explain": "A professor is a teacher of the highest rank at a university.",
+    "usage": [
+      "a professor（教授）",
+      "a professor of physics（物理学教授）"
+    ],
+    "wordForms": [
+      "professors（复数）",
+      "professorship（n. 教授职位）",
+      "professional（adj. 专业的）"
+    ]
   },
   {
     "id": "g9_034",
@@ -426,7 +740,16 @@
     "audio": "physicist.mp3",
     "unit": 2,
     "rootAffix": "phys（物理）+ic（形容词后缀）+ist（专业人士）→物理学家",
-    "explain": "A physicist is a person who studies physics."
+    "explain": "A physicist is a person who studies physics.",
+    "usage": [
+      "a physicist（物理学家）",
+      "a famous physicist（著名物理学家）"
+    ],
+    "wordForms": [
+      "physicists（复数）",
+      "physics（n. 物理）",
+      "physical（adj. 物理的）"
+    ]
   },
   {
     "id": "g9_035",
@@ -438,7 +761,16 @@
     "difficulty": 9,
     "audio": "have-a-sense-of-humour.mp3",
     "unit": 2,
-    "explain": "\"have a sense of humour\" is an expression meaning a common English word."
+    "explain": "\"have a sense of humour\" is an expression meaning a common English word.",
+    "usage": [
+      "have a sense of humour（有幽默感）",
+      "a person with a sense of humour（有幽默感的人）"
+    ],
+    "wordForms": [
+      "has a sense of humour（第三人称单数）",
+      "had a sense of humour（过去式）",
+      "having a sense of humour（现在分词）"
+    ]
   },
   {
     "id": "g9_036",
@@ -450,7 +782,16 @@
     "difficulty": 9,
     "audio": "let-sb-down.mp3",
     "unit": 2,
-    "explain": "\"let sb down\" is an expression meaning a common English word."
+    "explain": "\"let sb down\" is an expression meaning a common English word.",
+    "usage": [
+      "let sb. down（让某人失望）",
+      "Don't let me down.（别让我失望。）"
+    ],
+    "wordForms": [
+      "lets sb. down（第三人称单数）",
+      "let sb. down（过去式）",
+      "letting sb. down（现在分词）"
+    ]
   },
   {
     "id": "g9_037",
@@ -462,7 +803,17 @@
     "difficulty": 9,
     "audio": "take-a-seat.mp3",
     "unit": 2,
-    "explain": "To take a seat means to perform the action related to seat."
+    "explain": "To take a seat means to perform the action related to seat.",
+    "usage": [
+      "take a seat, please（请坐）",
+      "take a seat in the front（坐在前排）"
+    ],
+    "wordForms": [
+      "takes a seat（第三人称单数）",
+      "took a seat（过去式）",
+      "taken a seat（过去分词）",
+      "taking a seat（现在分词）"
+    ]
   },
   {
     "id": "g9_038",
@@ -474,7 +825,17 @@
     "difficulty": 9,
     "audio": "stress.mp3",
     "unit": 3,
-    "explain": "A stress is pressure."
+    "explain": "A stress is pressure.",
+    "usage": [
+      "under stress（处于压力之下）",
+      "stress the importance（强调重要性）"
+    ],
+    "wordForms": [
+      "stresses（复数/第三人称单数）",
+      "stressed（过去式/形容词）",
+      "stressing（现在分词）",
+      "stressful（adj. 压力大的）"
+    ]
   },
   {
     "id": "g9_039",
@@ -487,7 +848,17 @@
     "audio": "responsibility.mp3",
     "unit": 3,
     "rootAffix": "responsibil（=responsible，负责的，有责任的）+ity（名词后缀）→责任，职责",
-    "explain": "A responsibility is a duty or obligation to deal with something or someone."
+    "explain": "A responsibility is a duty or obligation to deal with something or someone.",
+    "usage": [
+      "take responsibility（承担责任）",
+      "a sense of responsibility（责任感）"
+    ],
+    "wordForms": [
+      "responsibilities（复数）",
+      "responsible（adj. 负责的）",
+      "responsibly（adv. 负责地）",
+      "irresponsible（adj. 不负责的）"
+    ]
   },
   {
     "id": "g9_040",
@@ -500,7 +871,17 @@
     "audio": "focus.mp3",
     "unit": 3,
     "rootAffix": "foc（火）+us（拉丁语名词后缀）→壁炉",
-    "explain": "To focus means a common English word."
+    "explain": "To focus means a common English word.",
+    "usage": [
+      "focus on sth.（聚焦于某事）",
+      "a camera focus（相机焦距）"
+    ],
+    "wordForms": [
+      "focuses（复数/第三人称单数）",
+      "focused（过去式/形容词）",
+      "focusing（现在分词）",
+      "focal（adj. 焦点的）"
+    ]
   },
   {
     "id": "g9_041",
@@ -513,7 +894,17 @@
     "audio": "affect.mp3",
     "unit": 3,
     "rootAffix": "af（=ad，去，趋近）+fect（做，作用）→去做，去发挥作用→影响；做作",
-    "explain": "To affect means a common English word."
+    "explain": "To affect means a common English word.",
+    "usage": [
+      "affect health（影响健康）",
+      "be affected by（受……影响）"
+    ],
+    "wordForms": [
+      "affects（第三人称单数）",
+      "affected（过去式/过去分词）",
+      "affecting（现在分词）",
+      "effect（n. 影响；效果）"
+    ]
   },
   {
     "id": "g9_042",
@@ -526,7 +917,18 @@
     "audio": "manage.mp3",
     "unit": 3,
     "rootAffix": "man（手）+age（动词后缀）→用手去操纵马匹，训练马匹→管理，经营",
-    "explain": "To manage means to succeed in doing something or to be in charge of."
+    "explain": "To manage means to succeed in doing something or to be in charge of.",
+    "usage": [
+      "manage a team（管理团队）",
+      "manage to do sth.（设法做成某事）"
+    ],
+    "wordForms": [
+      "manages（第三人称单数）",
+      "managed（过去式）",
+      "managing（现在分词）",
+      "management（n. 管理）",
+      "manager（n. 经理）"
+    ]
   },
   {
     "id": "g9_043",
@@ -539,7 +941,16 @@
     "audio": "independent.mp3",
     "unit": 3,
     "rootAffix": "in（不）+depend（依赖）+ent（形容词后缀）→独立的",
-    "explain": "Independent means a common English word."
+    "explain": "Independent means a common English word.",
+    "usage": [
+      "be independent of sb.（不依赖某人）",
+      "an independent person（独立的人）"
+    ],
+    "wordForms": [
+      "independence（n. 独立）",
+      "independently（adv. 独立地）",
+      "dependent（adj. 依赖的，反义）"
+    ]
   },
   {
     "id": "g9_044",
@@ -552,7 +963,18 @@
     "audio": "support.mp3",
     "unit": 3,
     "rootAffix": "sup（=sub，在下面）+port（承载）→在下面承载→支持，支撑",
-    "explain": "A support is to help."
+    "explain": "A support is to help.",
+    "usage": [
+      "support a friend（支持朋友）",
+      "family support（家庭支持）"
+    ],
+    "wordForms": [
+      "supports（第三人称单数）",
+      "supported（过去式）",
+      "supporting（现在分词）",
+      "supporter（n. 支持者）",
+      "supportive（adj. 支持的）"
+    ]
   },
   {
     "id": "g9_045",
@@ -565,7 +987,17 @@
     "audio": "expect.mp3",
     "unit": 3,
     "rootAffix": "ex（向外）+(s)pec（看）+t（完成分词后缀）→向外看→期望",
-    "explain": "An expect is to anticipate."
+    "explain": "An expect is to anticipate.",
+    "usage": [
+      "expect a letter（等信）",
+      "expect sb. to do sth.（期望某人做某事）"
+    ],
+    "wordForms": [
+      "expects（第三人称单数）",
+      "expected（过去式）",
+      "expecting（现在分词）",
+      "expectation（n. 期望）"
+    ]
   },
   {
     "id": "g9_046",
@@ -578,7 +1010,16 @@
     "audio": "emotional.mp3",
     "unit": 3,
     "rootAffix": "emotion（情绪）+al（形容词后缀）→与情绪有关的，易于激动的，感动人的",
-    "explain": "Emotional means a common English word."
+    "explain": "Emotional means a common English word.",
+    "usage": [
+      "an emotional person（情绪化的人）",
+      "emotional support（情感支持）"
+    ],
+    "wordForms": [
+      "emotion（n. 情感）",
+      "emotionally（adv. 情感上）",
+      "unemotional（adj. 不动感情的）"
+    ]
   },
   {
     "id": "g9_047",
@@ -591,7 +1032,16 @@
     "audio": "pressure.mp3",
     "unit": 3,
     "rootAffix": "press（压）+ure（名词后缀）→压力，压迫，压强",
-    "explain": "A pressure is the force applied to a surface."
+    "explain": "A pressure is the force applied to a surface.",
+    "usage": [
+      "under pressure（处于压力之下）",
+      "blood pressure（血压）"
+    ],
+    "wordForms": [
+      "pressures（复数）",
+      "press（v. 按；压迫）",
+      "pressured（adj. 有压力的）"
+    ]
   },
   {
     "id": "g9_048",
@@ -603,7 +1053,15 @@
     "difficulty": 9,
     "audio": "counselor.mp3",
     "unit": 3,
-    "explain": "A counselor is a person who gives advice."
+    "explain": "A counselor is a person who gives advice.",
+    "usage": [
+      "a school counselor（学校辅导员）",
+      "talk to a counselor（咨询辅导员）"
+    ],
+    "wordForms": [
+      "counselors（复数）",
+      "counsel（v./n. 咨询；建议）"
+    ]
   },
   {
     "id": "g9_049",
@@ -615,7 +1073,16 @@
     "difficulty": 9,
     "audio": "be-responsible-for.mp3",
     "unit": 3,
-    "explain": "To be responsible for means to perform the action related to for."
+    "explain": "To be responsible for means to perform the action related to for.",
+    "usage": [
+      "be responsible for the work（负责这项工作）",
+      "be responsible for children（照看孩子）"
+    ],
+    "wordForms": [
+      "am/is/are responsible for（人称变化）",
+      "was/were responsible for（过去式）",
+      "been responsible for（完成式）"
+    ]
   },
   {
     "id": "g9_050",
@@ -627,7 +1094,16 @@
     "difficulty": 9,
     "audio": "care-for.mp3",
     "unit": 3,
-    "explain": "\"care for\" is an expression meaning a common English word."
+    "explain": "\"care for\" is an expression meaning a common English word.",
+    "usage": [
+      "care for children（照顾孩子）",
+      "care for the environment（爱护环境）"
+    ],
+    "wordForms": [
+      "cares for（第三人称单数）",
+      "cared for（过去式）",
+      "caring for（现在分词）"
+    ]
   },
   {
     "id": "g9_051",
@@ -639,7 +1115,17 @@
     "difficulty": 9,
     "audio": "grow-up.mp3",
     "unit": 3,
-    "explain": "To grow up means a common English word."
+    "explain": "To grow up means a common English word.",
+    "usage": [
+      "grow up in Beijing（在北京长大）",
+      "want to be a doctor when you grow up（长大后想当医生）"
+    ],
+    "wordForms": [
+      "grows up（第三人称单数）",
+      "grew up（过去式）",
+      "grown up（过去分词）",
+      "growing up（现在分词）"
+    ]
   },
   {
     "id": "g9_052",
@@ -651,7 +1137,17 @@
     "difficulty": 9,
     "audio": "bully.mp3",
     "unit": 4,
-    "explain": "A bully is a person who hurts or frightens someone smaller or weaker."
+    "explain": "A bully is a person who hurts or frightens someone smaller or weaker.",
+    "usage": [
+      "bully a classmate（欺负同学）",
+      "a school bully（校园恶霸）"
+    ],
+    "wordForms": [
+      "bullies（复数/第三人称单数）",
+      "bullied（过去式）",
+      "bullying（现在分词/名词）",
+      "bully（n. 恃强凌弱者）"
+    ]
   },
   {
     "id": "g9_053",
@@ -663,7 +1159,16 @@
     "difficulty": 9,
     "audio": "embarrassed.mp3",
     "unit": 4,
-    "explain": "Embarrassed is a verb in past tense."
+    "explain": "Embarrassed is a verb in past tense.",
+    "usage": [
+      "feel embarrassed（感到尴尬）",
+      "be embarrassed about sth.（为某事尴尬）"
+    ],
+    "wordForms": [
+      "embarrass（v. 使尴尬）",
+      "embarrassing（adj. 令人尴尬的）",
+      "embarrassment（n. 尴尬）"
+    ]
   },
   {
     "id": "g9_054",
@@ -676,7 +1181,15 @@
     "audio": "ashamed.mp3",
     "unit": 4,
     "rootAffix": "a（加强语气）+shame（使羞愧）+ed（过去分词形式）→羞愧的",
-    "explain": "Ashamed is a verb in past tense."
+    "explain": "Ashamed is a verb in past tense.",
+    "usage": [
+      "be ashamed of sth.（为某事感到羞愧）",
+      "feel ashamed（感到羞愧）"
+    ],
+    "wordForms": [
+      "shame（n. 羞愧）",
+      "ashamedly（adv. 羞愧地）"
+    ]
   },
   {
     "id": "g9_055",
@@ -689,7 +1202,17 @@
     "audio": "sympathy.mp3",
     "unit": 4,
     "rootAffix": "sym（一起）+path（忍受，受苦）+y（名词后缀）→一起忍受→同情",
-    "explain": "A sympathy is the feeling of caring about someone's suffering."
+    "explain": "A sympathy is the feeling of caring about someone's suffering.",
+    "usage": [
+      "show sympathy for sb.（同情某人）",
+      "a letter of sympathy（慰问信）"
+    ],
+    "wordForms": [
+      "sympathies（复数）",
+      "sympathize（v. 同情）",
+      "sympathetic（adj. 同情的）",
+      "sympathetically（adv. 同情地）"
+    ]
   },
   {
     "id": "g9_056",
@@ -701,7 +1224,16 @@
     "difficulty": 9,
     "audio": "helpline.mp3",
     "unit": 4,
-    "explain": "A helpline is a telephone service providing help and advice."
+    "explain": "A helpline is a telephone service providing help and advice.",
+    "usage": [
+      "call the helpline（拨打帮助热线）",
+      "a school helpline（学校热线）"
+    ],
+    "wordForms": [
+      "helplines（复数）",
+      "help（n. 帮助）",
+      "line（n. 线路）"
+    ]
   },
   {
     "id": "g9_057",
@@ -714,7 +1246,16 @@
     "audio": "situation.mp3",
     "unit": 4,
     "rootAffix": "sit（放置，使位于）+u+ation（动名词后缀）→位于某处→位置，处境→情况，状况，形势",
-    "explain": "A situation is the set of conditions at a particular time."
+    "explain": "A situation is the set of conditions at a particular time.",
+    "usage": [
+      "a difficult situation（困境）",
+      "in this situation（在这种情况下）"
+    ],
+    "wordForms": [
+      "situations（复数）",
+      "situational（adj. 情境的）",
+      "situate（v. 使位于）"
+    ]
   },
   {
     "id": "g9_058",
@@ -727,7 +1268,18 @@
     "audio": "solve.mp3",
     "unit": 4,
     "rootAffix": "solv（松开）+e→解开→解决，解答，溶解",
-    "explain": "To solve means a common English word."
+    "explain": "To solve means a common English word.",
+    "usage": [
+      "solve a problem（解决问题）",
+      "solve a mystery（解开谜团）"
+    ],
+    "wordForms": [
+      "solves（第三人称单数）",
+      "solved（过去式）",
+      "solving（现在分词）",
+      "solution（n. 解决办法）",
+      "solver（n. 解决者）"
+    ]
   },
   {
     "id": "g9_059",
@@ -740,7 +1292,17 @@
     "audio": "regret.mp3",
     "unit": 4,
     "rootAffix": "re（加强语气）+gret（后悔）→后悔",
-    "explain": "A regret is to feel sorry."
+    "explain": "A regret is to feel sorry.",
+    "usage": [
+      "regret a mistake（后悔错误）",
+      "I regret to say...（我很遗憾地说……）"
+    ],
+    "wordForms": [
+      "regrets（复数/第三人称单数）",
+      "regretted（过去式）",
+      "regretting（现在分词）",
+      "regretful（adj. 遗憾的）"
+    ]
   },
   {
     "id": "g9_060",
@@ -753,7 +1315,16 @@
     "audio": "mistake.mp3",
     "unit": 4,
     "rootAffix": "mis（错误地）+take（拿）→拿错，弄错",
-    "explain": "Mistake is an incorrect action or decision."
+    "explain": "Mistake is an incorrect action or decision.",
+    "usage": [
+      "make a mistake（犯错误）",
+      "by mistake（错误地）"
+    ],
+    "wordForms": [
+      "mistakes（复数）",
+      "mistaken（adj. 错误的）",
+      "mistakenly（adv. 错误地）"
+    ]
   },
   {
     "id": "g9_061",
@@ -766,7 +1337,16 @@
     "audio": "fault.mp3",
     "unit": 4,
     "rootAffix": "faul（=fall，使失败，使犯错）+t（完成分词后缀）→错误，故障，缺点",
-    "explain": "A fault is responsibility for a mistake."
+    "explain": "A fault is responsibility for a mistake.",
+    "usage": [
+      "It's my fault.（是我的错。）",
+      "find a fault（发现故障）"
+    ],
+    "wordForms": [
+      "faults（复数）",
+      "faulty（adj. 有故障的）",
+      "faultless（adj. 无瑕疵的）"
+    ]
   },
   {
     "id": "g9_062",
@@ -779,7 +1359,16 @@
     "audio": "suggestion.mp3",
     "unit": 4,
     "rootAffix": "suggest（提议）+ion（名词后缀）→建议",
-    "explain": "A suggestion is an idea offered for consideration."
+    "explain": "A suggestion is an idea offered for consideration.",
+    "usage": [
+      "make a suggestion（提出建议）",
+      "a good suggestion（好建议）"
+    ],
+    "wordForms": [
+      "suggestions（复数）",
+      "suggest（v. 建议）",
+      "suggestive（adj. 暗示的）"
+    ]
   },
   {
     "id": "g9_063",
@@ -791,7 +1380,16 @@
     "difficulty": 9,
     "audio": "set-a-goal.mp3",
     "unit": 4,
-    "explain": "To set a goal means to perform the action related to goal."
+    "explain": "To set a goal means to perform the action related to goal.",
+    "usage": [
+      "set a goal for the team（为团队设定目标）",
+      "achieve a goal（实现目标）"
+    ],
+    "wordForms": [
+      "sets a goal（第三人称单数）",
+      "set a goal（过去式）",
+      "setting a goal（现在分词）"
+    ]
   },
   {
     "id": "g9_064",
@@ -803,7 +1401,16 @@
     "difficulty": 9,
     "audio": "make-a-plan.mp3",
     "unit": 4,
-    "explain": "\"make a plan\" is an expression meaning a common English word."
+    "explain": "\"make a plan\" is an expression meaning a common English word.",
+    "usage": [
+      "make a plan for the trip（为旅行做计划）",
+      "make a study plan（制定学习计划）"
+    ],
+    "wordForms": [
+      "makes a plan（第三人称单数）",
+      "made a plan（过去式）",
+      "making a plan（现在分词）"
+    ]
   },
   {
     "id": "g9_065",
@@ -815,7 +1422,16 @@
     "difficulty": 9,
     "audio": "deal-with.mp3",
     "unit": 4,
-    "explain": "\"deal with\" is an expression meaning a common English word."
+    "explain": "\"deal with\" is an expression meaning a common English word.",
+    "usage": [
+      "deal with a problem（处理问题）",
+      "deal with people（与人相处）"
+    ],
+    "wordForms": [
+      "deals with（第三人称单数）",
+      "dealt with（过去式）",
+      "dealing with（现在分词）"
+    ]
   },
   {
     "id": "g9_066",
@@ -828,7 +1444,16 @@
     "audio": "action.mp3",
     "unit": 5,
     "rootAffix": "act（行动）+ion（名词后缀）→行动",
-    "explain": "An action is the process of doing something."
+    "explain": "An action is the process of doing something.",
+    "usage": [
+      "take action（采取行动）",
+      "action movie（动作片）"
+    ],
+    "wordForms": [
+      "actions（复数）",
+      "act（v. 行动）",
+      "active（adj. 积极的）"
+    ]
   },
   {
     "id": "g9_067",
@@ -841,7 +1466,16 @@
     "audio": "environment.mp3",
     "unit": 5,
     "rootAffix": "en（=in）+viron（围绕）+ment（名词后缀）→围绕之物→环境",
-    "explain": "An environment is the natural world."
+    "explain": "An environment is the natural world.",
+    "usage": [
+      "protect the environment（保护环境）",
+      "a clean environment（干净的环境）"
+    ],
+    "wordForms": [
+      "environments（复数）",
+      "environmental（adj. 环境的）",
+      "environmentalist（n. 环保人士）"
+    ]
   },
   {
     "id": "g9_068",
@@ -854,7 +1488,18 @@
     "audio": "protect.mp3",
     "unit": 5,
     "rootAffix": "pro（在前面）+tect（遮盖）→在前面遮盖→保护",
-    "explain": "A protect is to keep safe."
+    "explain": "A protect is to keep safe.",
+    "usage": [
+      "protect the environment（保护环境）",
+      "protect sb. from sth.（保护某人免受某事）"
+    ],
+    "wordForms": [
+      "protects（第三人称单数）",
+      "protected（过去式）",
+      "protecting（现在分词）",
+      "protection（n. 保护）",
+      "protective（adj. 保护的）"
+    ]
   },
   {
     "id": "g9_069",
@@ -867,7 +1512,17 @@
     "audio": "recycle.mp3",
     "unit": 5,
     "rootAffix": "re（回来，反复）+cycl（循环）+e→再循环",
-    "explain": "To recycle means a common English word."
+    "explain": "To recycle means a common English word.",
+    "usage": [
+      "recycle paper（回收纸）",
+      "recycle bottles（回收瓶子）"
+    ],
+    "wordForms": [
+      "recycles（第三人称单数）",
+      "recycled（过去式）",
+      "recycling（现在分词）",
+      "recyclable（adj. 可回收的）"
+    ]
   },
   {
     "id": "g9_070",
@@ -880,7 +1535,17 @@
     "audio": "reduce.mp3",
     "unit": 5,
     "rootAffix": "re（向后）+duc（引导）+e→向后引导→减少",
-    "explain": "A reduce is to make smaller."
+    "explain": "A reduce is to make smaller.",
+    "usage": [
+      "reduce pollution（减少污染）",
+      "reduce the price（降价）"
+    ],
+    "wordForms": [
+      "reduces（第三人称单数）",
+      "reduced（过去式）",
+      "reducing（现在分词）",
+      "reduction（n. 减少）"
+    ]
   },
   {
     "id": "g9_071",
@@ -892,7 +1557,16 @@
     "difficulty": 9,
     "audio": "reusable.mp3",
     "unit": 5,
-    "explain": "Reusable means a common English word."
+    "explain": "Reusable means a common English word.",
+    "usage": [
+      "a reusable bag（可重复使用的袋子）",
+      "reusable bottles（可重复使用的瓶子）"
+    ],
+    "wordForms": [
+      "reuse（v. 重复使用）",
+      "reusable（adj. 可重复使用的）",
+      "use（v. 使用）"
+    ]
   },
   {
     "id": "g9_072",
@@ -905,7 +1579,17 @@
     "audio": "pollute.mp3",
     "unit": 5,
     "rootAffix": "pollu（弄脏）+te（=ate，动词后缀）→弄脏，污染",
-    "explain": "To pollute means a common English word."
+    "explain": "To pollute means a common English word.",
+    "usage": [
+      "pollute the air（污染空气）",
+      "pollute the river（污染河流）"
+    ],
+    "wordForms": [
+      "pollutes（第三人称单数）",
+      "polluted（过去式/形容词）",
+      "polluting（现在分词）",
+      "polluter（n. 污染者）"
+    ]
   },
   {
     "id": "g9_073",
@@ -917,7 +1601,18 @@
     "difficulty": 9,
     "audio": "waste.mp3",
     "unit": 5,
-    "explain": "To waste means to use something carelessly or without purpose."
+    "explain": "To waste means to use something carelessly or without purpose.",
+    "usage": [
+      "waste water（浪费水）",
+      "a waste of time（浪费时间）"
+    ],
+    "wordForms": [
+      "wastes（第三人称单数）",
+      "wasted（过去式）",
+      "wasting（现在分词）",
+      "wasteful（adj. 浪费的）",
+      "wasteland（n. 荒地）"
+    ]
   },
   {
     "id": "g9_074",
@@ -929,7 +1624,16 @@
     "difficulty": 9,
     "audio": "be-in-good-health.mp3",
     "unit": 5,
-    "explain": "To be in good health means to perform the action related to health."
+    "explain": "To be in good health means to perform the action related to health.",
+    "usage": [
+      "be in good health（身体健康）",
+      "keep in good health（保持健康）"
+    ],
+    "wordForms": [
+      "am/is/are in good health（人称变化）",
+      "was/were in good health（过去式）",
+      "been in good health（完成式）"
+    ]
   },
   {
     "id": "g9_075",
@@ -941,7 +1645,16 @@
     "difficulty": 9,
     "audio": "global-warming.mp3",
     "unit": 5,
-    "explain": "Global warming is a verb in present participle form."
+    "explain": "Global warming is a verb in present participle form.",
+    "usage": [
+      "cause global warming（导致全球变暖）",
+      "fight against global warming（应对全球变暖）"
+    ],
+    "wordForms": [
+      "global warming（固定短语，无词形变化）",
+      "global（adj. 全球的）",
+      "warming（n. 变暖）"
+    ]
   },
   {
     "id": "g9_076",
@@ -953,7 +1666,17 @@
     "difficulty": 9,
     "audio": "take-action.mp3",
     "unit": 5,
-    "explain": "To take action means to perform the action related to action."
+    "explain": "To take action means to perform the action related to action.",
+    "usage": [
+      "take action immediately（立即行动）",
+      "take action to protect（采取行动保护）"
+    ],
+    "wordForms": [
+      "takes action（第三人称单数）",
+      "took action（过去式）",
+      "taken action（过去分词）",
+      "taking action（现在分词）"
+    ]
   },
   {
     "id": "g9_077",
@@ -965,7 +1688,17 @@
     "difficulty": 9,
     "audio": "throw-away.mp3",
     "unit": 5,
-    "explain": "To throw away means to perform the action related to away."
+    "explain": "To throw away means to perform the action related to away.",
+    "usage": [
+      "throw away rubbish（扔垃圾）",
+      "throw away a chance（错失机会）"
+    ],
+    "wordForms": [
+      "throws away（第三人称单数）",
+      "threw away（过去式）",
+      "thrown away（过去分词）",
+      "throwing away（现在分词）"
+    ]
   },
   {
     "id": "g9_078",
@@ -977,7 +1710,16 @@
     "difficulty": 9,
     "audio": "be-harmful-to.mp3",
     "unit": 5,
-    "explain": "To be harmful to means to perform the action related to to."
+    "explain": "To be harmful to means to perform the action related to to.",
+    "usage": [
+      "be harmful to the environment（对环境有害）",
+      "be harmful to health（对健康有害）"
+    ],
+    "wordForms": [
+      "am/is/are harmful to（人称变化）",
+      "was/were harmful to（过去式）",
+      "been harmful to（完成式）"
+    ]
   },
   {
     "id": "g9_079",
@@ -990,7 +1732,16 @@
     "audio": "diet.mp3",
     "unit": 6,
     "rootAffix": "di（日）+et→每天的定量→规定饮食",
-    "explain": "A diet is the food a person usually eats."
+    "explain": "A diet is the food a person usually eats.",
+    "usage": [
+      "a healthy diet（健康饮食）",
+      "go on a diet（节食）"
+    ],
+    "wordForms": [
+      "diets（复数）",
+      "dietary（adj. 饮食的）",
+      "dietician（n. 营养师）"
+    ]
   },
   {
     "id": "g9_080",
@@ -1003,7 +1754,16 @@
     "audio": "vitamin.mp3",
     "unit": 6,
     "rootAffix": "vit（生命）+amin（胺）→生命不可或缺的胺→维生素",
-    "explain": "A vitamin is a substance needed for good health."
+    "explain": "A vitamin is a substance needed for good health.",
+    "usage": [
+      "take vitamins（服用维生素）",
+      "vitamin C（维生素C）"
+    ],
+    "wordForms": [
+      "vitamins（复数）",
+      "vitamin-rich（adj. 富含维生素的）",
+      "vitamin（n. 维生素）"
+    ]
   },
   {
     "id": "g9_081",
@@ -1016,7 +1776,16 @@
     "audio": "protein.mp3",
     "unit": 6,
     "rootAffix": "prot（第一的，首要的）+e+in（名词后缀，表化学物质）→（构成生命的）首要物质→蛋白质",
-    "explain": "A protein is a substance in food that helps build the body."
+    "explain": "A protein is a substance in food that helps build the body.",
+    "usage": [
+      "eat protein（摄入蛋白质）",
+      "protein-rich food（富含蛋白质的食物）"
+    ],
+    "wordForms": [
+      "proteins（复数，指种类）",
+      "proteinaceous（adj. 蛋白质的）",
+      "protein（n. 蛋白质）"
+    ]
   },
   {
     "id": "g9_082",
@@ -1029,7 +1798,16 @@
     "audio": "mineral.mp3",
     "unit": 6,
     "rootAffix": "miner（矿）+al（形容词后缀）→矿物的",
-    "explain": "A mineral is a natural substance found in the earth."
+    "explain": "A mineral is a natural substance found in the earth.",
+    "usage": [
+      "mineral water（矿泉水）",
+      "minerals（矿物质）"
+    ],
+    "wordForms": [
+      "minerals（复数）",
+      "mineral-rich（adj. 富含矿物质的）",
+      "mining（n. 采矿）"
+    ]
   },
   {
     "id": "g9_083",
@@ -1042,7 +1820,16 @@
     "audio": "balance.mp3",
     "unit": 6,
     "rootAffix": "ba（=bi，两）+lance（盘子）→有两个盘子的东西→天平→平衡→余额",
-    "explain": "A balance is an even distribution of weight."
+    "explain": "A balance is an even distribution of weight.",
+    "usage": [
+      "keep balance（保持平衡）",
+      "balance between work and rest（劳逸结合）"
+    ],
+    "wordForms": [
+      "balances（复数）",
+      "balanced（adj. 平衡的）",
+      "unbalanced（adj. 不平衡的）"
+    ]
   },
   {
     "id": "g9_084",
@@ -1055,7 +1842,16 @@
     "audio": "nutrition.mp3",
     "unit": 6,
     "rootAffix": "nutr（滋养，提供营养）+ition（动名词后缀）→营养，营养物质，营养学",
-    "explain": "A nutrition is the process of providing food necessary for health."
+    "explain": "A nutrition is the process of providing food necessary for health.",
+    "usage": [
+      "good nutrition（良好营养）",
+      "nutrition facts（营养成分）"
+    ],
+    "wordForms": [
+      "nutritious（adj. 有营养的）",
+      "nutritiously（adv. 有营养地）",
+      "nutritionist（n. 营养学家）"
+    ]
   },
   {
     "id": "g9_085",
@@ -1068,7 +1864,18 @@
     "audio": "healthy.mp3",
     "unit": 6,
     "rootAffix": "health（健康）+y（形容词后缀）→健康的，有益于健康的",
-    "explain": "A healthy is in good health."
+    "explain": "A healthy is in good health.",
+    "usage": [
+      "keep healthy（保持健康）",
+      "healthy food（健康食品）"
+    ],
+    "wordForms": [
+      "health（n. 健康）",
+      "healthier（比较级）",
+      "healthiest（最高级）",
+      "healthily（adv. 健康地）",
+      "unhealthy（adj. 不健康的）"
+    ]
   },
   {
     "id": "g9_086",
@@ -1081,7 +1888,16 @@
     "audio": "necessary.mp3",
     "unit": 6,
     "rootAffix": "ne（不）+cess（走开）+ary（形容词后缀）→不能离开的→必需的，必要的",
-    "explain": "A necessary is needed."
+    "explain": "A necessary is needed.",
+    "usage": [
+      "It is necessary to do sth.（有必要做某事）",
+      "a necessary condition（必要条件）"
+    ],
+    "wordForms": [
+      "necessarily（adv. 必要地）",
+      "necessity（n. 必要性）",
+      "unnecessary（adj. 不必要的）"
+    ]
   },
   {
     "id": "g9_087",
@@ -1093,7 +1909,17 @@
     "difficulty": 9,
     "audio": "fat.mp3",
     "unit": 6,
-    "explain": "Fat means having too much body weight."
+    "explain": "Fat means having too much body weight.",
+    "usage": [
+      "a fat cat（胖猫）",
+      "get fat（变胖）"
+    ],
+    "wordForms": [
+      "fatter（比较级）",
+      "fattest（最高级）",
+      "fatness（n. 肥胖）",
+      "thin（adj. 瘦的，反义）"
+    ]
   },
   {
     "id": "g9_088",
@@ -1105,7 +1931,16 @@
     "difficulty": 9,
     "audio": "sugar.mp3",
     "unit": 6,
-    "explain": "A sugar is a sweet substance used in food."
+    "explain": "A sugar is a sweet substance used in food.",
+    "usage": [
+      "add sugar（加糖）",
+      "a spoon of sugar（一勺糖）"
+    ],
+    "wordForms": [
+      "sugars（复数，指种类）",
+      "sugary（adj. 含糖的）",
+      "sugar-free（adj. 无糖的）"
+    ]
   },
   {
     "id": "g9_089",
@@ -1117,7 +1952,16 @@
     "difficulty": 9,
     "audio": "fiber.mp3",
     "unit": 6,
-    "explain": "A fiber is the parts of plants that help with digestion."
+    "explain": "A fiber is the parts of plants that help with digestion.",
+    "usage": [
+      "a fiber（一根纤维）",
+      "dietary fiber（膳食纤维）"
+    ],
+    "wordForms": [
+      "fibers（复数）",
+      "fibrous（adj. 纤维状的）",
+      "fibre（英式拼写）"
+    ]
   },
   {
     "id": "g9_090",
@@ -1129,7 +1973,15 @@
     "difficulty": 9,
     "audio": "dairy-product.mp3",
     "unit": 6,
-    "explain": "\"dairy product\" is an expression meaning a common English word."
+    "explain": "\"dairy product\" is an expression meaning a common English word.",
+    "usage": [
+      "dairy products（乳制品）",
+      "a dairy product（一种乳制品）"
+    ],
+    "wordForms": [
+      "dairy products（复数）",
+      "dairy（adj. 乳制的）"
+    ]
   },
   {
     "id": "g9_091",
@@ -1141,7 +1993,16 @@
     "difficulty": 9,
     "audio": "fried-food.mp3",
     "unit": 6,
-    "explain": "A fried food is food cooked in hot oil."
+    "explain": "A fried food is food cooked in hot oil.",
+    "usage": [
+      "eat fried food（吃油炸食品）",
+      "fried food stalls（油炸食品摊）"
+    ],
+    "wordForms": [
+      "fried foods（复数，指种类）",
+      "fried（adj. 油炸的）",
+      "food（n. 食物）"
+    ]
   },
   {
     "id": "g9_092",
@@ -1153,7 +2014,16 @@
     "difficulty": 9,
     "audio": "soft-drink.mp3",
     "unit": 6,
-    "explain": "A soft drink is a cold drink that is not alcoholic."
+    "explain": "A soft drink is a cold drink that is not alcoholic.",
+    "usage": [
+      "a soft drink（软饮料）",
+      "order a soft drink（点一杯软饮）"
+    ],
+    "wordForms": [
+      "soft drinks（复数）",
+      "soft（adj. 柔软的）",
+      "drink（n. 饮料）"
+    ]
   },
   {
     "id": "g9_093",
@@ -1165,7 +2035,16 @@
     "difficulty": 9,
     "audio": "lose-weight.mp3",
     "unit": 6,
-    "explain": "To lose weight means a common English word."
+    "explain": "To lose weight means a common English word.",
+    "usage": [
+      "lose weight（减肥）",
+      "want to lose weight（想减肥）"
+    ],
+    "wordForms": [
+      "loses weight（第三人称单数）",
+      "lost weight（过去式）",
+      "losing weight（现在分词）"
+    ]
   },
   {
     "id": "g9_094",
@@ -1177,6 +2056,15 @@
     "difficulty": 9,
     "audio": "keep-fit.mp3",
     "unit": 6,
-    "explain": "To keep fit means a common English word."
+    "explain": "To keep fit means a common English word.",
+    "usage": [
+      "keep fit（保持健康）",
+      "do sports to keep fit（运动保持健康）"
+    ],
+    "wordForms": [
+      "keeps fit（第三人称单数）",
+      "kept fit（过去式）",
+      "keeping fit（现在分词）"
+    ]
   }
 ]

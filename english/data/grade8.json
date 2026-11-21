@@ -10,7 +10,16 @@
     "audio": "fact.mp3",
     "unit": 1,
     "rootAffix": "fac（做）+t（完成分词后缀）→做的结果→做的事→事实",
-    "explain": "Fact is something that is true."
+    "explain": "Fact is something that is true.",
+    "usage": [
+      "in fact（事实上）",
+      "a fact（一个事实）"
+    ],
+    "wordForms": [
+      "facts（复数）",
+      "factual（adj. 事实的）",
+      "factor（n. 因素，相关词）"
+    ]
   },
   {
     "id": "g8_002",
@@ -22,7 +31,17 @@
     "difficulty": 8,
     "audio": "cover.mp3",
     "unit": 1,
-    "explain": "To cover means a common English word."
+    "explain": "To cover means a common English word.",
+    "usage": [
+      "cover the table（盖住桌子）",
+      "the cover of a book（书的封面）"
+    ],
+    "wordForms": [
+      "covers（复数/第三人称单数）",
+      "covered（过去式）",
+      "covering（现在分词）",
+      "discover（v. 发现）"
+    ]
   },
   {
     "id": "g8_003",
@@ -35,7 +54,16 @@
     "audio": "surface.mp3",
     "unit": 1,
     "rootAffix": "sur（上面的）+face（面部）→面部的上面→表面",
-    "explain": "Surface is the outside part of something."
+    "explain": "Surface is the outside part of something.",
+    "usage": [
+      "on the surface（在表面上）",
+      "the surface of the water（水面）"
+    ],
+    "wordForms": [
+      "surfaces（复数）",
+      "surfacing（n. 浮出水面）",
+      "surface（v. 浮出水面）"
+    ]
   },
   {
     "id": "g8_004",
@@ -47,7 +75,17 @@
     "difficulty": 8,
     "audio": "fresh.mp3",
     "unit": 1,
-    "explain": "Fresh means newly made or recently obtained, not stale or spoiled."
+    "explain": "Fresh means newly made or recently obtained, not stale or spoiled.",
+    "usage": [
+      "fresh air（新鲜空气）",
+      "fresh fruit（新鲜水果）"
+    ],
+    "wordForms": [
+      "fresher（比较级）",
+      "freshest（最高级）",
+      "freshly（adv. 新鲜地）",
+      "freshness（n. 新鲜）"
+    ]
   },
   {
     "id": "g8_005",
@@ -60,7 +98,16 @@
     "audio": "percent.mp3",
     "unit": 1,
     "rootAffix": "per（依据，相比于）+cent（百）→百分之……的",
-    "explain": "A percent is ……."
+    "explain": "A percent is …….",
+    "usage": [
+      "ten percent（百分之十）",
+      "50 percent of students（百分之五十的学生）"
+    ],
+    "wordForms": [
+      "percent（n./adv. 百分比，无屈折变化）",
+      "percentage（n. 百分比）",
+      "per cent（分写形式）"
+    ]
   },
   {
     "id": "g8_006",
@@ -73,7 +120,15 @@
     "audio": "available.mp3",
     "unit": 1,
     "rootAffix": "a（=ad，去）+vail（有价值）+able（可以）→可以带来价值的，有益的→有效的，能产生作用的→可用的，有空的",
-    "explain": "Available means a common English word."
+    "explain": "Available means a common English word.",
+    "usage": [
+      "be available for use（可供使用）",
+      "Rooms are available.（有空房。）"
+    ],
+    "wordForms": [
+      "availability（n. 可获得性）",
+      "unavailable（adj. 不可获得的）"
+    ]
   },
   {
     "id": "g8_007",
@@ -86,7 +141,16 @@
     "audio": "necessary.mp3",
     "unit": 1,
     "rootAffix": "ne（不）+cess（走开）+ary（形容词后缀）→不能离开的→必需的，必要的",
-    "explain": "A necessary is needed."
+    "explain": "A necessary is needed.",
+    "usage": [
+      "It is necessary to do sth.（有必要做某事）",
+      "a necessary condition（必要条件）"
+    ],
+    "wordForms": [
+      "necessarily（adv. 必要地）",
+      "necessity（n. 必要性）",
+      "unnecessary（adj. 不必要的）"
+    ]
   },
   {
     "id": "g8_008",
@@ -99,7 +163,18 @@
     "audio": "survive.mp3",
     "unit": 1,
     "rootAffix": "sur（=super，超越）+viv（活）+e→越过（灾难）活下来，比...活得长→幸免于，比……活得长",
-    "explain": "A survive is to continue living."
+    "explain": "A survive is to continue living.",
+    "usage": [
+      "survive an accident（在事故中幸存）",
+      "survive on bread（靠面包存活）"
+    ],
+    "wordForms": [
+      "survives（第三人称单数）",
+      "survived（过去式）",
+      "surviving（现在分词）",
+      "survival（n. 幸存）",
+      "survivor（n. 幸存者）"
+    ]
   },
   {
     "id": "g8_009",
@@ -111,7 +186,16 @@
     "difficulty": 8,
     "audio": "drop.mp3",
     "unit": 1,
-    "explain": "To drop means to let something fall or to decrease in amount."
+    "explain": "To drop means to let something fall or to decrease in amount.",
+    "usage": [
+      "drop a book（掉了一本书）",
+      "drop by（顺便拜访）"
+    ],
+    "wordForms": [
+      "drops（复数/第三人称单数）",
+      "dropped（过去式）",
+      "dropping（现在分词）"
+    ]
   },
   {
     "id": "g8_010",
@@ -124,7 +208,16 @@
     "audio": "precious.mp3",
     "unit": 1,
     "rootAffix": "preci（价值）+ous（形容词后缀，多，富于）→有很多价值的→宝贵的，珍贵的",
-    "explain": "Precious means a common English word."
+    "explain": "Precious means a common English word.",
+    "usage": [
+      "a precious stone（宝石）",
+      "a precious moment（珍贵时刻）"
+    ],
+    "wordForms": [
+      "preciously（adv. 珍贵地）",
+      "preciousness（n. 珍贵）",
+      "priceless（adj. 无价的）"
+    ]
   },
   {
     "id": "g8_011",
@@ -137,7 +230,17 @@
     "audio": "limited.mp3",
     "unit": 1,
     "rootAffix": "limit（限制）+ed（过去分词形式）→受限制的→有限的",
-    "explain": "Limited is a verb in past tense."
+    "explain": "Limited is a verb in past tense.",
+    "usage": [
+      "a limited time（有限的时间）",
+      "be limited to（局限于）"
+    ],
+    "wordForms": [
+      "limit（n./v. 限制）",
+      "limitation（n. 局限）",
+      "limitless（adj. 无限的）",
+      "unlimited（adj. 无限的）"
+    ]
   },
   {
     "id": "g8_012",
@@ -150,7 +253,17 @@
     "audio": "raise.mp3",
     "unit": 1,
     "rootAffix": "rais（=ris）+e=rise→升起",
-    "explain": "To raise means to lift something up or increase the level of something."
+    "explain": "To raise means to lift something up or increase the level of something.",
+    "usage": [
+      "raise one's hand（举手）",
+      "raise money（筹款）"
+    ],
+    "wordForms": [
+      "raises（第三人称单数）",
+      "raised（过去式）",
+      "raising（现在分词）",
+      "rise（v. 上升，近义）"
+    ]
   },
   {
     "id": "g8_013",
@@ -162,7 +275,15 @@
     "difficulty": 8,
     "audio": "awareness.mp3",
     "unit": 1,
-    "explain": "An awareness is knowledge or understanding of a situation."
+    "explain": "An awareness is knowledge or understanding of a situation.",
+    "usage": [
+      "raise awareness（提高意识）",
+      "environmental awareness（环保意识）"
+    ],
+    "wordForms": [
+      "aware（adj. 意识到的）",
+      "unaware（adj. 未意识到的）"
+    ]
   },
   {
     "id": "g8_014",
@@ -175,7 +296,16 @@
     "audio": "shortage.mp3",
     "unit": 1,
     "rootAffix": "short（不足的）+age（名词后缀，表状态）→缺乏",
-    "explain": "A shortage is a situation where there is not enough of something."
+    "explain": "A shortage is a situation where there is not enough of something.",
+    "usage": [
+      "a water shortage（水资源短缺）",
+      "a food shortage（食物短缺）"
+    ],
+    "wordForms": [
+      "shortages（复数）",
+      "short（adj. 短缺的）",
+      "shortage（n. 短缺）"
+    ]
   },
   {
     "id": "g8_015",
@@ -187,7 +317,18 @@
     "difficulty": 8,
     "audio": "dry.mp3",
     "unit": 1,
-    "explain": "A dry is not wet."
+    "explain": "A dry is not wet.",
+    "usage": [
+      "dry clothes（晾干衣服）",
+      "a dry day（干燥的一天）"
+    ],
+    "wordForms": [
+      "dries（第三人称单数）",
+      "dried（过去式）",
+      "drying（现在分词）",
+      "drier（比较级）",
+      "driest（最高级）"
+    ]
   },
   {
     "id": "g8_016",
@@ -200,7 +341,16 @@
     "audio": "desert.mp3",
     "unit": 1,
     "rootAffix": "de（反义）+sert（加入）→从行列中拿出来→抛弃，遗弃",
-    "explain": "A desert is a large area of land with very little water and few plants."
+    "explain": "A desert is a large area of land with very little water and few plants.",
+    "usage": [
+      "in the desert（在沙漠里）",
+      "a desert island（荒岛）"
+    ],
+    "wordForms": [
+      "deserts（复数）",
+      "deserted（adj. 荒芜的）",
+      "desert（v. 抛弃）"
+    ]
   },
   {
     "id": "g8_017",
@@ -213,7 +363,17 @@
     "audio": "carry.mp3",
     "unit": 1,
     "rootAffix": "carr（运载）+y（名词后缀）→运载",
-    "explain": "To carry means to to hold and take somewhere."
+    "explain": "To carry means to to hold and take somewhere.",
+    "usage": [
+      "carry a bag（拎包）",
+      "carry out（执行）"
+    ],
+    "wordForms": [
+      "carries（第三人称单数）",
+      "carried（过去式）",
+      "carrying（现在分词）",
+      "carrier（n. 搬运者）"
+    ]
   },
   {
     "id": "g8_018",
@@ -226,7 +386,16 @@
     "audio": "distance.mp3",
     "unit": 1,
     "rootAffix": "dis（分开）+(s)ta（站）+(a)nce（名词后缀）→分开站→远方",
-    "explain": "Distance is the amount of space between things."
+    "explain": "Distance is the amount of space between things.",
+    "usage": [
+      "the distance between A and B（A与B之间的距离）",
+      "in the distance（在远处）"
+    ],
+    "wordForms": [
+      "distances（复数）",
+      "distant（adj. 遥远的）",
+      "distantly（adv. 遥远地）"
+    ]
   },
   {
     "id": "g8_019",
@@ -239,7 +408,17 @@
     "audio": "difficult.mp3",
     "unit": 1,
     "rootAffix": "dif（=dis，反义）+fic（做）+ul（易于……的）+t→不容易做的→困难的",
-    "explain": "A difficult is not easy."
+    "explain": "A difficult is not easy.",
+    "usage": [
+      "a difficult question（难题）",
+      "It is difficult for me.（对我来说很难。）"
+    ],
+    "wordForms": [
+      "difficulty（n. 困难）",
+      "difficulties（复数）",
+      "more difficult（比较级）",
+      "most difficult（最高级）"
+    ]
   },
   {
     "id": "g8_020",
@@ -252,7 +431,18 @@
     "audio": "manage.mp3",
     "unit": 1,
     "rootAffix": "man（手）+age（动词后缀）→用手去操纵马匹，训练马匹→管理，经营",
-    "explain": "To manage means a common English word."
+    "explain": "To manage means a common English word.",
+    "usage": [
+      "manage a team（管理团队）",
+      "manage to do sth.（设法做成某事）"
+    ],
+    "wordForms": [
+      "manages（第三人称单数）",
+      "managed（过去式）",
+      "managing（现在分词）",
+      "management（n. 管理）",
+      "manager（n. 经理）"
+    ]
   },
   {
     "id": "g8_021",
@@ -265,7 +455,18 @@
     "audio": "value.mp3",
     "unit": 1,
     "rootAffix": "val（有用，有价值）+ue（=ute，完成分词后缀）→价值，有用性→估价，重视",
-    "explain": "To value means to how much something is worth."
+    "explain": "To value means to how much something is worth.",
+    "usage": [
+      "the value of the book（书的价值）",
+      "value a friend（重视朋友）"
+    ],
+    "wordForms": [
+      "values（复数/第三人称单数）",
+      "valued（过去式）",
+      "valuing（现在分词）",
+      "valuable（adj. 有价值的）",
+      "valueless（adj. 无价值的）"
+    ]
   },
   {
     "id": "g8_022",
@@ -277,7 +478,16 @@
     "difficulty": 8,
     "audio": "water-shortage.mp3",
     "unit": 1,
-    "explain": "\"water shortage\" is an expression meaning a common English word."
+    "explain": "\"water shortage\" is an expression meaning a common English word.",
+    "usage": [
+      "a water shortage（水资源短缺）",
+      "face a water shortage（面临缺水）"
+    ],
+    "wordForms": [
+      "water shortages（复数）",
+      "water（n. 水）",
+      "shortage（n. 短缺）"
+    ]
   },
   {
     "id": "g8_023",
@@ -289,7 +499,16 @@
     "difficulty": 8,
     "audio": "dry-climate.mp3",
     "unit": 1,
-    "explain": "\"dry climate\" is an expression meaning a common English word."
+    "explain": "\"dry climate\" is an expression meaning a common English word.",
+    "usage": [
+      "a dry climate（干燥的气候）",
+      "live in a dry climate（生活在干燥气候中）"
+    ],
+    "wordForms": [
+      "dry climates（复数）",
+      "climate（n. 气候）",
+      "dry（adj. 干燥的）"
+    ]
   },
   {
     "id": "g8_024",
@@ -301,7 +520,16 @@
     "difficulty": 8,
     "audio": "manage-to-do-sth-.mp3",
     "unit": 1,
-    "explain": "To manage to do sth. means a common English word."
+    "explain": "To manage to do sth. means a common English word.",
+    "usage": [
+      "manage to finish the work（设法完成工作）",
+      "manage to solve the problem（设法解决问题）"
+    ],
+    "wordForms": [
+      "manages to do sth.（第三人称单数）",
+      "managed to do sth.（过去式）",
+      "managing to do sth.（现在分词）"
+    ]
   },
   {
     "id": "g8_025",
@@ -313,7 +541,16 @@
     "difficulty": 8,
     "audio": "number.mp3",
     "unit": 2,
-    "explain": "Number is a word or symbol for counting."
+    "explain": "Number is a word or symbol for counting.",
+    "usage": [
+      "a phone number（电话号码）",
+      "a number of（许多）"
+    ],
+    "wordForms": [
+      "numbers（复数）",
+      "numbered（adj. 编号的）",
+      "numbering（n. 编号）"
+    ]
   },
   {
     "id": "g8_026",
@@ -325,7 +562,17 @@
     "difficulty": 8,
     "audio": "count.mp3",
     "unit": 2,
-    "explain": "To count means to determine the total number of items in a group."
+    "explain": "To count means to determine the total number of items in a group.",
+    "usage": [
+      "count to ten（数到十）",
+      "count on（依靠）"
+    ],
+    "wordForms": [
+      "counts（第三人称单数）",
+      "counted（过去式）",
+      "counting（现在分词）",
+      "countable（adj. 可数的）"
+    ]
   },
   {
     "id": "g8_027",
@@ -338,7 +585,16 @@
     "audio": "system.mp3",
     "unit": 2,
     "rootAffix": "sy（一起）+ste（=sta，站立）+m（=ma，名词后缀）→站在一起的东西→系统",
-    "explain": "A system is a set of connected parts."
+    "explain": "A system is a set of connected parts.",
+    "usage": [
+      "the solar system（太阳系）",
+      "a computer system（计算机系统）"
+    ],
+    "wordForms": [
+      "systems（复数）",
+      "systematic（adj. 系统的）",
+      "systematically（adv. 系统地）"
+    ]
   },
   {
     "id": "g8_028",
@@ -351,7 +607,17 @@
     "audio": "symbol.mp3",
     "unit": 2,
     "rootAffix": "sym（一起）+bol（扔）→扔到一起的东西→符号，标志→象征",
-    "explain": "A symbol is a sign representing something."
+    "explain": "A symbol is a sign representing something.",
+    "usage": [
+      "a symbol of peace（和平的象征）",
+      "a symbol（符号）"
+    ],
+    "wordForms": [
+      "symbols（复数）",
+      "symbolic（adj. 象征的）",
+      "symbolize（v. 象征）",
+      "symbolism（n. 象征主义）"
+    ]
   },
   {
     "id": "g8_029",
@@ -364,7 +630,18 @@
     "audio": "calculate.mp3",
     "unit": 2,
     "rootAffix": "calc（石灰岩，石头）+ul（指小名词后缀）+ate（动词后缀）→用小石子来做某件事→计算",
-    "explain": "To calculate means a common English word."
+    "explain": "To calculate means a common English word.",
+    "usage": [
+      "calculate the cost（计算成本）",
+      "calculate the answer（算出答案）"
+    ],
+    "wordForms": [
+      "calculates（第三人称单数）",
+      "calculated（过去式）",
+      "calculating（现在分词）",
+      "calculation（n. 计算）",
+      "calculator（n. 计算器）"
+    ]
   },
   {
     "id": "g8_030",
@@ -377,7 +654,16 @@
     "audio": "accurate.mp3",
     "unit": 2,
     "rootAffix": "ac（=ad，去，趋近）+cur（小心，注意）+ate（形容词后缀）→小心的，谨小慎微的→准确的，精确的",
-    "explain": "Accurate means a common English word."
+    "explain": "Accurate means a common English word.",
+    "usage": [
+      "accurate information（准确的信息）",
+      "an accurate answer（准确的答案）"
+    ],
+    "wordForms": [
+      "accurately（adv. 准确地）",
+      "accuracy（n. 准确性）",
+      "inaccurate（adj. 不准确的）"
+    ]
   },
   {
     "id": "g8_031",
@@ -390,7 +676,17 @@
     "audio": "invention.mp3",
     "unit": 2,
     "rootAffix": "invent（发明）+ion（名词后缀）→发明",
-    "explain": "An invention is something that has been created for the first time."
+    "explain": "An invention is something that has been created for the first time.",
+    "usage": [
+      "a great invention（伟大的发明）",
+      "make an invention（做出发明）"
+    ],
+    "wordForms": [
+      "inventions（复数）",
+      "invent（v. 发明）",
+      "inventor（n. 发明家）",
+      "inventive（adj. 有发明才能的）"
+    ]
   },
   {
     "id": "g8_032",
@@ -403,7 +699,18 @@
     "audio": "develop.mp3",
     "unit": 2,
     "rootAffix": "de（反义）+velop（包裹）→打开包裹，展开→发展",
-    "explain": "A develop is to grow or change."
+    "explain": "A develop is to grow or change.",
+    "usage": [
+      "develop a skill（培养技能）",
+      "develop a plan（制定计划）"
+    ],
+    "wordForms": [
+      "develops（第三人称单数）",
+      "developed（过去式）",
+      "developing（现在分词）",
+      "development（n. 发展）",
+      "developer（n. 开发者）"
+    ]
   },
   {
     "id": "g8_033",
@@ -416,7 +723,16 @@
     "audio": "ancient.mp3",
     "unit": 2,
     "rootAffix": "anci（=ante，在前面）+ent（形容词后缀）→（很久）以前的→古代的",
-    "explain": "An ancient is very old."
+    "explain": "An ancient is very old.",
+    "usage": [
+      "ancient China（古代中国）",
+      "ancient buildings（古代建筑）"
+    ],
+    "wordForms": [
+      "ancient（adj. 古代的）",
+      "anciently（adv. 古代地，少见）",
+      "modern（adj. 现代的，反义）"
+    ]
   },
   {
     "id": "g8_034",
@@ -429,7 +745,16 @@
     "audio": "however.mp3",
     "unit": 2,
     "rootAffix": "how（如何）+ever（曾经）→无论如何",
-    "explain": "However is an adverb in English."
+    "explain": "However is an adverb in English.",
+    "usage": [
+      "However, I disagree.（然而我不同意。）",
+      "however hard（无论多难）"
+    ],
+    "wordForms": [
+      "however（adv./conj. 然而，无屈折变化）",
+      "but（conj. 但是，近义）",
+      "though（conj. 虽然）"
+    ]
   },
   {
     "id": "g8_035",
@@ -441,7 +766,15 @@
     "difficulty": 8,
     "audio": "plus.mp3",
     "unit": 2,
-    "explain": "Plus is a preposition in English."
+    "explain": "Plus is a preposition in English.",
+    "usage": [
+      "two plus three（二加三）",
+      "plus one（加一）"
+    ],
+    "wordForms": [
+      "plus（prep./adj. 加；额外的，无屈折变化）",
+      "minus（prep. 减，反义）"
+    ]
   },
   {
     "id": "g8_036",
@@ -454,7 +787,15 @@
     "audio": "minus.mp3",
     "unit": 2,
     "rootAffix": "min（小的）+us（形容词后缀）→小的→负的，零下的→减去",
-    "explain": "Minus is a preposition in English."
+    "explain": "Minus is a preposition in English.",
+    "usage": [
+      "ten minus three（十减三）",
+      "minus five degrees（零下五度）"
+    ],
+    "wordForms": [
+      "minus（prep./adj. 减；负的，无屈折变化）",
+      "plus（prep. 加，反义）"
+    ]
   },
   {
     "id": "g8_037",
@@ -467,7 +808,17 @@
     "audio": "multiply.mp3",
     "unit": 2,
     "rootAffix": "multi（多）+ply（=plic，折叠）→多次折叠→成倍增加，乘",
-    "explain": "To multiply means a common English word."
+    "explain": "To multiply means a common English word.",
+    "usage": [
+      "multiply 3 by 4（3乘以4）",
+      "multiply quickly（快速繁殖）"
+    ],
+    "wordForms": [
+      "multiplies（第三人称单数）",
+      "multiplied（过去式）",
+      "multiplying（现在分词）",
+      "multiplication（n. 乘法）"
+    ]
   },
   {
     "id": "g8_038",
@@ -480,7 +831,17 @@
     "audio": "divide.mp3",
     "unit": 2,
     "rootAffix": "divid（分开）+e→分开",
-    "explain": "To divide means a common English word."
+    "explain": "To divide means a common English word.",
+    "usage": [
+      "divide A into B（把A分成B）",
+      "divide by（除以）"
+    ],
+    "wordForms": [
+      "divides（第三人称单数）",
+      "divided（过去式）",
+      "dividing（现在分词）",
+      "division（n. 分开；除法）"
+    ]
   },
   {
     "id": "g8_039",
@@ -492,7 +853,15 @@
     "difficulty": 8,
     "audio": "at-least.mp3",
     "unit": 2,
-    "explain": "\"at least\" is an expression meaning a common English word."
+    "explain": "\"at least\" is an expression meaning a common English word.",
+    "usage": [
+      "at least ten（至少十个）",
+      "at least once（至少一次）"
+    ],
+    "wordForms": [
+      "at least（固定短语）",
+      "least（adj./adv. 最少）"
+    ]
   },
   {
     "id": "g8_040",
@@ -504,7 +873,16 @@
     "difficulty": 8,
     "audio": "in-ancient-times.mp3",
     "unit": 2,
-    "explain": "\"in ancient times\" is an expression meaning a common English word."
+    "explain": "\"in ancient times\" is an expression meaning a common English word.",
+    "usage": [
+      "in ancient times（在古代）",
+      "people in ancient times（古代人）"
+    ],
+    "wordForms": [
+      "in ancient times（固定短语）",
+      "ancient（adj. 古代的）",
+      "times（n. 时代）"
+    ]
   },
   {
     "id": "g8_041",
@@ -517,7 +895,16 @@
     "audio": "computer.mp3",
     "unit": 3,
     "rootAffix": "com（加强语气）+put（计算）+er（者）→计算机",
-    "explain": "A computer is an electronic device."
+    "explain": "A computer is an electronic device.",
+    "usage": [
+      "use a computer（使用电脑）",
+      "a computer game（电脑游戏）"
+    ],
+    "wordForms": [
+      "computers（复数）",
+      "computing（n. 计算）",
+      "computerize（v. 计算机化）"
+    ]
   },
   {
     "id": "g8_042",
@@ -530,7 +917,16 @@
     "audio": "keyboard.mp3",
     "unit": 3,
     "rootAffix": "key（键）+board（木板）→键盘",
-    "explain": "A keyboard is a set of keys for operating a computer."
+    "explain": "A keyboard is a set of keys for operating a computer.",
+    "usage": [
+      "type on the keyboard（在键盘上打字）",
+      "a keyboard player（键盘手）"
+    ],
+    "wordForms": [
+      "keyboards（复数）",
+      "key（n. 键）",
+      "board（n. 板）"
+    ]
   },
   {
     "id": "g8_043",
@@ -542,7 +938,16 @@
     "difficulty": 8,
     "audio": "mouse.mp3",
     "unit": 3,
-    "explain": "A mouse is a small device moved by hand to control a computer."
+    "explain": "A mouse is a small device moved by hand to control a computer.",
+    "usage": [
+      "a mouse（一只老鼠）",
+      "a computer mouse（电脑鼠标）"
+    ],
+    "wordForms": [
+      "mice（复数）",
+      "mousetrap（n. 捕鼠器）",
+      "mousepad（n. 鼠标垫）"
+    ]
   },
   {
     "id": "g8_044",
@@ -554,7 +959,16 @@
     "difficulty": 8,
     "audio": "screen.mp3",
     "unit": 3,
-    "explain": "A screen is the flat surface on which images are shown."
+    "explain": "A screen is the flat surface on which images are shown.",
+    "usage": [
+      "on the screen（在屏幕上）",
+      "a screen saver（屏保）"
+    ],
+    "wordForms": [
+      "screens（复数）",
+      "screening（n. 放映）",
+      "screenwriter（n. 编剧）"
+    ]
   },
   {
     "id": "g8_045",
@@ -567,7 +981,17 @@
     "audio": "program.mp3",
     "unit": 3,
     "rootAffix": "pro（向前向外）+gram（文字）→在前面公布出来的文字→通告→程序，计划",
-    "explain": "A program is a set of instructions that a computer follows."
+    "explain": "A program is a set of instructions that a computer follows.",
+    "usage": [
+      "a computer program（电脑程序）",
+      "a TV program（电视节目）"
+    ],
+    "wordForms": [
+      "programs（复数）",
+      "programmed（过去式）",
+      "programming（n. 编程）",
+      "programmer（n. 程序员）"
+    ]
   },
   {
     "id": "g8_046",
@@ -580,7 +1004,15 @@
     "audio": "internet.mp3",
     "unit": 3,
     "rootAffix": "inter（在……之间）+net（网）→在多个网络之间（的网络）→互联网",
-    "explain": "An internet is the global computer network."
+    "explain": "An internet is the global computer network.",
+    "usage": [
+      "on the Internet（在互联网上）",
+      "surf the Internet（上网）"
+    ],
+    "wordForms": [
+      "internet（小写用法）",
+      "Internet-related（adj. 与互联网相关的）"
+    ]
   },
   {
     "id": "g8_047",
@@ -593,7 +1025,16 @@
     "audio": "information.mp3",
     "unit": 3,
     "rootAffix": "inform（通知）+ation（动名词后缀）→信息",
-    "explain": "An information is facts about a subject."
+    "explain": "An information is facts about a subject.",
+    "usage": [
+      "get information（获取信息）",
+      "information technology（信息技术）"
+    ],
+    "wordForms": [
+      "inform（v. 告知）",
+      "informative（adj. 信息丰富的）",
+      "information（n. 信息，不可数）"
+    ]
   },
   {
     "id": "g8_048",
@@ -606,7 +1047,16 @@
     "audio": "technology.mp3",
     "unit": 3,
     "rootAffix": "techn（手艺，技巧）+o（连接字母）+log（学问）+y（名词后缀）→关于手艺和技巧的学问→技术",
-    "explain": "A technology is applied science."
+    "explain": "A technology is applied science.",
+    "usage": [
+      "modern technology（现代科技）",
+      "information technology（信息技术）"
+    ],
+    "wordForms": [
+      "technologies（复数）",
+      "technological（adj. 科技的）",
+      "technologist（n. 技术专家）"
+    ]
   },
   {
     "id": "g8_049",
@@ -619,7 +1069,17 @@
     "audio": "speaker.mp3",
     "unit": 3,
     "rootAffix": "speak（说话）+er（者）→说话者",
-    "explain": "A speaker is a device that produces sound."
+    "explain": "A speaker is a device that produces sound.",
+    "usage": [
+      "a speaker（扬声器；演讲者）",
+      "a native speaker（母语者）"
+    ],
+    "wordForms": [
+      "speakers（复数）",
+      "speak（v. 说）",
+      "speech（n. 演讲）",
+      "speaking（n. 说话）"
+    ]
   },
   {
     "id": "g8_050",
@@ -632,7 +1092,16 @@
     "audio": "printer.mp3",
     "unit": 3,
     "rootAffix": "print（打印、印刷）+er（者）→打印或印刷的人或工具",
-    "explain": "A printer is a device that produces text or images on paper."
+    "explain": "A printer is a device that produces text or images on paper.",
+    "usage": [
+      "a printer（打印机）",
+      "a laser printer（激光打印机）"
+    ],
+    "wordForms": [
+      "printers（复数）",
+      "print（v. 打印）",
+      "printing（n. 打印）"
+    ]
   },
   {
     "id": "g8_051",
@@ -644,7 +1113,16 @@
     "difficulty": 8,
     "audio": "hard-disk.mp3",
     "unit": 3,
-    "explain": "\"hard disk\" is an expression meaning a common English word."
+    "explain": "\"hard disk\" is an expression meaning a common English word.",
+    "usage": [
+      "a hard disk（硬盘）",
+      "an external hard disk（外置硬盘）"
+    ],
+    "wordForms": [
+      "hard disks（复数）",
+      "disk（n. 磁盘）",
+      "hard（adj. 硬的；坚固的）"
+    ]
   },
   {
     "id": "g8_052",
@@ -656,7 +1134,16 @@
     "difficulty": 8,
     "audio": "be-made-of.mp3",
     "unit": 3,
-    "explain": "To be made of means to perform the action related to of."
+    "explain": "To be made of means to perform the action related to of.",
+    "usage": [
+      "be made of wood（由木头制成）",
+      "be made of plastic（由塑料制成）"
+    ],
+    "wordForms": [
+      "am/is/are made of（人称变化）",
+      "was/were made of（过去式）",
+      "been made of（完成式）"
+    ]
   },
   {
     "id": "g8_053",
@@ -668,7 +1155,16 @@
     "difficulty": 8,
     "audio": "work-as.mp3",
     "unit": 3,
-    "explain": "\"work as\" is an expression meaning a common English word."
+    "explain": "\"work as\" is an expression meaning a common English word.",
+    "usage": [
+      "work as a teacher（当老师）",
+      "work as a volunteer（做志愿者）"
+    ],
+    "wordForms": [
+      "works as（第三人称单数）",
+      "worked as（过去式）",
+      "working as（现在分词）"
+    ]
   },
   {
     "id": "g8_054",
@@ -680,7 +1176,16 @@
     "difficulty": 8,
     "audio": "in-the-future.mp3",
     "unit": 3,
-    "explain": "\"in the future\" is an expression meaning a common English word."
+    "explain": "\"in the future\" is an expression meaning a common English word.",
+    "usage": [
+      "in the future（在将来）",
+      "in the near future（在不久的将来）"
+    ],
+    "wordForms": [
+      "future（n. 未来）",
+      "in future（英式表达）",
+      "futuristic（adj. 未来的）"
+    ]
   },
   {
     "id": "g8_055",
@@ -693,7 +1198,16 @@
     "audio": "growth.mp3",
     "unit": 4,
     "rootAffix": "grow（生长）+th（名词后缀，表行为）→生长",
-    "explain": "Growth is the process of increasing in size or developing over time."
+    "explain": "Growth is the process of increasing in size or developing over time.",
+    "usage": [
+      "the growth of a child（孩子的成长）",
+      "economic growth（经济增长）"
+    ],
+    "wordForms": [
+      "growths（复数）",
+      "grow（v. 生长）",
+      "growing（adj. 成长的）"
+    ]
   },
   {
     "id": "g8_056",
@@ -706,7 +1220,15 @@
     "audio": "countryside.mp3",
     "unit": 4,
     "rootAffix": "country（农村）+side（边）→农村",
-    "explain": "Countryside is the land and scenery of a rural area outside towns and cities."
+    "explain": "Countryside is the land and scenery of a rural area outside towns and cities.",
+    "usage": [
+      "in the countryside（在乡下）",
+      "the beauty of the countryside（乡村之美）"
+    ],
+    "wordForms": [
+      "countrysides（复数，指不同地区）",
+      "country（n. 国家；乡下）"
+    ]
   },
   {
     "id": "g8_057",
@@ -719,7 +1241,14 @@
     "audio": "although.mp3",
     "unit": 4,
     "rootAffix": "al（=all，完全，加强语气）+though（虽然）→虽然",
-    "explain": "Although is a conjunction in English."
+    "explain": "Although is a conjunction in English.",
+    "usage": [
+      "Although it rained, we went out.（虽然下雨了，我们还是出去了。）"
+    ],
+    "wordForms": [
+      "although（conj. 虽然，无屈折变化）",
+      "though（conj. 虽然，同义）"
+    ]
   },
   {
     "id": "g8_058",
@@ -732,7 +1261,16 @@
     "audio": "unpleasant.mp3",
     "unit": 4,
     "rootAffix": "un（反义前缀）+pleasant（令人愉快的）→令人不愉快的",
-    "explain": "Unpleasant means a common English word."
+    "explain": "Unpleasant means a common English word.",
+    "usage": [
+      "an unpleasant smell（难闻的气味）",
+      "be unpleasant to sb.（对某人不友好）"
+    ],
+    "wordForms": [
+      "pleasant（adj. 愉快的，反义）",
+      "unpleasantly（adv. 不愉快地）",
+      "unpleasantness（n. 不愉快）"
+    ]
   },
   {
     "id": "g8_059",
@@ -744,7 +1282,15 @@
     "difficulty": 8,
     "audio": "bath.mp3",
     "unit": 4,
-    "explain": "A bath is the act of washing the body in water, or a container for this purpose."
+    "explain": "A bath is the act of washing the body in water, or a container for this purpose.",
+    "usage": [
+      "have a bath（洗澡）",
+      "a bath towel（浴巾）"
+    ],
+    "wordForms": [
+      "baths（复数）",
+      "bathe（v. 洗澡）"
+    ]
   },
   {
     "id": "g8_060",
@@ -757,7 +1303,16 @@
     "audio": "extremely.mp3",
     "unit": 4,
     "rootAffix": "extreme（极端的）+ly（副词后缀）→极其，非常",
-    "explain": "Extremely is an adverb in English."
+    "explain": "Extremely is an adverb in English.",
+    "usage": [
+      "extremely cold（极冷）",
+      "extremely important（极其重要）"
+    ],
+    "wordForms": [
+      "extreme（adj. 极端的）",
+      "more extremely（比较级，少见）",
+      "most extremely（最高级，少见）"
+    ]
   },
   {
     "id": "g8_061",
@@ -770,7 +1325,17 @@
     "audio": "smelly.mp3",
     "unit": 4,
     "rootAffix": "smell（发出气味）+y（形容词后缀）→发臭的",
-    "explain": "Smelly means a common English word."
+    "explain": "Smelly means a common English word.",
+    "usage": [
+      "smelly socks（臭袜子）",
+      "a smelly room（有异味的房间）"
+    ],
+    "wordForms": [
+      "smell（v. 闻；n. 气味）",
+      "smellier（比较级）",
+      "smelliest（最高级）",
+      "smelliness（n. 异味）"
+    ]
   },
   {
     "id": "g8_062",
@@ -783,7 +1348,17 @@
     "audio": "wealthy.mp3",
     "unit": 4,
     "rootAffix": "wealth（财富）+y（形容词后缀）→富有的",
-    "explain": "Wealthy means a common English word."
+    "explain": "Wealthy means a common English word.",
+    "usage": [
+      "a wealthy man（富有的人）",
+      "a wealthy family（富裕家庭）"
+    ],
+    "wordForms": [
+      "wealth（n. 财富）",
+      "wealthier（比较级）",
+      "wealthiest（最高级）",
+      "wealthily（adv. 富有的方式）"
+    ]
   },
   {
     "id": "g8_063",
@@ -796,7 +1371,16 @@
     "audio": "education.mp3",
     "unit": 4,
     "rootAffix": "e（出来）+duc（引导）+ation（动名词后缀）→（将学生天资）引导出来→教育",
-    "explain": "Education is the process of learning."
+    "explain": "Education is the process of learning.",
+    "usage": [
+      "get an education（受教育）",
+      "education system（教育体系）"
+    ],
+    "wordForms": [
+      "educational（adj. 教育的）",
+      "educate（v. 教育）",
+      "educator（n. 教育者）"
+    ]
   },
   {
     "id": "g8_064",
@@ -808,7 +1392,16 @@
     "difficulty": 8,
     "audio": "foreign.mp3",
     "unit": 4,
-    "explain": "Foreign means a common English word."
+    "explain": "Foreign means a common English word.",
+    "usage": [
+      "a foreign country（外国）",
+      "foreign language（外语）"
+    ],
+    "wordForms": [
+      "foreigner（n. 外国人）",
+      "foreignly（adv. 外国地，少见）",
+      "native（adj. 本地的，反义）"
+    ]
   },
   {
     "id": "g8_065",
@@ -821,7 +1414,17 @@
     "audio": "mine.mp3",
     "unit": 4,
     "rootAffix": "min（矿）+e→矿，矿藏",
-    "explain": "A mine is belonging to me."
+    "explain": "A mine is belonging to me.",
+    "usage": [
+      "That book is mine.（那本书是我的。）",
+      "a friend of mine（我的一个朋友）"
+    ],
+    "wordForms": [
+      "I（主格）",
+      "my（形容词性物主代词）",
+      "me（宾格）",
+      "myself（反身代词）"
+    ]
   },
   {
     "id": "g8_066",
@@ -833,7 +1436,16 @@
     "difficulty": 8,
     "audio": "severe.mp3",
     "unit": 4,
-    "explain": "A severe is very serious."
+    "explain": "A severe is very serious.",
+    "usage": [
+      "a severe storm（严重的风暴）",
+      "severe pain（剧痛）"
+    ],
+    "wordForms": [
+      "severely（adv. 严重地）",
+      "severity（n. 严重性）",
+      "mild（adj. 轻微的，反义）"
+    ]
   },
   {
     "id": "g8_067",
@@ -846,7 +1458,17 @@
     "audio": "punish.mp3",
     "unit": 4,
     "rootAffix": "pun（惩罚）+ish（动词后缀）→惩罚",
-    "explain": "To punish means to impose a penalty on someone for wrongdoing."
+    "explain": "To punish means to impose a penalty on someone for wrongdoing.",
+    "usage": [
+      "punish a child（惩罚孩子）",
+      "punish sb. for sth.（因某事惩罚某人）"
+    ],
+    "wordForms": [
+      "punishes（第三人称单数）",
+      "punished（过去式）",
+      "punishing（现在分词）",
+      "punishment（n. 惩罚）"
+    ]
   },
   {
     "id": "g8_068",
@@ -859,7 +1481,16 @@
     "audio": "punishment.mp3",
     "unit": 4,
     "rootAffix": "punish（惩罚）+ment（名词后缀）→惩罚",
-    "explain": "A punishment is a penalty for breaking a rule."
+    "explain": "A punishment is a penalty for breaking a rule.",
+    "usage": [
+      "get a punishment（受到惩罚）",
+      "a severe punishment（严厉的惩罚）"
+    ],
+    "wordForms": [
+      "punishments（复数）",
+      "punish（v. 惩罚）",
+      "punitive（adj. 惩罚的）"
+    ]
   },
   {
     "id": "g8_069",
@@ -871,7 +1502,16 @@
     "difficulty": 8,
     "audio": "burn.mp3",
     "unit": 4,
-    "explain": "To burn means a common English word."
+    "explain": "To burn means a common English word.",
+    "usage": [
+      "burn wood（燃烧木头）",
+      "get burned（被烫伤）"
+    ],
+    "wordForms": [
+      "burns（第三人称单数）",
+      "burnt/burned（过去式/过去分词）",
+      "burning（现在分词）"
+    ]
   },
   {
     "id": "g8_070",
@@ -883,7 +1523,16 @@
     "difficulty": 8,
     "audio": "result-in.mp3",
     "unit": 4,
-    "explain": "To result in means to cause something to happen."
+    "explain": "To result in means to cause something to happen.",
+    "usage": [
+      "result in failure（导致失败）",
+      "Hard work results in success.（努力带来成功。）"
+    ],
+    "wordForms": [
+      "results in（第三人称单数）",
+      "resulted in（过去式）",
+      "resulting in（现在分词）"
+    ]
   },
   {
     "id": "g8_071",
@@ -895,7 +1544,16 @@
     "difficulty": 8,
     "audio": "get-rid-of.mp3",
     "unit": 4,
-    "explain": "To get rid of means to perform the action related to of."
+    "explain": "To get rid of means to perform the action related to of.",
+    "usage": [
+      "get rid of rubbish（扔掉垃圾）",
+      "get rid of a bad habit（改掉坏习惯）"
+    ],
+    "wordForms": [
+      "gets rid of（第三人称单数）",
+      "got rid of（过去式）",
+      "getting rid of（现在分词）"
+    ]
   },
   {
     "id": "g8_072",
@@ -908,7 +1566,17 @@
     "audio": "exchange.mp3",
     "unit": 5,
     "rootAffix": "ex（出来）+change（变化，换）→拿出来换→交换",
-    "explain": "To exchange means to give something and receive something else in return."
+    "explain": "To exchange means to give something and receive something else in return.",
+    "usage": [
+      "exchange gifts（交换礼物）",
+      "in exchange for（交换）"
+    ],
+    "wordForms": [
+      "exchanges（复数/第三人称单数）",
+      "exchanged（过去式）",
+      "exchanging（现在分词）",
+      "exchangeable（adj. 可交换的）"
+    ]
   },
   {
     "id": "g8_073",
@@ -921,7 +1589,16 @@
     "audio": "culture.mp3",
     "unit": 5,
     "rootAffix": "cult（耕作，栽培）+ure（名词后缀）→栽培，培育→文化，修养",
-    "explain": "Culture is the customs of a group of people."
+    "explain": "Culture is the customs of a group of people.",
+    "usage": [
+      "Chinese culture（中国文化）",
+      "culture shock（文化冲击）"
+    ],
+    "wordForms": [
+      "cultures（复数）",
+      "cultural（adj. 文化的）",
+      "cultured（adj. 有教养的）"
+    ]
   },
   {
     "id": "g8_074",
@@ -934,7 +1611,16 @@
     "audio": "experience.mp3",
     "unit": 5,
     "rootAffix": "ex（出来）+per（尝试）+i+ence（名词后缀）→试出来→经验",
-    "explain": "Experience is something that happens to you."
+    "explain": "Experience is something that happens to you.",
+    "usage": [
+      "have experience in teaching（有教学经验）",
+      "an unforgettable experience（难忘的经历）"
+    ],
+    "wordForms": [
+      "experiences（复数/第三人称单数）",
+      "experienced（过去式/形容词）",
+      "experiencing（现在分词）"
+    ]
   },
   {
     "id": "g8_075",
@@ -946,7 +1632,17 @@
     "difficulty": 8,
     "audio": "host.mp3",
     "unit": 5,
-    "explain": "Host is a person who receives guests."
+    "explain": "Host is a person who receives guests.",
+    "usage": [
+      "host a party（主办聚会）",
+      "a host（主人；主持人）"
+    ],
+    "wordForms": [
+      "hosts（复数/第三人称单数）",
+      "hosted（过去式）",
+      "hosting（现在分词）",
+      "hostess（n. 女主人）"
+    ]
   },
   {
     "id": "g8_076",
@@ -959,7 +1655,16 @@
     "audio": "fantastic.mp3",
     "unit": 5,
     "rootAffix": "fan（=phan-，显露）+t（形容词后缀）+as（动词后缀，使变得）+tic（形容词后缀）→异想天开的，奇异的→极好的，不可思议的",
-    "explain": "Fantastic means a common English word."
+    "explain": "Fantastic means a common English word.",
+    "usage": [
+      "a fantastic idea（极好的主意）",
+      "fantastic views（美景）"
+    ],
+    "wordForms": [
+      "fantastically（adv. 极好地）",
+      "fantasy（n. 幻想）",
+      "fantastic（adj. 极好的）"
+    ]
   },
   {
     "id": "g8_077",
@@ -972,7 +1677,17 @@
     "audio": "improve.mp3",
     "unit": 5,
     "rootAffix": "im（=en，使）+prov（获益）+e→使获益→改善",
-    "explain": "An improve is to make better."
+    "explain": "An improve is to make better.",
+    "usage": [
+      "improve English（提高英语）",
+      "improve your skills（提升技能）"
+    ],
+    "wordForms": [
+      "improves（第三人称单数）",
+      "improved（过去式）",
+      "improving（现在分词）",
+      "improvement（n. 改进）"
+    ]
   },
   {
     "id": "g8_078",
@@ -985,7 +1700,16 @@
     "audio": "scholarship.mp3",
     "unit": 5,
     "rootAffix": "scholar（学者）+ship→奖学金",
-    "explain": "A scholarship is money given to a student to help pay for education."
+    "explain": "A scholarship is money given to a student to help pay for education.",
+    "usage": [
+      "win a scholarship（获得奖学金）",
+      "a scholarship student（奖学金学生）"
+    ],
+    "wordForms": [
+      "scholarships（复数）",
+      "scholar（n. 学者）",
+      "scholarly（adj. 学术的）"
+    ]
   },
   {
     "id": "g8_079",
@@ -998,7 +1722,16 @@
     "audio": "application.mp3",
     "unit": 5,
     "rootAffix": "ap（=ad，去，趋近）+plic（折叠，合拢）+ation（动名词后缀）结果→应用，申请，敷用",
-    "explain": "An application is a formal request for something."
+    "explain": "An application is a formal request for something.",
+    "usage": [
+      "fill in an application（填写申请表）",
+      "application form（申请表）"
+    ],
+    "wordForms": [
+      "applications（复数）",
+      "apply（v. 申请；应用）",
+      "applicant（n. 申请人）"
+    ]
   },
   {
     "id": "g8_080",
@@ -1010,7 +1743,17 @@
     "difficulty": 8,
     "audio": "take-part-in.mp3",
     "unit": 5,
-    "explain": "To take part in means to perform the action related to in."
+    "explain": "To take part in means to perform the action related to in.",
+    "usage": [
+      "take part in a competition（参加比赛）",
+      "take part in the discussion（参加讨论）"
+    ],
+    "wordForms": [
+      "takes part in（第三人称单数）",
+      "took part in（过去式）",
+      "taken part in（过去分词）",
+      "taking part in（现在分词）"
+    ]
   },
   {
     "id": "g8_081",
@@ -1022,7 +1765,16 @@
     "difficulty": 8,
     "audio": "learn-about.mp3",
     "unit": 5,
-    "explain": "\"learn about\" is an expression meaning a common English word."
+    "explain": "\"learn about\" is an expression meaning a common English word.",
+    "usage": [
+      "learn about animals（了解动物）",
+      "learn about the world（了解世界）"
+    ],
+    "wordForms": [
+      "learns about（第三人称单数）",
+      "learned about（过去式）",
+      "learning about（现在分词）"
+    ]
   },
   {
     "id": "g8_082",
@@ -1034,7 +1786,15 @@
     "difficulty": 8,
     "audio": "at-first.mp3",
     "unit": 5,
-    "explain": "\"at first\" is an expression meaning a common English word."
+    "explain": "\"at first\" is an expression meaning a common English word.",
+    "usage": [
+      "At first, I was afraid.（起初我很害怕。）",
+      "at first sight（乍一看）"
+    ],
+    "wordForms": [
+      "at first（固定短语）",
+      "first（adv. 起初，同义）"
+    ]
   },
   {
     "id": "g8_083",
@@ -1046,7 +1806,16 @@
     "difficulty": 8,
     "audio": "so-far.mp3",
     "unit": 5,
-    "explain": "\"so far\" is an expression meaning a common English word."
+    "explain": "\"so far\" is an expression meaning a common English word.",
+    "usage": [
+      "so far so good（到目前为止一切顺利）",
+      "I have finished so much so far.（到目前为止我完成了很多。）"
+    ],
+    "wordForms": [
+      "so far（固定短语）",
+      "until now（同义）",
+      "up to now（同义）"
+    ]
   },
   {
     "id": "g8_084",
@@ -1059,7 +1828,16 @@
     "audio": "virtual.mp3",
     "unit": 6,
     "rootAffix": "virt（功效）+u（连接成分）+al（形容词后缀）→具有相同功效的，从效果上来看一样的→虚拟的，等效的",
-    "explain": "Virtual means a common English word."
+    "explain": "Virtual means a common English word.",
+    "usage": [
+      "virtual reality（虚拟现实）",
+      "a virtual tour（虚拟游览）"
+    ],
+    "wordForms": [
+      "virtually（adv. 实际上；虚拟地）",
+      "virtuality（n. 虚拟性）",
+      "virtualize（v. 虚拟化）"
+    ]
   },
   {
     "id": "g8_085",
@@ -1072,7 +1850,16 @@
     "audio": "reality.mp3",
     "unit": 6,
     "rootAffix": "real（真实的，实际的）+ity（名词后缀）→现实，实际",
-    "explain": "A reality is the state of things as they actually exist."
+    "explain": "A reality is the state of things as they actually exist.",
+    "usage": [
+      "in reality（实际上）",
+      "virtual reality（虚拟现实）"
+    ],
+    "wordForms": [
+      "realities（复数）",
+      "real（adj. 真实的）",
+      "realize（v. 实现；意识到）"
+    ]
   },
   {
     "id": "g8_086",
@@ -1084,7 +1871,16 @@
     "difficulty": 8,
     "audio": "robot.mp3",
     "unit": 6,
-    "explain": "A robot is a machine that can do work automatically."
+    "explain": "A robot is a machine that can do work automatically.",
+    "usage": [
+      "a robot（机器人）",
+      "a robot arm（机械臂）"
+    ],
+    "wordForms": [
+      "robots（复数）",
+      "robotics（n. 机器人学）",
+      "robotic（adj. 机器人的）"
+    ]
   },
   {
     "id": "g8_087",
@@ -1097,7 +1893,16 @@
     "audio": "technology.mp3",
     "unit": 6,
     "rootAffix": "techn（手艺，技巧）+o（连接字母）+log（学问）+y（名词后缀）→关于手艺和技巧的学问→技术",
-    "explain": "A technology is applied science."
+    "explain": "A technology is applied science.",
+    "usage": [
+      "modern technology（现代科技）",
+      "information technology（信息技术）"
+    ],
+    "wordForms": [
+      "technologies（复数）",
+      "technological（adj. 科技的）",
+      "technologist（n. 技术专家）"
+    ]
   },
   {
     "id": "g8_088",
@@ -1110,7 +1915,18 @@
     "audio": "predict.mp3",
     "unit": 6,
     "rootAffix": "pre（在前面）+dict（说）→提前说→预报，预言",
-    "explain": "A predict is to forecast."
+    "explain": "A predict is to forecast.",
+    "usage": [
+      "predict the future（预测未来）",
+      "predict the result（预测结果）"
+    ],
+    "wordForms": [
+      "predicts（第三人称单数）",
+      "predicted（过去式）",
+      "predicting（现在分词）",
+      "prediction（n. 预测）",
+      "predictable（adj. 可预测的）"
+    ]
   },
   {
     "id": "g8_089",
@@ -1122,7 +1938,15 @@
     "difficulty": 8,
     "audio": "future.mp3",
     "unit": 6,
-    "explain": "Future is the time that is coming."
+    "explain": "Future is the time that is coming.",
+    "usage": [
+      "in the future（在未来）",
+      "a future plan（未来的计划）"
+    ],
+    "wordForms": [
+      "futures（复数，指期货或不同前景）",
+      "futuristic（adj. 未来的）"
+    ]
   },
   {
     "id": "g8_090",
@@ -1134,7 +1958,15 @@
     "audio": "vr.mp3",
     "unit": 6,
     "category": "abbr.",
-    "explain": "VR is an abbreviation in English."
+    "explain": "VR is an abbreviation in English.",
+    "usage": [
+      "VR headset（虚拟现实头显）",
+      "experience VR（体验虚拟现实）"
+    ],
+    "wordForms": [
+      "virtual reality（全称）",
+      "VR technology（相关技术）"
+    ]
   },
   {
     "id": "g8_091",
@@ -1146,7 +1978,16 @@
     "difficulty": 8,
     "audio": "headset.mp3",
     "unit": 6,
-    "explain": "A headset is a pair of headphones with a microphone."
+    "explain": "A headset is a pair of headphones with a microphone.",
+    "usage": [
+      "wear a headset（戴耳机）",
+      "a gaming headset（游戏耳机）"
+    ],
+    "wordForms": [
+      "headsets（复数）",
+      "head（n. 头）",
+      "set（n. 一套）"
+    ]
   },
   {
     "id": "g8_092",
@@ -1158,7 +1999,16 @@
     "difficulty": 8,
     "audio": "hologram.mp3",
     "unit": 6,
-    "explain": "A hologram is a three-dimensional image formed by light."
+    "explain": "A hologram is a three-dimensional image formed by light.",
+    "usage": [
+      "a hologram（全息图）",
+      "a hologram image（全息影像）"
+    ],
+    "wordForms": [
+      "holograms（复数）",
+      "holographic（adj. 全息的）",
+      "holography（n. 全息术）"
+    ]
   },
   {
     "id": "g8_093",
@@ -1170,7 +2020,16 @@
     "difficulty": 8,
     "audio": "in-the-future.mp3",
     "unit": 6,
-    "explain": "\"in the future\" is an expression meaning a common English word."
+    "explain": "\"in the future\" is an expression meaning a common English word.",
+    "usage": [
+      "in the future（在将来）",
+      "in the near future（在不久的将来）"
+    ],
+    "wordForms": [
+      "future（n. 未来）",
+      "in future（英式表达）",
+      "futuristic（adj. 未来的）"
+    ]
   },
   {
     "id": "g8_094",
@@ -1182,7 +2041,16 @@
     "difficulty": 8,
     "audio": "be-like.mp3",
     "unit": 6,
-    "explain": "To be like means to perform the action related to like."
+    "explain": "To be like means to perform the action related to like.",
+    "usage": [
+      "be like a father（像父亲一样）",
+      "What's he like?（他是个什么样的人？）"
+    ],
+    "wordForms": [
+      "am/is/are like（人称变化）",
+      "was/were like（过去式）",
+      "been like（完成式）"
+    ]
   },
   {
     "id": "g8_095",
@@ -1194,6 +2062,16 @@
     "difficulty": 8,
     "audio": "come-true.mp3",
     "unit": 6,
-    "explain": "To come true means to perform the action related to true."
+    "explain": "To come true means to perform the action related to true.",
+    "usage": [
+      "My dream came true.（我的梦想成真了。）",
+      "make a wish come true（使愿望成真）"
+    ],
+    "wordForms": [
+      "comes true（第三人称单数）",
+      "came true（过去式）",
+      "come true（过去分词）",
+      "coming true（现在分词）"
+    ]
   }
 ]

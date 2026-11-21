@@ -9,7 +9,15 @@
     "difficulty": 3,
     "audio": "miss.mp3",
     "unit": 1,
-    "explain": "A miss is a title used before a girl's or unmarried woman's name."
+    "explain": "A miss is a title used before a girl's or unmarried woman's name.",
+    "usage": [
+      "Miss Li（李老师）",
+      "Miss Wang（王老师）"
+    ],
+    "wordForms": [
+      "miss（v. 想念；错过，小写）",
+      "Miss（称谓，无复数）"
+    ]
   },
   {
     "id": "g3_002",
@@ -21,7 +29,15 @@
     "difficulty": 3,
     "audio": "mr.mp3",
     "unit": 1,
-    "explain": "A mr is a title used before a man's name."
+    "explain": "A mr is a title used before a man's name.",
+    "usage": [
+      "Mr Smith（史密斯先生）",
+      "Mr Green（格林先生）"
+    ],
+    "wordForms": [
+      "Mister（全称）",
+      "Mr.（缩写带点）"
+    ]
   },
   {
     "id": "g3_003",
@@ -33,7 +49,15 @@
     "difficulty": 3,
     "audio": "mrs.mp3",
     "unit": 1,
-    "explain": "A mrs is a title used before a married woman's name."
+    "explain": "A mrs is a title used before a married woman's name.",
+    "usage": [
+      "Mrs Smith（史密斯夫人）",
+      "Mrs Green（格林夫人）"
+    ],
+    "wordForms": [
+      "Mistress（全称）",
+      "Mrs（称谓，无复数）"
+    ]
   },
   {
     "id": "g3_004",
@@ -46,7 +70,17 @@
     "audio": "one.mp3",
     "unit": 1,
     "rootAffix": "on（一）+e→一，一的，唯一的",
-    "explain": "An one is the number 1."
+    "explain": "An one is the number 1.",
+    "usage": [
+      "one book（一本书）",
+      "one by one（一个接一个）"
+    ],
+    "wordForms": [
+      "one（num. 一）",
+      "once（adv. 一次）",
+      "first（num. 第一）",
+      "ones（复数，替代名词）"
+    ]
   },
   {
     "id": "g3_005",
@@ -58,7 +92,17 @@
     "difficulty": 3,
     "audio": "two.mp3",
     "unit": 1,
-    "explain": "A two is the number 2."
+    "explain": "A two is the number 2.",
+    "usage": [
+      "two books（两本书）",
+      "at two o'clock（两点）"
+    ],
+    "wordForms": [
+      "two（num. 二）",
+      "second（num. 第二）",
+      "twice（adv. 两次）",
+      "double（adj. 双倍的）"
+    ]
   },
   {
     "id": "g3_006",
@@ -70,7 +114,17 @@
     "difficulty": 3,
     "audio": "three.mp3",
     "unit": 1,
-    "explain": "A three is the number 3."
+    "explain": "A three is the number 3.",
+    "usage": [
+      "three books（三本书）",
+      "at three o'clock（三点）"
+    ],
+    "wordForms": [
+      "three（num. 三）",
+      "third（num. 第三）",
+      "thirteen（num. 十三）",
+      "thirty（num. 三十）"
+    ]
   },
   {
     "id": "g3_007",
@@ -82,7 +136,16 @@
     "difficulty": 3,
     "audio": "four.mp3",
     "unit": 1,
-    "explain": "A four is the number 4."
+    "explain": "A four is the number 4.",
+    "usage": [
+      "four seasons（四季）",
+      "at four o'clock（四点）"
+    ],
+    "wordForms": [
+      "four（num. 四）",
+      "fourth（num. 第四）",
+      "forty（num. 四十）"
+    ]
   },
   {
     "id": "g3_008",
@@ -94,7 +157,16 @@
     "difficulty": 3,
     "audio": "five.mp3",
     "unit": 1,
-    "explain": "A five is the number 5."
+    "explain": "A five is the number 5.",
+    "usage": [
+      "five apples（五个苹果）",
+      "at five o'clock（五点）"
+    ],
+    "wordForms": [
+      "five（num. 五）",
+      "fifth（num. 第五）",
+      "fifty（num. 五十）"
+    ]
   },
   {
     "id": "g3_009",
@@ -106,7 +178,17 @@
     "difficulty": 3,
     "audio": "six.mp3",
     "unit": 1,
-    "explain": "A six is the number 6."
+    "explain": "A six is the number 6.",
+    "usage": [
+      "six books（六本书）",
+      "at six o'clock（六点）"
+    ],
+    "wordForms": [
+      "six（num. 六）",
+      "sixth（num. 第六）",
+      "sixteen（num. 十六）",
+      "sixty（num. 六十）"
+    ]
   },
   {
     "id": "g3_010",
@@ -118,7 +200,17 @@
     "difficulty": 3,
     "audio": "seven.mp3",
     "unit": 1,
-    "explain": "A seven is the number 7."
+    "explain": "A seven is the number 7.",
+    "usage": [
+      "seven days（七天）",
+      "at seven o'clock（七点）"
+    ],
+    "wordForms": [
+      "seven（num. 七）",
+      "seventh（num. 第七）",
+      "seventeen（num. 十七）",
+      "seventy（num. 七十）"
+    ]
   },
   {
     "id": "g3_011",
@@ -130,7 +222,17 @@
     "difficulty": 3,
     "audio": "eight.mp3",
     "unit": 1,
-    "explain": "An eight is the number 8."
+    "explain": "An eight is the number 8.",
+    "usage": [
+      "eight books（八本书）",
+      "at eight o'clock（八点）"
+    ],
+    "wordForms": [
+      "eight（num. 八）",
+      "eighth（num. 第八）",
+      "eighteen（num. 十八）",
+      "eighty（num. 八十）"
+    ]
   },
   {
     "id": "g3_012",
@@ -142,7 +244,17 @@
     "difficulty": 3,
     "audio": "nine.mp3",
     "unit": 1,
-    "explain": "A nine is the number 9."
+    "explain": "A nine is the number 9.",
+    "usage": [
+      "nine books（九本书）",
+      "at nine o'clock（九点）"
+    ],
+    "wordForms": [
+      "nine（num. 九）",
+      "ninth（num. 第九）",
+      "nineteen（num. 十九）",
+      "ninety（num. 九十）"
+    ]
   },
   {
     "id": "g3_013",
@@ -154,7 +266,17 @@
     "difficulty": 3,
     "audio": "ten.mp3",
     "unit": 1,
-    "explain": "A ten is the number 10."
+    "explain": "A ten is the number 10.",
+    "usage": [
+      "ten books（十本书）",
+      "at ten o'clock（十点）"
+    ],
+    "wordForms": [
+      "ten（num. 十）",
+      "tenth（num. 第十）",
+      "teenager（n. 青少年）",
+      "hundred（num. 百）"
+    ]
   },
   {
     "id": "g3_014",
@@ -166,7 +288,17 @@
     "difficulty": 3,
     "audio": "fat.mp3",
     "unit": 1,
-    "explain": "Fat means having too much body weight."
+    "explain": "Fat means having too much body weight.",
+    "usage": [
+      "a fat cat（胖猫）",
+      "get fat（变胖）"
+    ],
+    "wordForms": [
+      "fatter（比较级）",
+      "fattest（最高级）",
+      "fatness（n. 肥胖）",
+      "thin（adj. 瘦的，反义）"
+    ]
   },
   {
     "id": "g3_015",
@@ -178,7 +310,18 @@
     "difficulty": 3,
     "audio": "thin.mp3",
     "unit": 1,
-    "explain": "Thin means having very little body weight."
+    "explain": "Thin means having very little body weight.",
+    "usage": [
+      "a thin book（薄书）",
+      "thin ice（薄冰）"
+    ],
+    "wordForms": [
+      "thinner（比较级）",
+      "thinnest（最高级）",
+      "thinly（adv. 薄薄地）",
+      "thinness（n. 薄）",
+      "thick（adj. 厚的，反义）"
+    ]
   },
   {
     "id": "g3_016",
@@ -190,7 +333,17 @@
     "difficulty": 3,
     "audio": "tall.mp3",
     "unit": 1,
-    "explain": "A tall is having great height."
+    "explain": "A tall is having great height.",
+    "usage": [
+      "a tall tree（高树）",
+      "how tall（多高）"
+    ],
+    "wordForms": [
+      "taller（比较级）",
+      "tallest（最高级）",
+      "tallness（n. 高度）",
+      "short（adj. 矮的，反义）"
+    ]
   },
   {
     "id": "g3_017",
@@ -202,7 +355,17 @@
     "difficulty": 3,
     "audio": "short.mp3",
     "unit": 1,
-    "explain": "A short is measuring a small distance."
+    "explain": "A short is measuring a small distance.",
+    "usage": [
+      "a short story（短篇故事）",
+      "be short of（缺少）"
+    ],
+    "wordForms": [
+      "shorter（比较级）",
+      "shortest（最高级）",
+      "shortly（adv. 不久）",
+      "shortage（n. 短缺）"
+    ]
   },
   {
     "id": "g3_018",
@@ -214,7 +377,15 @@
     "difficulty": 3,
     "audio": "boy.mp3",
     "unit": 1,
-    "explain": "A boy is a male child."
+    "explain": "A boy is a male child.",
+    "usage": [
+      "a boy（一个男孩）",
+      "boy student（男生）"
+    ],
+    "wordForms": [
+      "boys（复数）",
+      "boyhood（n. 男孩时代）"
+    ]
   },
   {
     "id": "g3_019",
@@ -226,7 +397,16 @@
     "difficulty": 3,
     "audio": "girl.mp3",
     "unit": 1,
-    "explain": "A girl is a female child."
+    "explain": "A girl is a female child.",
+    "usage": [
+      "a girl（一个女孩）",
+      "a girl student（女学生）"
+    ],
+    "wordForms": [
+      "girls（复数）",
+      "girlhood（n. 少女时代）",
+      "girlish（adj. 女孩气的）"
+    ]
   },
   {
     "id": "g3_020",
@@ -239,7 +419,16 @@
     "audio": "grandfather.mp3",
     "unit": 2,
     "rootAffix": "grand（隔代的）+father（父亲）→祖父，外祖父",
-    "explain": "A grandfather is the father of your father or mother."
+    "explain": "A grandfather is the father of your father or mother.",
+    "usage": [
+      "my grandfather（我的祖父）",
+      "a grandfather clock（落地钟）"
+    ],
+    "wordForms": [
+      "grandfathers（复数）",
+      "grandmother（n. 祖母）",
+      "grandfatherly（adj. 祖父般的）"
+    ]
   },
   {
     "id": "g3_021",
@@ -252,7 +441,16 @@
     "audio": "grandmother.mp3",
     "unit": 2,
     "rootAffix": "grand（隔代的）+mother（母亲）→祖母，外祖母",
-    "explain": "A grandmother is the mother of your father or mother."
+    "explain": "A grandmother is the mother of your father or mother.",
+    "usage": [
+      "my grandmother（我的祖母）",
+      "a grandmother's recipe（祖母的食谱）"
+    ],
+    "wordForms": [
+      "grandmothers（复数）",
+      "grandfather（n. 祖父）",
+      "grandmotherly（adj. 祖母般的）"
+    ]
   },
   {
     "id": "g3_022",
@@ -264,7 +462,16 @@
     "difficulty": 3,
     "audio": "father.mp3",
     "unit": 2,
-    "explain": "A father is a male parent."
+    "explain": "A father is a male parent.",
+    "usage": [
+      "my father（我的父亲）",
+      "Father's Day（父亲节）"
+    ],
+    "wordForms": [
+      "fathers（复数）",
+      "fatherhood（n. 父亲身份）",
+      "fatherly（adj. 父亲般的）"
+    ]
   },
   {
     "id": "g3_023",
@@ -276,7 +483,16 @@
     "difficulty": 3,
     "audio": "mother.mp3",
     "unit": 2,
-    "explain": "A mother is a female parent."
+    "explain": "A mother is a female parent.",
+    "usage": [
+      "my mother（我的母亲）",
+      "Mother's Day（母亲节）"
+    ],
+    "wordForms": [
+      "mothers（复数）",
+      "motherhood（n. 母性）",
+      "motherly（adj. 母亲般的）"
+    ]
   },
   {
     "id": "g3_024",
@@ -288,7 +504,15 @@
     "difficulty": 3,
     "audio": "brother.mp3",
     "unit": 2,
-    "explain": "A brother is a boy with the same parents as you."
+    "explain": "A brother is a boy with the same parents as you.",
+    "usage": [
+      "my brother（我的兄弟）",
+      "brother and sister（兄妹）"
+    ],
+    "wordForms": [
+      "brothers（复数）",
+      "brotherhood（n. 兄弟情谊）"
+    ]
   },
   {
     "id": "g3_025",
@@ -300,7 +524,16 @@
     "difficulty": 3,
     "audio": "sister.mp3",
     "unit": 2,
-    "explain": "A sister is a girl with the same parents as you."
+    "explain": "A sister is a girl with the same parents as you.",
+    "usage": [
+      "my sister（我的姐姐/妹妹）",
+      "sister city（姐妹城市）"
+    ],
+    "wordForms": [
+      "sisters（复数）",
+      "sisterhood（n. 姐妹情谊）",
+      "sisterly（adj. 姐妹般的）"
+    ]
   },
   {
     "id": "g3_026",
@@ -312,7 +545,17 @@
     "difficulty": 3,
     "audio": "me.mp3",
     "unit": 2,
-    "explain": "A me is the person who is speaking (the first person pronoun)."
+    "explain": "A me is the person who is speaking (the first person pronoun).",
+    "usage": [
+      "help me（帮我）",
+      "It's me.（是我。）"
+    ],
+    "wordForms": [
+      "I（主格）",
+      "my（形容词性物主代词）",
+      "mine（名词性物主代词）",
+      "myself（反身代词）"
+    ]
   },
   {
     "id": "g3_027",
@@ -324,7 +567,16 @@
     "difficulty": 3,
     "audio": "eye.mp3",
     "unit": 2,
-    "explain": "An eye is an organ used for seeing."
+    "explain": "An eye is an organ used for seeing.",
+    "usage": [
+      "an eye（一只眼睛）",
+      "eye contact（眼神交流）"
+    ],
+    "wordForms": [
+      "eyes（复数）",
+      "eyebrow（n. 眉毛）",
+      "eye（v. 注视）"
+    ]
   },
   {
     "id": "g3_028",
@@ -336,7 +588,17 @@
     "difficulty": 3,
     "audio": "hair.mp3",
     "unit": 2,
-    "explain": "A hair is the thin threads that grow on your head and body."
+    "explain": "A hair is the thin threads that grow on your head and body.",
+    "usage": [
+      "wash your hair（洗头发）",
+      "a hair cut（理发）"
+    ],
+    "wordForms": [
+      "hairs（复数，指几根头发）",
+      "hairy（adj. 多毛的）",
+      "haircut（n. 理发）",
+      "hairstyle（n. 发型）"
+    ]
   },
   {
     "id": "g3_029",
@@ -348,7 +610,16 @@
     "difficulty": 3,
     "audio": "nose.mp3",
     "unit": 2,
-    "explain": "A nose is the part of the face for smelling and breathing."
+    "explain": "A nose is the part of the face for smelling and breathing.",
+    "usage": [
+      "touch your nose（摸鼻子）",
+      "the nose of a plane（机头）"
+    ],
+    "wordForms": [
+      "noses（复数）",
+      "nosebleed（n. 鼻血）",
+      "nosy（adj. 爱管闲事的）"
+    ]
   },
   {
     "id": "g3_030",
@@ -360,7 +631,16 @@
     "difficulty": 3,
     "audio": "ear.mp3",
     "unit": 2,
-    "explain": "An ear is an organ used for hearing."
+    "explain": "An ear is an organ used for hearing.",
+    "usage": [
+      "an ear（一只耳朵）",
+      "earache（耳痛）"
+    ],
+    "wordForms": [
+      "ears（复数）",
+      "earring（n. 耳环）",
+      "ear（n. 耳朵）"
+    ]
   },
   {
     "id": "g3_031",
@@ -372,7 +652,16 @@
     "difficulty": 3,
     "audio": "mouth.mp3",
     "unit": 2,
-    "explain": "A mouth is the opening in the face for eating and speaking."
+    "explain": "A mouth is the opening in the face for eating and speaking.",
+    "usage": [
+      "open your mouth（张开嘴）",
+      "the mouth of a river（河口）"
+    ],
+    "wordForms": [
+      "mouths（复数）",
+      "mouthful（n. 一口）",
+      "mouthwash（n. 漱口水）"
+    ]
   },
   {
     "id": "g3_032",
@@ -384,7 +673,16 @@
     "difficulty": 3,
     "audio": "school.mp3",
     "unit": 3,
-    "explain": "A school is a place where students go to learn."
+    "explain": "A school is a place where students go to learn.",
+    "usage": [
+      "go to school（上学）",
+      "a school bus（校车）"
+    ],
+    "wordForms": [
+      "schools（复数）",
+      "schooling（n. 教育）",
+      "schoolmate（n. 同学）"
+    ]
   },
   {
     "id": "g3_033",
@@ -397,7 +695,16 @@
     "audio": "library.mp3",
     "unit": 3,
     "rootAffix": "libr（图书）+ary（名词后缀）→存放图书的（场所）→图书馆",
-    "explain": "A library is a building where books are kept."
+    "explain": "A library is a building where books are kept.",
+    "usage": [
+      "in the library（在图书馆）",
+      "a library card（借书证）"
+    ],
+    "wordForms": [
+      "libraries（复数）",
+      "librarian（n. 图书管理员）",
+      "library book（馆藏书）"
+    ]
   },
   {
     "id": "g3_034",
@@ -410,7 +717,16 @@
     "audio": "toilet.mp3",
     "unit": 3,
     "rootAffix": "toil（一种薄麻布）+et（指小名词形式）→一小块薄麻布→铺有薄麻布的梳妆台→梳妆室→厕所",
-    "explain": "A toilet is a bowl for sitting on when you go to the bathroom."
+    "explain": "A toilet is a bowl for sitting on when you go to the bathroom.",
+    "usage": [
+      "go to the toilet（去厕所）",
+      "a toilet paper（卫生纸）"
+    ],
+    "wordForms": [
+      "toilets（复数）",
+      "toilet paper（卫生纸）",
+      "lavatory（同义词）"
+    ]
   },
   {
     "id": "g3_035",
@@ -422,7 +738,16 @@
     "difficulty": 3,
     "audio": "hall.mp3",
     "unit": 3,
-    "explain": "A hall is a large room or building for meetings or events."
+    "explain": "A hall is a large room or building for meetings or events.",
+    "usage": [
+      "in the hall（在大厅里）",
+      "a school hall（学校礼堂）"
+    ],
+    "wordForms": [
+      "halls（复数）",
+      "hallway（n. 走廊）",
+      "hallmark（n. 标志，构词相关）"
+    ]
   },
   {
     "id": "g3_036",
@@ -435,7 +760,16 @@
     "audio": "playground.mp3",
     "unit": 3,
     "rootAffix": "play（游戏）+ground（地面）→运动场",
-    "explain": "A playground is an outdoor area for children to play."
+    "explain": "A playground is an outdoor area for children to play.",
+    "usage": [
+      "on the playground（在操场上）",
+      "a playground game（操场游戏）"
+    ],
+    "wordForms": [
+      "playgrounds（复数）",
+      "play（v. 玩）",
+      "ground（n. 场地）"
+    ]
   },
   {
     "id": "g3_037",
@@ -448,7 +782,15 @@
     "audio": "classroom.mp3",
     "unit": 3,
     "rootAffix": "class（班级）+room（房间）→班级的房间→教室",
-    "explain": "A classroom is a room where students have lessons."
+    "explain": "A classroom is a room where students have lessons.",
+    "usage": [
+      "in the classroom（在教室里）",
+      "a classroom activity（课堂活动）"
+    ],
+    "wordForms": [
+      "classrooms（复数）",
+      "class（n. 班级，相关词）"
+    ]
   },
   {
     "id": "g3_038",
@@ -460,7 +802,15 @@
     "difficulty": 3,
     "audio": "an_apple.mp3",
     "unit": 3,
-    "explain": "An apple is a round fruit with red, yellow, or green skin."
+    "explain": "An apple is a round fruit with red, yellow, or green skin.",
+    "usage": [
+      "eat an apple（吃一个苹果）",
+      "an apple tree（一棵苹果树）"
+    ],
+    "wordForms": [
+      "apples（复数）",
+      "an apple（不定冠词+名词）"
+    ]
   },
   {
     "id": "g3_039",
@@ -472,7 +822,15 @@
     "difficulty": 3,
     "audio": "an_orange.mp3",
     "unit": 3,
-    "explain": "An orange is a round citrus fruit with thick orange skin."
+    "explain": "An orange is a round citrus fruit with thick orange skin.",
+    "usage": [
+      "eat an orange（吃一个橙子）",
+      "an orange juice（一杯橙汁）"
+    ],
+    "wordForms": [
+      "oranges（复数）",
+      "an orange（不定冠词+名词）"
+    ]
   },
   {
     "id": "g3_040",
@@ -484,7 +842,15 @@
     "difficulty": 3,
     "audio": "a_banana.mp3",
     "unit": 3,
-    "explain": "A banana is a long curved fruit with yellow skin."
+    "explain": "A banana is a long curved fruit with yellow skin.",
+    "usage": [
+      "eat a banana（吃一根香蕉）",
+      "buy a banana（买一根香蕉）"
+    ],
+    "wordForms": [
+      "bananas（复数）",
+      "a banana（不定冠词+名词）"
+    ]
   },
   {
     "id": "g3_041",
@@ -496,7 +862,15 @@
     "difficulty": 3,
     "audio": "a_peach.mp3",
     "unit": 3,
-    "explain": "A peach is a soft round fruit with sweet yellow or red flesh."
+    "explain": "A peach is a soft round fruit with sweet yellow or red flesh.",
+    "usage": [
+      "eat a peach（吃一个桃子）",
+      "a ripe peach（熟透的桃子）"
+    ],
+    "wordForms": [
+      "peaches（复数）",
+      "a peach（不定冠词+名词）"
+    ]
   },
   {
     "id": "g3_042",
@@ -508,7 +882,15 @@
     "difficulty": 3,
     "audio": "apples.mp3",
     "unit": 3,
-    "explain": "apples are plural of apple."
+    "explain": "apples are plural of apple.",
+    "usage": [
+      "red apples（红苹果）",
+      "buy some apples（买些苹果）"
+    ],
+    "wordForms": [
+      "apple（单数）",
+      "apples（复数形式）"
+    ]
   },
   {
     "id": "g3_043",
@@ -520,7 +902,15 @@
     "difficulty": 3,
     "audio": "oranges.mp3",
     "unit": 3,
-    "explain": "oranges are plural of orange."
+    "explain": "oranges are plural of orange.",
+    "usage": [
+      "sweet oranges（甜橙）",
+      "buy some oranges（买橙子）"
+    ],
+    "wordForms": [
+      "orange（单数）",
+      "oranges（复数形式）"
+    ]
   },
   {
     "id": "g3_044",
@@ -532,7 +922,15 @@
     "difficulty": 3,
     "audio": "bananas.mp3",
     "unit": 3,
-    "explain": "bananas are plural of banana."
+    "explain": "bananas are plural of banana.",
+    "usage": [
+      "green bananas（青香蕉）",
+      "buy some bananas（买些香蕉）"
+    ],
+    "wordForms": [
+      "banana（单数）",
+      "bananas（复数形式）"
+    ]
   },
   {
     "id": "g3_045",
@@ -544,7 +942,15 @@
     "difficulty": 3,
     "audio": "peaches.mp3",
     "unit": 3,
-    "explain": "peaches are plural of peach."
+    "explain": "peaches are plural of peach.",
+    "usage": [
+      "fresh peaches（新鲜桃子）",
+      "a basket of peaches（一篮桃子）"
+    ],
+    "wordForms": [
+      "peach（单数）",
+      "peaches（复数形式）"
+    ]
   },
   {
     "id": "g3_046",
@@ -556,7 +962,15 @@
     "difficulty": 3,
     "audio": "boat.mp3",
     "unit": 4,
-    "explain": "A boat is a small vehicle for traveling on water."
+    "explain": "A boat is a small vehicle for traveling on water.",
+    "usage": [
+      "by boat（乘船）",
+      "a boat on the river（河上的船）"
+    ],
+    "wordForms": [
+      "boats（复数）",
+      "boating（n. 划船）"
+    ]
   },
   {
     "id": "g3_047",
@@ -569,7 +983,15 @@
     "audio": "balloon.mp3",
     "unit": 4,
     "rootAffix": "ball（球）+oon（指大名词后缀）→大球→热气球→气球",
-    "explain": "A balloon is a thin rubber bag that you fill with air or gas."
+    "explain": "A balloon is a thin rubber bag that you fill with air or gas.",
+    "usage": [
+      "blow up a balloon（吹气球）",
+      "a red balloon（红气球）"
+    ],
+    "wordForms": [
+      "balloons（复数）",
+      "ballooning（n. 气球飞行）"
+    ]
   },
   {
     "id": "g3_048",
@@ -581,7 +1003,16 @@
     "difficulty": 3,
     "audio": "flower.mp3",
     "unit": 4,
-    "explain": "A flower is the colorful part of a plant."
+    "explain": "A flower is the colorful part of a plant.",
+    "usage": [
+      "a flower（一朵花）",
+      "water the flowers（浇花）"
+    ],
+    "wordForms": [
+      "flowers（复数）",
+      "flowering（n. 开花）",
+      "flowerbed（n. 花坛）"
+    ]
   },
   {
     "id": "g3_049",
@@ -593,7 +1024,16 @@
     "difficulty": 3,
     "audio": "kite.mp3",
     "unit": 4,
-    "explain": "A kite is a toy made of light material flown in the wind at the end of a string."
+    "explain": "A kite is a toy made of light material flown in the wind at the end of a string.",
+    "usage": [
+      "fly a kite（放风筝）",
+      "a kite string（风筝线）"
+    ],
+    "wordForms": [
+      "kites（复数）",
+      "kite-flying（n. 放风筝）",
+      "kite-like（adj. 像风筝的）"
+    ]
   },
   {
     "id": "g3_050",
@@ -605,7 +1045,15 @@
     "difficulty": 3,
     "audio": "ladybird.mp3",
     "unit": 4,
-    "explain": "A ladybird is a small red insect with black spots."
+    "explain": "A ladybird is a small red insect with black spots.",
+    "usage": [
+      "a ladybird（瓢虫）",
+      "a ladybird on a leaf（叶子上的瓢虫）"
+    ],
+    "wordForms": [
+      "ladybirds（复数）",
+      "ladybug（美式说法）"
+    ]
   },
   {
     "id": "g3_051",
@@ -617,7 +1065,15 @@
     "difficulty": 3,
     "audio": "bee.mp3",
     "unit": 4,
-    "explain": "A bee is a black and yellow flying insect that makes honey."
+    "explain": "A bee is a black and yellow flying insect that makes honey.",
+    "usage": [
+      "a bee（一只蜜蜂）",
+      "a bee on a flower（花上的蜜蜂）"
+    ],
+    "wordForms": [
+      "bees（复数）",
+      "beehive（n. 蜂巢）"
+    ]
   },
   {
     "id": "g3_052",
@@ -630,7 +1086,15 @@
     "audio": "butterfly.mp3",
     "unit": 4,
     "rootAffix": "butter（黄油）+fly（飞虫）→喜欢偷吃黄油的飞虫→蝴蝶",
-    "explain": "A butterfly is a flying insect with large colorful wings."
+    "explain": "A butterfly is a flying insect with large colorful wings.",
+    "usage": [
+      "a butterfly（一只蝴蝶）",
+      "a butterfly net（捕蝶网）"
+    ],
+    "wordForms": [
+      "butterflies（复数）",
+      "butterfly-like（adj. 像蝴蝶的）"
+    ]
   },
   {
     "id": "g3_053",
@@ -642,7 +1106,15 @@
     "difficulty": 3,
     "audio": "ant.mp3",
     "unit": 4,
-    "explain": "An ant is a small insect that lives in large groups."
+    "explain": "An ant is a small insect that lives in large groups.",
+    "usage": [
+      "an ant（一只蚂蚁）",
+      "ants in the grass（草丛里的蚂蚁）"
+    ],
+    "wordForms": [
+      "ants（复数）",
+      "ant colony（蚁群）"
+    ]
   },
   {
     "id": "g3_054",
@@ -654,7 +1126,15 @@
     "difficulty": 3,
     "audio": "chick.mp3",
     "unit": 4,
-    "explain": "A chick is a young bird, especially a young chicken."
+    "explain": "A chick is a young bird, especially a young chicken.",
+    "usage": [
+      "a chick（小鸡）",
+      "a baby chick（小鸡雏）"
+    ],
+    "wordForms": [
+      "chicks（复数）",
+      "chicken（n. 鸡；鸡肉，相关词）"
+    ]
   },
   {
     "id": "g3_055",
@@ -666,7 +1146,16 @@
     "difficulty": 3,
     "audio": "hen.mp3",
     "unit": 4,
-    "explain": "A hen is a female chicken."
+    "explain": "A hen is a female chicken.",
+    "usage": [
+      "a hen（母鸡）",
+      "keep hens（养母鸡）"
+    ],
+    "wordForms": [
+      "hens（复数）",
+      "chicken（n. 鸡，相关）",
+      "rooster（n. 公鸡，对应）"
+    ]
   },
   {
     "id": "g3_056",
@@ -678,7 +1167,16 @@
     "difficulty": 3,
     "audio": "duck.mp3",
     "unit": 4,
-    "explain": "A duck is a water bird with a flat bill."
+    "explain": "A duck is a water bird with a flat bill.",
+    "usage": [
+      "a duck（一只鸭子）",
+      "feed the ducks（喂鸭子）"
+    ],
+    "wordForms": [
+      "ducks（复数）",
+      "duckling（n. 小鸭）",
+      "duck（v. 低头躲避）"
+    ]
   },
   {
     "id": "g3_057",
@@ -690,7 +1188,16 @@
     "difficulty": 3,
     "audio": "pig.mp3",
     "unit": 4,
-    "explain": "A pig is a pink farm animal."
+    "explain": "A pig is a pink farm animal.",
+    "usage": [
+      "a pig（猪）",
+      "a pig farm（养猪场）"
+    ],
+    "wordForms": [
+      "pigs（复数）",
+      "piglet（n. 小猪）",
+      "piggish（adj. 猪一样的）"
+    ]
   },
   {
     "id": "g3_058",
@@ -702,7 +1209,16 @@
     "difficulty": 3,
     "audio": "dog.mp3",
     "unit": 4,
-    "explain": "A dog is a common pet animal."
+    "explain": "A dog is a common pet animal.",
+    "usage": [
+      "walk a dog（遛狗）",
+      "a guide dog（导盲犬）"
+    ],
+    "wordForms": [
+      "dogs（复数）",
+      "puppy（n. 小狗）",
+      "doghouse（n. 狗窝）"
+    ]
   },
   {
     "id": "g3_059",
@@ -714,7 +1230,15 @@
     "difficulty": 3,
     "audio": "cat.mp3",
     "unit": 4,
-    "explain": "A cat is a small furry pet animal."
+    "explain": "A cat is a small furry pet animal.",
+    "usage": [
+      "a cat（一只猫）",
+      "cat food（猫粮）"
+    ],
+    "wordForms": [
+      "cats（复数）",
+      "kitten（n. 小猫）"
+    ]
   },
   {
     "id": "g3_060",
@@ -726,7 +1250,16 @@
     "difficulty": 3,
     "audio": "leaves.mp3",
     "unit": 4,
-    "explain": "leaves are the flat green parts of a plant or tree."
+    "explain": "leaves are the flat green parts of a plant or tree.",
+    "usage": [
+      "autumn leaves（秋叶）",
+      "tree leaves（树叶）"
+    ],
+    "wordForms": [
+      "leaf（单数）",
+      "leaves（复数形式）",
+      "leafy（adj. 多叶的）"
+    ]
   },
   {
     "id": "g3_061",
@@ -738,7 +1271,15 @@
     "difficulty": 3,
     "audio": "branch.mp3",
     "unit": 4,
-    "explain": "A branch is a part of a tree that grows out from the trunk."
+    "explain": "A branch is a part of a tree that grows out from the trunk.",
+    "usage": [
+      "a tree branch（树枝）",
+      "a bank branch（银行分行）"
+    ],
+    "wordForms": [
+      "branches（复数）",
+      "branching（n. 分支）"
+    ]
   },
   {
     "id": "g3_062",
@@ -750,7 +1291,16 @@
     "difficulty": 3,
     "audio": "trunk.mp3",
     "unit": 4,
-    "explain": "A trunk is the thick main stem of a tree."
+    "explain": "A trunk is the thick main stem of a tree.",
+    "usage": [
+      "an elephant's trunk（大象的鼻子）",
+      "the trunk of a tree（树干）"
+    ],
+    "wordForms": [
+      "trunks（复数）",
+      "trunk call（长途电话）",
+      "trunk road（干道）"
+    ]
   },
   {
     "id": "g3_063",
@@ -762,7 +1312,17 @@
     "difficulty": 3,
     "audio": "roots.mp3",
     "unit": 4,
-    "explain": "roots are the part of a plant that grows underground."
+    "explain": "roots are the part of a plant that grows underground.",
+    "usage": [
+      "take root（扎根）",
+      "the root of a tree（树根）"
+    ],
+    "wordForms": [
+      "root（单数）",
+      "roots（复数）",
+      "rooted（adj. 扎根的）",
+      "rooting（n. 生根）"
+    ]
   },
   {
     "id": "g3_064",
@@ -775,7 +1335,16 @@
     "audio": "aeroplane.mp3",
     "unit": 1,
     "rootAffix": "aer（空气）+o+plan（平面，滑翔）+e→在空中滑翔之物→飞机",
-    "explain": "To aeroplane means to a vehicle that flies in the air with wings and engines."
+    "explain": "To aeroplane means to a vehicle that flies in the air with wings and engines.",
+    "usage": [
+      "take an aeroplane（乘飞机）",
+      "by aeroplane（乘飞机）"
+    ],
+    "wordForms": [
+      "aeroplanes（复数）",
+      "airplane（美式拼写）",
+      "plane（简称）"
+    ]
   },
   {
     "id": "g3_065",
@@ -787,7 +1356,15 @@
     "difficulty": 3,
     "audio": "bus.mp3",
     "unit": 1,
-    "explain": "A bus is a large vehicle carrying passengers."
+    "explain": "A bus is a large vehicle carrying passengers.",
+    "usage": [
+      "by bus（乘公共汽车）",
+      "a bus stop（公交车站）"
+    ],
+    "wordForms": [
+      "buses（复数）",
+      "bus driver（公交司机）"
+    ]
   },
   {
     "id": "g3_066",
@@ -799,7 +1376,16 @@
     "difficulty": 3,
     "audio": "ship.mp3",
     "unit": 1,
-    "explain": "A ship is a large boat that travels on the sea."
+    "explain": "A ship is a large boat that travels on the sea.",
+    "usage": [
+      "by ship（乘船）",
+      "a ship captain（船长）"
+    ],
+    "wordForms": [
+      "ships（复数）",
+      "shipping（n. 航运）",
+      "shipbuilder（n. 造船者）"
+    ]
   },
   {
     "id": "g3_067",
@@ -811,7 +1397,15 @@
     "difficulty": 3,
     "audio": "car.mp3",
     "unit": 1,
-    "explain": "A car is a road vehicle with four wheels."
+    "explain": "A car is a road vehicle with four wheels.",
+    "usage": [
+      "by car（乘小汽车）",
+      "a car park（停车场）"
+    ],
+    "wordForms": [
+      "cars（复数）",
+      "carry（v. 搬运，相关词）"
+    ]
   },
   {
     "id": "g3_068",
@@ -824,7 +1418,16 @@
     "audio": "pineapple.mp3",
     "unit": 1,
     "rootAffix": "pine（松果）+apple（水果）→像松果一样的水果→菠萝",
-    "explain": "A pineapple is a large tropical fruit with sweet yellow flesh."
+    "explain": "A pineapple is a large tropical fruit with sweet yellow flesh.",
+    "usage": [
+      "eat pineapple（吃菠萝）",
+      "a pineapple slice（菠萝片）"
+    ],
+    "wordForms": [
+      "pineapples（复数）",
+      "pine（n. 松树）",
+      "apple（n. 苹果）"
+    ]
   },
   {
     "id": "g3_069",
@@ -836,7 +1439,15 @@
     "difficulty": 3,
     "audio": "cake.mp3",
     "unit": 1,
-    "explain": "A cake is a sweet baked food."
+    "explain": "A cake is a sweet baked food.",
+    "usage": [
+      "a birthday cake（生日蛋糕）",
+      "a piece of cake（小菜一碟）"
+    ],
+    "wordForms": [
+      "cakes（复数）",
+      "cake（v. 结块）"
+    ]
   },
   {
     "id": "g3_070",
@@ -848,7 +1459,15 @@
     "difficulty": 3,
     "audio": "bread.mp3",
     "unit": 1,
-    "explain": "A bread is a food made from flour and baked."
+    "explain": "A bread is a food made from flour and baked.",
+    "usage": [
+      "a piece of bread（一片面包）",
+      "bread and butter（黄油面包）"
+    ],
+    "wordForms": [
+      "bread（n. 面包，无常用复数）",
+      "breadth（n. 宽度，同形近义无关，慎用）"
+    ]
   },
   {
     "id": "g3_071",
@@ -861,7 +1480,16 @@
     "audio": "glass.mp3",
     "unit": 1,
     "rootAffix": "gl（闪亮）+ass→亮闪闪的东西→玻璃",
-    "explain": "glass are a transparent material used for windows and drinking vessels."
+    "explain": "glass are a transparent material used for windows and drinking vessels.",
+    "usage": [
+      "a glass of water（一杯水）",
+      "a glass window（玻璃窗）"
+    ],
+    "wordForms": [
+      "glasses（复数）",
+      "glassy（adj. 像玻璃的）",
+      "glassware（n. 玻璃器皿）"
+    ]
   },
   {
     "id": "g3_072",
@@ -873,7 +1501,18 @@
     "difficulty": 3,
     "audio": "sweet.mp3",
     "unit": 1,
-    "explain": "A sweet is a small piece of candy or chocolate."
+    "explain": "A sweet is a small piece of candy or chocolate.",
+    "usage": [
+      "a sweet apple（甜的苹果）",
+      "sweet dreams（好梦）"
+    ],
+    "wordForms": [
+      "sweeter（比较级）",
+      "sweetest（最高级）",
+      "sweetly（adv. 甜美地）",
+      "sweetness（n. 甜）",
+      "sour（adj. 酸的，反义）"
+    ]
   },
   {
     "id": "g3_073",
@@ -885,7 +1524,16 @@
     "difficulty": 3,
     "audio": "lemon.mp3",
     "unit": 1,
-    "explain": "A lemon is a yellow citrus fruit with a sour taste."
+    "explain": "A lemon is a yellow citrus fruit with a sour taste.",
+    "usage": [
+      "a lemon（柠檬）",
+      "lemon juice（柠檬汁）"
+    ],
+    "wordForms": [
+      "lemons（复数）",
+      "lemony（adj. 柠檬味的）",
+      "lemonade（n. 柠檬水）"
+    ]
   },
   {
     "id": "g3_074",
@@ -897,7 +1545,17 @@
     "difficulty": 3,
     "audio": "sour.mp3",
     "unit": 1,
-    "explain": "Sour means having a sharp taste like a lemon."
+    "explain": "Sour means having a sharp taste like a lemon.",
+    "usage": [
+      "a sour taste（酸味）",
+      "sour milk（酸牛奶）"
+    ],
+    "wordForms": [
+      "sourer（比较级）",
+      "sourest（最高级）",
+      "sourly（adv. 酸地；愠怒地）",
+      "sourness（n. 酸味）"
+    ]
   },
   {
     "id": "g3_075",
@@ -909,7 +1567,16 @@
     "difficulty": 3,
     "audio": "salt.mp3",
     "unit": 1,
-    "explain": "A salt is a white substance used to flavor food."
+    "explain": "A salt is a white substance used to flavor food.",
+    "usage": [
+      "add salt（加盐）",
+      "a pinch of salt（一撮盐）"
+    ],
+    "wordForms": [
+      "salts（复数，指种类）",
+      "salty（adj. 咸的）",
+      "salt-free（adj. 无盐的）"
+    ]
   },
   {
     "id": "g3_076",
@@ -922,7 +1589,17 @@
     "audio": "salty.mp3",
     "unit": 1,
     "rootAffix": "salt（盐）+y（形容词后缀）→含盐的→咸的",
-    "explain": "Salty means containing or tasting of salt."
+    "explain": "Salty means containing or tasting of salt.",
+    "usage": [
+      "salty food（咸的食物）",
+      "a salty taste（咸味）"
+    ],
+    "wordForms": [
+      "salt（n. 盐）",
+      "saltier（比较级）",
+      "saltiest（最高级）",
+      "saltiness（n. 咸味）"
+    ]
   },
   {
     "id": "g3_077",
@@ -934,7 +1611,15 @@
     "difficulty": 3,
     "audio": "coffee.mp3",
     "unit": 1,
-    "explain": "A coffee is a hot drink made from roasted coffee beans."
+    "explain": "A coffee is a hot drink made from roasted coffee beans.",
+    "usage": [
+      "drink coffee（喝咖啡）",
+      "a cup of coffee（一杯咖啡）"
+    ],
+    "wordForms": [
+      "coffees（复数，指种类）",
+      "coffee shop（咖啡店）"
+    ]
   },
   {
     "id": "g3_078",
@@ -946,7 +1631,16 @@
     "difficulty": 3,
     "audio": "bitter.mp3",
     "unit": 1,
-    "explain": "Bitter means having a sharp unpleasant taste."
+    "explain": "Bitter means having a sharp unpleasant taste.",
+    "usage": [
+      "a bitter taste（苦味）",
+      "bitter cold（严寒）"
+    ],
+    "wordForms": [
+      "bitterly（adv. 苦涩地；激烈地）",
+      "bitterness（n. 痛苦；苦味）",
+      "sweet（adj. 甜的，反义）"
+    ]
   },
   {
     "id": "g3_079",
@@ -958,7 +1652,16 @@
     "difficulty": 3,
     "audio": "tiger.mp3",
     "unit": 2,
-    "explain": "A tiger is a large wild cat with stripes."
+    "explain": "A tiger is a large wild cat with stripes.",
+    "usage": [
+      "a tiger（老虎）",
+      "a tiger cub（虎崽）"
+    ],
+    "wordForms": [
+      "tigers（复数）",
+      "tigerish（adj. 凶猛的）",
+      "tiger-like（adj. 像老虎的）"
+    ]
   },
   {
     "id": "g3_080",
@@ -970,7 +1673,16 @@
     "difficulty": 3,
     "audio": "lion.mp3",
     "unit": 2,
-    "explain": "A lion is a large wild cat with a mane."
+    "explain": "A lion is a large wild cat with a mane.",
+    "usage": [
+      "a lion（狮子）",
+      "a lion's roar（狮吼）"
+    ],
+    "wordForms": [
+      "lions（复数）",
+      "lioness（n. 母狮）",
+      "lion-hearted（adj. 勇敢的）"
+    ]
   },
   {
     "id": "g3_081",
@@ -982,7 +1694,15 @@
     "difficulty": 3,
     "audio": "panda.mp3",
     "unit": 2,
-    "explain": "A panda is a large black and white animal from China that looks like a bear."
+    "explain": "A panda is a large black and white animal from China that looks like a bear.",
+    "usage": [
+      "a panda（熊猫）",
+      "a giant panda（大熊猫）"
+    ],
+    "wordForms": [
+      "pandas（复数）",
+      "panda cub（熊猫幼崽）"
+    ]
   },
   {
     "id": "g3_082",
@@ -994,7 +1714,15 @@
     "difficulty": 3,
     "audio": "monkey.mp3",
     "unit": 2,
-    "explain": "A monkey is an animal that climbs trees."
+    "explain": "A monkey is an animal that climbs trees.",
+    "usage": [
+      "a monkey（一只猴子）",
+      "a baby monkey（小猴）"
+    ],
+    "wordForms": [
+      "monkeys（复数）",
+      "monkeyish（adj. 像猴子的）"
+    ]
   },
   {
     "id": "g3_083",
@@ -1006,7 +1734,16 @@
     "difficulty": 3,
     "audio": "toy_train.mp3",
     "unit": 2,
-    "explain": "A toy train is a small train used as a toy for children."
+    "explain": "A toy train is a small train used as a toy for children.",
+    "usage": [
+      "a toy train（玩具火车）",
+      "play with a toy train（玩玩具火车）"
+    ],
+    "wordForms": [
+      "toy trains（复数）",
+      "toy（n. 玩具）",
+      "train（n. 火车）"
+    ]
   },
   {
     "id": "g3_084",
@@ -1018,7 +1755,15 @@
     "difficulty": 3,
     "audio": "doll.mp3",
     "unit": 2,
-    "explain": "A doll is a toy that looks like a small person or baby."
+    "explain": "A doll is a toy that looks like a small person or baby.",
+    "usage": [
+      "a beautiful doll（漂亮的洋娃娃）",
+      "play with a doll（玩洋娃娃）"
+    ],
+    "wordForms": [
+      "dolls（复数）",
+      "dollhouse（n. 玩具屋）"
+    ]
   },
   {
     "id": "g3_085",
@@ -1031,7 +1776,16 @@
     "audio": "skateboard.mp3",
     "unit": 2,
     "rootAffix": "skate（滑冰）+board（木板）→滑板",
-    "explain": "A skateboard is a short board with wheels for riding on."
+    "explain": "A skateboard is a short board with wheels for riding on.",
+    "usage": [
+      "ride a skateboard（玩滑板）",
+      "a skateboard park（滑板公园）"
+    ],
+    "wordForms": [
+      "skateboards（复数）",
+      "skateboarding（n. 滑板运动）",
+      "skater（n. 滑板者）"
+    ]
   },
   {
     "id": "g3_086",
@@ -1043,7 +1797,16 @@
     "difficulty": 3,
     "audio": "robot.mp3",
     "unit": 2,
-    "explain": "A robot is a machine that can do work automatically."
+    "explain": "A robot is a machine that can do work automatically.",
+    "usage": [
+      "a robot（机器人）",
+      "a robot arm（机械臂）"
+    ],
+    "wordForms": [
+      "robots（复数）",
+      "robotics（n. 机器人学）",
+      "robotic（adj. 机器人的）"
+    ]
   },
   {
     "id": "g3_087",
@@ -1055,7 +1818,16 @@
     "difficulty": 3,
     "audio": "hat.mp3",
     "unit": 2,
-    "explain": "A hat is a covering for the head."
+    "explain": "A hat is a covering for the head.",
+    "usage": [
+      "wear a hat（戴帽子）",
+      "a hat shop（帽子店）"
+    ],
+    "wordForms": [
+      "hats（复数）",
+      "hatless（adj. 不戴帽子的）",
+      "hatter（n. 制帽人）"
+    ]
   },
   {
     "id": "g3_088",
@@ -1067,7 +1839,15 @@
     "difficulty": 3,
     "audio": "scarf.mp3",
     "unit": 2,
-    "explain": "A scarf is a piece of cloth worn around the neck for warmth."
+    "explain": "A scarf is a piece of cloth worn around the neck for warmth.",
+    "usage": [
+      "wear a scarf（戴围巾）",
+      "a wool scarf（羊毛围巾）"
+    ],
+    "wordForms": [
+      "scarves/scarfs（复数）",
+      "scarf（v. 围围巾）"
+    ]
   },
   {
     "id": "g3_089",
@@ -1080,7 +1860,16 @@
     "audio": "jacket.mp3",
     "unit": 2,
     "rootAffix": "jack（古代一种束腰外衣）+et（指小名词后缀）→较短的外衣→夹克，短上衣",
-    "explain": "A jacket is a short coat for the upper body."
+    "explain": "A jacket is a short coat for the upper body.",
+    "usage": [
+      "wear a jacket（穿夹克）",
+      "a life jacket（救生衣）"
+    ],
+    "wordForms": [
+      "jackets（复数）",
+      "jacketed（adj. 穿夹克的）",
+      "jacket potato（带皮烤土豆）"
+    ]
   },
   {
     "id": "g3_090",
@@ -1092,7 +1881,15 @@
     "difficulty": 3,
     "audio": "a_pair_of_gloves.mp3",
     "unit": 2,
-    "explain": "a pair of gloves are two matching gloves for both hands."
+    "explain": "a pair of gloves are two matching gloves for both hands.",
+    "usage": [
+      "wear a pair of gloves（戴一副手套）",
+      "a pair of winter gloves（一副冬用手套）"
+    ],
+    "wordForms": [
+      "two pairs of gloves（复数）",
+      "a pair of（量词结构）"
+    ]
   },
   {
     "id": "g3_091",
@@ -1104,7 +1901,15 @@
     "difficulty": 3,
     "audio": "a_pair_of_socks.mp3",
     "unit": 2,
-    "explain": "a pair of socks are two matching socks for both feet."
+    "explain": "a pair of socks are two matching socks for both feet.",
+    "usage": [
+      "a pair of socks（一双袜子）",
+      "two pairs of socks（两双袜子）"
+    ],
+    "wordForms": [
+      "two pairs of socks（复数）",
+      "socks（复数名词）"
+    ]
   },
   {
     "id": "g3_092",
@@ -1116,7 +1921,15 @@
     "difficulty": 3,
     "audio": "a_pair_of_shoes.mp3",
     "unit": 2,
-    "explain": "a pair of shoes are two matching shoes for both feet."
+    "explain": "a pair of shoes are two matching shoes for both feet.",
+    "usage": [
+      "buy a pair of shoes（买一双鞋）",
+      "a pair of sports shoes（一双运动鞋）"
+    ],
+    "wordForms": [
+      "two pairs of shoes（复数）",
+      "shoes（复数名词）"
+    ]
   },
   {
     "id": "g3_093",
@@ -1129,7 +1942,15 @@
     "audio": "circle.mp3",
     "unit": 3,
     "rootAffix": "circ（圆圈）+le（=ule，指小名词后缀）→小圆圈→圆圈，循环",
-    "explain": "A circle is a perfectly round shape."
+    "explain": "A circle is a perfectly round shape.",
+    "usage": [
+      "draw a circle（画圆）",
+      "a circle of friends（朋友圈）"
+    ],
+    "wordForms": [
+      "circles（复数）",
+      "circular（adj. 圆形的）"
+    ]
   },
   {
     "id": "g3_094",
@@ -1142,7 +1963,17 @@
     "audio": "square.mp3",
     "unit": 3,
     "rootAffix": "s（=ex，出来）+quar（四）+e→使变成四方的→四方的→正方形",
-    "explain": "A square is a shape with four equal sides and four right angles."
+    "explain": "A square is a shape with four equal sides and four right angles.",
+    "usage": [
+      "a square table（方桌）",
+      "the town square（城镇广场）"
+    ],
+    "wordForms": [
+      "squares（复数）",
+      "squarer（比较级）",
+      "squarest（最高级）",
+      "squarely（adv. 成方形地）"
+    ]
   },
   {
     "id": "g3_095",
@@ -1155,7 +1986,16 @@
     "audio": "triangle.mp3",
     "unit": 3,
     "rootAffix": "tri（三）+angle（角）→三角",
-    "explain": "A triangle is a shape with three sides and three angles."
+    "explain": "A triangle is a shape with three sides and three angles.",
+    "usage": [
+      "a triangle（三角形）",
+      "a triangular flag（三角旗）"
+    ],
+    "wordForms": [
+      "triangles（复数）",
+      "triangular（adj. 三角形的）",
+      "triangulate（v. 三角测量）"
+    ]
   },
   {
     "id": "g3_096",
@@ -1167,7 +2007,16 @@
     "difficulty": 3,
     "audio": "star.mp3",
     "unit": 3,
-    "explain": "A star is a bright point of light in the sky."
+    "explain": "A star is a bright point of light in the sky.",
+    "usage": [
+      "a star（星星；明星）",
+      "a star shape（星形）"
+    ],
+    "wordForms": [
+      "stars（复数）",
+      "starry（adj. 满是星星的）",
+      "stardom（n. 明星地位）"
+    ]
   },
   {
     "id": "g3_097",
@@ -1180,7 +2029,15 @@
     "audio": "rectangle.mp3",
     "unit": 3,
     "rootAffix": "rect（直的）+angle（角）→直角形状→矩形",
-    "explain": "A rectangle is a shape with four sides and four right angles."
+    "explain": "A rectangle is a shape with four sides and four right angles.",
+    "usage": [
+      "a rectangle（长方形）",
+      "a rectangular table（长方桌）"
+    ],
+    "wordForms": [
+      "rectangles（复数）",
+      "rectangular（adj. 长方形的）"
+    ]
   },
   {
     "id": "g3_098",
@@ -1192,7 +2049,16 @@
     "difficulty": 3,
     "audio": "sky.mp3",
     "unit": 3,
-    "explain": "A sky is the area above the earth."
+    "explain": "A sky is the area above the earth.",
+    "usage": [
+      "in the sky（在天空中）",
+      "a blue sky（蓝天）"
+    ],
+    "wordForms": [
+      "skies（复数）",
+      "skyward（adv. 向天空）",
+      "skyline（n. 天际线）"
+    ]
   },
   {
     "id": "g3_099",
@@ -1204,7 +2070,16 @@
     "difficulty": 3,
     "audio": "sea.mp3",
     "unit": 3,
-    "explain": "A sea is a large area of salt water."
+    "explain": "A sea is a large area of salt water.",
+    "usage": [
+      "by the sea（在海边）",
+      "a sea animal（海洋动物）"
+    ],
+    "wordForms": [
+      "seas（复数）",
+      "seaside（n. 海边）",
+      "ocean（n. 海洋，近义）"
+    ]
   },
   {
     "id": "g3_100",
@@ -1217,7 +2092,16 @@
     "audio": "mountain.mp3",
     "unit": 3,
     "rootAffix": "mount（山）+ain（=an，形容词后缀）→山的→（转作名词）山脉",
-    "explain": "A mountain is a very high area of land."
+    "explain": "A mountain is a very high area of land.",
+    "usage": [
+      "climb a mountain（爬山）",
+      "a mountain range（山脉）"
+    ],
+    "wordForms": [
+      "mountains（复数）",
+      "mountainous（adj. 多山的）",
+      "mountaineer（n. 登山者）"
+    ]
   },
   {
     "id": "g3_101",
@@ -1230,7 +2114,16 @@
     "audio": "river.mp3",
     "unit": 3,
     "rootAffix": "riv（河岸）+er（=ery，名词后缀）→河流",
-    "explain": "A river is a long natural stream of water."
+    "explain": "A river is a long natural stream of water.",
+    "usage": [
+      "in the river（在河里）",
+      "the Yangtze River（长江）"
+    ],
+    "wordForms": [
+      "rivers（复数）",
+      "riverbank（n. 河岸）",
+      "riverside（n. 河边）"
+    ]
   },
   {
     "id": "g3_102",
@@ -1242,7 +2135,17 @@
     "difficulty": 3,
     "audio": "plant.mp3",
     "unit": 3,
-    "explain": "A plant is a living thing that grows in the ground and has leaves and roots."
+    "explain": "A plant is a living thing that grows in the ground and has leaves and roots.",
+    "usage": [
+      "plant a tree（种树）",
+      "a green plant（绿色植物）"
+    ],
+    "wordForms": [
+      "plants（复数/第三人称单数）",
+      "planted（过去式）",
+      "planting（现在分词）",
+      "plantation（n. 种植园）"
+    ]
   },
   {
     "id": "g3_103",
@@ -1254,7 +2157,16 @@
     "difficulty": 3,
     "audio": "picnic.mp3",
     "unit": 3,
-    "explain": "A picnic is a meal eaten outdoors."
+    "explain": "A picnic is a meal eaten outdoors.",
+    "usage": [
+      "have a picnic（野餐）",
+      "go on a picnic（去野餐）"
+    ],
+    "wordForms": [
+      "picnics（复数）",
+      "picnicked（过去式）",
+      "picnicking（现在分词）"
+    ]
   },
   {
     "id": "g3_104",
@@ -1266,7 +2178,16 @@
     "difficulty": 3,
     "audio": "ice-skate.mp3",
     "unit": 3,
-    "explain": "To ice-skate means to to move on ice wearing special boots with blades."
+    "explain": "To ice-skate means to to move on ice wearing special boots with blades.",
+    "usage": [
+      "go ice-skating（去滑冰）",
+      "ice-skate on the lake（在湖上滑冰）"
+    ],
+    "wordForms": [
+      "ice-skates（复数）",
+      "ice-skating（n. 滑冰）",
+      "ice-skater（n. 滑冰者）"
+    ]
   },
   {
     "id": "g3_105",
@@ -1278,7 +2199,17 @@
     "difficulty": 3,
     "audio": "ski.mp3",
     "unit": 3,
-    "explain": "To ski means to to move on snow wearing long flat pieces on your feet."
+    "explain": "To ski means to to move on snow wearing long flat pieces on your feet.",
+    "usage": [
+      "go skiing（去滑雪）",
+      "ski down the mountain（滑雪下山）"
+    ],
+    "wordForms": [
+      "skis（复数/第三人称单数）",
+      "skied（过去式）",
+      "skiing（现在分词）",
+      "skier（n. 滑雪者）"
+    ]
   },
   {
     "id": "g3_106",
@@ -1290,7 +2221,18 @@
     "difficulty": 3,
     "audio": "head.mp3",
     "unit": 4,
-    "explain": "A head is the top part of the body with the brain and face."
+    "explain": "A head is the top part of the body with the brain and face.",
+    "usage": [
+      "use your head（动脑筋）",
+      "head teacher（校长）"
+    ],
+    "wordForms": [
+      "heads（复数/第三人称单数）",
+      "headed（过去式）",
+      "heading（现在分词）",
+      "headache（n. 头痛）",
+      "headline（n. 标题）"
+    ]
   },
   {
     "id": "g3_107",
@@ -1302,7 +2244,15 @@
     "difficulty": 3,
     "audio": "body.mp3",
     "unit": 4,
-    "explain": "A body is the physical structure of a person."
+    "explain": "A body is the physical structure of a person.",
+    "usage": [
+      "body language（肢体语言）",
+      "a healthy body（健康的身体）"
+    ],
+    "wordForms": [
+      "bodies（复数）",
+      "bodily（adj. 身体的）"
+    ]
   },
   {
     "id": "g3_108",
@@ -1314,7 +2264,16 @@
     "difficulty": 3,
     "audio": "finger.mp3",
     "unit": 4,
-    "explain": "A finger is one of the five parts at the end of your hand."
+    "explain": "A finger is one of the five parts at the end of your hand.",
+    "usage": [
+      "a finger（一根手指）",
+      "point with a finger（用手指指）"
+    ],
+    "wordForms": [
+      "fingers（复数）",
+      "fingerprint（n. 指纹）",
+      "fingertip（n. 指尖）"
+    ]
   },
   {
     "id": "g3_109",
@@ -1326,7 +2285,16 @@
     "difficulty": 3,
     "audio": "knee.mp3",
     "unit": 4,
-    "explain": "A knee is the joint in the middle of your leg."
+    "explain": "A knee is the joint in the middle of your leg.",
+    "usage": [
+      "hurt one's knee（伤了膝盖）",
+      "fall on one's knees（跪下）"
+    ],
+    "wordForms": [
+      "knees（复数）",
+      "kneecap（n. 膝盖骨）",
+      "kneel（v. 跪下）"
+    ]
   },
   {
     "id": "g3_110",
@@ -1338,7 +2306,16 @@
     "difficulty": 3,
     "audio": "foot.mp3",
     "unit": 4,
-    "explain": "A foot is the part at the end of the leg for standing."
+    "explain": "A foot is the part at the end of the leg for standing.",
+    "usage": [
+      "on foot（步行）",
+      "a foot（一只脚）"
+    ],
+    "wordForms": [
+      "feet（复数）",
+      "football（n. 足球）",
+      "footprint（n. 脚印）"
+    ]
   },
   {
     "id": "g3_111",
@@ -1350,7 +2327,16 @@
     "difficulty": 3,
     "audio": "shoulder.mp3",
     "unit": 4,
-    "explain": "A shoulder is the part of your body between your neck and arm."
+    "explain": "A shoulder is the part of your body between your neck and arm.",
+    "usage": [
+      "shoulder bag（肩包）",
+      "a shoulder injury（肩伤）"
+    ],
+    "wordForms": [
+      "shoulders（复数）",
+      "shoulder（v. 承担）",
+      "shoulder-to-shoulder（adj. 肩并肩的）"
+    ]
   },
   {
     "id": "g3_112",
@@ -1362,7 +2348,15 @@
     "difficulty": 3,
     "audio": "arm.mp3",
     "unit": 4,
-    "explain": "An arm is the body part from shoulder to hand."
+    "explain": "An arm is the body part from shoulder to hand.",
+    "usage": [
+      "arm in arm（臂挽臂）",
+      "in one's arms（在某人怀里）"
+    ],
+    "wordForms": [
+      "arms（复数）",
+      "armchair（n. 扶手椅）"
+    ]
   },
   {
     "id": "g3_113",
@@ -1374,7 +2368,17 @@
     "difficulty": 3,
     "audio": "hand.mp3",
     "unit": 4,
-    "explain": "A hand is the part at the end of the arm with fingers."
+    "explain": "A hand is the part at the end of the arm with fingers.",
+    "usage": [
+      "wash your hands（洗手）",
+      "hand in（上交）"
+    ],
+    "wordForms": [
+      "hands（复数/第三人称单数）",
+      "handed（过去式）",
+      "handing（现在分词）",
+      "handful（n. 一把）"
+    ]
   },
   {
     "id": "g3_114",
@@ -1386,7 +2390,16 @@
     "difficulty": 3,
     "audio": "leg.mp3",
     "unit": 4,
-    "explain": "A leg is the body part used for walking."
+    "explain": "A leg is the body part used for walking.",
+    "usage": [
+      "a leg（一条腿）",
+      "break a leg（摔断腿；祝你好运）"
+    ],
+    "wordForms": [
+      "legs（复数）",
+      "leggings（n. 紧身裤）",
+      "legless（adj. 无腿的）"
+    ]
   },
   {
     "id": "g3_115",
@@ -1398,7 +2411,17 @@
     "difficulty": 3,
     "audio": "park.mp3",
     "unit": 4,
-    "explain": "A park is a public area of grass and trees."
+    "explain": "A park is a public area of grass and trees.",
+    "usage": [
+      "in the park（在公园）",
+      "park a car（停车）"
+    ],
+    "wordForms": [
+      "parks（复数/第三人称单数）",
+      "parked（过去式）",
+      "parking（n. 停车）",
+      "park keeper（公园管理员）"
+    ]
   },
   {
     "id": "g3_116",
@@ -1410,7 +2433,15 @@
     "difficulty": 3,
     "audio": "cinema.mp3",
     "unit": 4,
-    "explain": "A cinema is a place where you go to watch films."
+    "explain": "A cinema is a place where you go to watch films.",
+    "usage": [
+      "go to the cinema（去看电影）",
+      "a cinema ticket（电影票）"
+    ],
+    "wordForms": [
+      "cinemas（复数）",
+      "movie theater（美式表达）"
+    ]
   },
   {
     "id": "g3_117",
@@ -1422,6 +2453,15 @@
     "difficulty": 3,
     "audio": "zoo.mp3",
     "unit": 4,
-    "explain": "A zoo is a place where wild animals are kept for people to see."
+    "explain": "A zoo is a place where wild animals are kept for people to see.",
+    "usage": [
+      "go to the zoo（去动物园）",
+      "a zoo keeper（动物园管理员）"
+    ],
+    "wordForms": [
+      "zoos（复数）",
+      "zookeeper（n. 动物园管理员）",
+      "zoological（adj. 动物学的）"
+    ]
   }
 ]
