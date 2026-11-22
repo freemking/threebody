@@ -145,6 +145,37 @@
         })[char]);
     }
 
+    function highlightWord(text, word) {
+        const safeText = escapeHtml(text);
+        if (!word) return safeText;
+
+        const base = escapeHtml(word).toLowerCase();
+        const patterns = new Set([base]);
+        const suffixes = ['s', 'es', 'ed', 'd', 'ing', 'er', 'est', 'ly', 'tion', 'sion', 'ment', 'ness', 'ful', 'less', 'ous', 'ive', 'able', 'ible', 'al', 'y'];
+        suffixes.forEach(suffix => patterns.add(base + suffix));
+        if (base.endsWith('y')) {
+            patterns.add(base.slice(0, -1) + 'ies');
+            patterns.add(base.slice(0, -1) + 'ied');
+        }
+        if (base.endsWith('e')) {
+            patterns.add(base.slice(0, -1) + 'ing');
+        }
+        if (base.length >= 3 && /[aeiou][^aeiou]$/.test(base)) {
+            const last = base[base.length - 1];
+            patterns.add(base + last + 'ed');
+            patterns.add(base + last + 'ing');
+        }
+
+        const alternation = [...patterns]
+            .map(pattern => pattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+            .sort((a, b) => b.length - a.length)
+            .join('|');
+        if (!alternation) return safeText;
+
+        const regex = new RegExp(`(?<![\\w-])(?:${alternation})(?![\\w-])`, 'gi');
+        return safeText.replace(regex, match => `<mark class="wf-word-highlight">${match}</mark>`);
+    }
+
     function wordKey(word) {
         return word.id || `${word.word}-${word.unit || ''}`;
     }
@@ -301,21 +332,21 @@
         `;
     }
 
-    function renderList(items) {
-        return `<ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>`;
+    function renderList(items, word) {
+        return `<ul>${items.map(item => `<li>${word ? highlightWord(item, word) : escapeHtml(item)}</li>`).join('')}</ul>`;
     }
 
     function buildDetails(word) {
         const blocks = [];
 
         if (word.explain) {
-            blocks.push(detailBlock('英文释义', `<p>${escapeHtml(word.explain)}</p>`));
+            blocks.push(detailBlock('英文释义', `<p>${highlightWord(word.explain, word.word)}</p>`));
         }
         if (word.example) {
-            blocks.push(detailBlock('例句', `<p>${escapeHtml(word.example)}</p>`));
+            blocks.push(detailBlock('例句', `<p>${highlightWord(word.example, word.word)}</p>`));
         }
         if (Array.isArray(word.usage) && word.usage.length) {
-            blocks.push(detailBlock('常用用法', renderList(word.usage)));
+            blocks.push(detailBlock('常用用法', renderList(word.usage, word.word)));
         }
         if (Array.isArray(word.wordForms) && word.wordForms.length) {
             blocks.push(detailBlock('词形变化', renderList(word.wordForms)));
