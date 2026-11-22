@@ -235,7 +235,12 @@
             button.classList.toggle('active', parseInt(button.dataset.target, 10) === state.daily.target);
         });
         $('wf-daily-panel').classList.toggle('hidden', state.mode !== 'daily');
-        $('wf-start').textContent = state.mode === 'daily' ? '开始今日闪卡 →' : '开始背诵 →';
+        const startLabels = {
+            daily: '开始今日闪卡 →',
+            free: '开始自由背诵 →',
+            blast: '开始单词填空 →'
+        };
+        $('wf-start').textContent = startLabels[state.mode] || '开始';
         const autoFill = $('wf-auto-fill');
         if (autoFill) autoFill.checked = state.autoFill;
         updateDailyUI();
@@ -609,6 +614,11 @@
     }
 
     function startStudy() {
+        if (state.mode === 'blast') {
+            startDirectBlast();
+            return;
+        }
+
         let words;
         if (state.mode === 'daily') {
             words = buildDailyWords();
@@ -687,10 +697,6 @@
         });
 
         $('wf-mode-grid').addEventListener('click', event => {
-            if (event.target.closest('[data-action="blast"]')) {
-                startDirectBlast();
-                return;
-            }
             const button = event.target.closest('[data-mode]');
             if (!button) return;
             state.mode = button.dataset.mode;
