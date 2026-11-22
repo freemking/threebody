@@ -1,0 +1,75 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "← 返回" [ref=e5] [cursor=pointer]:
+      - /url: index.html
+    - generic [ref=e6]:
+      - heading "🗂️ 单词闪卡" [level=1] [ref=e7]
+      - paragraph [ref=e8]: 每天用翻卡完成今日单词，掌握释义、常用用法和词形变化
+    - button "清除掌握记录" [ref=e9] [cursor=pointer]
+  - generic [ref=e10]:
+    - generic [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: 🎯
+        - heading "背诵模式" [level=2] [ref=e14]
+      - generic [ref=e15]:
+        - button "每日任务" [ref=e16] [cursor=pointer]
+        - button "自由背诵" [ref=e17] [cursor=pointer]
+        - button "单词填空" [ref=e18] [cursor=pointer]
+    - generic [ref=e19]:
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - strong [ref=e22]: 今日目标 5 词
+          - generic [ref=e23]: 已学 0/5 · 连续 0 天
+        - generic [ref=e24]:
+          - button "5 词" [ref=e25] [cursor=pointer]
+          - button "8 词" [ref=e26] [cursor=pointer]
+          - button "10 词" [ref=e27] [cursor=pointer]
+      - generic [ref=e29] [cursor=pointer]:
+        - checkbox "➕ 单词不足时补充本年级其他单元（不跨年级）" [ref=e30]
+        - generic [ref=e31]: ➕ 单词不足时补充本年级其他单元（不跨年级）
+    - generic [ref=e32]:
+      - generic [ref=e33]:
+        - generic [ref=e34]: 📚
+        - heading "选择年级" [level=2] [ref=e35]
+      - generic [ref=e36]:
+        - button "Grade 1" [ref=e37] [cursor=pointer]
+        - button "Grade 2" [ref=e38] [cursor=pointer]
+        - button "Grade 3" [ref=e39] [cursor=pointer]
+        - button "Grade 4" [ref=e40] [cursor=pointer]
+        - button "Grade 5" [ref=e41] [cursor=pointer]
+        - button "Grade 6" [ref=e42] [cursor=pointer]
+        - button "Grade 7" [ref=e43] [cursor=pointer]
+        - button "Grade 8" [ref=e44] [cursor=pointer]
+        - button "Grade 9" [ref=e45] [cursor=pointer]
+        - button "全部年级" [ref=e46] [cursor=pointer]
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: 📖
+        - heading "选择单元" [level=2] [ref=e50]
+      - generic [ref=e51]:
+        - button "全部单元" [ref=e52] [cursor=pointer]
+        - button "Unit 1" [ref=e53] [cursor=pointer]
+        - button "Unit 2" [ref=e54] [cursor=pointer]
+        - button "Unit 3" [ref=e55] [cursor=pointer]
+        - button "Unit 4" [ref=e56] [cursor=pointer]
+        - button "Unit 5" [ref=e57] [cursor=pointer]
+        - button "Unit 6" [ref=e58] [cursor=pointer]
+        - button "Unit 7" [ref=e59] [cursor=pointer]
+        - button "Unit 8" [ref=e60] [cursor=pointer]
+        - button "Unit 9" [ref=e61] [cursor=pointer]
+        - button "Unit 10" [ref=e62] [cursor=pointer]
+        - button "Unit 11" [ref=e63] [cursor=pointer]
+        - button "Unit 12" [ref=e64] [cursor=pointer]
+    - generic [ref=e65]:
+      - generic [ref=e66] [cursor=pointer]:
+        - checkbox "🎲 打乱顺序" [ref=e67]
+        - generic [ref=e68]: 🎲 打乱顺序
+      - generic [ref=e69] [cursor=pointer]:
+        - checkbox "✅ 隐藏已掌握" [ref=e70]
+        - generic [ref=e71]: ✅ 隐藏已掌握
+      - generic [ref=e72] [cursor=pointer]:
+        - checkbox "🔊 自动发音" [checked] [ref=e73]
+        - generic [ref=e74]: 🔊 自动发音
+    - generic [ref=e75]:
+      - generic [ref=e76]: 当前范围：6 年级 · Unit 3 · 共 52 个单词
+      - button "开始今日闪卡 →" [ref=e77] [cursor=pointer]

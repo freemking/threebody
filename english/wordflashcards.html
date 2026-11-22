@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wordflashcards.css?v=20261122g">
+    <link rel="stylesheet" href="css/wordflashcards.css?v=20261122h">
     <link rel="stylesheet" href="css/wordblast.css?v=20261122f">
 
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
@@ -125,6 +125,9 @@
                                     <span id="wf-phonetic" class="wf-phonetic"></span>
                                     <button id="wf-speak-front" class="wf-speak-btn" type="button">🔊 发音</button>
                                 </div>
+                                <div id="wf-word-image-wrap" class="wf-word-image-wrap hidden">
+                                    <img id="wf-word-image" class="wf-word-image" alt="" />
+                                </div>
                                 <div class="wf-hint">点击卡片查看释义与用法</div>
                             </div>
                             <div class="wf-face wf-back">
@@ -164,9 +167,9 @@
                 </div>
             </section>
         </div>
-
-        <div id="game-canvas-container" class="wf-blast-container hidden"></div>
     </div>
+
+    <div id="game-canvas-container" class="wf-blast-container hidden"></div>
 
     <script>
         window.t = window.t || function (key) {

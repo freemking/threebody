@@ -1826,6 +1826,7 @@
     "category": "pron",
     "difficulty": 6,
     "audio": "something.mp3",
+    "image": "data/images/grade6/something.png",
     "unit": 3,
     "rootAffix": "some（某）+thing（事物）→某事，某物",
     "explain": "Something is a pronoun in English.",
@@ -1848,6 +1849,7 @@
     "category": "n",
     "difficulty": 6,
     "audio": "beef.mp3",
+    "image": "data/images/grade6/beef.png",
     "unit": 3,
     "explain": "A beef is the meat from a cow.",
     "usage": [
@@ -1868,6 +1870,7 @@
     "category": "n",
     "difficulty": 6,
     "audio": "tofu.mp3",
+    "image": "data/images/grade6/tofu.png",
     "unit": 3,
     "explain": "A tofu is a soft white food made from soybeans.",
     "usage": [
@@ -1889,6 +1892,7 @@
     "category": "n",
     "difficulty": 6,
     "audio": "pepper.mp3",
+    "image": "data/images/grade6/pepper.png",
     "unit": 3,
     "explain": "A pepper is a vegetable that can be red, green or yellow.",
     "usage": [
@@ -1910,6 +1914,7 @@
     "category": "n",
     "difficulty": 6,
     "audio": "cabbage.mp3",
+    "image": "data/images/grade6/cabbage.png",
     "unit": 3,
     "explain": "A cabbage is a round vegetable with green leaves.",
     "usage": [

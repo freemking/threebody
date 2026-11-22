@@ -502,6 +502,18 @@
         $('wf-meaning').textContent = word.meaning || '暂无释义';
         $('wf-details').innerHTML = buildDetails(word);
 
+        const imageWrap = $('wf-word-image-wrap');
+        const image = $('wf-word-image');
+        if (imageWrap && image) {
+            if (word.image) {
+                image.src = word.image;
+                image.alt = `${word.word} 像素示意图`;
+                imageWrap.classList.remove('hidden');
+            } else {
+                imageWrap.classList.add('hidden');
+            }
+        }
+
         updateProgress();
         updateMasteredButton();
         updateWrongBookButton();
