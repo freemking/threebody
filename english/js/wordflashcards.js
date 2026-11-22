@@ -539,6 +539,30 @@
         }
     }
 
+    function startDirectBlast() {
+        stopSpeaking();
+        const words = wordData.getWordsByGrade(state.grade, state.unit);
+        if (!words.length) {
+            $('wf-setup-empty').textContent = '当前范围暂无单词，请切换年级或单元。';
+            $('wf-setup-empty').classList.remove('hidden');
+            return;
+        }
+
+        const container = $('game-canvas-container');
+        if (!container || typeof wordBlastGame === 'undefined') return;
+
+        $('wf-setup').classList.add('hidden');
+        $('wf-study').classList.add('hidden');
+        container.classList.remove('hidden');
+        wordBlastGame.onExit = () => {
+            container.classList.add('hidden');
+            container.innerHTML = '';
+            $('wf-setup').classList.remove('hidden');
+            renderCount();
+        };
+        wordBlastGame.startWithWords(words, { grade: state.grade, unit: state.unit });
+    }
+
     function startBlastPhase() {
         state.blastStarted = true;
         $('wf-card-wrap').classList.add('hidden');
@@ -663,6 +687,10 @@
         });
 
         $('wf-mode-grid').addEventListener('click', event => {
+            if (event.target.closest('[data-action="blast"]')) {
+                startDirectBlast();
+                return;
+            }
             const button = event.target.closest('[data-mode]');
             if (!button) return;
             state.mode = button.dataset.mode;
