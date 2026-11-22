@@ -5,25 +5,6 @@
  */
 
 (function () {
-    function readFlashcardDaily() {
-        const today = new Date();
-        const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
-        try {
-            const raw = localStorage.getItem('starEnglish.flashcards.daily.v1');
-            const record = raw ? JSON.parse(raw) : null;
-            if (!record || record.date !== date) {
-                return { studied: 0, target: 5, streak: 0 };
-            }
-            return {
-                studied: Array.isArray(record.studiedKeys) ? record.studiedKeys.length : 0,
-                target: record.target || 5,
-                streak: record.streak || 0
-            };
-        } catch (error) {
-            return { studied: 0, target: 5, streak: 0 };
-        }
-    }
-
     Object.assign(VocabularyAppMixin, {
         /**
          * 显示记单词界面
@@ -82,11 +63,6 @@
          * 切换模块
          */
         async switchVocabularyModule(moduleName) {
-            if (moduleName === 'word-flashcards') {
-                window.location.href = 'wordflashcards.html';
-                return;
-            }
-
             this.currentVocabularyModule = moduleName;
 
             // 更新导航高亮
@@ -374,15 +350,6 @@
                         };
                     });
                 }
-            }
-
-            const dashFill = document.getElementById('wf-dashboard-fill');
-            const dashText = document.getElementById('wf-dashboard-text');
-            if (dashFill && dashText) {
-                const daily = readFlashcardDaily();
-                const percent = daily.target ? Math.min((daily.studied / daily.target) * 100, 100) : 0;
-                dashFill.style.width = `${percent}%`;
-                dashText.textContent = `${daily.studied}/${daily.target} · 连续 ${daily.streak} 天`;
             }
         },
 

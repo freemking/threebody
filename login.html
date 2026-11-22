@@ -175,8 +175,15 @@
     </div>
     
     <script>
-        // API基础URL
-        const API_BASE = '/api';
+        // API基础URL：本地静态服务器下指向后端 3000
+        const host = window.location.hostname;
+        const port = window.location.port;
+        const isFileProtocol = window.location.protocol === 'file:';
+        const isLocalStatic = (host === 'localhost' || host === '127.0.0.1')
+            && port !== '' && port !== '3000';
+        const API_BASE = (isFileProtocol || isLocalStatic)
+            ? 'http://localhost:3000/api'
+            : '/api';
         
         // 登录表单提交
         document.getElementById('loginForm').addEventListener('submit', async (e) => {

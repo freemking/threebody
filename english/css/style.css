@@ -502,14 +502,14 @@ body::after {
     opacity: 0.8;
 }
 
-.menu-btn:nth-child(2) { /* 大富翁 */
-    background: linear-gradient(135deg, var(--monopoly-primary), var(--monopoly-secondary));
-    border-left-color: var(--monopoly-accent);
+.menu-btn:nth-child(2) { /* 单词闪卡 */
+    background: linear-gradient(135deg, #EC4899, #BE185D);
+    border-left-color: #F472B6;
     font-size: 1.4rem;
     padding: var(--space-xl) var(--space-2xl);
     width: 100%;
     max-width: 420px;
-    box-shadow: 0 10px 25px -5px rgba(5, 150, 105, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -533,8 +533,8 @@ body::after {
 }
 
 .menu-btn:nth-child(2):hover {
-    box-shadow: 0 15px 35px -5px rgba(5, 150, 105, 0.5);
-    background: linear-gradient(135deg, var(--monopoly-secondary), var(--monopoly-primary));
+    box-shadow: 0 15px 35px -5px rgba(236, 72, 153, 0.5);
+    background: linear-gradient(135deg, #BE185D, #EC4899);
 }
 
 .menu-btn:nth-child(2):hover::after {

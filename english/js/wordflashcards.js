@@ -16,7 +16,7 @@
         grade: 1,
         unit: 'all',
         mode: 'daily',
-        autoFill: true,
+        autoFill: false,
         words: [],
         index: 0,
         flipped: false,
@@ -25,7 +25,8 @@
         autoSpeak: true,
         mastered: loadMastered(),
         daily: loadDaily(),
-        speakToken: 0
+        speakToken: 0,
+        hintTimer: null
     };
 
     const $ = id => document.getElementById(id);
@@ -220,9 +221,10 @@
         const selected = [];
         const pools = [wordData.getWordsByGrade(state.grade, state.unit)];
 
-        if (state.autoFill) {
-            if (state.grade !== 'all') pools.push(wordData.getWordsByGrade(state.grade, 'all'));
-            pools.push(wordData.getWordsByGrade('all', 'all'));
+        // 自动补充只在“具体年级 + 具体单元”时扩展到本年级其他单元，绝不跨年级；
+        // 未开启时严格使用用户选择的年级/单元范围。
+        if (state.autoFill && state.grade !== 'all' && state.unit !== 'all') {
+            pools.push(wordData.getWordsByGrade(state.grade, 'all'));
         }
 
         pools.forEach(pool => addUniqueWords(pool.filter(word => isStudiedToday(word)), selected, seen));
@@ -270,7 +272,11 @@
 
     function renderCount() {
         const count = wordData.getWordsByGrade(state.grade, state.unit).length;
-        $('wf-word-count').textContent = `当前范围：${gradeLabel(state.grade)} · ${unitLabel(state.unit)} · 共 ${count} 个单词`;
+        let text = `当前范围：${gradeLabel(state.grade)} · ${unitLabel(state.unit)} · 共 ${count} 个单词`;
+        if (state.mode === 'daily' && count < state.daily.target) {
+            text += `（少于今日目标 ${state.daily.target} 词，可开启自动补充）`;
+        }
+        $('wf-word-count').textContent = text;
         $('wf-setup-empty').classList.toggle('hidden', count > 0);
     }
 
@@ -360,6 +366,67 @@
         button.textContent = mastered ? '✅ 已掌握（点击取消）' : '⭐ 标记为已掌握';
     }
 
+    function showFlashcardHint(message) {
+        const hint = $('wf-hint-message');
+        if (!hint) return;
+        hint.textContent = message;
+        hint.classList.remove('hidden');
+        if (state.hintTimer) window.clearTimeout(state.hintTimer);
+        state.hintTimer = window.setTimeout(() => hint.classList.add('hidden'), 2400);
+    }
+
+    function isInWrongBook(word) {
+        if (!word || typeof wrongBook === 'undefined') return false;
+        const list = wrongBook.getAll();
+        return Array.isArray(list) && list.some(item => item.word === word.word);
+    }
+
+    function updateWrongBookButton() {
+        const button = $('wf-add-wrong');
+        const word = currentWord();
+        if (!button || !word) return;
+        const added = isInWrongBook(word);
+        button.classList.toggle('active', added);
+        button.textContent = added ? '✓ 已在错题库' : '📌 加入错题库';
+        button.disabled = added;
+    }
+
+    async function addCurrentToWrongBook() {
+        const word = currentWord();
+        if (!word) return;
+        if (typeof wrongBook === 'undefined') {
+            showFlashcardHint('错题库暂不可用，请刷新页面重试');
+            return;
+        }
+        if (isInWrongBook(word)) {
+            showFlashcardHint(`「${word.word}」已在错题库中`);
+            return;
+        }
+
+        const button = $('wf-add-wrong');
+        if (button) {
+            button.disabled = true;
+            button.textContent = '加入中…';
+        }
+        try {
+            await wrongBook.addWrongWord({
+                word: word.word,
+                meaning: word.meaning || '',
+                phonetic: word.phonetic || '',
+                example: word.example || '',
+                rootAffix: word.rootAffix || '',
+                grade: state.grade === 'all' ? '' : String(state.grade),
+                from: 'flashcards',
+                errorType: 'all'
+            });
+            showFlashcardHint(`「${word.word}」已加入错题库`);
+        } catch (error) {
+            console.error('加入错题库失败:', error);
+            showFlashcardHint('加入失败，请重试');
+        }
+        updateWrongBookButton();
+    }
+
     function updateMasteredCount() {
         const mastered = state.words.filter(isMastered).length;
         $('wf-mastered-count').textContent = `已掌握 ${mastered} / ${state.words.length}`;
@@ -403,6 +470,7 @@
 
         updateProgress();
         updateMasteredButton();
+        updateWrongBookButton();
         updateNavButtons();
 
         if (state.autoSpeak) {
@@ -545,10 +613,12 @@
             state.daily.completed = state.daily.studiedKeys.length >= state.daily.target;
             saveDaily();
             renderMode();
+            renderCount();
         });
 
         $('wf-auto-fill').addEventListener('change', event => {
             state.autoFill = event.target.checked;
+            renderCount();
         });
 
         $('wf-shuffle').addEventListener('change', event => {
@@ -580,6 +650,7 @@
         $('wf-prev').addEventListener('click', goPrev);
         $('wf-next').addEventListener('click', goNext);
         $('wf-mastered').addEventListener('click', toggleMastered);
+        $('wf-add-wrong').addEventListener('click', addCurrentToWrongBook);
         $('wf-reset-mastered').addEventListener('click', clearMastered);
 
         $('wf-speak-front').addEventListener('click', event => {
@@ -632,6 +703,14 @@
         renderGrades();
         renderUnits();
         renderCount();
+
+        if (typeof wrongBook !== 'undefined') {
+            try {
+                await wrongBook.init();
+            } catch (error) {
+                console.warn('闪卡加载错题库失败:', error);
+            }
+        }
     }
 
     init();

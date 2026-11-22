@@ -8,7 +8,7 @@
     const STORAGE_KEY = 'vocabulary_settings';
 
     const DEFAULT_SETTINGS = {
-        theme: 'dark',
+        theme: 'green',
         fontSize: 16,
         progressStyle: 'default',
         dailyWordCount: 5,
@@ -20,11 +20,18 @@
         dailyReminder: true
     };
 
-    // 主题会修改的所有变量，切换前统一清理
+    // 主题会修改的所有变量，切换前统一清理，避免残留上一主题的颜色
     const THEME_VARS = [
-        '--vb-bg-primary', '--vb-bg-card', '--vb-text-primary',
-        '--vb-text-secondary', '--vb-text-muted', '--vb-border',
-        '--vb-primary', '--vb-primary-light', '--vb-primary-dark'
+        '--vb-bg-primary', '--vb-bg-card', '--vb-bg-card-hover', '--vb-bg-card-mastered',
+        '--vb-surface-rgb', '--vb-line-rgb',
+        '--vb-text-primary', '--vb-text-secondary', '--vb-text-muted', '--vb-text-accent',
+        '--vb-on-primary', '--vb-border', '--vb-border-mastered',
+        '--vb-shadow', '--vb-shadow-hover',
+        '--vb-primary', '--vb-primary-rgb', '--vb-primary-light', '--vb-primary-dark',
+        '--vb-accent', '--vb-accent-rgb', '--vb-accent-dark', '--vb-accent-light',
+        '--vb-success', '--vb-success-rgb', '--vb-success-dark', '--vb-success-light',
+        '--vb-danger', '--vb-danger-rgb', '--vb-danger-dark', '--vb-danger-light',
+        '--vb-warning', '--vb-warning-rgb', '--vb-purple', '--vb-purple-rgb'
     ];
 
     Object.assign(VocabularyAppMixin, {
@@ -42,6 +49,8 @@
             } catch (error) {
                 console.warn('读取记单词设置失败:', error);
             }
+            // 已移除的「明亮」主题旧值迁移为护眼绿，避免按钮无选中态
+            if (settings.theme === 'light') settings.theme = 'green';
             return settings;
         },
 
@@ -67,7 +76,7 @@
             const screen = document.getElementById('vocabulary-screen');
 
             // 主题变量必须挂在记单词容器上，不能污染整个应用
-            this.applyTheme(s.theme || 'dark');
+            this.applyTheme(s.theme || 'green');
             if (!screen) return;
 
             // 字号
@@ -80,7 +89,7 @@
 
             // 主题按钮高亮
             document.querySelectorAll('.theme-option').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.theme === (s.theme || 'dark'));
+                btn.classList.toggle('active', btn.dataset.theme === (s.theme || 'green'));
             });
 
             // 进度条样式
@@ -253,23 +262,46 @@
             const screen = document.getElementById('vocabulary-screen');
             if (!screen) return;
 
+            // 兼容已移除的「明亮」主题旧值
+            if (theme === 'light') theme = 'green';
+
             const style = screen.style;
             THEME_VARS.forEach(name => style.removeProperty(name));
 
-            if (theme === 'light') {
-                style.setProperty('--vb-bg-primary', 'linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 50%, #f5f5f5 100%)');
-                style.setProperty('--vb-bg-card', 'rgba(0, 0, 0, 0.05)');
-                style.setProperty('--vb-text-primary', '#1a1a1a');
-                style.setProperty('--vb-text-secondary', 'rgba(0, 0, 0, 0.85)');
-                style.setProperty('--vb-text-muted', 'rgba(0, 0, 0, 0.5)');
-                style.setProperty('--vb-border', 'rgba(0, 0, 0, 0.15)');
-            } else if (theme === 'green') {
-                style.setProperty('--vb-bg-primary', 'linear-gradient(135deg, #0a1a0a 0%, #1a2a1a 50%, #0a1a0a 100%)');
-                style.setProperty('--vb-primary', '#4ade80');
-                style.setProperty('--vb-primary-light', 'rgba(74, 222, 128, 0.7)');
-                style.setProperty('--vb-primary-dark', '#22c55e');
-            }
-            // dark：清空变量即恢复 :root 默认深色主题
+            // green 为默认主题，清空变量即恢复 :root 的护眼绿配色
+            if (theme === 'green') return;
+
+            // dark：柔和夜间主题，保留足够对比度
+            style.setProperty('--vb-bg-primary', 'linear-gradient(135deg, #12203A 0%, #1D2C46 50%, #12203A 100%)');
+            style.setProperty('--vb-bg-card', 'rgba(255, 255, 255, 0.07)');
+            style.setProperty('--vb-bg-card-hover', 'rgba(255, 255, 255, 0.12)');
+            style.setProperty('--vb-bg-card-mastered', 'rgba(74, 222, 128, 0.12)');
+            style.setProperty('--vb-surface-rgb', '18, 32, 58');
+            style.setProperty('--vb-line-rgb', '255, 255, 255');
+            style.setProperty('--vb-text-primary', '#EAF2FF');
+            style.setProperty('--vb-text-secondary', 'rgba(234, 242, 255, 0.88)');
+            style.setProperty('--vb-text-muted', 'rgba(198, 214, 238, 0.68)');
+            style.setProperty('--vb-text-accent', '#93C5FD');
+            style.setProperty('--vb-border', 'rgba(147, 197, 253, 0.2)');
+            style.setProperty('--vb-border-mastered', 'rgba(74, 222, 128, 0.45)');
+            style.setProperty('--vb-shadow', '0 6px 20px rgba(0, 0, 0, 0.28)');
+            style.setProperty('--vb-shadow-hover', '0 12px 30px rgba(0, 0, 0, 0.38)');
+            style.setProperty('--vb-primary', '#4F8DF7');
+            style.setProperty('--vb-primary-rgb', '79, 141, 247');
+            style.setProperty('--vb-primary-light', '#BFDBFE');
+            style.setProperty('--vb-primary-dark', '#2563EB');
+            style.setProperty('--vb-accent', '#FBBF24');
+            style.setProperty('--vb-accent-rgb', '251, 191, 36');
+            style.setProperty('--vb-accent-dark', '#F59E0B');
+            style.setProperty('--vb-accent-light', '#FDE68A');
+            style.setProperty('--vb-success', '#4ADE80');
+            style.setProperty('--vb-success-rgb', '74, 222, 128');
+            style.setProperty('--vb-success-dark', '#22C55E');
+            style.setProperty('--vb-success-light', '#86EFAC');
+            style.setProperty('--vb-danger', '#F87171');
+            style.setProperty('--vb-danger-rgb', '248, 113, 113');
+            style.setProperty('--vb-danger-dark', '#EF4444');
+            style.setProperty('--vb-danger-light', '#FCA5A5');
         },
 
         /**

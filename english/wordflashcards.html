@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wordflashcards.css?v=20261122b">
+    <link rel="stylesheet" href="css/wordflashcards.css?v=20261122d">
 
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
 </head>
@@ -20,7 +20,7 @@
             <header class="wf-topbar">
                 <a href="index.html" class="back-btn">← 返回</a>
                 <div class="wf-heading">
-                    <h1>🗂️ 每日闪卡</h1>
+                    <h1>🗂️ 单词闪卡</h1>
                     <p>每天用翻卡完成今日单词，掌握释义、常用用法和词形变化</p>
                 </div>
                 <button id="wf-reset-mastered" class="wf-text-btn" type="button">清除掌握记录</button>
@@ -54,8 +54,8 @@
                         <div id="wf-daily-fill" class="wf-progress-fill"></div>
                     </div>
                     <label class="wf-option wf-daily-fill-option">
-                        <input type="checkbox" id="wf-auto-fill" checked>
-                        <span>➕ 单词不足时自动补充其他单元</span>
+                        <input type="checkbox" id="wf-auto-fill">
+                        <span>➕ 单词不足时补充本年级其他单元（不跨年级）</span>
                     </label>
                 </div>
 
@@ -143,7 +143,10 @@
                     <button id="wf-flip" class="wf-flip-btn" type="button">翻转卡片</button>
                     <button id="wf-next" class="wf-primary-btn" type="button">下一个 →</button>
                     <button id="wf-mastered" class="wf-master-btn" type="button">⭐ 标记为已掌握</button>
+                    <button id="wf-add-wrong" class="wf-wrong-btn" type="button">📌 加入错题库</button>
                 </div>
+
+                <div id="wf-hint-message" class="wf-hint-message hidden"></div>
 
                 <p class="wf-keyboard-tip">快捷键：← / → 切换单词，空格键翻转卡片</p>
 
@@ -164,6 +167,7 @@
     <script src="../auth.js"></script>
     <script src="js/data.js"></script>
     <script src="js/audio.js"></script>
-    <script src="js/wordflashcards.js?v=20261122b"></script>
+    <script src="js/wrongbook.js"></script>
+    <script src="js/wordflashcards.js?v=20261122d"></script>
 </body>
 </html>

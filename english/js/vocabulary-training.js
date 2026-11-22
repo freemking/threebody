@@ -252,6 +252,77 @@
         },
 
         /**
+         * 作答后展示完整单词卡：音标、中英文释义、用法、例句、词形变化、词根词缀。
+         * 从 wordData 补全详情，接口返回的字段优先，确保每个单词通关后都能加深记忆。
+         */
+        showWordDetailCard(word) {
+            if (!word || !word.word) return;
+            const container = document.getElementById('training-content');
+            if (!container) return;
+
+            const full = (typeof getWordDetails === 'function' ? getWordDetails(word.word) : null) || {};
+            const detail = Object.assign({}, full);
+            Object.keys(word).forEach(key => {
+                const value = word[key];
+                if (value !== '' && value !== null && value !== undefined) detail[key] = value;
+            });
+            const esc = value => this.escapeHtml(value);
+            const listBlock = (title, items) => {
+                const values = (Array.isArray(items) ? items : []).filter(Boolean);
+                if (!values.length) return '';
+                return `
+                    <div class="wdc-section">
+                        <h4>${esc(title)}</h4>
+                        <ul>${values.map(item => `<li>${esc(item)}</li>`).join('')}</ul>
+                    </div>
+                `;
+            };
+            const textBlock = (title, text) => {
+                if (!text) return '';
+                return `
+                    <div class="wdc-section">
+                        <h4>${esc(title)}</h4>
+                        <p>${esc(text)}</p>
+                    </div>
+                `;
+            };
+
+            const oldCard = document.getElementById('word-detail-card');
+            if (oldCard) oldCard.remove();
+
+            const card = document.createElement('div');
+            card.id = 'word-detail-card';
+            card.className = 'word-detail-card';
+            card.innerHTML = `
+                <div class="wdc-head">
+                    <div class="wdc-title">
+                        <div class="wdc-word">${esc(detail.word)}</div>
+                        <div class="wdc-phonetic">${esc(detail.phonetic || '')}</div>
+                    </div>
+                    <button class="wdc-speak" type="button" title="朗读单词">🔊 发音</button>
+                </div>
+                <div class="wdc-grid">
+                    ${textBlock('中文释义', detail.meaning)}
+                    ${textBlock('英文释义', detail.explain)}
+                    ${textBlock('例句', detail.example)}
+                    ${listBlock('常用用法', detail.usage)}
+                    ${listBlock('词形变化', detail.wordForms)}
+                    ${textBlock('词根词缀', detail.rootAffix)}
+                </div>
+            `;
+            container.appendChild(card);
+
+            const speakBtn = card.querySelector('.wdc-speak');
+            if (speakBtn) {
+                speakBtn.onclick = () => {
+                    if (typeof audioManager !== 'undefined' && audioManager.speak) {
+                        audioManager.speak(detail.word, 'en-US').catch(() => {});
+                    }
+                };
+            }
+        },
+
+        /**
          * 构建认读模式选项：1 个正确释义 + 最多 3 个干扰释义
          * 干扰项优先取错题本（难度贴近当前学习内容），不足时用 data.js 完整词库补齐；
          * 按释义去重，避免出现两个相同选项
@@ -365,16 +436,8 @@
                 });
             }
 
-            // 显示单词详情
-            const detail = document.getElementById('recognition-detail');
-            if (detail) {
-                detail.style.display = 'block';
-                detail.innerHTML = `
-                    <div class="detail-meaning">${this.escapeHtml(word.meaning)}</div>
-                    <div class="detail-phonetic">${this.escapeHtml(word.phonetic || '')}</div>
-                    ${word.example ? `<div class="detail-example">"${this.escapeHtml(word.example)}"</div>` : ''}
-                `;
-            }
+            // 展示完整单词卡（音标、释义、用法等），加深记忆
+            this.showWordDetailCard(word);
 
             // 禁用所有选项
             document.querySelectorAll('.recognition-option').forEach(b => b.classList.add('disabled'));
@@ -492,6 +555,9 @@
             }
 
             input.disabled = true;
+
+            // 展示完整单词卡（音标、释义、用法等），加深记忆
+            this.showWordDetailCard(word);
 
             // 启用下一个按钮
             const nextBtn = document.getElementById('btn-training-next');
@@ -621,6 +687,9 @@
             }
 
             input.disabled = true;
+
+            // 展示完整单词卡（音标、释义、用法等），加深记忆
+            this.showWordDetailCard(word);
 
             const nextBtn = document.getElementById('btn-training-next');
             if (nextBtn) nextBtn.disabled = false;

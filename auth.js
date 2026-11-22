@@ -7,7 +7,15 @@ class AuthManager {
     constructor() {
         this.token = localStorage.getItem('token');
         this.user = JSON.parse(localStorage.getItem('user') || 'null');
-        this.apiBase = '/api';
+        // 本地静态服务器（如 4173）下指向后端 3000，与 vocabulary.js / wrongbook.js 保持一致
+        const host = window.location.hostname;
+        const port = window.location.port;
+        const isFileProtocol = window.location.protocol === 'file:';
+        const isLocalStatic = (host === 'localhost' || host === '127.0.0.1')
+            && port !== '' && port !== '3000';
+        this.apiBase = (isFileProtocol || isLocalStatic)
+            ? 'http://localhost:3000/api'
+            : '/api';
     }
     
     /**

@@ -751,6 +751,21 @@ function getWordExplain(wordName) {
     return '';
 }
 
+/**
+ * 从 wordData (JSON数据) 中查找单词的完整详情
+ * @param {string} wordName 单词
+ * @returns {Object|null} 完整单词对象（含音标、释义、用法、例句等），未找到返回 null
+ */
+function getWordDetails(wordName) {
+    if (typeof wordData === 'undefined' || !wordData || !wordData.words || !wordName) return null;
+    const lower = String(wordName).toLowerCase();
+    for (const gradeKey in wordData.words) {
+        const found = wordData.words[gradeKey].find(w => w.word && w.word.toLowerCase() === lower);
+        if (found) return found;
+    }
+    return null;
+}
+
 // ==================== 背单词UI模块 ====================
 // VocabularyAppMixin 为全局聚合对象，各拆分文件通过 Object.assign 向其追加方法
 const VocabularyAppMixin = {};
