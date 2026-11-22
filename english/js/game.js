@@ -158,7 +158,7 @@ class GameEngine {
             <h2 class="grade-sel-title">${t('selectGrade')}</h2>
             <div class="grade-sel-grid">
                 ${[{l:`${t('grade')} 1`,g:1},{l:`${t('grade')} 2`,g:2},{l:`${t('grade')} 3`,g:3},{l:`${t('grade')} 4`,g:4},{l:`${t('grade')} 5`,g:5},{l:`${t('grade')} 6`,g:6},{l:`${t('grade')} 7`,g:7},{l:`${t('grade')} 8`,g:8},{l:`${t('grade')} 9`,g:9},{l:t('allGrades'),g:'all'}].map(gr =>
-                    `<div class="grade-sel-btn" data-grade="${gr.g}">${gr.l}</div>`
+                    `<div class="grade-sel-btn${String(this.gameState.currentGrade) === String(gr.g) ? ' active' : ''}" data-grade="${gr.g}">${gr.l}</div>`
                 ).join('')}
             </div>
             <div class="grade-sel-back">${t('btnBackMenu')}</div>
@@ -183,11 +183,11 @@ class GameEngine {
         
         const gradeName = grade === 'all' ? t('allGrades') : `${t('grade')} ${grade}`;
         
-        let unitButtons = `<div class="grade-sel-btn unit-sel-btn active" data-unit="all">${t('allUnits')}</div>`;
+        let unitButtons = `<div class="grade-sel-btn unit-sel-btn${String(this.gameState.currentUnit) === 'all' ? ' active' : ''}" data-unit="all">${t('allUnits')}</div>`;
         if (grade !== 'all') {
             const units = wordData.getUnitsByGrade(parseInt(grade));
             units.forEach(u => {
-                unitButtons += `<div class="grade-sel-btn unit-sel-btn" data-unit="${u}">${t('selectUnit')} ${u}</div>`;
+                unitButtons += `<div class="grade-sel-btn unit-sel-btn${String(this.gameState.currentUnit) === String(u) ? ' active' : ''}" data-unit="${u}">${t('selectUnit')} ${u}</div>`;
             });
         }
         

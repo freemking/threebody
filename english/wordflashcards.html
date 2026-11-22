@@ -11,6 +11,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/wordflashcards.css?v=20261122d">
+    <link rel="stylesheet" href="css/wordblast.css?v=20261122f">
 
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
 </head>
@@ -162,12 +163,30 @@
                 </div>
             </section>
         </div>
+
+        <div id="game-canvas-container" class="wf-blast-container hidden"></div>
     </div>
 
+    <script>
+        window.t = window.t || function (key) {
+            const texts = {
+                wbTime: '时间', wbCorrect: '答对', wbWrong: '答错', wbRemaining: '剩余',
+                wbPause: '⏸ 暂停', wbRestart: '🔄 重来', wbBack: '🏠 返回',
+                wbWin: '恭喜过关！', wbTimeUp: '时间到！', wbStarRating: '星评价',
+                wbTotalScore: '答对数量', wbMaxCombo: '答错数量',
+                wbPlayAgain: '🔄 再来一局', wbPaused: '⏸ 已暂停', wbResumed: '▶ 继续',
+                wbInputPlaceholder: '输入对应的英文单词...', wbSubmit: '提交',
+                wbTryAgain: '再试试！', wbSkip: '跳过', wbSkipHint: '跳过此单词并计入单词库',
+                wbPlayWord: '读单词', wbPlaySentence: '读句子'
+            };
+            return texts[key] || key;
+        };
+    </script>
     <script src="../auth.js"></script>
-    <script src="js/data.js"></script>
+    <script src="js/data.js?v=20261122e"></script>
     <script src="js/audio.js"></script>
     <script src="js/wrongbook.js"></script>
-    <script src="js/wordflashcards.js?v=20261122d"></script>
+    <script src="js/wordblast.js?v=20261122f"></script>
+    <script src="js/wordflashcards.js?v=20261122f"></script>
 </body>
 </html>

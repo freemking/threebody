@@ -426,6 +426,32 @@ class WordData {
         const units = [...new Set(words.map(w => w.unit))].sort((a, b) => a - b);
         return units;
     }
+
+    /**
+     * 按 2021 年 9 月入学推算当前默认年级和单元
+     * 每年 9 月升一级；单元按开学后的月份大致推进，并收敛到该年级实际存在的单元。
+     * @param {Date} date 参考日期，默认当前时间
+     * @returns {{grade: number, unit: number|string}}
+     */
+    getSchoolProgress(date = new Date()) {
+        const enrollmentYear = 2021;
+        const enrollmentMonth = 9;
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const schoolYearStart = month >= enrollmentMonth ? year : year - 1;
+        const grade = Math.min(9, Math.max(1, schoolYearStart - enrollmentYear + 1));
+        const monthsIntoYear = month >= enrollmentMonth
+            ? month - enrollmentMonth
+            : month + (12 - enrollmentMonth);
+        const targetUnit = monthsIntoYear + 1;
+        const units = this.getUnitsByGrade(grade).filter(unit => typeof unit === 'number');
+        if (!units.length) return { grade, unit: 'all' };
+        const reached = units.filter(unit => unit <= targetUnit);
+        return {
+            grade,
+            unit: reached.length ? Math.max(...reached) : Math.min(...units)
+        };
+    }
     
     /**
      * 获取指定分类的单词

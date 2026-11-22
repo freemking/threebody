@@ -26,12 +26,15 @@ class WordBlastGame {
       level: 1,
       timeLeft: 0, timeLimit: 60,
       playing: false, paused: false,
+      embedded: false,
       currentIdx: 0,  // 当前题目索引
       correctCount: 0,
       wrongCount: 0,
       totalQuestions: 0
     };
     this.wordPool = [];
+    this.lastWords = [];
+    this.onExit = null;
     this.questions = []; // {id, word, meaning, sentence, blankedSentence}
     this.tmr = null;
     this.BLAST_MS = 500;
@@ -131,6 +134,11 @@ class WordBlastGame {
 
   // ─── 设置界面 ───
   showSetup() {
+    if (this.s.grade === null) {
+      const progress = wordData.getSchoolProgress();
+      this.s.grade = progress.grade;
+      this.s.unit = progress.unit;
+    }
     const c = document.getElementById('game-canvas-container');
     if (!c) return;
     c.innerHTML = '';
@@ -187,9 +195,9 @@ class WordBlastGame {
         <div class="grade-path">
           <div class="grade-grid" id="wb-grade-grid">
             ${[1,2,3,4,5,6,7,8,9].map(g =>
-              `<button class="grade-btn" data-grade="${g}">${tx('wbGradeX').replace('{grade}', g)}</button>`
+              `<button class="grade-btn${this.s.grade === g ? ' active' : ''}" data-grade="${g}">${tx('wbGradeX').replace('{grade}', g)}</button>`
             ).join('')}
-            <button class="grade-btn" data-grade="all">${tx('wbAllGrades')}</button>
+            <button class="grade-btn${this.s.grade === 'all' ? ' active' : ''}" data-grade="all">${tx('wbAllGrades')}</button>
           </div>
         </div>
       </div>
@@ -243,11 +251,11 @@ class WordBlastGame {
     if (!grid) return;
     const grade = this.s.grade;
     const tx = (k) => (window.app && window.app.t) ? window.app.t(k) : t(k);
-    let html = `<button class="unit-btn active" data-unit="all">${tx('wbAllUnits')}</button>`;
+    let html = `<button class="unit-btn${String(this.s.unit) === 'all' ? ' active' : ''}" data-unit="all">${tx('wbAllUnits')}</button>`;
     if (grade && grade !== 'all') {
       const units = wordData.getUnitsByGrade(parseInt(grade));
       units.forEach(u => {
-        html += `<button class="unit-btn" data-unit="${u}">${tx('wbUnitX').replace('{unit}', u)}</button>`;
+        html += `<button class="unit-btn${String(this.s.unit) === String(u) ? ' active' : ''}" data-unit="${u}">${tx('wbUnitX').replace('{unit}', u)}</button>`;
       });
     }
     grid.innerHTML = html;
@@ -264,6 +272,7 @@ class WordBlastGame {
   // ─── 游戏循环 ───
   startGame() {
     this.resetS();
+    this.s.embedded = false;
     this.loadWordPool();
     this.initQuestions();
 
@@ -273,6 +282,38 @@ class WordBlastGame {
 
     this.render();
     this.begin();
+  }
+
+  /**
+   * 嵌入模式：使用外部传入的单词直接开始填空（例如闪卡阅读完成后）
+   */
+  startWithWords(words, options = {}) {
+    if (!Array.isArray(words) || !words.length) return false;
+    this.resetS();
+    this.s.embedded = true;
+    if (options.grade !== undefined) this.s.grade = options.grade;
+    if (options.unit !== undefined) this.s.unit = options.unit;
+    this.lastWords = [...words];
+    this.wordPool = [...words];
+    this.initQuestions();
+
+    const wordCount = this.wordPool.length;
+    this.s.timeLimit = this.calcTimeForLevel(1, wordCount);
+    this.s.timeLeft = this.s.timeLimit;
+
+    this.render();
+    this.begin();
+    return true;
+  }
+
+  exit() {
+    if (this.tmr) { clearInterval(this.tmr); this.tmr = null; }
+    this.s.playing = false;
+    if (this.s.embedded && typeof this.onExit === 'function') {
+      this.onExit();
+    } else {
+      this.showSetup();
+    }
   }
 
   resetS() {
@@ -353,7 +394,7 @@ class WordBlastGame {
     [
       { t: tx('wbPause'), cls: 'wb-ctrl-pause', fn: () => this.togglePause() },
       { t: tx('wbRestart'), cls: 'wb-ctrl-restart', fn: () => this.restart() },
-      { t: tx('wbBack'), cls: 'wb-ctrl-back', fn: () => this.showSetup() }
+      { t: tx('wbBack'), cls: 'wb-ctrl-back', fn: () => this.exit() }
     ].forEach(b => {
       const btn = document.createElement('button');
       btn.className = `wb-ctrl-btn ${b.cls}`;
@@ -372,7 +413,10 @@ class WordBlastGame {
 
     // 检查是否已完成所有题目
     if (this.s.currentIdx >= this.questions.length) {
-      setTimeout(() => this.nextLevel(), 300);
+      setTimeout(() => {
+        if (this.s.embedded) this.endGame(true);
+        else this.nextLevel();
+      }, 300);
       return;
     }
 
@@ -707,7 +751,7 @@ class WordBlastGame {
     const retryBtn = overlay.querySelector('.wb-result-retry');
     const backBtn = overlay.querySelector('.wb-result-back');
     retryBtn.onclick = () => { overlay.remove(); this.restart(); };
-    backBtn.onclick = () => { overlay.remove(); this.showSetup(); };
+    backBtn.onclick = () => { overlay.remove(); this.exit(); };
 
     if (window.app && window.app.saveEnglishLeaderboard) {
       // 保存中：按钮显示loading，不可点击
@@ -766,7 +810,13 @@ class WordBlastGame {
     }
   }
 
-  restart() { this.startGame(); }
+  restart() {
+    if (this.s.embedded && this.lastWords.length) {
+      this.startWithWords(this.lastWords, { grade: this.s.grade, unit: this.s.unit });
+    } else {
+      this.startGame();
+    }
+  }
 
   _float(txt, color = '#FFD700') {
     const el = document.createElement('div');

@@ -45,6 +45,11 @@ class WordMatchGame {
 
   // ─── 设置界面（参考大富翁风格） ───
   showSetup() {
+    if (this.s.grade === null) {
+      const progress = wordData.getSchoolProgress();
+      this.s.grade = progress.grade;
+      this.s.unit = progress.unit;
+    }
     const c = document.getElementById('game-canvas-container');
     if (!c) return;
     c.innerHTML = '';
@@ -101,9 +106,9 @@ class WordMatchGame {
         <div class="grade-path">
           <div class="grade-grid" id="wm-grade-grid">
             ${[1,2,3,4,5,6,7,8,9].map(g =>
-              `<button class="grade-btn" data-grade="${g}">${t('grade')} ${g}</button>`
+              `<button class="grade-btn${this.s.grade === g ? ' active' : ''}" data-grade="${g}">${t('grade')} ${g}</button>`
             ).join('')}
-            <button class="grade-btn" data-grade="all">${t('allGrades')}</button>
+            <button class="grade-btn${this.s.grade === 'all' ? ' active' : ''}" data-grade="all">${t('allGrades')}</button>
           </div>
         </div>
       </div>
@@ -160,11 +165,11 @@ class WordMatchGame {
     const grid = document.getElementById('wm-unit-grid');
     if (!grid) return;
     const grade = this.s.grade;
-    let html = `<button class="unit-btn active" data-unit="all">${t('allUnits')}</button>`;
+    let html = `<button class="unit-btn${String(this.s.unit) === 'all' ? ' active' : ''}" data-unit="all">${t('allUnits')}</button>`;
     if (grade && grade !== 'all') {
       const units = wordData.getUnitsByGrade(parseInt(grade));
       units.forEach(u => {
-        html += `<button class="unit-btn" data-unit="${u}">${t('selectUnit')} ${u}</button>`;
+        html += `<button class="unit-btn${String(this.s.unit) === String(u) ? ' active' : ''}" data-unit="${u}">${t('selectUnit')} ${u}</button>`;
       });
     }
     grid.innerHTML = html;

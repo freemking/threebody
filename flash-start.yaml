@@ -1,0 +1,59 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "← 返回" [ref=e5] [cursor=pointer]:
+      - /url: index.html
+    - generic [ref=e6]:
+      - heading "🗂️ 单词闪卡" [level=1] [ref=e7]
+      - paragraph [ref=e8]: 每天用翻卡完成今日单词，掌握释义、常用用法和词形变化
+    - button "清除掌握记录" [ref=e9] [cursor=pointer]
+  - generic [ref=e77]:
+    - generic [ref=e78]:
+      - button "← 重新选择" [ref=e79] [cursor=pointer]
+      - generic [ref=e81]:
+        - generic [ref=e82]: 6 年级 · Unit 3
+        - generic [ref=e83]: 1 / 5
+      - generic [ref=e86]: 今日 0 / 5 · 连续 0 天
+      - generic [ref=e87]: 已掌握 0 / 5
+    - button "点击翻转卡片" [ref=e89] [cursor=pointer]:
+      - generic [ref=e90]:
+        - generic [ref=e91]:
+          - generic [ref=e92]: 6 年级 · Unit 3 · pron
+          - generic [ref=e93]: something
+          - generic [ref=e94]:
+            - generic [ref=e95]: /ˈsʌmθɪŋ/
+            - button "🔊 发音" [ref=e96]
+          - generic [ref=e97]: 点击卡片查看释义与用法
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - generic [ref=e100]: 释义与用法
+            - button "🔊 再听一次" [ref=e101]
+          - generic [ref=e102]: pron. 某事；某物
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - heading "英文释义" [level=4] [ref=e105]
+              - paragraph [ref=e106]: Something is a pronoun in English.
+            - generic [ref=e107]:
+              - heading "例句" [level=4] [ref=e108]
+              - paragraph [ref=e109]: I have something important to tell you.
+            - generic [ref=e110]:
+              - heading "常用用法" [level=4] [ref=e111]
+              - list [ref=e112]:
+                - listitem [ref=e113]: something else（别的事）
+                - listitem [ref=e114]: I have something to say.（我有话要说。）
+            - generic [ref=e115]:
+              - heading "词形变化" [level=4] [ref=e116]
+              - list [ref=e117]:
+                - listitem [ref=e118]: anything（用于疑问/否定）
+                - listitem [ref=e119]: nothing（反义）
+                - listitem [ref=e120]: something's（所有格，少见）
+            - generic [ref=e121]:
+              - heading "词根词缀" [level=4] [ref=e122]
+              - paragraph [ref=e123]: some（某）+thing（事物）→某事，某物
+          - generic [ref=e124]: 再次点击翻回正面
+    - generic [ref=e125]:
+      - button "← 上一个" [disabled] [ref=e126]
+      - button "翻转卡片" [ref=e127] [cursor=pointer]
+      - button "下一个 →" [ref=e128] [cursor=pointer]
+      - button "⭐ 标记为已掌握" [ref=e129] [cursor=pointer]
+      - button "📌 加入错题库" [ref=e130] [cursor=pointer]
+    - paragraph [ref=e131]: 快捷键：← / → 切换单词，空格键翻转卡片

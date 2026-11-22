@@ -637,6 +637,19 @@ class App {
         // Bind event handlers
         this.bindEventHandlers();
     }
+
+    /**
+     * 按 2021 年 9 月入学时间设置默认年级和单元
+     */
+    applyDefaultGradeUnit() {
+        const progress = wordData.getSchoolProgress();
+        this.selectedGrade = progress.grade;
+        this.selectedUnit = String(progress.unit);
+        if (this.gameEngine) {
+            this.gameEngine.gameState.currentGrade = progress.grade;
+            this.gameEngine.gameState.currentUnit = progress.unit;
+        }
+    }
     
     /**
      * 初始化应用
@@ -650,13 +663,16 @@ class App {
             
             // Initialize word data
             await wordData.init();
-            
+
             // Initialize audio manager
             await audioManager.preloadSounds();
             
             // Use global game engine instance
             this.gameEngine = gameEngine;
             await this.gameEngine.init();
+
+            // 按 2021 年 9 月入学时间设置默认年级和单元
+            this.applyDefaultGradeUnit();
 
             // Initialize word match game
             await wordMatchGame.init();
@@ -765,8 +781,12 @@ class App {
         this.currentScreen = 'game-setup';
         this.setupGameSetupListeners();
 
-        // Initialize unit selection buttons (default to "All")
+        // 按入学时间高亮默认年级和单元
+        document.querySelectorAll('.grade-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.grade === String(this.selectedGrade));
+        });
         this.updateUnitButtons(this.selectedGrade || 'all');
+        this.selectUnit(this.selectedUnit);
     }
     
     /**
@@ -848,12 +868,8 @@ class App {
     setupEventListeners() {
         // 主菜单按钮
         const monopolyBtn = document.getElementById('btn-monopoly');
-        const wordmatchBtn = document.getElementById('btn-wordmatch');
-        const wordblastBtn = document.getElementById('btn-wordblast');
         
         if (monopolyBtn) monopolyBtn.addEventListener('click', () => this.showGameSetup('monopoly'));
-        if (wordmatchBtn) wordmatchBtn.addEventListener('click', () => this.showGameSetup('wordmatch'));
-        if (wordblastBtn) wordblastBtn.addEventListener('click', () => this.showGameSetup('wordblast'));
         
         // 记单词按钮
         const vocabularyBtn = document.getElementById('btn-vocabulary');
@@ -1535,6 +1551,7 @@ class App {
                     settings: this.gameEngine.gameState.settings
                 };
             }
+            this.applyDefaultGradeUnit();
             
             this.updatePlayerInfo();
             this.showNotification(this.t('notifyReset'));

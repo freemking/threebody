@@ -11,21 +11,8 @@
     const DAILY_STORAGE_KEY = 'starEnglish.flashcards.daily.v1';
     const SETTINGS_KEY = 'vocabulary_settings';
     const GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    const ENROLLMENT_YEAR = 2021;
-    const ENROLLMENT_MONTH = 9;
 
-    function getSchoolProgress(date = new Date()) {
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const schoolYearStart = month >= ENROLLMENT_MONTH ? year : year - 1;
-        const grade = Math.min(9, Math.max(1, schoolYearStart - ENROLLMENT_YEAR + 1));
-        const monthsIntoYear = month >= ENROLLMENT_MONTH
-            ? month - ENROLLMENT_MONTH
-            : month + (12 - ENROLLMENT_MONTH);
-        return { grade, unit: monthsIntoYear + 1 };
-    }
-
-    const initialProgress = getSchoolProgress();
+    const initialProgress = wordData.getSchoolProgress();
 
     const state = {
         grade: initialProgress.grade,
@@ -41,7 +28,8 @@
         mastered: loadMastered(),
         daily: loadDaily(),
         speakToken: 0,
-        hintTimer: null
+        hintTimer: null,
+        blastStarted: false
     };
 
     const $ = id => document.getElementById(id);
@@ -520,8 +508,36 @@
         }
     }
 
+    function startBlastPhase() {
+        state.blastStarted = true;
+        $('wf-card-wrap').classList.add('hidden');
+        $('wf-controls').classList.add('hidden');
+        $('wf-summary').classList.add('hidden');
+        $('wf-study').classList.add('hidden');
+
+        const container = $('game-canvas-container');
+        if (!container || typeof wordBlastGame === 'undefined') {
+            showSummary();
+            return;
+        }
+
+        container.classList.remove('hidden');
+        wordBlastGame.onExit = () => {
+            container.classList.add('hidden');
+            container.innerHTML = '';
+            $('wf-study').classList.remove('hidden');
+            showSummary();
+        };
+        wordBlastGame.startWithWords(state.words, { grade: state.grade, unit: state.unit });
+    }
+
     function showSummary() {
         stopSpeaking();
+        if (state.words.length && !state.blastStarted) {
+            startBlastPhase();
+            return;
+        }
+        state.blastStarted = false;
         $('wf-card-wrap').classList.add('hidden');
         $('wf-controls').classList.add('hidden');
         $('wf-summary').classList.remove('hidden');
@@ -558,6 +574,7 @@
 
         state.words = state.shuffle ? shuffleArray(words) : words.slice();
         state.index = 0;
+        state.blastStarted = false;
         $('wf-setup').classList.add('hidden');
         $('wf-study').classList.remove('hidden');
         renderCard();
@@ -565,6 +582,7 @@
 
     function backToSetup() {
         stopSpeaking();
+        state.blastStarted = false;
         $('wf-study').classList.add('hidden');
         $('wf-setup').classList.remove('hidden');
         renderCount();
@@ -715,10 +733,9 @@
             console.error('闪卡词库初始化失败:', error);
         }
 
-        const progress = getSchoolProgress();
-        const availableUnits = wordData.getUnitsByGrade(progress.grade).filter(unit => typeof unit === 'number');
+        const progress = wordData.getSchoolProgress();
         state.grade = progress.grade;
-        state.unit = availableUnits.length ? Math.min(progress.unit, Math.max(...availableUnits)) : 'all';
+        state.unit = progress.unit;
 
         renderGrades();
         renderUnits();

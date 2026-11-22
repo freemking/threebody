@@ -721,3 +721,14 @@
         transition: none;
     }
 }
+
+/* 闪卡通关后衔接的单词填空环节 */
+.wf-blast-container {
+    position: fixed !important;
+    inset: 0;
+    z-index: 100;
+    height: 100vh !important;
+    padding-top: 24px !important;
+    background: linear-gradient(135deg, #0F0C29, #302B63, #24243E);
+    overflow-y: auto;
+}
