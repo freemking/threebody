@@ -503,13 +503,14 @@ body::after {
 }
 
 .menu-btn:nth-child(2) { /* 单词闪卡 */
-    background: linear-gradient(135deg, #EC4899, #BE185D);
-    border-left-color: #F472B6;
+    background: linear-gradient(135deg, #818CF8, #4F46E5);
+    border-left-color: #A5B4FC;
+    color: #ffffff;
     font-size: 1.4rem;
     padding: var(--space-xl) var(--space-2xl);
     width: 100%;
     max-width: 420px;
-    box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.45);
     position: relative;
     overflow: hidden;
 }
@@ -533,8 +534,8 @@ body::after {
 }
 
 .menu-btn:nth-child(2):hover {
-    box-shadow: 0 15px 35px -5px rgba(236, 72, 153, 0.5);
-    background: linear-gradient(135deg, #BE185D, #EC4899);
+    box-shadow: 0 15px 35px -5px rgba(79, 70, 229, 0.6);
+    background: linear-gradient(135deg, #4F46E5, #818CF8);
 }
 
 .menu-btn:nth-child(2):hover::after {
@@ -1495,5 +1496,32 @@ body::after {
     .english-lb-table td {
         padding: var(--space-xs) var(--space-sm);
     }
+}
+
+/* 主菜单按钮固定配色：按 ID 绑定，避免 nth-child 错位及通用 hover 规则覆盖 */
+#btn-vocabulary {
+    background: linear-gradient(135deg, #00ffff, #00cccc);
+    border-left-color: #00ffff;
+    color: var(--background-color);
+    box-shadow: 0 10px 25px -5px rgba(0, 255, 255, 0.4);
+}
+
+#btn-vocabulary:hover {
+    background: linear-gradient(135deg, #00cccc, #00ffff);
+    border-left-color: #00ffff;
+    box-shadow: 0 15px 35px -5px rgba(0, 255, 255, 0.55);
+}
+
+#btn-wordflashcards {
+    background: linear-gradient(135deg, #818cf8, #4f46e5);
+    border-left-color: #a5b4fc;
+    color: #ffffff;
+    box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.45);
+}
+
+#btn-wordflashcards:hover {
+    background: linear-gradient(135deg, #4f46e5, #818cf8);
+    border-left-color: #a5b4fc;
+    box-shadow: 0 15px 35px -5px rgba(79, 70, 229, 0.6);
 }
 

@@ -11,10 +11,25 @@
     const DAILY_STORAGE_KEY = 'starEnglish.flashcards.daily.v1';
     const SETTINGS_KEY = 'vocabulary_settings';
     const GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const ENROLLMENT_YEAR = 2021;
+    const ENROLLMENT_MONTH = 9;
+
+    function getSchoolProgress(date = new Date()) {
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const schoolYearStart = month >= ENROLLMENT_MONTH ? year : year - 1;
+        const grade = Math.min(9, Math.max(1, schoolYearStart - ENROLLMENT_YEAR + 1));
+        const monthsIntoYear = month >= ENROLLMENT_MONTH
+            ? month - ENROLLMENT_MONTH
+            : month + (12 - ENROLLMENT_MONTH);
+        return { grade, unit: monthsIntoYear + 1 };
+    }
+
+    const initialProgress = getSchoolProgress();
 
     const state = {
-        grade: 1,
-        unit: 'all',
+        grade: initialProgress.grade,
+        unit: initialProgress.unit,
         mode: 'daily',
         autoFill: false,
         words: [],
@@ -699,6 +714,11 @@
         } catch (error) {
             console.error('闪卡词库初始化失败:', error);
         }
+
+        const progress = getSchoolProgress();
+        const availableUnits = wordData.getUnitsByGrade(progress.grade).filter(unit => typeof unit === 'number');
+        state.grade = progress.grade;
+        state.unit = availableUnits.length ? Math.min(progress.unit, Math.max(...availableUnits)) : 'all';
 
         renderGrades();
         renderUnits();
