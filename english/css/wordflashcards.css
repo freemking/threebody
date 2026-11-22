@@ -519,6 +519,111 @@
     gap: 12px;
 }
 
+/* 每日闪卡任务面板 */
+.wf-daily-panel {
+    margin-top: 18px;
+    padding: 16px 18px;
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(139, 92, 246, 0.08));
+}
+
+.wf-daily-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.wf-daily-head strong {
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+#wf-daily-status {
+    display: block;
+    margin-top: 3px;
+    color: var(--light-text);
+    font-size: 0.85rem;
+}
+
+.wf-target-grid .wf-chip {
+    min-width: auto;
+    padding: 6px 12px;
+    font-size: 0.82rem;
+}
+
+.wf-daily-bar {
+    height: 8px;
+    margin: 14px 0 10px;
+}
+
+.wf-daily-fill-option {
+    display: inline-flex;
+    margin-top: 2px;
+}
+
+.wf-daily-count {
+    color: var(--success-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* 记单词首页的每日闪卡卡片 */
+.wf-dashboard-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    margin-bottom: var(--space-lg);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(0, 255, 255, 0.35);
+    background:
+        radial-gradient(circle at 0% 0%, rgba(0, 255, 255, 0.13), transparent 45%),
+        linear-gradient(135deg, rgba(10, 24, 52, 0.9), rgba(12, 12, 36, 0.9));
+    box-shadow: var(--shadow-md);
+}
+
+.wf-dashboard-icon {
+    font-size: 2.6rem;
+    line-height: 1;
+}
+
+.wf-dashboard-info {
+    flex: 1;
+}
+
+.wf-dashboard-info h3 {
+    margin: 0 0 6px;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.wf-dashboard-info p {
+    margin: 0 0 10px;
+    color: var(--light-text);
+    font-size: 0.9rem;
+}
+
+.wf-dashboard-progress {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wf-dashboard-progress .wf-progress-bar {
+    flex: 1;
+    max-width: 320px;
+}
+
+.wf-dashboard-progress span {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
 @media (max-width: 900px) {
     .wf-page {
         padding: 18px;
@@ -549,6 +654,16 @@
         order: 3;
         flex: 1 0 100%;
     }
+
+    .wf-daily-head {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .wf-dashboard-card {
+        gap: 12px;
+        padding: 18px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -576,6 +691,17 @@
     .wf-flip-btn {
         order: -1;
         grid-column: 1 / -1;
+    }
+
+    .wf-dashboard-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .wf-dashboard-progress {
+        flex-direction: column;
+        gap: 6px;
     }
 }
 

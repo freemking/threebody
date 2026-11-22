@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wordflashcards.css">
+    <link rel="stylesheet" href="css/wordflashcards.css?v=20261122b">
 
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
 </head>
@@ -20,13 +20,45 @@
             <header class="wf-topbar">
                 <a href="index.html" class="back-btn">← 返回</a>
                 <div class="wf-heading">
-                    <h1>🗂️ 单词闪卡</h1>
-                    <p>按年级与单元背诵，翻卡查看释义、常用用法和词形变化</p>
+                    <h1>🗂️ 每日闪卡</h1>
+                    <p>每天用翻卡完成今日单词，掌握释义、常用用法和词形变化</p>
                 </div>
                 <button id="wf-reset-mastered" class="wf-text-btn" type="button">清除掌握记录</button>
             </header>
 
             <section id="wf-setup" class="wf-panel">
+                <div class="wf-section">
+                    <div class="wf-section-title">
+                        <span>🎯</span>
+                        <h2>背诵模式</h2>
+                    </div>
+                    <div class="wf-chip-grid" id="wf-mode-grid">
+                        <button type="button" class="wf-chip active" data-mode="daily">每日任务</button>
+                        <button type="button" class="wf-chip" data-mode="free">自由背诵</button>
+                    </div>
+                </div>
+
+                <div id="wf-daily-panel" class="wf-daily-panel">
+                    <div class="wf-daily-head">
+                        <div>
+                            <strong id="wf-daily-title">今日目标 5 词</strong>
+                            <span id="wf-daily-status">已学 0/5 · 连续 0 天</span>
+                        </div>
+                        <div class="wf-chip-grid wf-target-grid" id="wf-target-grid">
+                            <button type="button" class="wf-chip" data-target="5">5 词</button>
+                            <button type="button" class="wf-chip" data-target="8">8 词</button>
+                            <button type="button" class="wf-chip" data-target="10">10 词</button>
+                        </div>
+                    </div>
+                    <div class="wf-progress-bar wf-daily-bar">
+                        <div id="wf-daily-fill" class="wf-progress-fill"></div>
+                    </div>
+                    <label class="wf-option wf-daily-fill-option">
+                        <input type="checkbox" id="wf-auto-fill" checked>
+                        <span>➕ 单词不足时自动补充其他单元</span>
+                    </label>
+                </div>
+
                 <div class="wf-section">
                     <div class="wf-section-title">
                         <span>📚</span>
@@ -77,6 +109,7 @@
                             <div id="wf-progress-fill" class="wf-progress-fill"></div>
                         </div>
                     </div>
+                    <div id="wf-daily-count" class="wf-daily-count hidden">今日 0 / 5 · 连续 0 天</div>
                     <div id="wf-mastered-count" class="wf-mastered-count">已掌握 0 / 0</div>
                 </div>
 
@@ -120,6 +153,7 @@
                     <p id="wf-summary-text"></p>
                     <div class="wf-summary-actions">
                         <button id="wf-restart" class="wf-primary-btn" type="button">再来一轮</button>
+                        <button id="wf-summary-dashboard" class="wf-flip-btn hidden" type="button">查看今日进度</button>
                         <button id="wf-summary-back" class="wf-secondary-btn" type="button">返回选择</button>
                     </div>
                 </div>
@@ -130,6 +164,6 @@
     <script src="../auth.js"></script>
     <script src="js/data.js"></script>
     <script src="js/audio.js"></script>
-    <script src="js/wordflashcards.js"></script>
+    <script src="js/wordflashcards.js?v=20261122b"></script>
 </body>
 </html>

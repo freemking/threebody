@@ -8,11 +8,15 @@
     'use strict';
 
     const STORAGE_KEY = 'starEnglish.flashcards.mastered.v1';
+    const DAILY_STORAGE_KEY = 'starEnglish.flashcards.daily.v1';
+    const SETTINGS_KEY = 'vocabulary_settings';
     const GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     const state = {
         grade: 1,
         unit: 'all',
+        mode: 'daily',
+        autoFill: true,
         words: [],
         index: 0,
         flipped: false,
@@ -20,6 +24,7 @@
         hideMastered: false,
         autoSpeak: true,
         mastered: loadMastered(),
+        daily: loadDaily(),
         speakToken: 0
     };
 
@@ -42,6 +47,90 @@
         }
     }
 
+    function todayStr(date = new Date()) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        return `${year}-${month}-${day}`;
+    }
+
+    function yesterdayStr() {
+        const date = new Date();
+        date.setDate(date.getDate() - 1);
+        return todayStr(date);
+    }
+
+    function getConfiguredTarget() {
+        try {
+            const raw = localStorage.getItem(SETTINGS_KEY);
+            const value = raw ? parseInt(JSON.parse(raw).dailyWordCount, 10) : 5;
+            if (!Number.isNaN(value)) return Math.min(10, Math.max(5, value));
+        } catch (error) {
+            console.warn('读取每日目标失败:', error);
+        }
+        return 5;
+    }
+
+    function saveConfiguredTarget(target) {
+        try {
+            const raw = localStorage.getItem(SETTINGS_KEY);
+            const settings = raw ? JSON.parse(raw) : {};
+            settings.dailyWordCount = target;
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+        } catch (error) {
+            console.warn('保存每日目标失败:', error);
+        }
+    }
+
+    function saveDailyRecord(record) {
+        try {
+            localStorage.setItem(DAILY_STORAGE_KEY, JSON.stringify(record));
+        } catch (error) {
+            console.warn('保存每日闪卡进度失败:', error);
+        }
+    }
+
+    function loadDaily() {
+        const fallback = {
+            date: todayStr(),
+            target: getConfiguredTarget(),
+            studiedKeys: [],
+            completed: false,
+            streak: 0
+        };
+
+        let record;
+        try {
+            record = JSON.parse(localStorage.getItem(DAILY_STORAGE_KEY) || 'null');
+        } catch (error) {
+            console.warn('读取每日闪卡进度失败:', error);
+        }
+        if (!record || typeof record !== 'object') return fallback;
+
+        if (record.date !== todayStr()) {
+            const streak = record.date === yesterdayStr() ? (record.streak || 0) + 1 : 0;
+            const fresh = {
+                date: todayStr(),
+                target: getConfiguredTarget(),
+                studiedKeys: [],
+                completed: false,
+                streak
+            };
+            saveDailyRecord(fresh);
+            return fresh;
+        }
+
+        record.studiedKeys = Array.isArray(record.studiedKeys) ? record.studiedKeys : [];
+        record.target = record.target || getConfiguredTarget();
+        return record;
+    }
+
+    function saveDaily() {
+        state.daily.date = todayStr();
+        saveDailyRecord(state.daily);
+        saveConfiguredTarget(state.daily.target);
+    }
+
     function escapeHtml(value) {
         return String(value == null ? '' : value).replace(/[&<>"']/g, char => ({
             '&': '&amp;',
@@ -58,6 +147,89 @@
 
     function isMastered(word) {
         return !!state.mastered[wordKey(word)];
+    }
+
+    function isStudiedToday(word) {
+        return state.daily.studiedKeys.includes(wordKey(word));
+    }
+
+    function markStudied(word) {
+        if (state.mode !== 'daily' || !word) return;
+        const key = wordKey(word);
+        if (state.daily.studiedKeys.includes(key)) {
+            updateDailyUI();
+            return;
+        }
+        state.daily.studiedKeys.push(key);
+        if (!state.daily.streak) state.daily.streak = 1;
+        state.daily.completed = state.daily.studiedKeys.length >= state.daily.target;
+        saveDaily();
+        updateDailyUI();
+    }
+
+    function updateDailyUI() {
+        const studied = state.daily.studiedKeys.length;
+        const target = state.daily.target;
+        const streak = state.daily.streak || 0;
+
+        const dailyCount = $('wf-daily-count');
+        if (dailyCount) {
+            dailyCount.classList.toggle('hidden', state.mode !== 'daily');
+            dailyCount.textContent = `今日 ${studied} / ${target} · 连续 ${streak} 天`;
+        }
+
+        const dailyFill = $('wf-daily-fill');
+        if (dailyFill) {
+            dailyFill.style.width = `${target ? Math.min((studied / target) * 100, 100) : 0}%`;
+        }
+
+        const dailyStatus = $('wf-daily-status');
+        if (dailyStatus) {
+            dailyStatus.textContent = `已学 ${studied}/${target} · 连续 ${streak} 天${state.daily.completed ? ' · 已完成' : ''}`;
+        }
+
+        const dailyTitle = $('wf-daily-title');
+        if (dailyTitle) dailyTitle.textContent = `今日目标 ${target} 词`;
+    }
+
+    function renderMode() {
+        document.querySelectorAll('#wf-mode-grid [data-mode]').forEach(button => {
+            button.classList.toggle('active', button.dataset.mode === state.mode);
+        });
+        document.querySelectorAll('#wf-target-grid [data-target]').forEach(button => {
+            button.classList.toggle('active', parseInt(button.dataset.target, 10) === state.daily.target);
+        });
+        $('wf-daily-panel').classList.toggle('hidden', state.mode !== 'daily');
+        $('wf-start').textContent = state.mode === 'daily' ? '开始今日闪卡 →' : '开始背诵 →';
+        const autoFill = $('wf-auto-fill');
+        if (autoFill) autoFill.checked = state.autoFill;
+        updateDailyUI();
+    }
+
+    function addUniqueWords(source, targetList, seen) {
+        source.forEach(word => {
+            const key = wordKey(word);
+            if (targetList.length >= state.daily.target || seen.has(key)) return;
+            seen.add(key);
+            targetList.push(word);
+        });
+    }
+
+    function buildDailyWords() {
+        const seen = new Set();
+        const selected = [];
+        const pools = [wordData.getWordsByGrade(state.grade, state.unit)];
+
+        if (state.autoFill) {
+            if (state.grade !== 'all') pools.push(wordData.getWordsByGrade(state.grade, 'all'));
+            pools.push(wordData.getWordsByGrade('all', 'all'));
+        }
+
+        pools.forEach(pool => addUniqueWords(pool.filter(word => isStudiedToday(word)), selected, seen));
+        pools.forEach(pool => addUniqueWords(pool.filter(word => !isMastered(word) && !isStudiedToday(word)), selected, seen));
+        pools.forEach(pool => addUniqueWords(pool.filter(word => isMastered(word) && !isStudiedToday(word)), selected, seen));
+
+        return selected;
     }
 
     function gradeLabel(grade) {
@@ -205,6 +377,7 @@
         $('wf-progress-fill').style.width = `${total ? (current / total) * 100 : 0}%`;
         $('wf-progress-label').textContent = `${gradeLabel(state.grade)} · ${unitLabel(state.unit)}`;
         updateMasteredCount();
+        updateDailyUI();
     }
 
     function renderCard() {
@@ -239,7 +412,11 @@
 
     function flipCard() {
         if (!$('wf-summary').classList.contains('hidden')) return;
+        const wasFlipped = state.flipped;
         state.flipped = !state.flipped;
+        if (state.flipped && !wasFlipped) {
+            markStudied(currentWord());
+        }
         $('wf-card').classList.toggle('flipped', state.flipped);
         $('wf-flip').textContent = state.flipped ? '翻回正面' : '翻转卡片';
     }
@@ -265,17 +442,33 @@
         $('wf-card-wrap').classList.add('hidden');
         $('wf-controls').classList.add('hidden');
         $('wf-summary').classList.remove('hidden');
+
         const mastered = state.words.filter(isMastered).length;
-        $('wf-summary-text').textContent = `本轮共 ${state.words.length} 个单词，已掌握 ${mastered} 个。`;
+        let summaryText = `本轮共 ${state.words.length} 个单词，已掌握 ${mastered} 个。`;
+        if (state.mode === 'daily') {
+            const studied = state.daily.studiedKeys.length;
+            const target = state.daily.target;
+            summaryText = `今日已学 ${studied}/${target} 词，连续 ${state.daily.streak || 0} 天。本轮掌握 ${mastered} 个。`;
+        }
+        $('wf-summary-text').textContent = summaryText;
+        $('wf-summary-dashboard').classList.toggle('hidden', state.mode !== 'daily');
     }
 
     function startStudy() {
-        let words = wordData.getWordsByGrade(state.grade, state.unit);
-        if (state.hideMastered) {
-            words = words.filter(word => !isMastered(word));
+        let words;
+        if (state.mode === 'daily') {
+            words = buildDailyWords();
+        } else {
+            words = wordData.getWordsByGrade(state.grade, state.unit);
+            if (state.hideMastered) {
+                words = words.filter(word => !isMastered(word));
+            }
         }
 
         if (!words.length) {
+            $('wf-setup-empty').textContent = state.mode === 'daily'
+                ? '当前范围暂无可背单词，请切换年级或单元。'
+                : '该范围暂无单词，请切换年级或单元。';
             $('wf-setup-empty').classList.remove('hidden');
             return;
         }
@@ -337,6 +530,27 @@
             renderCount();
         });
 
+        $('wf-mode-grid').addEventListener('click', event => {
+            const button = event.target.closest('[data-mode]');
+            if (!button) return;
+            state.mode = button.dataset.mode;
+            renderMode();
+            renderCount();
+        });
+
+        $('wf-target-grid').addEventListener('click', event => {
+            const button = event.target.closest('[data-target]');
+            if (!button) return;
+            state.daily.target = parseInt(button.dataset.target, 10);
+            state.daily.completed = state.daily.studiedKeys.length >= state.daily.target;
+            saveDaily();
+            renderMode();
+        });
+
+        $('wf-auto-fill').addEventListener('change', event => {
+            state.autoFill = event.target.checked;
+        });
+
         $('wf-shuffle').addEventListener('change', event => {
             state.shuffle = event.target.checked;
         });
@@ -351,6 +565,9 @@
         $('wf-start').addEventListener('click', startStudy);
         $('wf-back-setup').addEventListener('click', backToSetup);
         $('wf-summary-back').addEventListener('click', backToSetup);
+        $('wf-summary-dashboard').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
         $('wf-restart').addEventListener('click', startStudy);
         $('wf-card').addEventListener('click', flipCard);
         $('wf-card').addEventListener('keydown', event => {
@@ -396,6 +613,7 @@
 
     async function init() {
         bindEvents();
+        renderMode();
 
         if (typeof wordData === 'undefined') {
             $('wf-word-count').textContent = '词库加载失败，请刷新页面重试。';

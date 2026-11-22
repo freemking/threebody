@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/wrongbook.css">
     <link rel="stylesheet" href="css/vocabulary.css">
     <link rel="stylesheet" href="css/vocabulary-layout.css">
+    <link rel="stylesheet" href="css/wordflashcards.css">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
@@ -41,7 +42,7 @@
             <p class="menu-subtitle" data-i18n="menuSubtitle">Choose your learning mode and start your English journey!</p>
             <div class="menu-buttons">
                 <button id="btn-vocabulary" class="menu-btn vocabulary-btn" data-i18n="btnVocabulary">📚 记单词</button>
-                <button id="btn-wordflashcards" class="menu-btn" data-i18n="btnWordFlashcards">🗂️ 单词闪卡</button>
+                <button id="btn-wordflashcards" class="menu-btn" data-i18n="btnWordFlashcards">🗂️ 每日闪卡</button>
                 <button id="btn-combinations" class="menu-btn combinations-btn" data-i18n="btnCombinations">🔤 字母组合</button>
                 <button id="btn-monopoly" class="menu-btn" data-i18n="btnMonopoly">🏠 Word Monopoly</button>
                 <button id="btn-wordmatch" class="menu-btn" data-i18n="btnWordmatch">🃏 Word Match</button>
@@ -273,7 +274,7 @@
                             </button>
                             <button class="nav-item" data-module="word-flashcards">
                                 <span class="nav-icon">🗂️</span>
-                                <span class="nav-text">单词闪卡</span>
+                                <span class="nav-text">每日闪卡</span>
                             </button>
                             <button class="nav-item" data-module="weekly-quiz">
                                 <span class="nav-icon">📋</span>
@@ -360,6 +361,25 @@
                     <div class="vocabulary-content">
                         <!-- 记单词模块 -->
                         <div id="memory-training-module" class="vocabulary-module active">
+                            <!-- 每日闪卡：每天记单词的核心入口 -->
+                            <div class="wf-dashboard-card" id="wf-dashboard-card">
+                                <div class="wf-dashboard-icon">🗂️</div>
+                                <div class="wf-dashboard-info">
+                                    <h3>每日闪卡</h3>
+                                    <p>每天翻卡完成今日单词，顺便掌握用法和词形变化</p>
+                                    <div class="wf-dashboard-progress">
+                                        <div class="wf-progress-bar">
+                                            <div id="wf-dashboard-fill" class="wf-progress-fill" style="width: 0%"></div>
+                                        </div>
+                                        <span id="wf-dashboard-text">0/5 · 连续 0 天</span>
+                                    </div>
+                                </div>
+                                <button class="start-training-btn" data-module="word-flashcards">
+                                    <span class="btn-icon">🚀</span>
+                                    <span>开始今日闪卡</span>
+                                </button>
+                            </div>
+
                             <!-- 快速开始 -->
                             <!-- 记单词整合区域 -->
                             <div class="training-hero">
@@ -1013,6 +1033,23 @@
         </div>
     </div>
 
+    <script>
+        // 闪卡入口兜底：即使 app.js / vocabulary-ui.js 被浏览器缓存，也能直接跳转
+        document.addEventListener('click', function (event) {
+            const flashcardButton = event.target.closest('#btn-wordflashcards');
+            if (flashcardButton) {
+                window.location.href = 'wordflashcards.html';
+                return;
+            }
+            const flashcardNav = event.target.closest('[data-module="word-flashcards"]');
+            if (flashcardNav) {
+                event.preventDefault();
+                event.stopPropagation();
+                window.location.href = 'wordflashcards.html';
+            }
+        }, true);
+    </script>
+
     <script src="../auth.js"></script>
     <script src="js/data.js"></script>
     <script src="js/audio.js"></script>
@@ -1021,7 +1058,7 @@
     <script src="js/wordblast.js"></script>
     <script src="js/wrongbook.js"></script>
     <script src="js/vocabulary.js"></script>
-    <script src="js/vocabulary-ui.js"></script>
+    <script src="js/vocabulary-ui.js?v=20261122b"></script>
     <script src="js/vocabulary-wrongbook.js"></script>
     <script src="js/vocabulary-settings.js"></script>
     <script src="js/vocabulary-learning-data.js"></script>
@@ -1029,6 +1066,6 @@
     <script src="js/vocabulary-training.js"></script>
     <script src="js/vocabulary-dictation.js"></script>
     <script src="js/vocabulary-weekly-quiz.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/app.js?v=20261122b"></script>
 </body>
 </html>

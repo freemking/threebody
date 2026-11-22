@@ -5,6 +5,25 @@
  */
 
 (function () {
+    function readFlashcardDaily() {
+        const today = new Date();
+        const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+        try {
+            const raw = localStorage.getItem('starEnglish.flashcards.daily.v1');
+            const record = raw ? JSON.parse(raw) : null;
+            if (!record || record.date !== date) {
+                return { studied: 0, target: 5, streak: 0 };
+            }
+            return {
+                studied: Array.isArray(record.studiedKeys) ? record.studiedKeys.length : 0,
+                target: record.target || 5,
+                streak: record.streak || 0
+            };
+        } catch (error) {
+            return { studied: 0, target: 5, streak: 0 };
+        }
+    }
+
     Object.assign(VocabularyAppMixin, {
         /**
          * 显示记单词界面
@@ -124,9 +143,10 @@
             if (masteredEl) masteredEl.textContent = stats.masteredWords;
 
             const todayStudied = stats.todayStudied || 0;
-            const progressPercent = Math.min((todayStudied / 5) * 100, 100);
+            const target = stats.todayTarget || vocabulary.DAILY_TARGET || 5;
+            const progressPercent = Math.min((todayStudied / target) * 100, 100);
             if (progressFill) progressFill.style.width = `${progressPercent}%`;
-            if (progressText) progressText.textContent = `${todayStudied}/5`;
+            if (progressText) progressText.textContent = `${todayStudied}/${target}`;
 
             // 更新侧边栏等级
             try {
@@ -285,7 +305,7 @@
                     const studiedCount = typeof result.studied === 'number'
                         ? result.studied
                         : (stats ? stats.todayStudied : 0);
-                    const totalToday = (studiedCount + remaining) || (stats && stats.todayTarget) || 5;
+                    const totalToday = (studiedCount + remaining) || (stats && stats.todayTarget) || vocabulary.DAILY_TARGET || 5;
                     const progressPercent = totalToday > 0 ? Math.min((studiedCount / totalToday) * 100, 100) : 0;
                     progressText.textContent = `${studiedCount}/${totalToday}`;
                     progressFill.style.width = `${progressPercent}%`;
@@ -354,6 +374,15 @@
                         };
                     });
                 }
+            }
+
+            const dashFill = document.getElementById('wf-dashboard-fill');
+            const dashText = document.getElementById('wf-dashboard-text');
+            if (dashFill && dashText) {
+                const daily = readFlashcardDaily();
+                const percent = daily.target ? Math.min((daily.studied / daily.target) * 100, 100) : 0;
+                dashFill.style.width = `${percent}%`;
+                dashText.textContent = `${daily.studied}/${daily.target} · 连续 ${daily.streak} 天`;
             }
         },
 
