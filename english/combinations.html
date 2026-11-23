@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/vocabulary.css">
     <link rel="stylesheet" href="css/vocabulary-layout.css">
     <link rel="stylesheet" href="css/combinations.css">
-    <link rel="stylesheet" href="css/minecraft-theme.css?v=20261123n">
+    <link rel="stylesheet" href="css/minecraft-theme.css?v=20261123u">
     <link rel="preconnect" href="https://fonts.googleapis.cn">
     <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
     <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,12 +57,12 @@
                     <span class="header-title" id="headerTitle">字母组合学习</span>
                 </div>
                 <div class="header-center">
-                    <div class="progress-compact">
-                        <span class="progress-compact-label">学习进度</span>
-                        <div class="progress-compact-bar">
-                            <div class="progress-compact-fill" id="masteredProgress" style="width: 0%"></div>
+                    <div class="today-progress">
+                        <span class="progress-label">学习进度</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="masteredProgress" style="width: 0%"></div>
                         </div>
-                        <span class="progress-compact-text" id="progressText">0/0</span>
+                        <span class="progress-text" id="progressText">0/0</span>
                     </div>
                 </div>
                 <div class="header-right">
@@ -76,6 +76,9 @@
                             <span class="stat-value" id="headerAccuracy">0%</span>
                         </div>
                     </div>
+                    <button class="settings-btn" onclick="showSection('settings')" title="设置">
+                        <span class="settings-icon">⚙️</span>
+                    </button>
                 </div>
             </div>
 
@@ -286,7 +289,7 @@
     </div>
     </div>
 
-    <script src="js/combinations.js?v=20261123c"></script>
+    <script src="js/combinations.js?v=20261123d"></script>
     <script src="js/combinations-quiz.js"></script>
     <script src="js/mc-icons.js?v=20261123b"></script>
 </body>

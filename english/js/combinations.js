@@ -35,11 +35,27 @@ function toggleSidebar() {
 
     // 小屏：抽屉模式
     if (window.matchMedia('(max-width: 820px)').matches) {
-        sidebar.classList.toggle('mobile-open');
+        const open = sidebar.classList.toggle('mobile-open');
+        setSidebarOverlay(open);
         return;
     }
 
     sidebar.classList.toggle('collapsed');
+}
+
+// 小屏抽屉遮罩
+function setSidebarOverlay(show) {
+    let overlay = document.querySelector('.sidebar-overlay');
+    if (show) {
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'sidebar-overlay';
+            overlay.addEventListener('click', closeSidebarOnMobile);
+            document.body.appendChild(overlay);
+        }
+    } else if (overlay) {
+        overlay.remove();
+    }
 }
 
 // 小屏下切换区块后收起抽屉
@@ -47,6 +63,7 @@ function closeSidebarOnMobile() {
     if (!window.matchMedia('(max-width: 820px)').matches) return;
     const sidebar = document.getElementById('sidebar');
     if (sidebar) sidebar.classList.remove('mobile-open');
+    setSidebarOverlay(false);
 }
 
 // 切换页面区块

@@ -683,6 +683,7 @@ body::after {
     border: 3px solid var(--mc-outline) !important;
     border-radius: 0 !important;
     padding: 8px 14px;
+    font: inherit;
     font-weight: 800;
     text-shadow: 2px 2px 0 #4a3413;
     box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.3), 4px 4px 0 rgba(0, 0, 0, 0.4);
@@ -1077,7 +1078,7 @@ select:focus,
     box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
 }
 
-.header-title {
+.vocabulary-header .header-title {
     color: #ffffff;
     text-shadow: 2px 2px 0 #262626;
     margin: 0;
@@ -1817,8 +1818,13 @@ a .mc-i,
    17. 小屏适配
    ============================================================ */
 
-/* —— 记单词外壳：贴满视口，内容区自己滚动 —— */
-#vocabulary-screen.ui-screen {
+/* —— 记单词 / 字母组合外壳：同一套面板定位，内容区自己滚动 —— */
+:is(#vocabulary-screen, #combinations-screen).ui-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
     padding: 0 !important;
     height: 100vh;
     max-height: 100vh;
@@ -1827,18 +1833,18 @@ a .mc-i,
     align-items: stretch;
 }
 
-#vocabulary-screen .vocabulary-sidebar {
+:is(#vocabulary-screen, #combinations-screen) .vocabulary-sidebar {
     height: 100vh;
     overflow-y: auto;
 }
 
-#vocabulary-screen .vocabulary-layout {
+:is(#vocabulary-screen, #combinations-screen) .vocabulary-layout {
     width: 100%;
     min-width: 0;
     flex: 1 1 auto;
 }
 
-#vocabulary-screen .vocabulary-main {
+:is(#vocabulary-screen, #combinations-screen) .vocabulary-main {
     height: 100vh;
     min-height: 0 !important;
     width: auto;
@@ -1847,10 +1853,16 @@ a .mc-i,
     overflow-x: hidden;
 }
 
-#vocabulary-screen .vocabulary-header {
+:is(#vocabulary-screen, #combinations-screen) .vocabulary-header {
     position: sticky;
     top: 0;
     flex: 0 0 auto;
+}
+
+:is(#vocabulary-screen, #combinations-screen) .vocabulary-content {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
 }
 
 /* —— 顶部返回按钮：与单词闪卡一致，固定在左上角 —— */
@@ -1858,6 +1870,7 @@ a .mc-i,
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
+    font-size: 1rem;
     white-space: nowrap;
     text-decoration: none;
 }
@@ -1901,7 +1914,7 @@ a .mc-i,
         min-width: 0;
     }
 
-    .header-title {
+    :is(#vocabulary-screen, #combinations-screen) .header-title {
         margin: 0;
         font-size: 0.95rem;
         white-space: nowrap;
@@ -2227,7 +2240,7 @@ a .mc-i,
         min-height: 48px;
     }
 
-    .header-title {
+    :is(#vocabulary-screen, #combinations-screen) .header-title {
         font-size: 0.85rem;
     }
 
