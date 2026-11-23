@@ -1,0 +1,22 @@
+- generic [ref=f1e3]:
+  - link "← 返回首页" [ref=f1e4] [cursor=pointer]:
+    - /url: /
+  - heading "英语单词大冒险" [level=1] [ref=f1e5]:
+    - img [ref=f1e7]
+    - text: 英语单词大冒险
+  - paragraph [ref=f1e72]: 选择学习模式，开始你的英语之旅！
+  - generic [ref=f1e73]:
+    - button "记单词" [ref=f1e74] [cursor=pointer]:
+      - img [ref=f1e76]
+      - text: 记单词
+    - button "单词闪卡" [ref=f1e141] [cursor=pointer]:
+      - img [ref=f1e143]
+      - text: 单词闪卡
+    - button "单词音标" [ref=f1e180] [cursor=pointer]:
+      - img [ref=f1e182]
+      - text: 单词音标
+    - button "🧩 前缀后缀" [ref=f1e207] [cursor=pointer]
+    - button "💬 常用短语" [ref=f1e208] [cursor=pointer]
+    - button "单词大富翁" [ref=f1e209] [cursor=pointer]:
+      - img [ref=f1e211]
+      - text: 单词大富翁

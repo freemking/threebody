@@ -20,6 +20,12 @@
     --mc-dirt: #8b5a2b;
     --mc-dirt-light: #a2703c;
     --mc-dirt-dark: #5e3d1b;
+    --mc-earth-yellow: #b5893f;
+    --mc-earth-yellow-light: #d6ac60;
+    --mc-earth-yellow-dark: #74531e;
+    --mc-forest: #3f7f43;
+    --mc-forest-light: #6bb45a;
+    --mc-forest-dark: #234b26;
     --mc-diamond: #3fa6a0;
     --mc-diamond-light: #6fd3cc;
     --mc-diamond-dark: #1f5f5a;
@@ -591,29 +597,32 @@ body::after {
     background-color: var(--mc-stone) !important;
 }
 
-/* ---------- 前缀后缀：青金石 / 常用短语：紫水晶 ---------- */
+/* ---------- 前缀后缀：森林绿 / 常用短语：土地黄 ---------- */
 #btn-affixes {
-    background-color: var(--mc-lapis) !important;
-    border-top-color: var(--mc-lapis-light) !important;
-    border-left-color: var(--mc-lapis-light) !important;
-    border-bottom-color: var(--mc-lapis-dark) !important;
-    border-right-color: var(--mc-lapis-dark) !important;
+    background-color: var(--mc-forest) !important;
+    border-top-color: var(--mc-forest-light) !important;
+    border-left-color: var(--mc-forest-light) !important;
+    border-bottom-color: var(--mc-forest-dark) !important;
+    border-right-color: var(--mc-forest-dark) !important;
+    color: var(--mc-text) !important;
 }
 
 #btn-affixes:hover {
-    background-color: #4a7ee0 !important;
+    background-color: #4b9250 !important;
 }
 
 #btn-phrases {
-    background-color: var(--mc-amethyst) !important;
-    border-top-color: var(--mc-amethyst-light) !important;
-    border-left-color: var(--mc-amethyst-light) !important;
-    border-bottom-color: var(--mc-amethyst-dark) !important;
-    border-right-color: var(--mc-amethyst-dark) !important;
+    background-color: var(--mc-earth-yellow) !important;
+    border-top-color: var(--mc-earth-yellow-light) !important;
+    border-left-color: var(--mc-earth-yellow-light) !important;
+    border-bottom-color: var(--mc-earth-yellow-dark) !important;
+    border-right-color: var(--mc-earth-yellow-dark) !important;
+    color: #2a1f00 !important;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.35) !important;
 }
 
 #btn-phrases:hover {
-    background-color: #a468e0 !important;
+    background-color: #c99a4d !important;
 }
 
 /* 统一抵消 style.css 中按 ID / nth-child 写入的霓虹投影与位移动画 */
@@ -1885,8 +1894,8 @@ a .mc-i,
     min-height: 0 !important;
     width: auto;
     min-width: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
+    /* 顶栏向左覆盖侧边栏区域，主内容区不能裁剪，否则返回按钮会被遮挡 */
+    overflow: visible;
 }
 
 :is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-header {
