@@ -1,0 +1,1491 @@
+/* ============================================================
+   Minecraft 像素方块主题（英语学习模块皮肤）
+   必须在 style.css 以及各游戏模块样式之后加载
+   主要内容：像素世界背景、方块面板、MC 风格按钮
+   ============================================================ */
+
+:root {
+    /* ---------- Minecraft 调色板 ---------- */
+    --mc-stone: #7d7d7d;
+    --mc-stone-hover: #8f8f8f;
+    --mc-stone-light: #b6b6b6;
+    --mc-stone-dark: #3a3a3a;
+    --mc-panel: #434343;
+    --mc-panel-light: #6f6f6f;
+    --mc-panel-dark: #232323;
+    --mc-outline: #101010;
+    --mc-grass: #5fa83f;
+    --mc-grass-light: #8ed06a;
+    --mc-grass-dark: #2f6320;
+    --mc-dirt: #8b5a2b;
+    --mc-dirt-light: #a2703c;
+    --mc-dirt-dark: #5e3d1b;
+    --mc-diamond: #3fa6a0;
+    --mc-diamond-light: #6fd3cc;
+    --mc-diamond-dark: #1f5f5a;
+    --mc-gold: #c79a2e;
+    --mc-gold-light: #edc65a;
+    --mc-gold-dark: #7a5a12;
+    --mc-redstone: #b03b36;
+    --mc-redstone-light: #d4695f;
+    --mc-redstone-dark: #6b1e1a;
+    --mc-wood: #a5793f;
+    --mc-wood-light: #c79c60;
+    --mc-wood-dark: #5e421f;
+    --mc-text: #ffffff;
+    --mc-text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75);
+
+    /* 面板贴图（3 阶灰度像素石块） */
+    --mc-tex-stone: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' shape-rendering='crispEdges'><rect width='48' height='48' fill='%23434343'/><g fill='%234c4c4c'><rect width='16' height='16'/><rect x='16' y='16' width='16' height='16'/><rect x='32' y='32' width='16' height='16'/></g><g fill='%233b3b3b'><rect x='16' width='16' height='16'/><rect x='32' y='16' width='16' height='16'/><rect y='32' width='16' height='16'/></g></svg>");
+    /* 泥土贴图 */
+    --mc-tex-dirt: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' shape-rendering='crispEdges'><rect width='48' height='48' fill='%238b5a2b'/><g fill='%237a4c22'><rect width='12' height='12'/><rect x='24' y='12' width='12' height='12'/><rect x='12' y='24' width='12' height='12'/><rect x='36' y='36' width='12' height='12'/></g><g fill='%239c6636'><rect x='12' width='12' height='12'/><rect x='36' y='12' width='12' height='12'/><rect y='24' width='12' height='12'/><rect x='24' y='36' width='12' height='12'/></g></svg>");
+    /* 木板贴图 */
+    --mc-tex-plank: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='32' viewBox='0 0 64 32' shape-rendering='crispEdges'><rect width='64' height='32' fill='%23a5793f'/><g fill='%23c19357'><rect width='14' height='8'/><rect x='40' y='12' width='16' height='8'/><rect x='16' y='24' width='12' height='6'/></g><g fill='%237a5a2c'><rect y='10' width='64' height='2'/><rect y='22' width='64' height='2'/><rect x='28' y='2' width='2' height='8'/></g></svg>");
+
+    /* ---------- 覆盖三体主题变量 ---------- */
+    --primary-color: #7ec24f;
+    --primary-dark: #4c8433;
+    --primary-light: rgba(126, 194, 79, 0.35);
+    --primary-50: rgba(126, 194, 79, 0.12);
+
+    --secondary-color: #edc65a;
+    --secondary-dark: #c79a2e;
+    --secondary-light: rgba(237, 198, 90, 0.3);
+
+    --accent-color: #f2cf4a;
+    --accent-dark: #b8860b;
+    --accent-light: #fdf3c4;
+
+    --purple-color: #8f7ad6;
+    --purple-dark: #6752ad;
+    --purple-light: #e4dcff;
+
+    --success-color: #4caf50;
+    --success-dark: #2f7d32;
+    --success-light: #c8e6c9;
+
+    --error-color: #d9534f;
+    --error-dark: #a8322e;
+    --error-light: #f6d3d2;
+
+    --warning-color: #e0a020;
+    --warning-dark: #a97410;
+    --warning-light: #fbeec4;
+
+    --background-color: #434343;
+    --text-color: #ffffff;
+    --light-text: #dedede;
+    --muted-text: #b4b4b4;
+    --border-color: #1c1c1c;
+    --border-light: #2a2a2a;
+
+    --shadow-sm: 2px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow: 3px 3px 0 rgba(0, 0, 0, 0.45);
+    --shadow-md: 4px 4px 0 rgba(0, 0, 0, 0.45);
+    --shadow-lg: 6px 6px 0 rgba(0, 0, 0, 0.45);
+    --shadow-xl: 8px 8px 0 rgba(0, 0, 0, 0.5);
+    --shadow-hover: 6px 6px 0 rgba(0, 0, 0, 0.5);
+
+    --border-radius-sm: 0px;
+    --border-radius: 0px;
+    --border-radius-md: 0px;
+    --border-radius-lg: 0px;
+    --border-radius-xl: 0px;
+    --border-radius-full: 0px;
+
+    --transition-fast: all 0.12s linear;
+    --transition: all 0.15s linear;
+    --transition-slow: all 0.2s linear;
+    --transition-bounce: all 0.15s steps(2, end);
+}
+
+/* ============================================================
+   1. 像素世界背景
+   ============================================================ */
+body {
+    background-color: #78b4f0;
+    background-image:
+        linear-gradient(180deg, rgba(8, 14, 8, 0.1) 0%, rgba(8, 14, 8, 0.05) 45%, rgba(8, 14, 8, 0.45) 100%),
+        url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800' preserveAspectRatio='xMidYMid slice' shape-rendering='crispEdges'><defs><linearGradient id='sky' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%232f6bc0'/><stop offset='0.5' stop-color='%2367a9ea'/><stop offset='1' stop-color='%23ade0fa'/></linearGradient></defs><rect width='1200' height='800' fill='url(%23sky)'/><g fill='%23fff5a5'><rect x='1000' y='70' width='80' height='80'/><rect x='980' y='90' width='120' height='40'/><rect x='1020' y='50' width='40' height='120'/></g><rect x='1020' y='90' width='40' height='40' fill='%23fffde8'/><g fill='%23ffffff' opacity='0.95'><rect x='60' y='150' width='200' height='30'/><rect x='90' y='120' width='140' height='30'/><rect x='30' y='180' width='260' height='30'/><rect x='330' y='220' width='160' height='30'/><rect x='360' y='250' width='200' height='30'/><rect x='640' y='110' width='180' height='30'/><rect x='680' y='80' width='120' height='30'/><rect x='620' y='140' width='240' height='30'/><rect x='880' y='300' width='200' height='30'/><rect x='910' y='270' width='140' height='30'/></g><g fill='%23dceefb' opacity='0.9'><rect x='60' y='180' width='200' height='30'/><rect x='330' y='250' width='160' height='30'/><rect x='620' y='140' width='200' height='30'/><rect x='880' y='330' width='200' height='30'/></g><g fill='%234e8a3c'><rect x='0' y='600' width='1200' height='200'/><rect x='160' y='560' width='240' height='40'/><rect x='200' y='540' width='160' height='20'/><rect x='700' y='570' width='280' height='30'/><rect x='740' y='550' width='200' height='20'/></g><g fill='%238b5a2b'><rect x='0' y='664' width='1200' height='136'/><rect x='160' y='584' width='240' height='80'/><rect x='200' y='564' width='160' height='100'/><rect x='700' y='594' width='280' height='80'/><rect x='740' y='574' width='200' height='100'/></g><g fill='%236cad4c'><rect x='0' y='640' width='1200' height='24'/><rect x='160' y='560' width='240' height='24'/><rect x='200' y='540' width='160' height='24'/><rect x='700' y='570' width='280' height='24'/><rect x='740' y='550' width='200' height='24'/></g><g fill='%235e9c3f'><rect x='48' y='640' width='24' height='12'/><rect x='216' y='640' width='24' height='12'/><rect x='384' y='640' width='24' height='12'/><rect x='552' y='640' width='24' height='12'/><rect x='720' y='640' width='24' height='12'/><rect x='888' y='640' width='24' height='12'/><rect x='1056' y='640' width='24' height='12'/><rect x='192' y='560' width='24' height='12'/><rect x='304' y='560' width='24' height='12'/><rect x='760' y='570' width='24' height='12'/><rect x='872' y='570' width='24' height='12'/></g><g fill='%237a4c22'><rect x='24' y='700' width='32' height='32'/><rect x='152' y='748' width='32' height='32'/><rect x='280' y='692' width='32' height='32'/><rect x='408' y='756' width='32' height='32'/><rect x='536' y='708' width='32' height='32'/><rect x='664' y='764' width='32' height='32'/><rect x='792' y='700' width='32' height='32'/><rect x='920' y='748' width='32' height='32'/><rect x='1048' y='692' width='32' height='32'/><rect x='1152' y='756' width='32' height='32'/></g><g fill='%23a2703c'><rect x='88' y='724' width='28' height='28'/><rect x='216' y='700' width='28' height='28'/><rect x='344' y='732' width='28' height='28'/><rect x='472' y='700' width='28' height='28'/><rect x='600' y='740' width='28' height='28'/><rect x='728' y='704' width='28' height='28'/><rect x='856' y='736' width='28' height='28'/><rect x='984' y='704' width='28' height='28'/><rect x='1112' y='740' width='28' height='28'/></g><rect x='1040' y='560' width='32' height='104' fill='%236b4520'/><g fill='%233f7d2e'><rect x='976' y='520' width='160' height='40'/><rect x='1008' y='480' width='96' height='40'/><rect x='1040' y='456' width='48' height='24'/></g><g fill='%234f9440'><rect x='992' y='520' width='128' height='24'/><rect x='1024' y='492' width='64' height='20'/></g></svg>");
+    background-size: cover, cover;
+    background-position: center bottom, center bottom;
+    background-attachment: fixed, fixed;
+    background-repeat: no-repeat, no-repeat;
+    animation: none;
+    image-rendering: pixelated;
+}
+
+/* 去掉原三体霓虹光斑 / 粒子层 */
+body::before {
+    background: radial-gradient(ellipse at 50% 45%, transparent 35%, rgba(0, 0, 0, 0.35) 100%);
+    animation: none;
+}
+
+body::after {
+    display: none;
+}
+
+/* ============================================================
+   2. 加载界面：草方块 + 经验条
+   ============================================================ */
+#loading-screen {
+    background-color: var(--mc-dirt);
+    background-image: var(--mc-tex-dirt);
+    background-size: 48px 48px;
+    border: 4px solid var(--mc-outline);
+    border-radius: 0;
+    box-shadow:
+        inset 3px 3px 0 rgba(255, 255, 255, 0.18),
+        inset -3px -3px 0 rgba(0, 0, 0, 0.4),
+        8px 8px 0 rgba(0, 0, 0, 0.45);
+    backdrop-filter: none;
+    padding: 44px 48px;
+}
+
+#loading-screen::before {
+    background: linear-gradient(180deg, rgba(95, 168, 63, 0.55) 0 6px, transparent 6px);
+    animation: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#loading-screen h1 {
+    font-size: 2.4rem;
+    color: #ffe95c;
+    background: none;
+    -webkit-text-fill-color: #ffe95c;
+    text-shadow: 3px 3px 0 #2b2b2b, 4px 4px 0 rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+}
+
+.loading-subtitle,
+.loading-text {
+    color: #ffffff;
+    text-shadow: var(--mc-text-shadow);
+}
+
+.loading-bar {
+    width: 100%;
+    max-width: 380px;
+    height: 20px;
+    border-radius: 0;
+    background: #1c1c1c;
+    border: 3px solid var(--mc-outline);
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+}
+
+.loading-progress {
+    border-radius: 0;
+    background: linear-gradient(180deg, #9ce65c 0%, #6cbf32 55%, #4a8f22 100%);
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* ============================================================
+   3. 面板：Minecraft 石头 GUI
+   ============================================================ */
+.ui-screen {
+    background-color: var(--mc-panel);
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border: 4px solid var(--mc-outline);
+    border-radius: 0;
+    box-shadow:
+        inset 3px 3px 0 rgba(255, 255, 255, 0.16),
+        inset -3px -3px 0 rgba(0, 0, 0, 0.42),
+        8px 8px 0 rgba(0, 0, 0, 0.45);
+    backdrop-filter: none;
+    animation: screen-enter 0.22s steps(3, end);
+    image-rendering: pixelated;
+}
+
+/* 游戏全屏面板保持贴图但去掉外投影 */
+#game-screen {
+    border: none;
+    box-shadow: none;
+    background-color: #2b2b2b;
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+}
+
+@keyframes screen-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 标题文字：金色像素字 */
+.ui-screen h1,
+.ui-screen h2,
+.ui-screen h3 {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    background-clip: border-box;
+    color: #ffe95c;
+    text-shadow: 3px 3px 0 #262626, 4px 4px 0 rgba(0, 0, 0, 0.45);
+    letter-spacing: 0.5px;
+}
+
+.ui-screen h1 {
+    font-size: 2.4rem;
+}
+
+.ui-screen h2::after {
+    display: none;
+}
+
+.gradient-animate {
+    animation: none;
+}
+
+.text-glow {
+    animation: none;
+    text-shadow: 3px 3px 0 #262626;
+}
+
+.menu-subtitle,
+.setup-subtitle,
+.loading-subtitle {
+    color: #ffffff;
+    text-shadow: var(--mc-text-shadow);
+}
+
+.section-title {
+    color: #ffe95c;
+    text-shadow: 2px 2px 0 #262626;
+}
+
+/* ============================================================
+   4. 按钮：Minecraft 立体方块按钮
+   ============================================================ */
+.menu-btn,
+.grade-btn,
+.unit-btn,
+.audio-btn,
+.game-control-btn,
+.start-game-btn,
+.game-mode-card,
+.ai-count-card,
+.difficulty-option,
+.wb-submit-btn,
+.wb-ctrl-btn,
+.wb-result-btn,
+.wb-skip-btn,
+.wm-start-btn,
+.wm-ctrl-btn,
+.wm-result-btn,
+.wm-theme-btn,
+.wf-primary-btn,
+.wf-secondary-btn,
+.wf-flip-btn,
+.wf-master-btn,
+.wf-wrong-btn,
+.wf-text-btn,
+.wf-option,
+.option-btn,
+.start-practice-btn,
+.study-btn,
+.study-back-btn,
+.submit-btn,
+.result-btn,
+.filter-btn,
+.mastery-btn,
+.wrongbook-quiz-btn,
+.wrongbook-action-btn,
+.wrongbook-action-btn-small,
+.wrongbook-success-btn,
+.wrongbook-danger-btn,
+.roll-btn,
+.back-game-btn,
+.gameover-btn,
+.chal-confirm-btn,
+.grade-sel-btn,
+.unit-sel-btn,
+.check-btn,
+.next-btn,
+.retry-btn,
+.mode-btn,
+.config-option,
+.quiz-option-btn,
+.vocabulary-action-btn,
+.vocabulary-option-btn,
+.training-hero-btn,
+.start-training-btn,
+.exit-training-btn,
+.training-nav-btn,
+.dictation-submit-btn,
+.dictation-play-btn,
+.dictation-nav-btn,
+.dictation-replay-btn,
+.result-action-btn,
+.history-load-btn,
+.edit-modal-save,
+.edit-modal-cancel,
+.achievements-close-btn,
+.history-close-btn {
+    position: relative;
+    border-radius: 0 !important;
+    border: 4px solid transparent;
+    border-top-color: var(--mc-stone-light);
+    border-left-color: var(--mc-stone-light);
+    border-bottom-color: var(--mc-stone-dark);
+    border-right-color: var(--mc-stone-dark);
+    background-color: var(--mc-stone);
+    background-image: none !important;
+    color: #ffffff !important;
+    font-family: var(--font-body);
+    font-weight: 800;
+    text-shadow: var(--mc-text-shadow);
+    box-shadow: 0 0 0 2px var(--mc-outline), 5px 5px 0 rgba(0, 0, 0, 0.45);
+    transform: none;
+    transition: background-color 0.1s linear, transform 0.1s steps(2, end), box-shadow 0.1s linear;
+    overflow: visible;
+    image-rendering: pixelated;
+}
+
+/* 关闭原按钮上的霓虹高光/描边伪元素 */
+.menu-btn::before,
+.menu-btn::after,
+.grade-btn::before,
+.grade-btn::after,
+.menu-btn:nth-child(n)::after {
+    content: none !important;
+    display: none !important;
+}
+
+.menu-btn:hover,
+.grade-btn:hover,
+.unit-btn:hover,
+.audio-btn:hover,
+.game-control-btn:hover,
+.start-game-btn:hover,
+.game-mode-card:hover,
+.ai-count-card:hover,
+.difficulty-option:hover,
+.wb-submit-btn:hover,
+.wb-ctrl-btn:hover,
+.wb-result-btn:hover,
+.wb-skip-btn:hover,
+.wm-start-btn:hover,
+.wm-ctrl-btn:hover,
+.wm-result-btn:hover,
+.wm-theme-btn:hover,
+.wf-primary-btn:hover,
+.wf-secondary-btn:hover,
+.wf-flip-btn:hover,
+.wf-master-btn:hover,
+.wf-wrong-btn:hover,
+.wf-text-btn:hover,
+.wf-option:hover,
+.option-btn:hover,
+.start-practice-btn:hover,
+.study-btn:hover,
+.study-back-btn:hover,
+.submit-btn:hover,
+.result-btn:hover,
+.filter-btn:hover,
+.mastery-btn:hover,
+.wrongbook-quiz-btn:hover,
+.wrongbook-action-btn:hover,
+.wrongbook-action-btn-small:hover,
+.wrongbook-success-btn:hover,
+.wrongbook-danger-btn:hover,
+.roll-btn:hover,
+.back-game-btn:hover,
+.gameover-btn:hover,
+.chal-confirm-btn:hover,
+.grade-sel-btn:hover,
+.unit-sel-btn:hover,
+.check-btn:hover,
+.next-btn:hover,
+.retry-btn:hover,
+.mode-btn:hover,
+.config-option:hover,
+.quiz-option-btn:hover,
+.vocabulary-action-btn:hover,
+.vocabulary-option-btn:hover,
+.training-hero-btn:hover,
+.start-training-btn:hover,
+.exit-training-btn:hover,
+.training-nav-btn:hover,
+.dictation-submit-btn:hover,
+.dictation-play-btn:hover,
+.dictation-nav-btn:hover,
+.dictation-replay-btn:hover,
+.result-action-btn:hover,
+.history-load-btn:hover,
+.edit-modal-save:hover,
+.edit-modal-cancel:hover,
+.achievements-close-btn:hover,
+.history-close-btn:hover {
+    background-color: var(--mc-stone-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 2px var(--mc-outline), 7px 7px 0 rgba(0, 0, 0, 0.45);
+}
+
+.menu-btn:active,
+.grade-btn:active,
+.unit-btn:active,
+.audio-btn:active,
+.game-control-btn:active,
+.start-game-btn:active,
+.game-mode-card:active,
+.ai-count-card:active,
+.difficulty-option:active,
+.wb-submit-btn:active,
+.wb-ctrl-btn:active,
+.wb-result-btn:active,
+.wb-skip-btn:active,
+.wm-start-btn:active,
+.wm-ctrl-btn:active,
+.wm-result-btn:active,
+.wm-theme-btn:active,
+.wf-primary-btn:active,
+.wf-secondary-btn:active,
+.wf-flip-btn:active,
+.wf-master-btn:active,
+.wf-wrong-btn:active,
+.wf-text-btn:active,
+.wf-option:active,
+.option-btn:active,
+.start-practice-btn:active,
+.study-btn:active,
+.study-back-btn:active,
+.submit-btn:active,
+.result-btn:active,
+.filter-btn:active,
+.mastery-btn:active,
+.wrongbook-quiz-btn:active,
+.wrongbook-action-btn:active,
+.wrongbook-action-btn-small:active,
+.wrongbook-success-btn:active,
+.wrongbook-danger-btn:active,
+.roll-btn:active,
+.back-game-btn:active,
+.gameover-btn:active,
+.chal-confirm-btn:active,
+.grade-sel-btn:active,
+.unit-sel-btn:active,
+.check-btn:active,
+.next-btn:active,
+.retry-btn:active,
+.mode-btn:active,
+.config-option:active,
+.quiz-option-btn:active,
+.vocabulary-action-btn:active,
+.vocabulary-option-btn:active,
+.training-hero-btn:active,
+.start-training-btn:active,
+.exit-training-btn:active,
+.training-nav-btn:active,
+.dictation-submit-btn:active,
+.dictation-play-btn:active,
+.dictation-nav-btn:active,
+.dictation-replay-btn:active,
+.result-action-btn:active,
+.history-load-btn:active,
+.edit-modal-save:active,
+.edit-modal-cancel:active,
+.achievements-close-btn:active,
+.history-close-btn:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 2px var(--mc-outline), 1px 1px 0 rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- 主菜单按钮：按材质分配颜色 ---------- */
+#btn-vocabulary,
+#btn-start-game,
+.start-training-btn,
+.training-hero-btn,
+.wb-submit-btn,
+.wf-primary-btn,
+.wrongbook-success-btn,
+.check-btn {
+    background-color: var(--mc-grass) !important;
+    border-top-color: var(--mc-grass-light) !important;
+    border-left-color: var(--mc-grass-light) !important;
+    border-bottom-color: var(--mc-grass-dark) !important;
+    border-right-color: var(--mc-grass-dark) !important;
+}
+
+#btn-vocabulary:hover,
+#btn-start-game:hover,
+.start-training-btn:hover,
+.training-hero-btn:hover,
+.wb-submit-btn:hover,
+.wf-primary-btn:hover,
+.wrongbook-success-btn:hover,
+.check-btn:hover {
+    background-color: #6fbc4a !important;
+}
+
+#btn-wordflashcards,
+.wm-start-btn,
+.wrongbook-quiz-btn,
+.dictation-submit-btn {
+    background-color: var(--mc-diamond) !important;
+    border-top-color: var(--mc-diamond-light) !important;
+    border-left-color: var(--mc-diamond-light) !important;
+    border-bottom-color: var(--mc-diamond-dark) !important;
+    border-right-color: var(--mc-diamond-dark) !important;
+}
+
+#btn-wordflashcards:hover,
+.wm-start-btn:hover,
+.wrongbook-quiz-btn:hover,
+.dictation-submit-btn:hover {
+    background-color: #4bbab3 !important;
+}
+
+#btn-combinations,
+.start-practice-btn,
+.next-btn,
+.wf-flip-btn,
+.audio-btn {
+    background-color: var(--mc-gold) !important;
+    border-top-color: var(--mc-gold-light) !important;
+    border-left-color: var(--mc-gold-light) !important;
+    border-bottom-color: var(--mc-gold-dark) !important;
+    border-right-color: var(--mc-gold-dark) !important;
+    color: #2a1f00 !important;
+    text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+#btn-combinations:hover,
+.start-practice-btn:hover,
+.next-btn:hover,
+.wf-flip-btn:hover,
+.audio-btn:hover {
+    background-color: #d9a936 !important;
+}
+
+#btn-monopoly,
+.roll-btn,
+.wrongbook-danger-btn,
+.dictation-play-btn,
+.wb-result-btn {
+    background-color: var(--mc-redstone) !important;
+    border-top-color: var(--mc-redstone-light) !important;
+    border-left-color: var(--mc-redstone-light) !important;
+    border-bottom-color: var(--mc-redstone-dark) !important;
+    border-right-color: var(--mc-redstone-dark) !important;
+}
+
+#btn-monopoly:hover,
+.roll-btn:hover,
+.wrongbook-danger-btn:hover,
+.dictation-play-btn:hover,
+.wb-result-btn:hover {
+    background-color: #c04a44 !important;
+}
+
+/* 统一抵消 style.css 中按 ID / nth-child 写入的霓虹投影与位移动画 */
+#main-menu .menu-btn,
+#game-setup .menu-btn,
+#achievements-screen .menu-btn,
+#btn-start-game,
+#btn-back-achievements {
+    box-shadow: 0 0 0 2px var(--mc-outline), 5px 5px 0 rgba(0, 0, 0, 0.45);
+    transform: none;
+}
+
+#main-menu .menu-btn:hover,
+#game-setup .menu-btn:hover,
+#achievements-screen .menu-btn:hover,
+#btn-start-game:hover,
+#btn-back-achievements:hover {
+    box-shadow: 0 0 0 2px var(--mc-outline), 7px 7px 0 rgba(0, 0, 0, 0.45);
+    transform: translateY(-2px);
+}
+
+#main-menu .menu-btn:active,
+#game-setup .menu-btn:active,
+#achievements-screen .menu-btn:active,
+#btn-start-game:active,
+#btn-back-achievements:active {
+    box-shadow: 0 0 0 2px var(--mc-outline), 1px 1px 0 rgba(0, 0, 0, 0.45);
+    transform: translateY(3px);
+}
+
+#main-menu .menu-btn::before,
+#main-menu .menu-btn::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* 4px 像素边框会撑高按钮，这里回收内边距，保持原有整体高度 */
+#main-menu .menu-btn,
+#game-setup .menu-btn {
+    padding: calc(var(--space-xl) - 4px) calc(var(--space-2xl) - 4px);
+}
+
+/* 选中态：更亮的材质 + 内凹效果 */
+.grade-btn.active,
+.unit-btn.active,
+.game-mode-card.active,
+.ai-count-card.active,
+.difficulty-option.active,
+.mode-btn.active,
+.config-option.active,
+.filter-btn.active,
+.wf-option.active,
+.option-btn.active {
+    background-color: var(--mc-grass-dark) !important;
+    border-top-color: var(--mc-grass-dark) !important;
+    border-left-color: var(--mc-grass-dark) !important;
+    border-bottom-color: var(--mc-grass-light) !important;
+    border-right-color: var(--mc-grass-light) !important;
+    box-shadow: 0 0 0 2px var(--mc-outline), inset 2px 2px 0 rgba(0, 0, 0, 0.35);
+    transform: translateY(2px);
+}
+
+/* ============================================================
+   5. 顶部栏 / 返回按钮 / 木牌
+   ============================================================ */
+.game-header {
+    background-color: var(--mc-wood);
+    background-image: var(--mc-tex-plank);
+    background-size: 64px 32px;
+    border-bottom: 4px solid var(--mc-outline);
+    backdrop-filter: none;
+    box-shadow: inset 0 3px 0 rgba(255, 255, 255, 0.18), 0 4px 0 rgba(0, 0, 0, 0.35);
+}
+
+.game-title {
+    color: #fff3b0;
+    text-shadow: 2px 2px 0 #4a3413;
+}
+
+.game-score {
+    background: #2b2b2b;
+    border: 3px solid var(--mc-outline);
+    border-radius: 0;
+    color: #ffe95c;
+    text-shadow: 2px 2px 0 #000;
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12);
+}
+
+.game-controls {
+    background-color: #2b2b2b;
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border-top: 4px solid var(--mc-outline);
+    backdrop-filter: none;
+}
+
+.back-btn,
+.back-to-home-btn {
+    background-color: var(--mc-wood) !important;
+    background-image: var(--mc-tex-plank) !important;
+    background-size: 64px 32px !important;
+    color: #fff6d0 !important;
+    border: 3px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    padding: 8px 14px;
+    font-weight: 800;
+    text-shadow: 2px 2px 0 #4a3413;
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.25), inset -2px -2px 0 rgba(0, 0, 0, 0.3), 4px 4px 0 rgba(0, 0, 0, 0.4);
+    transform: none;
+    backdrop-filter: none;
+}
+
+.back-btn:hover,
+.back-to-home-btn:hover {
+    background-color: var(--mc-wood-light) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px);
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.3), 6px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* 设置页每个分区 = 背包格子 */
+.setup-section {
+    background-color: #3a3a3a;
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border: 3px solid var(--mc-outline);
+    border-radius: 0;
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.4);
+    backdrop-filter: none;
+}
+
+.ai-section {
+    background-color: #3f5a46;
+    background-image: var(--mc-tex-stone);
+    border: 3px solid var(--mc-outline);
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ai-section::before {
+    background: linear-gradient(90deg, var(--mc-grass), var(--mc-gold), var(--mc-diamond));
+    height: 6px;
+}
+
+/* ============================================================
+   6. 弹窗 / 排行榜 / 输入框
+   ============================================================ */
+.modal,
+.english-lb-modal {
+    background: rgba(8, 10, 8, 0.78);
+    backdrop-filter: none;
+}
+
+.modal-content,
+.english-lb-box {
+    background-color: var(--mc-panel);
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border: 4px solid var(--mc-outline);
+    border-radius: 0;
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.14), inset -3px -3px 0 rgba(0, 0, 0, 0.42), 8px 8px 0 rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+}
+
+.english-lb-header {
+    background-color: var(--mc-wood);
+    background-image: var(--mc-tex-plank);
+    background-size: 64px 32px;
+    border-bottom: 3px solid var(--mc-outline);
+}
+
+.english-lb-title {
+    background: none;
+    -webkit-text-fill-color: #fff3b0;
+    color: #fff3b0;
+    text-shadow: 2px 2px 0 #4a3413;
+}
+
+.english-lb-tabs {
+    background: rgba(0, 0, 0, 0.25);
+    border-bottom: 3px solid var(--mc-outline);
+}
+
+.english-lb-tab {
+    border-radius: 0;
+    border: 3px solid transparent;
+    border-top-color: var(--mc-stone-light);
+    border-left-color: var(--mc-stone-light);
+    border-bottom-color: var(--mc-stone-dark);
+    border-right-color: var(--mc-stone-dark);
+    background: var(--mc-stone);
+    color: #fff;
+    text-shadow: var(--mc-text-shadow);
+}
+
+.english-lb-tab:hover {
+    background: var(--mc-stone-hover);
+    color: #fff;
+    border-color: transparent;
+    border-top-color: var(--mc-stone-light);
+    border-left-color: var(--mc-stone-light);
+    border-bottom-color: var(--mc-stone-dark);
+    border-right-color: var(--mc-stone-dark);
+}
+
+.english-lb-tab.active {
+    background: var(--mc-grass);
+    border-top-color: var(--mc-grass-light);
+    border-left-color: var(--mc-grass-light);
+    border-bottom-color: var(--mc-grass-dark);
+    border-right-color: var(--mc-grass-dark);
+    color: #fff;
+    box-shadow: none;
+}
+
+.english-lb-close {
+    border-radius: 0;
+    background: var(--mc-redstone);
+    border: 3px solid var(--mc-outline);
+    color: #fff;
+}
+
+.english-lb-close:hover {
+    background: var(--mc-redstone-light);
+    color: #fff;
+    box-shadow: none;
+}
+
+.english-lb-table thead th {
+    background: #2b2b2b;
+    color: #ffe95c;
+    border-bottom: 3px solid var(--mc-outline);
+}
+
+.english-lb-table td {
+    border-bottom: 2px solid #2a2a2a;
+    color: #f0f0f0;
+}
+
+.english-lb-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.english-lb-name {
+    color: #9ce65c;
+}
+
+.english-lb-score {
+    color: #ffe95c;
+    text-shadow: 2px 2px 0 #262626;
+}
+
+/* 输入框：MC 黑色输入格 */
+input[type="text"],
+input[type="search"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="password"],
+textarea,
+select,
+.quiz-spelling-input,
+.history-date-input {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 3px solid #a0a0a0 !important;
+    border-radius: 0 !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6);
+    font-family: var(--font-body);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.quiz-spelling-input:focus {
+    outline: none !important;
+    border-color: #ffffff !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* ============================================================
+   7. 进度条 / 分数 / 徽章
+   ============================================================ */
+.progress-bar,
+.loading-bar,
+.vocabulary-progress-bar,
+.quiz-progress-bar,
+.achievement-progress-bar,
+.vb-progress {
+    background: #1c1c1c !important;
+    border: 2px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden;
+}
+
+.progress-fill,
+.loading-progress,
+.vocabulary-progress-fill,
+.quiz-progress-fill,
+.achievement-progress-fill {
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, #9ce65c 0%, #6cbf32 60%, #4a8f22 100%) !important;
+    box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* ============================================================
+   8. 卡片 / 列表项：像素描边
+   ============================================================ */
+.achievement,
+.player-info,
+.word-example,
+.vocabulary-today,
+.vocabulary-word-card,
+.training-config,
+.dictation-config,
+.quiz-config,
+.history-stat-card,
+.result-card,
+.achievement-item,
+.stat-card,
+.overview-card,
+.study-card,
+.group-info-card,
+.action-card,
+.wb-card,
+.wf-card,
+.wrongbook-stat-card,
+.training-hero {
+    border-radius: 0 !important;
+    border: 3px solid var(--mc-outline) !important;
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.1), inset -2px -2px 0 rgba(0, 0, 0, 0.3), 4px 4px 0 rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: none !important;
+}
+
+.player-info {
+    background: var(--mc-wood);
+    background-image: var(--mc-tex-plank);
+    background-size: 64px 32px;
+}
+
+.player-info::before {
+    background: var(--mc-grass);
+    height: 6px;
+}
+
+.player-avatar {
+    border-radius: 0;
+    border: 3px solid var(--mc-outline);
+    background: #2b2b2b;
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12);
+    text-shadow: none;
+}
+
+.player-name,
+.player-level {
+    color: #fff3b0;
+    text-shadow: 2px 2px 0 #4a3413;
+}
+
+.player-exp {
+    color: #fff6d0;
+}
+
+/* 单词详情 */
+.word-text {
+    background: none;
+    -webkit-text-fill-color: #9ce65c;
+    color: #9ce65c;
+    filter: none;
+    text-shadow: 3px 3px 0 #262626;
+}
+
+.word-meaning,
+.word-phonetic {
+    color: #ffffff;
+    text-shadow: var(--mc-text-shadow);
+}
+
+.word-example {
+    background: #2b2b2b !important;
+    border-left: 6px solid var(--mc-grass) !important;
+    color: #e6e6e6;
+}
+
+/* ============================================================
+   9. 记单词模块：整体换肤（覆盖 --vb-* 变量）
+   ============================================================ */
+:root {
+    --vb-primary: #6cbf32;
+    --vb-primary-rgb: 108, 191, 50;
+    --vb-primary-light: #9ce65c;
+    --vb-primary-dark: #3f7d1f;
+    --vb-accent: #e2b33c;
+    --vb-accent-rgb: 226, 179, 60;
+    --vb-accent-dark: #8a6212;
+    --vb-accent-light: #f7e2a8;
+    --vb-success: #4caf50;
+    --vb-success-rgb: 76, 175, 80;
+    --vb-success-dark: #2f7d32;
+    --vb-success-light: #7fd183;
+    --vb-danger: #c8463f;
+    --vb-danger-rgb: 200, 70, 63;
+    --vb-danger-dark: #8f2b26;
+    --vb-danger-light: #e8847c;
+    --vb-warning: #d99a1f;
+    --vb-warning-rgb: 217, 154, 31;
+    --vb-purple: #8f7ad6;
+    --vb-purple-rgb: 143, 122, 214;
+
+    --vb-bg-primary: linear-gradient(180deg, rgba(10, 16, 10, 0.45) 0%, rgba(10, 16, 10, 0.65) 100%);
+    --vb-bg-card: rgba(58, 58, 58, 0.94);
+    --vb-bg-card-hover: rgba(70, 70, 70, 0.96);
+    --vb-bg-card-mastered: rgba(76, 175, 80, 0.18);
+    --vb-surface-rgb: 42, 42, 42;
+    --vb-line-rgb: 150, 150, 150;
+
+    --vb-text-primary: #f4f4f4;
+    --vb-text-secondary: #d8d8d8;
+    --vb-text-muted: #adadad;
+    --vb-text-accent: #9ce65c;
+    --vb-on-primary: #ffffff;
+
+    --vb-border: #1b1b1b;
+    --vb-border-mastered: #4caf50;
+    --vb-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
+    --vb-shadow-hover: 5px 5px 0 rgba(0, 0, 0, 0.45);
+
+    --vb-radius-sm: 0px;
+    --vb-radius-md: 0px;
+    --vb-radius-lg: 0px;
+    --vb-radius-xl: 0px;
+    --vb-radius-full: 0px;
+}
+
+#vocabulary-screen {
+    background: var(--vb-bg-primary);
+}
+
+#vocabulary-screen::before {
+    background: none;
+}
+
+.vocabulary-sidebar {
+    background-color: #2f2f2f;
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border-right: 4px solid var(--mc-outline);
+    backdrop-filter: none;
+}
+
+.sidebar-header,
+.sidebar-footer {
+    border-color: var(--mc-outline) !important;
+    border-width: 3px !important;
+}
+
+.sidebar-title {
+    color: #ffe95c;
+    text-shadow: 2px 2px 0 #262626;
+}
+
+.nav-section-title {
+    color: #a8d97e;
+}
+
+.nav-item {
+    border-radius: 0;
+    color: var(--vb-text-secondary);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+}
+
+.nav-item:hover {
+    background: rgba(108, 191, 50, 0.18);
+    color: #ffffff;
+}
+
+.nav-item.active {
+    background: var(--mc-grass-dark);
+    color: #ffffff;
+    border-right: 4px solid var(--mc-grass-light);
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.15);
+}
+
+.user-level {
+    background: #1f1f1f;
+    border: 2px solid var(--mc-outline);
+    border-radius: 0;
+    color: #d8d8d8;
+}
+
+.vocabulary-header {
+    background-color: #2f2f2f;
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border-bottom: 3px solid var(--mc-outline);
+    backdrop-filter: none;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+
+.header-title {
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #262626;
+}
+
+/* 记单词模块内所有按钮/卡片圆角归零，保持方块感 */
+#vocabulary-screen button,
+#vocabulary-screen [class*="-card"],
+#vocabulary-screen [class*="-panel"] {
+    border-radius: 0 !important;
+}
+
+#vocabulary-screen button {
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+#vocabulary-screen .vocabulary-word-card:hover,
+#vocabulary-screen [class*="-card"]:hover {
+    transform: translateY(-2px);
+}
+
+#vocabulary-screen .vocabulary-word-card::before {
+    width: 6px;
+    border-radius: 0;
+}
+
+.vocabulary-today,
+.vocabulary-word-card,
+.training-config,
+.dictation-config,
+.quiz-config,
+.history-stat-card,
+.result-card {
+    background-color: var(--vb-bg-card);
+    background-image: var(--mc-tex-stone);
+    background-size: 48px 48px;
+}
+
+/* 切换侧边栏 / 设置按钮 */
+.toggle-sidebar-btn,
+.settings-btn {
+    background: var(--mc-stone);
+    color: #fff;
+    border: 3px solid transparent;
+    border-top-color: var(--mc-stone-light);
+    border-left-color: var(--mc-stone-light);
+    border-bottom-color: var(--mc-stone-dark);
+    border-right-color: var(--mc-stone-dark);
+    border-radius: 0;
+    text-shadow: var(--mc-text-shadow);
+}
+
+/* ============================================================
+   10. 滚动条 / 选中文本
+   ============================================================ */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1c1c1c;
+    border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7d7d7d;
+    border-radius: 0;
+    border: 2px solid #1c1c1c;
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--mc-grass);
+}
+
+::selection {
+    background: var(--mc-grass);
+    color: #ffffff;
+}
+
+:focus-visible {
+    outline: 3px solid #ffe95c;
+    outline-offset: 2px;
+}
+
+/* ============================================================
+   11. 补丁：压过原模块里带选中/悬停状态的高优先级配色
+   ============================================================ */
+.grade-btn[data-grade],
+.grade-btn[data-grade]:hover {
+    background-color: var(--mc-stone) !important;
+    background-image: none !important;
+    color: #ffffff !important;
+    text-shadow: var(--mc-text-shadow) !important;
+}
+
+.grade-btn[data-grade].active {
+    background-color: var(--mc-grass-dark) !important;
+}
+
+.difficulty-option,
+.difficulty-option:not(.active) {
+    background-color: var(--mc-stone) !important;
+    background-image: none !important;
+    border-top-color: var(--mc-stone-light) !important;
+    border-left-color: var(--mc-stone-light) !important;
+    border-bottom-color: var(--mc-stone-dark) !important;
+    border-right-color: var(--mc-stone-dark) !important;
+    color: #ffffff !important;
+}
+
+.difficulty-option:not(.active):hover {
+    background-color: var(--mc-stone-hover) !important;
+}
+
+.difficulty-option.active {
+    background-color: var(--mc-grass-dark) !important;
+    border-top-color: var(--mc-grass-dark) !important;
+    border-left-color: var(--mc-grass-dark) !important;
+    border-bottom-color: var(--mc-grass-light) !important;
+    border-right-color: var(--mc-grass-light) !important;
+}
+
+/* 关闭陈旧的高光扫过 / 光斑伪元素 */
+.ai-count-card::before,
+.ai-count-card::after,
+.game-mode-card::before,
+.game-mode-card::after,
+.grade-btn::before,
+.grade-btn::after,
+.unit-btn::before,
+.unit-btn::after,
+.difficulty-option::before,
+.difficulty-option::after,
+.nav-item::before,
+.nav-item::after,
+.menu-btn .menu-icon::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* ============================================================
+   12. 记单词模块补充按钮 / 选项芯片
+   ============================================================ */
+.primary-btn,
+.success-btn,
+.danger-btn,
+.quiz-btn,
+.quiz-pronunciation-btn,
+.settings-tab,
+.setting-option,
+.theme-option,
+.interval-option,
+.play-count-option,
+.training-speak-btn,
+.info-btn {
+    border-radius: 0 !important;
+    border: 3px solid transparent;
+    border-top-color: var(--mc-stone-light);
+    border-left-color: var(--mc-stone-light);
+    border-bottom-color: var(--mc-stone-dark);
+    border-right-color: var(--mc-stone-dark);
+    background-color: var(--mc-stone);
+    background-image: none !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
+    box-shadow: 0 0 0 2px var(--mc-outline), 3px 3px 0 rgba(0, 0, 0, 0.4);
+    transition: background-color 0.1s linear, transform 0.1s steps(2, end);
+}
+
+.primary-btn:hover,
+.success-btn:hover,
+.danger-btn:hover,
+.quiz-btn:hover,
+.quiz-pronunciation-btn:hover,
+.settings-tab:hover,
+.setting-option:hover,
+.theme-option:hover,
+.interval-option:hover,
+.play-count-option:hover,
+.training-speak-btn:hover,
+.info-btn:hover {
+    background-color: var(--mc-stone-hover);
+    transform: translateY(-2px);
+}
+
+.primary-btn:active,
+.success-btn:active,
+.danger-btn:active,
+.quiz-btn:active,
+.quiz-pronunciation-btn:active,
+.settings-tab:active,
+.setting-option:active,
+.theme-option:active,
+.interval-option:active,
+.play-count-option:active,
+.training-speak-btn:active,
+.info-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 0 2px var(--mc-outline), 1px 1px 0 rgba(0, 0, 0, 0.4);
+}
+
+.primary-btn,
+.success-btn,
+.quiz-btn {
+    background-color: var(--mc-grass);
+    border-top-color: var(--mc-grass-light);
+    border-left-color: var(--mc-grass-light);
+    border-bottom-color: var(--mc-grass-dark);
+    border-right-color: var(--mc-grass-dark);
+}
+
+.primary-btn:hover,
+.success-btn:hover,
+.quiz-btn:hover {
+    background-color: #6fbc4a;
+}
+
+.danger-btn {
+    background-color: var(--mc-redstone);
+    border-top-color: var(--mc-redstone-light);
+    border-left-color: var(--mc-redstone-light);
+    border-bottom-color: var(--mc-redstone-dark);
+    border-right-color: var(--mc-redstone-dark);
+}
+
+.danger-btn:hover {
+    background-color: #c04a44;
+}
+
+.quiz-pronunciation-btn,
+.training-speak-btn,
+.info-btn {
+    background-color: var(--mc-diamond);
+    border-top-color: var(--mc-diamond-light);
+    border-left-color: var(--mc-diamond-light);
+    border-bottom-color: var(--mc-diamond-dark);
+    border-right-color: var(--mc-diamond-dark);
+}
+
+.quiz-pronunciation-btn:hover,
+.training-speak-btn:hover,
+.info-btn:hover {
+    background-color: #4bbab3;
+}
+
+.settings-tab.active,
+.setting-option.active,
+.theme-option.active,
+.interval-option.active,
+.play-count-option.active {
+    background-color: var(--mc-grass) !important;
+    border-top-color: var(--mc-grass-light) !important;
+    border-left-color: var(--mc-grass-light) !important;
+    border-bottom-color: var(--mc-grass-dark) !important;
+    border-right-color: var(--mc-grass-dark) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 2px var(--mc-outline), inset 2px 2px 0 rgba(0, 0, 0, 0.25);
+    transform: translateY(2px);
+}
+
+/* 答题正确 / 错误状态始终保持绿 / 红 */
+.quiz-option-btn.correct,
+.quiz-option-btn.correct:hover,
+.option-btn.correct,
+.option-btn.correct:hover,
+.wf-option.correct,
+.wf-option.correct:hover {
+    background-color: var(--mc-grass) !important;
+    border-top-color: var(--mc-grass-light) !important;
+    border-left-color: var(--mc-grass-light) !important;
+    border-bottom-color: var(--mc-grass-dark) !important;
+    border-right-color: var(--mc-grass-dark) !important;
+    color: #ffffff !important;
+}
+
+.quiz-option-btn.wrong,
+.quiz-option-btn.wrong:hover,
+.option-btn.wrong,
+.option-btn.wrong:hover,
+.wf-option.wrong,
+.wf-option.wrong:hover {
+    background-color: var(--mc-redstone) !important;
+    border-top-color: var(--mc-redstone-light) !important;
+    border-left-color: var(--mc-redstone-light) !important;
+    border-bottom-color: var(--mc-redstone-dark) !important;
+    border-right-color: var(--mc-redstone-dark) !important;
+    color: #ffffff !important;
+}
+
+/* 组合类按钮（如 .vocabulary-action-btn.primary-btn）优先级更高，单独压制 */
+#vocabulary-screen .vocabulary-action-btn,
+#vocabulary-screen .primary-btn,
+#vocabulary-screen .success-btn,
+#vocabulary-screen .danger-btn,
+#vocabulary-screen .quiz-btn {
+    background-image: none !important;
+    border-radius: 0 !important;
+    border-style: solid !important;
+    border-width: 3px !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55) !important;
+    box-shadow: 0 0 0 2px var(--mc-outline), 3px 3px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+#vocabulary-screen .primary-btn,
+#vocabulary-screen .success-btn,
+#vocabulary-screen .quiz-btn,
+#vocabulary-screen .vocabulary-action-btn.primary-btn {
+    background-color: var(--mc-grass) !important;
+    border-top-color: var(--mc-grass-light) !important;
+    border-left-color: var(--mc-grass-light) !important;
+    border-bottom-color: var(--mc-grass-dark) !important;
+    border-right-color: var(--mc-grass-dark) !important;
+}
+
+#vocabulary-screen .danger-btn,
+#vocabulary-screen .vocabulary-action-btn.danger-btn {
+    background-color: var(--mc-redstone) !important;
+    border-top-color: var(--mc-redstone-light) !important;
+    border-left-color: var(--mc-redstone-light) !important;
+    border-bottom-color: var(--mc-redstone-dark) !important;
+    border-right-color: var(--mc-redstone-dark) !important;
+}
+
+/* ============================================================
+   13. 单词卡片页（wordflashcards）面板与标签
+   ============================================================ */
+.wf-panel,
+.wf-daily-panel {
+    background-color: var(--mc-panel) !important;
+    background-image: var(--mc-tex-stone) !important;
+    background-size: 48px 48px !important;
+    border: 3px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.12),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.35),
+        5px 5px 0 rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: none !important;
+}
+
+.wf-chip {
+    border-radius: 0 !important;
+    border: 3px solid transparent;
+    border-top-color: var(--mc-stone-light);
+    border-left-color: var(--mc-stone-light);
+    border-bottom-color: var(--mc-stone-dark);
+    border-right-color: var(--mc-stone-dark);
+    background: #2b2b2b !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
+    box-shadow: 0 0 0 2px var(--mc-outline), 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.wf-chip:hover {
+    background: #3d3d3d !important;
+    color: #ffffff !important;
+    border-top-color: var(--mc-stone-light);
+    border-left-color: var(--mc-stone-light);
+    border-bottom-color: var(--mc-stone-dark);
+    border-right-color: var(--mc-stone-dark);
+    transform: translateY(-2px);
+}
+
+.wf-chip.active {
+    background: var(--mc-grass) !important;
+    color: #ffffff !important;
+    border-top-color: var(--mc-grass-light);
+    border-left-color: var(--mc-grass-light);
+    border-bottom-color: var(--mc-grass-dark);
+    border-right-color: var(--mc-grass-dark);
+    box-shadow: 0 0 0 2px var(--mc-outline), inset 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.wf-progress-bar {
+    background: #1c1c1c !important;
+    border: 2px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.wf-progress-fill {
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, #9ce65c 0%, #6cbf32 60%, #4a8f22 100%) !important;
+}
+
+.wf-section-title {
+    color: #ffe95c;
+    text-shadow: 2px 2px 0 #262626;
+}
+
+/* ============================================================
+   14. 小屏适配
+   ============================================================ */
+@media (max-width: 600px) {
+    .ui-screen {
+        border-width: 3px;
+        box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.14), inset -2px -2px 0 rgba(0, 0, 0, 0.4), 5px 5px 0 rgba(0, 0, 0, 0.45);
+    }
+
+    .ui-screen h1 {
+        font-size: 1.6rem;
+    }
+
+    .menu-btn,
+    .grade-btn {
+        box-shadow: 0 0 0 2px var(--mc-outline), 4px 4px 0 rgba(0, 0, 0, 0.45);
+    }
+}
