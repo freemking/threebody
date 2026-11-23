@@ -1819,7 +1819,7 @@ a .mc-i,
    ============================================================ */
 
 /* —— 记单词 / 单词音标外壳：同一套面板定位，内容区自己滚动 —— */
-:is(#vocabulary-screen, #phonetics-screen).ui-screen {
+:is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen).ui-screen {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1833,18 +1833,18 @@ a .mc-i,
     align-items: stretch;
 }
 
-:is(#vocabulary-screen, #phonetics-screen) .vocabulary-sidebar {
+:is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-sidebar {
     height: 100vh;
     overflow-y: auto;
 }
 
-:is(#vocabulary-screen, #phonetics-screen) .vocabulary-layout {
+:is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-layout {
     width: 100%;
     min-width: 0;
     flex: 1 1 auto;
 }
 
-:is(#vocabulary-screen, #phonetics-screen) .vocabulary-main {
+:is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-main {
     height: 100vh;
     min-height: 0 !important;
     width: auto;
@@ -1853,13 +1853,13 @@ a .mc-i,
     overflow-x: hidden;
 }
 
-:is(#vocabulary-screen, #phonetics-screen) .vocabulary-header {
+:is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-header {
     position: sticky;
     top: 0;
     flex: 0 0 auto;
 }
 
-:is(#vocabulary-screen, #phonetics-screen) .vocabulary-content {
+:is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-content {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
@@ -1873,6 +1873,48 @@ a .mc-i,
     font-size: 1rem;
     white-space: nowrap;
     text-decoration: none;
+}
+
+/* —— 桌面端：顶栏横跨整个面板（含侧边栏上方），返回按钮贴面板最左上角 ——
+   与「单词音标」页一致：返回按钮位于面板左上角第一项，侧边栏从顶栏下方开始 */
+:root {
+    --vocab-sidebar-w: 260px;
+}
+
+@media (max-width: 900px) {
+    :root {
+        --vocab-sidebar-w: 220px;
+    }
+}
+
+@media (min-width: 821px) {
+    :is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-header {
+        z-index: 150;
+        box-sizing: border-box;
+    }
+
+    #vocabulary-screen .vocabulary-header {
+        margin-left: calc(-1 * var(--vocab-sidebar-w, 260px));
+        width: calc(100% + var(--vocab-sidebar-w, 260px));
+        padding-left: 24px;
+    }
+
+    /* 侧边栏从顶栏下方开始，避免被顶栏压住（用 top/bottom 撑满，避免 100vh 溢出面板） */
+    #vocabulary-screen .vocabulary-sidebar {
+        top: var(--vocab-topbar-h, 78px);
+        height: auto;
+    }
+
+    /* 顶栏已有「记单词」标题，侧边栏不再重复标题 */
+    #vocabulary-screen .sidebar-header {
+        display: none;
+    }
+
+    /* 标题不换行、不带外边距，保证顶栏高度稳定 */
+    #vocabulary-screen .header-title {
+        margin: 0;
+        white-space: nowrap;
+    }
 }
 
 /* —— 平板 / 手机：记单词侧边栏改为抽屉 —— */
@@ -1914,7 +1956,7 @@ a .mc-i,
         min-width: 0;
     }
 
-    :is(#vocabulary-screen, #phonetics-screen) .header-title {
+    :is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .header-title {
         margin: 0;
         font-size: 0.95rem;
         white-space: nowrap;
@@ -2240,7 +2282,7 @@ a .mc-i,
         min-height: 48px;
     }
 
-    :is(#vocabulary-screen, #phonetics-screen) .header-title {
+    :is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .header-title {
         font-size: 0.85rem;
     }
 
@@ -2259,7 +2301,157 @@ a .mc-i,
         font-size: 1.15rem;
     }
 
+    #main-menu .menu-btn,
     .menu-btn {
         font-size: 1rem;
+    }
+}
+
+/* ============================================================
+   18. 主菜单：入口按钮的紧凑布局（宽屏双列 / 窄屏单列）
+   目标：常见屏幕下全部入口一屏可见，无需滚动
+   ============================================================ */
+
+/* —— 宽屏：两列网格；入口为奇数时最后一个同宽居中收尾 —— */
+@media (min-width: 820px) {
+    #main-menu {
+        padding: 52px 60px;
+    }
+
+    #main-menu .menu-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        gap: 16px;
+        width: 100%;
+        max-width: 860px;
+        margin: 30px auto 24px;
+    }
+
+    #main-menu .menu-btn {
+        width: 100%;
+        max-width: none;
+        padding: 22px 18px;
+        font-size: 1.25rem;
+        line-height: 1.25;
+    }
+
+    #main-menu .menu-btn:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 8px);
+    }
+}
+
+/* —— 窄屏与手机：单列紧凑排布 —— */
+@media (max-width: 819px) {
+    #main-menu {
+        /* monopoly.css 在 ≤768px 给 .ui-screen 加了 18px 外边距，会让面板偏移并横向溢出 */
+        margin: 0;
+        padding: 38px 22px 30px;
+    }
+
+    #main-menu h1 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+
+    #main-menu .menu-subtitle {
+        font-size: 0.88rem;
+        margin-bottom: 16px;
+    }
+
+    #main-menu .menu-buttons {
+        gap: 12px;
+        margin: 20px auto;
+    }
+
+    #main-menu .menu-btn {
+        width: 100%;
+        max-width: 420px;
+        padding: 17px 14px;
+        font-size: 1.1rem;
+        line-height: 1.25;
+    }
+}
+
+/* —— 矮屏笔记本 / 横屏：再压缩一档 —— */
+@media (max-height: 700px) and (min-width: 820px) {
+    #main-menu {
+        padding: 34px 52px;
+    }
+
+    #main-menu h1 {
+        font-size: 1.9rem;
+        margin-bottom: 12px;
+    }
+
+    #main-menu .menu-subtitle {
+        font-size: 0.92rem;
+        margin-bottom: 14px;
+    }
+
+    #main-menu .menu-buttons {
+        margin: 16px auto 14px;
+        gap: 12px;
+    }
+
+    #main-menu .menu-btn {
+        padding: 16px 16px;
+        font-size: 1.1rem;
+    }
+
+    #main-menu .menu-btn:last-child:nth-child(odd) {
+        width: calc(50% - 6px);
+    }
+}
+
+/* —— 矮屏手机：收起副标题，保证全部入口一屏可见 —— */
+@media (max-width: 819px) and (max-height: 700px) {
+    #main-menu {
+        padding: 26px 18px 22px;
+    }
+
+    #main-menu h1 {
+        font-size: 1.35rem;
+        margin-bottom: 10px;
+    }
+
+    #main-menu .menu-subtitle {
+        display: none;
+    }
+
+    #main-menu .menu-buttons {
+        gap: 9px;
+        margin: 14px auto;
+    }
+
+    #main-menu .menu-btn {
+        padding: 13px 12px;
+        font-size: 1.02rem;
+    }
+}
+
+/* —— 横屏手机：主菜单改两列，避免纵向滚动 —— */
+@media (max-height: 520px) and (min-width: 480px) {
+    #main-menu .menu-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        max-width: 720px;
+        margin: 10px auto;
+    }
+
+    #main-menu .menu-btn {
+        width: 100%;
+        max-width: none;
+        padding: 8px 10px;
+        font-size: 1rem;
+    }
+
+    #main-menu .menu-btn:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 4px);
     }
 }

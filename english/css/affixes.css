@@ -1,0 +1,421 @@
+/* ============================================================
+   前缀后缀浏览页（affixes.html）
+   纯浏览：前缀 26 + 后缀 25，覆盖上海 1-9 年级常用构词法
+   风格沿用 Minecraft 像素方块主题
+   ============================================================ */
+
+/* 无侧边栏，主区占满 */
+.af-main {
+    margin-left: 0 !important;
+}
+
+/* 覆盖主题里 .vocabulary-content 的内边距（主题用了 !important） */
+#affixes-screen.ui-screen .af-content {
+    padding: 20px 24px 40px !important;
+}
+
+/* —— 顶部说明木牌 —— */
+.af-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 20px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    background: var(--mc-wood);
+    background-image: var(--mc-tex-plank);
+    background-size: 64px 32px;
+    border: 3px solid var(--mc-outline);
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.18), inset -2px -2px 0 rgba(0, 0, 0, 0.35), 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.af-hero-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #3d2a11;
+}
+
+.af-hero-sub {
+    margin-top: 4px;
+    font-size: 0.92rem;
+    color: #fff0d4;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
+}
+
+.af-hero-tip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+    padding: 7px 11px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #fff3dc;
+    background: rgba(0, 0, 0, 0.38);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+}
+
+.af-hero-tip-label {
+    flex: 0 0 auto;
+    padding: 2px 6px;
+    font-weight: 800;
+    color: #ffffff;
+    background: var(--mc-grass-dark);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* —— 工具条：类型 / 年级 / 搜索 —— */
+.af-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px 16px;
+    margin-bottom: 18px;
+}
+
+.af-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.af-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.af-tabs .filter-btn {
+    padding: 9px 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.af-tabs-stage .filter-btn {
+    padding: 6px 13px;
+    font-size: 0.84rem;
+}
+
+.af-search {
+    width: 270px;
+    max-width: 100%;
+    padding: 10px 13px;
+    font-family: inherit;
+    font-size: 0.92rem;
+    border-radius: 0;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6);
+    outline: none;
+}
+
+.af-search::placeholder {
+    color: #8f8f8f;
+}
+
+.af-search:focus {
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6), 0 0 0 3px var(--mc-grass);
+}
+
+/* —— 大分区：前缀 / 后缀 —— */
+.af-section {
+    margin-bottom: 26px;
+}
+
+.af-section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.35);
+}
+
+.af-section-title {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000000;
+}
+
+.af-section-count {
+    padding: 1px 9px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #06231f;
+    background: var(--mc-diamond-light);
+    border: 2px solid var(--mc-outline);
+}
+
+.af-section.is-suffix .af-section-count {
+    color: #10230b;
+    background: var(--mc-grass-light);
+}
+
+/* —— 分类小标题 —— */
+.af-group {
+    margin-bottom: 16px;
+}
+
+.af-group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 9px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #dcdcdc;
+    letter-spacing: 0.4px;
+}
+
+.af-group-title::before {
+    content: '';
+    flex: 0 0 auto;
+    width: 8px;
+    height: 8px;
+    background: var(--mc-diamond);
+    box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.af-section.is-suffix .af-group-title::before {
+    background: var(--mc-grass);
+}
+
+.af-group-count {
+    padding: 0 6px;
+    font-size: 0.74rem;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* —— 词缀卡片 —— */
+.af-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+    gap: 14px;
+}
+
+.af-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 14px 12px;
+    background: #3a3a3a var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border: 3px solid var(--mc-outline);
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.35), 4px 4px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+@media (hover: hover) {
+    .af-card:hover {
+        transform: translateY(-2px);
+        box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.16), inset -2px -2px 0 rgba(0, 0, 0, 0.35), 5px 7px 0 rgba(0, 0, 0, 0.32);
+    }
+}
+
+/* 顶部色条：前缀=钻石蓝，后缀=草绿 */
+.af-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--mc-diamond);
+}
+
+.af-card.is-suffix::before {
+    background: var(--mc-grass);
+}
+
+.af-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.af-affix {
+    font-family: 'Fira Code', 'Lucida Sans Unicode', 'Arial Unicode MS', 'Segoe UI Symbol', sans-serif;
+    font-size: 1.95rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000000;
+    word-break: break-word;
+}
+
+.af-badge {
+    flex: 0 0 auto;
+    padding: 2px 7px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    line-height: 1.5;
+    color: #ffffff;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(0, 0, 0, 0.65);
+}
+
+.af-meaning {
+    font-size: 1.24rem;
+    font-weight: 800;
+    color: #ffd75e;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.9);
+}
+
+/* —— 构词例词 —— */
+.af-words {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px 9px;
+    background: rgba(0, 0, 0, 0.46);
+    border: 2px solid #171717;
+}
+
+.af-word {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.af-base {
+    color: #a9a9a9;
+}
+
+.af-arrow {
+    font-size: 0.8rem;
+    color: #8b8b8b;
+}
+
+.af-derived {
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.af-mean {
+    margin-left: auto;
+    font-size: 0.84rem;
+    color: #ececec;
+}
+
+/* —— 规律 / 易错提示 —— */
+.af-note {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #ffd0b8;
+}
+
+.af-empty {
+    padding: 40px 0;
+    font-size: 0.92rem;
+    color: #b0b0b0;
+    text-align: center;
+}
+
+/* —— 平板 / 手机 —— */
+@media (max-width: 820px) {
+    #affixes-screen.ui-screen .af-content {
+        padding: 14px 14px 32px !important;
+    }
+
+    .af-hero {
+        padding: 12px;
+    }
+
+    .af-hero-title {
+        font-size: 1.2rem;
+    }
+
+    .af-hero-tip {
+        font-size: 0.8rem;
+    }
+
+    .af-tabs {
+        width: 100%;
+    }
+
+    .af-tabs .filter-btn {
+        flex: 1 1 auto;
+        padding: 9px 6px;
+        font-size: 0.85rem;
+    }
+
+    .af-tabs-stage .filter-btn {
+        padding: 6px 6px;
+        font-size: 0.8rem;
+    }
+
+    .af-search {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .af-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 12px;
+    }
+
+    .af-card {
+        padding: 12px 12px 10px;
+        gap: 7px;
+    }
+
+    .af-affix {
+        font-size: 1.7rem;
+    }
+
+    .af-meaning {
+        font-size: 1.08rem;
+    }
+
+    .af-word {
+        font-size: 0.85rem;
+    }
+
+    .af-mean {
+        font-size: 0.8rem;
+    }
+
+    .af-note {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .af-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    #affixes-screen.ui-screen .af-content {
+        padding: 12px 12px 28px !important;
+    }
+}
+
+/* 横屏矮屏：收起说明牌，把空间留给卡片 */
+@media (max-height: 520px) and (min-width: 601px) {
+    #affixes-screen.ui-screen .af-content {
+        padding: 10px 14px 20px !important;
+    }
+
+    .af-hero {
+        padding: 8px 12px;
+        margin-bottom: 10px;
+    }
+
+    .af-hero-tip {
+        display: none;
+    }
+}

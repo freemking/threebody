@@ -879,6 +879,14 @@ class App {
         const phoneticsBtn = document.getElementById('btn-phonetics');
         if (phoneticsBtn) phoneticsBtn.addEventListener('click', () => this.showPhonetics());
 
+        // 前缀后缀按钮
+        const affixesBtn = document.getElementById('btn-affixes');
+        if (affixesBtn) affixesBtn.addEventListener('click', () => this.showAffixes());
+
+        // 常用短语按钮
+        const phrasesBtn = document.getElementById('btn-phrases');
+        if (phrasesBtn) phrasesBtn.addEventListener('click', () => this.showPhrases());
+
         // 单词闪卡按钮
         const flashcardsBtn = document.getElementById('btn-wordflashcards');
         if (flashcardsBtn) flashcardsBtn.addEventListener('click', () => this.showWordFlashcards());
@@ -1791,6 +1799,20 @@ class App {
      */
     showPhonetics() {
         window.location.href = 'phonetics.html';
+    }
+
+    /**
+     * 显示前缀后缀浏览页面
+     */
+    showAffixes() {
+        window.location.href = 'affixes.html';
+    }
+
+    /**
+     * 显示常用短语浏览页面
+     */
+    showPhrases() {
+        window.location.href = 'phrases.html';
     }
 
     /**

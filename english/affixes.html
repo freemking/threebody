@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>前缀后缀 - StarEnglish</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vocabulary.css">
+    <link rel="stylesheet" href="css/vocabulary-layout.css">
+    <link rel="stylesheet" href="css/affixes.css?v=20261123d">
+    <link rel="stylesheet" href="css/minecraft-theme.css?v=20261123ae">
+    <link rel="preconnect" href="https://fonts.googleapis.cn">
+    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+    <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="affixes-screen" class="ui-screen">
+        <div class="vocabulary-layout">
+            <div class="vocabulary-main af-main">
+                <!-- 顶部栏 -->
+                <div class="vocabulary-header">
+                    <div class="header-left">
+                        <a href="index.html" class="back-btn">← 返回</a>
+                        <span class="header-title">前缀后缀</span>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-stats">
+                            <div class="header-stat">
+                                <span class="stat-icon">🧩</span>
+                                <span class="stat-value" id="headerPrefix">26</span>
+                            </div>
+                            <div class="header-stat">
+                                <span class="stat-icon">🔚</span>
+                                <span class="stat-value" id="headerSuffix">25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容区 -->
+                <div class="vocabulary-content af-content">
+                    <div class="af-hero">
+                        <div class="af-hero-main">
+                            <div class="af-hero-title">上海 1-9 年级 常用前缀后缀</div>
+                            <div class="af-hero-sub" id="afHeroSub">前缀 26 个 · 后缀 25 个 · 每个都配 2-4 个例词</div>
+                        </div>
+                        <div class="af-hero-tip">
+                            <span class="af-hero-tip-label">怎么用</span>
+                            <span>先记住含义，再看例词怎么拼，最后试着自己拆一个生词</span>
+                        </div>
+                    </div>
+
+                    <div class="af-toolbar">
+                        <div class="af-filters">
+                            <div class="af-tabs" id="afTypes">
+                                <button class="filter-btn active" data-type="all">全部</button>
+                                <button class="filter-btn" data-type="前缀">前缀</button>
+                                <button class="filter-btn" data-type="后缀">后缀</button>
+                            </div>
+                            <div class="af-tabs af-tabs-stage" id="afStages">
+                                <button class="filter-btn active" data-stage="all">全部年级</button>
+                                <button class="filter-btn" data-stage="小学">小学 1-5</button>
+                                <button class="filter-btn" data-stage="初中">初中 6-9</button>
+                            </div>
+                        </div>
+                        <input type="text" class="af-search" id="afSearch" placeholder="搜索词缀 / 含义 / 例词…" autocomplete="off">
+                    </div>
+
+                    <div class="af-body" id="afBody"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/affixes.js?v=20261123a"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>常用短语 - StarEnglish</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vocabulary.css">
+    <link rel="stylesheet" href="css/vocabulary-layout.css">
+    <link rel="stylesheet" href="css/phrases.css?v=20261123a">
+    <link rel="stylesheet" href="css/minecraft-theme.css?v=20261123ae">
+    <link rel="preconnect" href="https://fonts.googleapis.cn">
+    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+    <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="phrases-screen" class="ui-screen">
+        <div class="vocabulary-layout">
+            <div class="vocabulary-main ph-main">
+                <!-- 顶部栏 -->
+                <div class="vocabulary-header">
+                    <div class="header-left">
+                        <a href="index.html" class="back-btn">← 返回</a>
+                        <span class="header-title">常用短语</span>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-stats">
+                            <div class="header-stat">
+                                <span class="stat-icon">📘</span>
+                                <span class="stat-value" id="headerPrimary">30</span>
+                            </div>
+                            <div class="header-stat">
+                                <span class="stat-icon">🎓</span>
+                                <span class="stat-value" id="headerJunior">30</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容区 -->
+                <div class="vocabulary-content ph-content">
+                    <div class="ph-hero">
+                        <div class="ph-hero-main">
+                            <div class="ph-hero-title">上海 1-9 年级 常用短语</div>
+                            <div class="ph-hero-sub" id="phHeroSub">小学 30 个 · 初中 30 个 · 每个短语配 1-2 个例句</div>
+                        </div>
+                        <div class="ph-hero-tip">
+                            <span class="ph-hero-tip-label">怎么用</span>
+                            <span>先读短语和中文意思，再大声读例句，最后试着说一句自己的话</span>
+                        </div>
+                    </div>
+
+                    <div class="ph-toolbar">
+                        <div class="ph-tabs" id="phStages">
+                            <button class="filter-btn active" data-stage="all">全部</button>
+                            <button class="filter-btn" data-stage="小学">小学 1-5</button>
+                            <button class="filter-btn" data-stage="初中">初中 6-9</button>
+                        </div>
+                        <input type="text" class="ph-search" id="phSearch" placeholder="搜索短语 / 中文意思 / 例句…" autocomplete="off">
+                    </div>
+
+                    <div class="ph-body" id="phBody"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/phrases.js?v=20261123a"></script>
+</body>
+</html>

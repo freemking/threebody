@@ -31,7 +31,7 @@
 }
 
 .ph-hero-title {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: #ffffff;
     text-shadow: 2px 2px 0 #3d2a11;
@@ -40,9 +40,9 @@
 
 .ph-hero-sub {
     margin-top: 4px;
-    font-size: 0.8rem;
-    color: #ffe6bd;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+    font-size: 0.92rem;
+    color: #fff0d4;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55);
 }
 
 .ph-hero-tip {
@@ -50,12 +50,12 @@
     align-items: center;
     gap: 8px;
     max-width: 100%;
-    padding: 6px 10px;
-    font-size: 0.76rem;
-    line-height: 1.4;
-    color: #f4e6c8;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid rgba(0, 0, 0, 0.45);
+    padding: 7px 11px;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #fff3dc;
+    background: rgba(0, 0, 0, 0.38);
+    border: 2px solid rgba(0, 0, 0, 0.5);
 }
 
 .ph-hero-tip-label {
@@ -84,17 +84,17 @@
 }
 
 .ph-tabs .filter-btn {
-    padding: 8px 14px;
-    font-size: 0.8rem;
+    padding: 9px 16px;
+    font-size: 0.9rem;
     font-weight: 700;
 }
 
 .ph-search {
-    width: 260px;
+    width: 270px;
     max-width: 100%;
-    padding: 9px 12px;
+    padding: 10px 13px;
     font-family: inherit;
-    font-size: 0.82rem;
+    font-size: 0.92rem;
     border-radius: 0;
     box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6);
     outline: none;
@@ -123,15 +123,15 @@
 }
 
 .ph-group-title {
-    font-size: 1.1rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: #ffffff;
     text-shadow: 2px 2px 0 #000000;
 }
 
 .ph-group-count {
-    padding: 1px 8px;
-    font-size: 0.72rem;
+    padding: 1px 9px;
+    font-size: 0.8rem;
     font-weight: 800;
     color: #10230b;
     background: var(--mc-grass-light);
@@ -152,9 +152,9 @@
     align-items: center;
     gap: 6px;
     margin-bottom: 8px;
-    font-size: 0.78rem;
+    font-size: 0.88rem;
     font-weight: 700;
-    color: #b9b9b9;
+    color: #dcdcdc;
     letter-spacing: 0.5px;
 }
 
@@ -173,17 +173,17 @@
 /* —— 音标卡片 —— */
 .ph-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(205px, 1fr));
+    gap: 14px;
 }
 
 .ph-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 7px;
-    padding: 12px 12px 10px;
-    background: #434343 var(--mc-tex-stone);
+    gap: 9px;
+    padding: 14px 14px 12px;
+    background: #3a3a3a var(--mc-tex-stone);
     background-size: 48px 48px;
     border: 3px solid var(--mc-outline);
     box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.35), 4px 4px 0 rgba(0, 0, 0, 0.3);
@@ -221,7 +221,7 @@
 
 .ph-symbol {
     font-family: 'Fira Code', 'Lucida Sans Unicode', 'Arial Unicode MS', 'Segoe UI Symbol', sans-serif;
-    font-size: 1.85rem;
+    font-size: 2.15rem;
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: 0.5px;
@@ -235,10 +235,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     padding: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #ffffff;
     cursor: pointer;
     background: #6f6f6f;
@@ -270,24 +270,24 @@
 }
 
 .ph-cn-main {
-    font-size: 1.08rem;
+    font-size: 1.32rem;
     font-weight: 800;
-    color: var(--mc-gold-light);
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.85);
+    color: #ffd75e;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.9);
 }
 
 .ph-cn-note {
-    padding: 0 5px;
-    font-size: 0.68rem;
-    color: #e2e2e2;
-    background: rgba(0, 0, 0, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1px 6px;
+    font-size: 0.8rem;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.52);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .ph-mouth {
-    font-size: 0.75rem;
-    line-height: 1.45;
-    color: #c9c9c9;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #f0f0f0;
 }
 
 .ph-example {
@@ -295,10 +295,10 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 6px;
-    padding: 5px 8px;
-    font-size: 0.75rem;
-    background: rgba(0, 0, 0, 0.3);
-    border: 2px solid #2b2b2b;
+    padding: 6px 9px;
+    font-size: 0.88rem;
+    background: rgba(0, 0, 0, 0.46);
+    border: 2px solid #171717;
 }
 
 .ph-example-word {
@@ -308,19 +308,19 @@
 
 .ph-example-phonetic {
     font-family: 'Fira Code', 'Lucida Sans Unicode', 'Arial Unicode MS', sans-serif;
-    font-size: 0.72rem;
-    color: #9fe08a;
+    font-size: 0.82rem;
+    color: #b2f79a;
 }
 
 .ph-example-mean {
     margin-left: auto;
-    color: #bdbdbd;
+    color: #f2f2f2;
 }
 
 .ph-contrast {
-    font-size: 0.7rem;
-    line-height: 1.4;
-    color: #ffbfa8;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #ffd0b8;
 }
 
 .ph-empty {
@@ -341,11 +341,11 @@
     }
 
     .ph-hero-title {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .ph-hero-tip {
-        font-size: 0.72rem;
+        font-size: 0.8rem;
     }
 
     .ph-tabs {
@@ -354,35 +354,51 @@
 
     .ph-tabs .filter-btn {
         flex: 1 1 auto;
-        padding: 8px 6px;
-        font-size: 0.76rem;
+        padding: 9px 6px;
+        font-size: 0.85rem;
     }
 
     .ph-search {
         width: 100%;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .ph-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
         gap: 10px;
     }
 
     .ph-card {
-        padding: 10px 10px 9px;
-        gap: 6px;
+        padding: 12px 11px 10px;
+        gap: 7px;
     }
 
     .ph-symbol {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
 
     .ph-cn-main {
-        font-size: 0.98rem;
+        font-size: 1.15rem;
+    }
+
+    .ph-cn-note {
+        font-size: 0.72rem;
     }
 
     .ph-mouth {
-        font-size: 0.72rem;
+        font-size: 0.82rem;
+    }
+
+    .ph-example {
+        font-size: 0.82rem;
+    }
+
+    .ph-example-phonetic {
+        font-size: 0.76rem;
+    }
+
+    .ph-contrast {
+        font-size: 0.76rem;
     }
 }
 
