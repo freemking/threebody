@@ -657,6 +657,9 @@
         let changed = false;
 
         for (const ch of text) {
+            // 变体选择符 / 零宽连接符 / 肤色修饰符：属于前一个 emoji 的写法，替换图标后直接丢弃，
+            // 否则会残留成不可见字符，把父元素撑成两行
+            if (ch === '\uFE0F' || ch === '\u200D' || /[\u{1F3FB}-\u{1F3FF}]/u.test(ch)) continue;
             const name = MAP[ch] || MAP[ch.replace(/\uFE0F/g, '')];
             if (name) {
                 if (buffer) {

@@ -538,7 +538,7 @@ body::after {
     background-color: #4bbab3 !important;
 }
 
-#btn-combinations,
+#btn-phonetics,
 .start-practice-btn,
 .next-btn,
 .wf-flip-btn,
@@ -552,7 +552,7 @@ body::after {
     text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.35) !important;
 }
 
-#btn-combinations:hover,
+#btn-phonetics:hover,
 .start-practice-btn:hover,
 .next-btn:hover,
 .wf-flip-btn:hover,
@@ -1818,8 +1818,8 @@ a .mc-i,
    17. 小屏适配
    ============================================================ */
 
-/* —— 记单词 / 字母组合外壳：同一套面板定位，内容区自己滚动 —— */
-:is(#vocabulary-screen, #combinations-screen).ui-screen {
+/* —— 记单词 / 单词音标外壳：同一套面板定位，内容区自己滚动 —— */
+:is(#vocabulary-screen, #phonetics-screen).ui-screen {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1833,18 +1833,18 @@ a .mc-i,
     align-items: stretch;
 }
 
-:is(#vocabulary-screen, #combinations-screen) .vocabulary-sidebar {
+:is(#vocabulary-screen, #phonetics-screen) .vocabulary-sidebar {
     height: 100vh;
     overflow-y: auto;
 }
 
-:is(#vocabulary-screen, #combinations-screen) .vocabulary-layout {
+:is(#vocabulary-screen, #phonetics-screen) .vocabulary-layout {
     width: 100%;
     min-width: 0;
     flex: 1 1 auto;
 }
 
-:is(#vocabulary-screen, #combinations-screen) .vocabulary-main {
+:is(#vocabulary-screen, #phonetics-screen) .vocabulary-main {
     height: 100vh;
     min-height: 0 !important;
     width: auto;
@@ -1853,13 +1853,13 @@ a .mc-i,
     overflow-x: hidden;
 }
 
-:is(#vocabulary-screen, #combinations-screen) .vocabulary-header {
+:is(#vocabulary-screen, #phonetics-screen) .vocabulary-header {
     position: sticky;
     top: 0;
     flex: 0 0 auto;
 }
 
-:is(#vocabulary-screen, #combinations-screen) .vocabulary-content {
+:is(#vocabulary-screen, #phonetics-screen) .vocabulary-content {
     flex: 1 1 auto;
     min-height: 0;
     overflow-y: auto;
@@ -1914,7 +1914,7 @@ a .mc-i,
         min-width: 0;
     }
 
-    :is(#vocabulary-screen, #combinations-screen) .header-title {
+    :is(#vocabulary-screen, #phonetics-screen) .header-title {
         margin: 0;
         font-size: 0.95rem;
         white-space: nowrap;
@@ -2240,7 +2240,7 @@ a .mc-i,
         min-height: 48px;
     }
 
-    :is(#vocabulary-screen, #combinations-screen) .header-title {
+    :is(#vocabulary-screen, #phonetics-screen) .header-title {
         font-size: 0.85rem;
     }
 

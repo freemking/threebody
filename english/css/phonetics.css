@@ -1,0 +1,421 @@
+/* ============================================================
+   单词音标浏览页（phonetics.html）
+   纯浏览：元音 20 + 辅音 28，每个音标带中文近似读法
+   风格沿用 Minecraft 像素方块主题
+   ============================================================ */
+
+/* 无侧边栏，主区占满 */
+.ph-main {
+    margin-left: 0 !important;
+}
+
+/* 覆盖主题里 .vocabulary-content 的内边距（主题用了 !important） */
+#phonetics-screen.ui-screen .ph-content {
+    padding: 20px 24px 40px !important;
+}
+
+/* —— 顶部说明木牌 —— */
+.ph-hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 20px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    background: var(--mc-wood);
+    background-image: var(--mc-tex-plank);
+    background-size: 64px 32px;
+    border: 3px solid var(--mc-outline);
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.18), inset -2px -2px 0 rgba(0, 0, 0, 0.35), 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ph-hero-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #3d2a11;
+    line-height: 1.2;
+}
+
+.ph-hero-sub {
+    margin-top: 4px;
+    font-size: 0.8rem;
+    color: #ffe6bd;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.ph-hero-tip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 100%;
+    padding: 6px 10px;
+    font-size: 0.76rem;
+    line-height: 1.4;
+    color: #f4e6c8;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(0, 0, 0, 0.45);
+}
+
+.ph-hero-tip-label {
+    flex: 0 0 auto;
+    padding: 2px 6px;
+    font-weight: 800;
+    color: #ffffff;
+    background: var(--mc-grass-dark);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* —— 工具条：分类 + 搜索 —— */
+.ph-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.ph-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ph-tabs .filter-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.ph-search {
+    width: 260px;
+    max-width: 100%;
+    padding: 9px 12px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    border-radius: 0;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6);
+    outline: none;
+}
+
+.ph-search::placeholder {
+    color: #909090;
+}
+
+.ph-search:focus {
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.6), 0 0 0 3px var(--mc-grass);
+}
+
+/* —— 分组 —— */
+.ph-group {
+    margin-bottom: 24px;
+}
+
+.ph-group-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.35);
+}
+
+.ph-group-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000000;
+}
+
+.ph-group-count {
+    padding: 1px 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #10230b;
+    background: var(--mc-grass-light);
+    border: 2px solid var(--mc-outline);
+}
+
+.ph-group.consonant .ph-group-count {
+    color: #06231f;
+    background: var(--mc-diamond-light);
+}
+
+.ph-subgroup {
+    margin-bottom: 14px;
+}
+
+.ph-subgroup-title {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #b9b9b9;
+    letter-spacing: 0.5px;
+}
+
+.ph-subgroup-title::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--mc-grass);
+    box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ph-group.consonant .ph-subgroup-title::before {
+    background: var(--mc-diamond);
+}
+
+/* —— 音标卡片 —— */
+.ph-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
+    gap: 12px;
+}
+
+.ph-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 12px 12px 10px;
+    background: #434343 var(--mc-tex-stone);
+    background-size: 48px 48px;
+    border: 3px solid var(--mc-outline);
+    box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.12), inset -2px -2px 0 rgba(0, 0, 0, 0.35), 4px 4px 0 rgba(0, 0, 0, 0.3);
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+@media (hover: hover) {
+    .ph-card:hover {
+        transform: translateY(-2px);
+        box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.16), inset -2px -2px 0 rgba(0, 0, 0, 0.35), 5px 7px 0 rgba(0, 0, 0, 0.32);
+    }
+}
+
+/* 顶部色条：元音=草绿，辅音=钻石蓝 */
+.ph-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--mc-grass);
+}
+
+.ph-card.consonant::before {
+    background: var(--mc-diamond);
+}
+
+.ph-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+.ph-symbol {
+    font-family: 'Fira Code', 'Lucida Sans Unicode', 'Arial Unicode MS', 'Segoe UI Symbol', sans-serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000000;
+    white-space: nowrap;
+}
+
+.ph-speak {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+    cursor: pointer;
+    background: #6f6f6f;
+    border: 2px solid var(--mc-outline);
+    border-radius: 0;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.35), inset -2px -2px 0 rgba(0, 0, 0, 0.35);
+    transition: background 0.12s ease;
+}
+
+.ph-speak:hover {
+    background: var(--mc-grass);
+}
+
+.ph-speak:active {
+    transform: translateY(1px);
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ph-speak .mc-i {
+    margin: 0;
+}
+
+/* 中文读法：卡片的信息主角 */
+.ph-cn {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ph-cn-main {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--mc-gold-light);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.85);
+}
+
+.ph-cn-note {
+    padding: 0 5px;
+    font-size: 0.68rem;
+    color: #e2e2e2;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.ph-mouth {
+    font-size: 0.75rem;
+    line-height: 1.45;
+    color: #c9c9c9;
+}
+
+.ph-example {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 5px 8px;
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid #2b2b2b;
+}
+
+.ph-example-word {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.ph-example-phonetic {
+    font-family: 'Fira Code', 'Lucida Sans Unicode', 'Arial Unicode MS', sans-serif;
+    font-size: 0.72rem;
+    color: #9fe08a;
+}
+
+.ph-example-mean {
+    margin-left: auto;
+    color: #bdbdbd;
+}
+
+.ph-contrast {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    color: #ffbfa8;
+}
+
+.ph-empty {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+
+/* —— 平板 / 手机 —— */
+@media (max-width: 820px) {
+    #phonetics-screen.ui-screen .ph-content {
+        padding: 14px 14px 32px !important;
+    }
+
+    .ph-hero {
+        padding: 12px;
+    }
+
+    .ph-hero-title {
+        font-size: 1.1rem;
+    }
+
+    .ph-hero-tip {
+        font-size: 0.72rem;
+    }
+
+    .ph-tabs {
+        width: 100%;
+    }
+
+    .ph-tabs .filter-btn {
+        flex: 1 1 auto;
+        padding: 8px 6px;
+        font-size: 0.76rem;
+    }
+
+    .ph-search {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .ph-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+
+    .ph-card {
+        padding: 10px 10px 9px;
+        gap: 6px;
+    }
+
+    .ph-symbol {
+        font-size: 1.5rem;
+    }
+
+    .ph-cn-main {
+        font-size: 0.98rem;
+    }
+
+    .ph-mouth {
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #phonetics-screen.ui-screen .ph-content {
+        padding: 12px 12px 28px !important;
+    }
+}
+
+/* 横屏矮屏：压缩说明牌，把空间留给音标卡片 */
+@media (max-height: 520px) and (min-width: 601px) {
+    #phonetics-screen.ui-screen .ph-content {
+        padding: 10px 14px 20px !important;
+    }
+
+    .ph-hero {
+        padding: 8px 12px;
+        margin-bottom: 10px;
+    }
+
+    .ph-hero-tip {
+        display: none;
+    }
+}
+
+@media (max-width: 520px) {
+    .ph-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 340px) {
+    .ph-grid {
+        grid-template-columns: 1fr;
+    }
+}

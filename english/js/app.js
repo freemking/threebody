@@ -875,9 +875,9 @@ class App {
         const vocabularyBtn = document.getElementById('btn-vocabulary');
         if (vocabularyBtn) vocabularyBtn.addEventListener('click', () => this.showVocabulary());
         
-        // 字母组合按钮
-        const combinationsBtn = document.getElementById('btn-combinations');
-        if (combinationsBtn) combinationsBtn.addEventListener('click', () => this.showCombinations());
+        // 单词音标按钮
+        const phoneticsBtn = document.getElementById('btn-phonetics');
+        if (phoneticsBtn) phoneticsBtn.addEventListener('click', () => this.showPhonetics());
 
         // 单词闪卡按钮
         const flashcardsBtn = document.getElementById('btn-wordflashcards');
@@ -1787,10 +1787,10 @@ class App {
     }
 
     /**
-     * 显示字母组合学习页面
+     * 显示单词音标浏览页面
      */
-    showCombinations() {
-        window.location.href = 'combinations.html';
+    showPhonetics() {
+        window.location.href = 'phonetics.html';
     }
 
     /**

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>单词音标 - StarEnglish</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vocabulary.css">
+    <link rel="stylesheet" href="css/vocabulary-layout.css">
+    <link rel="stylesheet" href="css/phonetics.css?v=20261123e">
+    <link rel="stylesheet" href="css/minecraft-theme.css?v=20261123v">
+    <link rel="preconnect" href="https://fonts.googleapis.cn">
+    <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+    <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="phonetics-screen" class="ui-screen">
+        <div class="vocabulary-layout">
+            <div class="vocabulary-main ph-main">
+                <!-- 顶部栏 -->
+                <div class="vocabulary-header">
+                    <div class="header-left">
+                        <a href="index.html" class="back-btn">← 返回</a>
+                        <span class="header-title">单词音标</span>
+                    </div>
+                    <div class="header-right">
+                        <div class="header-stats">
+                            <div class="header-stat">
+                                <span class="stat-icon">🔊</span>
+                                <span class="stat-value" id="headerVowel">20</span>
+                            </div>
+                            <div class="header-stat">
+                                <span class="stat-icon">🔤</span>
+                                <span class="stat-value" id="headerConsonant">28</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容区 -->
+                <div class="vocabulary-content ph-content">
+                    <div class="ph-hero">
+                        <div class="ph-hero-main">
+                            <div class="ph-hero-title">48 个国际音标</div>
+                            <div class="ph-hero-sub">元音 20 个 · 辅音 28 个 · 每个音标都配了中文读法</div>
+                        </div>
+                        <div class="ph-hero-tip">
+                            <span class="ph-hero-tip-label">怎么用</span>
+                            <span>先按中文读法记住大概口型，再点 🔊 听例词，跟着读三遍</span>
+                        </div>
+                    </div>
+
+                    <div class="ph-toolbar">
+                        <div class="ph-tabs" id="phTabs">
+                            <button class="filter-btn active" data-type="all">全部 48</button>
+                            <button class="filter-btn" data-type="元音">元音 20</button>
+                            <button class="filter-btn" data-type="辅音">辅音 28</button>
+                        </div>
+                        <input type="text" class="ph-search" id="phSearch" placeholder="搜索音标 / 中文读法 / 例词…" autocomplete="off">
+                    </div>
+
+                    <div class="ph-body" id="phBody"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/phonetics.js?v=20261123a"></script>
+    <script src="js/mc-icons.js?v=20261123c"></script>
+</body>
+</html>
