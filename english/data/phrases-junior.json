@@ -63,5 +63,23 @@
   { "id": "pj-29", "phrase": "What's more, …", "category": "连接与过渡", "stage": "初中", "grade": "8-9 年级", "meaning": "而且；此外", "note": "在原有理由上再补充一条，用逗号隔开。",
     "examples": [ { "en": "The bike is cheap. What's more, it is easy to ride.", "zh": "这辆自行车很便宜，而且很好骑。" }, { "en": "What's more, we can learn a lot from books.", "zh": "此外，我们能从书中学到很多。" } ] },
   { "id": "pj-30", "phrase": "In a word, …", "category": "连接与过渡", "stage": "初中", "grade": "9 年级", "meaning": "总之；一句话", "note": "用于结尾总结全文观点。",
-    "examples": [ { "en": "In a word, health is more important than money.", "zh": "总之，健康比金钱更重要。" }, { "en": "In a word, we should protect our environment.", "zh": "总之，我们应该保护环境。" } ] }
+    "examples": [ { "en": "In a word, health is more important than money.", "zh": "总之，健康比金钱更重要。" }, { "en": "In a word, we should protect our environment.", "zh": "总之，我们应该保护环境。" } ] },
+
+  { "id": "pj-31", "phrase": "be interested in", "category": "固定搭配", "stage": "初中", "grade": "6-8 年级", "meaning": "对……感兴趣", "note": "in 是介词，后面接名词或动词 -ing；主语变了 be 也要跟着变。",
+    "examples": [ { "en": "I'm interested in science and technology.", "zh": "我对科学技术很感兴趣。" }, { "en": "She is interested in learning Japanese.", "zh": "她对学习日语很感兴趣。" } ] },
+  { "id": "pj-32", "phrase": "be scared of", "category": "固定搭配", "stage": "初中", "grade": "6-7 年级", "meaning": "害怕……", "note": "of 后接名词或动词 -ing；口语里也常用 be afraid of。",
+    "examples": [ { "en": "My little brother is scared of dogs.", "zh": "我弟弟怕狗。" }, { "en": "Don't be scared of making mistakes.", "zh": "别害怕犯错。" } ] },
+  { "id": "pj-33", "phrase": "give sth to sb", "category": "固定搭配", "stage": "初中", "grade": "6-7 年级", "meaning": "把某物给某人", "note": "直接宾语是代词时只能用这个结构：give it to him，不能说 give him it。",
+    "examples": [ { "en": "Please give the book to your teacher.", "zh": "请把这本书交给老师。" }, { "en": "I gave my old bike to my cousin.", "zh": "我把旧自行车给了我表哥。" } ] },
+  { "id": "pj-34", "phrase": "give sb sth", "category": "固定搭配", "stage": "初中", "grade": "6-7 年级", "meaning": "给某人某物", "note": "双宾语结构，可改写成 give sth to sb；sth 是代词时优先用后一种。",
+    "examples": [ { "en": "She gave me a birthday card.", "zh": "她送给我一张生日卡片。" }, { "en": "Can you give me a hand?", "zh": "你能帮我一下吗？" } ] },
+  { "id": "pj-35", "phrase": "be proud of", "category": "固定搭配", "stage": "初中", "grade": "7-8 年级", "meaning": "为……感到骄傲", "note": "of 后接人或事；proud 是形容词，前面要有 be 动词。",
+    "examples": [ { "en": "My parents are proud of my progress.", "zh": "父母为我的进步感到骄傲。" }, { "en": "We are proud of our city.", "zh": "我们为自己的城市感到自豪。" } ] },
+  { "id": "pj-36", "phrase": "be famous for", "category": "固定搭配", "stage": "初中", "grade": "7-8 年级", "meaning": "因……而闻名", "note": "for 后接出名的原因或特点；be famous as 表示「作为……而闻名」。",
+    "examples": [ { "en": "Shanghai is famous for its night views.", "zh": "上海以夜景闻名。" }, { "en": "The town is famous for its old bridges.", "zh": "这个小镇以古老的桥梁闻名。" } ] },
+  { "id": "pj-37", "phrase": "make sb do sth", "category": "固定搭配", "stage": "初中", "grade": "8-9 年级", "meaning": "让某人做某事", "note": "make 后面的不定式不加 to；变成被动时要还原：be made to do sth。",
+    "examples": [ { "en": "The teacher made us read the text aloud.", "zh": "老师让我们大声朗读课文。" }, { "en": "Don't make me wait too long.", "zh": "别让我等太久。" } ] },
+  { "id": "pj-38", "phrase": "It takes sb some time to do sth", "category": "固定搭配", "stage": "初中", "grade": "8-9 年级", "meaning": "做某事花费某人多少时间", "note": "it 是形式主语，真正的主语是后面的 to do；sb 和 some time 顺序固定。",
+    "examples": [ { "en": "It takes me twenty minutes to walk to school.", "zh": "我步行上学要二十分钟。" }, { "en": "It took him three years to finish the book.", "zh": "他花了三年才写完这本书。" } ] }
+
 ]

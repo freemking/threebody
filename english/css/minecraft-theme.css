@@ -29,6 +29,12 @@
     --mc-redstone: #b03b36;
     --mc-redstone-light: #d4695f;
     --mc-redstone-dark: #6b1e1a;
+    --mc-lapis: #3d6ec9;
+    --mc-lapis-light: #7ba0ea;
+    --mc-lapis-dark: #1e3d7d;
+    --mc-amethyst: #8c56c9;
+    --mc-amethyst-light: #bb8ce8;
+    --mc-amethyst-dark: #4d2a78;
     --mc-wood: #a5793f;
     --mc-wood-light: #c79c60;
     --mc-wood-dark: #5e421f;
@@ -578,6 +584,36 @@ body::after {
 .dictation-play-btn:hover,
 .wb-result-btn:hover {
     background-color: #c04a44 !important;
+}
+
+/* 兜底：未单独配色的入口（含被 style.css nth-child 把背景写成透明的）统一用石块底 */
+:where(#main-menu) .menu-btn {
+    background-color: var(--mc-stone) !important;
+}
+
+/* ---------- 前缀后缀：青金石 / 常用短语：紫水晶 ---------- */
+#btn-affixes {
+    background-color: var(--mc-lapis) !important;
+    border-top-color: var(--mc-lapis-light) !important;
+    border-left-color: var(--mc-lapis-light) !important;
+    border-bottom-color: var(--mc-lapis-dark) !important;
+    border-right-color: var(--mc-lapis-dark) !important;
+}
+
+#btn-affixes:hover {
+    background-color: #4a7ee0 !important;
+}
+
+#btn-phrases {
+    background-color: var(--mc-amethyst) !important;
+    border-top-color: var(--mc-amethyst-light) !important;
+    border-left-color: var(--mc-amethyst-light) !important;
+    border-bottom-color: var(--mc-amethyst-dark) !important;
+    border-right-color: var(--mc-amethyst-dark) !important;
+}
+
+#btn-phrases:hover {
+    background-color: #a468e0 !important;
 }
 
 /* 统一抵消 style.css 中按 ID / nth-child 写入的霓虹投影与位移动画 */
