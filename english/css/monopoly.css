@@ -1565,8 +1565,8 @@
 
 /* === 游戏设置页面（合并年级选择和电脑设置） === */
 #game-setup {
-    max-width: 900px;
-    padding: 20px 25px;
+    max-width: 1080px;
+    padding: 24px;
     background: linear-gradient(135deg, rgba(44, 125, 160, 0.95), rgba(167, 139, 250, 0.95));
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
@@ -1673,6 +1673,13 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+}
+
+/* 宽屏：设置页加宽后按钮同步变宽会显得松散，10 个年级固定两行五列 */
+@media (min-width: 900px) {
+    #game-setup .grade-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
 }
 
 /* AI Opponents Section - 优化设计 */
