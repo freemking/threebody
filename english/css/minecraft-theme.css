@@ -1472,6 +1472,286 @@ select:focus,
 }
 
 /* ============================================================
+   14. 列表页：错题库 / 历史单词 / 学习数据 / 成就徽章
+   ============================================================ */
+.wrongbook-stat-card,
+.wrongbook-item,
+.wrongbook-filter,
+.data-card,
+.chart-container,
+.top-error-item,
+.history-record-item,
+.history-stat-card,
+.achievement-item {
+    background-color: var(--mc-panel) !important;
+    background-image: var(--mc-tex-stone) !important;
+    background-size: 48px 48px !important;
+    border: 3px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.12),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.35),
+        4px 4px 0 rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: none !important;
+}
+
+.wrongbook-stat-card:hover,
+.data-card:hover,
+.wrongbook-item:hover,
+.history-record-item:hover,
+.achievement-item:hover,
+.top-error-item:hover {
+    background-color: var(--mc-panel-hover, #4a4a4a) !important;
+    transform: translateY(-2px) !important;
+    box-shadow:
+        inset 2px 2px 0 rgba(255, 255, 255, 0.16),
+        inset -2px -2px 0 rgba(0, 0, 0, 0.35),
+        4px 6px 0 rgba(0, 0, 0, 0.42) !important;
+}
+
+/* 卡片顶部装饰条 → 草方块绿条 */
+.wrongbook-stat-card::before {
+    background: linear-gradient(180deg, var(--mc-grass-light), var(--mc-grass-dark)) !important;
+    height: 4px !important;
+}
+
+.wrongbook-item::before {
+    width: 4px !important;
+    background: var(--mc-grass) !important;
+}
+
+.wrongbook-item.mastered::before {
+    background: var(--mc-gold, #e8c33a) !important;
+}
+
+.wrongbook-item.mastered {
+    border-color: var(--mc-gold, #e8c33a) !important;
+}
+
+/* 数字与标题 */
+.wrongbook-stat-number,
+.data-value {
+    color: #ffe95c !important;
+    text-shadow: 2px 2px 0 #262626 !important;
+}
+
+.wrongbook-stat-label,
+.data-label {
+    color: #d8d8d8 !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+.wrongbook-word {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 0 #262626 !important;
+}
+
+.wrongbook-word.mastered-text {
+    color: #9ce65c !important;
+}
+
+.wrongbook-phonetic,
+.wrongbook-meaning {
+    color: #e8e8e8 !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55) !important;
+}
+
+.wrongbook-count,
+.wrongbook-time,
+.history-record-phonetic,
+.history-record-meaning {
+    color: #c8c8c8 !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55) !important;
+}
+
+.wrongbook-example {
+    background: #2b2b2b !important;
+    border: 2px solid var(--mc-outline) !important;
+    border-left: 6px solid var(--mc-grass) !important;
+    border-radius: 0 !important;
+    color: #e6e6e6 !important;
+    text-shadow: none !important;
+}
+
+.wrongbook-rootAffix {
+    background: rgba(232, 195, 58, 0.12) !important;
+    border: 2px solid rgba(232, 195, 58, 0.5) !important;
+    border-radius: 0 !important;
+    color: #ffe95c !important;
+}
+
+.wrongbook-rootAffix-label {
+    color: #ffe95c !important;
+}
+
+/* 徽章 */
+.wrongbook-badge,
+.wrongbook-badge.mastered-badge {
+    border-radius: 0 !important;
+    border: 2px solid var(--mc-outline) !important;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.35);
+    color: #ffffff !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.6);
+    font-weight: 700;
+    background-image: none !important;
+    backdrop-filter: none !important;
+}
+
+.wrongbook-badge.from-monopoly {
+    background-color: var(--mc-grass) !important;
+}
+
+.wrongbook-badge.from-wordmatch {
+    background-color: var(--mc-diamond) !important;
+}
+
+.wrongbook-badge.from-wordblast {
+    background-color: var(--mc-gold) !important;
+}
+
+.wrongbook-badge.mastered-badge {
+    background-color: #5a5a5a !important;
+}
+
+/* 进度条 */
+.wrongbook-progress-bar,
+.wrongbook-wrong-bar,
+.achievement-progress-bar {
+    background: #1c1c1c !important;
+    border: 2px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+    overflow: hidden;
+}
+
+.wrongbook-progress-fill,
+.achievement-progress-fill {
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, #9ce65c 0%, #6cbf32 60%, #4a8f22 100%) !important;
+}
+
+.wrongbook-wrong-fill {
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, #ef6b5f 0%, #c0392b 60%, #8f2820 100%) !important;
+}
+
+/* 喇叭按钮 / 小动作按钮 */
+.wrongbook-speak-btn {
+    background: var(--mc-diamond) !important;
+    border: 3px solid transparent !important;
+    border-top-color: var(--mc-diamond-light) !important;
+    border-left-color: var(--mc-diamond-light) !important;
+    border-bottom-color: var(--mc-diamond-dark) !important;
+    border-right-color: var(--mc-diamond-dark) !important;
+    border-radius: 0 !important;
+    box-shadow: 0 0 0 2px var(--mc-outline), 2px 2px 0 rgba(0, 0, 0, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.wrongbook-speak-btn:hover {
+    background: #4bbab3 !important;
+    transform: translateY(-1px);
+}
+
+.wrongbook-action-btn-small.success {
+    background-color: var(--mc-grass) !important;
+    border-top-color: var(--mc-grass-light) !important;
+    border-left-color: var(--mc-grass-light) !important;
+    border-bottom-color: var(--mc-grass-dark) !important;
+    border-right-color: var(--mc-grass-dark) !important;
+    color: #ffffff !important;
+}
+
+.wrongbook-action-btn-small.danger {
+    background-color: var(--mc-redstone) !important;
+    border-top-color: var(--mc-redstone-light) !important;
+    border-left-color: var(--mc-redstone-light) !important;
+    border-bottom-color: var(--mc-redstone-dark) !important;
+    border-right-color: var(--mc-redstone-dark) !important;
+    color: #ffffff !important;
+}
+
+/* 空状态 */
+.wrongbook-empty-icon,
+.empty-icon,
+.achievements-empty-icon,
+.history-empty-icon {
+    filter: none !important;
+    text-shadow: none !important;
+}
+
+.wrongbook-empty-text,
+.wrongbook-empty-hint,
+.empty-text,
+.empty-subtext,
+.achievements-empty-text,
+.history-empty-text {
+    color: #e0e0e0 !important;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.55) !important;
+}
+
+.wrongbook-empty-hint,
+.empty-subtext {
+    color: #b8b8b8 !important;
+}
+
+/* 图表区域 */
+.chart-area {
+    background: #1c1c1c !important;
+    border: 3px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+    color: #b8b8b8 !important;
+}
+
+.trend-chart-grid-label {
+    fill: #b8b8b8 !important;
+    color: #b8b8b8 !important;
+}
+
+.chart-header h3,
+.top-errors h3,
+.history-title,
+.achievements-title,
+.history-date-header {
+    color: #ffe95c !important;
+    text-shadow: 2px 2px 0 #262626 !important;
+}
+
+.history-date-header {
+    border-bottom: 3px solid var(--mc-outline) !important;
+}
+
+/* 日期选择器 */
+.history-date-input {
+    background: #1c1c1c !important;
+    border: 3px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    color: #ffffff !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 空状态大图标：跟随容器字号，避免过大 */
+.wrongbook-empty-icon .mc-i,
+.empty-icon .mc-i,
+.achievements-empty-icon .mc-i,
+.history-empty-icon .mc-i {
+    width: 1em;
+    height: 1em;
+    margin: 0;
+}
+
+/* 统计卡 / 头部的图标不要溢出 */
+.wrongbook-stat-icon .mc-i,
+.data-icon .mc-i,
+.stat-icon .mc-i,
+.header-stat .mc-i {
+    width: 1.1em;
+    height: 1.1em;
+    margin: 0;
+}
+
+/* ============================================================
    15. 字号整体微微放大
    ============================================================ */
 html {
@@ -1535,9 +1815,224 @@ a .mc-i,
 /* ============================================================
    17. 小屏适配
    ============================================================ */
+
+/* —— 记单词外壳：贴满视口，内容区自己滚动 —— */
+#vocabulary-screen.ui-screen {
+    padding: 0 !important;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+}
+
+#vocabulary-screen .vocabulary-sidebar {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#vocabulary-screen .vocabulary-layout {
+    width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+#vocabulary-screen .vocabulary-main {
+    height: 100vh;
+    min-height: 0 !important;
+    width: auto;
+    min-width: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#vocabulary-screen .vocabulary-header {
+    position: sticky;
+    top: 0;
+    flex: 0 0 auto;
+}
+
+/* —— 平板 / 手机：记单词侧边栏改为抽屉 —— */
+@media (max-width: 820px) {
+    .vocabulary-sidebar {
+        width: 264px;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .vocabulary-sidebar.mobile-open {
+        transform: none;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 99;
+        background: rgba(0, 0, 0, 0.55);
+    }
+
+    .vocabulary-main {
+        margin-left: 0 !important;
+        width: 100%;
+        min-width: 0;
+    }
+
+    /* 顶部栏：自动换行，不再挤压 */
+    .vocabulary-header {
+        flex-wrap: wrap;
+        gap: 6px 10px;
+        padding: 8px 12px;
+        height: auto;
+        min-height: 56px;
+    }
+
+    .header-left {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+
+    .header-title {
+        margin: 0;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .toggle-sidebar-btn,
+    .settings-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-center {
+        order: 3;
+        flex: 1 1 100%;
+        justify-content: stretch;
+    }
+
+    .today-progress,
+    .progress-compact {
+        width: 100%;
+        padding: 4px 10px;
+        gap: 8px;
+        border-radius: 0;
+    }
+
+    .progress-bar,
+    .progress-compact-bar {
+        flex: 1 1 auto;
+        width: auto !important;
+        min-width: 40px;
+    }
+
+    .header-right {
+        margin-left: auto;
+        gap: 6px;
+    }
+
+    .header-stats {
+        gap: 6px;
+    }
+
+    .header-stat {
+        padding: 2px 6px;
+    }
+
+    .header-stat .stat-icon,
+    .header-stat .stat-value {
+        font-size: 0.8rem;
+    }
+
+    .vocabulary-content {
+        padding: 12px !important;
+    }
+
+    /* 错题库统计卡：压缩为三列小卡 */
+    .wrongbook-stats {
+        gap: 8px;
+    }
+
+    .wrongbook-stat-card {
+        padding: 10px 6px;
+    }
+
+    .wrongbook-stat-number {
+        font-size: 1.35rem;
+    }
+
+    .wrongbook-stat-label {
+        font-size: 0.68rem;
+    }
+
+    .wrongbook-stat-icon .mc-i {
+        width: 1em;
+        height: 1em;
+    }
+
+    .wrongbook-item {
+        padding: 14px;
+    }
+
+    .wrongbook-word {
+        font-size: 1.25rem;
+    }
+
+    .wrongbook-actions {
+        gap: 10px !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+    }
+
+    .wrongbook-action-btn-small,
+    .vocabulary-action-btn,
+    .start-training-btn,
+    .training-hero-btn {
+        min-height: 40px;
+    }
+
+    .setup-section,
+    .training-config,
+    .dictation-config,
+    .quiz-config,
+    .vocabulary-today,
+    .chart-container,
+    .top-errors {
+        padding: 14px !important;
+    }
+
+    .data-overview,
+    .result-stats {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    .data-card,
+    .result-stat {
+        padding: 12px !important;
+    }
+
+    .data-value,
+    .result-stat .stat-value {
+        font-size: 1.25rem;
+    }
+
+    .history-record-item,
+    .achievement-item {
+        padding: 12px;
+    }
+
+    .chart-area {
+        height: 180px;
+    }
+}
+
+/* —— 手机 —— */
 @media (max-width: 600px) {
     .ui-screen {
         border-width: 3px;
+        padding: 16px !important;
+        max-height: 94vh;
         box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.14), inset -2px -2px 0 rgba(0, 0, 0, 0.4), 5px 5px 0 rgba(0, 0, 0, 0.45);
     }
 
@@ -1545,8 +2040,196 @@ a .mc-i,
         font-size: 1.6rem;
     }
 
+    .setup-content,
+    .game-setup,
+    .setup-header {
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .game-header {
+        padding: 8px 10px;
+    }
+
+    .game-title {
+        font-size: 1rem;
+    }
+
+    .back-btn {
+        min-width: 44px;
+        min-height: 40px;
+    }
+
     .menu-btn,
     .grade-btn {
         box-shadow: 0 0 0 2px var(--mc-outline), 4px 4px 0 rgba(0, 0, 0, 0.45);
+    }
+
+    /* 手机：隐藏头部次要统计，把空间留给主要内容 */
+    .header-stats {
+        display: none !important;
+    }
+
+    .vocabulary-header {
+        padding: 6px 8px;
+    }
+
+    .vocabulary-content {
+        padding: 8px !important;
+    }
+
+    /* 年级 / 单元选择：手机两列 */
+    .grade-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .grade-btn,
+    .unit-btn {
+        padding: 10px 8px !important;
+        font-size: 0.85rem !important;
+        min-height: 44px;
+    }
+
+    .setup-subtitle,
+    .section-title {
+        font-size: 0.85rem;
+    }
+
+    /* 列表卡片进一步收紧 */
+    .wrongbook-item {
+        padding: 12px;
+    }
+
+    .wrongbook-word {
+        font-size: 1.15rem;
+    }
+
+    .wrongbook-meaning,
+    .wrongbook-example {
+        font-size: 0.85rem !important;
+    }
+
+    .wrongbook-badge {
+        font-size: 0.62rem !important;
+        padding: 2px 6px !important;
+    }
+
+    .wrongbook-meta {
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+    .wrongbook-actions-cell {
+        gap: 8px;
+    }
+
+    .wrongbook-action-btn-small {
+        flex: 1 1 auto;
+        justify-content: center;
+        font-size: 0.8rem !important;
+    }
+
+    /* 图表 / 错误排行单列 */
+    .top-errors-list {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* 弹窗铺满可用宽度 */
+    .modal-content,
+    .dialog {
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+        max-height: 86vh;
+        overflow-y: auto;
+    }
+
+    /* 手机触摸目标 */
+    .nav-item {
+        min-height: 46px;
+    }
+
+    .game-mode-card,
+    .mode-card,
+    .start-game-btn,
+    .start-btn {
+        min-height: 44px !important;
+        padding: 10px 12px !important;
+        font-size: 0.85rem !important;
+    }
+}
+
+/* —— 横屏手机：压缩纵向占用 —— */
+@media (max-height: 520px) and (min-width: 601px) {
+    .ui-screen {
+        padding: 10px 16px !important;
+        max-height: 96vh;
+    }
+
+    .ui-screen h1 {
+        font-size: 1.15rem !important;
+        margin: 2px 0 4px !important;
+    }
+
+    .menu-subtitle,
+    .subtitle,
+    .menu-desc,
+    .app-subtitle {
+        display: none !important;
+    }
+
+    .menu-buttons {
+        gap: 8px !important;
+    }
+
+    .menu-btn {
+        min-height: 52px !important;
+        font-size: 1rem !important;
+        padding: 8px 12px !important;
+    }
+
+    .grade-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .grade-btn,
+    .unit-btn {
+        min-height: 40px;
+        padding: 6px 8px !important;
+    }
+
+    /* 横屏高度吃紧：收起进度条，压缩头部 */
+    .header-center {
+        display: none !important;
+    }
+
+    .vocabulary-header {
+        padding: 4px 10px;
+        min-height: 48px;
+    }
+
+    .header-title {
+        font-size: 0.85rem;
+    }
+
+    .vocabulary-content {
+        padding: 8px 12px !important;
+    }
+}
+
+/* —— 超小屏 —— */
+@media (max-width: 380px) {
+    .wrongbook-stat-label {
+        font-size: 0.62rem;
+    }
+
+    .wrongbook-stat-number {
+        font-size: 1.15rem;
+    }
+
+    .menu-btn {
+        font-size: 1rem;
     }
 }

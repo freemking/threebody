@@ -35,6 +35,7 @@
                 item.onclick = async (e) => {
                     const module = e.currentTarget.dataset.module;
                     await this.switchVocabularyModule(module);
+                    if (typeof this.closeMobileSidebar === 'function') this.closeMobileSidebar();
                 };
             });
 

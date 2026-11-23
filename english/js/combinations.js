@@ -31,11 +31,27 @@ const CombinationsApp = {
 // 侧边栏切换
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
+    if (!sidebar) return;
+
+    // 小屏：抽屉模式
+    if (window.matchMedia('(max-width: 820px)').matches) {
+        sidebar.classList.toggle('mobile-open');
+        return;
+    }
+
     sidebar.classList.toggle('collapsed');
+}
+
+// 小屏下切换区块后收起抽屉
+function closeSidebarOnMobile() {
+    if (!window.matchMedia('(max-width: 820px)').matches) return;
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) sidebar.classList.remove('mobile-open');
 }
 
 // 切换页面区块
 function showSection(sectionId) {
+    closeSidebarOnMobile();
     // 隐藏所有区块
     document.querySelectorAll('.combinations-section').forEach(section => {
         section.classList.add('hidden');
