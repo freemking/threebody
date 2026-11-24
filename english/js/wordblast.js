@@ -24,8 +24,8 @@ class WordBlastGame {
       grade: null, unit: 'all',
       score: 0, combo: 0, maxCombo: 0,
       level: 1,
-      timeLeft: 0, timeLimit: 60,
       playing: false, paused: false,
+      startedAt: 0,
       embedded: false,
       currentIdx: 0,  // 当前题目索引
       correctCount: 0,
@@ -36,14 +36,7 @@ class WordBlastGame {
     this.lastWords = [];
     this.onExit = null;
     this.questions = []; // {id, word, meaning, sentence, blankedSentence}
-    this.tmr = null;
     this.BLAST_MS = 500;
-
-    // 动态时间配置
-    this.SECONDS_PER_WORD = 8; // 每个单词的基础时间（秒），输入模式需要更多时间
-    this.MIN_TIME = 30;
-    this.MAX_TIME = 360;
-    this.TIME_DECREASE_RATIO = 0.15;
 
     // 监听语言变更事件
     document.addEventListener('languageChanged', () => {
@@ -59,18 +52,6 @@ class WordBlastGame {
 
   async init() { return true; }
   switchScene() { this.showSetup(); }
-
-  // 动态计算时间
-  calcTimeForLevel(level, wordCount) {
-    if (level === 1) {
-      const baseTime = wordCount * this.SECONDS_PER_WORD;
-      const doubledTime = baseTime * 2;
-      return Math.max(this.MIN_TIME, Math.min(this.MAX_TIME, doubledTime));
-    }
-    const baseTime = this.calcTimeForLevel(1, wordCount);
-    const decrease = Math.pow(1 - this.TIME_DECREASE_RATIO, level - 1);
-    return Math.max(this.MIN_TIME, Math.floor(baseTime * decrease));
-  }
 
   /**
    * 将句子中的目标单词替换为下划线
@@ -158,7 +139,6 @@ class WordBlastGame {
     wrapper.appendChild(header);
     header.querySelector('#wb-back-btn').onclick = () => {
       audioManager.playClick();
-      if (this.tmr) { clearInterval(this.tmr); this.tmr = null; }
       this.s.playing = false;
       this.s.paused = false;
       window.app.showMainMenu();
@@ -276,10 +256,6 @@ class WordBlastGame {
     this.loadWordPool();
     this.initQuestions();
 
-    const wordCount = this.wordPool.length;
-    this.s.timeLimit = this.calcTimeForLevel(1, wordCount);
-    this.s.timeLeft = this.s.timeLimit;
-
     this.render();
     this.begin();
   }
@@ -297,17 +273,12 @@ class WordBlastGame {
     this.wordPool = [...words];
     this.initQuestions();
 
-    const wordCount = this.wordPool.length;
-    this.s.timeLimit = this.calcTimeForLevel(1, wordCount);
-    this.s.timeLeft = this.s.timeLimit;
-
     this.render();
     this.begin();
     return true;
   }
 
   exit() {
-    if (this.tmr) { clearInterval(this.tmr); this.tmr = null; }
     this.s.playing = false;
     if (this.s.embedded && typeof this.onExit === 'function') {
       this.onExit();
@@ -317,7 +288,6 @@ class WordBlastGame {
   }
 
   resetS() {
-    if (this.tmr) { clearInterval(this.tmr); this.tmr = null; }
     this.s.score = 0; this.s.combo = 0; this.s.maxCombo = 0;
     this.s.level = 1;
     this.s.playing = false; this.s.paused = false;
@@ -371,7 +341,7 @@ class WordBlastGame {
     info.style.zIndex = '10';
     const mkS = (id, l, v, ic) => `<div class="wb-stat"><span class="wb-stat-icon">${ic}</span><div class="wb-stat-body"><span class="wb-stat-label">${l}</span><span class="wb-stat-val" id="${id}">${v}</span></div></div>`;
     info.innerHTML =
-      mkS('wb-time-remaining', tx('wbTime'), `${this.s.timeLeft}s/${this.s.timeLimit}s`, '⏱') +
+      mkS('wb-time-remaining', tx('wbTime'), '∞', '⏱') +
       mkS('wb-correct', tx('wbCorrect'), '0', '✅') +
       mkS('wb-wrong', tx('wbWrong'), '0', '❌') +
       mkS('wb-progress', tx('wbRemaining'), `${this.s.totalQuestions - this.s.currentIdx}`, '🎯');
@@ -683,26 +653,11 @@ class WordBlastGame {
 
   begin() {
     this.s.playing = true;
+    this.s.startedAt = Date.now();
     if (audioManager.audioContext && audioManager.audioContext.state === 'suspended') {
       audioManager.audioContext.resume();
     }
-    this.startTmr();
     this.updHUD();
-  }
-
-  startTmr() {
-    if (this.tmr) clearInterval(this.tmr);
-    this.tmr = setInterval(() => {
-      if (this.s.paused || !this.s.playing) return;
-      this.s.timeLeft--;
-      const el = document.getElementById('wb-time-remaining');
-      if (el) {
-        el.textContent = `${this.s.timeLeft}s/${this.s.timeLimit}s`;
-        if (this.s.timeLeft <= 10) el.style.color = '#FF6B6B';
-        else el.style.color = '';
-      }
-      if (this.s.timeLeft <= 0) this.endGame(false);
-    }, 1000);
   }
 
   nextLevel() {
@@ -711,10 +666,6 @@ class WordBlastGame {
     this.s.correctCount = 0;
     this.s.wrongCount = 0;
 
-    const wordCount = this.wordPool.length;
-    this.s.timeLimit = this.calcTimeForLevel(this.s.level, wordCount);
-    this.s.timeLeft = this.s.timeLimit;
-
     this.initQuestions();
     this.render();
     this.begin();
@@ -722,7 +673,6 @@ class WordBlastGame {
 
   endGame(won) {
     this.s.playing = false;
-    if (this.tmr) { clearInterval(this.tmr); this.tmr = null; }
     const c = document.getElementById('game-canvas-container');
     if (!c) return;
 
@@ -759,12 +709,12 @@ class WordBlastGame {
         btn.disabled = true;
         btn.classList.add('wb-btn-loading');
       });
-      const timeUsed = (this.s.timeLimit || 0) - (this.s.timeLeft || 0);
+      const timeUsed = this.s.startedAt ? Math.max(1, Math.round((Date.now() - this.s.startedAt) / 1000)) : 0;
       window.app.saveEnglishLeaderboard('wordblast', {
         score: this.s.correctCount || 0,
         level: this.s.level || 1,
         combo: this.s.wrongCount || 0,
-        time: timeUsed > 0 ? timeUsed : (this.s.timeLimit || 0),
+        time: timeUsed,
         grade: this.s.grade || 'all',
         unit: this.s.unit || 'all'
       }).finally(() => {
@@ -780,17 +730,10 @@ class WordBlastGame {
   // ─── HUD ───
   updHUD() {
     const se = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-    se('wb-time-remaining', `${this.s.timeLeft}s/${this.s.timeLimit}s`);
+    se('wb-time-remaining', '∞');
     se('wb-correct', this.s.correctCount);
     se('wb-wrong', this.s.wrongCount);
     se('wb-progress', `${this.s.totalQuestions - this.s.currentIdx}`);
-    
-    // 时间警告样式
-    const timeEl = document.getElementById('wb-time-remaining');
-    if (timeEl) {
-      if (this.s.timeLeft <= 10) timeEl.style.color = '#FF6B6B';
-      else timeEl.style.color = '';
-    }
   }
 
   // ─── 控制 ───

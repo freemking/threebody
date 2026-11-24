@@ -646,14 +646,14 @@
 .wf-detail h4 {
     margin: 0 0 7px;
     color: var(--primary-color);
-    font-size: 0.82rem;
+    font-size: calc(0.82rem + 2px);
     letter-spacing: 0.5px;
 }
 
 .wf-detail p,
 .wf-detail li {
     color: var(--light-text);
-    font-size: 0.9rem;
+    font-size: calc(0.9rem + 2px);
     line-height: 1.55;
 }
 
