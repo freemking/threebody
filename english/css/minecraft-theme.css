@@ -1162,8 +1162,7 @@ select:focus,
     background-size: 48px 48px;
 }
 
-/* 切换侧边栏 / 设置按钮 */
-.toggle-sidebar-btn,
+/* 设置按钮 */
 .settings-btn {
     background: var(--mc-stone);
     color: #fff;
@@ -1962,29 +1961,86 @@ a .mc-i,
     }
 }
 
-/* —— 平板 / 手机：记单词侧边栏改为抽屉 —— */
+/* —— 平板 / 手机：记单词侧边栏改为底部图标导航（无需切换按钮） —— */
 @media (max-width: 820px) {
-    .vocabulary-sidebar {
-        width: 264px;
-        transform: translateX(-100%);
-        box-shadow: 4px 0 0 rgba(0, 0, 0, 0.4);
+    :is(#vocabulary-screen, #phonetics-screen, #affixes-screen, #phrases-screen) .vocabulary-sidebar {
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        max-height: 72px;
+        flex-direction: row;
+        overflow: hidden;
+        border-right: none;
+        border-top: 4px solid var(--mc-outline);
+        box-shadow: 0 -4px 0 rgba(0, 0, 0, 0.4);
+        z-index: 120;
     }
 
-    .vocabulary-sidebar.mobile-open {
-        transform: none;
+    .vocabulary-sidebar .sidebar-header,
+    .vocabulary-sidebar .sidebar-footer {
+        display: none;
     }
 
-    .sidebar-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 99;
-        background: rgba(0, 0, 0, 0.55);
+    .vocabulary-sidebar .sidebar-nav {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 auto;
+        min-width: 0;
+        padding: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .vocabulary-sidebar .sidebar-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .vocabulary-sidebar .nav-section {
+        display: contents;
+    }
+
+    .vocabulary-sidebar .nav-section-title {
+        display: none;
+    }
+
+    .vocabulary-sidebar .nav-item {
+        flex: 1 1 0;
+        width: auto;
+        min-width: 0;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+        padding: 8px 2px;
+        font-size: 0.62rem;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+
+    .vocabulary-sidebar .nav-item.active {
+        border-right: none;
+        border-top: 3px solid var(--mc-grass-light);
+    }
+
+    .vocabulary-sidebar .nav-icon {
+        width: auto;
+        font-size: 1.15rem;
+        line-height: 1;
     }
 
     .vocabulary-main {
         margin-left: 0 !important;
         width: 100%;
         min-width: 0;
+    }
+
+    /* 底部导航不遮挡内容 */
+    #vocabulary-screen .vocabulary-content {
+        padding-bottom: 84px !important;
     }
 
     /* 顶部栏：自动换行，不再挤压 */
@@ -2016,7 +2072,6 @@ a .mc-i,
         font-size: 0.78rem;
     }
 
-    .toggle-sidebar-btn,
     .settings-btn {
         width: 40px;
         height: 40px;

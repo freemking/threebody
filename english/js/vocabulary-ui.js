@@ -35,13 +35,8 @@
                 item.onclick = async (e) => {
                     const module = e.currentTarget.dataset.module;
                     await this.switchVocabularyModule(module);
-                    if (typeof this.closeMobileSidebar === 'function') this.closeMobileSidebar();
                 };
             });
-
-            // 切换侧边栏按钮
-            const toggleBtn = document.getElementById('btn-toggle-sidebar');
-            if (toggleBtn) toggleBtn.onclick = () => this.toggleSidebar();
 
             // 设置按钮
             const settingsBtn = document.getElementById('btn-settings');

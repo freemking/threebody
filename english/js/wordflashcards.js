@@ -34,6 +34,181 @@
 
     const $ = id => document.getElementById(id);
 
+    /* ---------- 音节划分（启发式，用于正面展示） ---------- */
+    const SYLLABLE_VOWELS = 'aeiou';
+    // 二合字母：整体归到一个音节（mo-ther / teach-er）
+    const SYLLABLE_DIGRAPHS = new Set(['th', 'sh', 'ch', 'ph', 'wh', 'qu']);
+    // 可作音节开头的辅音组合，用于拆分三连及以上辅音（mon-ster / in-struct）
+    const SYLLABLE_ONSETS_2 = new Set([
+        'bl', 'br', 'cl', 'cr', 'dr', 'fl', 'fr', 'gl', 'gr', 'pl', 'pr',
+        'sc', 'sk', 'sl', 'sm', 'sn', 'sp', 'st', 'sw', 'tr', 'tw',
+        'th', 'sh', 'ch', 'ph', 'wh', 'qu'
+    ]);
+    const SYLLABLE_ONSETS_3 = new Set(['scr', 'spr', 'str', 'spl', 'shr', 'squ', 'thr', 'chr', 'phr']);
+
+    // 常见词尾后缀：单独成音节（hope-less / move-ment）
+    const SYLLABLE_SUFFIXES = [
+        'ation', 'ition', 'cious', 'tious', 'sion', 'tion', 'ture', 'sure',
+        'ment', 'ness', 'less', 'able', 'ible', 'ous', 'ful', 'ly'
+    ];
+    // 常见复合词词尾：先拆词根（home-work / note-book）
+    const SYLLABLE_COMPOUND_TAILS = [
+        'ground', 'berry', 'melon', 'paper', 'board', 'light', 'night',
+        'house', 'thing', 'work', 'book', 'room', 'side', 'time', 'land',
+        'mate', 'shop', 'cake', 'card', 'ball', 'body', 'noon', 'day',
+        'bag', 'box', 'one'
+    ];
+
+    function isSyllableVowel(word, index) {
+        const ch = word[index];
+        if (!ch) return false;
+        if (ch === 'u' && word[index - 1] === 'q') return false; // qu 中的 u 作辅音
+        if (SYLLABLE_VOWELS.includes(ch)) return true;
+        const prev = word[index - 1] || '';
+        if (ch === 'w') return Boolean(prev) && SYLLABLE_VOWELS.includes(prev); // ow / aw 双元音
+        if (ch === 'y') return Boolean(prev); // play / happy 的 y 作元音，词首作辅音
+        return false;
+    }
+
+    function collectVowelGroups(word) {
+        const groups = [];
+        let i = 0;
+        while (i < word.length) {
+            if (/[a-z]/.test(word[i]) && isSyllableVowel(word, i)) {
+                let j = i;
+                while (j + 1 < word.length && /[a-z]/.test(word[j + 1]) && isSyllableVowel(word, j + 1)) {
+                    if (word[j] === 'w' || word[j] === 'y') break; // flow-er / play-er / snow-y
+                    j += 1;
+                }
+                groups.push([i, j]);
+                i = j + 1;
+            } else {
+                i += 1;
+            }
+        }
+        return groups;
+    }
+
+    function splitByVowelGroups(word) {
+        if (word.length <= 3) return [word];
+        const groups = collectVowelGroups(word);
+        if (groups.length <= 1) return [word];
+
+        const cuts = [];
+        for (let i = 0; i < groups.length - 1; i += 1) {
+            const end = groups[i][1];
+            const nextStart = groups[i + 1][0];
+            const between = word.slice(end + 1, nextStart);
+            let cut;
+            if (!between.length) {
+                cut = nextStart;
+            } else if (between.length === 1) {
+                // 单个辅音：x 前开音节（ex-it），其余开音节后切（wa-ter）
+                cut = between === 'x' ? nextStart : end + 1;
+            } else if (between.length === 2) {
+                if (SYLLABLE_DIGRAPHS.has(between)) {
+                    // 前面是字母组合元音时整体归前（teach-er），否则归后（mo-ther）
+                    const groupWidth = groups[i][1] - groups[i][0] + 1;
+                    cut = groupWidth >= 2 ? nextStart : end + 1;
+                } else {
+                    cut = end + 2; // bas-ket / win-ter
+                }
+            } else if (between[0] === between[1]) {
+                cut = end + 3; // 双写辅音：class-mate
+            } else {
+                // 三连辅音：尽量让能作声母的组合进入下一音节
+                cut = 0;
+                for (let len = Math.min(3, between.length - 1); len >= 1; len -= 1) {
+                    const candidate = between.slice(-len);
+                    const valid = len === 1
+                        || (len === 2 && SYLLABLE_ONSETS_2.has(candidate))
+                        || (len === 3 && SYLLABLE_ONSETS_3.has(candidate));
+                    if (valid) {
+                        cut = nextStart - len;
+                        break;
+                    }
+                }
+                if (!cut) cut = end + 2;
+            }
+            if (!cuts.length || cut > cuts[cuts.length - 1]) cuts.push(cut);
+        }
+
+        const parts = [];
+        let start = 0;
+        cuts.forEach(cut => {
+            parts.push(word.slice(start, cut));
+            start = cut;
+        });
+        parts.push(word.slice(start));
+        return parts.filter(Boolean);
+    }
+
+    function appendToLastPart(parts, tail) {
+        if (!tail) return parts;
+        const last = parts.pop();
+        return parts.concat(last + tail);
+    }
+
+    function splitEnglishWord(lower) {
+        if (lower.length <= 3) return [lower];
+
+        // 复合词先拆词根（home-work / class-mate）
+        for (const tailWord of SYLLABLE_COMPOUND_TAILS) {
+            const stemLength = lower.length - tailWord.length;
+            if (stemLength >= 3 && lower.endsWith(tailWord)) {
+                return splitEnglishWord(lower.slice(0, stemLength)).concat(splitEnglishWord(tailWord));
+            }
+        }
+
+        // 后缀自成音节（hope-less / bea-ti-ful / sta-tion）
+        for (const suffix of SYLLABLE_SUFFIXES) {
+            const stemLength = lower.length - suffix.length;
+            if (stemLength >= 3 && lower.endsWith(suffix)) {
+                return splitEnglishWord(lower.slice(0, stemLength)).concat(splitEnglishWord(suffix));
+            }
+        }
+
+        // 词尾 -le：辅音 + le 自成音节（ta-ble / lit-tle）
+        if (/([bcdfgklmnprstvz])le$/.test(lower) && lower.length >= 5) {
+            return splitByVowelGroups(lower.slice(0, lower.length - 3)).concat(lower.slice(-3));
+        }
+
+        let core = lower;
+        let tail = '';
+        if (/[^td]ed$/.test(lower) && lower.length >= 5) {
+            // played / opened：ed 不单独成音节
+            core = lower.slice(0, -2);
+            tail = lower.slice(-2);
+        } else if (/([^aeiou])es$/.test(lower) && lower.length >= 5) {
+            // watches / likes：es 并入前一音节，拆分的辅音规则会处理
+            core = lower.slice(0, -2);
+            tail = lower.slice(-2);
+        } else if (/([^aeiou])e$/.test(lower) && lower.length >= 4) {
+            // 词尾不发音的 e（make / compute）
+            core = lower.slice(0, -1);
+            tail = lower.slice(-1);
+        }
+
+        return appendToLastPart(splitByVowelGroups(core), tail);
+    }
+
+    // 返回带音节分隔符的文本，如 com·put·er；短语按空格/连字符分段
+    function syllableText(word) {
+        return String(word || '')
+            .split(/([^A-Za-z']+)/)
+            .map(token => {
+                if (!/^[A-Za-z']+$/.test(token)) return token;
+                const parts = splitEnglishWord(token.toLowerCase());
+                let offset = 0;
+                return parts.map(part => {
+                    const segment = token.slice(offset, offset + part.length);
+                    offset += part.length;
+                    return segment;
+                }).join('·');
+            })
+            .join('');
+    }
+
     function loadMastered() {
         try {
             return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') || {};
@@ -504,6 +679,8 @@
         $('wf-front-meta').textContent = `${gradeLabel(state.grade)} · ${unitLabel(word.unit)} · ${word.category || '词汇'}`;
         $('wf-word').textContent = word.word || '';
         $('wf-phonetic').textContent = word.phonetic || '';
+        $('wf-syllables').textContent = syllableText(word.word);
+        $('wf-syllable-row').classList.toggle('hidden', !$('wf-syllables').textContent);
         $('wf-meaning').textContent = word.meaning || '暂无释义';
         $('wf-details').innerHTML = buildDetails(word);
 

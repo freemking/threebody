@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wordflashcards.css?v=20261122h">
+    <link rel="stylesheet" href="css/wordflashcards.css?v=20261124a">
     <link rel="stylesheet" href="css/wordblast.css?v=20261122f">
     <link rel="stylesheet" href="css/minecraft-theme.css?v=20261123af">
 
@@ -126,14 +126,18 @@
                                     <span id="wf-phonetic" class="wf-phonetic"></span>
                                     <button id="wf-speak-front" class="wf-speak-btn" type="button">🔊 发音</button>
                                 </div>
-                                <div class="wf-hint">点击卡片查看释义与用法</div>
+                                <div id="wf-syllable-row" class="wf-syllables">
+                                    <span class="wf-syllables-label">音节</span>
+                                    <span id="wf-syllables" class="wf-syllables-value"></span>
+                                </div>
+                                <div id="wf-meaning" class="wf-meaning"></div>
+                                <div class="wf-hint">点击卡片查看例句与用法</div>
                             </div>
                             <div class="wf-face wf-back">
                                 <div class="wf-back-top">
-                                    <span class="wf-face-meta">释义与用法</span>
+                                    <span class="wf-face-meta">例句与用法</span>
                                     <button id="wf-speak-back" class="wf-speak-btn" type="button">🔊 再听一次</button>
                                 </div>
-                                <div id="wf-meaning" class="wf-meaning"></div>
                                 <div id="wf-details" class="wf-details"></div>
                                 <div class="wf-hint">再次点击翻回正面</div>
                             </div>
@@ -189,7 +193,7 @@
     <script src="js/audio.js"></script>
     <script src="js/wrongbook.js"></script>
     <script src="js/wordblast.js?v=20261122f"></script>
-    <script src="js/wordflashcards.js?v=20261122i"></script>
+    <script src="js/wordflashcards.js?v=20261124a"></script>
     <script src="js/mc-icons.js?v=20261123c"></script>
 </body>
 </html>

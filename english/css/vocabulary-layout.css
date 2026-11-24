@@ -1,8 +1,7 @@
 /* === 记单词三栏布局系统 === */
 
 .vocabulary-layout { display:flex; min-height:100vh; }
-.vocabulary-sidebar { width:260px; background:rgba(var(--vb-surface-rgb), .95); border-right:1px solid var(--vb-border); display:flex; flex-direction:column; position:fixed; top:0; left:0; bottom:0; z-index:100; transition:transform var(--vb-transition-normal); backdrop-filter:blur(10px); }
-.vocabulary-sidebar.collapsed { transform:translateX(-100%); }
+.vocabulary-sidebar { width:260px; background:rgba(var(--vb-surface-rgb), .95); border-right:1px solid var(--vb-border); display:flex; flex-direction:column; position:fixed; top:0; left:0; bottom:0; z-index:100; backdrop-filter:blur(10px); }
 .sidebar-header { padding:var(--vb-space-lg); border-bottom:1px solid var(--vb-border); display:flex; align-items:center; gap:var(--vb-space-md); }
 .sidebar-title { font-size:1.2rem; font-weight:700; color:var(--vb-text-primary); }
 .sidebar-nav { flex:1; padding:var(--vb-space-lg) 0; overflow-y:auto; }
@@ -17,14 +16,13 @@
 .level-icon { font-size:1.2rem; }
 
 /* 主内容区 */
-.vocabulary-main { flex:1; margin-left:260px; display:flex; flex-direction:column; min-height:100vh; transition:margin-left var(--vb-transition-normal); }
-.vocabulary-sidebar.collapsed~.vocabulary-main { margin-left:0; }
+.vocabulary-main { flex:1; margin-left:260px; display:flex; flex-direction:column; min-height:100vh; }
 
 /* 顶部状态栏 */
 .vocabulary-header { display:flex; align-items:center; justify-content:space-between; padding:var(--vb-space-md) var(--vb-space-xl); background:rgba(var(--vb-surface-rgb), .9); border-bottom:1px solid var(--vb-border); top:0; z-index:50; backdrop-filter:blur(10px); will-change:transform; transform:translateZ(0); }
 .header-left { display:flex; align-items:center; gap:var(--vb-space-md); }
-.toggle-sidebar-btn, .settings-btn { background:transparent; border:none; color:var(--vb-text-secondary); font-size:1.2rem; cursor:pointer; padding:var(--vb-space-sm); border-radius:var(--vb-radius-sm); transition:all var(--vb-transition-fast); }
-.toggle-sidebar-btn:hover, .settings-btn:hover { background:rgba(var(--vb-primary-rgb), .1); color:var(--vb-text-primary); }
+.settings-btn { background:transparent; border:none; color:var(--vb-text-secondary); font-size:1.2rem; cursor:pointer; padding:var(--vb-space-sm); border-radius:var(--vb-radius-sm); transition:all var(--vb-transition-fast); }
+.settings-btn:hover { background:rgba(var(--vb-primary-rgb), .1); color:var(--vb-text-primary); }
 .header-title { font-size:1.3rem; font-weight:700; color:var(--vb-text-primary); margin:30px 0; line-height:1; }
 /* 覆盖全局霓虹渐变标题，保持明亮主题下文字清晰易读 */
 #vocabulary-screen.ui-screen { box-shadow:var(--vb-shadow-hover); }

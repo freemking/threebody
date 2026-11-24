@@ -1340,13 +1340,6 @@ class App {
      * 处理键盘按键 - 全局快捷键体系
      */
     handleKeyPress(e) {
-        // Ctrl+B: 收起/展开侧边栏
-        if (e.ctrlKey && e.key === 'b') {
-            e.preventDefault();
-            this.toggleSidebar();
-            return;
-        }
-        
         // 训练模式中的快捷键
         if (this.trainingMode) {
             this.handleTrainingKeyPress(e);
@@ -1440,50 +1433,6 @@ class App {
                 this.exitDictation();
                 break;
         }
-    }
-    
-    /**
-     * 切换侧边栏
-     */
-    toggleSidebar() {
-        const sidebar = document.getElementById('vocabulary-sidebar');
-        if (!sidebar) return;
-
-        // 小屏：侧边栏改为抽屉，用 mobile-open 控制显隐
-        if (window.matchMedia('(max-width: 820px)').matches) {
-            this.setSidebarOverlay(!sidebar.classList.contains('mobile-open'));
-            sidebar.classList.toggle('mobile-open');
-            return;
-        }
-
-        sidebar.classList.toggle('collapsed');
-    }
-
-    /**
-     * 小屏抽屉遮罩
-     */
-    setSidebarOverlay(show) {
-        let overlay = document.querySelector('.sidebar-overlay');
-        if (show) {
-            if (!overlay) {
-                overlay = document.createElement('div');
-                overlay.className = 'sidebar-overlay';
-                overlay.addEventListener('click', () => this.closeMobileSidebar());
-                document.body.appendChild(overlay);
-            }
-        } else if (overlay) {
-            overlay.remove();
-        }
-    }
-
-    /**
-     * 关闭小屏侧边栏抽屉
-     */
-    closeMobileSidebar() {
-        if (!window.matchMedia('(max-width: 820px)').matches) return;
-        const sidebar = document.getElementById('vocabulary-sidebar');
-        if (sidebar) sidebar.classList.remove('mobile-open');
-        this.setSidebarOverlay(false);
     }
     
     /**
