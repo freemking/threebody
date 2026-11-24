@@ -31,3 +31,4 @@ generated-images/
 # Temporary files
 *.tmp
 *.bak
+.playwright-cli
