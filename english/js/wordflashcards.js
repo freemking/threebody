@@ -11,6 +11,7 @@
     const DAILY_STORAGE_KEY = 'starEnglish.flashcards.daily.v1';
     const SETTINGS_KEY = 'vocabulary_settings';
     const GRADES = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const DAILY_TARGETS = [5, 10, 15, 20];
 
     const initialProgress = wordData.getSchoolProgress();
 
@@ -246,15 +247,21 @@
         return todayStr(date);
     }
 
+    function normalizeTarget(value) {
+        const number = Number(value);
+        if (!Number.isFinite(number)) return DAILY_TARGETS[0];
+        return DAILY_TARGETS.find(target => target >= number) || DAILY_TARGETS[DAILY_TARGETS.length - 1];
+    }
+
     function getConfiguredTarget() {
         try {
             const raw = localStorage.getItem(SETTINGS_KEY);
-            const value = raw ? parseInt(JSON.parse(raw).dailyWordCount, 10) : 5;
-            if (!Number.isNaN(value)) return Math.min(10, Math.max(5, value));
+            const value = raw ? parseInt(JSON.parse(raw).dailyWordCount, 10) : DAILY_TARGETS[0];
+            if (!Number.isNaN(value)) return normalizeTarget(value);
         } catch (error) {
             console.warn('读取每日目标失败:', error);
         }
-        return 5;
+        return DAILY_TARGETS[0];
     }
 
     function saveConfiguredTarget(target) {
@@ -307,7 +314,7 @@
         }
 
         record.studiedKeys = Array.isArray(record.studiedKeys) ? record.studiedKeys : [];
-        record.target = record.target || getConfiguredTarget();
+        record.target = normalizeTarget(record.target || getConfiguredTarget());
         return record;
     }
 

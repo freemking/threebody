@@ -66,7 +66,7 @@ class Vocabulary {
     }
 
     /**
-     * 读取每天学习单词数量设置（默认 5，范围 5~10）
+     * 读取每天学习单词数量设置（默认 5，范围 5~20）
      */
     _getDailyWordCount() {
         let count = 5;
@@ -78,7 +78,7 @@ class Vocabulary {
                 if (!Number.isNaN(value)) count = value;
             }
         } catch (e) { /* 忽略读取失败 */ }
-        return Math.min(10, Math.max(5, count));
+        return Math.min(20, Math.max(5, count));
     }
 
     /**

@@ -97,7 +97,7 @@
             if (progressStyle) progressStyle.value = s.progressStyle || 'default';
 
             // 每天学习单词数量
-            const dailyCount = Math.min(10, Math.max(5, Number(s.dailyWordCount) || 5));
+            const dailyCount = Math.min(20, Math.max(5, Number(s.dailyWordCount) || 5));
             const dailySlider = document.getElementById('daily-word-count');
             const dailyValue = document.getElementById('daily-word-count-value');
             if (dailySlider) dailySlider.value = String(dailyCount);
