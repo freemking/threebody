@@ -34,7 +34,7 @@
 
     const $ = id => document.getElementById(id);
 
-    /* ---------- 音节划分（启发式，用于正面展示） ---------- */
+    /* ---------- 音节划分（从后往前、一元一辅，用于正面拼读展示） ---------- */
     const SYLLABLE_VOWELS = 'aeiou';
     // 二合字母：整体归到一个音节（mo-ther / teach-er）
     const SYLLABLE_DIGRAPHS = new Set(['th', 'sh', 'ch', 'ph', 'wh', 'qu']);
@@ -89,57 +89,53 @@
         return groups;
     }
 
+    // 每个音节取多少个辅音作“声母”：从后往前看两个元音之间的辅音簇
+    function pickOnsetLength(between, prevGroup) {
+        const count = between.length;
+        if (!count) return 0;
+        if (count === 1) return 1; // wa-ter / ex-it
+        if (count === 2) {
+            if (between === 'ck') return 0; // pock-et
+            if (SYLLABLE_DIGRAPHS.has(between)) {
+                // 前一个音节是字母组合元音时整体归前（teach-er），否则作后一音节声母（mo-ther）
+                const width = prevGroup[1] - prevGroup[0] + 1;
+                return width >= 2 ? 0 : 2;
+            }
+            return 1; // bas-ket / win-ter
+        }
+        // 三连及以上辅音：尽量让能作声母的组合进入后一个音节（mon-ster / in-struct）
+        for (let len = Math.min(3, count - 1); len >= 1; len -= 1) {
+            const candidate = between.slice(-len);
+            if (len === 1
+                || (len === 2 && SYLLABLE_ONSETS_2.has(candidate))
+                || (len === 3 && SYLLABLE_ONSETS_3.has(candidate))) {
+                return len;
+            }
+        }
+        return 1;
+    }
+
+    // 从后往前、一元一辅切分：先定最后一个音节，再逐个向左补“声母”，
+    // 例如 computer → com-pu-ter、banana → ba-na-na、music → mu-sic
     function splitByVowelGroups(word) {
         if (word.length <= 3) return [word];
         const groups = collectVowelGroups(word);
         if (groups.length <= 1) return [word];
 
-        const cuts = [];
-        for (let i = 0; i < groups.length - 1; i += 1) {
-            const end = groups[i][1];
-            const nextStart = groups[i + 1][0];
-            const between = word.slice(end + 1, nextStart);
-            let cut;
-            if (!between.length) {
-                cut = nextStart;
-            } else if (between.length === 1) {
-                // 单个辅音：x 前开音节（ex-it），其余开音节后切（wa-ter）
-                cut = between === 'x' ? nextStart : end + 1;
-            } else if (between.length === 2) {
-                if (SYLLABLE_DIGRAPHS.has(between)) {
-                    // 前面是字母组合元音时整体归前（teach-er），否则归后（mo-ther）
-                    const groupWidth = groups[i][1] - groups[i][0] + 1;
-                    cut = groupWidth >= 2 ? nextStart : end + 1;
-                } else {
-                    cut = end + 2; // bas-ket / win-ter
-                }
-            } else if (between[0] === between[1]) {
-                cut = end + 3; // 双写辅音：class-mate
-            } else {
-                // 三连辅音：尽量让能作声母的组合进入下一音节
-                cut = 0;
-                for (let len = Math.min(3, between.length - 1); len >= 1; len -= 1) {
-                    const candidate = between.slice(-len);
-                    const valid = len === 1
-                        || (len === 2 && SYLLABLE_ONSETS_2.has(candidate))
-                        || (len === 3 && SYLLABLE_ONSETS_3.has(candidate));
-                    if (valid) {
-                        cut = nextStart - len;
-                        break;
-                    }
-                }
-                if (!cut) cut = end + 2;
-            }
-            if (!cuts.length || cut > cuts[cuts.length - 1]) cuts.push(cut);
+        const starts = new Array(groups.length);
+        starts[0] = 0;
+        for (let i = groups.length - 1; i >= 1; i -= 1) {
+            const prevEnd = groups[i - 1][1];
+            const nucleusStart = groups[i][0];
+            const between = word.slice(prevEnd + 1, nucleusStart);
+            starts[i] = nucleusStart - pickOnsetLength(between, groups[i - 1]);
         }
 
         const parts = [];
-        let start = 0;
-        cuts.forEach(cut => {
-            parts.push(word.slice(start, cut));
-            start = cut;
-        });
-        parts.push(word.slice(start));
+        for (let i = 0; i < starts.length; i += 1) {
+            const end = i + 1 < starts.length ? starts[i + 1] : word.length;
+            parts.push(word.slice(starts[i], end));
+        }
         return parts.filter(Boolean);
     }
 
@@ -175,13 +171,16 @@
 
         let core = lower;
         let tail = '';
-        if (/[^td]ed$/.test(lower) && lower.length >= 5) {
+        if (/[^td]ed$/.test(lower) && lower.length >= 5 && !/[^aeiou]r$/.test(lower.slice(0, -2))) {
             // played / opened：ed 不单独成音节
             core = lower.slice(0, -2);
             tail = lower.slice(-2);
         } else if (/([^aeiou])es$/.test(lower) && lower.length >= 5) {
-            // watches / likes：es 并入前一音节，拆分的辅音规则会处理
+            // likes / makes：es 并入前一音节；watches / boxes：es 自成音节
             core = lower.slice(0, -2);
+            if (/(?:s|x|z|ch|sh|c|g)$/.test(core)) {
+                return splitEnglishWord(core).concat(lower.slice(-2));
+            }
             tail = lower.slice(-2);
         } else if (/([^aeiou])e$/.test(lower) && lower.length >= 4) {
             // 词尾不发音的 e（make / compute）
@@ -192,7 +191,7 @@
         return appendToLastPart(splitByVowelGroups(core), tail);
     }
 
-    // 返回带音节分隔符的文本，如 com·put·er；短语按空格/连字符分段
+    // 返回带音节分隔符的文本，如 com/pu/ter；短语按空格/连字符分段
     function syllableText(word) {
         return String(word || '')
             .split(/([^A-Za-z']+)/)
@@ -204,7 +203,7 @@
                     const segment = token.slice(offset, offset + part.length);
                     offset += part.length;
                     return segment;
-                }).join('·');
+                }).join('/');
             })
             .join('');
     }

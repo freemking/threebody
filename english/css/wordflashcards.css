@@ -409,7 +409,7 @@
 .wf-phonetic {
     font-family: var(--font-mono);
     color: var(--light-text);
-    font-size: 1rem;
+    font-size: 1.125rem;
 }
 
 .wf-syllables {
@@ -421,21 +421,10 @@
     margin-top: 12px;
 }
 
-.wf-syllables-label {
-    padding: 3px 10px;
-    border-radius: var(--border-radius-full);
-    background: rgba(0, 255, 255, 0.09);
-    border: 1px solid rgba(0, 255, 255, 0.24);
-    color: var(--primary-color);
-    font-size: 0.74rem;
-    font-weight: 700;
-    line-height: 1.4;
-}
-
 .wf-syllables-value {
     font-family: var(--font-mono);
-    font-size: 1.05rem;
-    letter-spacing: 0.06em;
+    font-size: 1.3rem;
+    letter-spacing: 0.04em;
     color: var(--text-color);
     word-break: break-word;
 }
@@ -474,7 +463,7 @@
 .wf-meaning {
     margin: 10px 0 12px;
     color: var(--accent-color);
-    font-size: 1.55rem;
+    font-size: 1.675rem;
     font-weight: 800;
     text-shadow: 0 0 16px rgba(251, 191, 36, 0.25);
 }
@@ -482,7 +471,7 @@
 /* 释义已移到正面：音节下方居中展示 */
 .wf-front .wf-meaning {
     margin: 14px 0 0;
-    font-size: 1.3rem;
+    font-size: 1.425rem;
     line-height: 1.45;
 }
 
@@ -736,15 +725,15 @@
     }
 
     .wf-meaning {
-        font-size: 1.25rem;
+        font-size: 1.375rem;
     }
 
     .wf-front .wf-meaning {
-        font-size: 1.1rem;
+        font-size: 1.225rem;
     }
 
     .wf-syllables-value {
-        font-size: 0.95rem;
+        font-size: 1.2rem;
     }
 
     .wf-controls {
