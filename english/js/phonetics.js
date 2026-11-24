@@ -16,7 +16,7 @@ const PH_SUBTYPE_ORDER = {
 };
 
 async function loadPhoneticsData() {
-    const response = await fetch('data/phonetics.json?v=20261124a');
+    const response = await fetch('data/phonetics.json?v=20261124b');
     if (!response.ok) throw new Error('音标数据加载失败: ' + response.status);
     return response.json();
 }
@@ -64,7 +64,7 @@ function renderPhoneticCard(item) {
         '<div class="ph-card' + (isVowel ? '' : ' consonant') + '">' +
             '<div class="ph-card-head">' +
                 '<div class="ph-symbol">' + escapeHtml(item.symbol) + '</div>' +
-                '<button class="ph-speak" data-cn="' + escapeHtml(item.cn || '') + '" title="发音标（中文近似音）" aria-label="发音标 ' + escapeHtml(item.symbol || '') + '">🔊</button>' +
+                '<button class="ph-speak" data-audio="' + escapeHtml(item.audio || '') + '" data-cn="' + escapeHtml(item.cn || '') + '" title="发音标（标准发音）" aria-label="发音标 ' + escapeHtml(item.symbol || '') + '">🔊</button>' +
             '</div>' +
             '<div class="ph-cn">' +
                 '<span class="ph-cn-main">' + escapeHtml(item.cn) + '</span>' + note +
@@ -160,6 +160,29 @@ function speakPhoneticSound(cn) {
     speakText(text, 'zh-CN', 0.75);
 }
 
+let currentPhoneticAudio = null;
+
+function playPhoneticAudio(audioFile, cn) {
+    if (!audioFile || typeof Audio === 'undefined') {
+        speakPhoneticSound(cn);
+        return;
+    }
+    if (currentPhoneticAudio) {
+        currentPhoneticAudio.pause();
+        currentPhoneticAudio.currentTime = 0;
+    }
+    try {
+        const audio = new Audio('data/phonetics-audio/' + audioFile);
+        currentPhoneticAudio = audio;
+        // 音频缺失时回退到中文近似音，仅作辅助
+        audio.play().catch(() => {
+            if (currentPhoneticAudio === audio) speakPhoneticSound(cn);
+        });
+    } catch (err) {
+        speakPhoneticSound(cn);
+    }
+}
+
 function speakExampleWord(word) {
     speakText(word, 'en-US', 0.8);
 }
@@ -211,7 +234,7 @@ function bindPhoneticEvents() {
         body.addEventListener('click', (e) => {
             const phoneticBtn = e.target.closest('.ph-speak');
             if (phoneticBtn) {
-                speakPhoneticSound(phoneticBtn.dataset.cn);
+                playPhoneticAudio(phoneticBtn.dataset.audio, phoneticBtn.dataset.cn);
                 return;
             }
             const wordBtn = e.target.closest('.ph-speak-word');
