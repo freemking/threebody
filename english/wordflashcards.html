@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.cn/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/wordflashcards.css?v=20261124b">
+    <link rel="stylesheet" href="css/wordflashcards.css?v=20261124c">
     <link rel="stylesheet" href="css/wordblast.css?v=20261122f">
     <link rel="stylesheet" href="css/minecraft-theme.css?v=20261123af">
 
@@ -29,6 +29,23 @@
             </header>
 
             <section id="wf-setup" class="wf-panel">
+                <div class="wf-section wf-search-section">
+                    <div class="wf-section-title">
+                        <span>🔍</span>
+                        <h2>搜索单词</h2>
+                    </div>
+                    <div class="wf-search-box">
+                        <span class="wf-search-icon" aria-hidden="true">🔍</span>
+                        <input id="wf-search-input" type="search" autocomplete="off" spellcheck="false"
+                               placeholder="搜索全部年级：英文单词 / 中文释义 / 音标 / 例句…"
+                               aria-label="搜索全部单词">
+                        <button id="wf-search-clear" class="wf-search-clear" type="button" aria-label="清空搜索">✕</button>
+                    </div>
+                    <div id="wf-search-summary" class="wf-search-summary">输入关键词，可在 1-9 年级全部单词中搜索</div>
+                    <div id="wf-search-results" class="wf-search-results hidden"></div>
+                    <p id="wf-search-empty" class="wf-empty hidden"></p>
+                </div>
+
                 <div class="wf-section">
                     <div class="wf-section-title">
                         <span>🎯</span>
@@ -103,9 +120,10 @@
             <section id="wf-study" class="wf-study hidden">
                 <div class="wf-study-header">
                     <button id="wf-back-setup" class="wf-secondary-btn" type="button">← 重新选择</button>
+                    <button id="wf-study-search" class="wf-secondary-btn" type="button">🔍 搜索单词</button>
                     <div class="wf-progress-wrap">
                         <div class="wf-progress-meta">
-                            <span id="wf-progress-label">—</span>
+                            <span id="wf-progress-label" class="wf-progress-label">—</span>
                             <span id="wf-progress-text">0 / 0</span>
                         </div>
                         <div class="wf-progress-bar">
@@ -154,7 +172,7 @@
 
                 <div id="wf-hint-message" class="wf-hint-message hidden"></div>
 
-                <p class="wf-keyboard-tip">快捷键：← / → 切换单词，空格键翻转卡片</p>
+                <p class="wf-keyboard-tip">快捷键：← / → 切换单词，空格键翻转卡片；选择页按 / 快速搜索</p>
 
                 <div id="wf-summary" class="wf-summary hidden">
                     <div class="wf-summary-icon">🎉</div>
@@ -192,7 +210,7 @@
     <script src="js/audio.js"></script>
     <script src="js/wrongbook.js"></script>
     <script src="js/wordblast.js?v=20261122f"></script>
-    <script src="js/wordflashcards.js?v=20261124c"></script>
+    <script src="js/wordflashcards.js?v=20261124d"></script>
     <script src="js/mc-icons.js?v=20261123c"></script>
 </body>
 </html>

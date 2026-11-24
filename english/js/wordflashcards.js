@@ -29,10 +29,18 @@
         daily: loadDaily(),
         speakToken: 0,
         hintTimer: null,
-        blastStarted: false
+        blastStarted: false,
+        searchActive: false,
+        searchQuery: '',
+        searchResults: [],
+        searchVisible: [],
+        modeBeforeSearch: 'daily'
     };
 
     const $ = id => document.getElementById(id);
+    const SEARCH_RESULT_LIMIT = 80;
+    let allWordsCache = null;
+    let searchTimer = null;
 
     /* ---------- 音节划分（从后往前、一元一辅，用于正面拼读展示） ---------- */
     const SYLLABLE_VOWELS = 'aeiou';
@@ -350,6 +358,112 @@
         return safeText.replace(regex, match => `<mark class="wf-word-highlight">${match}</mark>`);
     }
 
+    /* ---------- 全词库搜索 ---------- */
+    function getAllWords() {
+        if (allWordsCache) return allWordsCache;
+        const result = [];
+        GRADES.forEach(grade => {
+            (wordData.getWordsByGrade(grade) || []).forEach(word => {
+                result.push(Object.assign({}, word, { _grade: grade }));
+            });
+        });
+        allWordsCache = result;
+        return result;
+    }
+
+    function highlightQuery(text, query) {
+        const safe = escapeHtml(text == null ? '' : text);
+        if (!query) return safe;
+        const pattern = escapeHtml(query).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return safe.replace(new RegExp(pattern, 'gi'), match => `<mark class="wf-search-mark">${match}</mark>`);
+    }
+
+    function scoreWord(word, query, lowerQuery) {
+        const name = String(word.word || '').toLowerCase();
+        if (name === lowerQuery) return 100;
+        if (name.startsWith(lowerQuery)) return 80;
+        if (name.includes(lowerQuery)) return 60;
+        if (String(word.meaning || '').includes(query)) return 50;
+        if (String(word.category || '').includes(query)) return 40;
+        if (String(word.phonetic || '').toLowerCase().includes(lowerQuery)) return 30;
+        if (String(word.example || '').toLowerCase().includes(lowerQuery)) return 20;
+        if (String(word.explain || '').toLowerCase().includes(lowerQuery)) return 10;
+        return 0;
+    }
+
+    function runSearch(query) {
+        const summary = $('wf-search-summary');
+        const resultsBox = $('wf-search-results');
+        const emptyBox = $('wf-search-empty');
+        const trimmed = (query || '').trim();
+        state.searchQuery = trimmed;
+
+        if (!trimmed) {
+            state.searchResults = [];
+            state.searchVisible = [];
+            resultsBox.innerHTML = '';
+            resultsBox.classList.add('hidden');
+            emptyBox.classList.add('hidden');
+            summary.textContent = '输入关键词，可在 1-9 年级全部单词中搜索';
+            return;
+        }
+
+        const lowerQuery = trimmed.toLowerCase();
+        const matches = [];
+        getAllWords().forEach(word => {
+            const score = scoreWord(word, trimmed, lowerQuery);
+            if (score > 0) matches.push({ word, score });
+        });
+        matches.sort((a, b) => b.score - a.score
+            || a.word._grade - b.word._grade
+            || (a.word.unit || 0) - (b.word.unit || 0)
+            || String(a.word.word).localeCompare(String(b.word.word)));
+
+        state.searchResults = matches.map(item => item.word);
+        state.searchVisible = state.searchResults.slice(0, SEARCH_RESULT_LIMIT);
+
+        if (!state.searchResults.length) {
+            resultsBox.innerHTML = '';
+            resultsBox.classList.add('hidden');
+            emptyBox.textContent = `没有找到与「${trimmed}」匹配的单词，试试其他关键词。`;
+            emptyBox.classList.remove('hidden');
+            summary.textContent = '未找到匹配单词';
+            return;
+        }
+
+        emptyBox.classList.add('hidden');
+        summary.textContent = `找到 ${state.searchResults.length} 个匹配单词（搜索范围：1-9 年级全部单词），点击结果即可翻卡复习`;
+        resultsBox.innerHTML = state.searchVisible.map((word, index) => `
+            <button type="button" class="wf-search-item" data-search-index="${index}">
+                <span class="wf-search-item-word">
+                    <strong>${highlightQuery(word.word, trimmed)}</strong>
+                    <span class="wf-search-item-phonetic">${escapeHtml(word.phonetic || '')}</span>
+                </span>
+                <span class="wf-search-item-meaning">${highlightQuery(word.meaning || '暂无释义', trimmed)}</span>
+                <span class="wf-search-item-meta">${word._grade} 年级 · ${unitLabel(word.unit)}</span>
+            </button>
+        `).join('') + (state.searchResults.length > state.searchVisible.length
+            ? `<div class="wf-search-more">仅显示前 ${SEARCH_RESULT_LIMIT} 条，点击任一结果可依次复习全部 ${state.searchResults.length} 个匹配单词</div>`
+            : '');
+        resultsBox.classList.remove('hidden');
+    }
+
+    function startSearchStudy(index) {
+        const word = state.searchVisible[index];
+        if (!word || !state.searchResults.length) return;
+        stopSpeaking();
+        if (!state.searchActive) state.modeBeforeSearch = state.mode;
+        state.searchActive = true;
+        state.mode = 'free';
+        state.words = state.searchResults.slice();
+        state.index = Math.max(0, state.words.indexOf(word));
+        state.blastStarted = false;
+        $('wf-setup').classList.add('hidden');
+        $('wf-study').classList.remove('hidden');
+        renderMode();
+        renderCard();
+    }
+
     function wordKey(word) {
         return word.id || `${word.word}-${word.unit || ''}`;
     }
@@ -628,7 +742,7 @@
                 phonetic: word.phonetic || '',
                 example: word.example || '',
                 rootAffix: word.rootAffix || '',
-                grade: state.grade === 'all' ? '' : String(state.grade),
+                grade: word._grade ? String(word._grade) : (state.grade === 'all' ? '' : String(state.grade)),
                 from: 'flashcards',
                 errorType: 'all'
             });
@@ -655,7 +769,9 @@
         const current = total ? state.index + 1 : 0;
         $('wf-progress-text').textContent = `${current} / ${total}`;
         $('wf-progress-fill').style.width = `${total ? (current / total) * 100 : 0}%`;
-        $('wf-progress-label').textContent = `${gradeLabel(state.grade)} · ${unitLabel(state.unit)}`;
+        $('wf-progress-label').textContent = state.searchActive
+            ? `搜索「${state.searchQuery}」· 共 ${state.words.length} 词`
+            : `${gradeLabel(state.grade)} · ${unitLabel(state.unit)}`;
         updateMasteredCount();
         updateDailyUI();
     }
@@ -675,7 +791,8 @@
         $('wf-card-wrap').classList.remove('hidden');
         $('wf-controls').classList.remove('hidden');
 
-        $('wf-front-meta').textContent = `${gradeLabel(state.grade)} · ${unitLabel(word.unit)} · ${word.category || '词汇'}`;
+        const wordGrade = word._grade ? `${word._grade} 年级` : gradeLabel(state.grade);
+        $('wf-front-meta').textContent = `${wordGrade} · ${unitLabel(word.unit)} · ${word.category || '词汇'}`;
         $('wf-word').textContent = word.word || '';
         $('wf-phonetic').textContent = word.phonetic || '';
         $('wf-syllables').textContent = syllableText(word.word);
@@ -769,7 +886,7 @@
 
     function showSummary() {
         stopSpeaking();
-        if (state.words.length && !state.blastStarted) {
+        if (state.words.length && !state.blastStarted && !state.searchActive) {
             startBlastPhase();
             return;
         }
@@ -824,6 +941,11 @@
     function backToSetup() {
         stopSpeaking();
         state.blastStarted = false;
+        if (state.searchActive) {
+            state.searchActive = false;
+            state.mode = state.modeBeforeSearch;
+            renderMode();
+        }
         $('wf-study').classList.add('hidden');
         $('wf-setup').classList.remove('hidden');
         renderCount();
@@ -927,6 +1049,27 @@
         $('wf-add-wrong').addEventListener('click', addCurrentToWrongBook);
         $('wf-reset-mastered').addEventListener('click', clearMastered);
 
+        const searchInput = $('wf-search-input');
+        searchInput.addEventListener('input', () => {
+            window.clearTimeout(searchTimer);
+            searchTimer = window.setTimeout(() => runSearch(searchInput.value), 120);
+        });
+        $('wf-search-clear').addEventListener('click', () => {
+            searchInput.value = '';
+            window.clearTimeout(searchTimer);
+            runSearch('');
+            searchInput.focus();
+        });
+        $('wf-search-results').addEventListener('click', event => {
+            const button = event.target.closest('[data-search-index]');
+            if (button) startSearchStudy(parseInt(button.dataset.searchIndex, 10));
+        });
+        $('wf-study-search').addEventListener('click', () => {
+            backToSetup();
+            searchInput.focus();
+            searchInput.select();
+        });
+
         $('wf-speak-front').addEventListener('click', event => {
             event.stopPropagation();
             const word = currentWord();
@@ -939,9 +1082,21 @@
         });
 
         document.addEventListener('keydown', event => {
+            const inField = ['INPUT', 'TEXTAREA'].includes(event.target.tagName);
+            if (event.key === '/' && !inField && !$('wf-setup').classList.contains('hidden')) {
+                event.preventDefault();
+                searchInput.focus();
+                return;
+            }
+            if (event.key === 'Escape' && event.target === searchInput) {
+                searchInput.value = '';
+                window.clearTimeout(searchTimer);
+                runSearch('');
+                return;
+            }
             if ($('wf-study').classList.contains('hidden')) return;
             if (!$('wf-summary').classList.contains('hidden')) return;
-            if (['INPUT', 'TEXTAREA'].includes(event.target.tagName)) return;
+            if (inField) return;
 
             if (event.key === 'ArrowRight') {
                 event.preventDefault();
@@ -962,6 +1117,8 @@
 
         if (typeof wordData === 'undefined') {
             $('wf-word-count').textContent = '词库加载失败，请刷新页面重试。';
+            $('wf-search-summary').textContent = '词库加载失败，暂无法搜索，请刷新页面重试。';
+            $('wf-search-input').disabled = true;
             $('wf-start').disabled = true;
             return;
         }
@@ -973,6 +1130,7 @@
         } catch (error) {
             console.error('闪卡词库初始化失败:', error);
         }
+        allWordsCache = null;
 
         const progress = wordData.getSchoolProgress();
         state.grade = progress.grade;
@@ -981,6 +1139,7 @@
         renderGrades();
         renderUnits();
         renderCount();
+        if ($('wf-search-input').value.trim()) runSearch($('wf-search-input').value);
 
         if (typeof wrongBook !== 'undefined') {
             try {

@@ -179,6 +179,145 @@
     font-size: 0.9rem;
 }
 
+/* ---------- 全词库搜索 ---------- */
+.wf-search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 8px 4px 14px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: var(--border-radius-full);
+    background: rgba(0, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.wf-search-box:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 16px rgba(0, 255, 255, 0.22);
+}
+
+.wf-search-icon {
+    flex: 0 0 auto;
+    font-size: 1rem;
+}
+
+#wf-search-input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--light-text);
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+}
+
+#wf-search-input::placeholder {
+    color: var(--muted-text);
+}
+
+#wf-search-input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.wf-search-clear {
+    flex: 0 0 auto;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--muted-text);
+    font-size: 0.8rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wf-search-clear:hover {
+    color: var(--error-color);
+    border-color: var(--error-color);
+}
+
+.wf-search-summary {
+    margin-top: 10px;
+    color: var(--muted-text);
+    font-size: 0.85rem;
+}
+
+.wf-search-results {
+    display: grid;
+    gap: 8px;
+    max-height: 320px;
+    margin-top: 12px;
+    padding-right: 4px;
+    overflow-y: auto;
+}
+
+.wf-search-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) auto;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid rgba(0, 255, 255, 0.18);
+    border-radius: var(--border-radius-md);
+    background: rgba(255, 255, 255, 0.035);
+    color: var(--light-text);
+    font-family: var(--font-body);
+    text-align: left;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wf-search-item:hover {
+    border-color: var(--primary-color);
+    background: rgba(0, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+.wf-search-item-word {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-width: 0;
+}
+
+.wf-search-item-word strong {
+    color: var(--primary-color);
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+}
+
+.wf-search-item-phonetic,
+.wf-search-item-meta {
+    color: var(--muted-text);
+    font-size: 0.8rem;
+}
+
+.wf-search-item-meaning {
+    min-width: 0;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.wf-search-mark {
+    padding: 0 1px;
+    border-radius: 3px;
+    background: rgba(255, 235, 59, 0.28);
+    color: #ffe95c;
+}
+
+.wf-search-more {
+    padding: 6px 4px 2px;
+    color: var(--muted-text);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
 .wf-primary-btn,
 .wf-secondary-btn,
 .wf-flip-btn,
@@ -281,6 +420,13 @@
 
 .wf-progress-wrap {
     flex: 1;
+}
+
+.wf-progress-label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .wf-progress-meta {
@@ -660,6 +806,11 @@
     .wf-daily-head {
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    .wf-search-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
     }
 
 }

@@ -1517,6 +1517,31 @@ select:focus,
     text-shadow: 2px 2px 0 #262626;
 }
 
+.wf-search-box {
+    border: 3px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    background: #2b2b2b !important;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+#wf-search-input {
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.wf-search-item {
+    border: 2px solid var(--mc-outline) !important;
+    border-radius: 0 !important;
+    background: #2b2b2b !important;
+}
+
+.wf-search-mark {
+    background: #6cbf32 !important;
+    color: #ffffff !important;
+}
+
 /* ============================================================
    14. 列表页：错题库 / 历史单词 / 学习数据 / 成就徽章
    ============================================================ */
