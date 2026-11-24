@@ -16,7 +16,7 @@ const PH_SUBTYPE_ORDER = {
 };
 
 async function loadPhoneticsData() {
-    const response = await fetch('data/phonetics.json');
+    const response = await fetch('data/phonetics.json?v=20261124a');
     if (!response.ok) throw new Error('音标数据加载失败: ' + response.status);
     return response.json();
 }
@@ -35,11 +35,36 @@ function renderPhoneticCard(item) {
         ? '<div class="ph-contrast">⚠ ' + escapeHtml(item.contrast) + '</div>'
         : '';
 
+    const exampleSpeak = ex.word
+        ? '<button class="ph-speak-word" data-word="' + escapeHtml(ex.word) + '" title="朗读例词" aria-label="朗读例词 ' + escapeHtml(ex.word) + '">🔊</button>'
+        : '';
+
+    const spellingsHtml = (item.spellings && item.spellings.length)
+        ? '<div class="ph-spellings">' +
+            '<div class="ph-spellings-title">常见拼法</div>' +
+            item.spellings.map(row => {
+                const examples = Array.isArray(row.examples) ? row.examples : [];
+                return '<div class="ph-spelling-row">' +
+                    '<span class="ph-spelling-pattern">' + escapeHtml(row.pattern) + '</span>' +
+                    examples.map(example =>
+                        '<span class="ph-spelling-example">' +
+                            '<span>' + escapeHtml(example.word) + '</span>' +
+                            (example.word
+                                ? '<button class="ph-speak-word" data-word="' + escapeHtml(example.word) + '" title="朗读 ' + escapeHtml(example.word) + '" aria-label="朗读 ' + escapeHtml(example.word) + '">🔊</button>'
+                                : '') +
+                            (example.meaning ? '<span class="ph-spelling-mean">' + escapeHtml(example.meaning) + '</span>' : '') +
+                        '</span>'
+                    ).join('') +
+                '</div>';
+            }).join('') +
+          '</div>'
+        : '';
+
     return '' +
         '<div class="ph-card' + (isVowel ? '' : ' consonant') + '">' +
             '<div class="ph-card-head">' +
                 '<div class="ph-symbol">' + escapeHtml(item.symbol) + '</div>' +
-                '<button class="ph-speak" data-word="' + escapeHtml(ex.word || '') + '" title="朗读例词" aria-label="朗读 ' + escapeHtml(ex.word || '') + '">🔊</button>' +
+                '<button class="ph-speak" data-cn="' + escapeHtml(item.cn || '') + '" title="发音标（中文近似音）" aria-label="发音标 ' + escapeHtml(item.symbol || '') + '">🔊</button>' +
             '</div>' +
             '<div class="ph-cn">' +
                 '<span class="ph-cn-main">' + escapeHtml(item.cn) + '</span>' + note +
@@ -47,9 +72,11 @@ function renderPhoneticCard(item) {
             '<div class="ph-mouth">' + escapeHtml(item.mouth) + '</div>' +
             '<div class="ph-example">' +
                 '<span class="ph-example-word">' + escapeHtml(ex.word || '') + '</span>' +
+                exampleSpeak +
                 '<span class="ph-example-phonetic">' + escapeHtml(ex.phonetic || '') + '</span>' +
                 '<span class="ph-example-mean">' + escapeHtml(ex.meaning || '') + '</span>' +
             '</div>' +
+            spellingsHtml +
             contrast +
         '</div>';
 }
@@ -70,7 +97,8 @@ function renderPhonetics() {
             item.cnNote,
             item.mouth,
             item.example && item.example.word,
-            item.example && item.example.meaning
+            item.example && item.example.meaning,
+            JSON.stringify(item.spellings || [])
         ].join(' ').toLowerCase();
         return haystack.indexOf(keyword) !== -1;
     });
@@ -107,24 +135,33 @@ function renderPhonetics() {
     body.innerHTML = html;
 }
 
-function speakPhonetic(word) {
-    if (!word) return;
+function speakText(text, lang, rate) {
+    if (!text) return;
 
     if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
     }
 
     if (window.audioManager && typeof window.audioManager.speak === 'function') {
-        window.audioManager.speak(word, 'en-US');
+        window.audioManager.speak(text, { lang: lang, rate: rate }).catch(() => {});
         return;
     }
 
     if ('speechSynthesis' in window) {
-        const utterance = new SpeechSynthesisUtterance(word);
-        utterance.lang = 'en-US';
-        utterance.rate = 0.8;
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = lang;
+        utterance.rate = rate;
         window.speechSynthesis.speak(utterance);
     }
+}
+
+function speakPhoneticSound(cn) {
+    const text = String(cn || '').replace(/[→➔➜]/g, '，').trim();
+    speakText(text, 'zh-CN', 0.75);
+}
+
+function speakExampleWord(word) {
+    speakText(word, 'en-US', 0.8);
 }
 
 function updatePhoneticCounts() {
@@ -172,9 +209,13 @@ function bindPhoneticEvents() {
     const body = document.getElementById('phBody');
     if (body) {
         body.addEventListener('click', (e) => {
-            const btn = e.target.closest('.ph-speak');
-            if (!btn) return;
-            speakPhonetic(btn.dataset.word);
+            const phoneticBtn = e.target.closest('.ph-speak');
+            if (phoneticBtn) {
+                speakPhoneticSound(phoneticBtn.dataset.cn);
+                return;
+            }
+            const wordBtn = e.target.closest('.ph-speak-word');
+            if (wordBtn) speakExampleWord(wordBtn.dataset.word);
         });
     }
 }

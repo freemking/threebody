@@ -1379,7 +1379,9 @@ class GameEngine {
         }
         html += '</div>';
 
-        const subHintText = isPhrase ? 'Type the full phrase with keyboard (use Space for spaces)' : 'Type the full word with keyboard';
+        const subHintText = isPhrase
+            ? '点击空格唤起键盘，输入完整词组 / Tap a blank to type the phrase'
+            : '点击空格唤起键盘，输入完整单词 / Tap a blank to type the word';
         content.innerHTML = `
             <div class="chal-hint">${w.meaning}</div>
             ${html}
@@ -1394,6 +1396,18 @@ class GameEngine {
         const blankEls = content.querySelectorAll('.chal-fill-blank');
         const blankInputs = new Array(blankIndices.length).fill('');
         let activeBlank = 0; // currently focused blank index (among blanks only)
+
+        // 平板/手机需要真实输入框才能唤起软键盘
+        const textInput = document.createElement('input');
+        textInput.type = 'text';
+        textInput.className = 'chal-text-input';
+        textInput.autocomplete = 'off';
+        textInput.autocapitalize = 'off';
+        textInput.setAttribute('autocorrect', 'off');
+        textInput.setAttribute('inputmode', 'text');
+        textInput.spellcheck = false;
+        textInput.setAttribute('aria-label', '输入单词 / Type the word');
+        content.appendChild(textInput);
 
         // Highlight first blank
         if (blankEls.length > 0) blankEls[0].classList.add('blank-active');
@@ -1411,16 +1425,22 @@ class GameEngine {
             confirmBtn.disabled = !allFilled;
         }
 
-        function focusBlank(idx) {
+        function focusBlank(idx, openKeyboard = false) {
             blankEls.forEach(el => el.classList.remove('blank-active'));
             activeBlank = idx;
             if (blankEls[idx]) blankEls[idx].classList.add('blank-active');
+            if (openKeyboard) {
+                // iOS 需要在用户手势中重新聚焦才会弹出软键盘
+                textInput.blur();
+                textInput.focus({ preventScroll: true });
+                textInput.setSelectionRange(textInput.value.length, textInput.value.length);
+            }
         }
 
-        // Click on blank to focus it
+        // Click on blank to focus it and open the on-screen keyboard
         blankEls.forEach((el, i) => {
             el.style.cursor = 'pointer';
-            el.addEventListener('click', () => focusBlank(i));
+            el.addEventListener('click', () => focusBlank(i, true));
         });
 
         // 构建正确的完整答案用于比对
@@ -1438,29 +1458,25 @@ class GameEngine {
             return result;
         }
 
-        // Keyboard handler
+        // 软键盘和物理键盘统一通过 input 事件填入字母
+        function syncFromInput() {
+            const typed = textInput.value.replace(/\s+/g, '');
+            blankInputs.fill('');
+            const limit = Math.min(typed.length, blankInputs.length);
+            for (let i = 0; i < limit; i++) blankInputs[i] = typed[i];
+            if (textInput.value !== typed) textInput.value = typed;
+            focusBlank(Math.min(limit, blankInputs.length - 1));
+            updateBlankDisplay();
+        }
+        textInput.addEventListener('input', syncFromInput);
+
+        // Enter 提交、Escape 退出；字母与删除由 input 事件处理
         function onKeydown(e) {
             if (e.key === 'Escape') {
                 cleanup();
                 self._onWrong();
                 return;
             }
-
-            // Backspace: clear current blank and move back
-            if (e.key === 'Backspace') {
-                e.preventDefault();
-                if (blankInputs[activeBlank]) {
-                    blankInputs[activeBlank] = '';
-                } else if (activeBlank > 0) {
-                    activeBlank--;
-                    blankInputs[activeBlank] = '';
-                }
-                focusBlank(activeBlank);
-                updateBlankDisplay();
-                return;
-            }
-
-            // Enter: confirm if all filled
             if (e.key === 'Enter') {
                 e.preventDefault();
                 const allFilled = blankInputs.every(v => v !== '');
@@ -1470,37 +1486,17 @@ class GameEngine {
                     if (result === word) self._onCorrect();
                     else self._onWrong();
                 }
-                return;
-            }
-
-            // Space key: for phrases, auto-skip to next blank (no need to type space)
-            if (e.key === ' ') {
-                e.preventDefault();
-                // Move to next unfilled blank
-                if (activeBlank < blankInputs.length - 1) {
-                    focusBlank(activeBlank + 1);
-                }
-                return;
-            }
-
-            // Letter input (allow letters and common punctuation)
-            if (/^[a-zA-Z.\-'"!,?;:()\/\[\]]$/i.test(e.key)) {
-                e.preventDefault();
-                if (activeBlank < blankInputs.length) {
-                    blankInputs[activeBlank] = e.key;
-                    updateBlankDisplay();
-                    // Move to next blank
-                    if (activeBlank < blankInputs.length - 1) {
-                        focusBlank(activeBlank + 1);
-                    }
-                }
             }
         }
 
         document.addEventListener('keydown', onKeydown);
+        focusBlank(0);
+        try { textInput.focus({ preventScroll: true }); } catch (err) { textInput.focus(); }
 
         function cleanup() {
             document.removeEventListener('keydown', onKeydown);
+            textInput.removeEventListener('input', syncFromInput);
+            textInput.blur();
         }
 
         // Confirm button

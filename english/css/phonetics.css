@@ -230,15 +230,13 @@
     white-space: nowrap;
 }
 
-.ph-speak {
+.ph-speak,
+.ph-speak-word {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
     padding: 0;
-    font-size: 1rem;
     color: #ffffff;
     cursor: pointer;
     background: #6f6f6f;
@@ -248,16 +246,31 @@
     transition: background 0.12s ease;
 }
 
-.ph-speak:hover {
+.ph-speak {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+}
+
+.ph-speak-word {
+    width: 24px;
+    height: 24px;
+    font-size: 0.78rem;
+}
+
+.ph-speak:hover,
+.ph-speak-word:hover {
     background: var(--mc-grass);
 }
 
-.ph-speak:active {
+.ph-speak:active,
+.ph-speak-word:active {
     transform: translateY(1px);
     box-shadow: inset 2px 2px 0 rgba(0, 0, 0, 0.4);
 }
 
-.ph-speak .mc-i {
+.ph-speak .mc-i,
+.ph-speak-word .mc-i {
     margin: 0;
 }
 
@@ -315,6 +328,62 @@
 .ph-example-mean {
     margin-left: auto;
     color: #f2f2f2;
+}
+
+.ph-spellings {
+    margin-top: 2px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.22);
+}
+
+.ph-spellings-title {
+    margin-bottom: 6px;
+    color: #b2f79a;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.ph-spelling-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.ph-spelling-row:last-child {
+    margin-bottom: 0;
+}
+
+.ph-spelling-pattern {
+    min-width: 30px;
+    padding: 2px 6px;
+    background: #1c1c1c;
+    border: 1px solid var(--mc-outline);
+    color: #ffe95c;
+    font-family: 'Fira Code', 'Lucida Sans Unicode', 'Arial Unicode MS', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.ph-spelling-example {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #ffffff;
+    font-size: 0.8rem;
+}
+
+.ph-spelling-mean {
+    color: #bdbdbd;
+    font-size: 0.72rem;
+}
+
+.ph-spelling-example .ph-speak-word {
+    width: 19px;
+    height: 19px;
+    font-size: 0.62rem;
 }
 
 .ph-contrast {

@@ -1095,6 +1095,19 @@
     margin-bottom: var(--space-lg);
 }
 
+/* 隐藏但可聚焦：平板点击空格时唤起软键盘 */
+.chal-text-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    border: 0;
+    outline: none;
+    opacity: 0;
+    font-size: 16px;
+}
+
 .chal-blank-word {
     text-align: center;
     font-family: var(--font-display);

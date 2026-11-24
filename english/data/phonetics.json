@@ -1,148 +1,1831 @@
 [
-  { "id": "v01", "symbol": "/iː/", "type": "元音", "subtype": "单元音",
-    "cn": "衣", "cnNote": "长音", "mouth": "嘴角向两边拉开，像微笑，声音拉长",
-    "example": { "word": "see", "phonetic": "/siː/", "meaning": "看见" }, "contrast": "/ɪ/ 是短促版" },
-  { "id": "v02", "symbol": "/ɪ/", "type": "元音", "subtype": "单元音",
-    "cn": "衣", "cnNote": "短音", "mouth": "嘴角放松，短促有力，不要拉长",
-    "example": { "word": "sit", "phonetic": "/sɪt/", "meaning": "坐" }, "contrast": "/iː/ 是拉长版" },
-  { "id": "v03", "symbol": "/e/", "type": "元音", "subtype": "单元音",
-    "cn": "诶", "cnNote": "短音", "mouth": "嘴半开，舌尖抵下齿，短促",
-    "example": { "word": "bed", "phonetic": "/bed/", "meaning": "床" } },
-  { "id": "v04", "symbol": "/æ/", "type": "元音", "subtype": "单元音",
-    "cn": "哎", "cnNote": "大嘴", "mouth": "嘴张大，嘴角向两边咧开，像羊叫「咩」",
-    "example": { "word": "cat", "phonetic": "/kæt/", "meaning": "猫" }, "contrast": "别读成 /e/" },
-  { "id": "v05", "symbol": "/ɑː/", "type": "元音", "subtype": "单元音",
-    "cn": "啊", "cnNote": "长音", "mouth": "嘴张大，舌头后缩，声音拉长",
-    "example": { "word": "car", "phonetic": "/kɑː/", "meaning": "汽车" } },
-  { "id": "v06", "symbol": "/ɒ/", "type": "元音", "subtype": "单元音",
-    "cn": "哦", "cnNote": "短音", "mouth": "嘴唇收圆，短促，英式发音",
-    "example": { "word": "hot", "phonetic": "/hɒt/", "meaning": "热的" }, "contrast": "/ɔː/ 是拉长版" },
-  { "id": "v07", "symbol": "/ɔː/", "type": "元音", "subtype": "单元音",
-    "cn": "奥", "cnNote": "长音", "mouth": "嘴唇收圆前突，声音拉长",
-    "example": { "word": "door", "phonetic": "/dɔː/", "meaning": "门" } },
-  { "id": "v08", "symbol": "/ʊ/", "type": "元音", "subtype": "单元音",
-    "cn": "乌", "cnNote": "短音", "mouth": "嘴唇微微收圆，短促",
-    "example": { "word": "book", "phonetic": "/bʊk/", "meaning": "书" }, "contrast": "/uː/ 是拉长版" },
-  { "id": "v09", "symbol": "/uː/", "type": "元音", "subtype": "单元音",
-    "cn": "乌", "cnNote": "长音", "mouth": "嘴唇撅起，声音拉长",
-    "example": { "word": "food", "phonetic": "/fuːd/", "meaning": "食物" } },
-  { "id": "v10", "symbol": "/ʌ/", "type": "元音", "subtype": "单元音",
-    "cn": "阿", "cnNote": "短促", "mouth": "嘴半开，舌中部抬起，短促有力",
-    "example": { "word": "cup", "phonetic": "/kʌp/", "meaning": "杯子" }, "contrast": "别读成 /æ/" },
-  { "id": "v11", "symbol": "/ɜː/", "type": "元音", "subtype": "单元音",
-    "cn": "呃", "cnNote": "长音", "mouth": "舌中部抬起，嘴唇放松，声音拉长",
-    "example": { "word": "bird", "phonetic": "/bɜːd/", "meaning": "鸟" } },
-  { "id": "v12", "symbol": "/ə/", "type": "元音", "subtype": "单元音",
-    "cn": "呃", "cnNote": "最轻", "mouth": "最轻最弱的音，一带而过，常出现在非重读音节",
-    "example": { "word": "about", "phonetic": "/əˈbaʊt/", "meaning": "关于" } },
-
-  { "id": "v13", "symbol": "/eɪ/", "type": "元音", "subtype": "双元音",
-    "cn": "诶→衣", "cnNote": "前重后轻", "mouth": "从「诶」滑向「衣」，前音响亮",
-    "example": { "word": "day", "phonetic": "/deɪ/", "meaning": "天" } },
-  { "id": "v14", "symbol": "/aɪ/", "type": "元音", "subtype": "双元音",
-    "cn": "啊→衣", "cnNote": "像「爱」", "mouth": "从「啊」滑到「衣」，嘴由大变小",
-    "example": { "word": "time", "phonetic": "/taɪm/", "meaning": "时间" } },
-  { "id": "v15", "symbol": "/ɔɪ/", "type": "元音", "subtype": "双元音",
-    "cn": "奥→衣", "cnNote": "圆转扁", "mouth": "从「奥」滑到「衣」，嘴由圆变扁",
-    "example": { "word": "boy", "phonetic": "/bɔɪ/", "meaning": "男孩" } },
-  { "id": "v16", "symbol": "/aʊ/", "type": "元音", "subtype": "双元音",
-    "cn": "啊→乌", "cnNote": "像「奥」", "mouth": "从「啊」滑到「乌」，嘴由大收圆",
-    "example": { "word": "house", "phonetic": "/haʊs/", "meaning": "房子" } },
-  { "id": "v17", "symbol": "/əʊ/", "type": "元音", "subtype": "双元音",
-    "cn": "呃→乌", "cnNote": "像「欧」", "mouth": "从「呃」滑到「乌」，嘴唇渐收圆",
-    "example": { "word": "go", "phonetic": "/ɡəʊ/", "meaning": "去" } },
-  { "id": "v18", "symbol": "/ɪə/", "type": "元音", "subtype": "双元音",
-    "cn": "衣→呃", "cnNote": "轻收尾", "mouth": "从「衣」快速滑向「呃」，后音很轻",
-    "example": { "word": "here", "phonetic": "/hɪə/", "meaning": "这里" } },
-  { "id": "v19", "symbol": "/eə/", "type": "元音", "subtype": "双元音",
-    "cn": "诶→呃", "cnNote": "嘴张开", "mouth": "从「诶」滑向「呃」，嘴逐渐张开",
-    "example": { "word": "hair", "phonetic": "/heə/", "meaning": "头发" } },
-  { "id": "v20", "symbol": "/ʊə/", "type": "元音", "subtype": "双元音",
-    "cn": "乌→呃", "cnNote": "轻收尾", "mouth": "从「乌」滑向「呃」，后音很轻",
-    "example": { "word": "tour", "phonetic": "/tʊə/", "meaning": "旅行" } },
-
-  { "id": "c01", "symbol": "/p/", "type": "辅音", "subtype": "清辅音",
-    "cn": "泼", "cnNote": "送气", "mouth": "双唇紧闭后突然张开，送气，声带不振动",
-    "example": { "word": "pen", "phonetic": "/pen/", "meaning": "钢笔" }, "contrast": "/b/ 声带振动" },
-  { "id": "c02", "symbol": "/b/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "波", "cnNote": "不送气", "mouth": "双唇爆破，声带振动，几乎不送气",
-    "example": { "word": "bag", "phonetic": "/bæɡ/", "meaning": "包" }, "contrast": "/p/ 送气" },
-  { "id": "c03", "symbol": "/t/", "type": "辅音", "subtype": "清辅音",
-    "cn": "特", "cnNote": "送气", "mouth": "舌尖抵上齿龈后弹开，送气",
-    "example": { "word": "ten", "phonetic": "/ten/", "meaning": "十" }, "contrast": "/d/ 声带振动" },
-  { "id": "c04", "symbol": "/d/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "得", "cnNote": "不送气", "mouth": "舌尖弹开，声带振动，几乎不送气",
-    "example": { "word": "dog", "phonetic": "/dɒɡ/", "meaning": "狗" } },
-  { "id": "c05", "symbol": "/k/", "type": "辅音", "subtype": "清辅音",
-    "cn": "科", "cnNote": "送气", "mouth": "舌根抵软腭后弹开，送气",
-    "example": { "word": "key", "phonetic": "/kiː/", "meaning": "钥匙" }, "contrast": "/ɡ/ 声带振动" },
-  { "id": "c06", "symbol": "/ɡ/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "哥", "cnNote": "不送气", "mouth": "舌根弹开，声带振动，几乎不送气",
-    "example": { "word": "go", "phonetic": "/ɡəʊ/", "meaning": "去" } },
-  { "id": "c07", "symbol": "/f/", "type": "辅音", "subtype": "清辅音",
-    "cn": "夫", "cnNote": "咬唇", "mouth": "上齿轻咬下唇，气流摩擦而出，声带不振动",
-    "example": { "word": "fish", "phonetic": "/fɪʃ/", "meaning": "鱼" }, "contrast": "/v/ 声带振动" },
-  { "id": "c08", "symbol": "/v/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "夫", "cnNote": "咬唇浊音", "mouth": "上齿咬下唇，摩擦出声，声带振动",
-    "example": { "word": "very", "phonetic": "/ˈveri/", "meaning": "非常" }, "contrast": "/f/ 不振动" },
-  { "id": "c09", "symbol": "/s/", "type": "辅音", "subtype": "清辅音",
-    "cn": "丝", "cnNote": "清音", "mouth": "舌尖靠近齿龈，气流从缝隙摩擦，像蛇叫",
-    "example": { "word": "sun", "phonetic": "/sʌn/", "meaning": "太阳" }, "contrast": "/z/ 声带振动" },
-  { "id": "c10", "symbol": "/z/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "丝", "cnNote": "浊音", "mouth": "舌位同 /s/，但声带振动，像蜜蜂嗡嗡",
-    "example": { "word": "zoo", "phonetic": "/zuː/", "meaning": "动物园" } },
-  { "id": "c11", "symbol": "/θ/", "type": "辅音", "subtype": "清辅音",
-    "cn": "思", "cnNote": "咬舌", "mouth": "舌尖轻放在上下齿之间，送气，声带不振动",
-    "example": { "word": "think", "phonetic": "/θɪŋk/", "meaning": "想" }, "contrast": "/ð/ 声带振动" },
-  { "id": "c12", "symbol": "/ð/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "思", "cnNote": "咬舌浊音", "mouth": "舌尖在齿间，声带振动",
-    "example": { "word": "this", "phonetic": "/ðɪs/", "meaning": "这个" }, "contrast": "/θ/ 不振动" },
-  { "id": "c13", "symbol": "/ʃ/", "type": "辅音", "subtype": "清辅音",
-    "cn": "嘘", "cnNote": "清音", "mouth": "嘴唇前突，舌面靠近齿龈，像让人安静",
-    "example": { "word": "she", "phonetic": "/ʃiː/", "meaning": "她" }, "contrast": "/ʒ/ 声带振动" },
-  { "id": "c14", "symbol": "/ʒ/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "嘘", "cnNote": "浊音", "mouth": "舌位同 /ʃ/，声带振动",
-    "example": { "word": "measure", "phonetic": "/ˈmeʒə/", "meaning": "测量" } },
-  { "id": "c15", "symbol": "/tʃ/", "type": "辅音", "subtype": "清辅音",
-    "cn": "七", "cnNote": "清音", "mouth": "像「七」，先堵塞再摩擦，送气",
-    "example": { "word": "chair", "phonetic": "/tʃeə/", "meaning": "椅子" }, "contrast": "/dʒ/ 声带振动" },
-  { "id": "c16", "symbol": "/dʒ/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "七", "cnNote": "浊音", "mouth": "像「之」，声带振动，不送气",
-    "example": { "word": "job", "phonetic": "/dʒɒb/", "meaning": "工作" } },
-  { "id": "c17", "symbol": "/tr/", "type": "辅音", "subtype": "清辅音",
-    "cn": "戳", "cnNote": "卷舌", "mouth": "像「戳」，舌尖卷起，t+r 连读，送气",
-    "example": { "word": "tree", "phonetic": "/triː/", "meaning": "树" }, "contrast": "/dr/ 声带振动" },
-  { "id": "c18", "symbol": "/dr/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "捉", "cnNote": "卷舌浊音", "mouth": "像「捉」，舌尖卷起，声带振动",
-    "example": { "word": "dream", "phonetic": "/driːm/", "meaning": "梦" } },
-  { "id": "c19", "symbol": "/ts/", "type": "辅音", "subtype": "清辅音",
-    "cn": "次", "cnNote": "清音", "mouth": "像「次」，t+s 快速连读，常出现在词尾",
-    "example": { "word": "cats", "phonetic": "/kæts/", "meaning": "猫（复数）" }, "contrast": "/dz/ 声带振动" },
-  { "id": "c20", "symbol": "/dz/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "次", "cnNote": "浊音", "mouth": "像「兹」，d+z 连读，声带振动",
-    "example": { "word": "beds", "phonetic": "/bedz/", "meaning": "床（复数）" } },
-  { "id": "c21", "symbol": "/m/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "姆", "cnNote": "鼻音", "mouth": "双唇闭拢，气流从鼻子出，声带振动",
-    "example": { "word": "man", "phonetic": "/mæn/", "meaning": "男人" } },
-  { "id": "c22", "symbol": "/n/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "嗯", "cnNote": "鼻音", "mouth": "舌尖抵上齿龈，气流从鼻子出",
-    "example": { "word": "no", "phonetic": "/nəʊ/", "meaning": "不" } },
-  { "id": "c23", "symbol": "/ŋ/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "嗯", "cnNote": "后鼻音", "mouth": "舌根抬起抵软腭，鼻音，像「英」的尾音",
-    "example": { "word": "sing", "phonetic": "/sɪŋ/", "meaning": "唱歌" }, "contrast": "别读成 /n/" },
-  { "id": "c24", "symbol": "/l/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "了", "cnNote": "舌侧音", "mouth": "舌尖抵上齿龈，气流从舌头两侧流出",
-    "example": { "word": "leg", "phonetic": "/leɡ/", "meaning": "腿" } },
-  { "id": "c25", "symbol": "/r/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "若", "cnNote": "卷舌", "mouth": "舌尖卷起但碰到齿龈前就滑开，嘴唇稍圆",
-    "example": { "word": "red", "phonetic": "/red/", "meaning": "红色" } },
-  { "id": "c26", "symbol": "/h/", "type": "辅音", "subtype": "清辅音",
-    "cn": "喝", "cnNote": "清音", "mouth": "气流从喉咙轻轻呼出，像哈气",
-    "example": { "word": "hat", "phonetic": "/hæt/", "meaning": "帽子" } },
-  { "id": "c27", "symbol": "/w/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "我", "cnNote": "半元音", "mouth": "双唇收圆，快速滑向后面的元音",
-    "example": { "word": "we", "phonetic": "/wiː/", "meaning": "我们" }, "contrast": "别读成 /v/" },
-  { "id": "c28", "symbol": "/j/", "type": "辅音", "subtype": "浊辅音",
-    "cn": "也", "cnNote": "半元音", "mouth": "舌面抬起，快速滑向元音，像「耶」",
-    "example": { "word": "yes", "phonetic": "/jes/", "meaning": "是的" } }
+  {
+    "id": "v01",
+    "symbol": "/iː/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "衣",
+    "cnNote": "长音",
+    "mouth": "嘴角向两边拉开，像微笑，声音拉长",
+    "example": {
+      "word": "see",
+      "phonetic": "/siː/",
+      "meaning": "看见"
+    },
+    "contrast": "/ɪ/ 是短促版",
+    "spellings": [
+      {
+        "pattern": "ee",
+        "examples": [
+          {
+            "word": "see",
+            "meaning": "看见"
+          },
+          {
+            "word": "tree",
+            "meaning": "树"
+          }
+        ]
+      },
+      {
+        "pattern": "ea",
+        "examples": [
+          {
+            "word": "sea",
+            "meaning": "海"
+          }
+        ]
+      },
+      {
+        "pattern": "e",
+        "examples": [
+          {
+            "word": "he",
+            "meaning": "他"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v02",
+    "symbol": "/ɪ/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "衣",
+    "cnNote": "短音",
+    "mouth": "嘴角放松，短促有力，不要拉长",
+    "example": {
+      "word": "sit",
+      "phonetic": "/sɪt/",
+      "meaning": "坐"
+    },
+    "contrast": "/iː/ 是拉长版",
+    "spellings": [
+      {
+        "pattern": "i",
+        "examples": [
+          {
+            "word": "sit",
+            "meaning": "坐"
+          }
+        ]
+      },
+      {
+        "pattern": "e",
+        "examples": [
+          {
+            "word": "begin",
+            "meaning": "开始"
+          }
+        ]
+      },
+      {
+        "pattern": "y",
+        "examples": [
+          {
+            "word": "happy",
+            "meaning": "快乐的"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v03",
+    "symbol": "/e/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "诶",
+    "cnNote": "短音",
+    "mouth": "嘴半开，舌尖抵下齿，短促",
+    "example": {
+      "word": "bed",
+      "phonetic": "/bed/",
+      "meaning": "床"
+    },
+    "spellings": [
+      {
+        "pattern": "e",
+        "examples": [
+          {
+            "word": "bed",
+            "meaning": "床"
+          }
+        ]
+      },
+      {
+        "pattern": "ea",
+        "examples": [
+          {
+            "word": "head",
+            "meaning": "头"
+          }
+        ]
+      },
+      {
+        "pattern": "a",
+        "examples": [
+          {
+            "word": "any",
+            "meaning": "任何"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v04",
+    "symbol": "/æ/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "哎",
+    "cnNote": "大嘴",
+    "mouth": "嘴张大，嘴角向两边咧开，像羊叫「咩」",
+    "example": {
+      "word": "cat",
+      "phonetic": "/kæt/",
+      "meaning": "猫"
+    },
+    "contrast": "别读成 /e/",
+    "spellings": [
+      {
+        "pattern": "a",
+        "examples": [
+          {
+            "word": "cat",
+            "meaning": "猫"
+          },
+          {
+            "word": "apple",
+            "meaning": "苹果"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v05",
+    "symbol": "/ɑː/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "啊",
+    "cnNote": "长音",
+    "mouth": "嘴张大，舌头后缩，声音拉长",
+    "example": {
+      "word": "car",
+      "phonetic": "/kɑː/",
+      "meaning": "汽车"
+    },
+    "spellings": [
+      {
+        "pattern": "a",
+        "examples": [
+          {
+            "word": "car",
+            "meaning": "汽车"
+          }
+        ]
+      },
+      {
+        "pattern": "ar",
+        "examples": [
+          {
+            "word": "farm",
+            "meaning": "农场"
+          }
+        ]
+      },
+      {
+        "pattern": "ear",
+        "examples": [
+          {
+            "word": "heart",
+            "meaning": "心"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v06",
+    "symbol": "/ɒ/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "哦",
+    "cnNote": "短音",
+    "mouth": "嘴唇收圆，短促，英式发音",
+    "example": {
+      "word": "hot",
+      "phonetic": "/hɒt/",
+      "meaning": "热的"
+    },
+    "contrast": "/ɔː/ 是拉长版",
+    "spellings": [
+      {
+        "pattern": "o",
+        "examples": [
+          {
+            "word": "hot",
+            "meaning": "热的"
+          }
+        ]
+      },
+      {
+        "pattern": "a",
+        "examples": [
+          {
+            "word": "want",
+            "meaning": "想要"
+          }
+        ]
+      },
+      {
+        "pattern": "ou",
+        "examples": [
+          {
+            "word": "cough",
+            "meaning": "咳嗽"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v07",
+    "symbol": "/ɔː/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "奥",
+    "cnNote": "长音",
+    "mouth": "嘴唇收圆前突，声音拉长",
+    "example": {
+      "word": "door",
+      "phonetic": "/dɔː/",
+      "meaning": "门"
+    },
+    "spellings": [
+      {
+        "pattern": "or",
+        "examples": [
+          {
+            "word": "door",
+            "meaning": "门"
+          }
+        ]
+      },
+      {
+        "pattern": "aw",
+        "examples": [
+          {
+            "word": "saw",
+            "meaning": "看见"
+          }
+        ]
+      },
+      {
+        "pattern": "al",
+        "examples": [
+          {
+            "word": "small",
+            "meaning": "小的"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v08",
+    "symbol": "/ʊ/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "乌",
+    "cnNote": "短音",
+    "mouth": "嘴唇微微收圆，短促",
+    "example": {
+      "word": "book",
+      "phonetic": "/bʊk/",
+      "meaning": "书"
+    },
+    "contrast": "/uː/ 是拉长版",
+    "spellings": [
+      {
+        "pattern": "oo",
+        "examples": [
+          {
+            "word": "book",
+            "meaning": "书"
+          }
+        ]
+      },
+      {
+        "pattern": "u",
+        "examples": [
+          {
+            "word": "put",
+            "meaning": "放置"
+          }
+        ]
+      },
+      {
+        "pattern": "ou",
+        "examples": [
+          {
+            "word": "could",
+            "meaning": "能够"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v09",
+    "symbol": "/uː/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "乌",
+    "cnNote": "长音",
+    "mouth": "嘴唇撅起，声音拉长",
+    "example": {
+      "word": "food",
+      "phonetic": "/fuːd/",
+      "meaning": "食物"
+    },
+    "spellings": [
+      {
+        "pattern": "oo",
+        "examples": [
+          {
+            "word": "food",
+            "meaning": "食物"
+          }
+        ]
+      },
+      {
+        "pattern": "o",
+        "examples": [
+          {
+            "word": "do",
+            "meaning": "做"
+          }
+        ]
+      },
+      {
+        "pattern": "ue",
+        "examples": [
+          {
+            "word": "blue",
+            "meaning": "蓝色"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v10",
+    "symbol": "/ʌ/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "阿",
+    "cnNote": "短促",
+    "mouth": "嘴半开，舌中部抬起，短促有力",
+    "example": {
+      "word": "cup",
+      "phonetic": "/kʌp/",
+      "meaning": "杯子"
+    },
+    "contrast": "别读成 /æ/",
+    "spellings": [
+      {
+        "pattern": "u",
+        "examples": [
+          {
+            "word": "cup",
+            "meaning": "杯子"
+          }
+        ]
+      },
+      {
+        "pattern": "o",
+        "examples": [
+          {
+            "word": "love",
+            "meaning": "爱"
+          }
+        ]
+      },
+      {
+        "pattern": "ou",
+        "examples": [
+          {
+            "word": "touch",
+            "meaning": "触摸"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v11",
+    "symbol": "/ɜː/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "呃",
+    "cnNote": "长音",
+    "mouth": "舌中部抬起，嘴唇放松，声音拉长",
+    "example": {
+      "word": "bird",
+      "phonetic": "/bɜːd/",
+      "meaning": "鸟"
+    },
+    "spellings": [
+      {
+        "pattern": "ir",
+        "examples": [
+          {
+            "word": "bird",
+            "meaning": "鸟"
+          }
+        ]
+      },
+      {
+        "pattern": "er",
+        "examples": [
+          {
+            "word": "her",
+            "meaning": "她"
+          }
+        ]
+      },
+      {
+        "pattern": "ur",
+        "examples": [
+          {
+            "word": "nurse",
+            "meaning": "护士"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v12",
+    "symbol": "/ə/",
+    "type": "元音",
+    "subtype": "单元音",
+    "cn": "呃",
+    "cnNote": "最轻",
+    "mouth": "最轻最弱的音，一带而过，常出现在非重读音节",
+    "example": {
+      "word": "about",
+      "phonetic": "/əˈbaʊt/",
+      "meaning": "关于"
+    },
+    "spellings": [
+      {
+        "pattern": "a",
+        "examples": [
+          {
+            "word": "about",
+            "meaning": "关于"
+          }
+        ]
+      },
+      {
+        "pattern": "er",
+        "examples": [
+          {
+            "word": "teacher",
+            "meaning": "老师"
+          }
+        ]
+      },
+      {
+        "pattern": "o",
+        "examples": [
+          {
+            "word": "today",
+            "meaning": "今天"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v13",
+    "symbol": "/eɪ/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "诶→衣",
+    "cnNote": "前重后轻",
+    "mouth": "从「诶」滑向「衣」，前音响亮",
+    "example": {
+      "word": "day",
+      "phonetic": "/deɪ/",
+      "meaning": "天"
+    },
+    "spellings": [
+      {
+        "pattern": "a",
+        "examples": [
+          {
+            "word": "day",
+            "meaning": "天"
+          }
+        ]
+      },
+      {
+        "pattern": "ai",
+        "examples": [
+          {
+            "word": "rain",
+            "meaning": "雨"
+          }
+        ]
+      },
+      {
+        "pattern": "ay",
+        "examples": [
+          {
+            "word": "play",
+            "meaning": "玩"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v14",
+    "symbol": "/aɪ/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "啊→衣",
+    "cnNote": "像「爱」",
+    "mouth": "从「啊」滑到「衣」，嘴由大变小",
+    "example": {
+      "word": "time",
+      "phonetic": "/taɪm/",
+      "meaning": "时间"
+    },
+    "spellings": [
+      {
+        "pattern": "i",
+        "examples": [
+          {
+            "word": "time",
+            "meaning": "时间"
+          }
+        ]
+      },
+      {
+        "pattern": "y",
+        "examples": [
+          {
+            "word": "my",
+            "meaning": "我的"
+          }
+        ]
+      },
+      {
+        "pattern": "igh",
+        "examples": [
+          {
+            "word": "night",
+            "meaning": "夜晚"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v15",
+    "symbol": "/ɔɪ/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "奥→衣",
+    "cnNote": "圆转扁",
+    "mouth": "从「奥」滑到「衣」，嘴由圆变扁",
+    "example": {
+      "word": "boy",
+      "phonetic": "/bɔɪ/",
+      "meaning": "男孩"
+    },
+    "spellings": [
+      {
+        "pattern": "oi",
+        "examples": [
+          {
+            "word": "coin",
+            "meaning": "硬币"
+          }
+        ]
+      },
+      {
+        "pattern": "oy",
+        "examples": [
+          {
+            "word": "boy",
+            "meaning": "男孩"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v16",
+    "symbol": "/aʊ/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "啊→乌",
+    "cnNote": "像「奥」",
+    "mouth": "从「啊」滑到「乌」，嘴由大收圆",
+    "example": {
+      "word": "house",
+      "phonetic": "/haʊs/",
+      "meaning": "房子"
+    },
+    "spellings": [
+      {
+        "pattern": "ou",
+        "examples": [
+          {
+            "word": "house",
+            "meaning": "房子"
+          }
+        ]
+      },
+      {
+        "pattern": "ow",
+        "examples": [
+          {
+            "word": "now",
+            "meaning": "现在"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v17",
+    "symbol": "/əʊ/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "呃→乌",
+    "cnNote": "像「欧」",
+    "mouth": "从「呃」滑到「乌」，嘴唇渐收圆",
+    "example": {
+      "word": "go",
+      "phonetic": "/ɡəʊ/",
+      "meaning": "去"
+    },
+    "spellings": [
+      {
+        "pattern": "o",
+        "examples": [
+          {
+            "word": "go",
+            "meaning": "去"
+          }
+        ]
+      },
+      {
+        "pattern": "ow",
+        "examples": [
+          {
+            "word": "no",
+            "meaning": "不"
+          }
+        ]
+      },
+      {
+        "pattern": "oa",
+        "examples": [
+          {
+            "word": "boat",
+            "meaning": "船"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v18",
+    "symbol": "/ɪə/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "衣→呃",
+    "cnNote": "轻收尾",
+    "mouth": "从「衣」快速滑向「呃」，后音很轻",
+    "example": {
+      "word": "here",
+      "phonetic": "/hɪə/",
+      "meaning": "这里"
+    },
+    "spellings": [
+      {
+        "pattern": "ear",
+        "examples": [
+          {
+            "word": "here",
+            "meaning": "这里"
+          }
+        ]
+      },
+      {
+        "pattern": "eer",
+        "examples": [
+          {
+            "word": "deer",
+            "meaning": "鹿"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v19",
+    "symbol": "/eə/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "诶→呃",
+    "cnNote": "嘴张开",
+    "mouth": "从「诶」滑向「呃」，嘴逐渐张开",
+    "example": {
+      "word": "hair",
+      "phonetic": "/heə/",
+      "meaning": "头发"
+    },
+    "spellings": [
+      {
+        "pattern": "air",
+        "examples": [
+          {
+            "word": "hair",
+            "meaning": "头发"
+          }
+        ]
+      },
+      {
+        "pattern": "ear",
+        "examples": [
+          {
+            "word": "wear",
+            "meaning": "穿"
+          }
+        ]
+      },
+      {
+        "pattern": "are",
+        "examples": [
+          {
+            "word": "care",
+            "meaning": "关心"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "v20",
+    "symbol": "/ʊə/",
+    "type": "元音",
+    "subtype": "双元音",
+    "cn": "乌→呃",
+    "cnNote": "轻收尾",
+    "mouth": "从「乌」滑向「呃」，后音很轻",
+    "example": {
+      "word": "tour",
+      "phonetic": "/tʊə/",
+      "meaning": "旅行"
+    },
+    "spellings": [
+      {
+        "pattern": "our",
+        "examples": [
+          {
+            "word": "tour",
+            "meaning": "旅行"
+          }
+        ]
+      },
+      {
+        "pattern": "ure",
+        "examples": [
+          {
+            "word": "sure",
+            "meaning": "确信"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c01",
+    "symbol": "/p/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "泼",
+    "cnNote": "送气",
+    "mouth": "双唇紧闭后突然张开，送气，声带不振动",
+    "example": {
+      "word": "pen",
+      "phonetic": "/pen/",
+      "meaning": "钢笔"
+    },
+    "contrast": "/b/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "p",
+        "examples": [
+          {
+            "word": "pen",
+            "meaning": "钢笔"
+          }
+        ]
+      },
+      {
+        "pattern": "pp",
+        "examples": [
+          {
+            "word": "happy",
+            "meaning": "快乐的"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c02",
+    "symbol": "/b/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "波",
+    "cnNote": "不送气",
+    "mouth": "双唇爆破，声带振动，几乎不送气",
+    "example": {
+      "word": "bag",
+      "phonetic": "/bæɡ/",
+      "meaning": "包"
+    },
+    "contrast": "/p/ 送气",
+    "spellings": [
+      {
+        "pattern": "b",
+        "examples": [
+          {
+            "word": "bag",
+            "meaning": "包"
+          }
+        ]
+      },
+      {
+        "pattern": "bb",
+        "examples": [
+          {
+            "word": "rabbit",
+            "meaning": "兔子"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c03",
+    "symbol": "/t/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "特",
+    "cnNote": "送气",
+    "mouth": "舌尖抵上齿龈后弹开，送气",
+    "example": {
+      "word": "ten",
+      "phonetic": "/ten/",
+      "meaning": "十"
+    },
+    "contrast": "/d/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "t",
+        "examples": [
+          {
+            "word": "ten",
+            "meaning": "十"
+          }
+        ]
+      },
+      {
+        "pattern": "tt",
+        "examples": [
+          {
+            "word": "better",
+            "meaning": "更好"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c04",
+    "symbol": "/d/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "得",
+    "cnNote": "不送气",
+    "mouth": "舌尖弹开，声带振动，几乎不送气",
+    "example": {
+      "word": "dog",
+      "phonetic": "/dɒɡ/",
+      "meaning": "狗"
+    },
+    "spellings": [
+      {
+        "pattern": "d",
+        "examples": [
+          {
+            "word": "dog",
+            "meaning": "狗"
+          }
+        ]
+      },
+      {
+        "pattern": "dd",
+        "examples": [
+          {
+            "word": "middle",
+            "meaning": "中间"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c05",
+    "symbol": "/k/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "科",
+    "cnNote": "送气",
+    "mouth": "舌根抵软腭后弹开，送气",
+    "example": {
+      "word": "key",
+      "phonetic": "/kiː/",
+      "meaning": "钥匙"
+    },
+    "contrast": "/ɡ/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "k",
+        "examples": [
+          {
+            "word": "key",
+            "meaning": "钥匙"
+          }
+        ]
+      },
+      {
+        "pattern": "c",
+        "examples": [
+          {
+            "word": "cat",
+            "meaning": "猫"
+          }
+        ]
+      },
+      {
+        "pattern": "ck",
+        "examples": [
+          {
+            "word": "book",
+            "meaning": "书"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c06",
+    "symbol": "/ɡ/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "哥",
+    "cnNote": "不送气",
+    "mouth": "舌根弹开，声带振动，几乎不送气",
+    "example": {
+      "word": "go",
+      "phonetic": "/ɡəʊ/",
+      "meaning": "去"
+    },
+    "spellings": [
+      {
+        "pattern": "g",
+        "examples": [
+          {
+            "word": "go",
+            "meaning": "去"
+          }
+        ]
+      },
+      {
+        "pattern": "gg",
+        "examples": [
+          {
+            "word": "bigger",
+            "meaning": "更大"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c07",
+    "symbol": "/f/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "夫",
+    "cnNote": "咬唇",
+    "mouth": "上齿轻咬下唇，气流摩擦而出，声带不振动",
+    "example": {
+      "word": "fish",
+      "phonetic": "/fɪʃ/",
+      "meaning": "鱼"
+    },
+    "contrast": "/v/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "f",
+        "examples": [
+          {
+            "word": "fish",
+            "meaning": "鱼"
+          }
+        ]
+      },
+      {
+        "pattern": "ph",
+        "examples": [
+          {
+            "word": "phone",
+            "meaning": "电话"
+          }
+        ]
+      },
+      {
+        "pattern": "ff",
+        "examples": [
+          {
+            "word": "off",
+            "meaning": "离开"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c08",
+    "symbol": "/v/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "夫",
+    "cnNote": "咬唇浊音",
+    "mouth": "上齿咬下唇，摩擦出声，声带振动",
+    "example": {
+      "word": "very",
+      "phonetic": "/ˈveri/",
+      "meaning": "非常"
+    },
+    "contrast": "/f/ 不振动",
+    "spellings": [
+      {
+        "pattern": "v",
+        "examples": [
+          {
+            "word": "very",
+            "meaning": "非常"
+          }
+        ]
+      },
+      {
+        "pattern": "f",
+        "examples": [
+          {
+            "word": "of",
+            "meaning": "…的"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c09",
+    "symbol": "/s/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "丝",
+    "cnNote": "清音",
+    "mouth": "舌尖靠近齿龈，气流从缝隙摩擦，像蛇叫",
+    "example": {
+      "word": "sun",
+      "phonetic": "/sʌn/",
+      "meaning": "太阳"
+    },
+    "contrast": "/z/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "s",
+        "examples": [
+          {
+            "word": "sun",
+            "meaning": "太阳"
+          }
+        ]
+      },
+      {
+        "pattern": "ss",
+        "examples": [
+          {
+            "word": "class",
+            "meaning": "班级"
+          }
+        ]
+      },
+      {
+        "pattern": "c",
+        "examples": [
+          {
+            "word": "city",
+            "meaning": "城市"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c10",
+    "symbol": "/z/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "丝",
+    "cnNote": "浊音",
+    "mouth": "舌位同 /s/，但声带振动，像蜜蜂嗡嗡",
+    "example": {
+      "word": "zoo",
+      "phonetic": "/zuː/",
+      "meaning": "动物园"
+    },
+    "spellings": [
+      {
+        "pattern": "z",
+        "examples": [
+          {
+            "word": "zoo",
+            "meaning": "动物园"
+          }
+        ]
+      },
+      {
+        "pattern": "s",
+        "examples": [
+          {
+            "word": "is",
+            "meaning": "是"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c11",
+    "symbol": "/θ/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "思",
+    "cnNote": "咬舌",
+    "mouth": "舌尖轻放在上下齿之间，送气，声带不振动",
+    "example": {
+      "word": "think",
+      "phonetic": "/θɪŋk/",
+      "meaning": "想"
+    },
+    "contrast": "/ð/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "th",
+        "examples": [
+          {
+            "word": "think",
+            "meaning": "想"
+          },
+          {
+            "word": "bath",
+            "meaning": "洗澡"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c12",
+    "symbol": "/ð/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "思",
+    "cnNote": "咬舌浊音",
+    "mouth": "舌尖在齿间，声带振动",
+    "example": {
+      "word": "this",
+      "phonetic": "/ðɪs/",
+      "meaning": "这个"
+    },
+    "contrast": "/θ/ 不振动",
+    "spellings": [
+      {
+        "pattern": "th",
+        "examples": [
+          {
+            "word": "this",
+            "meaning": "这个"
+          },
+          {
+            "word": "that",
+            "meaning": "那个"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c13",
+    "symbol": "/ʃ/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "嘘",
+    "cnNote": "清音",
+    "mouth": "嘴唇前突，舌面靠近齿龈，像让人安静",
+    "example": {
+      "word": "she",
+      "phonetic": "/ʃiː/",
+      "meaning": "她"
+    },
+    "contrast": "/ʒ/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "sh",
+        "examples": [
+          {
+            "word": "she",
+            "meaning": "她"
+          }
+        ]
+      },
+      {
+        "pattern": "ti",
+        "examples": [
+          {
+            "word": "nation",
+            "meaning": "国家"
+          }
+        ]
+      },
+      {
+        "pattern": "ci",
+        "examples": [
+          {
+            "word": "ocean",
+            "meaning": "海洋"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c14",
+    "symbol": "/ʒ/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "嘘",
+    "cnNote": "浊音",
+    "mouth": "舌位同 /ʃ/，声带振动",
+    "example": {
+      "word": "measure",
+      "phonetic": "/ˈmeʒə/",
+      "meaning": "测量"
+    },
+    "spellings": [
+      {
+        "pattern": "s",
+        "examples": [
+          {
+            "word": "measure",
+            "meaning": "测量"
+          }
+        ]
+      },
+      {
+        "pattern": "si",
+        "examples": [
+          {
+            "word": "vision",
+            "meaning": "视力"
+          }
+        ]
+      },
+      {
+        "pattern": "g",
+        "examples": [
+          {
+            "word": "garage",
+            "meaning": "车库"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c15",
+    "symbol": "/tʃ/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "七",
+    "cnNote": "清音",
+    "mouth": "像「七」，先堵塞再摩擦，送气",
+    "example": {
+      "word": "chair",
+      "phonetic": "/tʃeə/",
+      "meaning": "椅子"
+    },
+    "contrast": "/dʒ/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "ch",
+        "examples": [
+          {
+            "word": "chair",
+            "meaning": "椅子"
+          }
+        ]
+      },
+      {
+        "pattern": "tch",
+        "examples": [
+          {
+            "word": "watch",
+            "meaning": "观看"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c16",
+    "symbol": "/dʒ/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "七",
+    "cnNote": "浊音",
+    "mouth": "像「之」，声带振动，不送气",
+    "example": {
+      "word": "job",
+      "phonetic": "/dʒɒb/",
+      "meaning": "工作"
+    },
+    "spellings": [
+      {
+        "pattern": "j",
+        "examples": [
+          {
+            "word": "job",
+            "meaning": "工作"
+          }
+        ]
+      },
+      {
+        "pattern": "g",
+        "examples": [
+          {
+            "word": "gem",
+            "meaning": "宝石"
+          }
+        ]
+      },
+      {
+        "pattern": "dge",
+        "examples": [
+          {
+            "word": "bridge",
+            "meaning": "桥"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c17",
+    "symbol": "/tr/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "戳",
+    "cnNote": "卷舌",
+    "mouth": "像「戳」，舌尖卷起，t+r 连读，送气",
+    "example": {
+      "word": "tree",
+      "phonetic": "/triː/",
+      "meaning": "树"
+    },
+    "contrast": "/dr/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "tr",
+        "examples": [
+          {
+            "word": "tree",
+            "meaning": "树"
+          },
+          {
+            "word": "train",
+            "meaning": "火车"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c18",
+    "symbol": "/dr/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "捉",
+    "cnNote": "卷舌浊音",
+    "mouth": "像「捉」，舌尖卷起，声带振动",
+    "example": {
+      "word": "dream",
+      "phonetic": "/driːm/",
+      "meaning": "梦"
+    },
+    "spellings": [
+      {
+        "pattern": "dr",
+        "examples": [
+          {
+            "word": "dream",
+            "meaning": "梦"
+          },
+          {
+            "word": "dress",
+            "meaning": "连衣裙"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c19",
+    "symbol": "/ts/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "次",
+    "cnNote": "清音",
+    "mouth": "像「次」，t+s 快速连读，常出现在词尾",
+    "example": {
+      "word": "cats",
+      "phonetic": "/kæts/",
+      "meaning": "猫（复数）"
+    },
+    "contrast": "/dz/ 声带振动",
+    "spellings": [
+      {
+        "pattern": "ts",
+        "examples": [
+          {
+            "word": "cats",
+            "meaning": "猫（复数）"
+          },
+          {
+            "word": "boats",
+            "meaning": "船（复数）"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c20",
+    "symbol": "/dz/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "次",
+    "cnNote": "浊音",
+    "mouth": "像「兹」，d+z 连读，声带振动",
+    "example": {
+      "word": "beds",
+      "phonetic": "/bedz/",
+      "meaning": "床（复数）"
+    },
+    "spellings": [
+      {
+        "pattern": "ds",
+        "examples": [
+          {
+            "word": "beds",
+            "meaning": "床（复数）"
+          },
+          {
+            "word": "kids",
+            "meaning": "孩子们"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c21",
+    "symbol": "/m/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "姆",
+    "cnNote": "鼻音",
+    "mouth": "双唇闭拢，气流从鼻子出，声带振动",
+    "example": {
+      "word": "man",
+      "phonetic": "/mæn/",
+      "meaning": "男人"
+    },
+    "spellings": [
+      {
+        "pattern": "m",
+        "examples": [
+          {
+            "word": "man",
+            "meaning": "男人"
+          }
+        ]
+      },
+      {
+        "pattern": "mm",
+        "examples": [
+          {
+            "word": "summer",
+            "meaning": "夏天"
+          }
+        ]
+      },
+      {
+        "pattern": "mb",
+        "examples": [
+          {
+            "word": "climb",
+            "meaning": "爬"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c22",
+    "symbol": "/n/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "嗯",
+    "cnNote": "鼻音",
+    "mouth": "舌尖抵上齿龈，气流从鼻子出",
+    "example": {
+      "word": "no",
+      "phonetic": "/nəʊ/",
+      "meaning": "不"
+    },
+    "spellings": [
+      {
+        "pattern": "n",
+        "examples": [
+          {
+            "word": "no",
+            "meaning": "不"
+          }
+        ]
+      },
+      {
+        "pattern": "kn",
+        "examples": [
+          {
+            "word": "know",
+            "meaning": "知道"
+          }
+        ]
+      },
+      {
+        "pattern": "nn",
+        "examples": [
+          {
+            "word": "dinner",
+            "meaning": "晚餐"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c23",
+    "symbol": "/ŋ/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "嗯",
+    "cnNote": "后鼻音",
+    "mouth": "舌根抬起抵软腭，鼻音，像「英」的尾音",
+    "example": {
+      "word": "sing",
+      "phonetic": "/sɪŋ/",
+      "meaning": "唱歌"
+    },
+    "contrast": "别读成 /n/",
+    "spellings": [
+      {
+        "pattern": "ng",
+        "examples": [
+          {
+            "word": "sing",
+            "meaning": "唱歌"
+          }
+        ]
+      },
+      {
+        "pattern": "n",
+        "examples": [
+          {
+            "word": "think",
+            "meaning": "想"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c24",
+    "symbol": "/l/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "了",
+    "cnNote": "舌侧音",
+    "mouth": "舌尖抵上齿龈，气流从舌头两侧流出",
+    "example": {
+      "word": "leg",
+      "phonetic": "/leɡ/",
+      "meaning": "腿"
+    },
+    "spellings": [
+      {
+        "pattern": "l",
+        "examples": [
+          {
+            "word": "leg",
+            "meaning": "腿"
+          }
+        ]
+      },
+      {
+        "pattern": "ll",
+        "examples": [
+          {
+            "word": "bell",
+            "meaning": "铃"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c25",
+    "symbol": "/r/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "若",
+    "cnNote": "卷舌",
+    "mouth": "舌尖卷起但碰到齿龈前就滑开，嘴唇稍圆",
+    "example": {
+      "word": "red",
+      "phonetic": "/red/",
+      "meaning": "红色"
+    },
+    "spellings": [
+      {
+        "pattern": "r",
+        "examples": [
+          {
+            "word": "red",
+            "meaning": "红色"
+          }
+        ]
+      },
+      {
+        "pattern": "wr",
+        "examples": [
+          {
+            "word": "write",
+            "meaning": "写"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c26",
+    "symbol": "/h/",
+    "type": "辅音",
+    "subtype": "清辅音",
+    "cn": "喝",
+    "cnNote": "清音",
+    "mouth": "气流从喉咙轻轻呼出，像哈气",
+    "example": {
+      "word": "hat",
+      "phonetic": "/hæt/",
+      "meaning": "帽子"
+    },
+    "spellings": [
+      {
+        "pattern": "h",
+        "examples": [
+          {
+            "word": "hat",
+            "meaning": "帽子"
+          }
+        ]
+      },
+      {
+        "pattern": "wh",
+        "examples": [
+          {
+            "word": "who",
+            "meaning": "谁"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c27",
+    "symbol": "/w/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "我",
+    "cnNote": "半元音",
+    "mouth": "双唇收圆，快速滑向后面的元音",
+    "example": {
+      "word": "we",
+      "phonetic": "/wiː/",
+      "meaning": "我们"
+    },
+    "contrast": "别读成 /v/",
+    "spellings": [
+      {
+        "pattern": "w",
+        "examples": [
+          {
+            "word": "we",
+            "meaning": "我们"
+          }
+        ]
+      },
+      {
+        "pattern": "wh",
+        "examples": [
+          {
+            "word": "what",
+            "meaning": "什么"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "c28",
+    "symbol": "/j/",
+    "type": "辅音",
+    "subtype": "浊辅音",
+    "cn": "也",
+    "cnNote": "半元音",
+    "mouth": "舌面抬起，快速滑向元音，像「耶」",
+    "example": {
+      "word": "yes",
+      "phonetic": "/jes/",
+      "meaning": "是的"
+    },
+    "spellings": [
+      {
+        "pattern": "y",
+        "examples": [
+          {
+            "word": "yes",
+            "meaning": "是的"
+          }
+        ]
+      },
+      {
+        "pattern": "u",
+        "examples": [
+          {
+            "word": "use",
+            "meaning": "使用"
+          }
+        ]
+      }
+    ]
+  }
 ]
