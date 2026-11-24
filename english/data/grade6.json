@@ -48,14 +48,14 @@
   {
     "id": "g6_003",
     "word": "ICT",
-    "phonetic": "",
+    "phonetic": "/ˌaɪ siː ˈtiː/",
     "meaning": "n. (= information and communications technology) 信息通信技术（课程）",
     "example": "We have an ICT class every Tuesday.",
     "category": "n",
     "difficulty": 6,
     "audio": "ict.mp3",
     "unit": 1,
-    "explain": "An ict is （）.",
+    "explain": "ICT is the study and use of computers and other electronic technology to store, send and find information.",
     "usage": [
       "ICT class（信息技术课）",
       "ICT skills（信息通信技能）"
@@ -117,7 +117,7 @@
     "difficulty": 6,
     "audio": "more.mp3",
     "unit": 1,
-    "explain": "A more is comparative of much.",
+    "explain": "More means a greater amount or number; the comparative of much or many.",
     "usage": [
       "more interesting（更有趣）",
       "more and more（越来越多）",
@@ -246,7 +246,7 @@
     "difficulty": 6,
     "audio": "join.mp3",
     "unit": 1,
-    "explain": "A join is to become a member.",
+    "explain": "To join means to become a member of a group, or to connect things together.",
     "usage": [
       "join a club（加入社团）",
       "join in（参加）"
@@ -269,7 +269,7 @@
     "audio": "technology.mp3",
     "unit": 1,
     "rootAffix": "techn-(技术,技艺) + -ology(学科,学问) → 科技",
-    "explain": "A technology is applied science.",
+    "explain": "Technology is the use of scientific knowledge for practical purposes.",
     "usage": [
       "modern technology（现代科技）",
       "information technology（信息技术）"
@@ -387,14 +387,14 @@
   {
     "id": "g6_019",
     "word": "excuse me",
-    "phonetic": "",
+    "phonetic": "/ɪkˈskjuːz mi/",
     "meaning": "（因打扰别人或失礼表示歉意）对不起；劳驾",
     "example": "Excuse me, where is the library?",
     "category": "phrase",
     "difficulty": 6,
     "audio": "excuse_me.mp3",
     "unit": 1,
-    "explain": "An excuse me is a polite apology.",
+    "explain": "Excuse me is a polite phrase used to apologize or get someone's attention.",
     "usage": [
       "用于引起注意或表示歉意（Excuse me, where is...?）"
     ],
@@ -406,7 +406,7 @@
   {
     "id": "g6_020",
     "word": "of course",
-    "phonetic": "",
+    "phonetic": "/əv kɔːs/",
     "meaning": "当然",
     "example": "Of course I will help you.",
     "category": "phrase",
@@ -518,7 +518,7 @@
     "audio": "receive.mp3",
     "unit": 1,
     "rootAffix": "re-(回) + -ceive(拿,抓) → 拿回来 → 接到;收到",
-    "explain": "A receive is to get something given.",
+    "explain": "To receive means to get something that is given or sent to you.",
     "usage": [
       "receive a letter（收到信）",
       "receive an invitation（收到邀请）"
@@ -596,7 +596,7 @@
   {
     "id": "g6_029",
     "word": "a.m.",
-    "phonetic": "",
+    "phonetic": "/ˌeɪ ˈem/",
     "meaning": "(AmE A.M.) abbr. 上午",
     "example": "The meeting is at 9 a.m.",
     "category": "abbr",
@@ -636,7 +636,7 @@
   {
     "id": "g6_031",
     "word": "p.m.",
-    "phonetic": "",
+    "phonetic": "/ˌpiː ˈem/",
     "meaning": "(AmE P.M.) abbr. 下午",
     "example": "School finishes at 4 p.m.",
     "category": "abbr",
@@ -685,7 +685,7 @@
     "audio": "same.mp3",
     "unit": 1,
     "rootAffix": "sam(同一) + e → 同一的，相同的",
-    "explain": "Same means a common English word.",
+    "explain": "Same means not different; exactly like another person or thing.",
     "usage": [
       "the same as（与……一样）",
       "at the same time（同时）"
@@ -768,7 +768,7 @@
     "audio": "connect.mp3",
     "unit": 1,
     "rootAffix": "con-(共同,一起) + nect-(连接) → 连接",
-    "explain": "To connect means a common English word.",
+    "explain": "To connect means to join two or more things together.",
     "usage": [
       "connect A to B（把A连接到B）",
       "be connected with（与……有关）"
@@ -812,7 +812,7 @@
     "difficulty": 6,
     "audio": "tie.mp3",
     "unit": 2,
-    "explain": "A tie is a necktie or a draw.",
+    "explain": "A tie is a connection or relationship, or an equal score in a game.",
     "usage": [
       "tie a knot（打结）",
       "a tie（领带）"
@@ -857,7 +857,7 @@
     "audio": "introduce.mp3",
     "unit": 2,
     "rootAffix": "intro-(向内) + duc-(引导) + e → 向内引导 → 介绍",
-    "explain": "An introduce is to present first.",
+    "explain": "To introduce means to tell someone another person's name for the first time.",
     "usage": [
       "introduce yourself（自我介绍）",
       "introduce a new idea（引入新想法）"
@@ -937,14 +937,14 @@
   {
     "id": "g6_045",
     "word": "only child",
-    "phonetic": "",
+    "phonetic": "/ˈəʊnli tʃaɪld/",
     "meaning": "独生子（或女）",
     "example": "He is an only child.",
     "category": "n",
     "difficulty": 6,
     "audio": "only_child.mp3",
     "unit": 2,
-    "explain": "An only child is （）.",
+    "explain": "An only child is a child who has no brothers or sisters.",
     "usage": [
       "an only child（独生子女）",
       "be an only child（是独生子/女）"
@@ -1070,7 +1070,7 @@
     "audio": "other.mp3",
     "unit": 2,
     "rootAffix": "alter（另一个），其中o对应al，ther对应ter",
-    "explain": "An other is different from mentioned.",
+    "explain": "Other means different from the one already mentioned.",
     "usage": [
       "the other book（另一本书）",
       "each other（互相）"
@@ -1289,7 +1289,7 @@
     "audio": "round.mp3",
     "unit": 2,
     "rootAffix": "ro（=rot，滚动）+und（形容词后缀，相当于ent）→正在滚动的→圆的；围绕，循环",
-    "explain": "Round means a common English word.",
+    "explain": "Round means shaped like a circle or a ball.",
     "usage": [
       "a round table（圆桌）",
       "all year round（一年到头）"
@@ -1418,7 +1418,7 @@
     "difficulty": 6,
     "audio": "thing.mp3",
     "unit": 2,
-    "explain": "Thing is a verb in present participle form.",
+    "explain": "A thing is an object, fact, idea or event.",
     "usage": [
       "one thing（一件事）",
       "things to do（要做的事）"
@@ -1452,7 +1452,7 @@
   {
     "id": "g6_069",
     "word": "Well done!",
-    "phonetic": "",
+    "phonetic": "/ˌwel ˈdʌn/",
     "meaning": "做得好！干得好！",
     "example": "Well done! You did a great job!",
     "category": "n",
@@ -1587,7 +1587,7 @@
     "difficulty": 6,
     "audio": "fun.mp3",
     "unit": 2,
-    "explain": "A fun is enjoyment.",
+    "explain": "Fun is enjoyment or pleasure.",
     "usage": [
       "have fun（玩得开心）",
       "for fun（为了好玩）"
@@ -1632,7 +1632,7 @@
     "audio": "prepare.mp3",
     "unit": 2,
     "rootAffix": "pre-(前,先) + par-(准备,出现) + e → 提前准备 → 准备",
-    "explain": "A prepare is to make ready.",
+    "explain": "To prepare means to make something ready.",
     "usage": [
       "prepare a lesson（备课）",
       "prepare for the exam（备考）"
@@ -1655,7 +1655,7 @@
     "audio": "decorate.mp3",
     "unit": 2,
     "rootAffix": "decor-(装饰) + -ate(动词后缀) → 装饰",
-    "explain": "To decorate means a common English word.",
+    "explain": "To decorate means to make something look nicer by adding things to it.",
     "usage": [
       "decorate a room（装饰房间）",
       "decorate with flowers（用花装饰）"
@@ -1741,7 +1741,7 @@
     "audio": "surprised.mp3",
     "unit": 2,
     "rootAffix": "sur-(超过) + pris-(抓) + -ed(形容词后缀) → 惊奇的",
-    "explain": "Surprised is a verb in past tense.",
+    "explain": "Surprised means feeling that something unexpected has happened.",
     "usage": [
       "be surprised at sth.（对某事感到惊讶）",
       "a surprised look（惊讶的表情）"
@@ -1763,7 +1763,7 @@
     "audio": "super_excited.mp3",
     "unit": 2,
     "rootAffix": "super-(超级) + excited-(兴奋的) → 超级激动的",
-    "explain": "Super-excited is a verb in past tense.",
+    "explain": "Super-excited means extremely happy and eager about something.",
     "usage": [
       "a super-excited fan（超级兴奋的粉丝）",
       "be super-excited（非常兴奋）"
@@ -1799,14 +1799,14 @@
   {
     "id": "g6_085",
     "word": "jump for joy",
-    "phonetic": "",
+    "phonetic": "/dʒʌmp fə dʒɔɪ/",
     "meaning": "欢呼雀跃",
     "example": "She jumped for joy when she heard the news.",
     "category": "n",
     "difficulty": 6,
     "audio": "jump_for_joy.mp3",
     "unit": 2,
-    "explain": "A jump for joy is to jump up because you are very happy.",
+    "explain": "To jump for joy means to jump up because you are very happy.",
     "usage": [
       "jump for joy（高兴得跳起来）",
       "The children jumped for joy.（孩子们高兴得跳起来。）"
@@ -1849,7 +1849,7 @@
     "difficulty": 6,
     "audio": "beef.mp3",
     "unit": 3,
-    "explain": "A beef is the meat from a cow.",
+    "explain": "Beef is the meat from a cow.",
     "usage": [
       "eat beef（吃牛肉）",
       "beef noodles（牛肉面）"
@@ -1869,7 +1869,7 @@
     "difficulty": 6,
     "audio": "tofu.mp3",
     "unit": 3,
-    "explain": "A tofu is a soft white food made from soybeans.",
+    "explain": "Tofu is a soft white food made from soybeans.",
     "usage": [
       "eat tofu（吃豆腐）",
       "a tofu dish（豆腐菜）"
@@ -2116,7 +2116,7 @@
     "difficulty": 6,
     "audio": "butter.mp3",
     "unit": 3,
-    "explain": "A butter is a yellow food made from cream.",
+    "explain": "Butter is a yellow food made from cream.",
     "usage": [
       "spread butter on bread（在面包上涂黄油）",
       "a packet of butter（一包黄油）"
@@ -2157,7 +2157,7 @@
     "difficulty": 6,
     "audio": "salt.mp3",
     "unit": 3,
-    "explain": "A salt is a white substance used to flavor food.",
+    "explain": "Salt is a white substance used to flavour food.",
     "usage": [
       "add salt（加盐）",
       "a pinch of salt（一撮盐）"
@@ -2243,7 +2243,7 @@
     "audio": "rainbow.mp3",
     "unit": 3,
     "rootAffix": "rain（下雨）+bow（弓状物）→彩虹",
-    "explain": "A rainbow is an arc of colors that appears in the sky after rain.",
+    "explain": "A rainbow is an arc of colours that appears in the sky after rain.",
     "usage": [
       "see a rainbow（看见彩虹）",
       "a rainbow flag（彩虹旗）"
@@ -2264,7 +2264,7 @@
     "difficulty": 6,
     "audio": "balanced.mp3",
     "unit": 3,
-    "explain": "Balanced is a verb in past tense.",
+    "explain": "Balanced means keeping a steady position, or containing the right amounts of different things.",
     "usage": [
       "a balanced diet（均衡饮食）",
       "a balanced view（平衡的观点）"
@@ -2307,7 +2307,7 @@
     "difficulty": 6,
     "audio": "each.mp3",
     "unit": 3,
-    "explain": "Each is a pronoun meaning （），，.",
+    "explain": "Each means every one of two or more people or things, considered separately.",
     "usage": [
       "each student（每个学生）",
       "each other（互相）"
@@ -2342,7 +2342,7 @@
   {
     "id": "g6_111",
     "word": "plenty of",
-    "phonetic": "",
+    "phonetic": "/ˈplenti əv/",
     "meaning": "大量；很多的",
     "example": "There are plenty of books in the library.",
     "category": "n",
@@ -2426,7 +2426,7 @@
   {
     "id": "g6_115",
     "word": "a few",
-    "phonetic": "",
+    "phonetic": "/ə fjuː/",
     "meaning": "有些；几个（用于可数名词之前）",
     "example": "I bought a few apples.",
     "category": "n",
@@ -2771,14 +2771,14 @@
   {
     "id": "g6_131",
     "word": "side dish",
-    "phonetic": "",
+    "phonetic": "/saɪd dɪʃ/",
     "meaning": "（随同主菜一起上的）配菜",
     "example": "This side dish tastes great.",
     "category": "n",
     "difficulty": 6,
     "audio": "side_dish.mp3",
     "unit": 3,
-    "explain": "A side dish is （）.",
+    "explain": "A side dish is a small dish of food served with the main dish of a meal.",
     "usage": [
       "order a side dish（点一份配菜）",
       "a side dish of fries（一份薯条配菜）"
@@ -2799,7 +2799,7 @@
     "difficulty": 6,
     "audio": "mutton.mp3",
     "unit": 3,
-    "explain": "A mutton is the meat from a sheep.",
+    "explain": "Mutton is the meat from a sheep.",
     "usage": [
       "eat mutton（吃羊肉）",
       "mutton soup（羊肉汤）"
@@ -2864,7 +2864,7 @@
     "audio": "chopsticks.mp3",
     "unit": 3,
     "rootAffix": "chop（广东话“快”或“筷”的音译）+sticks（小棍子）→筷子",
-    "explain": "A chopsticks is two thin sticks used for eating food, especially in Asian countries.",
+    "explain": "Chopsticks are two thin sticks used for eating food, especially in Asian countries.",
     "usage": [
       "use chopsticks（用筷子）",
       "a pair of chopsticks（一双筷子）"
@@ -2960,7 +2960,7 @@
   {
     "id": "g6_140",
     "word": "sports ground",
-    "phonetic": "",
+    "phonetic": "/spɔːts ɡraʊnd/",
     "meaning": "运动场；操场",
     "example": "We play on the sports ground.",
     "category": "n",
@@ -3025,12 +3025,12 @@
     "word": "high",
     "phonetic": "/haɪ/",
     "meaning": "adj. 高的",
-    "example": "He looks high.",
+    "example": "The wall is very high.",
     "category": "adj",
     "difficulty": 6,
     "audio": "high.mp3",
     "unit": 4,
-    "explain": "A high is extending far up.",
+    "explain": "High means extending far up.",
     "usage": [
       "a high mountain（高山）",
       "how high（多高）"
@@ -3074,7 +3074,7 @@
     "difficulty": 6,
     "audio": "kick.mp3",
     "unit": 4,
-    "explain": "To kick means a common English word.",
+    "explain": "To kick means to hit something with your foot.",
     "usage": [
       "kick a ball（踢球）",
       "kick off（开球）"
@@ -3117,7 +3117,7 @@
     "difficulty": 6,
     "audio": "climb.mp3",
     "unit": 4,
-    "explain": "A climb is to go up using hands and feet.",
+    "explain": "To climb means to go up using your hands and feet.",
     "usage": [
       "climb a mountain（爬山）",
       "climb up（向上爬）"
@@ -3132,14 +3132,14 @@
   {
     "id": "g6_148",
     "word": "rock climbing",
-    "phonetic": "",
+    "phonetic": "/rɒk ˈklaɪmɪŋ/",
     "meaning": "攀岩",
     "example": "Rock climbing is an exciting sport.",
     "category": "n",
     "difficulty": 6,
     "audio": "rock_climbing.mp3",
     "unit": 4,
-    "explain": "Rock climbing is a verb in present participle form.",
+    "explain": "Rock climbing is the sport of climbing up rocks or cliffs.",
     "usage": [
       "go rock climbing（去攀岩）",
       "a rock climbing wall（攀岩墙）"
@@ -3160,7 +3160,7 @@
     "difficulty": 6,
     "audio": "kung_fu.mp3",
     "unit": 4,
-    "explain": "A kung fu is （）.",
+    "explain": "Kung fu is a Chinese martial art that uses fast movements of the hands and feet.",
     "usage": [
       "do kung fu（练功夫）",
       "a kung fu master（功夫大师）"
@@ -3218,14 +3218,14 @@
   {
     "id": "g6_152",
     "word": "take part in",
-    "phonetic": "",
+    "phonetic": "/teɪk pɑːt ɪn/",
     "meaning": "参加",
     "example": "I want to take part in the competition.",
     "category": "n",
     "difficulty": 6,
     "audio": "take_part_in.mp3",
     "unit": 4,
-    "explain": "To take part in means to perform the action related to in.",
+    "explain": "To take part in something means to join in an activity or event.",
     "usage": [
       "take part in a competition（参加比赛）",
       "take part in the discussion（参加讨论）"
@@ -3351,7 +3351,7 @@
     "difficulty": 6,
     "audio": "jog.mp3",
     "unit": 4,
-    "explain": "To jog means a common English word.",
+    "explain": "To jog means to run slowly for exercise.",
     "usage": [
       "go jogging（去慢跑）",
       "jog in the park（在公园慢跑）"
@@ -3438,7 +3438,7 @@
     "difficulty": 6,
     "audio": "gear.mp3",
     "unit": 4,
-    "explain": "A gear is （），，.",
+    "explain": "Gear is the equipment or clothes you need for a particular activity.",
     "usage": [
       "change gear（换挡）",
       "gear up（准备好）"
@@ -3473,7 +3473,7 @@
   {
     "id": "g6_164",
     "word": "for example",
-    "phonetic": "",
+    "phonetic": "/fər ɪɡˈzɑːmpl/",
     "meaning": "例如",
     "example": "I like fruits, for example, apples.",
     "category": "n",
@@ -3493,14 +3493,14 @@
   {
     "id": "g6_165",
     "word": "warm up",
-    "phonetic": "",
+    "phonetic": "/wɔːm ʌp/",
     "meaning": "（为体育活动或表演）做适应性练习，做准备活动；热身",
     "example": "Let's warm up before the race.",
     "category": "n",
     "difficulty": 6,
     "audio": "warm_up.mp3",
     "unit": 4,
-    "explain": "A warm up is a series of exercises to prepare the body for physical activity.",
+    "explain": "Warm up means to do exercises to prepare your body for physical activity.",
     "usage": [
       "warm up before exercise（运动前热身）",
       "warm up the car（预热汽车）"
@@ -3514,14 +3514,14 @@
   {
     "id": "g6_166",
     "word": "watch out",
-    "phonetic": "",
+    "phonetic": "/wɒtʃ aʊt/",
     "meaning": "小心；留神；注意",
     "example": "Watch out! The floor is wet!",
     "category": "n",
     "difficulty": 6,
     "audio": "watch_out.mp3",
     "unit": 4,
-    "explain": "To watch out means to perform the action related to out.",
+    "explain": "Watch out means to be careful because there may be danger.",
     "usage": [
       "Watch out!（小心！）",
       "watch out for cars（当心汽车）"
@@ -3557,7 +3557,7 @@
   {
     "id": "g6_168",
     "word": "What's the matter?",
-    "phonetic": "",
+    "phonetic": "/wɒts ðə ˈmætə(r)/",
     "meaning": "怎么了？",
     "example": "What's the matter? You look unhappy.",
     "category": "n",
@@ -3585,7 +3585,7 @@
     "audio": "happen.mp3",
     "unit": 4,
     "rootAffix": "happ（偶然）+en（动词后缀）→偶然发生→发生，碰巧",
-    "explain": "To happen means a common English word.",
+    "explain": "To happen means to take place, especially without being planned.",
     "usage": [
       "happen to sb.（发生在某人身上）",
       "What happened?（发生了什么？）"
@@ -3628,7 +3628,7 @@
     "difficulty": 6,
     "audio": "fall.mp3",
     "unit": 4,
-    "explain": "A fall is to move downward.",
+    "explain": "To fall means to move downward.",
     "usage": [
       "fall down（摔倒）",
       "fall in autumn（秋天到来）"
@@ -3686,7 +3686,7 @@
   {
     "id": "g6_174",
     "word": "How come?",
-    "phonetic": "",
+    "phonetic": "/ˌhaʊ ˈkʌm/",
     "meaning": "怎么回事？怎么发生的？",
     "example": "How come you are late?",
     "category": "n",
@@ -3841,7 +3841,7 @@
     "difficulty": 6,
     "audio": "throw.mp3",
     "unit": 4,
-    "explain": "A throw is to propel through air.",
+    "explain": "To throw means to send something through the air with your hand.",
     "usage": [
       "throw a ball（扔球）",
       "throw away（扔掉）"
@@ -3931,7 +3931,7 @@
     "audio": "powerful.mp3",
     "unit": 4,
     "rootAffix": "power-(力量) + -ful(形容词后缀,充满...的) → 强有力的",
-    "explain": "Powerful means a common English word.",
+    "explain": "Powerful means having great power, strength or effect.",
     "usage": [
       "a powerful engine（强大的引擎）",
       "a powerful speech（有力的演讲）"
@@ -4148,7 +4148,7 @@
     "audio": "track.mp3",
     "unit": 4,
     "rootAffix": "trac（拖）+k→拖行留下的痕迹→足迹，踪迹",
-    "explain": "A track is （、）.",
+    "explain": "A track is a path or a specially prepared course for running or racing.",
     "usage": [
       "on the track（在轨道上）",
       "keep track of（记录）"
@@ -4170,7 +4170,7 @@
     "audio": "amazing.mp3",
     "unit": 5,
     "rootAffix": "amaz-(惊奇) + -ing(形容词后缀) → 令人惊奇的",
-    "explain": "Amazing is a verb in present participle form.",
+    "explain": "Amazing means extremely surprising and impressive.",
     "usage": [
       "an amazing story（一个惊人的故事）",
       "amazing news（惊人的消息）"
@@ -4213,7 +4213,7 @@
     "difficulty": 6,
     "audio": "feed.mp3",
     "unit": 5,
-    "explain": "Feed is a verb in past tense.",
+    "explain": "To feed means to give food to a person or animal.",
     "usage": [
       "feed a baby（喂婴儿）",
       "feed the cat（喂猫）"
@@ -4235,7 +4235,7 @@
     "difficulty": 6,
     "audio": "herd.mp3",
     "unit": 5,
-    "explain": "To herd means to （、）.",
+    "explain": "To herd means to make a group of animals move together in a certain direction.",
     "usage": [
       "a herd of cows（一群牛）",
       "herd animals（群居动物）"
@@ -4278,7 +4278,7 @@
     "audio": "remember.mp3",
     "unit": 5,
     "rootAffix": "re(再次) + member(记忆) → 再次想起 → 记起",
-    "explain": "A remember is to recall from memory.",
+    "explain": "To remember means to recall something from memory.",
     "usage": [
       "remember a name（记住名字）",
       "remember to do sth.（记得去做某事）"
@@ -4362,14 +4362,14 @@
   {
     "id": "g6_205",
     "word": "take care of",
-    "phonetic": "",
+    "phonetic": "/teɪk keə(r) əv/",
     "meaning": "照顾；照料",
     "example": "I take care of my little brother.",
     "category": "n",
     "difficulty": 6,
     "audio": "take_care_of.mp3",
     "unit": 5,
-    "explain": "To take care of means to perform the action related to of.",
+    "explain": "To take care of someone or something means to look after them.",
     "usage": [
       "take care of a child（照顾孩子）",
       "take care of the problem（处理问题）"
@@ -4392,7 +4392,7 @@
     "audio": "prefer.mp3",
     "unit": 5,
     "rootAffix": "pre-(前,先) + -fer(承载) → 先拿 → 更喜欢",
-    "explain": "A prefer is to like more.",
+    "explain": "To prefer means to like one thing more than another.",
     "usage": [
       "prefer tea to coffee（喜欢茶胜过咖啡）",
       "prefer to do sth.（宁愿做某事）"
@@ -4407,14 +4407,14 @@
   {
     "id": "g6_207",
     "word": "get along with",
-    "phonetic": "",
+    "phonetic": "/ɡet əˈlɒŋ wɪð/",
     "meaning": "和睦相处；关系良好",
     "example": "I get along well with my classmates.",
     "category": "n",
     "difficulty": 6,
     "audio": "get_along_with.mp3",
     "unit": 5,
-    "explain": "To get along with means to perform the action related to with.",
+    "explain": "To get along with someone means to have a friendly relationship with them.",
     "usage": [
       "get along with classmates（与同学相处）",
       "get along well with sb.（与某人相处融洽）"
@@ -4457,7 +4457,7 @@
     "difficulty": 6,
     "audio": "bite.mp3",
     "unit": 5,
-    "explain": "A bite is to cut with teeth.",
+    "explain": "To bite means to cut something with your teeth.",
     "usage": [
       "bite an apple（咬苹果）",
       "a bee bite（蜜蜂叮咬）"
@@ -4480,7 +4480,7 @@
     "audio": "warning.mp3",
     "unit": 5,
     "rootAffix": "warn-(警告) + -ing(名词后缀) → 警告",
-    "explain": "Warning is a verb in present participle form.",
+    "explain": "A warning is a statement or sign that tells people about possible danger or trouble.",
     "usage": [
       "a warning sign（警示标志）",
       "give a warning（发出警告）"
@@ -4502,7 +4502,7 @@
     "difficulty": 6,
     "audio": "peck.mp3",
     "unit": 5,
-    "explain": "To peck means a common English word.",
+    "explain": "To peck means to eat or hit something with a bird's beak.",
     "usage": [
       "a bird pecking（鸟啄食）",
       "peck at food（啄食）"
@@ -4523,7 +4523,7 @@
     "difficulty": 6,
     "audio": "sweet.mp3",
     "unit": 5,
-    "explain": "A sweet is a small piece of candy or chocolate.",
+    "explain": "Sweet means tasting like sugar; a sweet is a small piece of candy or chocolate.",
     "usage": [
       "a sweet apple（甜的苹果）",
       "sweet dreams（好梦）"
@@ -4566,7 +4566,7 @@
     "difficulty": 6,
     "audio": "loud.mp3",
     "unit": 5,
-    "explain": "A loud is producing much sound.",
+    "explain": "Loud means producing much sound.",
     "usage": [
       "a loud noise（大声的噪音）",
       "speak loud（大声说）"
@@ -4612,7 +4612,7 @@
     "audio": "meaning.mp3",
     "unit": 5,
     "rootAffix": "mean-(意味) + -ing(名词后缀) → 意义;意思",
-    "explain": "Meaning is a verb in present participle form.",
+    "explain": "The meaning of a word or sign is what it represents or expresses.",
     "usage": [
       "the meaning of a word（单词的意思）",
       "What's the meaning?（是什么意思？）"
@@ -4825,7 +4825,7 @@
     "difficulty": 6,
     "audio": "yard.mp3",
     "unit": 5,
-    "explain": "A yard is （），.",
+    "explain": "A yard is an area of ground next to a building, or an area used for a particular purpose.",
     "usage": [
       "in the yard（在院子里）",
       "a school yard（校园）"
@@ -4869,7 +4869,7 @@
     "difficulty": 6,
     "audio": "believe.mp3",
     "unit": 5,
-    "explain": "To believe means a common English word.",
+    "explain": "To believe something means to think that it is true.",
     "usage": [
       "believe a story（相信故事）",
       "believe in sb.（信任某人）"
@@ -4892,7 +4892,7 @@
     "audio": "unforgettable.mp3",
     "unit": 5,
     "rootAffix": "un-(不) + forget-(忘记) + -able(形容词后缀) → 令人难忘的",
-    "explain": "Unforgettable means a common English word.",
+    "explain": "Unforgettable means so special that you cannot forget it.",
     "usage": [
       "an unforgettable experience（难忘的经历）",
       "an unforgettable day（难忘的一天）"
@@ -5155,7 +5155,7 @@
     "difficulty": 6,
     "audio": "hike.mp3",
     "unit": 6,
-    "explain": "To hike means a common English word.",
+    "explain": "To hike means to go for a long walk in the countryside.",
     "usage": [
       "go hiking（去徒步）",
       "a mountain hike（山地徒步）"
@@ -5200,7 +5200,7 @@
     "audio": "enjoy.mp3",
     "unit": 6,
     "rootAffix": "en-(使,进入) + joy-(高兴) → 使高兴 → 享受",
-    "explain": "An enjoy is to take pleasure in.",
+    "explain": "To enjoy means to take pleasure in something.",
     "usage": [
       "enjoy a book（喜欢一本书）",
       "enjoy doing sth.（喜欢做某事）"
@@ -5223,7 +5223,7 @@
     "audio": "local.mp3",
     "unit": 6,
     "rootAffix": "loc-(位置,地方) + -al(形容词后缀) → 地方的 → 当地的",
-    "explain": "A local is relating to a place.",
+    "explain": "Local means relating to a particular place.",
     "usage": [
       "a local shop（当地商店）",
       "local people（当地人）"
@@ -5376,7 +5376,7 @@
     "difficulty": 6,
     "audio": "afraid.mp3",
     "unit": 6,
-    "explain": "An afraid is feeling fear.",
+    "explain": "Afraid means feeling fear.",
     "usage": [
       "be afraid of dogs（怕狗）",
       "I'm afraid so.（恐怕是这样。）"
@@ -5389,7 +5389,7 @@
   {
     "id": "g6_252",
     "word": "I'm afraid",
-    "phonetic": "",
+    "phonetic": "/aɪm əˈfreɪd/",
     "meaning": "我怕；恐怕；很遗憾；对不起",
     "example": "I'm afraid I can't come today.",
     "category": "n",
@@ -5484,7 +5484,7 @@
     "difficulty": 6,
     "audio": "better.mp3",
     "unit": 6,
-    "explain": "A better is comparative of good.",
+    "explain": "Better means of higher quality; the comparative of good.",
     "usage": [
       "feel better（感觉好些）",
       "do better（做得更好）"
@@ -5506,7 +5506,7 @@
     "audio": "convenient.mp3",
     "unit": 6,
     "rootAffix": "con-(共同) + ven-(来) + -ient(形容词后缀) → 一起来的 → 方便的",
-    "explain": "A convenient is easy to use.",
+    "explain": "Convenient means easy to use or suitable for your needs.",
     "usage": [
       "be convenient for sb.（对某人方便）",
       "a convenient time（方便的时间）"
@@ -5549,7 +5549,7 @@
     "difficulty": 6,
     "audio": "high_speed.mp3",
     "unit": 6,
-    "explain": "High-speed is a verb in past tense.",
+    "explain": "High-speed means moving or operating very fast.",
     "usage": [
       "a high-speed train（高铁）",
       "high-speed Internet（高速互联网）"
@@ -5659,7 +5659,7 @@
     "difficulty": 6,
     "audio": "own.mp3",
     "unit": 6,
-    "explain": "Own means （），.",
+    "explain": "Own means belonging to a particular person and not to anyone else.",
     "usage": [
       "my own book（我自己的书）",
       "on one's own（独自）"
@@ -5682,7 +5682,7 @@
     "audio": "historical.mp3",
     "unit": 6,
     "rootAffix": "histor-(历史,故事) + -ical(形容词后缀) → 历史的",
-    "explain": "Historical means （）.",
+    "explain": "Historical means connected with the past or with history.",
     "usage": [
       "a historical event（历史事件）",
       "a historical novel（历史小说）"
@@ -5717,7 +5717,7 @@
   {
     "id": "g6_267",
     "word": "such as",
-    "phonetic": "",
+    "phonetic": "/sʌtʃ əz/",
     "meaning": "例如；诸如",
     "example": "I like fruits, such as apples and bananas.",
     "category": "n",
@@ -5934,7 +5934,7 @@
   {
     "id": "g6_277",
     "word": "enjoy oneself",
-    "phonetic": "",
+    "phonetic": "/ɪnˈdʒɔɪ wʌnˈself/",
     "meaning": "过得快乐；玩得高兴",
     "example": "Did you enjoy yourself at the party?",
     "category": "n",
@@ -5985,7 +5985,7 @@
     "audio": "notice.mp3",
     "unit": 7,
     "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告",
-    "explain": "A notice is to become aware of.",
+    "explain": "To notice means to become aware of something; a notice is a written or printed sign.",
     "usage": [
       "noticeboard（布告栏）",
       "notice sb. doing sth.（注意到某人正在做某事）"
@@ -6094,7 +6094,7 @@
     "difficulty": 6,
     "audio": "curly.mp3",
     "unit": 7,
-    "explain": "Curly means a common English word.",
+    "explain": "Curly means forming curves or rings, especially of hair.",
     "usage": [
       "curly hair（卷发）",
       "a curly-haired girl（卷发女孩）"
@@ -6115,7 +6115,7 @@
     "difficulty": 6,
     "audio": "straight.mp3",
     "unit": 7,
-    "explain": "Straight means a common English word.",
+    "explain": "Straight means not bent or curved; continuing in one direction.",
     "usage": [
       "a straight line（直线）",
       "go straight（直走）"
@@ -6157,7 +6157,7 @@
     "difficulty": 6,
     "audio": "jeans.mp3",
     "unit": 7,
-    "explain": "A jeans is denim trousers.",
+    "explain": "Jeans are denim trousers.",
     "usage": [
       "wear jeans（穿牛仔裤）",
       "a pair of jeans（一条牛仔裤）"
@@ -6220,7 +6220,7 @@
     "difficulty": 6,
     "audio": "skin.mp3",
     "unit": 7,
-    "explain": "A skin is the outer covering of the body.",
+    "explain": "Skin is the outer covering of the body.",
     "usage": [
       "healthy skin（健康的皮肤）",
       "a skin problem（皮肤问题）"
@@ -6236,12 +6236,12 @@
     "word": "special",
     "phonetic": "/ˈspeʃl/",
     "meaning": "特殊的；特别的",
-    "example": "Let's learn \"special\" today.",
+    "example": "Today is a special day for our family.",
     "category": "adj",
     "difficulty": 6,
     "audio": "special.mp3",
     "unit": 7,
-    "explain": "The word \"special\" means 特殊的；特别的.",
+    "explain": "Special means different from what is usual, or better or more important than others.",
     "usage": [
       "a special day（特别的日子）",
       "special offer（特价）"
@@ -6279,12 +6279,12 @@
     "word": "than",
     "phonetic": "/ðæn , ðən/",
     "meaning": "比",
-    "example": "Let's learn \"than\" today.",
+    "example": "She is taller than her brother.",
     "category": "n",
     "difficulty": 6,
     "audio": "than.mp3",
     "unit": 7,
-    "explain": "The word \"than\" means 比.",
+    "explain": "Than is used to compare two people or things.",
     "usage": [
       "more than（超过）",
       "better than（比……好）"
@@ -6304,7 +6304,7 @@
     "difficulty": 6,
     "audio": "fair.mp3",
     "unit": 7,
-    "explain": "A fair is treating people equally.",
+    "explain": "Fair means pale or light in colour, especially of hair or skin.",
     "usage": [
       "a fair test（公平的测试）",
       "a book fair（书展）"
@@ -6322,12 +6322,12 @@
     "word": "talent",
     "phonetic": "/ˈtælənt/",
     "meaning": "天才；天赋",
-    "example": "Let's learn \"talent\" today.",
+    "example": "He has a talent for music.",
     "category": "n",
     "difficulty": 6,
     "audio": "talent.mp3",
     "unit": 7,
-    "explain": "The word \"talent\" means 天才；天赋.",
+    "explain": "Talent is a natural ability to do something well.",
     "usage": [
       "a talent show（才艺表演）",
       "a talent for music（音乐天赋）"
@@ -6343,12 +6343,12 @@
     "word": "programme",
     "phonetic": "/ˈprəʊɡræm/",
     "meaning": "节目单；计划；方案；活动安排",
-    "example": "Let's learn \"programme\" today.",
+    "example": "I watched a programme about wild animals.",
     "category": "v",
     "difficulty": 6,
     "audio": "programme.mp3",
     "unit": 7,
-    "explain": "The word \"programme\" means 节目单；计划；方案；活动安排.",
+    "explain": "A programme is a plan of activities, or a show on television or radio.",
     "usage": [
       "a TV programme（电视节目）",
       "a radio programme（广播节目）"
@@ -6392,7 +6392,7 @@
     "audio": "butterfly.mp3",
     "unit": 7,
     "rootAffix": "butter（黄油）+fly（飞虫）→喜欢偷吃黄油的飞虫→蝴蝶",
-    "explain": "A butterfly is a flying insect with large colorful wings.",
+    "explain": "A butterfly is a flying insect with large colourful wings.",
     "usage": [
       "a butterfly（一只蝴蝶）",
       "a butterfly net（捕蝶网）"
@@ -6427,13 +6427,13 @@
     "id": "g6_300",
     "word": "host",
     "phonetic": "/həʊst/",
-    "meaning": "目主持人",
+    "meaning": "主持人；主办",
     "example": "China will host the Winter Olympics.",
     "category": "n.",
     "difficulty": 6,
     "audio": "host.mp3",
     "unit": 7,
-    "explain": "Host is a person who receives guests.",
+    "explain": "To host means to organize an event and welcome the people who come to it.",
     "usage": [
       "host a party（主办聚会）",
       "a host（主人；主持人）"
@@ -6472,12 +6472,12 @@
     "word": "excite",
     "phonetic": "/ɪkˈsaɪt/",
     "meaning": "使激动；使兴奋",
-    "example": "Let's learn \"excite\" today.",
+    "example": "The good news excited everyone.",
     "category": "v",
     "difficulty": 6,
     "audio": "excite.mp3",
     "unit": 7,
-    "explain": "The word \"excite\" means 使激动；使兴奋.",
+    "explain": "To excite means to make someone feel happy and eager.",
     "usage": [
       "excite the children（使孩子们兴奋）",
       "excite interest（激发兴趣）"
@@ -6494,12 +6494,12 @@
     "word": "exciting",
     "phonetic": "/ɪkˈsaɪtɪŋ/",
     "meaning": "令人兴奋的；令人激动的",
-    "example": "Let's learn \"exciting\" today.",
+    "example": "The football match was very exciting.",
     "category": "adj",
     "difficulty": 6,
     "audio": "exciting.mp3",
     "unit": 7,
-    "explain": "The word \"exciting\" means 令人兴奋的；令人激动的.",
+    "explain": "Exciting means making you feel happy, interested and full of energy.",
     "usage": [
       "an exciting game（激动人心的比赛）",
       "exciting news（令人兴奋的消息）"
@@ -6515,12 +6515,12 @@
     "word": "anything",
     "phonetic": "/ˈeniθɪŋ/",
     "meaning": "任何东西；任何事物",
-    "example": "Let's learn \"anything\" today.",
+    "example": "Is there anything in the box?",
     "category": "adj",
     "difficulty": 6,
     "audio": "anything.mp3",
     "unit": 7,
-    "explain": "The word \"anything\" means 任何东西；任何事物.",
+    "explain": "Anything means any thing at all.",
     "usage": [
       "anything else（别的东西）",
       "I can't do anything.（我什么也做不了。）"
@@ -6535,12 +6535,12 @@
     "word": "someone",
     "phonetic": "/ˈsʌmwʌn/",
     "meaning": "某人",
-    "example": "Let's learn \"someone\" today.",
+    "example": "Someone is knocking at the door.",
     "category": "n",
     "difficulty": 6,
     "audio": "someone.mp3",
     "unit": 7,
-    "explain": "The word \"someone\" means 某人.",
+    "explain": "Someone means a person who is not known or not named.",
     "usage": [
       "someone in the room（房间里的某人）",
       "ask someone for help（向某人求助）"
@@ -6556,12 +6556,12 @@
     "word": "somebody",
     "phonetic": "/ˈsʌmbədi/",
     "meaning": "某人",
-    "example": "Let's learn \"somebody\" today.",
+    "example": "Somebody left a bag on the chair.",
     "category": "n",
     "difficulty": 6,
     "audio": "somebody.mp3",
     "unit": 7,
-    "explain": "The word \"somebody\" means 某人.",
+    "explain": "Somebody means a person who is not known or not named.",
     "usage": [
       "somebody else（别人）",
       "Somebody is waiting.（有人在等。）"
@@ -6598,12 +6598,12 @@
     "word": "voice",
     "phonetic": "/vɔɪs/",
     "meaning": "嗓音；说话声；歌唱声",
-    "example": "Let's learn \"voice\" today.",
+    "example": "She has a beautiful voice.",
     "category": "n",
     "difficulty": 6,
     "audio": "voice.mp3",
     "unit": 7,
-    "explain": "The word \"voice\" means 嗓音；说话声；歌唱声.",
+    "explain": "A voice is the sound made when someone speaks or sings.",
     "usage": [
       "a beautiful voice（优美的嗓音）",
       "in a low voice（低声地）"
@@ -6620,12 +6620,12 @@
     "word": "person",
     "phonetic": "/ˈpɜːsn/",
     "meaning": "人；个人",
-    "example": "Let's learn \"person\" today.",
+    "example": "He is a kind person.",
     "category": "n",
     "difficulty": 6,
     "audio": "person.mp3",
     "unit": 7,
-    "explain": "The word \"person\" means 人；个人.",
+    "explain": "A person is a human being.",
     "usage": [
       "a person（一个人）",
       "in person（亲自）"
@@ -6641,12 +6641,12 @@
     "word": "hobby",
     "phonetic": "/ˈhɒbi/",
     "meaning": "业余爱好",
-    "example": "Let's learn \"hobby\" today.",
+    "example": "My hobby is collecting stamps.",
     "category": "n",
     "difficulty": 6,
     "audio": "hobby.mp3",
     "unit": 7,
-    "explain": "The word \"hobby\" means 业余爱好.",
+    "explain": "A hobby is something you enjoy doing in your free time.",
     "usage": [
       "a hobby（爱好）",
       "my favourite hobby（我最喜欢的爱好）"
@@ -6683,12 +6683,12 @@
     "word": "ability",
     "phonetic": "/əˈbɪləti/",
     "meaning": "才能；本领；能力",
-    "example": "Let's learn \"ability\" today.",
+    "example": "She has the ability to solve hard problems.",
     "category": "n",
     "difficulty": 6,
     "audio": "ability.mp3",
     "unit": 7,
-    "explain": "The word \"ability\" means 才能；本领；能力.",
+    "explain": "Ability is the power or skill to do something.",
     "usage": [
       "have the ability to do sth.（有能力做某事）",
       "ability to learn（学习能力）"
@@ -6705,12 +6705,12 @@
     "word": "easy-going",
     "phonetic": "/ˌiːzi ˈɡəʊɪŋ/",
     "meaning": "随和的",
-    "example": "Let's learn \"easy-going\" today.",
+    "example": "My uncle is friendly and easy-going.",
     "category": "adj",
     "difficulty": 6,
     "audio": "easy_going.mp3",
     "unit": 7,
-    "explain": "The word \"easy-going\" means 随和的.",
+    "explain": "Easy-going means relaxed and not easily worried or annoyed.",
     "usage": [
       "an easy-going person（随和的人）",
       "be easy-going（性格随和）"
@@ -6727,12 +6727,12 @@
     "word": "accept",
     "phonetic": "/əkˈsept/",
     "meaning": "接受；同意",
-    "example": "Let's learn \"accept\" today.",
+    "example": "Please accept this small gift.",
     "category": "n",
     "difficulty": 6,
     "audio": "accept.mp3",
     "unit": 7,
-    "explain": "The word \"accept\" means 接受；同意.",
+    "explain": "To accept means to agree to take something that is offered.",
     "usage": [
       "accept an invitation（接受邀请）",
       "accept a gift（收下礼物）"
@@ -6749,12 +6749,12 @@
     "word": "peacock",
     "phonetic": "/ˈpiːkɒk/",
     "meaning": "孔雀",
-    "example": "Let's learn \"peacock\" today.",
+    "example": "The peacock opened its beautiful tail.",
     "category": "n",
     "difficulty": 6,
     "audio": "peacock.mp3",
     "unit": 7,
-    "explain": "The word \"peacock\" means 孔雀.",
+    "explain": "A peacock is a large bird with a long tail of bright feathers.",
     "usage": [
       "a peacock（孔雀）",
       "a peacock's tail（孔雀尾巴）"
@@ -6776,7 +6776,7 @@
     "audio": "wise.mp3",
     "unit": 7,
     "rootAffix": "wis（见）+e→见多识广的→有智慧的，明智的，英明的，明察善断的",
-    "explain": "Wise means a common English word.",
+    "explain": "Wise means able to make good decisions because of knowledge and experience.",
     "usage": [
       "a wise man（智者）",
       "a wise choice（明智的选择）"
@@ -6793,13 +6793,13 @@
     "id": "g6_317",
     "word": "nightingale",
     "phonetic": "/ˈnaɪtɪŋɡeɪl/",
-    "meaning": "nightingale /9naItINGeIl/ n. 夜莺 p. 8",
-    "example": "Let's learn \"nightingale\" today.",
+    "meaning": "夜莺",
+    "example": "A nightingale sang in the garden.",
     "category": "n",
     "difficulty": 6,
     "audio": "nightingale.mp3",
     "unit": 7,
-    "explain": "The word \"nightingale\" means nightingale /9naItINGeIl/ n. 夜莺 p. 8.",
+    "explain": "A nightingale is a small brown bird that sings sweetly at night.",
     "usage": [
       "a nightingale（夜莺）",
       "sing like a nightingale（像夜莺一样唱歌）"
@@ -6836,12 +6836,12 @@
     "word": "doubt",
     "phonetic": "/daʊt/",
     "meaning": "疑惑；疑问",
-    "example": "Let's learn \"doubt\" today.",
+    "example": "I have no doubt that you will win.",
     "category": "n",
     "difficulty": 6,
     "audio": "doubt.mp3",
     "unit": 7,
-    "explain": "The word \"doubt\" means 疑惑；疑问.",
+    "explain": "Doubt is a feeling of not being sure whether something is true.",
     "usage": [
       "have doubts about sth.（对某事有疑问）",
       "no doubt（毫无疑问）"
@@ -6858,12 +6858,12 @@
     "word": "laugh",
     "phonetic": "/lɑːf/",
     "meaning": "笑；发笑",
-    "example": "Let's learn \"laugh\" today.",
+    "example": "The joke made us laugh.",
     "category": "n",
     "difficulty": 6,
     "audio": "laugh.mp3",
     "unit": 7,
-    "explain": "The word \"laugh\" means 笑；发笑.",
+    "explain": "To laugh means to make sounds that show you are happy or amused.",
     "usage": [
       "laugh at a joke（因笑话发笑）",
       "laugh out loud（大声笑）"
@@ -6880,12 +6880,12 @@
     "word": "laugh at",
     "phonetic": "/læf æt/",
     "meaning": "嘲笑",
-    "example": "Let's learn \"laugh at\" today.",
+    "example": "It is not polite to laugh at others.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "laugh_at.mp3",
     "unit": 7,
-    "explain": "The word \"laugh at\" means 嘲笑.",
+    "explain": "To laugh at someone means to make fun of them in an unkind way.",
     "usage": [
       "laugh at sb.（嘲笑某人）",
       "laugh at a joke（被逗笑）"
@@ -6923,12 +6923,12 @@
     "word": "feather",
     "phonetic": "/ˈfeðə(r)/",
     "meaning": "羽毛",
-    "example": "Let's learn \"feather\" today.",
+    "example": "The bird has bright blue feathers.",
     "category": "n",
     "difficulty": 6,
     "audio": "feather.mp3",
     "unit": 7,
-    "explain": "The word \"feather\" means 羽毛.",
+    "explain": "A feather is one of the light soft parts that cover a bird's body.",
     "usage": [
       "a feather（一根羽毛）",
       "a feather bed（羽毛床垫）"
@@ -6948,7 +6948,7 @@
     "difficulty": 6,
     "audio": "colourful.mp3",
     "unit": 7,
-    "explain": "A colourful is having many colors.",
+    "explain": "Colourful means having many colours.",
     "usage": [
       "a colourful garden（多彩的花园）",
       "a colourful story（多彩的故事）"
@@ -6984,12 +6984,12 @@
     "word": "pat",
     "phonetic": "/pæt/",
     "meaning": "轻拍",
-    "example": "Let's learn \"pat\" today.",
+    "example": "She patted the dog gently.",
     "category": "n",
     "difficulty": 6,
     "audio": "pat.mp3",
     "unit": 7,
-    "explain": "The word \"pat\" means 轻拍.",
+    "explain": "To pat means to touch someone or something lightly with a flat hand.",
     "usage": [
       "pat a dog（轻拍狗）",
       "a pat on the back（鼓励）"
@@ -7005,12 +7005,12 @@
     "word": "skill",
     "phonetic": "/skɪl/",
     "meaning": "技巧；技艺",
-    "example": "Let's learn \"skill\" today.",
+    "example": "Cooking is a useful skill.",
     "category": "n",
     "difficulty": 6,
     "audio": "skill.mp3",
     "unit": 7,
-    "explain": "The word \"skill\" means 技巧；技艺.",
+    "explain": "A skill is the ability to do something well, especially after training.",
     "usage": [
       "a new skill（一项新技能）",
       "improve your skills（提高技能）"
@@ -7027,12 +7027,12 @@
     "word": "unique",
     "phonetic": "/juˈniːk/",
     "meaning": "唯一的； 独一无二的",
-    "example": "Let's learn \"unique\" today.",
+    "example": "Every person's fingerprints are unique.",
     "category": "n",
     "difficulty": 6,
     "audio": "unique.mp3",
     "unit": 7,
-    "explain": "The word \"unique\" means 唯一的； 独一无二的.",
+    "explain": "Unique means being the only one of its kind.",
     "usage": [
       "a unique idea（独特的想法）",
       "be unique to（为……所独有）"
@@ -7053,7 +7053,7 @@
     "difficulty": 6,
     "audio": "mean.mp3",
     "unit": 7,
-    "explain": "A mean is to have as a meaning.",
+    "explain": "To mean means to have a particular meaning.",
     "usage": [
       "What does it mean?（它是什么意思？）",
       "mean to do sth.（打算做某事）"
@@ -7070,12 +7070,12 @@
     "word": "noticeboard",
     "phonetic": "/ˈnəʊtɪsbɔːd/",
     "meaning": "布告栏；布告板",
-    "example": "Let's learn \"noticeboard\" today.",
+    "example": "The exam timetable is on the noticeboard.",
     "category": "n",
     "difficulty": 6,
     "audio": "noticeboard.mp3",
     "unit": 7,
-    "explain": "The word \"noticeboard\" means 布告栏；布告板.",
+    "explain": "A noticeboard is a board on a wall where notices are put up.",
     "usage": [
       "on the noticeboard（在布告栏上）",
       "put a notice on the noticeboard（贴通知）"
@@ -7091,12 +7091,12 @@
     "word": "would",
     "phonetic": "/wʊd , wəd/",
     "meaning": "（客气地 建议或邀请）将；将会",
-    "example": "Let's learn \"would\" today.",
+    "example": "Would you like some tea?",
     "category": "n",
     "difficulty": 6,
     "audio": "would.mp3",
     "unit": 7,
-    "explain": "The word \"would\" means （客气地 建议或邀请）将；将会.",
+    "explain": "Would is used to make polite requests or offers.",
     "usage": [
       "would like（想要）",
       "Would you help me?（你愿意帮我吗？）"
@@ -7141,7 +7141,7 @@
     "audio": "underground.mp3",
     "unit": 8,
     "rootAffix": "under（在下面）+ground（地面）→在地下",
-    "explain": "An underground is a railway system that runs below the ground.",
+    "explain": "The underground is a railway system that runs below the ground.",
     "usage": [
       "by underground（乘地铁）",
       "underground station（地铁站）"
@@ -7185,7 +7185,7 @@
     "difficulty": 6,
     "audio": "litter.mp3",
     "unit": 8,
-    "explain": "To litter means a common English word.",
+    "explain": "To litter means to leave rubbish in a public place; litter is rubbish left in the open.",
     "usage": [
       "drop litter（乱扔垃圾）",
       "a litter bin（垃圾桶）"
@@ -7222,12 +7222,12 @@
     "word": "else",
     "phonetic": "/els/",
     "meaning": "其他的；别的",
-    "example": "Let's learn \"else\" today.",
+    "example": "Is there anything else you need?",
     "category": "n",
     "difficulty": 6,
     "audio": "else.mp3",
     "unit": 8,
-    "explain": "The word \"else\" means 其他的；别的.",
+    "explain": "Else means other than the person or thing already mentioned.",
     "usage": [
       "anything else（别的东西）",
       "someone else（别人）"
@@ -7394,12 +7394,12 @@
     "word": "rush",
     "phonetic": "/rʌʃ/",
     "meaning": "迅速移动；急促",
-    "example": "Let's learn \"rush\" today.",
+    "example": "Don't rush; we have plenty of time.",
     "category": "n",
     "difficulty": 6,
     "audio": "rush.mp3",
     "unit": 8,
-    "explain": "The word \"rush\" means 迅速移动；急促.",
+    "explain": "To rush means to move or do something very quickly.",
     "usage": [
       "rush to school（冲向学校）",
       "in a rush（匆忙）"
@@ -7421,7 +7421,7 @@
     "difficulty": 6,
     "audio": "smoke.mp3",
     "unit": 8,
-    "explain": "To smoke means a common English word.",
+    "explain": "To smoke means to breathe in smoke from a cigarette or pipe.",
     "usage": [
       "smoke a cigarette（吸烟）",
       "a cloud of smoke（一团烟）"
@@ -7459,12 +7459,12 @@
     "word": "anyone",
     "phonetic": "/ˈeniwʌn/",
     "meaning": "任何人",
-    "example": "Let's learn \"anyone\" today.",
+    "example": "Anyone can join the club.",
     "category": "n",
     "difficulty": 6,
     "audio": "anyone.mp3",
     "unit": 8,
-    "explain": "The word \"anyone\" means 任何人.",
+    "explain": "Anyone means any person at all.",
     "usage": [
       "Anyone can join.（任何人都可以加入。）",
       "Is anyone there?（有人吗？）"
@@ -7505,7 +7505,7 @@
     "difficulty": 6,
     "audio": "rubbish.mp3",
     "unit": 8,
-    "explain": "A rubbish is waste material.",
+    "explain": "Rubbish is waste material that is thrown away.",
     "usage": [
       "take out the rubbish（倒垃圾）",
       "a pile of rubbish（一堆垃圾）"
@@ -7521,12 +7521,12 @@
     "word": "glove",
     "phonetic": "/ɡlʌv/",
     "meaning": "手套",
-    "example": "Let's learn \"glove\" today.",
+    "example": "Wear gloves to keep your hands warm.",
     "category": "n",
     "difficulty": 6,
     "audio": "glove.mp3",
     "unit": 8,
-    "explain": "The word \"glove\" means 手套.",
+    "explain": "A glove is a piece of clothing that covers your hand.",
     "usage": [
       "a glove（一只手套）",
       "a pair of gloves（一副手套）"
@@ -7542,12 +7542,12 @@
     "word": "broken",
     "phonetic": "/ˈbrəʊkən/",
     "meaning": "破损的； 伤残的",
-    "example": "Let's learn \"broken\" today.",
+    "example": "The window was broken by the ball.",
     "category": "n",
     "difficulty": 6,
     "audio": "broken.mp3",
     "unit": 8,
-    "explain": "The word \"broken\" means 破损的； 伤残的.",
+    "explain": "Broken means damaged and no longer working or in one piece.",
     "usage": [
       "a broken window（破窗户）",
       "a broken leg（骨折的腿）"
@@ -7563,12 +7563,12 @@
     "word": "container",
     "phonetic": "/kənˈteɪnə(r)/",
     "meaning": "容器",
-    "example": "Let's learn \"container\" today.",
+    "example": "Put the rice in an airtight container.",
     "category": "n",
     "difficulty": 6,
     "audio": "container.mp3",
     "unit": 8,
-    "explain": "The word \"container\" means 容器.",
+    "explain": "A container is an object such as a box or bottle that holds something.",
     "usage": [
       "a container（一个容器）",
       "a shipping container（集装箱）"
@@ -7583,12 +7583,12 @@
     "word": "ready",
     "phonetic": "/ˈredi/",
     "meaning": "准备好；准备完毕",
-    "example": "Let's learn \"ready\" today.",
+    "example": "Are you ready for the trip?",
     "category": "n",
     "difficulty": 6,
     "audio": "ready.mp3",
     "unit": 8,
-    "explain": "The word \"ready\" means 准备好；准备完毕.",
+    "explain": "Ready means prepared for something that is going to happen.",
     "usage": [
       "be ready for（为……准备好）",
       "get ready（准备好）"
@@ -7610,7 +7610,7 @@
     "difficulty": 6,
     "audio": "follow.mp3",
     "unit": 8,
-    "explain": "A follow is to come after.",
+    "explain": "To follow means to come or go after someone or something.",
     "usage": [
       "follow the teacher（跟着老师）",
       "follow the rules（遵守规则）"
@@ -7633,7 +7633,7 @@
     "audio": "stay.mp3",
     "unit": 8,
     "rootAffix": "sta（站着，静止不动）+y→停留，停下",
-    "explain": "A stay is to remain in the same place or condition.",
+    "explain": "To stay means to remain in the same place or condition.",
     "usage": [
       "stay at home（待在家里）",
       "stay up（熬夜）"
@@ -7654,7 +7654,7 @@
     "difficulty": 6,
     "audio": "grow.mp3",
     "unit": 8,
-    "explain": "A grow is to increase in size.",
+    "explain": "To grow means to increase in size or become bigger.",
     "usage": [
       "grow flowers（种花）",
       "grow up（长大）"
@@ -7678,7 +7678,7 @@
     "audio": "important.mp3",
     "unit": 8,
     "rootAffix": "import（传达）+ant（形容词后缀）→正在传达信息或含义的→有重大意义的→重要的，重大的",
-    "explain": "An important is of great significance.",
+    "explain": "Important means of great importance or value.",
     "usage": [
       "an important meeting（重要会议）",
       "It is important to learn.（学习很重要。）"
@@ -7696,12 +7696,12 @@
     "word": "take turns",
     "phonetic": "/teɪk tɜːrnz/",
     "meaning": "轮流；依次",
-    "example": "Let's learn \"take turns\" today.",
+    "example": "The children take turns to ride the bike.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "take_turns.mp3",
     "unit": 8,
-    "explain": "The word \"take turns\" means 轮流；依次.",
+    "explain": "To take turns means to do something one person after another in order.",
     "usage": [
       "take turns speaking（轮流发言）",
       "take turns to clean（轮流打扫）"
@@ -7718,12 +7718,12 @@
     "word": "hurrah",
     "phonetic": "/həˈrɑː/",
     "meaning": "万岁；好哇",
-    "example": "Let's learn \"hurrah\" today.",
+    "example": "Hurrah! We won the game!",
     "category": "n",
     "difficulty": 6,
     "audio": "hurrah.mp3",
     "unit": 8,
-    "explain": "The word \"hurrah\" means 万岁；好哇.",
+    "explain": "Hurrah is a shout used to show joy or approval.",
     "usage": [
       "Hurrah! We won!（万岁！我们赢了！）",
       "give a hurrah（欢呼）"
@@ -7739,12 +7739,12 @@
     "word": "model",
     "phonetic": "/ˈmɒdl/",
     "meaning": "模型",
-    "example": "Let's learn \"model\" today.",
+    "example": "He built a model of a ship.",
     "category": "n",
     "difficulty": 6,
     "audio": "model.mp3",
     "unit": 8,
-    "explain": "The word \"model\" means 模型.",
+    "explain": "A model is a small copy of something, or a person who shows clothes.",
     "usage": [
       "a model plane（飞机模型）",
       "a fashion model（时装模特）"
@@ -7760,12 +7760,12 @@
     "word": "pay",
     "phonetic": "/peɪ/",
     "meaning": "（与某些名词结合使 用，表示将要做或将付出某事物）",
-    "example": "Let's learn \"pay\" today.",
+    "example": "I will pay for the tickets.",
     "category": "v",
     "difficulty": 6,
     "audio": "pay.mp3",
     "unit": 8,
-    "explain": "The word \"pay\" means （与某些名词结合使 用，表示将要做或将付出某事物）.",
+    "explain": "To pay means to give money for something you buy or for work done.",
     "usage": [
       "pay for the book（付书钱）",
       "pay attention（注意）"
@@ -7782,12 +7782,12 @@
     "word": "attention",
     "phonetic": "/əˈtenʃn/",
     "meaning": "注意； 关注",
-    "example": "Let's learn \"attention\" today.",
+    "example": "Please pay attention to the teacher.",
     "category": "n",
     "difficulty": 6,
     "audio": "attention.mp3",
     "unit": 8,
-    "explain": "The word \"attention\" means 注意； 关注.",
+    "explain": "Attention is the act of watching or listening to something carefully.",
     "usage": [
       "pay attention to（注意）",
       "draw attention（吸引注意）"
@@ -7802,12 +7802,12 @@
     "word": "pay attention to",
     "phonetic": "/peɪ əˈtenʃn tu:/",
     "meaning": "(对某人或某事） 注意",
-    "example": "Let's learn \"pay attention to\" today.",
+    "example": "Pay attention to the road when you cross.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "pay_attention_to.mp3",
     "unit": 8,
-    "explain": "The word \"pay attention to\" means (对某人或某事） 注意.",
+    "explain": "To pay attention to something means to watch or listen to it carefully.",
     "usage": [
       "pay attention to the teacher（注意听老师讲）",
       "pay attention to details（注意细节）"
@@ -7845,12 +7845,12 @@
     "word": "outing",
     "phonetic": "/ˈaʊtɪŋ/",
     "meaning": "（集体）出外游 玩（或学习）；远足",
-    "example": "Let's learn \"outing\" today.",
+    "example": "Our class went on an outing to the museum.",
     "category": "adj",
     "difficulty": 6,
     "audio": "outing.mp3",
     "unit": 8,
-    "explain": "The word \"outing\" means （集体）出外游 玩（或学习）；远足.",
+    "explain": "An outing is a short trip away from home for pleasure or learning.",
     "usage": [
       "go on an outing（去郊游）",
       "a school outing（学校郊游）"
@@ -7866,12 +7866,12 @@
     "word": "gate",
     "phonetic": "/ɡeɪt/",
     "meaning": "大门",
-    "example": "Let's learn \"gate\" today.",
+    "example": "Please close the gate after you.",
     "category": "n",
     "difficulty": 6,
     "audio": "gate.mp3",
     "unit": 8,
-    "explain": "The word \"gate\" means 大门.",
+    "explain": "A gate is a door in a wall or fence that opens and closes.",
     "usage": [
       "at the gate（在大门口）",
       "open the gate（开门）"
@@ -8020,7 +8020,7 @@
     "audio": "lucky.mp3",
     "unit": 9,
     "rootAffix": "luck（好运）+y（形容词后缀）→幸运的",
-    "explain": "Lucky means a common English word.",
+    "explain": "Lucky means having good things happen to you by chance.",
     "usage": [
       "a lucky day（幸运的一天）",
       "be lucky to do sth.（幸运地做某事）"
@@ -8043,7 +8043,7 @@
     "difficulty": 6,
     "audio": "click.mp3",
     "unit": 9,
-    "explain": "To click means a common English word.",
+    "explain": "To click means to press a button on a mouse, or to make a short sharp sound.",
     "usage": [
       "click the mouse（点击鼠标）",
       "click on the link（点击链接）"
@@ -8079,12 +8079,12 @@
     "word": "tradition",
     "phonetic": "/trəˈdɪʃn/",
     "meaning": "传统",
-    "example": "Let's learn \"tradition\" today.",
+    "example": "Eating dumplings at Spring Festival is a tradition.",
     "category": "n",
     "difficulty": 6,
     "audio": "tradition.mp3",
     "unit": 9,
-    "explain": "The word \"tradition\" means 传统.",
+    "explain": "A tradition is a custom or belief that has continued for a long time.",
     "usage": [
       "keep a tradition（保持传统）",
       "a family tradition（家庭传统）"
@@ -8167,12 +8167,12 @@
     "word": "pass",
     "phonetic": "/pɑːs/",
     "meaning": "给；递；传递",
-    "example": "Let's learn \"pass\" today.",
+    "example": "Please pass me the salt.",
     "category": "n",
     "difficulty": 6,
     "audio": "pass.mp3",
     "unit": 9,
-    "explain": "The word \"pass\" means 给；递；传递.",
+    "explain": "To pass something means to give it to another person, often by hand.",
     "usage": [
       "pass an exam（通过考试）",
       "pass the ball（传球）"
@@ -8189,12 +8189,12 @@
     "word": "pass on",
     "phonetic": "/pæs ɑːn/",
     "meaning": "传递；转交；（用后）递给， 传给",
-    "example": "Let's learn \"pass on\" today.",
+    "example": "Please pass on this message to your parents.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "pass_on.mp3",
     "unit": 9,
-    "explain": "The word \"pass on\" means 传递；转交；（用后）递给， 传给.",
+    "explain": "To pass on something means to give it to another person after receiving it.",
     "usage": [
       "pass on a message（传递消息）",
       "pass on the torch（传递火炬）"
@@ -8231,12 +8231,12 @@
     "word": "international",
     "phonetic": "/ˌɪntəˈnæʃnəl/",
     "meaning": "国际的",
-    "example": "Let's learn \"international\" today.",
+    "example": "English is an international language.",
     "category": "adj",
     "difficulty": 6,
     "audio": "international.mp3",
     "unit": 9,
-    "explain": "The word \"international\" means 国际的.",
+    "explain": "International means involving two or more countries.",
     "usage": [
       "international relations（国际关系）",
       "an international school（国际学校）"
@@ -8253,12 +8253,12 @@
     "word": "event",
     "phonetic": "/ɪˈvent/",
     "meaning": "公开活动；发生 的事情",
-    "example": "Let's learn \"event\" today.",
+    "example": "The sports event starts at nine.",
     "category": "n",
     "difficulty": 6,
     "audio": "event.mp3",
     "unit": 9,
-    "explain": "The word \"event\" means 公开活动；发生 的事情.",
+    "explain": "An event is something important or interesting that happens.",
     "usage": [
       "a sports event（体育赛事）",
       "a big event（大事）"
@@ -8280,7 +8280,7 @@
     "audio": "square.mp3",
     "unit": 9,
     "rootAffix": "s（=ex，出来）+quar（四）+e→使变成四方的→四方的→正方形",
-    "explain": "A square is a shape with four equal sides and four right angles.",
+    "explain": "A square is an open public area in a town, or a shape with four equal sides.",
     "usage": [
       "a square table（方桌）",
       "the town square（城镇广场）"
@@ -8297,12 +8297,12 @@
     "word": "symphony",
     "phonetic": "/ˈsɪmfəni/",
     "meaning": "交响乐； 交响曲",
-    "example": "Let's learn \"symphony\" today.",
+    "example": "The orchestra played a famous symphony.",
     "category": "n",
     "difficulty": 6,
     "audio": "symphony.mp3",
     "unit": 9,
-    "explain": "The word \"symphony\" means 交响乐； 交响曲.",
+    "explain": "A symphony is a long piece of music written for an orchestra.",
     "usage": [
       "a symphony（交响曲）",
       "a symphony orchestra（交响乐团）"
@@ -8318,12 +8318,12 @@
     "word": "theatre",
     "phonetic": "/ˈθɪətə(r)/",
     "meaning": "戏院；剧场；露天剧场",
-    "example": "Let's learn \"theatre\" today.",
+    "example": "We watched a play at the theatre.",
     "category": "n",
     "difficulty": 6,
     "audio": "theatre.mp3",
     "unit": 9,
-    "explain": "The word \"theatre\" means 戏院；剧场；露天剧场.",
+    "explain": "A theatre is a building where plays or films are performed.",
     "usage": [
       "go to the theatre（去看戏）",
       "a theatre ticket（戏票）"
@@ -8346,7 +8346,7 @@
     "audio": "firework.mp3",
     "unit": 9,
     "rootAffix": "fire（火）+work（产品）→带火的产品→烟火",
-    "explain": "A firework is a device that explodes in the air to make colorful lights and patterns.",
+    "explain": "A firework is a device that explodes in the air to make colourful lights and patterns.",
     "usage": [
       "set off a firework（放烟花）",
       "a firework display（烟花表演）"
@@ -8362,12 +8362,12 @@
     "word": "concert",
     "phonetic": "/ˈkɒnsət/",
     "meaning": "音乐会； 演奏会",
-    "example": "Let's learn \"concert\" today.",
+    "example": "The band gave a concert last night.",
     "category": "n",
     "difficulty": 6,
     "audio": "concert.mp3",
     "unit": 9,
-    "explain": "The word \"concert\" means 音乐会； 演奏会.",
+    "explain": "A concert is a public performance of music.",
     "usage": [
       "go to a concert（去听音乐会）",
       "a concert hall（音乐厅）"
@@ -8404,12 +8404,12 @@
     "word": "check",
     "phonetic": "/tʃek/",
     "meaning": "查明；查看；核实； 弄确实",
-    "example": "Let's learn \"check\" today.",
+    "example": "Check your answers before you hand in the paper.",
     "category": "n",
     "difficulty": 6,
     "audio": "check.mp3",
     "unit": 9,
-    "explain": "The word \"check\" means 查明；查看；核实； 弄确实.",
+    "explain": "To check something means to look at it carefully to make sure it is correct or safe.",
     "usage": [
       "check your homework（检查作业）",
       "check in（办理入住）"
@@ -8425,12 +8425,12 @@
     "word": "check out",
     "phonetic": "/tʃek aʊt/",
     "meaning": "察看，观察（有趣或 有吸引力的人或事物）",
-    "example": "Let's learn \"check out\" today.",
+    "example": "Check out the new shop on the corner.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "check_out.mp3",
     "unit": 9,
-    "explain": "The word \"check out\" means 察看，观察（有趣或 有吸引力的人或事物）.",
+    "explain": "To check out something means to look at it because it is interesting.",
     "usage": [
       "check out at the hotel（酒店退房）",
       "check out a book（借书）"
@@ -8452,7 +8452,7 @@
     "audio": "information.mp3",
     "unit": 9,
     "rootAffix": "inform（通知）+ation（动名词后缀）→信息",
-    "explain": "An information is facts about a subject.",
+    "explain": "Information is facts about a subject.",
     "usage": [
       "get information（获取信息）",
       "information technology（信息技术）"
@@ -8468,12 +8468,12 @@
     "word": "since",
     "phonetic": "/sɪns/",
     "meaning": "自......以来； 自......以后",
-    "example": "Let's learn \"since\" today.",
+    "example": "I have lived here since 2010.",
     "category": "n",
     "difficulty": 6,
     "audio": "since.mp3",
     "unit": 9,
-    "explain": "The word \"since\" means 自......以来； 自......以后.",
+    "explain": "Since means from a time in the past until now.",
     "usage": [
       "since 2010（自2010年以来）",
       "since then（从那时起）"
@@ -8516,7 +8516,7 @@
     "audio": "really.mp3",
     "unit": 9,
     "rootAffix": "real（真正的）+ly（副词后缀）→真正地",
-    "explain": "A really is truly.",
+    "explain": "Really means truly or actually.",
     "usage": [
       "really good（真的很好）",
       "I really like it.（我真的很喜欢。）"
@@ -8532,12 +8532,12 @@
     "word": "musical",
     "phonetic": "/ˈmjuːzɪkl/",
     "meaning": "音乐的；音乐剧",
-    "example": "Let's learn \"musical\" today.",
+    "example": "She has great musical talent.",
     "category": "adj",
     "difficulty": 6,
     "audio": "musical.mp3",
     "unit": 9,
-    "explain": "The word \"musical\" means 音乐的；音乐剧.",
+    "explain": "Musical means connected with music; a musical is a play with songs.",
     "usage": [
       "a musical instrument（乐器）",
       "a musical film（音乐电影）"
@@ -8559,7 +8559,7 @@
     "audio": "perform.mp3",
     "unit": 9,
     "rootAffix": "per（完全地）+form（完成）→完成（任务）→执行，完成，演奏",
-    "explain": "A perform is to carry out.",
+    "explain": "To perform means to carry out an action or to entertain an audience.",
     "usage": [
       "perform a play（演戏）",
       "perform well（表现出色）"
@@ -8577,12 +8577,12 @@
     "word": "invite",
     "phonetic": "/ɪnˈvaɪt , ˈɪnvaɪt/",
     "meaning": "邀请",
-    "example": "Let's learn \"invite\" today.",
+    "example": "They invited us to their wedding.",
     "category": "n",
     "difficulty": 6,
     "audio": "invite.mp3",
     "unit": 9,
-    "explain": "The word \"invite\" means 邀请.",
+    "explain": "To invite means to ask someone to come to an event or place.",
     "usage": [
       "invite a friend（邀请朋友）",
       "invite sb. to do sth.（邀请某人做某事）"
@@ -8605,7 +8605,7 @@
     "audio": "celebrate.mp3",
     "unit": 9,
     "rootAffix": "celebr（很多人一起致敬）+ate（动词后缀）→庆祝神灵的生日→庆祝",
-    "explain": "A celebrate is to mark an occasion.",
+    "explain": "To celebrate means to mark a special occasion with enjoyable activities.",
     "usage": [
       "celebrate a birthday（庆祝生日）",
       "celebrate the Spring Festival（庆祝春节）"
@@ -8622,12 +8622,12 @@
     "word": "calendar",
     "phonetic": "/ˈkælɪndə(r)/",
     "meaning": "日历； 历法",
-    "example": "Let's learn \"calendar\" today.",
+    "example": "I marked the date on my calendar.",
     "category": "n",
     "difficulty": 6,
     "audio": "calendar.mp3",
     "unit": 9,
-    "explain": "The word \"calendar\" means 日历； 历法.",
+    "explain": "A calendar is a chart showing the days, weeks and months of a year.",
     "usage": [
       "a calendar（日历）",
       "on the calendar（在日历上）"
@@ -8639,15 +8639,15 @@
   },
   {
     "id": "g6_403",
-    "word": "luna calendar",
-    "phonetic": "/luna ˈkælɪndər/",
+    "word": "lunar calendar",
+    "phonetic": "/ˈluːnə ˈkælɪndə/",
     "meaning": "农历",
-    "example": "Let's learn \"luna calendar\" today.",
+    "example": "The Spring Festival is based on the lunar calendar.",
     "category": "phrase",
     "difficulty": 6,
-    "audio": "luna_calendar.mp3",
+    "audio": "lunar_calendar.mp3",
     "unit": 9,
-    "explain": "The word \"luna calendar\" means 农历.",
+    "explain": "The lunar calendar is a calendar based on the moon's cycles, used for traditional Chinese festivals.",
     "usage": [
       "the lunar calendar（农历）",
       "according to the lunar calendar（按照农历）"
@@ -8663,12 +8663,12 @@
     "word": "reunion",
     "phonetic": "/ˌriːˈjuːniən/",
     "meaning": "重逢； 团聚",
-    "example": "Let's learn \"reunion\" today.",
+    "example": "The family reunion was full of joy.",
     "category": "n",
     "difficulty": 6,
     "audio": "reunion.mp3",
     "unit": 9,
-    "explain": "The word \"reunion\" means 重逢； 团聚.",
+    "explain": "A reunion is a meeting of people who have not seen each other for a long time.",
     "usage": [
       "a family reunion（家庭团聚）",
       "a class reunion（同学聚会）"
@@ -8689,7 +8689,7 @@
     "difficulty": 6,
     "audio": "full.mp3",
     "unit": 9,
-    "explain": "A full is containing as much as possible.",
+    "explain": "Full means containing as much as possible.",
     "usage": [
       "be full（饱了）",
       "a full moon（满月）"
@@ -8706,12 +8706,12 @@
     "word": "post",
     "phonetic": "/pəʊst/",
     "meaning": "发帖；寄；邮寄",
-    "example": "Let's learn \"post\" today.",
+    "example": "She posted a photo on the website.",
     "category": "n",
     "difficulty": 6,
     "audio": "post.mp3",
     "unit": 9,
-    "explain": "The word \"post\" means 发帖；寄；邮寄.",
+    "explain": "To post something means to send it by mail or put it online.",
     "usage": [
       "post a letter（寄信）",
       "at the post office（在邮局）"
@@ -8728,12 +8728,12 @@
     "word": "mostly",
     "phonetic": "/ˈməʊstli/",
     "meaning": "主要地； 一般地；通常",
-    "example": "Let's learn \"mostly\" today.",
+    "example": "The classroom is mostly quiet.",
     "category": "adv",
     "difficulty": 6,
     "audio": "mostly.mp3",
     "unit": 9,
-    "explain": "The word \"mostly\" means 主要地； 一般地；通常.",
+    "explain": "Mostly means mainly or usually.",
     "usage": [
       "mostly students（主要是学生）",
       "mostly made of water（主要由水组成）"
@@ -8748,12 +8748,12 @@
     "word": "tonight",
     "phonetic": "/təˈnaɪt/",
     "meaning": "今晚",
-    "example": "Let's learn \"tonight\" today.",
+    "example": "We will watch a film tonight.",
     "category": "n",
     "difficulty": 6,
     "audio": "tonight.mp3",
     "unit": 9,
-    "explain": "The word \"tonight\" means 今晚.",
+    "explain": "Tonight means the evening or night of today.",
     "usage": [
       "tonight's show（今晚的演出）",
       "have dinner tonight（今晚吃晚饭）"
@@ -8769,12 +8769,12 @@
     "word": "harvest",
     "phonetic": "/ˈhɑːvɪst/",
     "meaning": "收获； 收获季节",
-    "example": "Let's learn \"harvest\" today.",
+    "example": "Farmers are busy during the harvest.",
     "category": "n",
     "difficulty": 6,
     "audio": "harvest.mp3",
     "unit": 9,
-    "explain": "The word \"harvest\" means 收获； 收获季节.",
+    "explain": "Harvest is the time when crops are gathered, or the crops themselves.",
     "usage": [
       "a good harvest（丰收）",
       "harvest crops（收割庄稼）"
@@ -8797,7 +8797,7 @@
     "audio": "traditional.mp3",
     "unit": 9,
     "rootAffix": "tradition（传统）+al（形容词后缀）→传统的",
-    "explain": "A traditional is following old customs.",
+    "explain": "Traditional means following old customs.",
     "usage": [
       "a traditional festival（传统节日）",
       "traditional food（传统食物）"
@@ -8813,12 +8813,12 @@
     "word": "nut",
     "phonetic": "/nʌt/",
     "meaning": "坚果",
-    "example": "Let's learn \"nut\" today.",
+    "example": "He eats a handful of nuts every day.",
     "category": "n",
     "difficulty": 6,
     "audio": "nut.mp3",
     "unit": 9,
-    "explain": "The word \"nut\" means 坚果.",
+    "explain": "A nut is a dry fruit with a hard shell and a seed inside that can be eaten.",
     "usage": [
       "eat nuts（吃坚果）",
       "a nut shell（坚果壳）"
@@ -8839,7 +8839,7 @@
     "difficulty": 6,
     "audio": "sugar.mp3",
     "unit": 9,
-    "explain": "A sugar is a sweet substance used in food.",
+    "explain": "Sugar is a sweet substance used in food.",
     "usage": [
       "add sugar（加糖）",
       "a spoon of sugar（一勺糖）"
@@ -8877,12 +8877,12 @@
     "word": "meal",
     "phonetic": "/miːl/",
     "meaning": "早（或午、晚）餐； 一顿饭",
-    "example": "Let's learn \"meal\" today.",
+    "example": "Breakfast is my favourite meal.",
     "category": "adj",
     "difficulty": 6,
     "audio": "meal.mp3",
     "unit": 9,
-    "explain": "The word \"meal\" means 早（或午、晚）餐； 一顿饭.",
+    "explain": "A meal is an occasion when food is eaten, or the food itself.",
     "usage": [
       "have a meal（吃饭）",
       "a meal ticket（餐券）"
@@ -8919,12 +8919,12 @@
     "word": "search",
     "phonetic": "/sɜːtʃ/",
     "meaning": "搜索；搜寻；搜查； 查找",
-    "example": "Let's learn \"search\" today.",
+    "example": "We searched for the lost key.",
     "category": "n",
     "difficulty": 6,
     "audio": "search.mp3",
     "unit": 10,
-    "explain": "The word \"search\" means 搜索；搜寻；搜查； 查找.",
+    "explain": "To search means to look carefully for something.",
     "usage": [
       "search for sth.（寻找某物）",
       "search the Internet（搜索互联网）"
@@ -8941,12 +8941,12 @@
     "word": "airport",
     "phonetic": "/ˈeəpɔːt/",
     "meaning": "机场",
-    "example": "Let's learn \"airport\" today.",
+    "example": "We arrived at the airport early.",
     "category": "n",
     "difficulty": 6,
     "audio": "airport.mp3",
     "unit": 10,
-    "explain": "The word \"airport\" means 机场.",
+    "explain": "An airport is a place where planes take off and land.",
     "usage": [
       "at the airport（在机场）",
       "go to the airport（去机场）"
@@ -8961,12 +8961,12 @@
     "word": "location",
     "phonetic": "/ləʊˈkeɪʃn/",
     "meaning": "地方；地点； 位置",
-    "example": "Let's learn \"location\" today.",
+    "example": "The hotel is in a quiet location.",
     "category": "n",
     "difficulty": 6,
     "audio": "location.mp3",
     "unit": 10,
-    "explain": "The word \"location\" means 地方；地点； 位置.",
+    "explain": "A location is a particular place.",
     "usage": [
       "the location of the school（学校的位置）",
       "a good location（好位置）"
@@ -9008,7 +9008,7 @@
     "difficulty": 6,
     "audio": "wet.mp3",
     "unit": 10,
-    "explain": "A wet is covered with liquid.",
+    "explain": "Wet means covered with liquid.",
     "usage": [
       "a wet day（雨天）",
       "get wet（淋湿）"
@@ -9026,12 +9026,12 @@
     "word": "foggy",
     "phonetic": "/ˈfɒɡi/",
     "meaning": "有雾的",
-    "example": "Let's learn \"foggy\" today.",
+    "example": "It was foggy this morning.",
     "category": "n",
     "difficulty": 6,
     "audio": "foggy.mp3",
     "unit": 10,
-    "explain": "The word \"foggy\" means 有雾的.",
+    "explain": "Foggy means full of fog, so that it is hard to see.",
     "usage": [
       "a foggy morning（有雾的早晨）",
       "It's foggy today.（今天有雾。）"
@@ -9053,7 +9053,7 @@
     "difficulty": 6,
     "audio": "north.mp3",
     "unit": 10,
-    "explain": "A north is the direction toward the North Pole.",
+    "explain": "North means the direction toward the North Pole.",
     "usage": [
       "in the north（在北方）",
       "north of the city（城市以北）"
@@ -9069,12 +9069,12 @@
     "word": "quite",
     "phonetic": "/kwaɪt/",
     "meaning": "相当；非常",
-    "example": "Let's learn \"quite\" today.",
+    "example": "The film was quite good.",
     "category": "n",
     "difficulty": 6,
     "audio": "quite.mp3",
     "unit": 10,
-    "explain": "The word \"quite\" means 相当；非常.",
+    "explain": "Quite means fairly or to a certain degree.",
     "usage": [
       "quite good（相当好）",
       "quite a lot（相当多）"
@@ -9089,12 +9089,12 @@
     "word": "temperature",
     "phonetic": "/ˈtemprətʃə(r)/",
     "meaning": "温度；气温",
-    "example": "Let's learn \"temperature\" today.",
+    "example": "The temperature is 25 degrees today.",
     "category": "n",
     "difficulty": 6,
     "audio": "temperature.mp3",
     "unit": 10,
-    "explain": "The word \"temperature\" means 温度；气温.",
+    "explain": "Temperature is how hot or cold something is.",
     "usage": [
       "take one's temperature（量体温）",
       "a high temperature（高烧；高温）"
@@ -9114,7 +9114,7 @@
     "difficulty": 6,
     "audio": "drop.mp3",
     "unit": 10,
-    "explain": "A drop is to fall or let something fall.",
+    "explain": "To drop means to fall, or to let something fall.",
     "usage": [
       "drop a book（掉了一本书）",
       "drop by（顺便拜访）"
@@ -9130,12 +9130,12 @@
     "word": "degree",
     "phonetic": "/dɪˈɡriː/",
     "meaning": "度；度数",
-    "example": "Let's learn \"degree\" today.",
+    "example": "Water boils at 100 degrees Celsius.",
     "category": "n",
     "difficulty": 6,
     "audio": "degree.mp3",
     "unit": 10,
-    "explain": "The word \"degree\" means 度；度数.",
+    "explain": "A degree is a unit for measuring temperature or angles.",
     "usage": [
       "a degree（一度；学位）",
       "30 degrees（30度）"
@@ -9150,12 +9150,12 @@
     "word": "Celsius",
     "phonetic": "/ˈselsiəs/",
     "meaning": "摄氏的",
-    "example": "Let's learn \"Celsius\" today.",
+    "example": "The temperature is 30 degrees Celsius.",
     "category": "n",
     "difficulty": 6,
     "audio": "celsius.mp3",
     "unit": 10,
-    "explain": "The word \"Celsius\" means 摄氏的.",
+    "explain": "Celsius is a scale for measuring temperature in which water freezes at 0 degrees and boils at 100 degrees.",
     "usage": [
       "degrees Celsius（摄氏度）",
       "25 degrees Celsius（25摄氏度）"
@@ -9175,7 +9175,7 @@
     "difficulty": 6,
     "audio": "dry.mp3",
     "unit": 10,
-    "explain": "A dry is not wet.",
+    "explain": "Dry means not wet.",
     "usage": [
       "dry clothes（晾干衣服）",
       "a dry day（干燥的一天）"
@@ -9198,7 +9198,7 @@
     "difficulty": 6,
     "audio": "south.mp3",
     "unit": 10,
-    "explain": "A south is the direction toward the South Pole.",
+    "explain": "South means the direction toward the South Pole.",
     "usage": [
       "in the south（在南方）",
       "south of the river（河以南）"
@@ -9214,12 +9214,12 @@
     "word": "still",
     "phonetic": "/stɪl/",
     "meaning": "还；仍然",
-    "example": "Let's learn \"still\" today.",
+    "example": "He is still waiting for the bus.",
     "category": "n",
     "difficulty": 6,
     "audio": "still.mp3",
     "unit": 10,
-    "explain": "The word \"still\" means 还；仍然.",
+    "explain": "Still means continuing up to now.",
     "usage": [
       "still waiting（仍在等）",
       "a still day（无风的一天）"
@@ -9236,12 +9236,12 @@
     "word": "wind",
     "phonetic": "/wɪnd , waɪnd/",
     "meaning": "风",
-    "example": "Let's learn \"wind\" today.",
+    "example": "The wind blew the leaves off the trees.",
     "category": "n",
     "difficulty": 6,
     "audio": "wind.mp3",
     "unit": 10,
-    "explain": "The word \"wind\" means 风.",
+    "explain": "Wind is air moving quickly across the earth.",
     "usage": [
       "a strong wind（大风）",
       "wind up（上发条）"
@@ -9278,12 +9278,12 @@
     "word": "fog",
     "phonetic": "/fɒɡ/",
     "meaning": "雾",
-    "example": "Let's learn \"fog\" today.",
+    "example": "Thick fog covered the road.",
     "category": "n",
     "difficulty": 6,
     "audio": "fog.mp3",
     "unit": 10,
-    "explain": "The word \"fog\" means 雾.",
+    "explain": "Fog is thick cloud near the ground that makes it hard to see.",
     "usage": [
       "in the fog（在雾中）",
       "a thick fog（浓雾）"
@@ -9348,7 +9348,7 @@
     "audio": "sunshine.mp3",
     "unit": 10,
     "rootAffix": "sun（太阳）+shine（照射，闪耀）→阳光",
-    "explain": "A sunshine is the light and warmth from the sun.",
+    "explain": "Sunshine is the light and warmth from the sun.",
     "usage": [
       "in the sunshine（在阳光下）",
       "a sunshine break（阳光充足的间歇）"
@@ -9364,12 +9364,12 @@
     "word": "hate",
     "phonetic": "/heɪt/",
     "meaning": "讨厌；憎恶",
-    "example": "Let's learn \"hate\" today.",
+    "example": "I hate getting up early.",
     "category": "n",
     "difficulty": 6,
     "audio": "hate.mp3",
     "unit": 10,
-    "explain": "The word \"hate\" means 讨厌；憎恶.",
+    "explain": "To hate means to dislike someone or something very much.",
     "usage": [
       "hate a lie（讨厌谎言）",
       "hate doing sth.（讨厌做某事）"
@@ -9387,12 +9387,12 @@
     "word": "extreme",
     "phonetic": "/ɪkˈstriːm/",
     "meaning": "极度的； 极大的",
-    "example": "Let's learn \"extreme\" today.",
+    "example": "The desert has extreme heat.",
     "category": "n",
     "difficulty": 6,
     "audio": "extreme.mp3",
     "unit": 10,
-    "explain": "The word \"extreme\" means 极度的； 极大的.",
+    "explain": "Extreme means very great, or far beyond what is usual.",
     "usage": [
       "extreme weather（极端天气）",
       "an extreme sport（极限运动）"
@@ -9408,12 +9408,12 @@
     "word": "news",
     "phonetic": "/njuːz/",
     "meaning": "媒体对重要事情的报道；新闻",
-    "example": "Let's learn \"news\" today.",
+    "example": "Did you hear the good news?",
     "category": "n",
     "difficulty": 6,
     "audio": "news.mp3",
     "unit": 10,
-    "explain": "The word \"news\" means 媒体对重要事情的报道；新闻.",
+    "explain": "News is information about recent events.",
     "usage": [
       "good news（好消息）",
       "watch the news（看新闻）"
@@ -9429,12 +9429,12 @@
     "word": "heat",
     "phonetic": "/hiːt/",
     "meaning": "热；高温",
-    "example": "Let's learn \"heat\" today.",
+    "example": "The heat in summer is hard to bear.",
     "category": "n",
     "difficulty": 6,
     "audio": "heat.mp3",
     "unit": 10,
-    "explain": "The word \"heat\" means 热；高温.",
+    "explain": "Heat is the quality of being hot, or high temperature.",
     "usage": [
       "heat the water（加热水）",
       "the heat of the sun（太阳的热量）"
@@ -9451,12 +9451,12 @@
     "word": "wave",
     "phonetic": "/weɪv/",
     "meaning": "海浪；波浪",
-    "example": "Let's learn \"wave\" today.",
+    "example": "The waves crashed on the beach.",
     "category": "n",
     "difficulty": 6,
     "audio": "wave.mp3",
     "unit": 10,
-    "explain": "The word \"wave\" means 海浪；波浪.",
+    "explain": "A wave is a raised line of water moving across the sea.",
     "usage": [
       "wave goodbye（挥手告别）",
       "a wave（波浪）"
@@ -9473,12 +9473,12 @@
     "word": "heatwave",
     "phonetic": "/ˈhiːtweɪv/",
     "meaning": "酷热期； 热浪",
-    "example": "Let's learn \"heatwave\" today.",
+    "example": "The heatwave lasted for a week.",
     "category": "n",
     "difficulty": 6,
     "audio": "heatwave.mp3",
     "unit": 10,
-    "explain": "The word \"heatwave\" means 酷热期； 热浪.",
+    "explain": "A heatwave is a period of unusually hot weather.",
     "usage": [
       "a heatwave（热浪）",
       "during the heatwave（热浪期间）"
@@ -9494,12 +9494,12 @@
     "word": "hit",
     "phonetic": "/hɪt/",
     "meaning": "达到（某水平）",
-    "example": "Let's learn \"hit\" today.",
+    "example": "The temperature hit 40 degrees.",
     "category": "n",
     "difficulty": 6,
     "audio": "hit.mp3",
     "unit": 10,
-    "explain": "The word \"hit\" means 达到（某水平）.",
+    "explain": "To hit means to reach a particular level or amount.",
     "usage": [
       "hit a ball（击球）",
       "a hit song（热门歌曲）"
@@ -9516,12 +9516,12 @@
     "word": "several",
     "phonetic": "/ˈsevrəl/",
     "meaning": "几个；数个",
-    "example": "Let's learn \"several\" today.",
+    "example": "Several students were absent today.",
     "category": "adj",
     "difficulty": 6,
     "audio": "several.mp3",
     "unit": 10,
-    "explain": "The word \"several\" means 几个；数个.",
+    "explain": "Several means more than two but not very many.",
     "usage": [
       "several books（几本书）",
       "several times（几次）"
@@ -9560,12 +9560,12 @@
     "word": "record",
     "phonetic": "/ˈrekɔːd , rɪˈkɔːd/",
     "meaning": "纪录；记录",
-    "example": "Let's learn \"record\" today.",
+    "example": "She broke the world record.",
     "category": "n",
     "difficulty": 6,
     "audio": "record.mp3",
     "unit": 10,
-    "explain": "The word \"record\" means 纪录；记录.",
+    "explain": "A record is the best result ever achieved, or a written account of something.",
     "usage": [
       "a world record（世界纪录）",
       "record a song（录歌）"
@@ -9582,12 +9582,12 @@
     "word": "reach",
     "phonetic": "/riːtʃ/",
     "meaning": "增加到；达到",
-    "example": "Let's learn \"reach\" today.",
+    "example": "We reached the top of the hill at noon.",
     "category": "n",
     "difficulty": 6,
     "audio": "reach.mp3",
     "unit": 10,
-    "explain": "The word \"reach\" means 增加到；达到.",
+    "explain": "To reach means to arrive at or get to a place or level.",
     "usage": [
       "reach the school（到学校）",
       "reach out（伸手）"
@@ -9603,12 +9603,12 @@
     "word": "break out",
     "phonetic": "/breɪk aʊt/",
     "meaning": "突然开始；爆发",
-    "example": "Let's learn \"break out\" today.",
+    "example": "A fire broke out in the building.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "break_out.mp3",
     "unit": 10,
-    "explain": "The word \"break out\" means 突然开始；爆发.",
+    "explain": "To break out means to start suddenly, especially of war or disease.",
     "usage": [
       "Fire broke out.（发生了火灾。）",
       "War broke out.（战争爆发。）"
@@ -9625,12 +9625,12 @@
     "word": "area",
     "phonetic": "/ˈeəriə/",
     "meaning": "（地方、城市、 国家、世界的）地区，地域",
-    "example": "Let's learn \"area\" today.",
+    "example": "This area is famous for its flowers.",
     "category": "n",
     "difficulty": 6,
     "audio": "area.mp3",
     "unit": 10,
-    "explain": "The word \"area\" means （地方、城市、 国家、世界的）地区，地域.",
+    "explain": "An area is a part of a place, or the size of a surface.",
     "usage": [
       "a quiet area（安静的区域）",
       "in this area（在这个区域）"
@@ -9645,12 +9645,12 @@
     "word": "runway",
     "phonetic": "/ˈrʌnweɪ/",
     "meaning": "飞机跑道",
-    "example": "Let's learn \"runway\" today.",
+    "example": "The plane waited on the runway.",
     "category": "v",
     "difficulty": 6,
     "audio": "runway.mp3",
     "unit": 10,
-    "explain": "The word \"runway\" means 飞机跑道.",
+    "explain": "A runway is a long strip of ground where planes take off and land.",
     "usage": [
       "on the runway（在跑道上）",
       "a runway model（T台模特）"
@@ -9688,12 +9688,12 @@
     "word": "pupil",
     "phonetic": "/ˈpjuːpl/",
     "meaning": "学生；小学生",
-    "example": "Let's learn \"pupil\" today.",
+    "example": "There are forty pupils in our class.",
     "category": "n",
     "difficulty": 6,
     "audio": "pupil.mp3",
     "unit": 10,
-    "explain": "The word \"pupil\" means 学生；小学生.",
+    "explain": "A pupil is a student at school.",
     "usage": [
       "a pupil（小学生；瞳孔）",
       "a pupil in the class（班上的学生）"
@@ -9709,12 +9709,12 @@
     "word": "uniform",
     "phonetic": "/ˈjuːnɪfɔːm/",
     "meaning": "制服； 校服",
-    "example": "Let's learn \"uniform\" today.",
+    "example": "We wear school uniforms on Mondays.",
     "category": "n",
     "difficulty": 6,
     "audio": "uniform.mp3",
     "unit": 10,
-    "explain": "The word \"uniform\" means 制服； 校服.",
+    "explain": "A uniform is special clothing worn by members of a school or group.",
     "usage": [
       "wear a uniform（穿制服）",
       "a school uniform（校服）"
@@ -9731,12 +9731,12 @@
     "word": "indoors",
     "phonetic": "/ˌɪnˈdɔːz/",
     "meaning": "在室内",
-    "example": "Let's learn \"indoors\" today.",
+    "example": "We stayed indoors because of the rain.",
     "category": "n",
     "difficulty": 6,
     "audio": "indoors.mp3",
     "unit": 10,
-    "explain": "The word \"indoors\" means 在室内.",
+    "explain": "Indoors means inside a building.",
     "usage": [
       "stay indoors（待在室内）",
       "play indoors（在室内玩）"
@@ -9752,12 +9752,12 @@
     "word": "leaf",
     "phonetic": "/liːf/",
     "meaning": "叶子",
-    "example": "Let's learn \"leaf\" today.",
+    "example": "The leaves turn yellow in autumn.",
     "category": "n",
     "difficulty": 6,
     "audio": "leaf.mp3",
     "unit": 10,
-    "explain": "The word \"leaf\" means 叶子.",
+    "explain": "A leaf is one of the flat green parts of a plant.",
     "usage": [
       "a leaf（一片叶子）",
       "autumn leaves（秋叶）"
@@ -9795,12 +9795,12 @@
     "word": "in fact",
     "phonetic": "/ɪn fækt/",
     "meaning": "事实上",
-    "example": "Let's learn \"in fact\" today.",
+    "example": "He looks young, but in fact he is forty.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "in_fact.mp3",
     "unit": 10,
-    "explain": "The word \"in fact\" means 事实上.",
+    "explain": "In fact means actually, and is used to give more exact information.",
     "usage": [
       "in fact（事实上）",
       "In fact, I agree.（事实上我同意。）"
@@ -9815,12 +9815,12 @@
     "word": "average",
     "phonetic": "/ˈævərɪdʒ/",
     "meaning": "平均的",
-    "example": "Let's learn \"average\" today.",
+    "example": "The average temperature in spring is mild.",
     "category": "n",
     "difficulty": 6,
     "audio": "average.mp3",
     "unit": 10,
-    "explain": "The word \"average\" means 平均的.",
+    "explain": "Average means typical or ordinary, or the result of adding amounts and dividing by their number.",
     "usage": [
       "on average（平均而言）",
       "an average student（普通学生）"
@@ -9835,12 +9835,12 @@
     "word": "increase",
     "phonetic": "/ɪnˈkriːs , ˈɪŋkriːs/",
     "meaning": "增长；增加",
-    "example": "Let's learn \"increase\" today.",
+    "example": "The number of students increased last year.",
     "category": "n",
     "difficulty": 6,
     "audio": "increase.mp3",
     "unit": 10,
-    "explain": "The word \"increase\" means 增长；增加.",
+    "explain": "To increase means to become larger in amount or number.",
     "usage": [
       "increase the price（提价）",
       "increase in size（尺寸增大）"
@@ -9858,12 +9858,12 @@
     "word": "coal",
     "phonetic": "/kəʊl/",
     "meaning": "煤",
-    "example": "Let's learn \"coal\" today.",
+    "example": "The old train was powered by coal.",
     "category": "adj",
     "difficulty": 6,
     "audio": "coal.mp3",
     "unit": 10,
-    "explain": "The word \"coal\" means 煤.",
+    "explain": "Coal is a hard black substance dug from the ground and burned as fuel.",
     "usage": [
       "burn coal（烧煤）",
       "a coal mine（煤矿）"
@@ -9878,12 +9878,12 @@
     "word": "cause",
     "phonetic": "/kɔːz/",
     "meaning": "引起；使发生； 原因；事业",
-    "example": "Let's learn \"cause\" today.",
+    "example": "Heavy rain caused the flood.",
     "category": "v",
     "difficulty": 6,
     "audio": "cause.mp3",
     "unit": 10,
-    "explain": "The word \"cause\" means 引起；使发生； 原因；事业.",
+    "explain": "To cause means to make something happen; a cause is the reason something happens.",
     "usage": [
       "cause a problem（引起问题）",
       "the cause of sth.（某事的原因）"
@@ -9899,12 +9899,12 @@
     "word": "worse",
     "phonetic": "/wɜːs/",
     "meaning": "（bad 的比较级） 更差的；更糟的",
-    "example": "Let's learn \"worse\" today.",
+    "example": "The weather is worse today than yesterday.",
     "category": "n",
     "difficulty": 6,
     "audio": "worse.mp3",
     "unit": 10,
-    "explain": "The word \"worse\" means （bad 的比较级） 更差的；更糟的.",
+    "explain": "Worse means of poorer quality; it is the comparative form of bad.",
     "usage": [
       "feel worse（感觉更糟）",
       "What's worse.（更糟的是。）"
@@ -9921,12 +9921,12 @@
     "word": "soon",
     "phonetic": "/suːn/",
     "meaning": "很快；马上；不久",
-    "example": "Let's learn \"soon\" today.",
+    "example": "Dinner will be ready soon.",
     "category": "n",
     "difficulty": 6,
     "audio": "soon.mp3",
     "unit": 10,
-    "explain": "The word \"soon\" means 很快；马上；不久.",
+    "explain": "Soon means in a short time from now.",
     "usage": [
       "soon after（不久之后）",
       "See you soon.（回头见。）"
@@ -9942,12 +9942,12 @@
     "word": "regards",
     "phonetic": "/rɪˈɡɑːdz/",
     "meaning": "致意； 问候",
-    "example": "Let's learn \"regards\" today.",
+    "example": "Please give my regards to your parents.",
     "category": "n",
     "difficulty": 6,
     "audio": "regards.mp3",
     "unit": 10,
-    "explain": "The word \"regards\" means 致意； 问候.",
+    "explain": "Regards are good wishes sent to someone, used at the end of a letter.",
     "usage": [
       "Best regards（谨致问候）",
       "with kind regards（致以亲切问候）"
@@ -9963,12 +9963,12 @@
     "word": "neighbourhood",
     "phonetic": "/ˈneɪbəhʊd/",
     "meaning": "街区；邻近的地方",
-    "example": "Let's learn \"neighbourhood\" today.",
+    "example": "Our neighbourhood is quiet and clean.",
     "category": "n",
     "difficulty": 6,
     "audio": "neighbourhood.mp3",
     "unit": 11,
-    "explain": "The word \"neighbourhood\" means 街区；邻近的地方.",
+    "explain": "A neighbourhood is the area around the place where you live.",
     "usage": [
       "in the neighbourhood（在附近）",
       "a quiet neighbourhood（安静的街区）"
@@ -9985,12 +9985,12 @@
     "word": "build",
     "phonetic": "/bɪld/",
     "meaning": "创建；建造",
-    "example": "Let's learn \"build\" today.",
+    "example": "They are building a new library.",
     "category": "n",
     "difficulty": 6,
     "audio": "build.mp3",
     "unit": 11,
-    "explain": "The word \"build\" means 创建；建造.",
+    "explain": "To build means to make something by putting parts together.",
     "usage": [
       "build a house（盖房子）",
       "build a team（组建团队）"
@@ -10012,7 +10012,7 @@
     "audio": "reduce.mp3",
     "unit": 11,
     "rootAffix": "re（向后）+duc（引导）+e→向后引导→减少",
-    "explain": "A reduce is to make smaller.",
+    "explain": "To reduce means to make something smaller or less.",
     "usage": [
       "reduce pollution（减少污染）",
       "reduce the price（降价）"
@@ -10034,7 +10034,7 @@
     "difficulty": 6,
     "audio": "reuse.mp3",
     "unit": 11,
-    "explain": "To reuse means a common English word.",
+    "explain": "To reuse means to use something again instead of throwing it away.",
     "usage": [
       "reuse water（重复用水）",
       "reuse a bottle（重复使用瓶子）"
@@ -10057,7 +10057,7 @@
     "audio": "recycle.mp3",
     "unit": 11,
     "rootAffix": "re（回来，反复）+cycl（循环）+e→再循环",
-    "explain": "To recycle means a common English word.",
+    "explain": "To recycle means to treat waste so that it can be used again.",
     "usage": [
       "recycle paper（回收纸）",
       "recycle bottles（回收瓶子）"
@@ -10094,12 +10094,12 @@
     "word": "repair",
     "phonetic": "/rɪˈpeə(r)/",
     "meaning": "修理；修补",
-    "example": "Let's learn \"repair\" today.",
+    "example": "He repaired my bike.",
     "category": "n",
     "difficulty": 6,
     "audio": "repair.mp3",
     "unit": 11,
-    "explain": "The word \"repair\" means 修理；修补.",
+    "explain": "To pick means to choose something, or to take a fruit or flower from a plant.",
     "usage": [
       "repair a bike（修自行车）",
       "under repair（在修理中）"
@@ -10116,12 +10116,12 @@
     "word": "item",
     "phonetic": "/ˈaɪtəm/",
     "meaning": "一件物品",
-    "example": "Let's learn \"item\" today.",
+    "example": "There are ten items on the shopping list.",
     "category": "n",
     "difficulty": 6,
     "audio": "item.mp3",
     "unit": 11,
-    "explain": "The word \"item\" means 一件物品.",
+    "explain": "An item is a single thing in a list or group.",
     "usage": [
       "an item on the list（清单上的一项）",
       "a news item（一条新闻）"
@@ -10137,12 +10137,12 @@
     "word": "sort",
     "phonetic": "/sɔːt/",
     "meaning": "整理；把......分类",
-    "example": "Let's learn \"sort\" today.",
+    "example": "Please sort the rubbish into different bins.",
     "category": "n",
     "difficulty": 6,
     "audio": "sort.mp3",
     "unit": 11,
-    "explain": "The word \"sort\" means 整理；把......分类.",
+    "explain": "To sort means to put things into groups or arrange them in order.",
     "usage": [
       "a sort of（某种）",
       "sort out（整理）"
@@ -10159,12 +10159,12 @@
     "word": "cloth",
     "phonetic": "/klɒθ/",
     "meaning": "织物；布料",
-    "example": "Let's learn \"cloth\" today.",
+    "example": "The bag is made of cloth.",
     "category": "n",
     "difficulty": 6,
     "audio": "cloth.mp3",
     "unit": 11,
-    "explain": "The word \"cloth\" means 织物；布料.",
+    "explain": "Cloth is material made by weaving or knitting cotton, wool or other fibres.",
     "usage": [
       "a piece of cloth（一块布）",
       "table cloth（桌布）"
@@ -10184,7 +10184,7 @@
     "difficulty": 6,
     "audio": "pick.mp3",
     "unit": 11,
-    "explain": "A pick is to choose or take.",
+    "explain": "To pick means to choose something, or to take a fruit or flower from a plant.",
     "usage": [
       "pick a flower（摘花）",
       "pick up（捡起）"
@@ -10201,12 +10201,12 @@
     "word": "pick up",
     "phonetic": "/pɪk ʌp/",
     "meaning": "捡起；拾起",
-    "example": "Let's learn \"pick up\" today.",
+    "example": "She picked up the toy from the floor.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "pick_up.mp3",
     "unit": 11,
-    "explain": "The word \"pick up\" means 捡起；拾起.",
+    "explain": "To pick up something means to lift it from the ground.",
     "usage": [
       "pick up a book（捡起书）",
       "pick up a friend（接朋友）"
@@ -10222,12 +10222,12 @@
     "word": "plastic",
     "phonetic": "/ˈplæstɪk/",
     "meaning": "塑料的； 塑料",
-    "example": "Let's learn \"plastic\" today.",
+    "example": "The bottle is made of plastic.",
     "category": "adj",
     "difficulty": 6,
     "audio": "plastic.mp3",
     "unit": 11,
-    "explain": "The word \"plastic\" means 塑料的； 塑料.",
+    "explain": "Plastic is a light artificial material made from chemicals and used to make many things.",
     "usage": [
       "a plastic bag（塑料袋）",
       "plastic bottle（塑料瓶）"
@@ -10266,12 +10266,12 @@
     "word": "electricity",
     "phonetic": "/ɪˌlekˈtrɪsəti/",
     "meaning": "电； 电能",
-    "example": "Let's learn \"electricity\" today.",
+    "example": "We use electricity to light our homes.",
     "category": "n",
     "difficulty": 6,
     "audio": "electricity.mp3",
     "unit": 11,
-    "explain": "The word \"electricity\" means 电； 电能.",
+    "explain": "Electricity is the energy carried by wires that gives power to lights and machines.",
     "usage": [
       "use electricity（用电）",
       "generate electricity（发电）"
@@ -10287,12 +10287,12 @@
     "word": "tap",
     "phonetic": "/tæp/",
     "meaning": "水龙头",
-    "example": "Let's learn \"tap\" today.",
+    "example": "Please turn off the tap.",
     "category": "n",
     "difficulty": 6,
     "audio": "tap.mp3",
     "unit": 11,
-    "explain": "The word \"tap\" means 水龙头.",
+    "explain": "A tap is a device that controls the flow of water from a pipe.",
     "usage": [
       "tap the table（轻敲桌子）",
       "a water tap（水龙头）"
@@ -10313,7 +10313,7 @@
     "difficulty": 6,
     "audio": "brush.mp3",
     "unit": 11,
-    "explain": "A brush is a tool with bristles for cleaning or painting.",
+    "explain": "Brush means to clean or tidy something with a brush.",
     "usage": [
       "brush my teeth（刷牙）",
       "a hair brush（梳子）"
@@ -10376,7 +10376,7 @@
     "audio": "save.mp3",
     "unit": 11,
     "rootAffix": "sav（拯救）+e→解救，挽救→保存→储蓄，节省",
-    "explain": "A save is to rescue from danger.",
+    "explain": "To save means to rescue someone from danger, or to keep money for later.",
     "usage": [
       "save money（省钱）",
       "save a life（救人）"
@@ -10394,12 +10394,12 @@
     "word": "mix",
     "phonetic": "/mɪks/",
     "meaning": "混合；融合",
-    "example": "Let's learn \"mix\" today.",
+    "example": "Mix the flour and eggs together.",
     "category": "n",
     "difficulty": 6,
     "audio": "mix.mp3",
     "unit": 11,
-    "explain": "The word \"mix\" means 混合；融合.",
+    "explain": "To mix means to put different things together so that they form one mass.",
     "usage": [
       "mix A with B（把A和B混合）",
       "mix up（混淆）"
@@ -10421,7 +10421,7 @@
     "difficulty": 6,
     "audio": "reusable.mp3",
     "unit": 11,
-    "explain": "Reusable means a common English word.",
+    "explain": "Reusable means able to be used again.",
     "usage": [
       "a reusable bag（可重复使用的袋子）",
       "reusable bottles（可重复使用的瓶子）"
@@ -10437,12 +10437,12 @@
     "word": "store",
     "phonetic": "/stɔː(r)/",
     "meaning": "商店；店铺",
-    "example": "Let's learn \"store\" today.",
+    "example": "The store sells fresh fruit.",
     "category": "n",
     "difficulty": 6,
     "audio": "store.mp3",
     "unit": 11,
-    "explain": "The word \"store\" means 商店；店铺.",
+    "explain": "A store is a shop; to store means to keep something in a place until needed.",
     "usage": [
       "a toy store（玩具店）",
       "store food（储存食物）"
@@ -10459,12 +10459,12 @@
     "word": "even",
     "phonetic": "/ˈiːvn/",
     "meaning": "（强调出乎意料） 甚至，连，即使",
-    "example": "Let's learn \"even\" today.",
+    "example": "He works even on Sundays.",
     "category": "v",
     "difficulty": 6,
     "audio": "even.mp3",
     "unit": 11,
-    "explain": "The word \"even\" means （强调出乎意料） 甚至，连，即使.",
+    "explain": "Even is used to emphasize something surprising or extreme.",
     "usage": [
       "even better（甚至更好）",
       "even so（即使如此）"
@@ -10486,7 +10486,7 @@
     "difficulty": 6,
     "audio": "huge.mp3",
     "unit": 11,
-    "explain": "Huge means a common English word.",
+    "explain": "Huge means extremely large.",
     "usage": [
       "a huge building（巨大的建筑）",
       "a huge success（巨大成功）"
@@ -10503,12 +10503,12 @@
     "word": "government",
     "phonetic": "/ˈɡʌvənmənt/",
     "meaning": "政府；内阁",
-    "example": "Let's learn \"government\" today.",
+    "example": "The government is building new roads.",
     "category": "n",
     "difficulty": 6,
     "audio": "government.mp3",
     "unit": 11,
-    "explain": "The word \"government\" means 政府；内阁.",
+    "explain": "The government is the group of people who control a country and make its laws.",
     "usage": [
       "the government（政府）",
       "a government office（政府机关）"
@@ -10531,7 +10531,7 @@
     "audio": "encourage.mp3",
     "unit": 11,
     "rootAffix": "en（=in，投入，使具有）+courage（勇气）→投入勇气，使具有勇气→鼓励",
-    "explain": "An encourage is to support.",
+    "explain": "To encourage means to give someone support or confidence.",
     "usage": [
       "encourage sb. to do sth.（鼓励某人做某事）",
       "encourage questions（鼓励提问）"
@@ -10549,12 +10549,12 @@
     "word": "public",
     "phonetic": "/ˈpʌblɪk/",
     "meaning": "公共的； 公立的",
-    "example": "Let's learn \"public\" today.",
+    "example": "The park is open to the public.",
     "category": "adj",
     "difficulty": 6,
     "audio": "public.mp3",
     "unit": 11,
-    "explain": "The word \"public\" means 公共的； 公立的.",
+    "explain": "Public means belonging to everyone, not to one person.",
     "usage": [
       "in public（公开地）",
       "public transport（公共交通）"
@@ -10570,12 +10570,12 @@
     "word": "transport",
     "phonetic": "/ˈtrænspɔːt , trænˈspɔːt/",
     "meaning": "交通车辆； 旅行方式",
-    "example": "Let's learn \"transport\" today.",
+    "example": "Buses are a cheap form of transport.",
     "category": "n",
     "difficulty": 6,
     "audio": "transport.mp3",
     "unit": 11,
-    "explain": "The word \"transport\" means 交通车辆； 旅行方式.",
+    "explain": "Transport is the system of moving people or goods from one place to another.",
     "usage": [
       "public transport（公共交通）",
       "transport goods（运输货物）"
@@ -10591,12 +10591,12 @@
     "word": "environmental",
     "phonetic": "/ɪnˌvaɪrənˈmentl/",
     "meaning": "环境的",
-    "example": "Let's learn \"environmental\" today.",
+    "example": "We should care about environmental problems.",
     "category": "adj",
     "difficulty": 6,
     "audio": "environmental.mp3",
     "unit": 11,
-    "explain": "The word \"environmental\" means 环境的.",
+    "explain": "Environmental means connected with the air, water and land around us.",
     "usage": [
       "environmental protection（环境保护）",
       "environmental problems（环境问题）"
@@ -10611,12 +10611,12 @@
     "word": "electric",
     "phonetic": "/ɪˈlektrɪk/",
     "meaning": "电的； 电动的",
-    "example": "Let's learn \"electric\" today.",
+    "example": "He bought an electric car.",
     "category": "adj",
     "difficulty": 6,
     "audio": "electric.mp3",
     "unit": 11,
-    "explain": "The word \"electric\" means 电的； 电动的.",
+    "explain": "Electric means using or producing electricity.",
     "usage": [
       "an electric light（电灯）",
       "electric car（电动汽车）"
@@ -10638,7 +10638,7 @@
     "audio": "building.mp3",
     "unit": 11,
     "rootAffix": "build（建筑）+ing（现在分词形式）→建筑物",
-    "explain": "Building is a verb in present participle form.",
+    "explain": "A building is a structure with a roof and walls, such as a house or school.",
     "usage": [
       "a tall building（高楼）",
       "a building site（建筑工地）"
@@ -10654,12 +10654,12 @@
     "word": "low",
     "phonetic": "/ləʊ/",
     "meaning": "低于平均水平的； 低的；矮的",
-    "example": "Let's learn \"low\" today.",
+    "example": "The wall is low, so the dog can jump over it.",
     "category": "n",
     "difficulty": 6,
     "audio": "low.mp3",
     "unit": 11,
-    "explain": "The word \"low\" means 低于平均水平的； 低的；矮的.",
+    "explain": "Low means not high; below the usual level.",
     "usage": [
       "a low price（低价）",
       "a low voice（低声）"
@@ -10676,12 +10676,12 @@
     "word": "energy",
     "phonetic": "/ˈenədʒi/",
     "meaning": "能源",
-    "example": "Let's learn \"energy\" today.",
+    "example": "Solar energy is clean and renewable.",
     "category": "n",
     "difficulty": 6,
     "audio": "energy.mp3",
     "unit": 11,
-    "explain": "The word \"energy\" means 能源.",
+    "explain": "Energy is the power from electricity, fuel or other sources used to do work.",
     "usage": [
       "full of energy（充满活力）",
       "save energy（节约能源）"
@@ -10697,12 +10697,12 @@
     "word": "low-energy",
     "phonetic": "/ləʊ ˈenədʒi/",
     "meaning": "低能耗的",
-    "example": "Let's learn \"low-energy\" today.",
+    "example": "These low-energy lights save money.",
     "category": "n",
     "difficulty": 6,
     "audio": "low_energy.mp3",
     "unit": 11,
-    "explain": "The word \"low-energy\" means 低能耗的.",
+    "explain": "Low-energy means using little electricity or power.",
     "usage": [
       "a low-energy lifestyle（低能耗生活方式）",
       "low-energy buildings（低能耗建筑）"
@@ -10724,7 +10724,7 @@
     "audio": "however.mp3",
     "unit": 11,
     "rootAffix": "how（如何）+ever（曾经）→无论如何",
-    "explain": "However is an adverb in English.",
+    "explain": "However means but; it is used to introduce a statement that contrasts with what was said before.",
     "usage": [
       "However, I disagree.（然而我不同意。）",
       "however hard（无论多难）"
@@ -10740,12 +10740,12 @@
     "word": "alone",
     "phonetic": "/əˈləʊn/",
     "meaning": "独自",
-    "example": "Let's learn \"alone\" today.",
+    "example": "She lives alone in a small flat.",
     "category": "n",
     "difficulty": 6,
     "audio": "alone.mp3",
     "unit": 11,
-    "explain": "The word \"alone\" means 独自.",
+    "explain": "Alone means without other people, or only by oneself.",
     "usage": [
       "live alone（独自居住）",
       "feel alone（感到孤单）"
@@ -10765,7 +10765,7 @@
     "difficulty": 6,
     "audio": "planet.mp3",
     "unit": 11,
-    "explain": "A planet is a celestial body.",
+    "explain": "A planet is a large round object in space that moves around a star.",
     "usage": [
       "the planet Earth（地球）",
       "a planet（行星）"
@@ -10781,12 +10781,12 @@
     "word": "mankind",
     "phonetic": "/mænˈkaɪnd/",
     "meaning": "人类",
-    "example": "Let's learn \"mankind\" today.",
+    "example": "Mankind has always looked at the stars.",
     "category": "n",
     "difficulty": 6,
     "audio": "mankind.mp3",
     "unit": 11,
-    "explain": "The word \"mankind\" means 人类.",
+    "explain": "Mankind means all human beings.",
     "usage": [
       "for mankind（为了人类）",
       "the history of mankind（人类历史）"
@@ -10808,7 +10808,7 @@
     "audio": "daily.mp3",
     "unit": 11,
     "rootAffix": "dai（=day，日，天）+ly（形容词和副词后缀）→日常的，每天",
-    "explain": "Daily means a common English word.",
+    "explain": "Daily means happening every day.",
     "usage": [
       "daily life（日常生活）",
       "a daily newspaper（日报）"
@@ -10824,12 +10824,12 @@
     "word": "changer",
     "phonetic": "/ˈtʃeɪndʒə/",
     "meaning": "改变者； 改进者",
-    "example": "Let's learn \"changer\" today.",
+    "example": "The game changer helped our team win.",
     "category": "n",
     "difficulty": 6,
     "audio": "changer.mp3",
     "unit": 12,
-    "explain": "The word \"changer\" means 改变者； 改进者.",
+    "explain": "A changer is a person or thing that changes something.",
     "usage": [
       "a game changer（改变局面的人/事物）",
       "a change maker（变革者）"
@@ -10889,12 +10889,12 @@
     "word": "publish",
     "phonetic": "/ˈpʌblɪʃ/",
     "meaning": "出版；发行",
-    "example": "Let's learn \"publish\" today.",
+    "example": "The magazine will publish her story.",
     "category": "adj",
     "difficulty": 6,
     "audio": "publish.mp3",
     "unit": 12,
-    "explain": "The word \"publish\" means 出版；发行.",
+    "explain": "To publish means to print something such as a book, or put it online for people to read.",
     "usage": [
       "publish a book（出版书）",
       "publish an article（发表文章）"
@@ -10912,12 +10912,12 @@
     "word": "theory",
     "phonetic": "/ˈθɪəri/",
     "meaning": "学说；理论",
-    "example": "Let's learn \"theory\" today.",
+    "example": "This theory explains how the universe began.",
     "category": "n",
     "difficulty": 6,
     "audio": "theory.mp3",
     "unit": 12,
-    "explain": "The word \"theory\" means 学说；理论.",
+    "explain": "A theory is an idea or set of ideas that explains something.",
     "usage": [
       "in theory（理论上）",
       "a scientific theory（科学理论）"
@@ -10940,7 +10940,7 @@
     "audio": "invent.mp3",
     "unit": 12,
     "rootAffix": "in（on，upon，触及）+vent（到来）→偶然遇到→发现，找到→发明，创造",
-    "explain": "An invent is to create something new.",
+    "explain": "To invent means to create something new.",
     "usage": [
       "invent a machine（发明机器）",
       "invent a story（编故事）"
@@ -10958,12 +10958,12 @@
     "word": "inexpensive",
     "phonetic": "/ˌɪnɪkˈspensɪv/",
     "meaning": "廉价的；不昂贵的",
-    "example": "Let's learn \"inexpensive\" today.",
+    "example": "We bought an inexpensive meal.",
     "category": "adj",
     "difficulty": 6,
     "audio": "inexpensive.mp3",
     "unit": 12,
-    "explain": "The word \"inexpensive\" means 廉价的；不昂贵的.",
+    "explain": "Inexpensive means not expensive; cheap.",
     "usage": [
       "an inexpensive gift（便宜的礼物）",
       "inexpensive food（便宜的食物）"
@@ -10979,12 +10979,12 @@
     "word": "bulb",
     "phonetic": "/bʌlb/",
     "meaning": "电灯泡",
-    "example": "Let's learn \"bulb\" today.",
+    "example": "Please change the light bulb.",
     "category": "n",
     "difficulty": 6,
     "audio": "bulb.mp3",
     "unit": 12,
-    "explain": "The word \"bulb\" means 电灯泡.",
+    "explain": "A bulb is a glass object that produces light when electricity passes through it.",
     "usage": [
       "a light bulb（灯泡）",
       "change the bulb（换灯泡）"
@@ -11005,7 +11005,7 @@
     "audio": "discover.mp3",
     "unit": 12,
     "rootAffix": "dis（去掉）+cover（遮盖）→去掉遮盖→发现，发觉",
-    "explain": "A discover is to find first.",
+    "explain": "To discover means to find something for the first time.",
     "usage": [
       "discover a place（发现一个地方）",
       "discover the truth（发现真相）"
@@ -11023,12 +11023,12 @@
     "word": "general",
     "phonetic": "/ˈdʒenrəl/",
     "meaning": "全体的；普遍 的；总的",
-    "example": "Let's learn \"general\" today.",
+    "example": "The general opinion is that the plan is good.",
     "category": "adj",
     "difficulty": 6,
     "audio": "general.mp3",
     "unit": 12,
-    "explain": "The word \"general\" means 全体的；普遍 的；总的.",
+    "explain": "General means affecting all or most people or things, not just a few.",
     "usage": [
       "in general（通常）",
       "a general idea（大致的想法）"
@@ -11094,7 +11094,7 @@
     "difficulty": 6,
     "audio": "real.mp3",
     "unit": 12,
-    "explain": "Real means a common English word.",
+    "explain": "Real means actually existing, not imagined or fake.",
     "usage": [
       "a real friend（真正的朋友）",
       "real life（现实生活）"
@@ -11117,7 +11117,7 @@
     "audio": "power.mp3",
     "unit": 12,
     "rootAffix": "pow（力量）+er（名词后缀）→力量",
-    "explain": "To power means a common English word.",
+    "explain": "Power is electrical energy, or the ability to control people or events.",
     "usage": [
       "power station（发电站）",
       "the power of music（音乐的力量）"
@@ -11134,12 +11134,12 @@
     "word": "power station",
     "phonetic": "/ˈpaʊər ˈsteɪʃn/",
     "meaning": "发电站；发电厂",
-    "example": "Let's learn \"power station\" today.",
+    "example": "The power station supplies electricity to the city.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "power_station.mp3",
     "unit": 12,
-    "explain": "The word \"power station\" means 发电站；发电厂.",
+    "explain": "A power station is a building where electricity is produced.",
     "usage": [
       "a power station（发电站）",
       "build a power station（建发电站）"
@@ -11160,7 +11160,7 @@
     "difficulty": 6,
     "audio": "die.mp3",
     "unit": 12,
-    "explain": "A die is down （）.",
+    "explain": "To die means to stop living.",
     "usage": [
       "die of illness（因病去世）",
       "die out（灭绝）"
@@ -11184,7 +11184,7 @@
     "audio": "successful.mp3",
     "unit": 12,
     "rootAffix": "success（成功）+ful（形容词后缀）→成功的",
-    "explain": "Successful means a common English word.",
+    "explain": "Successful means achieving what you wanted to achieve.",
     "usage": [
       "a successful person（成功的人）",
       "be successful in sth.（在某事上成功）"
@@ -11225,12 +11225,12 @@
     "word": "saver",
     "phonetic": "/ˈseɪvə(r)/",
     "meaning": "救助者；救星",
-    "example": "Let's learn \"saver\" today.",
+    "example": "This app is a real time saver.",
     "category": "n",
     "difficulty": 6,
     "audio": "saver.mp3",
     "unit": 12,
-    "explain": "The word \"saver\" means 救助者；救星.",
+    "explain": "A saver is a person who saves money, or something that saves time or money.",
     "usage": [
       "a money saver（省钱的东西）",
       "an energy saver（节能装置）"
@@ -11252,7 +11252,7 @@
     "audio": "medicine.mp3",
     "unit": 12,
     "rootAffix": "med（医疗）+ic（形容词后缀）+ine（形容词后缀）→用来治病的（东西或技术）→药，医学",
-    "explain": "A medicine is treatment for illness.",
+    "explain": "Medicine is a substance used to treat illness.",
     "usage": [
       "take medicine（吃药）",
       "a medicine box（药箱）"
@@ -11268,12 +11268,12 @@
     "word": "Traditional Chinese Medicine",
     "phonetic": "/trəˈdɪʃənl ˌtʃaɪˈniːz ˈmedɪsn/",
     "meaning": "中医药",
-    "example": "Let's learn \"Traditional Chinese Medicine\" today.",
+    "example": "Traditional Chinese Medicine has a long history.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "traditional_chinese_medicine.mp3",
     "unit": 12,
-    "explain": "The word \"Traditional Chinese Medicine\" means 中医药.",
+    "explain": "Traditional Chinese Medicine is a system of medicine from China that uses herbs, acupuncture and other traditional methods.",
     "usage": [
       "study Traditional Chinese Medicine（学习中医）",
       "Traditional Chinese Medicine（中医）"
@@ -11288,12 +11288,12 @@
     "word": "spend",
     "phonetic": "/spend/",
     "meaning": "花（时间）；度过",
-    "example": "Let's learn \"spend\" today.",
+    "example": "She spends an hour reading every night.",
     "category": "n",
     "difficulty": 6,
     "audio": "spend.mp3",
     "unit": 12,
-    "explain": "The word \"spend\" means 花（时间）；度过.",
+    "explain": "To spend means to use time or money on something.",
     "usage": [
       "spend money（花钱）",
       "spend time doing sth.（花时间做某事）"
@@ -11314,7 +11314,7 @@
     "difficulty": 6,
     "audio": "sick.mp3",
     "unit": 12,
-    "explain": "A sick is ill, not feeling well.",
+    "explain": "Sick means ill and not feeling well.",
     "usage": [
       "feel sick（感到恶心/不舒服）",
       "a sick child（生病的孩子）"
@@ -11331,12 +11331,12 @@
     "word": "penicillin",
     "phonetic": "/ˌpenɪˈsɪlɪn/",
     "meaning": "青霉素； 盘尼西林",
-    "example": "Let's learn \"penicillin\" today.",
+    "example": "The doctor gave him penicillin.",
     "category": "n",
     "difficulty": 6,
     "audio": "penicillin.mp3",
     "unit": 12,
-    "explain": "The word \"penicillin\" means 青霉素； 盘尼西林.",
+    "explain": "Penicillin is a medicine that kills bacteria and is used to treat infections.",
     "usage": [
       "take penicillin（服用青霉素）",
       "a penicillin injection（青霉素注射）"
@@ -11373,12 +11373,12 @@
     "word": "lose",
     "phonetic": "/luːz/",
     "meaning": "遗失；丢失",
-    "example": "Let's learn \"lose\" today.",
+    "example": "Don't lose your keys.",
     "category": "n",
     "difficulty": 6,
     "audio": "lose.mp3",
     "unit": 12,
-    "explain": "The word \"lose\" means 遗失；丢失.",
+    "explain": "To lose means to no longer have something because you cannot find it or keep it.",
     "usage": [
       "lose a game（输掉比赛）",
       "lose a book（丢书）"
@@ -11395,12 +11395,12 @@
     "word": "admire",
     "phonetic": "/ədˈmaɪə(r)/",
     "meaning": "钦佩；赞赏； 仰慕",
-    "example": "Let's learn \"admire\" today.",
+    "example": "I admire her courage.",
     "category": "n",
     "difficulty": 6,
     "audio": "admire.mp3",
     "unit": 12,
-    "explain": "The word \"admire\" means 钦佩；赞赏； 仰慕.",
+    "explain": "To admire someone means to respect and like them.",
     "usage": [
       "admire a hero（钦佩英雄）",
       "admire sb. for sth.（因某事钦佩某人）"
@@ -11417,12 +11417,12 @@
     "word": "herb",
     "phonetic": "/hɜːb/",
     "meaning": "药草；香草",
-    "example": "Let's learn \"herb\" today.",
+    "example": "She grows herbs in the garden.",
     "category": "n",
     "difficulty": 6,
     "audio": "herb.mp3",
     "unit": 12,
-    "explain": "The word \"herb\" means 药草；香草.",
+    "explain": "A herb is a plant whose leaves or seeds are used for flavouring food or as medicine.",
     "usage": [
       "an herb（草药）",
       "herb tea（花草茶）"
@@ -11438,12 +11438,12 @@
     "word": "pardon",
     "phonetic": "/ˈpɑːdn/",
     "meaning": "请再说一遍",
-    "example": "Let's learn \"pardon\" today.",
+    "example": "Pardon? I didn't hear you.",
     "category": "n",
     "difficulty": 6,
     "audio": "pardon.mp3",
     "unit": 12,
-    "explain": "The word \"pardon\" means 请再说一遍.",
+    "explain": "Pardon is used to ask someone to repeat what they said.",
     "usage": [
       "Pardon?（请再说一遍？）",
       "I beg your pardon.（请原谅。）"
@@ -11459,12 +11459,12 @@
     "word": "pain",
     "phonetic": "/peɪn/",
     "meaning": "疼痛",
-    "example": "Let's learn \"pain\" today.",
+    "example": "I have a pain in my back.",
     "category": "n",
     "difficulty": 6,
     "audio": "pain.mp3",
     "unit": 12,
-    "explain": "The word \"pain\" means 疼痛.",
+    "explain": "Pain is the feeling you have when part of your body hurts.",
     "usage": [
       "have a pain in the back（背疼）",
       "feel pain（感到疼痛）"
@@ -11481,12 +11481,12 @@
     "word": "beg",
     "phonetic": "/beɡ/",
     "meaning": "乞讨；乞求",
-    "example": "Let's learn \"beg\" today.",
+    "example": "He begged his mother for help.",
     "category": "n",
     "difficulty": 6,
     "audio": "beg.mp3",
     "unit": 12,
-    "explain": "The word \"beg\" means 乞讨；乞求.",
+    "explain": "To beg means to ask for something very seriously or desperately.",
     "usage": [
       "beg for help（请求帮助）",
       "beg sb. to do sth.（恳求某人做某事）"
@@ -11503,12 +11503,12 @@
     "word": "beg your pardon",
     "phonetic": "/beɡ jʊr ˈpɑːrdn/",
     "meaning": "请原谅；请再说 一遍",
-    "example": "Let's learn \"beg your pardon\" today.",
+    "example": "Beg your pardon, I didn't mean to step on your foot.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "beg_your_pardon.mp3",
     "unit": 12,
-    "explain": "The word \"beg your pardon\" means 请原谅；请再说 一遍.",
+    "explain": "Beg your pardon is a polite way of saying sorry or asking someone to repeat something.",
     "usage": [
       "Beg your pardon.（请再说一遍。）",
       "I beg your pardon.（对不起，请原谅。）"
@@ -11523,12 +11523,12 @@
     "word": "storyteller",
     "phonetic": "/ˈstɔːritelə(r)/",
     "meaning": "讲故事 的人",
-    "example": "Let's learn \"storyteller\" today.",
+    "example": "My grandfather is a great storyteller.",
     "category": "n",
     "difficulty": 6,
     "audio": "storyteller.mp3",
     "unit": 12,
-    "explain": "The word \"storyteller\" means 讲故事 的人.",
+    "explain": "A storyteller is a person who tells stories.",
     "usage": [
       "a storyteller（讲故事的人）",
       "a good storyteller（善于讲故事的人）"
@@ -11544,12 +11544,12 @@
     "word": "poem",
     "phonetic": "/ˈpəʊɪm/",
     "meaning": "诗",
-    "example": "Let's learn \"poem\" today.",
+    "example": "She wrote a poem about the sea.",
     "category": "n",
     "difficulty": 6,
     "audio": "poem.mp3",
     "unit": 12,
-    "explain": "The word \"poem\" means 诗.",
+    "explain": "A poem is a piece of writing arranged in lines, often with rhythm and rhyme.",
     "usage": [
       "write a poem（写诗）",
       "recite a poem（背诵诗）"
@@ -11566,12 +11566,12 @@
     "word": "act",
     "phonetic": "/ækt/",
     "meaning": "表演； 行为",
-    "example": "Let's learn \"act\" today.",
+    "example": "She acted in the school play.",
     "category": "n",
     "difficulty": 6,
     "audio": "act.mp3",
     "unit": 12,
-    "explain": "The word \"act\" means 表演； 行为.",
+    "explain": "To act means to perform in a play or film; an act is a thing someone does.",
     "usage": [
       "act in a play（在戏剧中表演）",
       "act as（充当）"
@@ -11589,12 +11589,12 @@
     "word": "poor",
     "phonetic": "/pɔː(r)/",
     "meaning": "贫穷的",
-    "example": "Let's learn \"poor\" today.",
+    "example": "The poor family needed help.",
     "category": "n",
     "difficulty": 6,
     "audio": "poor.mp3",
     "unit": 12,
-    "explain": "The word \"poor\" means 贫穷的.",
+    "explain": "Poor means having little money, or of low quality.",
     "usage": [
       "a poor family（贫穷的家庭）",
       "poor health（健康不佳）"
@@ -11611,12 +11611,12 @@
     "word": "tragedy",
     "phonetic": "/ˈtrædʒədi/",
     "meaning": "悲剧； 悲剧作品",
-    "example": "Let's learn \"tragedy\" today.",
+    "example": "The story ends in tragedy.",
     "category": "n",
     "difficulty": 6,
     "audio": "tragedy.mp3",
     "unit": 12,
-    "explain": "The word \"tragedy\" means 悲剧； 悲剧作品.",
+    "explain": "A tragedy is a very sad event or a serious play with a sad ending.",
     "usage": [
       "a tragedy（悲剧）",
       "a great tragedy（大悲剧）"
@@ -11633,12 +11633,12 @@
     "word": "create",
     "phonetic": "/kriˈeɪt/",
     "meaning": "创造；创作",
-    "example": "Let's learn \"create\" today.",
+    "example": "The artist created a beautiful painting.",
     "category": "n",
     "difficulty": 6,
     "audio": "create.mp3",
     "unit": 12,
-    "explain": "The word \"create\" means 创造；创作.",
+    "explain": "To create means to make something new.",
     "usage": [
       "create a story（创作故事）",
       "create a problem（造成问题）"
@@ -11656,12 +11656,12 @@
     "word": "character",
     "phonetic": "/ˈkærəktə(r)/",
     "meaning": "角色",
-    "example": "Let's learn \"character\" today.",
+    "example": "The main character is a brave girl.",
     "category": "n",
     "difficulty": 6,
     "audio": "character.mp3",
     "unit": 12,
-    "explain": "The word \"character\" means 角色.",
+    "explain": "A character is a person in a story, play or film.",
     "usage": [
       "the main character（主角）",
       "Chinese characters（汉字）"
@@ -11676,12 +11676,12 @@
     "word": "stage",
     "phonetic": "/steɪdʒ/",
     "meaning": "舞台",
-    "example": "Let's learn \"stage\" today.",
+    "example": "The actors walked onto the stage.",
     "category": "n",
     "difficulty": 6,
     "audio": "stage.mp3",
     "unit": 12,
-    "explain": "The word \"stage\" means 舞台.",
+    "explain": "A stage is a raised area in a theatre where actors perform.",
     "usage": [
       "on the stage（在舞台上）",
       "a stage show（舞台表演）"
@@ -11697,12 +11697,12 @@
     "word": "million",
     "phonetic": "/ˈmɪljən/",
     "meaning": "一百万",
-    "example": "Let's learn \"million\" today.",
+    "example": "The city has more than a million people.",
     "category": "n",
     "difficulty": 6,
     "audio": "million.mp3",
     "unit": 12,
-    "explain": "The word \"million\" means 一百万.",
+    "explain": "A million is the number 1,000,000.",
     "usage": [
       "one million people（一百万人）",
       "millions of（数百万的）"
@@ -11718,12 +11718,12 @@
     "word": "millions of",
     "phonetic": "/ˈmɪlɪənz ɒv/",
     "meaning": "数以百万计的；很多",
-    "example": "Let's learn \"millions of\" today.",
+    "example": "Millions of people watched the game.",
     "category": "phrase",
     "difficulty": 6,
     "audio": "millions_of.mp3",
     "unit": 12,
-    "explain": "The word \"millions of\" means 数以百万计的；很多.",
+    "explain": "Millions of means a very large number of people or things.",
     "usage": [
       "millions of people（数百万人）",
       "millions of stars（数百万颗星星）"
@@ -11739,12 +11739,12 @@
     "word": "mark",
     "phonetic": "/mɑːk/",
     "meaning": "做记号；做标记；标记；记号",
-    "example": "Let's learn \"mark\" today.",
+    "example": "There is a mark on your shirt.",
     "category": "v",
     "difficulty": 6,
     "audio": "mark.mp3",
     "unit": 12,
-    "explain": "The word \"mark\" means 做记号；做标记；标记；记号.",
+    "explain": "A mark is a small spot or a sign made on something; to mark means to make such a sign.",
     "usage": [
       "a good mark（好分数）",
       "mark the answer（标记答案）"
@@ -11761,12 +11761,12 @@
     "word": "level",
     "phonetic": "/ˈlevl/",
     "meaning": "水平；标准",
-    "example": "Let's learn \"level\" today.",
+    "example": "The water level is rising.",
     "category": "n",
     "difficulty": 6,
     "audio": "level.mp3",
     "unit": 12,
-    "explain": "The word \"level\" means 水平；标准.",
+    "explain": "A level is a height, standard or amount of something.",
     "usage": [
       "a high level（高水平）",
       "level the ground（平整地面）"
@@ -11782,12 +11782,12 @@
     "word": "until",
     "phonetic": "/ənˈtɪl/",
     "meaning": "直到...... 为止",
-    "example": "Let's learn \"until\" today.",
+    "example": "Wait here until I come back.",
     "category": "n",
     "difficulty": 6,
     "audio": "until.mp3",
     "unit": 12,
-    "explain": "The word \"until\" means 直到...... 为止.",
+    "explain": "Until means up to the time that something happens.",
     "usage": [
       "until now（直到现在）",
       "not...until（直到……才）"
@@ -11802,12 +11802,12 @@
     "word": "weigh",
     "phonetic": "/weɪ/",
     "meaning": "称重量；权衡",
-    "example": "Let's learn \"weigh\" today.",
+    "example": "The nurse weighed the baby.",
     "category": "n",
     "difficulty": 6,
     "audio": "weigh.mp3",
     "unit": 12,
-    "explain": "The word \"weigh\" means 称重量；权衡.",
+    "explain": "To weigh means to measure how heavy something is.",
     "usage": [
       "weigh 50 kilos（重50公斤）",
       "weigh the box（称箱子重量）"
@@ -11824,12 +11824,12 @@
     "word": "weight",
     "phonetic": "/weɪt/",
     "meaning": "重量；分量",
-    "example": "Let's learn \"weight\" today.",
+    "example": "The box is heavy; its weight is 20 kilos.",
     "category": "n",
     "difficulty": 6,
     "audio": "weight.mp3",
     "unit": 12,
-    "explain": "The word \"weight\" means 重量；分量.",
+    "explain": "Weight is how heavy something is.",
     "usage": [
       "lose weight（减肥）",
       "put on weight（长胖）"
@@ -11846,12 +11846,12 @@
     "word": "stamp",
     "phonetic": "/stæmp/",
     "meaning": "邮票",
-    "example": "Let's learn \"stamp\" today.",
+    "example": "He put a stamp on the envelope.",
     "category": "n",
     "difficulty": 6,
     "audio": "stamp.mp3",
     "unit": 12,
-    "explain": "The word \"stamp\" means 邮票.",
+    "explain": "A stamp is a small piece of paper stuck on a letter to show that postage has been paid.",
     "usage": [
       "collect stamps（集邮）",
       "stamp a letter（在信上盖邮戳）"

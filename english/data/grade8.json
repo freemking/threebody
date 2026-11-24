@@ -31,7 +31,7 @@
     "difficulty": 8,
     "audio": "cover.mp3",
     "unit": 1,
-    "explain": "To cover means a common English word.",
+    "explain": "To cover something means to put or place something over it.",
     "usage": [
       "cover the table（盖住桌子）",
       "the cover of a book（书的封面）"
@@ -98,7 +98,7 @@
     "audio": "percent.mp3",
     "unit": 1,
     "rootAffix": "per（依据，相比于）+cent（百）→百分之……的",
-    "explain": "A percent is …….",
+    "explain": "Percent means one part in every hundred.",
     "usage": [
       "ten percent（百分之十）",
       "50 percent of students（百分之五十的学生）"
@@ -120,7 +120,7 @@
     "audio": "available.mp3",
     "unit": 1,
     "rootAffix": "a（=ad，去）+vail（有价值）+able（可以）→可以带来价值的，有益的→有效的，能产生作用的→可用的，有空的",
-    "explain": "Available means a common English word.",
+    "explain": "Available means able to be used or obtained.",
     "usage": [
       "be available for use（可供使用）",
       "Rooms are available.（有空房。）"
@@ -141,7 +141,7 @@
     "audio": "necessary.mp3",
     "unit": 1,
     "rootAffix": "ne（不）+cess（走开）+ary（形容词后缀）→不能离开的→必需的，必要的",
-    "explain": "A necessary is needed.",
+    "explain": "Necessary means needed.",
     "usage": [
       "It is necessary to do sth.（有必要做某事）",
       "a necessary condition（必要条件）"
@@ -163,7 +163,7 @@
     "audio": "survive.mp3",
     "unit": 1,
     "rootAffix": "sur（=super，超越）+viv（活）+e→越过（灾难）活下来，比...活得长→幸免于，比……活得长",
-    "explain": "A survive is to continue living.",
+    "explain": "To survive means to continue to live, especially after a dangerous event.",
     "usage": [
       "survive an accident（在事故中幸存）",
       "survive on bread（靠面包存活）"
@@ -208,7 +208,7 @@
     "audio": "precious.mp3",
     "unit": 1,
     "rootAffix": "preci（价值）+ous（形容词后缀，多，富于）→有很多价值的→宝贵的，珍贵的",
-    "explain": "Precious means a common English word.",
+    "explain": "Precious means very valuable or important.",
     "usage": [
       "a precious stone（宝石）",
       "a precious moment（珍贵时刻）"
@@ -230,7 +230,7 @@
     "audio": "limited.mp3",
     "unit": 1,
     "rootAffix": "limit（限制）+ed（过去分词形式）→受限制的→有限的",
-    "explain": "Limited is a verb in past tense.",
+    "explain": "Limited means small in amount or not able to go beyond a certain point.",
     "usage": [
       "a limited time（有限的时间）",
       "be limited to（局限于）"
@@ -275,7 +275,7 @@
     "difficulty": 8,
     "audio": "awareness.mp3",
     "unit": 1,
-    "explain": "An awareness is knowledge or understanding of a situation.",
+    "explain": "Awareness is knowledge or understanding of a situation.",
     "usage": [
       "raise awareness（提高意识）",
       "environmental awareness（环保意识）"
@@ -317,7 +317,7 @@
     "difficulty": 8,
     "audio": "dry.mp3",
     "unit": 1,
-    "explain": "A dry is not wet.",
+    "explain": "Dry means not wet.",
     "usage": [
       "dry clothes（晾干衣服）",
       "a dry day（干燥的一天）"
@@ -408,7 +408,7 @@
     "audio": "difficult.mp3",
     "unit": 1,
     "rootAffix": "dif（=dis，反义）+fic（做）+ul（易于……的）+t→不容易做的→困难的",
-    "explain": "A difficult is not easy.",
+    "explain": "Difficult means not easy.",
     "usage": [
       "a difficult question（难题）",
       "It is difficult for me.（对我来说很难。）"
@@ -425,13 +425,13 @@
     "word": "manage",
     "phonetic": "/ˈmænɪdʒ/",
     "meaning": "设法做到",
-    "example": "She manages a team of ten people.",
+    "example": "She managed to solve the problem.",
     "category": "v",
     "difficulty": 8,
     "audio": "manage.mp3",
     "unit": 1,
     "rootAffix": "man（手）+age（动词后缀）→用手去操纵马匹，训练马匹→管理，经营",
-    "explain": "To manage means a common English word.",
+    "explain": "To manage means to succeed in doing something difficult.",
     "usage": [
       "manage a team（管理团队）",
       "manage to do sth.（设法做成某事）"
@@ -478,7 +478,7 @@
     "difficulty": 8,
     "audio": "water-shortage.mp3",
     "unit": 1,
-    "explain": "\"water shortage\" is an expression meaning a common English word.",
+    "explain": "A water shortage is a situation in which there is not enough water.",
     "usage": [
       "a water shortage（水资源短缺）",
       "face a water shortage（面临缺水）"
@@ -499,7 +499,7 @@
     "difficulty": 8,
     "audio": "dry-climate.mp3",
     "unit": 1,
-    "explain": "\"dry climate\" is an expression meaning a common English word.",
+    "explain": "A dry climate is a climate with very little rain.",
     "usage": [
       "a dry climate（干燥的气候）",
       "live in a dry climate（生活在干燥气候中）"
@@ -520,7 +520,7 @@
     "difficulty": 8,
     "audio": "manage-to-do-sth-.mp3",
     "unit": 1,
-    "explain": "To manage to do sth. means a common English word.",
+    "explain": "To manage to do something means to succeed in doing it even though it is difficult.",
     "usage": [
       "manage to finish the work（设法完成工作）",
       "manage to solve the problem（设法解决问题）"
@@ -630,7 +630,7 @@
     "audio": "calculate.mp3",
     "unit": 2,
     "rootAffix": "calc（石灰岩，石头）+ul（指小名词后缀）+ate（动词后缀）→用小石子来做某件事→计算",
-    "explain": "To calculate means a common English word.",
+    "explain": "To calculate means to work out an amount or number using mathematics.",
     "usage": [
       "calculate the cost（计算成本）",
       "calculate the answer（算出答案）"
@@ -654,7 +654,7 @@
     "audio": "accurate.mp3",
     "unit": 2,
     "rootAffix": "ac（=ad，去，趋近）+cur（小心，注意）+ate（形容词后缀）→小心的，谨小慎微的→准确的，精确的",
-    "explain": "Accurate means a common English word.",
+    "explain": "Accurate means correct and exact.",
     "usage": [
       "accurate information（准确的信息）",
       "an accurate answer（准确的答案）"
@@ -699,7 +699,7 @@
     "audio": "develop.mp3",
     "unit": 2,
     "rootAffix": "de（反义）+velop（包裹）→打开包裹，展开→发展",
-    "explain": "A develop is to grow or change.",
+    "explain": "To develop means to grow or change over time.",
     "usage": [
       "develop a skill（培养技能）",
       "develop a plan（制定计划）"
@@ -723,7 +723,7 @@
     "audio": "ancient.mp3",
     "unit": 2,
     "rootAffix": "anci（=ante，在前面）+ent（形容词后缀）→（很久）以前的→古代的",
-    "explain": "An ancient is very old.",
+    "explain": "Ancient means very old.",
     "usage": [
       "ancient China（古代中国）",
       "ancient buildings（古代建筑）"
@@ -808,7 +808,7 @@
     "audio": "multiply.mp3",
     "unit": 2,
     "rootAffix": "multi（多）+ply（=plic，折叠）→多次折叠→成倍增加，乘",
-    "explain": "To multiply means a common English word.",
+    "explain": "To multiply means to add a number to itself a particular number of times.",
     "usage": [
       "multiply 3 by 4（3乘以4）",
       "multiply quickly（快速繁殖）"
@@ -825,13 +825,13 @@
     "word": "divide",
     "phonetic": "/dɪˈvaɪd/",
     "meaning": "除",
-    "example": "Let's divide the cake into four pieces.",
+    "example": "Twelve divided by three is four.",
     "category": "v",
     "difficulty": 8,
     "audio": "divide.mp3",
     "unit": 2,
     "rootAffix": "divid（分开）+e→分开",
-    "explain": "To divide means a common English word.",
+    "explain": "To divide means to find how many times one number contains another.",
     "usage": [
       "divide A into B（把A分成B）",
       "divide by（除以）"
@@ -853,7 +853,7 @@
     "difficulty": 8,
     "audio": "at-least.mp3",
     "unit": 2,
-    "explain": "\"at least\" is an expression meaning a common English word.",
+    "explain": "At least means not less than a particular amount.",
     "usage": [
       "at least ten（至少十个）",
       "at least once（至少一次）"
@@ -873,7 +873,7 @@
     "difficulty": 8,
     "audio": "in-ancient-times.mp3",
     "unit": 2,
-    "explain": "\"in ancient times\" is an expression meaning a common English word.",
+    "explain": "In ancient times means a very long time ago in history.",
     "usage": [
       "in ancient times（在古代）",
       "people in ancient times（古代人）"
@@ -1004,7 +1004,7 @@
     "audio": "internet.mp3",
     "unit": 3,
     "rootAffix": "inter（在……之间）+net（网）→在多个网络之间（的网络）→互联网",
-    "explain": "An internet is the global computer network.",
+    "explain": "The Internet is the global computer network.",
     "usage": [
       "on the Internet（在互联网上）",
       "surf the Internet（上网）"
@@ -1025,7 +1025,7 @@
     "audio": "information.mp3",
     "unit": 3,
     "rootAffix": "inform（通知）+ation（动名词后缀）→信息",
-    "explain": "An information is facts about a subject.",
+    "explain": "Information is facts about a subject.",
     "usage": [
       "get information（获取信息）",
       "information technology（信息技术）"
@@ -1047,7 +1047,7 @@
     "audio": "technology.mp3",
     "unit": 3,
     "rootAffix": "techn（手艺，技巧）+o（连接字母）+log（学问）+y（名词后缀）→关于手艺和技巧的学问→技术",
-    "explain": "A technology is applied science.",
+    "explain": "Technology is the use of scientific knowledge for practical purposes.",
     "usage": [
       "modern technology（现代科技）",
       "information technology（信息技术）"
@@ -1113,7 +1113,7 @@
     "difficulty": 8,
     "audio": "hard-disk.mp3",
     "unit": 3,
-    "explain": "\"hard disk\" is an expression meaning a common English word.",
+    "explain": "A hard disk is a device inside a computer that stores data.",
     "usage": [
       "a hard disk（硬盘）",
       "an external hard disk（外置硬盘）"
@@ -1134,7 +1134,7 @@
     "difficulty": 8,
     "audio": "be-made-of.mp3",
     "unit": 3,
-    "explain": "To be made of means to perform the action related to of.",
+    "explain": "To be made of a material means to be produced from it.",
     "usage": [
       "be made of wood（由木头制成）",
       "be made of plastic（由塑料制成）"
@@ -1155,7 +1155,7 @@
     "difficulty": 8,
     "audio": "work-as.mp3",
     "unit": 3,
-    "explain": "\"work as\" is an expression meaning a common English word.",
+    "explain": "To work as someone means to have that job.",
     "usage": [
       "work as a teacher（当老师）",
       "work as a volunteer（做志愿者）"
@@ -1176,7 +1176,7 @@
     "difficulty": 8,
     "audio": "in-the-future.mp3",
     "unit": 3,
-    "explain": "\"in the future\" is an expression meaning a common English word.",
+    "explain": "In the future means at a time after now.",
     "usage": [
       "in the future（在将来）",
       "in the near future（在不久的将来）"
@@ -1261,7 +1261,7 @@
     "audio": "unpleasant.mp3",
     "unit": 4,
     "rootAffix": "un（反义前缀）+pleasant（令人愉快的）→令人不愉快的",
-    "explain": "Unpleasant means a common English word.",
+    "explain": "Unpleasant means not enjoyable or pleasant.",
     "usage": [
       "an unpleasant smell（难闻的气味）",
       "be unpleasant to sb.（对某人不友好）"
@@ -1325,7 +1325,7 @@
     "audio": "smelly.mp3",
     "unit": 4,
     "rootAffix": "smell（发出气味）+y（形容词后缀）→发臭的",
-    "explain": "Smelly means a common English word.",
+    "explain": "Smelly means having an unpleasant smell.",
     "usage": [
       "smelly socks（臭袜子）",
       "a smelly room（有异味的房间）"
@@ -1348,7 +1348,7 @@
     "audio": "wealthy.mp3",
     "unit": 4,
     "rootAffix": "wealth（财富）+y（形容词后缀）→富有的",
-    "explain": "Wealthy means a common English word.",
+    "explain": "Wealthy means having a lot of money.",
     "usage": [
       "a wealthy man（富有的人）",
       "a wealthy family（富裕家庭）"
@@ -1392,7 +1392,7 @@
     "difficulty": 8,
     "audio": "foreign.mp3",
     "unit": 4,
-    "explain": "Foreign means a common English word.",
+    "explain": "Foreign means belonging to a country that is not your own.",
     "usage": [
       "a foreign country（外国）",
       "foreign language（外语）"
@@ -1436,7 +1436,7 @@
     "difficulty": 8,
     "audio": "severe.mp3",
     "unit": 4,
-    "explain": "A severe is very serious.",
+    "explain": "Severe means very serious or bad.",
     "usage": [
       "a severe storm（严重的风暴）",
       "severe pain（剧痛）"
@@ -1502,7 +1502,7 @@
     "difficulty": 8,
     "audio": "burn.mp3",
     "unit": 4,
-    "explain": "To burn means a common English word.",
+    "explain": "To burn means to be on fire, or to damage something with fire or heat.",
     "usage": [
       "burn wood（燃烧木头）",
       "get burned（被烫伤）"
@@ -1544,7 +1544,7 @@
     "difficulty": 8,
     "audio": "get-rid-of.mp3",
     "unit": 4,
-    "explain": "To get rid of means to perform the action related to of.",
+    "explain": "To get rid of something means to remove it or throw it away.",
     "usage": [
       "get rid of rubbish（扔掉垃圾）",
       "get rid of a bad habit（改掉坏习惯）"
@@ -1655,7 +1655,7 @@
     "audio": "fantastic.mp3",
     "unit": 5,
     "rootAffix": "fan（=phan-，显露）+t（形容词后缀）+as（动词后缀，使变得）+tic（形容词后缀）→异想天开的，奇异的→极好的，不可思议的",
-    "explain": "Fantastic means a common English word.",
+    "explain": "Fantastic means extremely good.",
     "usage": [
       "a fantastic idea（极好的主意）",
       "fantastic views（美景）"
@@ -1677,7 +1677,7 @@
     "audio": "improve.mp3",
     "unit": 5,
     "rootAffix": "im（=en，使）+prov（获益）+e→使获益→改善",
-    "explain": "An improve is to make better.",
+    "explain": "To improve means to make something better.",
     "usage": [
       "improve English（提高英语）",
       "improve your skills（提升技能）"
@@ -1743,7 +1743,7 @@
     "difficulty": 8,
     "audio": "take-part-in.mp3",
     "unit": 5,
-    "explain": "To take part in means to perform the action related to in.",
+    "explain": "To take part in something means to join in an activity or event.",
     "usage": [
       "take part in a competition（参加比赛）",
       "take part in the discussion（参加讨论）"
@@ -1765,7 +1765,7 @@
     "difficulty": 8,
     "audio": "learn-about.mp3",
     "unit": 5,
-    "explain": "\"learn about\" is an expression meaning a common English word.",
+    "explain": "To learn about something means to gain knowledge of it.",
     "usage": [
       "learn about animals（了解动物）",
       "learn about the world（了解世界）"
@@ -1786,7 +1786,7 @@
     "difficulty": 8,
     "audio": "at-first.mp3",
     "unit": 5,
-    "explain": "\"at first\" is an expression meaning a common English word.",
+    "explain": "At first means at the beginning.",
     "usage": [
       "At first, I was afraid.（起初我很害怕。）",
       "at first sight（乍一看）"
@@ -1806,7 +1806,7 @@
     "difficulty": 8,
     "audio": "so-far.mp3",
     "unit": 5,
-    "explain": "\"so far\" is an expression meaning a common English word.",
+    "explain": "So far means until now.",
     "usage": [
       "so far so good（到目前为止一切顺利）",
       "I have finished so much so far.（到目前为止我完成了很多。）"
@@ -1822,13 +1822,13 @@
     "word": "virtual",
     "phonetic": "/ˈvɜːtʃuəl/",
     "meaning": "虚拟的",
-    "example": "VR games are very popular now.",
+    "example": "The students took a virtual tour of the museum.",
     "category": "adj.",
     "difficulty": 8,
     "audio": "virtual.mp3",
     "unit": 6,
     "rootAffix": "virt（功效）+u（连接成分）+al（形容词后缀）→具有相同功效的，从效果上来看一样的→虚拟的，等效的",
-    "explain": "Virtual means a common English word.",
+    "explain": "Virtual means created by computer rather than existing in the real world.",
     "usage": [
       "virtual reality（虚拟现实）",
       "a virtual tour（虚拟游览）"
@@ -1850,7 +1850,7 @@
     "audio": "reality.mp3",
     "unit": 6,
     "rootAffix": "real（真实的，实际的）+ity（名词后缀）→现实，实际",
-    "explain": "A reality is the state of things as they actually exist.",
+    "explain": "Reality is the state of things as they actually exist.",
     "usage": [
       "in reality（实际上）",
       "virtual reality（虚拟现实）"
@@ -1893,7 +1893,7 @@
     "audio": "technology.mp3",
     "unit": 6,
     "rootAffix": "techn（手艺，技巧）+o（连接字母）+log（学问）+y（名词后缀）→关于手艺和技巧的学问→技术",
-    "explain": "A technology is applied science.",
+    "explain": "Technology is the use of scientific knowledge for practical purposes.",
     "usage": [
       "modern technology（现代科技）",
       "information technology（信息技术）"
@@ -1915,7 +1915,7 @@
     "audio": "predict.mp3",
     "unit": 6,
     "rootAffix": "pre（在前面）+dict（说）→提前说→预报，预言",
-    "explain": "A predict is to forecast.",
+    "explain": "To predict means to say what you think will happen in the future.",
     "usage": [
       "predict the future（预测未来）",
       "predict the result（预测结果）"
@@ -2020,7 +2020,7 @@
     "difficulty": 8,
     "audio": "in-the-future.mp3",
     "unit": 6,
-    "explain": "\"in the future\" is an expression meaning a common English word.",
+    "explain": "In the future means at a time after now.",
     "usage": [
       "in the future（在将来）",
       "in the near future（在不久的将来）"
@@ -2041,7 +2041,7 @@
     "difficulty": 8,
     "audio": "be-like.mp3",
     "unit": 6,
-    "explain": "To be like means to perform the action related to like.",
+    "explain": "To be like something means to be similar to it.",
     "usage": [
       "be like a father（像父亲一样）",
       "What's he like?（他是个什么样的人？）"
@@ -2062,7 +2062,7 @@
     "difficulty": 8,
     "audio": "come-true.mp3",
     "unit": 6,
-    "explain": "To come true means to perform the action related to true.",
+    "explain": "If a dream comes true, it really happens.",
     "usage": [
       "My dream came true.（我的梦想成真了。）",
       "make a wish come true（使愿望成真）"

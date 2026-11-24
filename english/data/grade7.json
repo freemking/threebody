@@ -10,7 +10,7 @@
     "audio": "curious.mp3",
     "unit": 1,
     "rootAffix": "cur（关注）+i+ous（形容词后缀）→关注的→好奇的",
-    "explain": "A curious is wanting to know.",
+    "explain": "Curious means wanting to know or learn about something.",
     "usage": [
       "be curious about sth.（对某事好奇）",
       "a curious child（好奇的孩子）"
@@ -74,7 +74,7 @@
     "audio": "feeling.mp3",
     "unit": 1,
     "rootAffix": "feel（感觉）+ing（现在分词形式）→感觉",
-    "explain": "Feeling is a verb in present participle form.",
+    "explain": "A feeling is an emotion that you experience, such as happiness or sadness.",
     "usage": [
       "a good feeling（好感觉）",
       "hurt one's feelings（伤害某人的感情）"
@@ -95,7 +95,7 @@
     "difficulty": 7,
     "audio": "brave.mp3",
     "unit": 1,
-    "explain": "A brave is showing courage.",
+    "explain": "Brave means showing courage.",
     "usage": [
       "a brave boy（勇敢的男孩）",
       "be brave（勇敢些）"
@@ -160,7 +160,7 @@
     "difficulty": 7,
     "audio": "traffic.mp3",
     "unit": 1,
-    "explain": "A traffic is vehicles moving along roads.",
+    "explain": "Traffic is the vehicles moving along roads.",
     "usage": [
       "heavy traffic（交通拥堵）",
       "traffic lights（交通灯）"
@@ -182,7 +182,7 @@
     "audio": "improve.mp3",
     "unit": 1,
     "rootAffix": "im（=en，使）+prov（获益）+e→使获益→改善",
-    "explain": "An improve is to make better.",
+    "explain": "To improve means to make something better.",
     "usage": [
       "improve English（提高英语）",
       "improve your skills（提升技能）"
@@ -226,7 +226,7 @@
     "audio": "discuss.mp3",
     "unit": 1,
     "rootAffix": "dis（分来）+cuss（摇晃，震荡）→打碎→掰碎了说→讨论",
-    "explain": "A discuss is to talk about.",
+    "explain": "To discuss means to talk about something with other people.",
     "usage": [
       "discuss a problem（讨论问题）",
       "discuss sth. with sb.（和某人讨论某事）"
@@ -248,7 +248,7 @@
     "difficulty": 7,
     "audio": "renewable.mp3",
     "unit": 1,
-    "explain": "Renewable means a common English word.",
+    "explain": "Renewable means able to be replaced naturally, so it will not run out.",
     "usage": [
       "renewable energy（可再生能源）",
       "renewable resources（可再生资源）"
@@ -269,7 +269,7 @@
     "difficulty": 7,
     "audio": "windsurf.mp3",
     "unit": 1,
-    "explain": "To windsurf means a common English word.",
+    "explain": "To windsurf means to ride on water on a board with a sail.",
     "usage": [
       "go windsurfing（去帆板运动）",
       "windsurf on the sea（海上玩帆板）"
@@ -286,12 +286,12 @@
     "word": "board",
     "phonetic": "/bɔːd/",
     "meaning": "板",
-    "example": "Please write on the blackboard.",
+    "example": "Passengers board the plane at gate 12.",
     "category": "n",
     "difficulty": 7,
     "audio": "board.mp3",
     "unit": 1,
-    "explain": "A board is to get on a vehicle such as a plane or bus.",
+    "explain": "To board means to get on a vehicle such as a plane or bus.",
     "usage": [
       "on the board（在黑板上）",
       "a notice board（布告栏）"
@@ -311,7 +311,7 @@
     "difficulty": 7,
     "audio": "print.mp3",
     "unit": 1,
-    "explain": "To print means a common English word.",
+    "explain": "To print means to produce words or pictures on paper with a machine.",
     "usage": [
       "print a document（打印文件）",
       "a print（印刷品）"
@@ -333,7 +333,7 @@
     "difficulty": 7,
     "audio": "grow.mp3",
     "unit": 1,
-    "explain": "A grow is to increase in size.",
+    "explain": "To grow means to increase in size or become bigger.",
     "usage": [
       "grow flowers（种花）",
       "grow up（长大）"
@@ -378,7 +378,7 @@
     "audio": "power.mp3",
     "unit": 1,
     "rootAffix": "pow（力量）+er（名词后缀）→力量",
-    "explain": "To power means a common English word.",
+    "explain": "To power something means to supply it with energy so that it can work.",
     "usage": [
       "power station（发电站）",
       "the power of music（音乐的力量）"
@@ -422,7 +422,7 @@
     "audio": "impossible.mp3",
     "unit": 1,
     "rootAffix": "im（否定）+possible（可能的）→不可能的",
-    "explain": "Impossible means a common English word.",
+    "explain": "Impossible means not able to happen or be done.",
     "usage": [
       "an impossible task（不可能的任务）",
       "It is impossible for me.（这对我来说不可能。）"
@@ -444,7 +444,7 @@
     "audio": "solar.mp3",
     "unit": 1,
     "rootAffix": "sol（=sun，太阳）+ar（形容词后缀）→太阳的",
-    "explain": "Solar means a common English word.",
+    "explain": "Solar means connected with or coming from the sun.",
     "usage": [
       "solar energy（太阳能）",
       "the solar system（太阳系）"
@@ -486,7 +486,7 @@
     "difficulty": 7,
     "audio": "take-part-in.mp3",
     "unit": 1,
-    "explain": "To take part in means to perform the action related to in.",
+    "explain": "To take part in something means to join in an activity or event.",
     "usage": [
       "take part in a competition（参加比赛）",
       "take part in the discussion（参加讨论）"
@@ -508,7 +508,7 @@
     "difficulty": 7,
     "audio": "take-place.mp3",
     "unit": 1,
-    "explain": "To take place means to perform the action related to place.",
+    "explain": "To take place means to happen.",
     "usage": [
       "The meeting takes place at 9.（会议九点举行。）",
       "take place in the hall（在大厅举行）"
@@ -530,7 +530,7 @@
     "difficulty": 7,
     "audio": "be-interested-in.mp3",
     "unit": 1,
-    "explain": "To be interested in means to perform the action related to in.",
+    "explain": "To be interested in something means to want to know more about it.",
     "usage": [
       "be interested in music（对音乐感兴趣）",
       "be interested in learning English（对学英语感兴趣）"
@@ -552,7 +552,7 @@
     "audio": "daily.mp3",
     "unit": 2,
     "rootAffix": "dai（=day，日，天）+ly（形容词和副词后缀）→日常的，每天",
-    "explain": "Daily means a common English word.",
+    "explain": "Daily means happening every day.",
     "usage": [
       "daily life（日常生活）",
       "a daily newspaper（日报）"
@@ -663,7 +663,7 @@
     "audio": "develop.mp3",
     "unit": 2,
     "rootAffix": "de（反义）+velop（包裹）→打开包裹，展开→发展",
-    "explain": "A develop is to grow or change.",
+    "explain": "To develop means to grow or change over time.",
     "usage": [
       "develop a skill（培养技能）",
       "develop a plan（制定计划）"
@@ -687,7 +687,7 @@
     "audio": "realize.mp3",
     "unit": 2,
     "rootAffix": "real（真实的）+ize（动词后缀）→使变得真实→实现；认识到",
-    "explain": "To realize means a common English word.",
+    "explain": "To realize means to become aware of something.",
     "usage": [
       "realize a dream（实现梦想）",
       "realize the truth（认识到真相）"
@@ -726,12 +726,12 @@
     "word": "mind",
     "phonetic": "/maɪnd/",
     "meaning": "介意",
-    "example": "A healthy mind is important for students.",
+    "example": "Do you mind if I open the window?",
     "category": "v.",
     "difficulty": 7,
     "audio": "mind.mp3",
     "unit": 2,
-    "explain": "To mind means a common English word.",
+    "explain": "To mind means to feel annoyed or worried about something.",
     "usage": [
       "never mind（没关系）",
       "make up one's mind（下定决心）"
@@ -774,7 +774,7 @@
     "difficulty": 7,
     "audio": "look-forward-to.mp3",
     "unit": 2,
-    "explain": "To look forward to means to perform the action related to to.",
+    "explain": "To look forward to something means to wait for it with pleasure.",
     "usage": [
       "look forward to the holiday（期待假期）",
       "look forward to seeing you（期待见到你）"
@@ -795,7 +795,7 @@
     "difficulty": 7,
     "audio": "daily-life.mp3",
     "unit": 2,
-    "explain": "Daily life means a common English word.",
+    "explain": "Daily life is the things people do every day.",
     "usage": [
       "in daily life（在日常生活中）",
       "daily life activities（日常活动）"
@@ -815,7 +815,7 @@
     "difficulty": 7,
     "audio": "go-to-bed.mp3",
     "unit": 2,
-    "explain": "To go to bed means to perform the action related to bed.",
+    "explain": "To go to bed means to get into bed to sleep.",
     "usage": [
       "go to bed early（早睡）",
       "go to bed at ten（十点睡觉）"
@@ -837,7 +837,7 @@
     "difficulty": 7,
     "audio": "get-up.mp3",
     "unit": 2,
-    "explain": "To get up means to perform the action related to up.",
+    "explain": "To get up means to rise from bed after sleeping.",
     "usage": [
       "get up early（早起）",
       "get up from bed（从床上起来）"
@@ -859,7 +859,7 @@
     "difficulty": 7,
     "audio": "on-foot.mp3",
     "unit": 2,
-    "explain": "\"on foot\" is an expression meaning a common English word.",
+    "explain": "On foot means walking rather than travelling in a vehicle.",
     "usage": [
       "go on foot（步行去）",
       "travel on foot（徒步旅行）"
@@ -880,7 +880,7 @@
     "difficulty": 7,
     "audio": "full-of-energy.mp3",
     "unit": 2,
-    "explain": "\"full of energy\" is an expression meaning a common English word.",
+    "explain": "Full of energy means very lively and active.",
     "usage": [
       "be full of energy（充满活力）",
       "a child full of energy（精力充沛的孩子）"
@@ -900,7 +900,7 @@
     "difficulty": 7,
     "audio": "get-ready-for.mp3",
     "unit": 2,
-    "explain": "To get ready for means to perform the action related to for.",
+    "explain": "To get ready for something means to prepare for it.",
     "usage": [
       "get ready for school（为上学做准备）",
       "get ready for the exam（准备考试）"
@@ -964,7 +964,7 @@
     "audio": "remember.mp3",
     "unit": 3,
     "rootAffix": "re（再次）+member（=memor，记忆，想起）→再次想起→记得，记起",
-    "explain": "A remember is to recall from memory.",
+    "explain": "To remember means to recall something from memory.",
     "usage": [
       "remember a name（记住名字）",
       "remember to do sth.（记得去做某事）"
@@ -987,7 +987,7 @@
     "audio": "forget.mp3",
     "unit": 3,
     "rootAffix": "for（错过）+get（拿）→错过，没想起→忘记",
-    "explain": "To forget means a common English word.",
+    "explain": "To forget means to be unable to remember something.",
     "usage": [
       "forget a name（忘记名字）",
       "forget to do sth.（忘记去做某事）"
@@ -1011,7 +1011,7 @@
     "audio": "information.mp3",
     "unit": 3,
     "rootAffix": "inform（通知）+ation（动名词后缀）→信息",
-    "explain": "An information is facts about a subject.",
+    "explain": "Information is facts about a subject.",
     "usage": [
       "get information（获取信息）",
       "information technology（信息技术）"
@@ -1077,7 +1077,7 @@
     "audio": "improve.mp3",
     "unit": 3,
     "rootAffix": "im（=en，使）+prov（获益）+e→使获益→改善",
-    "explain": "An improve is to make better.",
+    "explain": "To improve means to make something better.",
     "usage": [
       "improve English（提高英语）",
       "improve your skills（提升技能）"
@@ -1121,7 +1121,7 @@
     "difficulty": 7,
     "audio": "link.mp3",
     "unit": 3,
-    "explain": "To link means a common English word.",
+    "explain": "To link means to connect two things together.",
     "usage": [
       "link A to B（把A连接到B）",
       "a railway link（铁路连接）"
@@ -1144,7 +1144,7 @@
     "audio": "notice.mp3",
     "unit": 3,
     "rootAffix": "not（知道）+ice（名词后缀）→已经知道→注意，理会→通知，公告",
-    "explain": "A notice is to become aware of.",
+    "explain": "To notice means to become aware of something.",
     "usage": [
       "noticeboard（布告栏）",
       "notice sb. doing sth.（注意到某人正在做某事）"
@@ -1166,7 +1166,7 @@
     "difficulty": 7,
     "audio": "memorable.mp3",
     "unit": 3,
-    "explain": "Memorable means a common English word.",
+    "explain": "Memorable means worth remembering because it is special.",
     "usage": [
       "a memorable trip（难忘的旅行）",
       "a memorable moment（难忘的时刻）"
@@ -1187,7 +1187,7 @@
     "difficulty": 7,
     "audio": "take-out.mp3",
     "unit": 3,
-    "explain": "To take out means to perform the action related to out.",
+    "explain": "To take out something means to remove it from a place.",
     "usage": [
       "take out the rubbish（倒垃圾）",
       "take out a book（拿出书）"
@@ -1209,7 +1209,7 @@
     "difficulty": 7,
     "audio": "all-the-time.mp3",
     "unit": 3,
-    "explain": "\"all the time\" is an expression meaning a common English word.",
+    "explain": "All the time means always or very often.",
     "usage": [
       "work all the time（一直工作）",
       "all the time（一直）"
@@ -1229,7 +1229,7 @@
     "difficulty": 7,
     "audio": "for-example.mp3",
     "unit": 3,
-    "explain": "\"for example\" is an expression meaning a common English word.",
+    "explain": "For example is used to give an example of what you have just said.",
     "usage": [
       "For example, apples are fruit.（例如，苹果是水果。）",
       "such as（例如）"
@@ -1250,7 +1250,7 @@
     "audio": "helpful.mp3",
     "unit": 4,
     "rootAffix": "help（帮助）+ ful（形容词后缀）→有帮助的",
-    "explain": "Helpful means a common English word.",
+    "explain": "Helpful means willing to help other people.",
     "usage": [
       "be helpful to sb.（对某人有帮助）",
       "a helpful suggestion（有用的建议）"
@@ -1273,7 +1273,7 @@
     "audio": "humorous.mp3",
     "unit": 4,
     "rootAffix": "humour（幽默）+ous（形容词后缀）→幽默的，诙谐的",
-    "explain": "Humorous means a common English word.",
+    "explain": "Humorous means funny and making people laugh.",
     "usage": [
       "a humorous story（幽默的故事）",
       "a humorous person（幽默的人）"
@@ -1295,7 +1295,7 @@
     "difficulty": 7,
     "audio": "strict.mp3",
     "unit": 4,
-    "explain": "Strict means a common English word.",
+    "explain": "Strict means expecting people to obey rules and behave well.",
     "usage": [
       "be strict with sb.（对某人严格）",
       "a strict rule（严格的规定）"
@@ -1318,7 +1318,7 @@
     "audio": "encourage.mp3",
     "unit": 4,
     "rootAffix": "en（=in，投入，使具有）+courage（勇气）→投入勇气，使具有勇气→鼓励",
-    "explain": "An encourage is to support.",
+    "explain": "To encourage means to give someone support or confidence.",
     "usage": [
       "encourage sb. to do sth.（鼓励某人做某事）",
       "encourage questions（鼓励提问）"
@@ -1342,7 +1342,7 @@
     "audio": "support.mp3",
     "unit": 4,
     "rootAffix": "sup（=sub，在下面）+port（承载）→在下面承载→支持，支撑",
-    "explain": "A support is to help.",
+    "explain": "To support means to help or encourage someone.",
     "usage": [
       "support a friend（支持朋友）",
       "family support（家庭支持）"
@@ -1366,7 +1366,7 @@
     "audio": "successful.mp3",
     "unit": 4,
     "rootAffix": "success（成功）+ful（形容词后缀）→成功的",
-    "explain": "Successful means a common English word.",
+    "explain": "Successful means achieving what you wanted to achieve.",
     "usage": [
       "a successful person（成功的人）",
       "be successful in sth.（在某事上成功）"
@@ -1390,7 +1390,7 @@
     "audio": "describe.mp3",
     "unit": 4,
     "rootAffix": "de（向下）+scrib（写，画）+e→写下来，画出来→描述，描绘",
-    "explain": "To describe means a common English word.",
+    "explain": "To describe means to say what someone or something is like.",
     "usage": [
       "describe a picture（描述图片）",
       "describe sb. as（把某人描述为）"
@@ -1435,7 +1435,7 @@
     "audio": "patient.mp3",
     "unit": 4,
     "rootAffix": "pati（忍受）+ent（形容词后缀）→正在忍受的（人）→有耐心的；病人",
-    "explain": "A patient is able to wait.",
+    "explain": "Patient means able to wait calmly without becoming annoyed.",
     "usage": [
       "a patient（病人）",
       "be patient with sb.（对某人有耐心）"
@@ -1458,7 +1458,7 @@
     "audio": "confident.mp3",
     "unit": 4,
     "rootAffix": "con（=com，加强语气）+fid（相信）+ent（形容词后缀）→相信（自己）的→自信的，确信的",
-    "explain": "A confident is feeling sure.",
+    "explain": "Confident means feeling sure of yourself.",
     "usage": [
       "be confident about sth.（对某事有信心）",
       "a confident smile（自信的微笑）"
@@ -1480,7 +1480,7 @@
     "audio": "courage.mp3",
     "unit": 4,
     "rootAffix": "cour（=cor，心）+age（名词后缀）→心灵的产物→勇气",
-    "explain": "A courage is the ability to face danger without fear.",
+    "explain": "Courage is the ability to face danger without fear.",
     "usage": [
       "have courage（有勇气）",
       "show courage（表现出勇气）"
@@ -1523,7 +1523,7 @@
     "difficulty": 7,
     "audio": "caring.mp3",
     "unit": 4,
-    "explain": "Caring is a verb in present participle form.",
+    "explain": "Caring means kind and showing concern for other people.",
     "usage": [
       "a caring teacher（有爱心的老师）",
       "be caring to others（关心他人）"
@@ -1544,7 +1544,7 @@
     "difficulty": 7,
     "audio": "be-strict-with.mp3",
     "unit": 4,
-    "explain": "To be strict with means to perform the action related to with.",
+    "explain": "To be strict with someone means to expect them to obey rules.",
     "usage": [
       "be strict with students（对学生严格）",
       "be strict with oneself（对自己严格）"
@@ -1565,7 +1565,7 @@
     "difficulty": 7,
     "audio": "give-up.mp3",
     "unit": 4,
-    "explain": "To give up means to perform the action related to up.",
+    "explain": "To give up means to stop trying to do something.",
     "usage": [
       "give up smoking（戒烟）",
       "Don't give up.（不要放弃。）"
@@ -1587,7 +1587,7 @@
     "difficulty": 7,
     "audio": "as-well.mp3",
     "unit": 4,
-    "explain": "\"as well\" is an expression meaning a common English word.",
+    "explain": "As well means in addition; also.",
     "usage": [
       "I like English as well.（我也喜欢英语。）",
       "He can swim as well.（他也会游泳。）"
@@ -1608,7 +1608,7 @@
     "audio": "gravity.mp3",
     "unit": 5,
     "rootAffix": "grav（沉重的）+ity（名词后缀）→沉重性→重力，严重，庄重",
-    "explain": "A gravity is the force that pulls objects toward the Earth.",
+    "explain": "Gravity is the force that pulls objects toward the Earth.",
     "usage": [
       "the force of gravity（重力）",
       "gravity（严重性）"
@@ -1629,7 +1629,7 @@
     "difficulty": 7,
     "audio": "float.mp3",
     "unit": 5,
-    "explain": "To float means a common English word.",
+    "explain": "To float means to stay on the surface of water or in the air.",
     "usage": [
       "float on water（漂在水上）",
       "a float（浮子）"
@@ -1694,7 +1694,7 @@
     "difficulty": 7,
     "audio": "breathe.mp3",
     "unit": 5,
-    "explain": "A breathe is to take in air.",
+    "explain": "To breathe means to take air into your lungs and let it out.",
     "usage": [
       "breathe deeply（深呼吸）",
       "breathe in/out（吸入/呼出）"
@@ -1737,7 +1737,7 @@
     "difficulty": 7,
     "audio": "space.mp3",
     "unit": 5,
-    "explain": "A space is the area beyond Earth's atmosphere.",
+    "explain": "Space is the area beyond the Earth's atmosphere.",
     "usage": [
       "in space（在太空）",
       "a space station（空间站）"
@@ -1825,7 +1825,7 @@
     "difficulty": 7,
     "audio": "tie.mp3",
     "unit": 5,
-    "explain": "A tie is a long piece of cloth worn around the neck, or an equal score in a competition.",
+    "explain": "To tie means to fasten something with string or rope; a tie is a long piece of cloth worn around the neck.",
     "usage": [
       "tie a knot（打结）",
       "a tie（领带）"
@@ -1891,7 +1891,7 @@
     "difficulty": 7,
     "audio": "be-able-to.mp3",
     "unit": 5,
-    "explain": "To be able to means to perform the action related to to.",
+    "explain": "To be able to do something means to have the ability to do it.",
     "usage": [
       "be able to swim（会游泳）",
       "will be able to do sth.（将能够做某事）"
@@ -1912,7 +1912,7 @@
     "difficulty": 7,
     "audio": "so-that.mp3",
     "unit": 5,
-    "explain": "\"so that\" is an expression meaning a common English word.",
+    "explain": "So that is used to introduce the purpose of an action.",
     "usage": [
       "so that everyone can hear（以便大家都能听见）",
       "speak loudly so that...（大声说以便……）"
@@ -1932,7 +1932,7 @@
     "difficulty": 7,
     "audio": "more-than.mp3",
     "unit": 5,
-    "explain": "\"more than\" is an expression meaning a common English word.",
+    "explain": "More than means a number greater than a particular amount.",
     "usage": [
       "more than ten（超过十个）",
       "more than enough（绰绰有余）"
@@ -1954,7 +1954,7 @@
     "audio": "environment.mp3",
     "unit": 6,
     "rootAffix": "en（=in）+viron（围绕）+ment（名词后缀）→围绕之物→环境",
-    "explain": "An environment is the natural world.",
+    "explain": "The environment is the natural world around us.",
     "usage": [
       "protect the environment（保护环境）",
       "a clean environment（干净的环境）"
@@ -1976,7 +1976,7 @@
     "audio": "pollute.mp3",
     "unit": 6,
     "rootAffix": "pollu（弄脏）+te（=ate，动词后缀）→弄脏，污染",
-    "explain": "To pollute means a common English word.",
+    "explain": "To pollute means to make air, water or land dirty and harmful.",
     "usage": [
       "pollute the air（污染空气）",
       "pollute the river（污染河流）"
@@ -1999,7 +1999,7 @@
     "audio": "pollution.mp3",
     "unit": 6,
     "rootAffix": "pollut(e)（污染）+ion（名词后缀）→污染",
-    "explain": "A pollution is environmental contamination.",
+    "explain": "Pollution is the damage caused to air, water or land by harmful substances.",
     "usage": [
       "air pollution（空气污染）",
       "reduce pollution（减少污染）"
@@ -2044,7 +2044,7 @@
     "audio": "reduce.mp3",
     "unit": 6,
     "rootAffix": "re（向后）+duc（引导）+e→向后引导→减少",
-    "explain": "A reduce is to make smaller.",
+    "explain": "To reduce means to make something smaller or less.",
     "usage": [
       "reduce pollution（减少污染）",
       "reduce the price（降价）"
@@ -2066,7 +2066,7 @@
     "difficulty": 7,
     "audio": "reuse.mp3",
     "unit": 6,
-    "explain": "To reuse means a common English word.",
+    "explain": "To reuse means to use something again instead of throwing it away.",
     "usage": [
       "reuse water（重复用水）",
       "reuse a bottle（重复使用瓶子）"
@@ -2089,7 +2089,7 @@
     "audio": "recycle.mp3",
     "unit": 6,
     "rootAffix": "re（回来，反复）+cycl（循环）+e→再循环",
-    "explain": "To recycle means a common English word.",
+    "explain": "To recycle means to treat waste so that it can be used again.",
     "usage": [
       "recycle paper（回收纸）",
       "recycle bottles（回收瓶子）"
@@ -2112,7 +2112,7 @@
     "audio": "protect.mp3",
     "unit": 6,
     "rootAffix": "pro（在前面）+tect（遮盖）→在前面遮盖→保护",
-    "explain": "A protect is to keep safe.",
+    "explain": "To protect means to keep someone or something safe.",
     "usage": [
       "protect the environment（保护环境）",
       "protect sb. from sth.（保护某人免受某事）"
@@ -2135,7 +2135,7 @@
     "difficulty": 7,
     "audio": "reusable.mp3",
     "unit": 6,
-    "explain": "Reusable means a common English word.",
+    "explain": "Reusable means able to be used again.",
     "usage": [
       "a reusable bag（可重复使用的袋子）",
       "reusable bottles（可重复使用的瓶子）"
@@ -2157,7 +2157,7 @@
     "audio": "harmful.mp3",
     "unit": 6,
     "rootAffix": "harm（伤害）+ful（形容词后缀）→有害的",
-    "explain": "Harmful means a common English word.",
+    "explain": "Harmful means causing damage or injury.",
     "usage": [
       "be harmful to（对……有害）",
       "harmful gases（有害气体）"
@@ -2223,7 +2223,7 @@
     "audio": "produce.mp3",
     "unit": 6,
     "rootAffix": "pro（向前）+duc（引导）+e→向前引导，引导出来→生产",
-    "explain": "A produce is to make or create.",
+    "explain": "To produce means to make or grow something.",
     "usage": [
       "produce food（生产食物）",
       "produce a film（制作电影）"
@@ -2246,7 +2246,7 @@
     "difficulty": 7,
     "audio": "main.mp3",
     "unit": 6,
-    "explain": "Main means a common English word.",
+    "explain": "Main means most important or largest.",
     "usage": [
       "the main idea（主旨）",
       "the main street（主街）"
@@ -2267,7 +2267,7 @@
     "difficulty": 7,
     "audio": "be-bad-for.mp3",
     "unit": 6,
-    "explain": "To be bad for means to perform the action related to for.",
+    "explain": "To be bad for someone or something means to be harmful to them.",
     "usage": [
       "be bad for health（对健康有害）",
       "Smoking is bad for you.（吸烟对你有害。）"
@@ -2288,7 +2288,7 @@
     "difficulty": 7,
     "audio": "throw-away.mp3",
     "unit": 6,
-    "explain": "To throw away means to perform the action related to away.",
+    "explain": "To throw away something means to get rid of it.",
     "usage": [
       "throw away rubbish（扔垃圾）",
       "throw away a chance（错失机会）"
@@ -2310,7 +2310,7 @@
     "difficulty": 7,
     "audio": "in-order-to.mp3",
     "unit": 6,
-    "explain": "\"in order to\" is an expression meaning a common English word.",
+    "explain": "In order to is used to introduce the purpose of an action.",
     "usage": [
       "in order to win（为了赢）",
       "in order to finish（为了完成）"

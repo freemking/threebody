@@ -2,14 +2,14 @@
   {
     "id": "g1_001",
     "word": "morning",
-    "phonetic": "/morning/",
+    "phonetic": "/ˈmɔːnɪŋ/",
     "meaning": "上午",
     "example": "Good morning, Miss Li!",
     "category": "时间",
     "difficulty": 1,
     "audio": "morning.mp3",
     "unit": 1,
-    "explain": "A morning is the early part of the day before noon.",
+    "explain": "Morning is the early part of the day, before noon.",
     "usage": [
       "in the morning（在早上）",
       "Good morning!（早上好！）"
@@ -23,7 +23,7 @@
   {
     "id": "g1_002",
     "word": "afternoon",
-    "phonetic": "/afternoon/",
+    "phonetic": "/ˌɑːftəˈnuːn/",
     "meaning": "下午",
     "example": "Good afternoon, class!",
     "category": "时间",
@@ -31,7 +31,7 @@
     "audio": "afternoon.mp3",
     "unit": 1,
     "rootAffix": "after（在……后面）+noon（正午）→午后",
-    "explain": "An afternoon is the time between noon and evening.",
+    "explain": "Afternoon is the time between noon and evening.",
     "usage": [
       "in the afternoon（在下午）",
       "Good afternoon!（下午好！）"
@@ -44,7 +44,7 @@
   {
     "id": "g1_003",
     "word": "book",
-    "phonetic": "/book/",
+    "phonetic": "/bʊk/",
     "meaning": "书本",
     "example": "This is a book.",
     "category": "学习用品",
@@ -65,7 +65,7 @@
   {
     "id": "g1_004",
     "word": "ruler",
-    "phonetic": "/ruler/",
+    "phonetic": "/ˈruːlə(r)/",
     "meaning": "尺子",
     "example": "I have a ruler.",
     "category": "学习用品",
@@ -87,7 +87,7 @@
   {
     "id": "g1_005",
     "word": "pencil",
-    "phonetic": "/pencil/",
+    "phonetic": "/ˈpensl/",
     "meaning": "铅笔",
     "example": "I have a pencil.",
     "category": "学习用品",
@@ -107,7 +107,7 @@
   {
     "id": "g1_006",
     "word": "rubber",
-    "phonetic": "/rubber/",
+    "phonetic": "/ˈrʌbə(r)/",
     "meaning": "橡皮",
     "example": "This is my rubber.",
     "category": "学习用品",
@@ -115,7 +115,7 @@
     "audio": "rubber.mp3",
     "unit": 1,
     "rootAffix": "rubb（=rub，摩擦）+er（者）→用于擦除之物→橡皮",
-    "explain": "A rubber is a small piece of rubber used to remove pencil marks from paper.",
+    "explain": "A rubber is a small piece of soft material used to remove pencil marks.",
     "usage": [
       "a rubber（橡皮）",
       "rubber bands（橡皮筋）"
@@ -129,7 +129,7 @@
   {
     "id": "g1_007",
     "word": "eye",
-    "phonetic": "/eye/",
+    "phonetic": "/aɪ/",
     "meaning": "眼睛",
     "example": "I have two eyes.",
     "category": "身体部位",
@@ -150,7 +150,7 @@
   {
     "id": "g1_008",
     "word": "mouth",
-    "phonetic": "/mouth/",
+    "phonetic": "/maʊθ/",
     "meaning": "嘴巴",
     "example": "Open your mouth, please.",
     "category": "身体部位",
@@ -171,7 +171,7 @@
   {
     "id": "g1_009",
     "word": "face",
-    "phonetic": "/face/",
+    "phonetic": "/feɪs/",
     "meaning": "脸",
     "example": "Wash your face.",
     "category": "身体部位",
@@ -193,7 +193,7 @@
   {
     "id": "g1_010",
     "word": "nose",
-    "phonetic": "/nose/",
+    "phonetic": "/nəʊz/",
     "meaning": "鼻子",
     "example": "Touch your nose.",
     "category": "身体部位",
@@ -214,7 +214,7 @@
   {
     "id": "g1_011",
     "word": "ear",
-    "phonetic": "/ear/",
+    "phonetic": "/ɪə(r)/",
     "meaning": "耳朵",
     "example": "I have two ears.",
     "category": "身体部位",
@@ -235,14 +235,14 @@
   {
     "id": "g1_012",
     "word": "dance",
-    "phonetic": "/dance/",
+    "phonetic": "/dɑːns/",
     "meaning": "跳舞",
     "example": "I can dance.",
     "category": "动作",
     "difficulty": 1,
     "audio": "dance.mp3",
     "unit": 1,
-    "explain": "To dance means to moving the body to music.",
+    "explain": "To dance means to move your body to music.",
     "usage": [
       "dance with sb.（和某人跳舞）",
       "a dance class（舞蹈课）"
@@ -257,14 +257,14 @@
   {
     "id": "g1_013",
     "word": "read",
-    "phonetic": "/read/",
+    "phonetic": "/riːd/",
     "meaning": "阅读",
     "example": "I like to read.",
     "category": "动作",
     "difficulty": 1,
     "audio": "read.mp3",
     "unit": 1,
-    "explain": "To read means to to look at and understand written words.",
+    "explain": "To read means to look at and understand written words.",
     "usage": [
       "read a book（读书）",
       "read aloud（朗读）"
@@ -279,14 +279,14 @@
   {
     "id": "g1_014",
     "word": "sing",
-    "phonetic": "/sing/",
+    "phonetic": "/sɪŋ/",
     "meaning": "唱歌",
     "example": "I can sing a song.",
     "category": "动作",
     "difficulty": 1,
     "audio": "sing.mp3",
     "unit": 1,
-    "explain": "To sing means to to make music with your voice.",
+    "explain": "To sing means to make music with your voice.",
     "usage": [
       "sing a song（唱歌）",
       "sing along（跟着唱）"
@@ -302,14 +302,14 @@
   {
     "id": "g1_015",
     "word": "draw",
-    "phonetic": "/draw/",
+    "phonetic": "/drɔː/",
     "meaning": "绘画",
     "example": "I can draw a picture.",
     "category": "动作",
     "difficulty": 1,
     "audio": "draw.mp3",
     "unit": 1,
-    "explain": "To draw means to to make a picture using a pencil, pen, or crayons.",
+    "explain": "To draw means to make a picture with a pen or pencil.",
     "usage": [
       "draw a picture（画画）",
       "draw a conclusion（得出结论）"
@@ -324,7 +324,7 @@
   {
     "id": "g1_016",
     "word": "grandmother",
-    "phonetic": "/grandmother/",
+    "phonetic": "/ˈɡrændmʌðə(r)/",
     "meaning": "祖母",
     "example": "I love my grandmother.",
     "category": "家庭",
@@ -346,7 +346,7 @@
   {
     "id": "g1_017",
     "word": "grandfather",
-    "phonetic": "/grandfather/",
+    "phonetic": "/ˈɡrændfɑːðə(r)/",
     "meaning": "祖父",
     "example": "My grandfather is old.",
     "category": "家庭",
@@ -368,7 +368,7 @@
   {
     "id": "g1_018",
     "word": "father",
-    "phonetic": "/father/",
+    "phonetic": "/ˈfɑːðə(r)/",
     "meaning": "父亲",
     "example": "My father is tall.",
     "category": "家庭",
@@ -389,7 +389,7 @@
   {
     "id": "g1_019",
     "word": "mother",
-    "phonetic": "/mother/",
+    "phonetic": "/ˈmʌðə(r)/",
     "meaning": "母亲",
     "example": "My mother is beautiful.",
     "category": "家庭",
@@ -410,14 +410,14 @@
   {
     "id": "g1_020",
     "word": "me",
-    "phonetic": "/me/",
+    "phonetic": "/miː/",
     "meaning": "我",
     "example": "Look at me!",
     "category": "其他",
     "difficulty": 1,
     "audio": "me.mp3",
     "unit": 2,
-    "explain": "A me is the person who is speaking (the first person pronoun).",
+    "explain": "Me is the object form of I, used when you are the person being spoken about.",
     "usage": [
       "help me（帮我）",
       "It's me.（是我。）"
@@ -432,7 +432,7 @@
   {
     "id": "g1_021",
     "word": "fat",
-    "phonetic": "/fat/",
+    "phonetic": "/fæt/",
     "meaning": "肥胖的",
     "example": "The cat is fat.",
     "category": "其他",
@@ -454,7 +454,7 @@
   {
     "id": "g1_022",
     "word": "thin",
-    "phonetic": "/thin/",
+    "phonetic": "/θɪn/",
     "meaning": "瘦的",
     "example": "The monkey is thin.",
     "category": "其他",
@@ -477,14 +477,14 @@
   {
     "id": "g1_023",
     "word": "tall",
-    "phonetic": "/tall/",
+    "phonetic": "/tɔːl/",
     "meaning": "高的",
     "example": "My father is tall.",
     "category": "其他",
     "difficulty": 1,
     "audio": "tall.mp3",
     "unit": 2,
-    "explain": "A tall is having great height.",
+    "explain": "Tall means having great height.",
     "usage": [
       "a tall tree（高树）",
       "how tall（多高）"
@@ -499,14 +499,14 @@
   {
     "id": "g1_024",
     "word": "short",
-    "phonetic": "/short/",
+    "phonetic": "/ʃɔːt/",
     "meaning": "矮小的",
     "example": "I am short.",
     "category": "其他",
     "difficulty": 1,
     "audio": "short.mp3",
     "unit": 2,
-    "explain": "A short is measuring a small distance.",
+    "explain": "Short means small in height or length.",
     "usage": [
       "a short story（短篇故事）",
       "be short of（缺少）"
@@ -521,7 +521,7 @@
   {
     "id": "g1_025",
     "word": "one",
-    "phonetic": "/one/",
+    "phonetic": "/wɒn/",
     "meaning": "一",
     "example": "I have one apple.",
     "category": "数字",
@@ -529,7 +529,7 @@
     "audio": "one.mp3",
     "unit": 2,
     "rootAffix": "on（一）+e→一，一的，唯一的",
-    "explain": "An one is the number 1.",
+    "explain": "One is the number 1.",
     "usage": [
       "one book（一本书）",
       "one by one（一个接一个）"
@@ -544,14 +544,14 @@
   {
     "id": "g1_026",
     "word": "two",
-    "phonetic": "/two/",
+    "phonetic": "/tuː/",
     "meaning": "二",
     "example": "I have two books.",
     "category": "数字",
     "difficulty": 1,
     "audio": "two.mp3",
     "unit": 2,
-    "explain": "A two is the number 2.",
+    "explain": "Two is the number 2.",
     "usage": [
       "two books（两本书）",
       "at two o'clock（两点）"
@@ -566,14 +566,14 @@
   {
     "id": "g1_027",
     "word": "three",
-    "phonetic": "/three/",
+    "phonetic": "/θriː/",
     "meaning": "三",
     "example": "I can count to three.",
     "category": "数字",
     "difficulty": 1,
     "audio": "three.mp3",
     "unit": 2,
-    "explain": "A three is the number 3.",
+    "explain": "Three is the number 3.",
     "usage": [
       "three books（三本书）",
       "at three o'clock（三点）"
@@ -588,14 +588,14 @@
   {
     "id": "g1_028",
     "word": "four",
-    "phonetic": "/four/",
+    "phonetic": "/fɔː(r)/",
     "meaning": "四",
     "example": "I have four pencils.",
     "category": "数字",
     "difficulty": 1,
     "audio": "four.mp3",
     "unit": 2,
-    "explain": "A four is the number 4.",
+    "explain": "Four is the number 4.",
     "usage": [
       "four seasons（四季）",
       "at four o'clock（四点）"
@@ -609,14 +609,14 @@
   {
     "id": "g1_029",
     "word": "five",
-    "phonetic": "/five/",
+    "phonetic": "/faɪv/",
     "meaning": "五",
     "example": "There are five birds.",
     "category": "数字",
     "difficulty": 1,
     "audio": "five.mp3",
     "unit": 2,
-    "explain": "A five is the number 5.",
+    "explain": "Five is the number 5.",
     "usage": [
       "five apples（五个苹果）",
       "at five o'clock（五点）"
@@ -630,14 +630,14 @@
   {
     "id": "g1_030",
     "word": "six",
-    "phonetic": "/six/",
+    "phonetic": "/sɪks/",
     "meaning": "六",
     "example": "I am six years old.",
     "category": "数字",
     "difficulty": 1,
     "audio": "six.mp3",
     "unit": 2,
-    "explain": "A six is the number 6.",
+    "explain": "Six is the number 6.",
     "usage": [
       "six books（六本书）",
       "at six o'clock（六点）"
@@ -652,7 +652,7 @@
   {
     "id": "g1_031",
     "word": "apple",
-    "phonetic": "/apple/",
+    "phonetic": "/ˈæpl/",
     "meaning": "苹果",
     "example": "I like apples.",
     "category": "食物",
@@ -672,7 +672,7 @@
   {
     "id": "g1_032",
     "word": "pear",
-    "phonetic": "/pear/",
+    "phonetic": "/peə(r)/",
     "meaning": "梨",
     "example": "This is a pear.",
     "category": "食物",
@@ -692,7 +692,7 @@
   {
     "id": "g1_033",
     "word": "peach",
-    "phonetic": "/peach/",
+    "phonetic": "/piːtʃ/",
     "meaning": "桃子",
     "example": "I like peaches.",
     "category": "食物",
@@ -712,7 +712,7 @@
   {
     "id": "g1_034",
     "word": "orange",
-    "phonetic": "/orange/",
+    "phonetic": "/ˈɒrɪndʒ/",
     "meaning": "橘子",
     "example": "The orange is orange.",
     "category": "食物",
@@ -733,7 +733,7 @@
   {
     "id": "g1_035",
     "word": "hamburger",
-    "phonetic": "/hamburger/",
+    "phonetic": "/ˈhæmbɜːɡə(r)/",
     "meaning": "汉堡",
     "example": "I like hamburgers.",
     "category": "食物",
@@ -755,7 +755,7 @@
   {
     "id": "g1_036",
     "word": "pizza",
-    "phonetic": "/pizza/",
+    "phonetic": "/ˈpiːtsə/",
     "meaning": "比萨饼",
     "example": "I want a pizza.",
     "category": "食物",
@@ -776,7 +776,7 @@
   {
     "id": "g1_037",
     "word": "cake",
-    "phonetic": "/cake/",
+    "phonetic": "/keɪk/",
     "meaning": "蛋糕",
     "example": "This cake is yummy.",
     "category": "食物",
@@ -796,7 +796,7 @@
   {
     "id": "g1_038",
     "word": "pie",
-    "phonetic": "/pie/",
+    "phonetic": "/paɪ/",
     "meaning": "馅饼",
     "example": "I like apple pie.",
     "category": "食物",
@@ -816,7 +816,7 @@
   {
     "id": "g1_039",
     "word": "chick",
-    "phonetic": "/chick/",
+    "phonetic": "/tʃɪk/",
     "meaning": "小鸡",
     "example": "The chick is yellow.",
     "category": "动物",
@@ -836,7 +836,7 @@
   {
     "id": "g1_040",
     "word": "duck",
-    "phonetic": "/duck/",
+    "phonetic": "/dʌk/",
     "meaning": "鸭子",
     "example": "The duck can swim.",
     "category": "动物",
@@ -857,7 +857,7 @@
   {
     "id": "g1_041",
     "word": "cow",
-    "phonetic": "/cow/",
+    "phonetic": "/kaʊ/",
     "meaning": "牛",
     "example": "The cow says moo.",
     "category": "动物",
@@ -877,7 +877,7 @@
   {
     "id": "g1_042",
     "word": "pig",
-    "phonetic": "/pig/",
+    "phonetic": "/pɪɡ/",
     "meaning": "猪",
     "example": "The pig is pink.",
     "category": "动物",
@@ -898,7 +898,7 @@
   {
     "id": "g1_043",
     "word": "bear",
-    "phonetic": "/bear/",
+    "phonetic": "/beə(r)/",
     "meaning": "棕熊",
     "example": "The bear is big.",
     "category": "动物",
@@ -920,7 +920,7 @@
   {
     "id": "g1_044",
     "word": "tiger",
-    "phonetic": "/tiger/",
+    "phonetic": "/ˈtaɪɡə(r)/",
     "meaning": "老虎",
     "example": "The tiger is strong.",
     "category": "动物",
@@ -941,7 +941,7 @@
   {
     "id": "g1_045",
     "word": "monkey",
-    "phonetic": "/monkey/",
+    "phonetic": "/ˈmʌnki/",
     "meaning": "猴子",
     "example": "The monkey likes bananas.",
     "category": "动物",
@@ -961,7 +961,7 @@
   {
     "id": "g1_046",
     "word": "panda",
-    "phonetic": "/panda/",
+    "phonetic": "/ˈpændə/",
     "meaning": "熊猫",
     "example": "I love pandas.",
     "category": "动物",
@@ -988,7 +988,7 @@
     "difficulty": 1,
     "audio": "red.mp3",
     "unit": 4,
-    "explain": "Red means the color of blood.",
+    "explain": "Red is the colour of blood.",
     "usage": [
       "a red apple（红苹果）",
       "in red（穿红色）"
@@ -1003,14 +1003,14 @@
   {
     "id": "g1_048",
     "word": "blue",
-    "phonetic": "/blue/",
+    "phonetic": "/bluː/",
     "meaning": "蓝色",
     "example": "The sky is blue.",
     "category": "颜色",
     "difficulty": 1,
     "audio": "blue.mp3",
     "unit": 4,
-    "explain": "Blue means the color of the sky.",
+    "explain": "Blue is the colour of the sky.",
     "usage": [
       "a blue sky（蓝天）",
       "feel blue（感到沮丧）"
@@ -1024,14 +1024,14 @@
   {
     "id": "g1_049",
     "word": "yellow",
-    "phonetic": "/yellow/",
+    "phonetic": "/ˈjeləʊ/",
     "meaning": "黄色",
     "example": "The banana is yellow.",
     "category": "颜色",
     "difficulty": 1,
     "audio": "yellow.mp3",
     "unit": 4,
-    "explain": "Yellow means the color of the sun.",
+    "explain": "Yellow is the colour of the sun.",
     "usage": [
       "a yellow banana（黄香蕉）",
       "in yellow（穿黄色）"
@@ -1046,14 +1046,14 @@
   {
     "id": "g1_050",
     "word": "green",
-    "phonetic": "/green/",
+    "phonetic": "/ɡriːn/",
     "meaning": "绿色",
     "example": "The tree is green.",
     "category": "颜色",
     "difficulty": 1,
     "audio": "green.mp3",
     "unit": 4,
-    "explain": "Green means the color of grass.",
+    "explain": "Green is the colour of grass.",
     "usage": [
       "a green apple（青苹果）",
       "green tea（绿茶）"
@@ -1069,7 +1069,7 @@
   {
     "id": "g1_051",
     "word": "frog",
-    "phonetic": "/frog/",
+    "phonetic": "/frɒɡ/",
     "meaning": "青蛙",
     "example": "The frog can jump.",
     "category": "动物",
@@ -1090,7 +1090,7 @@
   {
     "id": "g1_052",
     "word": "rabbit",
-    "phonetic": "/rabbit/",
+    "phonetic": "/ˈræbɪt/",
     "meaning": "兔子",
     "example": "The rabbit is white.",
     "category": "动物",
@@ -1111,7 +1111,7 @@
   {
     "id": "g1_053",
     "word": "bee",
-    "phonetic": "/bee/",
+    "phonetic": "/biː/",
     "meaning": "蜜蜂",
     "example": "The bee can fly.",
     "category": "动物",
@@ -1131,7 +1131,7 @@
   {
     "id": "g1_054",
     "word": "bird",
-    "phonetic": "/bird/",
+    "phonetic": "/bɜːd/",
     "meaning": "鸟",
     "example": "The bird can sing.",
     "category": "动物",
@@ -1151,14 +1151,14 @@
   {
     "id": "g1_055",
     "word": "sheep",
-    "phonetic": "/sheep/",
+    "phonetic": "/ʃiːp/",
     "meaning": "绵羊",
     "example": "The sheep is white.",
     "category": "动物",
     "difficulty": 1,
     "audio": "sheep.mp3",
     "unit": 1,
-    "explain": "A sheep is a farm animal with thick wool that gives us meat and wool.",
+    "explain": "A sheep is a farm animal that is kept for its wool and meat.",
     "usage": [
       "a sheep（一只羊）",
       "a flock of sheep（一群羊）"
@@ -1193,7 +1193,7 @@
   {
     "id": "g1_057",
     "word": "dog",
-    "phonetic": "/dog/",
+    "phonetic": "/dɒɡ/",
     "meaning": "狗",
     "example": "I have a dog.",
     "category": "动物",
@@ -1214,7 +1214,7 @@
   {
     "id": "g1_058",
     "word": "cat",
-    "phonetic": "/cat/",
+    "phonetic": "/kæt/",
     "meaning": "猫",
     "example": "The cat is cute.",
     "category": "动物",
@@ -1234,14 +1234,14 @@
   {
     "id": "g1_059",
     "word": "rice",
-    "phonetic": "/rice/",
+    "phonetic": "/raɪs/",
     "meaning": "米饭",
     "example": "I like rice.",
     "category": "食物",
     "difficulty": 1,
     "audio": "rice.mp3",
     "unit": 1,
-    "explain": "A rice is grains that are cooked and eaten.",
+    "explain": "Rice is a grain that is cooked and eaten.",
     "usage": [
       "eat rice（吃米饭）",
       "a bowl of rice（一碗米饭）"
@@ -1255,14 +1255,14 @@
   {
     "id": "g1_060",
     "word": "soup",
-    "phonetic": "/soup/",
+    "phonetic": "/suːp/",
     "meaning": "汤",
     "example": "The soup is hot.",
     "category": "食物",
     "difficulty": 1,
     "audio": "soup.mp3",
     "unit": 1,
-    "explain": "A soup is a hot liquid food made by boiling meat, vegetables, or fish in water.",
+    "explain": "Soup is a hot liquid food made by boiling meat, vegetables or fish in water.",
     "usage": [
       "have soup（喝汤）",
       "a bowl of soup（一碗汤）"
@@ -1276,7 +1276,7 @@
   {
     "id": "g1_061",
     "word": "egg",
-    "phonetic": "/egg/",
+    "phonetic": "/eɡ/",
     "meaning": "鸡蛋",
     "example": "I want an egg.",
     "category": "食物",
@@ -1297,14 +1297,14 @@
   {
     "id": "g1_062",
     "word": "noodles",
-    "phonetic": "/noodles/",
+    "phonetic": "/ˈnuːdlz/",
     "meaning": "面条",
     "example": "I like noodles.",
     "category": "食物",
     "difficulty": 1,
     "audio": "noodles.mp3",
     "unit": 1,
-    "explain": "A noodles is long thin strips of pasta cooked in boiling water.",
+    "explain": "Noodles are long thin strips of pasta cooked in boiling water.",
     "usage": [
       "eat noodles（吃面）",
       "a bowl of noodles（一碗面）"
@@ -1317,7 +1317,7 @@
   {
     "id": "g1_063",
     "word": "ball",
-    "phonetic": "/ball/",
+    "phonetic": "/bɔːl/",
     "meaning": "球",
     "example": "I have a ball.",
     "category": "玩具",
@@ -1337,7 +1337,7 @@
   {
     "id": "g1_064",
     "word": "doll",
-    "phonetic": "/doll/",
+    "phonetic": "/dɒl/",
     "meaning": "娃娃",
     "example": "I like my doll.",
     "category": "玩具",
@@ -1357,7 +1357,7 @@
   {
     "id": "g1_065",
     "word": "bicycle",
-    "phonetic": "/bicycle/",
+    "phonetic": "/ˈbaɪsɪkl/",
     "meaning": "自行车",
     "example": "I can ride a bicycle.",
     "category": "玩具",
@@ -1379,7 +1379,7 @@
   {
     "id": "g1_066",
     "word": "kite",
-    "phonetic": "/kite/",
+    "phonetic": "/kaɪt/",
     "meaning": "风筝",
     "example": "I fly a kite in the park.",
     "category": "玩具",
@@ -1400,7 +1400,7 @@
   {
     "id": "g1_067",
     "word": "jelly",
-    "phonetic": "/jelly/",
+    "phonetic": "/ˈdʒeli/",
     "meaning": "果冻",
     "example": "I like jelly.",
     "category": "食物",
@@ -1421,7 +1421,7 @@
   {
     "id": "g1_068",
     "word": "ice cream",
-    "phonetic": "/ice cream/",
+    "phonetic": "/aɪs kriːm/",
     "meaning": "冰淇淋",
     "example": "I like ice cream.",
     "category": "食物",
@@ -1442,7 +1442,7 @@
   {
     "id": "g1_069",
     "word": "sweet",
-    "phonetic": "/sweet/",
+    "phonetic": "/swiːt/",
     "meaning": "糖果",
     "example": "The candy is sweet.",
     "category": "食物",
@@ -1465,15 +1465,15 @@
   {
     "id": "g1_070",
     "word": "biscuit",
-    "phonetic": "/biscuit/",
+    "phonetic": "/ˈbɪskɪt/",
     "meaning": "饼干",
-    "example": "I want a biscuit.",
+    "example": "This biscuit is delicious.",
     "category": "食物",
     "difficulty": 1,
     "audio": "biscuit.mp3",
     "unit": 2,
     "rootAffix": "bis（两次）+cuit（烹调）→烤了两次的面包→饼干",
-    "explain": "A biscuit is a small flat dry cake that is sweet or savory.",
+    "explain": "A biscuit is a small flat dry cake that is sweet or savoury.",
     "usage": [
       "eat a biscuit（吃饼干）",
       "a packet of biscuits（一包饼干）"
@@ -1486,7 +1486,7 @@
   {
     "id": "g1_071",
     "word": "cola",
-    "phonetic": "/cola/",
+    "phonetic": "/ˈkəʊlə/",
     "meaning": "可乐",
     "example": "I drink cola.",
     "category": "饮料",
@@ -1506,14 +1506,14 @@
   {
     "id": "g1_072",
     "word": "juice",
-    "phonetic": "/juice/",
+    "phonetic": "/dʒuːs/",
     "meaning": "果汁",
     "example": "I like orange juice.",
     "category": "饮料",
     "difficulty": 1,
     "audio": "juice.mp3",
     "unit": 2,
-    "explain": "A juice is a drink made from fruit liquid.",
+    "explain": "Juice is a drink made from the liquid of fruit.",
     "usage": [
       "drink juice（喝果汁）",
       "a glass of juice（一杯果汁）"
@@ -1527,14 +1527,14 @@
   {
     "id": "g1_073",
     "word": "milk",
-    "phonetic": "/milk/",
+    "phonetic": "/mɪlk/",
     "meaning": "牛奶",
     "example": "I drink milk every day.",
     "category": "饮料",
     "difficulty": 1,
     "audio": "milk.mp3",
     "unit": 2,
-    "explain": "A milk is a white liquid from mammals.",
+    "explain": "Milk is a white liquid produced by cows and other mammals for their young.",
     "usage": [
       "drink milk（喝牛奶）",
       "a bottle of milk（一瓶牛奶）"
@@ -1548,14 +1548,14 @@
   {
     "id": "g1_074",
     "word": "water",
-    "phonetic": "/water/",
+    "phonetic": "/ˈwɔːtə(r)/",
     "meaning": "水",
     "example": "I drink water.",
     "category": "饮料",
     "difficulty": 1,
     "audio": "water.mp3",
     "unit": 2,
-    "explain": "A water is a clear liquid essential for life.",
+    "explain": "Water is a clear liquid that is essential for life.",
     "usage": [
       "drink water（喝水）",
       "a glass of water（一杯水）"
@@ -1570,7 +1570,7 @@
   {
     "id": "g1_075",
     "word": "warm",
-    "phonetic": "/warm/",
+    "phonetic": "/wɔːm/",
     "meaning": "暖和的",
     "example": "It is warm in spring.",
     "category": "天气",
@@ -1593,14 +1593,14 @@
   {
     "id": "g1_076",
     "word": "hot",
-    "phonetic": "/hot/",
+    "phonetic": "/hɒt/",
     "meaning": "热的",
     "example": "It is hot in summer.",
     "category": "天气",
     "difficulty": 1,
     "audio": "hot.mp3",
     "unit": 3,
-    "explain": "A hot is having a high temperature.",
+    "explain": "Hot means having a high temperature.",
     "usage": [
       "a hot day（热天）",
       "hot food（辣的食物）"
@@ -1616,14 +1616,14 @@
   {
     "id": "g1_077",
     "word": "spring",
-    "phonetic": "/spring/",
+    "phonetic": "/sprɪŋ/",
     "meaning": "春天",
     "example": "I like spring.",
     "category": "季节",
     "difficulty": 1,
     "audio": "spring.mp3",
     "unit": 3,
-    "explain": "A spring is the season after winter.",
+    "explain": "Spring is the season after winter, when plants begin to grow.",
     "usage": [
       "in spring（在春天）",
       "a spring festival（春节）"
@@ -1637,14 +1637,14 @@
   {
     "id": "g1_078",
     "word": "summer",
-    "phonetic": "/summer/",
+    "phonetic": "/ˈsʌmə(r)/",
     "meaning": "夏天",
     "example": "Summer is fun.",
     "category": "季节",
     "difficulty": 1,
     "audio": "summer.mp3",
     "unit": 3,
-    "explain": "A summer is the warmest season.",
+    "explain": "Summer is the warmest season of the year.",
     "usage": [
       "in summer（在夏天）",
       "a summer holiday（暑假）"
@@ -1658,7 +1658,7 @@
   {
     "id": "g1_079",
     "word": "sunny",
-    "phonetic": "/sunny/",
+    "phonetic": "/ˈsʌni/",
     "meaning": "晴朗的",
     "example": "It is sunny today.",
     "category": "天气",
@@ -1681,7 +1681,7 @@
   {
     "id": "g1_080",
     "word": "cloudy",
-    "phonetic": "/cloudy/",
+    "phonetic": "/ˈklaʊdi/",
     "meaning": "多云的",
     "example": "It is cloudy today.",
     "category": "天气",
@@ -1703,7 +1703,7 @@
   {
     "id": "g1_081",
     "word": "rainy",
-    "phonetic": "/rainy/",
+    "phonetic": "/ˈreɪni/",
     "meaning": "下雨的",
     "example": "It is rainy today.",
     "category": "天气",
@@ -1726,7 +1726,7 @@
   {
     "id": "g1_082",
     "word": "windy",
-    "phonetic": "/windy/",
+    "phonetic": "/ˈwɪndɪ/",
     "meaning": "刮风的",
     "example": "It is windy today.",
     "category": "天气",
@@ -1749,14 +1749,14 @@
   {
     "id": "g1_083",
     "word": "T-shirt",
-    "phonetic": "/t-shirt/",
+    "phonetic": "/ˈtiː ʃɜːt/",
     "meaning": "T恤",
     "example": "I wear a T-shirt.",
     "category": "服装",
     "difficulty": 1,
     "audio": "t-shirt.mp3",
     "unit": 3,
-    "explain": "A t-shirt is a short-sleeved casual top made of cotton.",
+    "explain": "A T-shirt is a short-sleeved casual top, usually made of cotton.",
     "usage": [
       "wear a T-shirt（穿T恤）",
       "in a T-shirt（穿着T恤）"
@@ -1769,14 +1769,14 @@
   {
     "id": "g1_084",
     "word": "dress",
-    "phonetic": "/dress/",
+    "phonetic": "/dres/",
     "meaning": "连衣裙",
     "example": "She wears a red dress.",
     "category": "服装",
     "difficulty": 1,
     "audio": "dress.mp3",
     "unit": 3,
-    "explain": "A dress is a piece of clothing for women or girls that covers the top of the body and skirts.",
+    "explain": "A dress is a piece of clothing for women or girls that covers the body and hangs down over the legs.",
     "usage": [
       "dress up（打扮）",
       "a new dress（一条新连衣裙）"
@@ -1790,14 +1790,14 @@
   {
     "id": "g1_085",
     "word": "shorts",
-    "phonetic": "/shorts/",
+    "phonetic": "/ʃɔːts/",
     "meaning": "短裤",
     "example": "He wears blue shorts.",
     "category": "服装",
     "difficulty": 1,
     "audio": "shorts.mp3",
     "unit": 3,
-    "explain": "A shorts is short trousers that end above the knee.",
+    "explain": "Shorts are short trousers that end above the knee.",
     "usage": [
       "wear shorts（穿短裤）",
       "a pair of shorts（一条短裤）"
@@ -1811,7 +1811,7 @@
   {
     "id": "g1_086",
     "word": "blouse",
-    "phonetic": "/blouse/",
+    "phonetic": "/blaʊz/",
     "meaning": "女士衬衫",
     "example": "She wears a blouse.",
     "category": "服装",
@@ -1831,14 +1831,14 @@
   {
     "id": "g1_087",
     "word": "ride",
-    "phonetic": "/ride/",
+    "phonetic": "/raɪd/",
     "meaning": "骑",
     "example": "I can ride a bicycle.",
     "category": "动作",
     "difficulty": 1,
     "audio": "ride.mp3",
     "unit": 4,
-    "explain": "To ride means to to sit on and control an animal or vehicle.",
+    "explain": "To ride means to sit on and control an animal or vehicle.",
     "usage": [
       "ride a bike（骑自行车）",
       "give sb. a ride（载某人一程）"
@@ -1854,14 +1854,14 @@
   {
     "id": "g1_088",
     "word": "skip",
-    "phonetic": "/skip/",
+    "phonetic": "/skɪp/",
     "meaning": "跳",
     "example": "I can skip rope.",
     "category": "动作",
     "difficulty": 1,
     "audio": "skip.mp3",
     "unit": 4,
-    "explain": "To skip means to to move forward by jumping on one foot then the other.",
+    "explain": "To skip means to move forward by jumping on one foot then the other.",
     "usage": [
       "skip a grade（跳级）",
       "skip breakfast（不吃早饭）"
@@ -1875,14 +1875,14 @@
   {
     "id": "g1_089",
     "word": "play",
-    "phonetic": "/play/",
+    "phonetic": "/pleɪ/",
     "meaning": "玩",
     "example": "I like to play.",
     "category": "动作",
     "difficulty": 1,
     "audio": "play.mp3",
     "unit": 4,
-    "explain": "To play means to to do something for fun.",
+    "explain": "To play means to do something for fun.",
     "usage": [
       "play football（踢足球）",
       "play the piano（弹钢琴）"
@@ -1898,14 +1898,14 @@
   {
     "id": "g1_090",
     "word": "fly",
-    "phonetic": "/fly/",
+    "phonetic": "/flaɪ/",
     "meaning": "飞",
     "example": "Birds can fly.",
     "category": "动作",
     "difficulty": 1,
     "audio": "fly.mp3",
     "unit": 4,
-    "explain": "To fly means to to move through the air using wings.",
+    "explain": "To fly means to move through the air using wings.",
     "usage": [
       "fly a kite（放风筝）",
       "fly to Beijing（飞往北京）"
@@ -1921,7 +1921,7 @@
   {
     "id": "g1_091",
     "word": "gift",
-    "phonetic": "/gift/",
+    "phonetic": "/ɡɪft/",
     "meaning": "礼物",
     "example": "This is a gift for you.",
     "category": "其他",
@@ -1942,7 +1942,7 @@
   {
     "id": "g1_092",
     "word": "card",
-    "phonetic": "/card/",
+    "phonetic": "/kɑːd/",
     "meaning": "卡片",
     "example": "I make a card for Mum.",
     "category": "其他",
@@ -1962,7 +1962,7 @@
   {
     "id": "g1_093",
     "word": "firecracker",
-    "phonetic": "/firecracker/",
+    "phonetic": "/ˈfaɪəkrækə(r)/",
     "meaning": "爆竹",
     "example": "I like firecrackers.",
     "category": "其他",
@@ -1982,7 +1982,7 @@
   {
     "id": "g1_094",
     "word": "firework",
-    "phonetic": "/firework/",
+    "phonetic": "/ˈfaɪəwɜːk/",
     "meaning": "烟花",
     "example": "The fireworks are beautiful.",
     "category": "其他",
@@ -1990,7 +1990,7 @@
     "audio": "firework.mp3",
     "unit": 4,
     "rootAffix": "fire（火）+work（产品）→带火的产品→烟火",
-    "explain": "A firework is a device that explodes in the air to make colorful lights and patterns.",
+    "explain": "A firework is a device that explodes in the air to make colourful lights and patterns.",
     "usage": [
       "set off a firework（放烟花）",
       "a firework display（烟花表演）"
@@ -2004,7 +2004,7 @@
   {
     "id": "g1_095",
     "word": "boy",
-    "phonetic": "/boy/",
+    "phonetic": "/bɔɪ/",
     "meaning": "男孩",
     "example": "The boy is happy.",
     "category": "其他",
@@ -2024,7 +2024,7 @@
   {
     "id": "g1_096",
     "word": "wolf",
-    "phonetic": "/wolf/",
+    "phonetic": "/wʊlf/",
     "meaning": "狼",
     "example": "The wolf is hungry.",
     "category": "动物",
@@ -2045,7 +2045,7 @@
   {
     "id": "g1_097",
     "word": "farmer",
-    "phonetic": "/farmer/",
+    "phonetic": "/ˈfɑːmə(r)/",
     "meaning": "农民",
     "example": "The farmer has a cow.",
     "category": "职业",

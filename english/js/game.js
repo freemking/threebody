@@ -390,8 +390,8 @@ class GameEngine {
                 wordIndex++;
                 name = word.meaning || word.word;
                 color = '#1a5276';
-                rent = 100 + secureRandomInt(0, 199);
-                price = rent; // 价格=租金，用于收费
+                price = 100 + secureRandomInt(0, 199); // 价格 100~299
+                rent = Math.floor(price / 2); // 租金为价格的一半（50~149）
             }
             cells.push({ type, name, color, word, owner, price, rent, amount, bonusType, index: i, level: 0, upgradeCount: 0 });
         }
@@ -992,9 +992,9 @@ class GameEngine {
             }
             c.level = (c.level || 0) + 1;
             c.upgradeCount = (c.upgradeCount || 0) + 1;
-            // 更新租金和价格（翻倍）
-            c.rent = Math.floor((c.rent || 100) * 2);
-            c.price = c.rent; // 保持同步
+            // 更新租金和价格（各提升1.5倍）
+            c.rent = Math.floor((c.rent || 50) * 1.5);
+            c.price = Math.floor((c.price || 100) * 1.5);
             this._updateCellOwner(c, true);
             this._updateUI();
             const whoName = who === 'player' ? t('player') : ms.ais[parseInt(who.replace('ai', ''))].name;
@@ -1068,7 +1068,7 @@ class GameEngine {
                     ${canUpgrade ? `
                     <div style="color: #aaa; margin: 10px 0;">
                         ${t('upgradeCost')}: <span style="color: #3498DB; font-weight: bold;">$${upgradeCost}</span>
-                        <span style="font-size: 12px;"> (${t('afterUpgrade')}: $${currentRent * 2})</span>
+                        <span style="font-size: 12px;"> (${t('afterUpgrade')}: $${Math.floor(currentRent * 1.5)})</span>
                     </div>
                     ` : `
                     <div style="color: #E67E22; margin: 10px 0;">
@@ -1676,8 +1676,8 @@ class GameEngine {
                 ms.playerMoney -= upgradeCost;
                 c.level = (c.level || 0) + 1;
                 c.upgradeCount = (c.upgradeCount || 0) + 1;
-                c.rent = Math.floor((c.rent || 100) * 2);
-                c.price = c.rent; // 保持同步
+                c.rent = Math.floor((c.rent || 50) * 1.5);
+                c.price = Math.floor((c.price || 100) * 1.5);
                 this._updateCellOwner(c, true);
                 this._updateUI();
                 this.showFloat(`Upgrade success! Lv.${c.level}`, '#FFD700');
@@ -1760,14 +1760,27 @@ class GameEngine {
             this.showFloat(`Wrong! Pay double rent -$${doublePrice}`, '#E74C3C');
             this._addEventLog({ key: 'logPlayerWrongDoubleRent', params: { price: `$${doublePrice}` }, type: 'player' });
         } else if (ms.chalMode === 'upgrade') {
-            // 升级失败：罚款租金的价格（1倍租金）
+            // 升级失败：罚款1倍租金，并降级（Lv.0 直接变为无主）
             const c = ms.cells[ms.playerPos];
             const fine = c.rent || 100;
             ms.playerMoney -= fine;
-            this._updateUI();
             this.showFloat(`Upgrade failed! -$${fine}`, '#E74C3C');
             this._addEventLog({ key: 'logPlayerUpgradeFail', params: { word: c.word.word, fine: `$${fine}` }, type: 'player' });
             if (this._checkBankrupt()) return;
+            if ((c.level || 0) > 0) {
+                c.level--;
+                c.rent = Math.floor((c.rent || 50) / 1.5);
+                c.price = Math.floor((c.price || 100) / 1.5);
+                this._updateCellOwner(c);
+                this._updateUI();
+            } else {
+                c.owner = 'none';
+                c.level = 0;
+                c.upgradeCount = 0;
+                ms.totalOwned--;
+                this._updateCellOwner(c);
+                this._updateUI();
+            }
         } else if (ms.chalMode === 'sell') {
             // 出售失败：罚款租金的50%
             const c = ms.cells[ms.playerPos];
@@ -2088,8 +2101,8 @@ class GameEngine {
             return;
         }
         
-        // 升级费 = 当前租金
-        const upgradeCost = cell.rent || 50;
+        // 升级费 = 当前价格
+        const upgradeCost = cell.price || 100;
         
         // 检查AI是否有足够金钱
         if (currentAi.money < upgradeCost) {
@@ -2106,19 +2119,31 @@ class GameEngine {
             currentAi.money -= upgradeCost;
             cell.level = (cell.level || 0) + 1;
             cell.upgradeCount = upgradeCount + 1;
-            cell.rent = Math.floor((cell.rent || 100) * 2);
-            cell.price = cell.rent; // 保持同步
+            cell.rent = Math.floor((cell.rent || 50) * 1.5);
+            cell.price = Math.floor((cell.price || 100) * 1.5);
             this._updateCellOwner(cell, true);
             this._updateUI();
             this.showFloat(`${currentAi.name} upgrade success! Lv.${cell.level}`, '#FFD700');
             this._addEventLog({ key: 'logAiUpgradeSuccess', params: { name: currentAi.name, word: cell.word.word, level: cell.level, cost: `$${upgradeCost}` }, type: 'ai' });
         } else {
-            // 升级失败：罚款租金的价格（1倍租金）
+            // 升级失败：罚款1倍租金，并降级（Lv.0 直接变为无主）
             const fine = cell.rent || 100;
             currentAi.money -= fine;
-            this._updateUI();
             this.showFloat(`${currentAi.name} upgrade failed! -$${fine}`, '#E74C3C');
             this._addEventLog({ key: 'logAiUpgradeFail', params: { name: currentAi.name, word: cell.word.word, fine: `$${fine}` }, type: 'ai' });
+            if ((cell.level || 0) > 0) {
+                cell.level--;
+                cell.rent = Math.floor((cell.rent || 50) / 1.5);
+                cell.price = Math.floor((cell.price || 100) / 1.5);
+                this._updateCellOwner(cell);
+            } else {
+                cell.owner = 'none';
+                cell.level = 0;
+                cell.upgradeCount = 0;
+                currentAi.totalOwned--;
+                this._updateCellOwner(cell);
+            }
+            this._updateUI();
         }
     }
 
